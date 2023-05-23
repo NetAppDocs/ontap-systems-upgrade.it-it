@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html 
+keywords: autosupport, reconfigure, send message, maintenance, netapp support 
+summary: Informare il supporto tecnico NetApp che la manutenzione è in corso durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Inviare un messaggio AutoSupport personalizzato prima di riconfigurare gli switch
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di riconfigurare gli switch, è necessario inviare un messaggio AutoSupport per informare il supporto tecnico NetApp che la manutenzione è in corso. Informare il supporto tecnico che la manutenzione è in corso impedisce loro di aprire un caso partendo dal presupposto che si sia verificata un'interruzione.
+
+.A proposito di questa attività
+Questa attività deve essere eseguita su ciascun sito MetroCluster.
+
+.Fasi
+. Accedere al cluster.
+. Richiamare un messaggio AutoSupport che indica l'inizio della manutenzione:
++
+`system node autosupport invoke -node * -type all -message MAINT=_maintenance-window-in-hours_`
+
++
+Il `maintenance-window-in-hours` value specifica la lunghezza della finestra di manutenzione, con un massimo di 72 ore. Se la manutenzione viene completata prima che sia trascorso il tempo, è possibile richiamare un messaggio AutoSupport che indica la fine del periodo di manutenzione:
+
++
+`system node autosupport invoke -node * -type all -message MAINT=end`
+
+. Ripetere questi passaggi sul sito del partner.
+

@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage_1_index.html 
+keywords: stage 1, prepare, upgrade, steps 
+summary: Fase 1 sequenza di processo per un aggiornamento ARL manuale su controller con ONTAP 9.7 o versioni precedenti. 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 1, se necessario, si conferma che i dischi interni non contengono aggregati root o aggregati di dati, si preparano i nodi per l'aggiornamento ed eseguono una serie di controlli preliminari. Potrebbe essere necessario anche reimmettere la chiave dei dischi per Storage Encryption e prepararsi all'avvio in rete dei nuovi controller.
+
+.Fasi
+. link:determine_aggregates_on_internal_drives.html["Determinare se il controller dispone di aggregati su dischi interni"]
+. link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]
+. link:manage_authentication_okm.html["Gestire le chiavi di autenticazione utilizzando Onboard Key Manager"]
+. link:quiesce_snapmirror_relationships.html["Interrompere le relazioni di SnapMirror"]
+. link:prepare_for_netboot.html["Preparatevi per il netboot"]
+

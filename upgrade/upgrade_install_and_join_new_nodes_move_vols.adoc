@@ -1,0 +1,40 @@
+---
+permalink: upgrade/upgrade-install-and-join-new-nodes-move-vols.html 
+sidebar: sidebar 
+keywords: install, node, join, cluster, volume, original, node, install the new nodes and joining them to the cluster 
+summary: È necessario installare i nuovi nodi e unirli al cluster in modo da poter spostare i volumi dai nodi originali. 
+---
+= Installare i nuovi nodi e unirli al cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario installare i nuovi nodi e unirli al cluster in modo da poter spostare i volumi dai nodi originali.
+
+.A proposito di questa attività
+Quando si aggiorna l'hardware del controller spostando i volumi, sia i nodi originali che i nuovi nodi devono trovarsi nello stesso cluster.
+
+.Fase
+. Installare i nuovi nodi e unirli al cluster:
++
+[cols="1,2"]
+|===
+| Se il cluster è in esecuzione... | Seguire le istruzioni in... 
+
+
+ a| 
+ONTAP 9.0 o versione successiva
+ a| 
+https://docs.netapp.com/us-en/ontap-sm-classic/expansion/index.html["Amministrazione dell'espansione del cluster"^]
+
+
+
+ a| 
+Versioni precedenti a ONTAP 9.0
+ a| 
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["Trova la guida rapida per l'espansione dei cluster per la tua versione di Data ONTAP 8"^]
+
+|===
+

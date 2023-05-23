@@ -1,0 +1,11 @@
+---
+section: upgrade-arl
+title: Utilizzare il trasferimento di aggregati per aggiornare l'hardware del controller
+entries:
+- title: Panoramica
+  url: "/upgrade-arl/index.html"
+- section: upgrade-arl-auto-affa900
+- section: upgrade-arl-auto-app
+- section: upgrade-arl-manual-app
+- section: upgrade-arl-auto
+- section: upgrade-arl-manual

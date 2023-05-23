@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/lif_migration_failure.html 
+keywords: lif, migration, failure, mtu 
+summary: Le LIF non sono online dopo la migrazione nella fase 2, 3 o 5 durante un aggiornamento da AFF A700 a AFF A900. 
+---
+= Errore di migrazione LIF
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo la migrazione, i file LIF potrebbero non essere disponibili online dopo la migrazione in fase 2, fase 3 o fase 5.
+
+.Fasi
+. Verificare che la dimensione MTU della porta sia uguale a quella del nodo di origine.
++
+Ad esempio, se la dimensione MTU della porta del cluster è 9000 sul nodo di origine, dovrebbe essere 9000 sul nodo di destinazione.
+
+. Controllare la connettività fisica del cavo di rete se lo stato fisico della porta è `down`.
+

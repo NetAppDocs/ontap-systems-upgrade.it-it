@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+È possibile utilizzare Onboard Key Manager (OKM) per gestire le chiavi di crittografia. Se si dispone di OKM configurato, è necessario registrare la passphrase e il materiale di backup prima di iniziare l'aggiornamento.
+
+.Fasi
+. Registrare la passphrase del cluster.
++
+Si tratta della passphrase immessa quando l'OKM è stato configurato o aggiornato utilizzando l'API CLI o REST.
+
+. Eseguire il backup delle informazioni del gestore delle chiavi eseguendo il `security key-manager onboard show-backup` comando.
+

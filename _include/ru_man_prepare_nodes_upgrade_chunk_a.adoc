@@ -1,0 +1,328 @@
+= 
+:allow-uri-read: 
+
+
+Prima di poter sostituire i nodi originali, è necessario verificare che si trovino in una coppia ha, che non vi siano dischi mancanti o guasti, che possano accedere reciprocamente allo storage e che non dispongano di LIF dati assegnati agli altri nodi del cluster. È inoltre necessario raccogliere informazioni sui nodi originali e, se il cluster si trova in un ambiente SAN, confermare che tutti i nodi del cluster sono in quorum.
+
+.Fasi
+. Verificare che ciascuno dei nodi originali disponga di risorse sufficienti per supportare adeguatamente il carico di lavoro di entrambi i nodi durante la modalità Takeover.
++
+Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _High Availability management_ e seguire la sezione _Best practice per le coppie ha_. Nessuno dei nodi originali deve essere eseguito con un utilizzo superiore al 50%; se un nodo viene eseguito con un utilizzo inferiore al 50%, può gestire i carichi per entrambi i nodi durante l'aggiornamento del controller.
+
+. Completare i seguenti passaggi secondari per creare una linea di base delle performance per i nodi originali:
++
+.. Assicurarsi che l'account utente diagnostico sia sbloccato.
++
+[IMPORTANT]
+====
+L'account utente diagnostico è destinato esclusivamente a scopi diagnostici di basso livello e deve essere utilizzato solo con le indicazioni del supporto tecnico.
+
+Per informazioni sullo sblocco degli account utente, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.
+
+====
+.. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e scaricare il modulo di raccolta delle performance e delle statistiche (Perfstat Converged).
++
+Il tool Perfstat Converged consente di stabilire una linea di base per le performance da confrontare dopo l'aggiornamento.
+
+.. Creare una linea di base per le performance seguendo le istruzioni sul NetApp Support Site.
+
+
+. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e aprire un caso di supporto sul sito di supporto NetApp.
++
+È possibile utilizzare il caso per segnalare eventuali problemi che potrebbero verificarsi durante l'aggiornamento.
+
+. Verificare che le batterie NVMEM o NVRAM del nodo 3 e del nodo 4 siano cariche e, in caso contrario, ricaricarle.
++
+Controllare fisicamente il n. 3 e il n. 4 per verificare se le batterie NVMEM o NVRAM sono cariche. Per informazioni sui LED per il modello di node3 e node4, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+
++
+
+WARNING: *Attenzione* non tentare di cancellare il contenuto della NVRAM. Se è necessario eliminare il contenuto della NVRAM, contattare il supporto tecnico di NetApp.
+
+. Controllare la versione di ONTAP su node3 e node4.
++
+Sui nuovi nodi deve essere installata la stessa versione di ONTAP 9.x installata sui nodi originali. Se nei nuovi nodi è installata una versione diversa di ONTAP, è necessario eseguire il netboot dei nuovi controller dopo averli installati. Per istruzioni su come aggiornare ONTAP, fare riferimento a. link:other_references.html["Riferimenti"] Collegamento a _Upgrade ONTAP_.
+
++
+Le informazioni sulla versione di ONTAP su node3 e node4 devono essere incluse nelle confezioni di spedizione. La versione di ONTAP viene visualizzata all'avvio del nodo oppure è possibile avviare il nodo in modalità di manutenzione ed eseguire il comando:
+
++
+`version`
+
+. Controllare se sono presenti due o quattro LIF del cluster su node1 e node2:
++
+`network interface show -role cluster`
+
++
+Il sistema visualizza tutte le LIF del cluster, come mostrato nell'esempio seguente:
+
++
+....
+cluster::> network interface show -role cluster
+        Logical    Status     Network          Current  Current Is
+Vserver Interface  Admin/Oper Address/Mask     Node     Port    Home
+------- ---------- ---------- ---------------- -------- ------- ----
+node1
+        clus1      up/up      172.17.177.2/24  node1    e0c     true
+        clus2      up/up      172.17.177.6/24  node1    e0e     true
+node2
+        clus1      up/up      172.17.177.3/24  node2    e0c     true
+        clus2      up/up      172.17.177.7/24  node2    e0e     true
+....
+. Se si dispone di due o quattro LIF del cluster su node1 o node2, assicurarsi di poter eseguire il ping di entrambe le LIF del cluster in tutti i percorsi disponibili completando i seguenti passaggi secondari:
++
+.. Immettere il livello di privilegio avanzato:
++
+`set -privilege advanced`
+
++
+Il sistema visualizza il seguente messaggio:
+
++
+....
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
+Do you wish to continue? (y or n):
+....
+.. Invio `y`.
+.. Eseguire il ping dei nodi e verificare la connettività:
++
+`cluster ping-cluster -node node_name`
+
++
+Il sistema visualizza un messaggio simile al seguente esempio:
+
++
+....
+cluster::*> cluster ping-cluster -node node1
+Host is node1
+Getting addresses from network interface table...
+Local = 10.254.231.102 10.254.91.42
+Remote = 10.254.42.25 10.254.16.228
+Ping status:
+...
+Basic connectivity succeeds on 4 path(s) Basic connectivity fails on 0 path(s)
+................
+Detected 1500 byte MTU on 4 path(s):
+Local 10.254.231.102 to Remote 10.254.16.228
+Local 10.254.231.102 to Remote 10.254.42.25
+Local 10.254.91.42 to Remote 10.254.16.228
+Local 10.254.91.42 to Remote 10.254.42.25
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+....
++
+Se il nodo utilizza due porte del cluster, si dovrebbe vedere che è in grado di comunicare su quattro percorsi, come mostrato nell'esempio.
+
+.. Tornare al privilegio di livello amministrativo:
++
+`set -privilege admin`
+
+
+
+. Verificare che node1 e node2 si trovino in una coppia ha e che i nodi siano collegati tra loro e che sia possibile effettuare il takeover:
++
+`storage failover show`
+
++
+L'esempio seguente mostra l'output quando i nodi sono collegati tra loro ed è possibile effettuare il takeover:
+
++
+....
+cluster::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------
+node1          node2          true     Connected to node2
+node2          node1          true     Connected to node1
+....
++
+Nessuno dei due nodi deve essere in giveback parziale. L'esempio seguente mostra che node1 è in giveback parziale:
+
++
+....
+cluster::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------
+node1          node2          true     Connected to node2, Partial giveback
+node2          node1          true     Connected to node1
+....
++
+Se uno dei due nodi è in giveback parziale, utilizzare `storage failover giveback` per eseguire il giveback, quindi utilizzare `storage failover show-giveback` per assicurarsi che non sia ancora necessario restituire aggregati. Per informazioni dettagliate sui comandi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _High Availability management_.
+
+. [[man_prepare_nodes_step9]]Conferma che né node1 né node2 possiedono gli aggregati per i quali sono il proprietario corrente (ma non il proprietario domestico):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+Se né node1 né node2 possiedono aggregati per i quali è il proprietario corrente (ma non il proprietario domestico), il sistema restituirà un messaggio simile al seguente esempio:
+
++
+....
+cluster::> storage aggregate show -node node2 -is-home false -fields owner-name,homename,state
+There are no entries matching your query.
+....
++
+L'esempio seguente mostra l'output del comando per un nodo denominato node2 che è il proprietario di casa, ma non il proprietario corrente, di quattro aggregati:
+
++
+....
+cluster::> storage aggregate show -node node2 -is-home false
+               -fields owner-name,home-name,state
+
+aggregate     home-name    owner-name   state
+------------- ------------ ------------ ------
+aggr1         node1        node2        online
+aggr2         node1        node2        online
+aggr3         node1        node2        online
+aggr4         node1        node2        online
+
+4 entries were displayed.
+....
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il comando è in <<man_prepare_nodes_step9,Fase 9>>... | Quindi... 
+
+
+| Con output vuoto | Saltare il passaggio 11 e passare a. <<man_prepare_nodes_step12,Fase 12>>. 
+
+
+| Ha avuto output | Passare a. <<man_prepare_nodes_step11,Fase 11>>. 
+|===
+. [[man_prepare_nodes_step11]] se node1 o node2 possiede aggregati per i quali è il proprietario corrente, ma non il proprietario della casa, completare i seguenti passaggi secondari:
++
+.. Restituire gli aggregati attualmente di proprietà del nodo partner al nodo home owner:
++
+`storage failover giveback -ofnode _home_node_name_`
+
+.. Verificare che né node1 né node2 possiedano ancora aggregati per i quali è il proprietario corrente (ma non il proprietario domestico):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+L'esempio seguente mostra l'output del comando quando un nodo è sia il proprietario corrente che il proprietario domestico degli aggregati:
+
++
+....
+cluster::> storage aggregate show -nodes node1
+          -is-home true -fields owner-name,home-name,state
+
+aggregate     home-name    owner-name   state
+------------- ------------ ------------ ------
+aggr1         node1        node1        online
+aggr2         node1        node1        online
+aggr3         node1        node1        online
+aggr4         node1        node1        online
+
+4 entries were displayed.
+....
+
+
+. [[man_Prepare_Nodes_step12]] verificare che node1 e node2 possano accedere reciprocamente allo storage e verificare che non manchino dischi:
++
+`storage failover show -fields local-missing-disks,partner-missing-disks`
+
++
+L'esempio seguente mostra l'output quando non mancano dischi:
+
++
+....
+cluster::> storage failover show -fields local-missing-disks,partner-missing-disks
+
+node     local-missing-disks partner-missing-disks
+-------- ------------------- ---------------------
+node1    None                None
+node2    None                None
+....
++
+In caso di dischi mancanti, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Disk and aggregate management con CLI_, _Logical storage management con CLI_ e _High Availability management_ per configurare lo storage per la coppia ha.
+
+. Verificare che node1 e node2 siano integri e idonei a partecipare al cluster:
++
+`cluster show`
+
++
+L'esempio seguente mostra l'output quando entrambi i nodi sono idonei e integri:
+
++
+....
+cluster::> cluster show
+
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+....
+. Impostare il livello di privilegio su Advanced (avanzato):
++
+`set -privilege advanced`
+
+. [[man_Prepare_Nodes_step15]] verificare che node1 e node2 eseguano la stessa release di ONTAP:
++
+`system node image show -node _node1,node2_ -iscurrent true`
+
++
+L'esempio seguente mostra l'output del comando:
+
++
+....
+cluster::*> system node image show -node node1,node2 -iscurrent true
+
+                 Is      Is                Install
+Node     Image   Default Current Version   Date
+-------- ------- ------- ------- --------- -------------------
+node1
+         image1  true    true    9.1         2/7/2017 20:22:06
+node2
+         image1  true    true    9.1         2/7/2017 20:20:48
+
+2 entries were displayed.
+....
+. Verificare che né node1 né node2 siano in possesso di LIF di dati appartenenti ad altri nodi del cluster e controllare `Current Node` e. `Is Home` colonne nell'output:
++
+`network interface show -role data -is-home false -curr-node _node_name_`
+
++
+L'esempio seguente mostra l'output quando node1 non ha LIF di proprietà di altri nodi nel cluster:
+
++
+....
+cluster::> network interface show -role data -is-home false -curr-node node1
+ There are no entries matching your query.
+....
++
+Nell'esempio seguente viene mostrato l'output quando node1 possiede le LIF dei dati di proprietà dell'altro nodo:
+
++
+....
+cluster::> network interface show -role data -is-home false -curr-node node1
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+vs0
+            data1      up/up      172.18.103.137/24  node1         e0d     false
+            data2      up/up      172.18.103.143/24  node1         e0f     false
+
+2 entries were displayed.
+....
+. Se l'output è in <<man_prepare_nodes_step15,Fase 15>> Mostra che node1 o node2 possiede qualsiasi LIF di dati di proprietà di altri nodi nel cluster, migrare i LIF di dati lontano dal node1 o node2:
++
+`network interface revert -vserver * -lif *`
+
++
+Per informazioni dettagliate su `network interface revert` fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi ai comandi di _ONTAP 9: Manuale riferimento pagina_.
+
+. Controllare se node1 o node2 possiede dischi guasti:
++
+`storage disk show -nodelist _node1,node2_ -broken`
+
++
+Se uno dei dischi si è guastato, rimuoverli seguendo le istruzioni contenute in _Disk and aggregate management with the CLI_. (Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Disk and aggregate management with the CLI_.)
+
+. Raccogliere informazioni su node1 e node2 completando i seguenti passaggi secondari e registrando l'output di ciascun comando:
+

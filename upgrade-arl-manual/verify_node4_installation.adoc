@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_node4_installation.html 
+keywords: install, node4, node3, verify, communicate 
+summary: 'Verificare l"installazione e la comunicazione del nodo 4 con il nodo 3 durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.' 
+---
+= Verificare l'installazione di node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver installato e avviato il nodo 4, è necessario verificare che sia installato correttamente, che faccia parte del cluster e che sia in grado di comunicare con il nodo 3.
+
+.Fasi
+. Al prompt del sistema, accedere a node4.
+. Verificare che node4 faccia parte dello stesso cluster di node3 e che sia integro:
++
+`cluster show`
+
+. Verificare che node4 possa comunicare con node3 e che tutti i LIF siano in funzione:
++
+`network interface show -curr-node _node4_`
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il nodo 4 è... | Quindi... 
+
+
+| In uno chassis separato dal node3  a| 
+Collegare l'interconnessione ha tra i nodi completando la seguente procedura:
+
+.. Collegare la porta di interconnessione superiore del nodo 3 alla porta di interconnessione superiore del nodo 4.
+.. Collegare la porta di interconnessione inferiore del nodo 3 alla porta di interconnessione inferiore del nodo 4.
+.. Passare a. <<Fase 5,Fase 5>>.
+
+
+
+
+| Nello stesso chassis del node3 | Passare a. <<Fase 5,Fase 5>>. Non è necessario collegare manualmente l'interconnessione ha tra i nodi; nelle configurazioni dello stesso chassis, l'interconnessione ha viene connessa automaticamente attraverso la scheda madre. 
+|===
+. [[fase 5]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il cluster è... | Quindi... 
+
+
+| In un ambiente SAN | Completo <<Step6,Fase 6>> e andare alla sezione link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["Spostare le LIF dei dati NAS di proprietà di node2 da node3 a node4 e verificare le LIF SAN sul node4"]. 
+
+
+| Non in un ambiente SAN | Saltare il passaggio 6 andare alla sezione link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["Spostare le LIF dei dati NAS di proprietà di node2 da node3 a node4 e verificare le LIF SAN sul node4"]. 
+|===
+. [[Step6]]verificare che sia node3 che node4 siano in quorum immettendo il seguente comando su uno dei nodi:
++
+`event log show -messagename scsiblade.*`
+
++
+L'esempio seguente mostra l'output quando i nodi nel cluster sono in quorum:
+
++
+[listing]
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+

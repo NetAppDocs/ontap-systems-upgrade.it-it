@@ -1,0 +1,521 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/install_boot_node4.html 
+keywords: node4, install ONTAP, boot, node4, relocate, non-root aggregates, disks 
+summary: Installare e avviare il node4 e installare il software ONTAP durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Installazione e boot node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario installare node4 nel rack, trasferire node2 connessioni al node4 e fare il boot node4. È inoltre necessario riassegnare eventuali spare node2, dischi appartenenti a root e aggregati non root che non sono stati riallocati in precedenza in node3.
+
+.A proposito di questa attività
+È necessario netboot node4 se non dispone della stessa versione di ONTAP 9 installata sul node2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avviamenti del sistema seguendo le istruzioni riportate in link:prepare_for_netboot.html["Preparatevi per il netboot"]
+
+Tuttavia, non è necessario eseguire il netboot node4 se sul nodo è installata la stessa versione o successiva di ONTAP 9.
+
+*Informazioni importanti:*
+
+* Se si sta aggiornando un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage, è necessario completare la procedura <<man_install4_Step1,Fase 1>> attraverso <<man_install4_Step7,Fase 7>>, lasciare questa sezione all'indirizzo <<man_install4_Step8,Fase 8>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] Se necessario, immettere i comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere la procedura in <<man_install4_Step9,Fase 9>>.
+* Tuttavia, se si sta aggiornando un sistema con dischi di storage, è necessario completare l'intera sezione e passare alla sezione link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"], immettendo i comandi al prompt del cluster.
+
+
+.Fasi
+. [[man_install4_Step1]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se node4 sarà in ... | Quindi... 
+
+
+| Uno chassis separato dal node3 | Passare a. <<man_install4_Step2,Fase 2>>. 
+
+
+| Lo stesso chassis con node3 | Saltare i passaggi 2 e 3 e passare a. <<man_install4_Step4,Fase 4>>. 
+|===
+. [[man_install4_Step2]] assicurarsi che node4 disponga di spazio rack sufficiente.
++
+Se il nodo 4 si trova in uno chassis separato dal nodo 3, è possibile inserire il nodo 4 nella stessa posizione del nodo 2. Se node3 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.
+
+. Installare il nodo 4 nel rack seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ relative al modello di nodo.
+. [[man_install4_Step4]]cavo node4, spostamento delle connessioni da node2 a node4.
++
+I seguenti riferimenti consentono di stabilire i collegamenti dei cavi corretti. Passare a. link:other_references.html["Riferimenti"] per collegarli.
+
++
+** _Istruzioni per l'installazione e la configurazione_ o _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node4
+** La procedura di shelf di dischi appropriata
+** La documentazione di _High Availability management_
++
+Collegare i seguenti cavi:
+
+** Console (porta di gestione remota)
+** Porte del cluster
+** Porte dati
+** Porte di gestione di cluster e nodi
+** Storage
+** Configurazioni SAN: Porte switch FC e Ethernet iSCSI
+
+
++
+
+NOTE: Non è necessario spostare la scheda di interconnessione/scheda FC_VI o la connessione del cavo Interconnect/FC_VI dal nodo 2 al nodo 4, poiché la maggior parte dei modelli di piattaforma dispone di modelli di schede di interconnessione univoci.
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il nodo 4 è in... | Quindi... 
+
+
+| Lo stesso chassis del node3 | Passare a. <<man_install4_Step8,Fase 8>>. 
+
+
+| Uno chassis separato dal node3 | Passare a. <<man_install4_Step6,Fase 6>>. 
+|===
+. [[man_install4_Step6]]attivare l'alimentazione su node4, quindi interrompere l'avvio premendo `Ctrl-C` per accedere al prompt dell'ambiente di boot.
++
+
+NOTE: Quando si avvia node4, potrebbe essere visualizzato il seguente messaggio:
+
++
+[listing]
+----
+WARNING: The battery is unfit to retain data during a power
+         outage. This is likely because the battery is
+         discharged but could be due to other temporary
+         conditions.
+         When the battery is ready, the boot process will
+         complete and services will be engaged.
+         To override this delay, press 'c' followed by 'Enter'
+----
+. [[man_install4_Step7]]se viene visualizzato il messaggio di avviso nella fase 6, eseguire le seguenti operazioni:
++
+.. Verificare la presenza di eventuali messaggi della console che potrebbero indicare un problema diverso da una batteria NVRAM in esaurimento e, se necessario, intraprendere le azioni correttive necessarie.
+.. Attendere che la batteria si ricarichi e che il processo di avvio sia terminato.
++
+
+WARNING: *Attenzione: Non ignorare il ritardo. Il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+
+
+
+. [[man_install4_Step8]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi e non di storage back-end | Saltare i passaggi da 9 a 14 e passare a. <<man_install4_Step15,Fase 15>>. 
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
+.. Andare alla sezione _set the FC or UTA/UTA2 Configuration on node4_ e completare le sezioni link:set_fc_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"] e. link:set_fc_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"], in base al sistema in uso.
+.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<man_install4_Step9,Fase 9>>.
+
+
+
+IMPORTANT: Prima di avviare ONTAP sul sistema V-Series, è necessario riconfigurare le porte integrate FC, le porte integrate UTA/UTA2 e le schede UTA/UTA2.
+
+|===
+. [[man_install4_Step9]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
++
+Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
+
+. Aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
++
+Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
+
+. Modificare i valori WWPN (World Wide Port Name) nei gruppi di host o volumi associati alle LUN degli array di storage.
++
+L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
+
+. Se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
+. Verificare che i LUN degli array siano ora visibili al nodo 4 immettendo il seguente comando ed esaminandone l'output:
++
+`sysconfig -v`
+
++
+Il sistema visualizza tutti i LUN degli array visibili a ciascuna porta FC Initiator. Se le LUN dell'array non sono visibili, non è possibile riassegnare i dischi da node2 a node4 più avanti in questa sezione.
+
+. Premere `Ctrl-C` Per visualizzare il menu di avvio e selezionare la modalità di manutenzione.
+. [[man_install4_Step15]]al prompt della modalità di manutenzione, immettere il seguente comando:
++
+`halt`
+
++
+Il sistema si arresta al prompt dell'ambiente di avvio.
+
+. Configurare il nodo 4 per ONTAP:
++
+`set-defaults`
+
+. Se si dispone di unità NetApp Storage Encryption (NSE) installate, attenersi alla seguente procedura.
++
+
+NOTE: Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] per determinare il tipo di unità con crittografia automatica in uso.
+
++
+.. Impostare `bootarg.storageencryption.support` a. `true` oppure `false`:
++
+[cols="35,65"]
+|===
+| Se i seguenti dischi sono in uso… | Quindi… 
+
+
+| Unità NSE conformi ai requisiti di crittografia automatica FIPS 140-2 livello 2 | `setenv bootarg.storageencryption.support *true*` 
+
+
+| SED non FIPS di NetApp | `setenv bootarg.storageencryption.support *false*` 
+|===
++
+[NOTE]
+====
+Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nodo o coppia ha.
+
+È possibile combinare SED con dischi non crittografanti sullo stesso nodo o coppia ha.
+
+====
+.. Contattare il supporto NetApp per assistenza nel ripristino delle informazioni di gestione delle chiavi integrate.
+
+
+. Se la versione di ONTAP installata sul nodo 4 è la stessa o successiva alla versione di ONTAP 9 installata sul nodo 2, immettere il seguente comando:
++
+`boot_ontap menu`
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema che si sta aggiornando... | Quindi... 
+
+
+| Non dispone della versione ONTAP corretta o corrente sul nodo 4 | Passare a. <<man_install4_Step20,Fase 20>>. 
+
+
+| Ha la versione corretta o attuale di ONTAP al nodo 4 | Passare a. <<man_install4_Step25,Fase 25>>. 
+|===
+. [[man_install4_Step20]]configurare la connessione di netboot scegliendo una delle seguenti operazioni.
++
+
+NOTE: Come connessione di netboot, è necessario utilizzare la porta di gestione e l'indirizzo IP. Non utilizzare un indirizzo IP LIF dei dati, altrimenti potrebbe verificarsi un'interruzione dei dati durante l'aggiornamento.
+
++
+[cols="35,75"]
+|===
+| Se DHCP (Dynamic host Configuration Protocol) è... | Quindi... 
+
+
+| In esecuzione  a| 
+Configurare la connessione automaticamente immettendo il seguente comando al prompt dell'ambiente di boot:
+`ifconfig e0M -auto`
+
+
+
+| Non in esecuzione  a| 
+Configurare manualmente la connessione immettendo il seguente comando al prompt dell'ambiente di boot:
+`ifconfig e0M -addr=_filer_addr_ mask=_netmask_ -gw=_gateway_ dns=_dns_addr_ domain=_dns_domain_`
+
+`_filer_addr_` È l'indirizzo IP del sistema di storage (obbligatorio).
+`_netmask_` è la maschera di rete del sistema di storage (obbligatoria).
+`_gateway_` è il gateway per il sistema storage (obbligatorio).
+`_dns_addr_` È l'indirizzo IP di un name server sulla rete (opzionale).
+`_dns_domain_` È il nome di dominio DNS (Domain Name Service). Se si utilizza questo parametro opzionale, non è necessario un nome di dominio completo nell'URL del server netboot; è necessario solo il nome host del server.
+
+
+NOTE: Potrebbero essere necessari altri parametri per l'interfaccia. Invio `help ifconfig` al prompt del firmware per ulteriori informazioni.
+
+|===
+. Eseguire il netboot al nodo 4:
++
+[cols="30,70"]
+|===
+| Per... | Quindi... 
+
+
+| Sistemi della serie FAS/AFF8000 | `netboot \http://<web_server_ip/path_to_webaccessible_directory>/netboot/kernel` 
+
+
+| Tutti gli altri sistemi | `netboot \http://<web_server_ip/path_to_webaccessible_directory/ontap_version>_image.tgz` 
+|===
++
+Il `<path_to_the_web-accessible_directory>` dovrebbe portare alla posizione in cui è stato scaricato
+`<ontap_version>_image.tgz` poll link:prepare_for_netboot.html#man_netboot_Step1["Fase 1"] Nella sezione _Prepare for netboot_.
+
++
+
+NOTE: Non interrompere l'avvio.
+
+. Dal menu di avvio, selezionare `option (7) Install new software first`.
++
+Questa opzione di menu consente di scaricare e installare la nuova immagine Data ONTAP sul dispositivo di avvio.
+
++
+Ignorare il seguente messaggio:
+
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
++
+La nota si applica agli aggiornamenti senza interruzioni di Data ONTAP e non agli aggiornamenti dei controller.
+
++
+
+NOTE: Utilizzare sempre netboot per aggiornare il nuovo nodo all'immagine desiderata. Se si utilizza un altro metodo per installare l'immagine sul nuovo controller, l'immagine potrebbe non essere corretta. Questo problema riguarda tutte le versioni di ONTAP. La procedura di netboot combinata con l'opzione `(7) Install new software` Consente di cancellare il supporto di avvio e di posizionare la stessa versione di ONTAP su entrambe le partizioni dell'immagine.
+
+. [[man_install4_step23]] se viene richiesto di continuare la procedura, inserire y e, quando richiesto, inserire l'URL:
++
+`\http://<web_server_ip/path_to_web-accessible_directory/ontap_version>_image.tgz`
+
+. Completare i seguenti passaggi secondari:
++
+.. Invio `n` per ignorare il ripristino del backup quando viene visualizzato il seguente prompt:
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n}
+----
+.. Riavviare immettendo `y` quando viene visualizzato il seguente prompt:
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+----
++
+Il modulo controller si riavvia ma si arresta al menu di avvio perché il dispositivo di avvio è stato riformattato e i dati di configurazione devono essere ripristinati.
+
+
+
+. [[man_install4_Step25]]selezionare la modalità di manutenzione `5` dal menu di boot e premere `y` quando viene richiesto di continuare con l'avvio.
+. [[man_install4_Step26]]prima di continuare, visitare il sito link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] Apportare le modifiche necessarie alle porte FC o UTA/UTA2 del nodo. Apportare le modifiche consigliate in queste sezioni, riavviare il nodo e passare alla modalità di manutenzione.
+. Immettere il seguente comando ed esaminare l'output per trovare l'ID di sistema di node4:
++
+`disk show -a`
+
++
+Il sistema visualizza l'ID di sistema del nodo e le informazioni relative ai dischi, come mostrato nell'esempio seguente:
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 536881109
+DISK         OWNER                       POOL   SERIAL NUMBER   HOME
+------------ -------------               -----  -------------   -------------
+0b.02.23     nst-fas2520-2(536880939)    Pool0  KPG2RK6F        nst-fas2520-2(536880939)
+0b.02.13     nst-fas2520-2(536880939)    Pool0  KPG3DE4F        nst-fas2520-2(536880939)
+0b.01.13     nst-fas2520-2(536880939)    Pool0  PPG4KLAA        nst-fas2520-2(536880939)
+......
+0a.00.0                   (536881109)    Pool0  YFKSX6JG                     (536881109)
+......
+----
+. Riassegnare le parti di ricambio di node2, i dischi appartenenti alla root e gli aggregati non root che non sono stati ricollocati in node3 precedentemente nella sezione link:relocate_non_root_aggr_node2_node3.html["Spostare gli aggregati non root dal nodo 2 al nodo 3"]:
++
+
+NOTE: Se nel sistema sono presenti dischi condivisi, aggregati ibridi o entrambi, è necessario utilizzare il corretto `disk reassign` dalla seguente tabella.
+
++
+[cols="35,65"]
+|===
+| Tipo di disco... | Eseguire il comando... 
+
+
+| Con dischi condivisi | `disk reassign -s`
+
+`_node2_sysid_ -d _node4_sysid_ -p _node3_sysid_` 
+
+
+| Senza condivisione | `disks disk reassign -s`
+
+`_node2_sysid_ -d _node4_sysid_` 
+|===
++
+Per `<node2_sysid>` utilizzare le informazioni acquisite in link:record_node2_information.html#man_node2_info_step10["Fase 10"] Della sezione _Record node2 information_. Per `_node4_sysid_`, utilizzare le informazioni acquisite in <<man_install4_step23,Fase 23>>.
+
++
+
+NOTE: Il `-p` l'opzione è richiesta solo in modalità di manutenzione quando sono presenti dischi condivisi.
+
++
+Il `disk reassign` command riassegna solo i dischi per i quali `_node2_sysid_` è il proprietario corrente.
+
++
+Il sistema visualizza il seguente messaggio:
+
++
+[listing]
+----
+Partner node must not be in Takeover mode during disk reassignment from maintenance mode.
+Serious problems could result!!
+Do not proceed with reassignment if the partner is in takeover mode. Abort reassignment (y/n)? n
+----
++
+Invio `n` quando viene richiesto di interrompere la riassegnazione del disco.
+
++
+Quando viene richiesto di interrompere la riassegnazione del disco, è necessario rispondere a una serie di richieste come indicato di seguito:
+
++
+.. Il sistema visualizza il seguente messaggio:
++
+[listing]
+----
+After the node becomes operational, you must perform a takeover and giveback of the HA partner node to ensure disk reassignment is successful.
+Do you want to continue (y/n)? y
+----
+.. Invio `y` per continuare.
++
+Il sistema visualizza il seguente messaggio:
+
++
+[listing]
+----
+Disk ownership will be updated on all disks previously belonging to Filer with sysid <sysid>.
+Do you want to continue (y/n)? y
+----
+.. Invio `y` per consentire l'aggiornamento della proprietà del disco.
+
+
+. Se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio, sistemi A800), impostare node4 come root per confermare che si avvia dall'aggregato root di node2.
++
+
+WARNING: *Attenzione: È necessario eseguire le seguenti procedure secondarie nell'ordine esatto indicato; in caso contrario, si potrebbe verificare un'interruzione o persino la perdita di dati.*
+
++
+La seguente procedura imposta node4 per l'avvio dall'aggregato root di node2:
+
++
+.. Controllare le informazioni su RAID, plex e checksum per l'aggregato node2:
++
+`aggr status -r`
+
+.. Controllare lo stato generale dell'aggregato node2:
++
+`aggr status`
+
+.. Se necessario, portare online l'aggregato node2:
++
+`aggr_online root_aggr_from___node2__`
+
+.. Impedire al node4 di avviarsi dal proprio aggregato root originale:
++
+`aggr offline _root_aggr_on_node4_`
+
+.. Impostare l'aggregato root node2 come nuovo aggregato root per node4:
++
+`aggr options aggr_from___node2__ root`
+
+
+
+. Verificare che il controller e lo chassis siano configurati come `ha` immettendo il seguente comando e osservando l'output:
++
+`ha-config show`
+
++
+L'esempio seguente mostra l'output di `ha-config show` comando:
+
++
+[listing]
+----
+*> ha-config show
+   Chassis HA configuration: ha
+   Controller HA configuration: ha
+----
++
+I sistemi registrano in una PROM se si trovano in una coppia ha o in una configurazione standalone. Lo stato deve essere lo stesso su tutti i componenti all'interno del sistema standalone o della coppia ha.
+
++
+Se il controller e lo chassis non sono configurati come `ha`, utilizzare i seguenti comandi per correggere la configurazione:
+
++
+`ha-config modify controller ha`
+
++
+`ha-config modify chassis ha`.
+
++
+Se si dispone di una configurazione MetroCluster, utilizzare i seguenti comandi per correggere la configurazione:
+
++
+`ha-config modify controller mcc`
+
++
+`ha-config modify chassis mcc`.
+
+. Distruggere le caselle di posta sul node4:
++
+`mailbox destroy local`
+
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
++
+Il sistema si arresta al prompt dell'ambiente di avvio.
+
+. Al nodo 3, controllare la data, l'ora e il fuso orario del sistema:
++
+`date`
+
+. Al nodo 4, controllare la data al prompt dell'ambiente di boot:
++
+`show date`
+
+. Se necessario, impostare la data sul node4:
++
+`set date _mm/dd/yyyy_`
+
+. Al nodo 4, controllare l'ora al prompt dell'ambiente di boot:
++
+`show time`
+
+. Se necessario, impostare l'ora su node4:
++
+`set time _hh:mm:ss_`
+
+. Verificare che l'ID del sistema partner sia impostato correttamente, come indicato nella <<man_install4_Step26,Fase 26>> in opzione.
++
+`printenv partner-sysid`
+
+. Se necessario, impostare l'ID di sistema del partner su node4:
++
+`setenv partner-sysid _node3_sysid_`
+
++
+.. Salvare le impostazioni:
++
+`saveenv`
+
+
+
+. Al prompt dell'ambiente di boot, accedere al menu di boot:
++
+`boot_ontap menu`
+
+. Nel menu di avvio, selezionare l'opzione *(6) Aggiorna flash dalla configurazione di backup* immettendo `6` quando richiesto.
++
+Il sistema visualizza il seguente messaggio:
+
++
+[listing]
+----
+This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?:
+----
+. Invio `y` quando richiesto.
++
+L'avvio procede normalmente e il sistema richiede di confermare la mancata corrispondenza dell'ID di sistema.
+
++
+
+NOTE: Il sistema potrebbe riavviarsi due volte prima di visualizzare l'avviso di mancata corrispondenza.
+
+. Confermare la mancata corrispondenza. Il nodo potrebbe completare un ciclo di riavvio prima di avviarsi normalmente.
+. Accedere a node4.
+

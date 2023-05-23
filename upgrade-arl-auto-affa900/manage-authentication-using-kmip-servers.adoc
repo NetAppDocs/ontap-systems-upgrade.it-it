@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/manage-authentication-using-kmip-servers.html 
+keywords: storage, encryption, authentication, key, manager, external 
+summary: Configurare e gestire la crittografia dello storage, gestire le chiavi di autenticazione e interrompere le relazioni di SnapMirror durante un aggiornamento da AFF A700 a AFF A900. 
+---
+= Gestire l'autenticazione utilizzando i server KMIP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A partire da ONTAP 9.10.1, è possibile utilizzare i server KMIP (Key Management Interoperability Protocol) per gestire le chiavi di autenticazione.
+
+.Fasi
+. Aggiungere un nuovo controller:
++
+`security key-manager external enable`
+
+. Aggiungere il gestore delle chiavi:
++
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
+
+. Verificare che i server di gestione delle chiavi siano configurati e disponibili per tutti i nodi del cluster:
++
+`security key-manager external show-status`
+
+. Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo:
++
+`security key-manager external restore -node _new_controller_name_`
+
+

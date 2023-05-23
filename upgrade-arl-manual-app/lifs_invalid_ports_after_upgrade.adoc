@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/lifs_invalid_ports_after_upgrade.html 
+keywords: lifs, invalid, ports, error, mismatch, troublshoot, metrocluster 
+summary: Risincronizzare le LIF che si trovano su porte non valide in una configurazione MetroCluster dopo un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive. 
+---
+= Le LIF si trovano su porte non valide dopo l'aggiornamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Una volta completato l'aggiornamento, se si dispone di una configurazione MetroCluster, è possibile che le interfacce logiche FC (LIF) vengano lasciate su porte non corrette. È possibile eseguire un'operazione di risincronizzazione per riassegnare i LIF alle porte corrette.
+
+.Fase
+. Inserire il `metrocluster vserver resync` Comando per riallocare le LIF alle porte corrette.
++
+`metrocluster vserver resync -vserver _vserver_name_ fcp-mc.headupgrade.test.vs`
+
+

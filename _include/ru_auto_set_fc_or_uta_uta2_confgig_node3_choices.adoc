@@ -1,0 +1,8 @@
+= 
+:allow-uri-read: 
+
+
+.Scelte
+* <<Configurare le porte FC sul nodo 3>>
+* <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>
+

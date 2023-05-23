@@ -1,0 +1,133 @@
+= 
+:allow-uri-read: 
+
+
+Per confermare la corretta configurazione, è necessario attivare la coppia ha. È inoltre necessario verificare che node3 e node4 possano accedere reciprocamente allo storage e che non siano in possesso di LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, devi confermare che node3 possiede gli aggregati di node1 e che node4 possiede gli aggregati di node2 e che i volumi per entrambi i nodi sono online.
+
+.Fasi
+. Abilitare il failover dello storage immettendo il seguente comando su uno dei nodi:
++
+`storage failover modify -enabled true -node _node3_`
+
+. Verificare che il failover dello storage sia attivato:
++
+`storage failover show`
+
++
+L'esempio seguente mostra l'output del comando quando è attivato il failover dello storage:
+
++
+[listing]
+----
+cluster::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- ------------------
+node3          node4          true     Connected to node4
+node4          node3          true     Connected to node3
+----
+. Eseguire una delle seguenti operazioni:
++
+|===
+| Se il cluster è un... | Descrizione 
+
+
+| Cluster a due nodi | Abilitare la disponibilità elevata del cluster immettendo il seguente comando su uno dei nodi:
+`cluster ha modify -configured true` 
+
+
+| Cluster con più di due nodi | Passare a. <<man_ensure_setup_Step4,Fase 4>>. 
+|===
+. [[man_ENSURE_setup_Step4]]verificare che node3 e node4 appartengano allo stesso cluster immettendo il seguente comando ed esaminando l'output:
++
+`cluster show`
+
+. Verificare che node3 e node4 possano accedere reciprocamente allo storage immettendo il seguente comando ed esaminando l'output:
++
+`storage failover show -fields local-missing-disks,partner-missing-disks`
+
+. Verificare che né node3 né node4 detengano le LIF dei dati di proprietà di altri nodi del cluster immettendo il seguente comando ed esaminando l'output:
++
+`network interface show`
+
++
+Se il nodo 3 o il nodo 4 possiede le LIF dei dati di proprietà di altri nodi del cluster, utilizzare il `network interface revert` Comando per ripristinare le LIF dei dati al proprietario di casa.
+
+. Verificare che node3 possieda gli aggregati dal node1 e che node4 possieda gli aggregati dal node2:
++
+`storage aggregate show -owner-name _node3_`
+`storage aggregate show -owner-name _node4_`
+
+. Determinare se i volumi sono offline:
++
+`volume show -node _node3_ -state offline`
+`volume show -node _node4_ -state offline`
+
+. Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea in cui sono stati acquisiti link:prepare_nodes_for_upgrade.html#step19d["Fase 19 (d)"] In _preparare i nodi per l'aggiornamento_ e portare online qualsiasi volume offline, come richiesto, immettendo il seguente comando, una volta per ogni volume:
++
+`volume online -vserver _vserver_name_ -volume _volume_name_`
+
+. Installare nuove licenze per i nuovi nodi immettendo il seguente comando per ciascun nodo:
++
+`system license add -license-code _license_code,license_code,license_code..._`
+
++
+Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, ciascuna chiave di licenza separata da una virgola.
+
+. [[unset_maxwait_manual]]se nella configurazione vengono utilizzati dischi con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (ad esempio, in link:install_boot_node3.html#step16["Fase 16"] Of _Install and boot node3_), devi disimpostare la variabile:
++
+`set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
+
+. Per rimuovere tutte le vecchie licenze dai nodi originali, immettere uno dei seguenti comandi:
++
+`system license clean-up -unused -expired`
+`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+
++
+** Per eliminare tutte le licenze scadute, immettere:
++
+`system license clean-up -expired`
+
+** Per eliminare tutte le licenze inutilizzate, immettere:
++
+`system license clean-up -unused`
+
+** Per eliminare una licenza specifica da un cluster, immettere i seguenti comandi sui nodi:
++
+`system license delete -serial-number _node1_serial_number_ -package *`
+`system license delete -serial-number _node2_serial_number_ -package *`
+
++
+Viene visualizzato il seguente output:
+
++
+[listing]
+----
+Warning: The following licenses will be removed:
+<list of each installed package>
+Do you want to continue? {y|n}: y
+----
++
+Invio `y` per rimuovere tutti i pacchetti.
+
+
+
+. Verificare che le licenze siano installate correttamente immettendo il seguente comando ed esaminandone l'output:
++
+`system license show`
+
++
+È possibile confrontare l'output con quello acquisito link:prepare_nodes_for_upgrade.html#step30["Fase 30"] Di _preparare i nodi per l'aggiornamento_.
+
+. Configurare gli SP eseguendo il seguente comando su entrambi i nodi:
++
+`system service-processor network modify -node _node_name_`
+
++
+Passare a. link:other_references.html["Riferimenti"] Per informazioni dettagliate su, fare riferimento alla sezione _Guida all'amministrazione del sistema_ e ai _comandi di ONTAP 9: Guida di riferimento alla pagina_ `system service- processor network modify` comando.
+
+. Se si desidera configurare un cluster senza switch sui nuovi nodi, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto di rete_ e seguire le istruzioni in _passaggio a un cluster senza switch a due nodi_.
+
+
+.Al termine
+Se Storage Encryption è attivato su node3 e node4, completare la procedura descritta in link:set_up_storage_encryption_new_controller.html["Impostare Storage Encryption sul nuovo modulo controller"]. In caso contrario, completare la procedura descritta in link:decommission_old_system.html["Decommissionare il vecchio sistema"].

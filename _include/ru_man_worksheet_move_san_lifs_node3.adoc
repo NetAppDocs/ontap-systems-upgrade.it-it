@@ -1,0 +1,59 @@
+= 
+:allow-uri-read: 
+
+
+Per verificare di disporre della configurazione corretta dopo aver spostato LE LIF SAN da node2 a node3, è possibile utilizzare il seguente foglio di lavoro per registrare `adapter` e. `switch-port` Informazioni per ciascun LIF.
+
+Registrare la LIF `adapter` informazioni da `network interface show -data-protocol fc*` output del comando e il `switch-port` informazioni da `fcp adapter show -fields switch-port,fc-wwpn` output del comando per node2.
+
+Dopo aver completato la migrazione al nodo 3, registrare il LIF `adapter` e. `switch-port` Informazioni per i LIF sul node3 e verificare che ciascun LIF sia ancora connesso allo stesso `switch-port`.
+
+[cols="6*"]
+|===
+3+| Node2 3+| Node3 
+
+
+| LIF | `adapter` | `switch-port` | LIF | `adapter` | `switch-port` 
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+|===

@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/retire_node2.html 
+keywords: retire, node2 
+summary: Chiudere il node2 e rimuoverlo dal rack o dallo chassis durante un aggiornamento da AFF A700 a AFF A900. 
+---
+= Andare in pensione node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per dismettere il node2, è necessario chiudere il node2 correttamente e rimuoverlo dal rack o dallo chassis.
+
+.Fasi
+. Riprendere l'operazione:
++
+`system controller replace resume`
+
++
+Il nodo si arresta automaticamente.
+
+
+
+.Al termine
+È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].

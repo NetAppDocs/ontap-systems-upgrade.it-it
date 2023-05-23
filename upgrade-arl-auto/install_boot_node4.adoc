@@ -1,0 +1,314 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/install_boot_node4.html 
+keywords: install, boot, node4, install ONTAP 
+summary: 'Installare e avviare il node4 e installare il software ONTAP quando si aggiornano i controller con ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Installazione e boot node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario installare node4 nel rack, trasferire le connessioni node2 a node4, fare il boot node4 e installare ONTAP. Quindi, è necessario riassegnare i dischi spare sul nodo 2, i dischi appartenenti al volume root e gli aggregati non root che non sono stati riallocati nel nodo 3 precedentemente durante il processo, come descritto in questa sezione.
+
+.A proposito di questa attività
+L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Questo processo è per lo più automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione. Inoltre, è necessario verificare che le LIF dei dati NAS siano state spostate correttamente in node4.
+
+È necessario eseguire il netboot node4 se non dispone della stessa versione di ONTAP 9 installata sul node2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avviamenti del sistema, seguendo le istruzioni riportate in link:prepare_for_netboot.html["Preparatevi per il netboot"].
+
+.Importante:
+* Se si sta eseguendo l'upgrade di un sistema V-Series collegato a storage array o a un sistema con software di virtualizzazione FlexArray collegato a storage array, è necessario completare la procedura <<auto_install4_step1,Fase 1>> attraverso <<auto_install4_step21,Fase 21>>, quindi uscire da questa sezione e seguire le istruzioni a. link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"] e a. link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"], Immissione di comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere con <<auto_install4_step23,Fase 23>>.
+* Tuttavia, se si sta aggiornando un sistema con dischi di storage, è necessario completare l'intera sezione e passare alla sezione link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"], immettendo i comandi al prompt del cluster.
+
+
+.Fasi
+. [[auto_install4_step1]]assicurarsi che node4 disponga di spazio rack sufficiente.
++
+Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire il nodo 4 nella stessa posizione del nodo 3. Se node2 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.
+
+. Installare il nodo 4 nel rack seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ relative al modello di nodo.
+. Nodo del cablo4, spostamento delle connessioni dal nodo 2 al nodo 4.
++
+Collegare i seguenti collegamenti seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ o nei _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node4, il documento relativo allo shelf di dischi e _gestione dell'alta disponibilità_.
+
++
+Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento ai _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ e alla _gestione dell'alta disponibilità_.
+
++
+** Console (porta di gestione remota)
+** Porte del cluster
+** Porte dati
+** Porte di gestione di cluster e nodi
+** Storage
+** Configurazioni SAN: Porte switch FC e Ethernet iSCSI
++
+
+NOTE: Potrebbe non essere necessario spostare la connessione scheda di interconnessione/scheda FC-VI o cavo di interconnessione/FC-VI dal nodo 2 al nodo 4, poiché la maggior parte dei modelli di piattaforma dispone di modelli di schede di interconnessione univoci. Per la configurazione MetroCluster, è necessario spostare le connessioni del cavo FC-VI dal nodo 2 al nodo 4. Se il nuovo host non dispone di una scheda FC-VI, potrebbe essere necessario spostare la scheda FC-VI.
+
+
+
+. Accendere il dispositivo al nodo 4, quindi interrompere il processo di avvio premendo `Ctrl-C` sul terminale della console per accedere al prompt dell'ambiente di boot.
++
+
+NOTE: Quando si avvia node4, potrebbe essere visualizzato il seguente messaggio di avviso:
+
++
+....
+WARNING: The battery is unfit to retain data during a power outage. This is likely
+         because the battery is discharged but could be due to other temporary
+         conditions.
+         When the battery is ready, the boot process will complete
+         and services will be engaged. To override this delay, press 'c' followed
+         by 'Enter'
+....
+. Se viene visualizzato il messaggio di avviso nella fase 4, eseguire le seguenti operazioni:
++
+.. Verificare la presenza di eventuali messaggi della console che potrebbero indicare un problema diverso da una batteria NVRAM in esaurimento e, se necessario, intraprendere le azioni correttive necessarie.
+.. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
++
+
+WARNING: *Attenzione: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+
++
+
+NOTE: Fare riferimento a. link:prepare_for_netboot.html["Preparatevi per il netboot"].
+
+
+
+
+
+. [[step6]]configurare la connessione netboot scegliendo una delle seguenti operazioni.
++
+
+NOTE: È necessario utilizzare la porta di gestione e l'IP come connessione di netboot. Non utilizzare un IP LIF dei dati, altrimenti potrebbe verificarsi un'interruzione dei dati durante l'aggiornamento.
+
++
+[cols="30,70"]
+|===
+| Se DHCP (Dynamic host Configuration Protocol) è... | Quindi... 
+
+
+| In esecuzione | Configurare la connessione automaticamente immettendo il seguente comando al prompt dell'ambiente di boot:
+`ifconfig e0M -auto` 
+
+
+| Non in esecuzione | Configurare manualmente la connessione immettendo il seguente comando al prompt dell'ambiente di boot:
+`ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
+
+`_filer_addr_` È l'indirizzo IP del sistema di storage (obbligatorio).
+`_netmask_` è la maschera di rete del sistema di storage (obbligatoria).
+`_gateway_` è il gateway per il sistema storage (obbligatorio).
+`_dns_addr_` È l'indirizzo IP di un name server sulla rete (opzionale).
+`_dns_domain_` È il nome di dominio DNS (Domain Name Service). Se si utilizza questo parametro opzionale, non è necessario un nome di dominio completo nell'URL del server netboot; è necessario solo il nome host del server. NOTA: Per l'interfaccia potrebbero essere necessari altri parametri. Invio `help ifconfig` al prompt del firmware per ulteriori informazioni. 
+|===
+. Eseguire il netboot al nodo 4:
++
+[cols="30,70"]
+|===
+| Per... | Quindi... 
+
+
+| Sistemi della serie FAS/AFF8000 | `netboot \http://<web_server_ip/path_to_web-accessible_directory>/netboot/kernel` 
+
+
+| Tutti gli altri sistemi | `netboot \http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz` 
+|===
++
+Il `<path_to_the_web-accessible_directory>` dovrebbe portare alla posizione in cui è stato scaricato `<ontap_version>_image.tgz` Nella fase 1 della sezione link:prepare_for_netboot.html["Preparatevi per il netboot"].
+
++
+
+NOTE: Non interrompere l'avvio.
+
+. Dal menu di avvio, selezionare opzione `(7) Install new software first`.
++
+Questa opzione di menu consente di scaricare e installare la nuova immagine ONTAP sul dispositivo di avvio.
+
++
+Ignorare il seguente messaggio:
+
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
++
+La nota si applica agli aggiornamenti senza interruzioni di ONTAP e non agli aggiornamenti dei controller.
+
++
+
+NOTE: Utilizzare sempre netboot per aggiornare il nuovo nodo all'immagine desiderata. Se si utilizza un altro metodo per installare l'immagine sul nuovo controller, l'immagine potrebbe non essere corretta. Questo problema riguarda tutte le versioni di ONTAP. La procedura di netboot combinata con l'opzione `(7) Install new software` Consente di cancellare il supporto di avvio e di posizionare la stessa versione di ONTAP su entrambe le partizioni dell'immagine.
+
+. Se viene richiesto di continuare la procedura, immettere `y`E quando viene richiesto il pacchetto, immettere l'URL:
++
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+
+. Completare i seguenti passaggi secondari per riavviare il modulo controller:
++
+.. Invio `n` per ignorare il ripristino del backup quando viene visualizzato il seguente prompt:
++
+....
+Do you want to restore the backup configuration now? {y|n}
+....
+.. Riavviare immettendo `y` quando viene visualizzato il seguente prompt:
++
+....
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+....
++
+Il modulo controller si riavvia ma si arresta al menu di avvio perché il dispositivo di avvio è stato riformattato e i dati di configurazione devono essere ripristinati.
+
+
+
+. Selezionare la modalità di manutenzione `5` dal menu di boot e premere `y` quando viene richiesto di continuare con l'avvio.
+. Verificare che il controller e lo chassis siano configurati come ha:
++
+`ha-config show`
+
++
+L'esempio seguente mostra l'output di `ha-config show` comando:
+
++
+....
+Chassis HA configuration: ha
+Controller HA configuration: ha
+....
++
+
+NOTE: Il sistema registra in una PROM sia che si trovi in una coppia ha o in una configurazione standalone. Lo stato deve essere lo stesso su tutti i componenti all'interno del sistema standalone o della coppia ha.
+
+. Se il controller e lo chassis non sono configurati come ha, utilizzare i seguenti comandi per correggere la configurazione:
++
+`ha-config modify controller ha`
+
++
+`ha-config modify chassis ha`
+
++
+Se si dispone di una configurazione MetroCluster, utilizzare i seguenti comandi per modificare il controller e lo chassis:
+
++
+`ha-config modify controller mcc`
+
++
+`ha-config modify chassis mcc`
+
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
++
+Interrompere l'autoboot premendo Ctrl-C al prompt dell'ambiente di boot.
+
+. [[auto_install4_step15]]al node3, controllare la data, l'ora e il fuso orario del sistema:
++
+`date`
+
+. Al nodo 4, controllare la data utilizzando il seguente comando al prompt dell'ambiente di boot:
++
+`show date`
+
+. Se necessario, impostare la data sul node4:
++
+`set date _mm/dd/yyyy_`
+
+. In node4, controllare l'ora utilizzando il seguente comando al prompt dell'ambiente di boot:
++
+`show time`
+
+. Se necessario, impostare l'ora su node4:
++
+`set time _hh:mm:ss_`
+
+. Nel boot loader, impostare l'ID del sistema partner su node4:
++
+`setenv partner-sysid _node3_sysid_`
+
++
+Per il nodo 4, `partner-sysid` deve essere quello del node3.
+
++
+Salvare le impostazioni:
+
++
+`saveenv`
+
+. [[auto_install4_step21]] verificare `partner-sysid` per il nodo 4:
++
+`printenv partner-sysid`
+
+. [[step22]]eseguire una delle seguenti operazioni:
++
+[cols="30,70"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi e non di storage back-end | Passare a. <<auto_install4_step23,Fase 23>>. 
+
+
+| È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
+.. Vai alla sezione link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] e completare le sottosezioni di questa sezione.
+.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<auto_install4_step23,Fase 23>>.
+
+
+
+IMPORTANT: È necessario riconfigurare le porte FC onboard, le porte CNA onboard e le schede CNA prima di avviare ONTAP su V-Series o sul sistema con il software di virtualizzazione FlexArray.
+
+|===
+
+
+. [[auto_install4_step23]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
++
+Se necessario, modificare le porte integrate in Initiator facendo riferimento a. link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"]. Per ulteriori informazioni sullo zoning, consultare la documentazione relativa allo storage array e allo zoning.
+
+. Aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
++
+Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
+
+. Modificare i valori WWPN (Worldwide port name) nei gruppi di host o volumi associati alle LUN degli array sullo storage array.
++
+L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
+
+. Se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
+
+
+. Se si dispone di unità NetApp Storage Encryption (NSE) installate, attenersi alla seguente procedura.
++
+
+NOTE: Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] per determinare il tipo di unità con crittografia automatica in uso.
+
++
+.. Impostare `bootarg.storageencryption.support` a. `true` oppure `false`:
++
+[cols="35,65"]
+|===
+| Se i seguenti dischi sono in uso… | Quindi… 
+
+
+| Unità NSE conformi ai requisiti di crittografia automatica FIPS 140-2 livello 2 | `setenv bootarg.storageencryption.support *true*` 
+
+
+| SED non FIPS di NetApp | `setenv bootarg.storageencryption.support *false*` 
+|===
++
+[NOTE]
+====
+Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nodo o coppia ha. È possibile combinare SED con dischi non crittografanti sullo stesso nodo o coppia ha.
+
+====
+.. Contattare il supporto NetApp per assistenza nel ripristino delle informazioni di gestione delle chiavi integrate.
+
+
+. Nodo di boot nel menu di boot:
++
+`boot_ontap menu`
+
++
+Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che il node4 possa riconoscere i dischi del node2.
+
+. [[fase 29]] per la configurazione MetroCluster, i sistemi V-Series e i sistemi con software di virtualizzazione FlexArray collegati agli array di storage, visitare il sito link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"].
+

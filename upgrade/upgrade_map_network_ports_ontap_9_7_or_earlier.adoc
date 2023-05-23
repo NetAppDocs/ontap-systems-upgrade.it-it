@@ -1,0 +1,141 @@
+---
+permalink: upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html 
+sidebar: sidebar 
+keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, configure, setting, intend, data, map, map network ports using ontap 9.7 or earlier 
+summary: 'Per consentire a node3 e node4 di comunicare tra loro nel cluster e con la rete dopo l"aggiornamento, è necessario confermare che le porte fisiche sono configurate correttamente con le impostazioni per l"uso previsto, come cluster, dati e così via.' 
+---
+= Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per consentire a node3 e node4 di comunicare tra loro nel cluster e con la rete dopo l'aggiornamento, è necessario confermare che le porte fisiche sono configurate correttamente con le impostazioni per l'uso previsto, come cluster, dati e così via.
+
+.Prima di iniziare
+Questa procedura si applica ai sistemi che eseguono ONTAP 9.7 o versioni precedenti. Se si utilizza ONTAP 9.8 o versione successiva, è necessario seguire la procedura descritta in xref:upgrade-map-network-ports-ontap-9-8.adoc[Mappare le porte di rete utilizzando ONTAP 9.8 o versione successiva].
+
+.A proposito di questa attività
+È necessario eseguire questi passaggi su node3 e node4.
+
+
+NOTE: I seguenti esempi di comandi si riferiscono a "node1" perché in questa fase della procedura i nodi di sostituzione "node3" e "node4" sono in realtà denominati "node1" e "node2".
+
+.Fasi
+. Se sul sistema è in esecuzione ONTAP 9.8 o versione successiva, *STOP*. È necessario utilizzare la procedura descritta in xref:upgrade-map-network-ports-ontap-9-8.adoc[Mappare le porte di rete utilizzando ONTAP 9.8 o versione successiva].
+. Individuare le informazioni di configurazione di porta e LIF per node1 e node2 registrate in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Fase 3"].
+. Individuare le informazioni relative a porte, domini di trasmissione e IPspaces registrate in _preparazione per l'aggiornamento durante lo spostamento dello storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Fase 3"].
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+. Apportare le seguenti modifiche:
++
+.. Fare il boot node3 e node4 al prompt del cluster, se non è già stato fatto.
+.. Aggiungere le porte corrette a `Cluster` dominio di broadcast:
++
+`network port modify -node _node_name_ -port _port_name_ -mtu 9000 -ipspace Cluster`
+
++
+Questo esempio aggiunge `Cluster` porta e1b su "`node1`":
+
++
+`network port modify -node node1 -port e1b -ipspace Cluster -mtu 9000`
+
+.. Migrare le LIF alle nuove porte, una volta per ogni LIF:
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -source-node node1 -destination-node node1 -destination-port _port_name_`
+
++
+I file LIF dei dati SAN possono essere migrati solo quando non sono in linea.
+
+.. Modificare la porta home delle LIF del cluster:
++
+`network interface modify -vserver Cluster -lif _lif_name_ –home-port _port_name_`
+
+.. Rimuovere le vecchie porte dal dominio di trasmissione del cluster:
++
+`network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cluster -ports _node1:port_`
+
+.. Visualizza lo stato di salute di node3 e node4:
++
+`cluster show -node _node1_ -fields health`
+
+.. Ogni LIF del cluster deve essere in ascolto sulla porta 7700. Verificare che le LIF del cluster siano in ascolto sulla porta 7700:
++
+`::> network connections listening show -vserver Cluster`
+
++
+La porta 7700 in ascolto sulle porte del cluster è il risultato previsto, come mostrato nell'esempio seguente per un cluster a due nodi:
+
++
+[listing]
+----
+Cluster::> network connections listening show -vserver Cluster
+Vserver Name     Interface Name:Local Port     Protocol/Service
+---------------- ----------------------------  -------------------
+Node: NodeA
+Cluster          NodeA_clus1:7700               TCP/ctlopcp
+Cluster          NodeA_clus2:7700               TCP/ctlopcp
+Node: NodeB
+Cluster          NodeB_clus1:7700               TCP/ctlopcp
+Cluster          NodeB_clus2:7700               TCP/ctlopcp
+4 entries were displayed.
+----
+.. Se necessario, per ogni LIF del cluster che non è in ascolto sulla porta 7700, impostare lo stato amministrativo della LIF su `down` e poi `up`:
++
+`::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
+
++
+Ripetere il passaggio secondario (g) per verificare che la LIF del cluster sia in ascolto sulla porta 7700.
+
+
+
+. Modificare la VLAN e. `ifgrp config` in modo che corrisponda al layout della porta fisica del nuovo controller.
+. Eliminare le porte node1 e node2 che non esistono più su node3 e node4 (livello di privilegio avanzato):
++
+`network port delete -node _node1_ -port _port_name_`
+
+. [[map_97_7]] regola il dominio broadcast di gestione dei nodi e, se necessario, esegui la migrazione delle LIF di gestione dei nodi e dei cluster:
++
+.. Visualizzare la porta home di una LIF:
++
+`network interface show -fields home-node,home-port`
+
+.. Visualizzare il dominio di trasmissione contenente la porta:
++
+`network port broadcast-domain show -ports _node_name:port_name_`
+
+.. Aggiungere o rimuovere le porte dai domini di broadcast secondo necessità:
++
+`network port broadcast-domain add-ports`
+
++
+`network port broadcast-domain remove-ports`
+
+.. Se necessario, modificare la porta home di una LIF:
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ –home-port _port_name_`
+
+
+
+. Regolare i domini di broadcast dell'intercluster e migrare le LIF dell'intercluster, se necessario, utilizzando i comandi in <<map_97_7,Fase 7>>.
+. Regolare gli altri domini di broadcast e migrare i file LIF dei dati, se necessario, utilizzando i comandi in <<map_97_7,Fase 7>>.
+. Regolare tutti i gruppi di failover LIF:
++
+`network interface modify -failover-group _failover_group_ -failover-policy _failover_policy_`
+
++
+Il seguente comando imposta la policy di failover su broadcast-domain-wide e utilizza le porte del gruppo di failover "fg1" come destinazioni di failover per LIF "data1" su "node1":
+
++
+`network interface modify -vserver node1 -lif data1 -failover-policy broadcast-domain-wide -failover-group fg1`
+
+. Visualizza gli attributi delle porte di rete di node3 e node4:
++
+`network port show -node node1`
+
+
+
+.Al termine
+Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[Eseguire la procedura di aggiornamento finale in ONTAP 9.7 o versioni precedenti].

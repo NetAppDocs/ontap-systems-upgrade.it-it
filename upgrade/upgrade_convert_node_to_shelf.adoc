@@ -1,0 +1,33 @@
+---
+permalink: upgrade/upgrade-convert-node-to-shelf.html 
+sidebar: sidebar 
+keywords: node, support, model, process, upgrading, upgrade, moving, move, convert, drive, shelf, attach, convert an original node to a drive shelf 
+summary: Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile convertire il nodo in uno shelf di dischi e collegarlo ai nuovi nodi dello stesso cluster. 
+---
+= Convertire un nodo originale in uno shelf di dischi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile convertire il nodo in uno shelf di dischi e collegarlo ai nuovi nodi dello stesso cluster.
+
+.Prima di iniziare
+Devi aver controllato link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"] informazioni sulla conversione di un nodo in uno shelf di dischi. Contattare il supporto tecnico se si necessita di indicazioni specifiche per la propria configurazione.
+
+.Fasi
+. Sostituire i moduli controller nel nodo che si sta convertendo con i moduli IOM appropriati.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+. Impostare l'ID dello shelf del disco.
++
+Ogni shelf di dischi, incluso lo chassis, richiede un ID univoco.
+
+. Reimpostare gli altri ID dello shelf di dischi secondo necessità.
+. Disattivare l'alimentazione di tutti gli shelf di dischi collegati ai nuovi nodi, quindi disattivare l'alimentazione dei nuovi nodi.
+. Collegare lo shelf di dischi convertiti a una porta SAS del nuovo sistema e, se si utilizza un cablaggio ACP out-of-band, alla porta ACP del nuovo nodo.
+. Accendere lo shelf di dischi convertito e gli altri shelf di dischi collegati ai nuovi nodi.
+. Accendere i nuovi nodi, quindi interrompere il processo di boot su ciascun nodo premendo Ctrl-C per accedere al prompt dell'ambiente di boot.
+

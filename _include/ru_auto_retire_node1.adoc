@@ -1,0 +1,19 @@
+= 
+:allow-uri-read: 
+
+
+Per dismettere il node1, riprendere l'operazione automatica per disattivare correttamente la coppia ha con node2 e chiudere node1. In seguito, rimuovere il nodo 1 dal rack o dallo chassis.
+
+.Fasi
+. Riprendere l'operazione:
++
+`system controller replace resume`
+
+. Verificare che il node1 sia stato arrestato:
++
+`system controller replace show-details`
+
+
+
+.Al termine
+Una volta completato l'aggiornamento, è possibile decommissionare il node1. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].

@@ -1,0 +1,29 @@
+---
+permalink: upgrade/upgrade-by-moving-storage-parent.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: 'Se si esegue l"aggiornamento spostando lo storage, si preparano i nodi originali e si configurano i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete. L"aggiornamento tramite lo spostamento dello storage è una procedura di interruzione.' 
+---
+= Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si sta aggiornando l'hardware del controller spostando lo storage, si preparano i nodi originali e si configurano i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete. L'aggiornamento tramite lo spostamento dello storage è una procedura di interruzione.
+
+image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[Workflow per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage]
+
+.Fasi
+. xref:upgrade-prepare-when-moving-storage.adoc[Preparatevi per l'aggiornamento durante lo spostamento dello storage]
+. xref:upgrade-shutdown-remove-original-nodes.adoc[Chiudere i nodi originali]
+. xref:upgrade-remove-disk-ownership-new-nodes.adoc[Rimuovere la proprietà dei dischi collegati ai nuovi nodi]
+. xref:upgrade-reset-default-configuration-node3-and-node4.adoc[Ripristinare la configurazione predefinita sui nuovi nodi]
+. xref:upgrade-install-new-nodes.adoc[Installare i nuovi nodi]
+. xref:upgrade-set-up-new-nodes.adoc[Impostare i nuovi nodi]
+. xref:upgrade-optional-move-internal-storage.adoc[Opzionale: Spostare lo storage interno o convertire il sistema in uno shelf di dischi]
+. xref:upgrade-attach-shelves-reassign-disks.adoc[Collegare shelf di storage e riassegnare la proprietà del disco]
+. xref:upgrade-restore-root-volume-config.adoc[Ripristinare la configurazione del volume root]
+. xref:upgrade-complete.adoc[Completare l'aggiornamento]
+

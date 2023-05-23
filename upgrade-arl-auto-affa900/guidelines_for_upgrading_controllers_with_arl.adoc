@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrade, aff, a900, a700, ontap, controllers 
+summary: Capire se è possibile utilizzare ARL per aggiornare un AFF A700 a un AFF A900. 
+---
+= Linee guida per l'aggiornamento dei controller
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilizzo di ARL per aggiornare una coppia di controller che eseguono ONTAP 9.10.1P10, 9.11.1P6 o una versione successiva nelle seguenti configurazioni di sistema:
+
+* Controller AFF A700 su un sistema AFF A900
+* Controller FAS9000 su un sistema FAS9500
+
+
+
+
+== Aggiornamenti supportati per ARL
+
+L'upgrade del controller da AFF A700 a AFF A900 o da FAS9000 a FAS9500 utilizzando ARL e il modulo NVRAM è la combinazione supportata. Se hai ricevuto un nuovo sistema AFF A900 o FAS9500 come sistema completo, incluso un nuovo chassis, fai riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _utilizzare i comandi "system controller replace" per aggiornare l'hardware del controller con contenuto ONTAP 9.8 o successivo.
+
+
+WARNING: Questa procedura si applica esclusivamente a un aggiornamento da AFF A700 a AFF A900 o da FAS9000 a FAS9500 con ONTAP 9.10.1P10, 9.11.1P6 o versioni successive. NON utilizzare questa procedura per eseguire un aggiornamento tra altre combinazioni di sistema.
+
+L'upgrade del controller tramite ARL è supportato sui sistemi configurati con volumi di conformità SnapLock Enterprise e SnapLock.
+
+
+
+== Cluster senza switch a due nodi
+
+Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.
+
+
+
+== Risolvere i problemi
+
+Se si verificano problemi durante l'aggiornamento dei controller, consultare link:troubleshoot_index.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni.
+
+Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.

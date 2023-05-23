@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/set_up_storage_encryption_new_module.html 
+keywords: set up storage, encryption, controller, module, node 
+summary: 'Se necessario, configurare la crittografia dello storage, installare i certificati SSL e configurare i server di gestione delle chiavi quando si aggiornano i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Impostare Storage Encryption sul nuovo modulo controller
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se il controller sostituito o il partner ha del nuovo controller utilizza Storage Encryption, è necessario configurare il nuovo modulo controller per Storage Encryption, inclusa l'installazione dei certificati SSL e la configurazione dei server di gestione delle chiavi.
+
+.A proposito di questa attività
+Questa procedura include i passaggi che vengono eseguiti sul nuovo modulo controller. Immettere il comando sul nodo corretto.
+
+.Fasi
+. Verificare che i server di gestione delle chiavi siano ancora disponibili, che il loro stato e le relative informazioni sulla chiave di autenticazione:
++
+`security key-manager show -status`
+
++
+`security key-manager query`
+
+. Aggiungere i server di gestione delle chiavi elencati nel passaggio precedente all'elenco dei server di gestione delle chiavi nel nuovo controller.
++
+.. Aggiungere il server di gestione delle chiavi:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+.. Ripetere il passaggio precedente per ciascun server di gestione delle chiavi elencato. È possibile collegare fino a quattro server di gestione delle chiavi.
+.. Verificare che i server di gestione delle chiavi siano stati aggiunti correttamente:
++
+`security key-manager show`
+
+
+
+. Sul nuovo modulo controller, eseguire la configurazione guidata della gestione delle chiavi per configurare e installare i server di gestione delle chiavi.
++
+È necessario installare gli stessi server di gestione delle chiavi installati sul modulo controller esistente.
+
++
+.. Avviare la configurazione guidata del server di gestione delle chiavi sul nuovo nodo:
++
+`security key-manager setup -node _new_controller_name_`
+
+.. Completare la procedura guidata per configurare i server di gestione delle chiavi.
+
+
+. Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo:
++
+`security key-manager restore -node _new_controller_name_`
+
+

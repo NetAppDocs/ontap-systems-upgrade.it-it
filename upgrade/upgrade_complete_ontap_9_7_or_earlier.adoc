@@ -1,0 +1,18 @@
+---
+permalink: upgrade/upgrade-complete-ontap-9-7-or-earlier.html 
+sidebar: sidebar 
+keywords: complete, upgrade, ontap, complete the upgrade in ontap 9.7 or earlier 
+summary: 'Per completare l"aggiornamento in ONTAP 9.7 o versioni precedenti, procedere come segue.' 
+---
+= Panoramica
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per completare l'aggiornamento in ONTAP 9.7 o versioni precedenti, procedere come segue:
+
+* link:upgrade-map-network-ports-ontap-9-7-or-earlier.html["Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti"]
+* link:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html["Eseguire la procedura di aggiornamento finale in ONTAP 9.7 o versioni precedenti"]
+

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/decommission_old_system.html 
+keywords: decommission, old system, upgrade, databases, netapp, support, site, serial, number, cluster 
+summary: 'Far sapere a NetApp che il vecchio sistema non è più in funzione dopo l"aggiornamento dei controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Decommissionare il vecchio sistema
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo l'aggiornamento, è possibile decommissionare il vecchio sistema tramite il NetApp Support Site. La disattivazione del sistema indica a NetApp che il sistema non è più in funzione e lo rimuove dai database di supporto.
+
+.Fasi
+. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ ed effettuare l'accesso.
+. Selezionare *prodotti > prodotti* dal menu.
+. Nella pagina *Visualizza sistemi installati*, scegliere i *criteri di selezione* da utilizzare per visualizzare le informazioni sul sistema.
++
+È possibile scegliere una delle seguenti opzioni per individuare il sistema:
+
++
+** Numero di serie (situato sul retro dell'unità)
+** Numeri di serie per la mia posizione
+
+
+. Selezionare *Go!*
++
+Una tabella visualizza le informazioni sul cluster, inclusi i numeri di serie.
+
+. Individuare il cluster nella tabella e selezionare *Decommissionare questo sistema* dal menu a discesa Product Tool Set (Set strumenti prodotto).
+

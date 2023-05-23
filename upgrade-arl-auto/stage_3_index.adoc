@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/stage_3_index.html 
+keywords: stage 3, install node3, non-SAN data LIFs, non-root aggregates 
+summary: 'Fase 3 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP da 9.5 a 9.7.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 3, si installa e si avvia node3, si mappano le porte di gestione del cluster e dei nodi da node1 a node3 e si verifica l'installazione node3. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3 e confermare che node3 si è Unito al quorum. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
+
+.Fasi
+. link:install_boot_node3.html["Installazione e boot node3"]
+. link:set_fc_or_uta_uta2_config_on_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"]
+. link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"]
+. link:join_quorum_node_has_different_ports_stage3.html["Connessione al quorum quando un nodo dispone di un set diverso di porte di rete"]
+. link:verify_node3_installation.html["Verificare l'installazione di node3"]
+. link:move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html["Spostare gli aggregati non root e le LIF di dati NAS di proprietà del node1 da node2 a node3"]
+

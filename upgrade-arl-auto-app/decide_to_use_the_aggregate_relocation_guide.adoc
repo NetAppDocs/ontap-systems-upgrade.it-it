@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html 
+keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
+summary: 'Decidere se utilizzare ARL per aggiornare i controller con ONTAP 9.8 o versioni successive utilizzando `system controller replace` comandi.' 
+---
+= Decidere se utilizzare la procedura di trasferimento degli aggregati
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Questo contenuto descrive come aggiornare i controller di storage in una coppia ha con nuovi controller mantenendo tutti i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
+
+È possibile utilizzare questo contenuto nei seguenti casi:
+
+* Si utilizza ONTAP 9.8 o versione successiva.
+* Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
+* Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
+* Se si sta aggiornando una configurazione MetroCluster, si tratta di una configurazione FC a quattro nodi o superiore e tutti i nodi eseguono ONTAP 9.8 o versione successiva.
++
+Per l'aggiornamento delle configurazioni MetroCluster IP, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto _aggiornamento ed espansione MetroCluster_.
+
+
+
+
+NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
+
+[[sys_comands_98_supported_Systems]]la seguente tabella mostra la matrice del modello supportata per l'aggiornamento del controller.
+
+|===
+| Vecchio controller | Controller sostitutivo 
+
+
+| FAS8020^3^, FAS8040^3^, FAS8060, FAS8080 | FAS8200, FAS8300, FAS8700, FAS9000 
+
+
+| FAS8060^4^, FAS8080^4^ | FAS9500 
+
+
+| AFF8020^3^, AFF8040^3^, AFF8060, AFF8080 | AFF A300, AFF A400, AFF A700, AFF A800^1^ 
+
+
+| AFF8060^4^, AFF8080^4^ | AFF A900 
+
+
+| FAS8200 | FAS8300^2^, FAS8700, FAS9000, FAS9500 
+
+
+| FAS8300, FAS8700, FAS9000 | FAS9500 
+
+
+| AFF A300 | AFF A400^2^, AFF A700, AFF A800^1^, AFF A900 
+
+
+| AFF A320^4^ | AFF A400 
+
+
+| AFF A400, AFF A700 | AFF A900 
+|===
+
+NOTE: Se la combinazione di modelli di upgrade del controller non è riportata nella tabella precedente, contattare il supporto tecnico.
+
+^1^per ulteriori passaggi necessari per i sistemi AFF A800, passare alla fase che fa riferimento a A800 nella sezione link:set_fc_or_uta_uta2_config_on_node3.html#step23["Controllare e configurare le porte UTA/UTA2 sul nodo 3, passaggio 23"], o. link:set_fc_or_uta_uta2_config_node4.html#step23["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 23"].
+
+^2^se si esegue l'aggiornamento da un sistema AFF A300 a un sistema AFF A400 o FAS8200 a un sistema FAS8300 in una configurazione cluster senza switch a due nodi, è necessario scegliere le porte cluster temporanee per l'aggiornamento del controller. I sistemi AFF A400 e FAS8300 sono disponibili in due configurazioni, come bundle Ethernet in cui le porte della scheda mezzanine sono di tipo Ethernet e come bundle FC in cui le porte mezzanine sono di tipo FC.
+
+* Per un sistema AFF A400 o FAS8300 con configurazione di tipo Ethernet, è possibile utilizzare una qualsiasi delle due porte mezzanine come porte cluster temporanee.
+* Per un sistema AFF A400 o FAS8300 con configurazione di tipo FC, è necessario aggiungere una scheda di interfaccia di rete 10GbE a quattro porte (codice X1147A) per fornire porte cluster temporanee.
+* Dopo aver completato un aggiornamento del controller utilizzando porte cluster temporanee, è possibile migrare senza interruzioni le LIF del cluster a e3a ed e3b, porte 100GbE su un sistema AFF A400 e porte e0c ed e0d, 100GbE su un sistema FAS8300.
+
+
+^3^per gli aggiornamenti dei sistemi FAS8020, FAS8040, AFF8020 e AFF8040 ai controller sostitutivi di destinazione elencati nella tabella precedente, i controller sostitutivi devono eseguire la stessa versione ONTAP del vecchio controller. I sistemi FAS8020, FAS8040, AFF8020 e AFF8040 non supportano le versioni di ONTAP successive a ONTAP 9.8.
+
+^4^la tabella seguente mostra le versioni minime e successive di ONTAP supportate per queste combinazioni di upgrade del controller.
+
+[cols="20,30,20,30"]
+|===
+2+| Vecchio controller 2+| Controller sostitutivo 
+
+
+| Sistema | Versione di ONTAP | Sistema | Versione di ONTAP 
+
+
+| AFF A320 | 9.9.1 o versione successiva | AFF A400 | 9.9.1 o versione successiva 
+
+
+| AFF8060 | 9.8P13 o patch successive | AFF A900 | da 9.10.1 a 9.12.1 
+
+
+| AFF8080 | 9.8P10 o patch successive | AFF A900 | da 9.10.1 a 9.12.1 
+
+
+| FAS8060 | 9.8P13 o patch successive | FAS9500 | Da 9.10.1P3 a 9.12.1 
+
+
+| FAS8080 | 9.8P12 o patch successive | FAS9500 | Da 9.10.1P3 a 9.12.1 
+|===
+[NOTE]
+====
+Per le combinazioni di upgrade illustrate nella tabella precedente:
+
+* Non è necessario utilizzare la stessa versione di ONTAP sui controller esistenti e sostitutivi. L'aggiornamento del software ONTAP viene eseguito con l'aggiornamento del controller.
+* Durante l'aggiornamento, è necessario installare un controller sostitutivo con una versione di ONTAP e un livello di patch supportati.
+* Non è possibile annullare o annullare un aggiornamento del controller dopo aver avviato la procedura e aver aggiornato il primo nodo.
+
+
+====
+Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.

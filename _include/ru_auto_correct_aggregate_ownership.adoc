@@ -1,0 +1,44 @@
+= Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+:allow-uri-read: 
+
+
+
+
+== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+
+Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
+
+.Fasi
+. Restituire gli aggregati attualmente di proprietà del nodo partner al nodo home owner:
++
+`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
+
+. Verificare che né node1 né node2 possiedano ancora aggregati per i quali è il proprietario corrente (ma non il proprietario domestico):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+L'esempio seguente mostra l'output del comando quando un nodo è sia il proprietario corrente che il proprietario domestico degli aggregati:
+
++
+[listing]
+----
+cluster::> storage aggregate show -nodes node1 -is-home true -fields owner-name,home-name,state
+aggregate   home-name  owner-name  state
+---------   ---------  ----------  ------
+aggr1       node1      node1       online
+aggr2       node1      node1       online
+aggr3       node1      node1       online
+aggr4       node1      node1       online
+
+4 entries were displayed.
+----
+
+
+
+
+=== Al termine
+
+È necessario riavviare il processo di sostituzione del controller:
+
+`system controller replace start -nodes _node_names_`

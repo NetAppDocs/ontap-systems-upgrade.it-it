@@ -1,0 +1,102 @@
+---
+section: upgrade
+title: Eseguire l'upgrade spostando volumi o storage
+entries:
+- title: Panoramica
+  url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+- title: Considerazioni
+  url: "/upgrade/upgrade-considerations.html"
+- title: Scegliere il metodo
+  url: "/upgrade/upgrade-methods.html"
+- title: Eseguire l'upgrade spostando lo storage
+  entries:
+  - title: Workflow
+    url: "/upgrade/upgrade-by-moving-storage-parent.html"
+  - title: Preparatevi
+    url: "/upgrade/upgrade-prepare-when-moving-storage.html"
+  - title: Chiudere i nodi originali
+    url: "/upgrade/upgrade-shutdown-remove-original-nodes.html"
+  - title: Rimuovere la proprietà del disco
+    url: "/upgrade/upgrade-remove-disk-ownership-new-nodes.html"
+  - title: Ripristinare la configurazione predefinita
+    url: "/upgrade/upgrade-reset-default-configuration-node3-and-node4.html"
+  - title: Installare nuovi nodi
+    url: "/upgrade/upgrade-install-new-nodes.html"
+  - title: Impostare nuovi nodi
+    url: "/upgrade/upgrade-set-up-new-nodes.html"
+  - title: 'Opzionale: Spostare lo storage interno o convertirlo in uno shelf di dischi'
+    entries:
+    - title: Panoramica
+      url: "/upgrade/upgrade-optional-move-internal-storage.html"
+    - title: Spostare le unità interne
+      url: "/upgrade/upgrade-move-internal-drives.html"
+    - title: Converti nodo in shelf di dischi
+      url: "/upgrade/upgrade-convert-node-to-shelf.html"
+  - title: Collegare shelf di storage e riassegnare la proprietà del disco
+    url: "/upgrade/upgrade-attach-shelves-reassign-disks.html"
+  - title: Ripristinare la configurazione del volume root
+    url: "/upgrade/upgrade-restore-root-volume-config.html"
+  - title: Aggiornamento completo
+    entries:
+    - title: Panoramica
+      url: "/upgrade/upgrade-complete.html"
+    - title: Completo in ONTAP 9.8 o versione successiva
+      entries:
+      - title: Panoramica
+        url: "/upgrade/upgrade-complete-ontap-9-8.html"
+      - title: Mappare le porte di rete utilizzando ONTAP 9.8
+        url: "/upgrade/upgrade-map-network-ports-ontap-9-8.html"
+      - title: Eseguire le fasi finali di ONTAP 9.8
+        url: "/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html"
+    - title: Completo in ONTAP 9.7 o versioni precedenti
+      entries:
+      - title: Panoramica
+        url: "/upgrade/upgrade-complete-ontap-9-7-or-earlier.html"
+      - title: Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti
+        url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
+      - title: Eseguire le fasi finali di ONTAP 9.7 o versioni precedenti
+        url: "/upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html"
+- title: Eseguire l'upgrade spostando i volumi
+  entries:
+  - title: Workflow
+    url: "/upgrade/upgrade-by-moving-volumes-parent.html"
+  - title: Preparatevi
+    url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
+  - title: Installare e unire nuovi nodi
+    url: "/upgrade/upgrade-install-and-join-new-nodes-move-vols.html"
+  - title: Creare aggregati e spostare volumi
+    url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
+  - title: Spostare le LIF di dati non SAN e le LIF di gestione del cluster
+    url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
+  - title: Spostare, eliminare o creare LIFS SAN
+    entries:
+    - title: Panoramica
+      url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
+    - title: Considerazioni per lo spostamento di LIF SAN
+      url: "/upgrade/upgrade_considerations_move_san_lifs.html"
+    - title: Eliminare le LIF SAN
+      url: "/upgrade/upgrade-delete-san-lifs.html"
+    - title: Creare nuove LIF SAN o ricreare le LIF SAN eliminate
+      url: "/upgrade/upgrade_create_recreate_san_lifs.html"
+  - title: Disunire i nodi originali
+    url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
+  - title: Aggiornamento completo
+    url: "/upgrade/upgrade-complete-move-volumes.html"
+- title: Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi
+  entries:
+  - title: Workflow
+    url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
+  - title: Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1
+    url: "/upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html"
+  - title: Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4
+    url: "/upgrade/upgrade_convert_node2_drive_shelf_connect_node4.html"
+  - title: Riassegnare i dischi dal nodo 2 al nodo 4
+    url: "/upgrade/upgrade_reassign_drives_node2_to_node4.html"
+  - title: Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4
+    url: "/upgrade/upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html"
+  - title: Converti il node1 in uno shelf di dischi e connettiti al node3
+    url: "/upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html"
+  - title: Riassegnare i dischi dal nodo 1 al nodo 3
+    url: "/upgrade/upgrade_reassign_drives_node1_to_node3.html"
+  - title: Migrazione di LIF e aggregati di dati dal nodo 4 al node3
+    url: "/upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html"

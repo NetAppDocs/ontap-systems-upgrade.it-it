@@ -1,0 +1,138 @@
+= 
+:allow-uri-read: 
+
+
+Prima di poter sostituire node2 con node4, è necessario inviare un messaggio AutoSupport per node2 e quindi spostare gli aggregati non root di proprietà di node2 in node3.
+
+.Fasi
+. [[step1]] Invia un messaggio AutoSupport a NetApp per il node2:
++
+`system node autosupport invoke -node _node2_ -type all -message "Upgrading _node2_ from _platform_old_ to _platform_new_"`
+
+. Verificare che il messaggio AutoSupport sia stato inviato:
++
+`system node autosupport show -node _node2_ -instance`
+
++
+I campi "ultimo oggetto inviato:" e "ultimo invio:" contengono il titolo dell'ultimo messaggio inviato e l'ora in cui il messaggio è stato inviato.
+
+. [[step3]]spostare gli aggregati non root:
++
+.. Impostare il livello di privilegio su Advanced (avanzato):
++
+`set -privilege advanced`
+
+.. Elencare gli aggregati di proprietà di node2:
++
+`storage aggregate show -owner-name _node2_`
+
+.. Avviare il trasferimento degli aggregati:
++
+`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controller-upgrade true`
+
++
+
+NOTE: Il comando individua solo gli aggregati non root.
+
+.. Quando richiesto, immettere `y`.
++
+Il trasferimento avviene in background. La riposizionamento di un aggregato può richiedere da pochi secondi a un paio di minuti. Il tempo include sia le parti di fuori servizio del client che quelle di non fuori servizio. Il comando non ricolloca nessun aggregato offline o limitato.
+
+.. Tornare al livello di privilegio admin:
++
+`set -privilege admin`
+
+
+
+. Verificare lo stato di trasferimento del nodo 2:
++
+`storage aggregate relocation show -node _node2_`
+
++
+L'output visualizza "Done" per un aggregato dopo che è stato trasferito.
+
++
+
+NOTE: Prima di passare alla fase successiva, è necessario attendere che tutti gli aggregati di proprietà di node2 siano stati ricollocati in node3.
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| In caso di trasferimento di... | Quindi... 
+
+
+| Tutti gli aggregati hanno avuto successo | Passare a. <<man_relocate_2_3_step6,Fase 6>>. 
+
+
+| Qualsiasi aggregato ha avuto esito negativo o è stato vetoato  a| 
+.. Visualizzare un messaggio di stato dettagliato:
++
+`storage aggregate show -instance`
+
++
+È inoltre possibile controllare i registri EMS per visualizzare l'azione correttiva necessaria.
+
++
+
+NOTE: Il `event log show` command elenca gli errori che si sono verificati.
+
+.. Eseguire l'azione correttiva.
+.. Impostare il livello di privilegio su Advanced (avanzato):
++
+`set -privilege advanced`
+
+.. Spostare eventuali aggregati guasti o vetoed:
++
+`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controllerupgrade true`
+
+.. Quando richiesto, immettere `y`.
+.. Tornare al livello di privilegio admin:
++
+`set -privilege admin`
+
+
+
+Se necessario, è possibile forzare il trasferimento utilizzando uno dei seguenti metodi:
+
+** Sovrascrivendo i veto check:
++
+`storage aggregate relocation start -override-vetoes true -ndo-controller-upgrade`
+
+** Sovrascrivendo i controlli di destinazione:
++
+`storage aggregate relocation start -override-destination-checks true -ndocontroller-upgrade`
+
+
+
+Per ulteriori informazioni sui comandi di trasferimento degli aggregati di storage, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi alla gestione di _dischi e aggregati con i comandi CLI_ e _ONTAP 9: Manuale riferimento pagina_.
+
+|===
+. [[man_delocate_2_3_step6]]verificare che tutti gli aggregati non root siano online sul nodo 3:
++
+`storage aggregate show -node _node3_ -state offline -root false`
+
++
+Se alcuni aggregati sono andati offline o sono diventati estranei, è necessario portarli online una volta per ciascun aggregato:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Verificare che tutti i volumi siano online al nodo3:
++
+`volume show -node _node3_ -state offline`
+
++
+Se alcuni volumi sono offline sul node3, è necessario portarli online, una volta per ciascun volume:
+
++
+`volume online -vserver _Vserver-name_ -volume _volume-name_`
+
+. Verificare che node2 non possiedi aggregati online non root:
++
+`storage aggregate show -owner-name _node2_ -ha-policy sfo -state online`
+
++
+L'output del comando non dovrebbe visualizzare gli aggregati online non root perché tutti gli aggregati online non root sono già stati riallocati in node3.
+
+

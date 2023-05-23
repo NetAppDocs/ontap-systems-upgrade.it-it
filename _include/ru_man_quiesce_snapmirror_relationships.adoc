@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+Prima di avviare il sistema dalla rete, è necessario verificare che tutte le relazioni SnapMirror siano state rinunciate. Quando una relazione SnapMirror viene ritirata, rimane irreparata in caso di riavvii e failover.
+
+.Fasi
+. Verificare lo stato della relazione SnapMirror sul cluster di destinazione:
++
+`snapmirror show`
+
++
+
+NOTE: Se lo stato è `Transferring`, è necessario interrompere questi trasferimenti:
+`snapmirror abort -destination-vserver _vserver name_`
+
++
+L'interruzione non riesce se la relazione SnapMirror non si trova in `Transferring` stato.
+
+. Interrompere tutte le relazioni tra il cluster:
++
+`snapmirror quiesce -destination-vserver *`
+
+

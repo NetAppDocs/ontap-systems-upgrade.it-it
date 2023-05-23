@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/move_non-root_aggr_and_nas_data_lifs_node1_from_node2_to_node3.html 
+keywords: moving, non-root, aggregates, nas, lif, node1, node2, node3 
+summary: 'Verificare che i file LIF dei dati NAS node1 sul node2 vengano ricollocati da node2 a node3 quando si aggiornano i controller con ONTAP 9.8 o versioni successive utilizzando `system controller replace` comandi.' 
+---
+= Spostare gli aggregati non root e le LIF di dati NAS di proprietà del node1 da node2 a node3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver verificato la configurazione di rete su node3 e prima di spostare gli aggregati da node2 a node3, è necessario verificare che i dati NAS LIF appartenenti al node1 che sono attualmente su node2 siano ricollocati da node2 a node3. È inoltre necessario verificare che le LIF SAN esistano sul node3.
+
+.A proposito di questa attività
+Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 3 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
+
+.Fasi
+. Riprendere l'operazione di trasferimento:
++
+`system controller replace resume`
+
++
+Il sistema esegue le seguenti operazioni:
+
++
+** Verifica del quorum del cluster
+** Verifica dell'ID di sistema
+** Controllo della versione dell'immagine
+** Verifica della piattaforma di destinazione
+** Verifica della raggiungibilità della rete
+
+
++
+L'operazione viene interrotta in questa fase del controllo della raggiungibilità della rete.
+
+. Riprendere l'operazione di trasferimento:
++
+`system controller replace resume`
+
++
+Il sistema esegue i seguenti controlli:
+
++
+** Controllo dello stato del cluster
+** Controllo dello stato LIF del cluster
+
+
++
+Dopo aver eseguito questi controlli, il sistema ricolloca gli aggregati non root e le LIF dei dati NAS di proprietà di node1 nel nuovo controller, node3. L'operazione di sostituzione del controller viene interrotta al termine del trasferimento delle risorse.
+
+. Controllare lo stato delle operazioni di trasferimento aggregato e LIF dei dati NAS:
++
+`system controller replace show-details`
+
++
+Se la procedura di sostituzione del controller è in pausa, controllare e correggere l'errore, se presente, quindi il problema `resume` per continuare l'operazione.
+
+. Se necessario, ripristinare e ripristinare eventuali LIF spostate. Elencare eventuali LIF spostate:
++
+`cluster controller-replacement network displaced-interface show`
+
++
+In caso di spostamento di LIF, ripristinare il nodo home al nodo node3:
+
++
+`cluster controller-replacement network displaced-interface restore-home-node`
+
+. Riprendere l'operazione per richiedere al sistema di eseguire i controlli successivi richiesti:
++
+`system controller replace resume`
+
++
+Il sistema esegue i seguenti post-controlli:
+
++
+** Verifica del quorum del cluster
+** Controllo dello stato del cluster
+** Controllo della ricostruzione degli aggregati
+** Controllo dello stato dell'aggregato
+** Controllo dello stato del disco
+** Controllo dello stato LIF del cluster
+** Controllo del volume
+
+
+

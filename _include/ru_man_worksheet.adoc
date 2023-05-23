@@ -1,0 +1,71 @@
+= 
+:allow-uri-read: 
+
+
+È necessario raccogliere determinate informazioni per aggiornare correttamente i nodi originali. Le informazioni includono ID dei nodi, dettagli di porta e LIF, chiavi di licenza e indirizzi IP.
+
+È possibile utilizzare il seguente foglio di lavoro per registrare le informazioni da utilizzare in seguito nella procedura:
+
+|===
+| Informazioni necessarie | Una volta raccolti | Se utilizzato | Informazioni raccolte 
+
+
+| Modello, ID sistema, numero di serie dei nodi originali | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 3: _Installare e avviare node3_ fase 5: _Installare e avviare node4_ fase 6: _Rimuovere il vecchio sistema_ |  
+
+
+| Informazioni su shelf e dischi, dettagli dello storage flash, memoria, NVRAM e schede adattatore sui nodi originali | Fase 1: _Preparazione dei nodi per l'aggiornamento_ | Durante l'intera procedura |  
+
+
+| Aggregati e volumi online sui nodi originali | Fase 1: _Preparare i nodi per l'aggiornamento_ | Durante l'intera procedura per verificare che aggregati e volumi rimangano online, tranne durante una breve delocalizzazione |  
+
+
+| Output dei comandi `network port vlan show` e. `network port ifgrp show` | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 3: _Mappare le porte dal nodo 1 al nodo 3_ fase 5: _Mappare le porte dal nodo 2 al nodo 4_ |  
+
+
+| (Solo ambienti SAN) Configurazione predefinita delle porte FC | Fase 1: _Preparare i nodi per l'aggiornamento_ | Durante la configurazione delle porte FC sui nuovi nodi |  
+
+
+| (Solo sistemi V-Series o sistemi con software di virtualizzazione FlexArray) topologia per sistemi V-Series o sistemi con software di virtualizzazione FlexArray | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 3: _Installare e avviare node3_ fase 5: _Installare e avviare node4_ |  
+
+
+| Indirizzo IP degli SP | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 6: _Verificare che i nuovi controller siano impostati correttamente_ |  
+
+
+| Chiavi di licenza | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 6: _Verificare che i nuovi controller siano impostati correttamente_ |  
+
+
+| Indirizzo IP del server di gestione delle chiavi esterno | Fase 1: _Rekey disks for Storage Encryption_ | Fase 6: _Impostare Storage Encryption sui nuovi nodi_ |  
+
+
+| Nome e percorso della directory accessibile dal web in cui si scaricano i file per avviare i nodi | Fase 1: _Prepararsi al netboot_ | Fase 3: _Installare e avviare node3_ fase 5: _Installare e avviare node4_ |  
+
+
+| LIF dati non SAN di proprietà di node1 | Fase 2: _Spostare le LIF dei dati non SAN di proprietà del node1 in node2_ | Più avanti nella sezione |  
+
+
+| Cluster, intercluster, gestione dei nodi, gestione dei cluster e porte fisiche | Fase 2: _Registrare le informazioni del node1_ | Fase 3: _Installare e avviare node3_ fase 3: _Mappare le porte dal node1 al node3_ |  
+
+
+| Porte su nuovi nodi | Fase 3: _Mappare le porte dal nodo 1 al nodo 3_ | Più avanti nella sezione e nella sezione _Map ports from node2 to node4_ |  
+
+
+| Porte e domini di broadcast disponibili sul nodo 3 | Fase 3: _Mappare le porte dal nodo 1 al nodo 3_ | Più avanti nella sezione |  
+
+
+| Le LIF di dati non SAN non sono di proprietà di node2 | _Spostamento delle LIF di dati non SAN appartenenti al nodo 1 da node2 a node3 e verifica delle LIF SAN sul nodo 3_ | Più avanti nella sezione |  
+
+
+| LIF dati non SAN di proprietà di node2 | Fase 3: _Spostare le LIF dei dati non SAN di proprietà del node2 in node3_ | Più avanti nella sezione |  
+
+
+| Cluster, intercluster, gestione dei nodi, gestione dei cluster e porte fisiche | Fase 4: _Registrare le informazioni node2_ | Fase 5: _Installare e avviare node4_ fase 5:_ mappare le porte da node2 a node4_ |  
+
+
+| Porte di rete del cluster sul nodo 4 | Fase 5: _Mappare le porte dal nodo 2 al nodo 4_ | Più avanti nella sezione |  
+
+
+| Porte e domini di broadcast disponibili sul nodo 4 | Fase 5: _Mappare le porte dal nodo 2 al nodo 4_ | Più avanti nella sezione |  
+
+
+| Certificati SSL pubblici e privati per il sistema di storage e certificati SSL privati per ciascun server di gestione delle chiavi | Fase 6: _Impostare Storage Encryption sui nuovi nodi_ | Più avanti nella sezione |  
+|===

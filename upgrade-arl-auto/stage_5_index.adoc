@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/stage_5_index.html 
+keywords: install, boot, node4, node2, node-management,  stage 5 
+summary: 'Fase 5 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP da 9.5 a 9.7.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 5, si installa e si avvia node4, si mappano le porte di gestione del cluster e dei nodi da node2 a node4 e si verifica l'installazione node4. Se necessario, impostare la configurazione FC o UTA/UTA2 su node4 e confermare che node4 si è Unito al quorum. È inoltre possibile spostare le LIF dei dati NAS node2 e gli aggregati non root da node3 a node4 e verificare che le LIF SAN esistano sul node4.
+
+.Fasi
+. link:install_boot_node4.html["Installazione e boot node4"]
+. link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"]
+. link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"]
+. link:join_quorum_node_has_different_ports_stage5.html["Unirsi al quorum quando un nodo dispone di un set diverso di porte di rete"]
+. link:verify_node4_installation.html["Verificare l'installazione di node4"]
+. link:move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html["Spostare gli aggregati non root e le LIF di dati NAS di proprietà di node2 da node3 a node4"]
+

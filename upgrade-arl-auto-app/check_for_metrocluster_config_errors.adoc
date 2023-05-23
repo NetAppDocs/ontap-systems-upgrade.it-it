@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/check_for_metrocluster_config_errors.html 
+keywords: metrocluster, configuration, errors, config, advisor, netapp, support, site 
+summary: 'Utilizzare lo strumento Config Advisor per verificare la presenza di errori di configurazione comuni durante l"aggiornamento dei controller con ONTAP 9.8 o versione successiva utilizzando `system controller replace` comando.' 
+---
+= Verificare la presenza di errori di configurazione MetroCluster
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È possibile utilizzare lo strumento Active IQ Config Advisor disponibile sul sito del supporto NetApp per verificare la presenza di errori di configurazione comuni.
+
+Se non si dispone di una configurazione MetroCluster, ignorare questa sezione.
+
+.A proposito di questa attività
+Active IQ Config Advisor è uno strumento per la convalida della configurazione e il controllo dello stato di salute. È possibile implementarlo sia in siti sicuri che in siti non sicuri per la raccolta di dati e l'analisi del sistema.
+
+
+NOTE: Il supporto per Config Advisor è limitato e disponibile solo online.
+
+. Scaricare il link:https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"] tool.
+. Eseguire Active IQ Config Advisor, esaminare l'output e seguire i consigli per risolvere eventuali problemi.
+

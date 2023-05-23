@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html 
+keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability, aff, a700, a900 
+summary: Decidere se utilizzare la procedura ARL per aggiornare un AFF A700 a un AFF A900. 
+---
+= Decidere se utilizzare la procedura di trasferimento degli aggregati
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Questo contenuto descrive come aggiornare i controller storage in una coppia AFF A700 ha con i nuovi controller o controller AFF A900 in una coppia FAS9000 ha con i nuovi controller FAS9500, mantenendo tutti i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
+
+Seguire questa procedura nei seguenti casi:
+
+* Hai verificato con il tuo commerciale NetApp di aver ricevuto il controller AFF A900 o FAS9500 e i moduli NVRAM e le parti necessarie per l'aggiornamento.
+* Si utilizza ONTAP 9.10.1P10, 9.11.1P6 o una versione successiva.
+* Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
+* Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
+
+
+Non utilizzare questa procedura nei seguenti casi:
+
+* Si utilizza il software di virtualizzazione FlexArray sui sistemi AFF A700 o FAS9000.
+* Si sta utilizzando uno switch condiviso per l'interconnessione cluster e lo storage collegato Ethernet.
+
+
+Per aggiornare le configurazioni Fabric MetroCluster o MetroCluster IP, vedere link:other_references.html["Riferimenti"] Per collegarsi al contenuto _aggiornamento ed espansione MetroCluster_.
+
+
+NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
+
+Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.

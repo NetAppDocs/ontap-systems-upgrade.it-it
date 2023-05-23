@@ -1,0 +1,102 @@
+---
+permalink: upgrade/upgrade-remove-disk-ownership-new-nodes.html 
+sidebar: sidebar 
+keywords: node, internal, disk, add-on, shelves, attach, system, interfere, controller, upgrade, remove, ownership, node3, node4, node, remove ownership of disks attached to the new nodes 
+summary: 'Se i nuovi nodi hanno dischi interni o shelf add-on collegati al sistema, questi possono interferire con l"aggiornamento del controller. Per rimuovere la proprietà dei nuovi dischi forniti con node3/node4, procedere come segue.' 
+---
+= Rimuovere la proprietà dei dischi collegati ai nuovi nodi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se i nuovi nodi hanno dischi interni o shelf add-on collegati al sistema, questi possono interferire con l'aggiornamento del controller. Per rimuovere la proprietà dei nuovi dischi forniti con node3/node4, procedere come segue.
+
+.A proposito di questa attività
+Questi passaggi vengono eseguiti su node3 e node4 uno dopo l'altro. La sequenza di nodi non ha importanza.
+
+[NOTE]
+====
+* Gli shelf da node1 e node2 non sono fisicamente collegati a node3 e node4 in questa fase.
+* È necessario rimuovere la proprietà dei dischi solo per i dischi e gli shelf forniti con i nuovi controller.
+* Non è necessario rimuovere la proprietà dei dischi se si sta aggiornando l'hardware sostituendo un vecchio controller con un nuovo controller su una piattaforma di dischi interna, mantenendo al contempo lo chassis e i dischi del vecchio controller.
++
+Ad esempio, se si sta aggiornando il sistema da A200 a A220 sostituendo solo il vecchio modulo controller A200 con il nuovo modulo controller A220, mantenendo al contempo in posizione lo chassis e i dischi del vecchio A200, Non rimuovere la proprietà dei dischi per il nuovo modulo controller A220 come descritto in questa sezione _Rimozione della proprietà dei dischi collegati ai nuovi nodi_.
+
++
+In caso di domande sulla rimozione della proprietà del disco durante un aggiornamento del controller, contattare il supporto tecnico NetApp.
+
++
+Di seguito è riportato un elenco dei sistemi che dispongono di storage interno: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700, AFF A800, AFF A250.
+
++
+Se il sistema in uso non è elencato sopra, consultare la https://hwu.netapp.com["NetApp Hardware Universe"^] per verificare se dispone di dischi interni.
+
+
+
+====
+.Fasi
+. Al prompt DEL CARICATORE del nodo, immettere il comando:
++
+`boot_ontap menu`
+
+. Al prompt del menu di avvio, digitare `9a` Quindi premere Invio.
++
+La seguente schermata mostra il prompt del menu di avvio.
+
++
+[listing]
+----
+Please choose one of the following:
+
+    (1) Normal Boot.
+    (2) Boot without /etc/rc.
+    (3) Change password.
+    (4) Clean configuration and initialize all disks.
+    (5) Maintenance mode boot.
+    (6) Update flash from backup config.
+    (7) Install new software first.
+    (8) Reboot node.
+    (9) Configure Advanced Drive Partitioning.
+    Selection (1-9)?  9a
+----
+. Rimuovere la proprietà del disco immettendo `y` quando viene visualizzato un prompt simile a quanto segue:
++
+[listing]
+----
+
+########## WARNING ##########
+
+This is a disruptive operation and will result in the
+    loss of all filesystem data. Before proceeding further,
+    make sure that:
+    1) This option (9a) has been executed or will be executed
+    on the HA partner node, prior to reinitializing either
+    system in the HA-pair.
+    2) The HA partner node is currently in a halted state or
+    at the LOADER prompt.
+
+
+    Do you still want to continue (yes/no)? yes
+----
++
+Il sistema rimuove la proprietà del disco e torna al menu di avvio.
+
+. Nel menu di avvio, digitare `5` per passare alla modalità di manutenzione.
+. In modalità di manutenzione, eseguire `disk show` comando.
++
+Non dovrebbe essere elencato alcun disco.
+
+. Eseguire il comando: `
++
+`disk show -a`
+
++
+Tutti i dischi elencati devono essere non assegnati.
+
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
+

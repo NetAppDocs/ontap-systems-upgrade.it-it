@@ -1,0 +1,139 @@
+= 
+:allow-uri-read: 
+
+
+Dopo aver spostato gli aggregati da node2 a node3, è necessario spostare i dati NAS LIF di proprietà di node2 a node3.
+
+.A proposito di questa attività
+Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. È necessario verificare che le LIF siano integre e ubicate sulle porte appropriate dopo aver spostato le LIF da node3 a node4 e aver portato node4 online.
+
+.Fasi
+. [[step1]]Elenca tutte le LIF dei dati NAS di proprietà di node2 immettendo il seguente comando su uno dei nodi e acquisendo l'output:
++
+`network interface show -data-protocol nfs|cifs -home-node _node2_`
+
++
+L'esempio seguente mostra l'output del comando per node2:
+
++
+[listing]
+----
+cluster::> network interface show -data-protocol nfs|cifs -home-node node2
+              Logical     Status      Network             Current  Current  Is
+ Vserver      Interface   Admin/Oper  Address/Mask        Node     Port     Home
+ -----------  ----------  ----------  ------------------  -------  -------  ----
+ vs0
+              a0a         up/down     10.63.0.53/24       node2    a0a      true
+              data1       up/up       10.63.0.50/18       node2    e0c      true
+              rads1       up/up       10.63.0.51/18       node2    e1a      true
+              rads2       up/down     10.63.0.52/24       node2    e1b      true
+ vs1
+              lif1        up/up       172.17.176.120/24   node2    e0c      true
+              lif2        up/up       172.17.176.121/24   node2    e1a      true
+----
+. [[step2]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| In caso di node2... | Quindi... 
+
+
+| Dispone di gruppi di interfacce o VLAN configurati | Passare a. <<man_move_lif_2_3_step3,Fase 3>>. 
+
+
+| Non ha gruppi di interfacce o VLAN configurati | Saltare la fase 3 e passare a. <<man_move_lif_2_3_step4,Fase 4>>. 
+|===
+. [[man_move_lif_2_3_step3]]eseguire i seguenti passaggi per migrare i dati NAS LIF ospitati su gruppi di interfacce e VLAN sul nodo 2:
++
+.. [[man_move_lif_2_3_substepa]]Migrate qualsiasi LIF di dati ospitata su un gruppo di interfacce su node2 a una porta su node3 in grado di ospitare LIF sulla stessa rete immettendo il seguente comando, una volta per ogni LIF:
++
+`network interface migrate -vserver _Vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
+
+.. Modificare la porta home e il nodo home dei file LIF in <<man_move_lif_2_3_substepa,Sotto-fase A.>> Alla porta e al nodo che attualmente ospitano i LIF immettendo il seguente comando, una volta per ogni nodo:
++
+`network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -home-node _node3_ -homeport _netport|ifgrp_`
+
+.. [[man_move_lif_2_3_substepc]]Migrare le LIF ospitate su VLAN su node2 a una porta su node3 in grado di ospitare LIF sulla stessa rete delle VLAN immettendo il seguente comando, una volta per ciascuna LIF:
++
+`network interface migrate -vserver _Vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
+
+.. Modificare la porta home e il nodo home dei file LIF in <<man_move_lif_2_3_substepc,Sotto-fase c>> Alla porta e al nodo che attualmente ospitano le LIF immettendo il seguente comando, una volta per ciascuna LIF:
++
+`network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -home-node _node3_ -homeport _netport|ifgrp_`
+
+
+
+. [[man_move_lif_2_3_step4]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il cluster è configurato per... | Quindi... 
+
+
+| NAS | Completo <<man_move_lif_2_3_step5,Fase 5>> attraverso <<man_move_lif_2_3_step8,Fase 8>>. 
+
+
+| SAN | Saltare i passaggi da 5 a 8, quindi completare <<man_move_lif_2_3_step9,Fase 9>>. 
+
+
+| NAS e SAN | Completo <<man_move_lif_2_3_step5,Fase 5>> attraverso <<man_move_lif_2_3_step9,Fase 9>>. 
+|===
+. [[man_move_lif_2_3_step5]]se si dispone di porte dati non uguali sulle piattaforme, aggiungere le porte al dominio di trasmissione:
++
+`network port broadcast-domain add-ports -ipspace _IPspace_name_ -broadcast-domain mgmt -ports _node:port_`
+
++
+Nell'esempio seguente viene aggiunta la porta "e0a" sul nodo "6280-1" e la porta "e0i" sul nodo "8060-1" al dominio di trasmissione "mgmt" nell'IPSpace "Default":
+
++
+[listing]
+----
+cluster::> network port broadcast-domain add-ports -ipspace Default
+           -broadcast-domain mgmt -ports 6280-1:e0a, 8060-1:e0i
+----
+. [[step6]]Migrare ciascun LIF dati NAS in node3 immettendo il seguente comando, una volta per ogni LIF:
++
+`network interface migrate -vserver _Vserver_name_ -lif _LIF_name_ -destination-node _node3_ -destination-port _netport|ifgrp_`
+
+. [[step7]]verificare che le LIF NAS siano state spostate nelle porte corrette e che le LIF abbiano lo stato di up immettendo il seguente comando su entrambi i nodi ed esaminando l'output:
++
+`network interface show -curr-node _node3_ -data-protocol cifs|nfs`
+
+. [[man_move_lif_2_3_step8]]se le LIF non sono attive, imposta lo stato amministrativo delle LIF su "up" immettendo il seguente comando, una volta per ciascuna LIF:
++
+`network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -status-admin up`
+
+. [[man_move_lif_2_3_step9]]se sono configurati gruppi di interfacce o VLAN, completare i seguenti passaggi secondari:
++
+.. Rimuovere le VLAN dai gruppi di interfacce:
++
+`network port vlan delete -node _node_name_ -port _ifgrp_ -vlan-id _VLAN_ID_`
+
+.. Immettere il seguente comando ed esaminarne l'output per determinare se nel nodo sono configurati gruppi di interfacce:
++
+`network port ifgrp show -node _node_name_ -ifgrp _ifgrp_name_ -instance`
+
++
+Il sistema visualizza le informazioni sul gruppo di interfacce per il nodo, come illustrato nell'esempio seguente:
+
++
+[listing]
+----
+cluster::> network port ifgrp show -node node2 -ifgrp a0a -instance
+                 Node: node2
+ Interface Group Name: a0a
+Distribution Function: ip
+        Create Policy: multimode_lacp
+          MAC Address: MAC_address
+    ort Participation: partial
+        Network Ports: e2c, e2d
+             Up Ports: e2c
+           Down Ports: e2d
+----
+.. Se nel nodo sono configurati gruppi di interfacce, registrare i nomi dei gruppi di interfacce e le porte ad essi assegnate, quindi eliminare le porte immettendo il seguente comando, una volta per ciascuna porta:
++
+`network port ifgrp remove-port -node _node_name_ -ifgrp _ifgrp_name_ -port _port_name_`
+
+
+
+

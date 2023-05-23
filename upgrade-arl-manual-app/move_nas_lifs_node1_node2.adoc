@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/move_nas_lifs_node1_node2.html 
+keywords: nas, node1, node2, lifs, cluster, san 
+summary: Spostare le LIF dei dati node1 in node2 se si dispone di un cluster a due nodi o in un terzo nodo se il cluster dispone di più di due nodi, durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive. 
+---
+= Spostare le LIF dei dati NAS di proprietà del node1 in node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di poter sostituire il nodo 1 con il nodo 3, è necessario spostare le LIF dati NAS di proprietà del nodo 1 in node2 se si dispone di un cluster a due nodi o in un terzo nodo se il cluster ha più di due nodi. Il metodo utilizzato dipende dalla configurazione del cluster per NAS o SAN.
+
+.A proposito di questa attività
+Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. Dopo aver portato il nodo 3 online, è necessario verificare che i file LIF siano integri e posizionati su porte appropriate.
+
+.Fasi
+. Elencare tutte le LIF dei dati NAS ospitate sul nodo 1 immettendo il seguente comando e acquisendo l'output:
++
+`network interface show -data-protocol nfs|cifs -curr-node _node1_`
+
++
+[listing]
+----
+ cluster::> network interface show -data-protocol nfs|cifs -curr-node node1
+
+          Logical     Status      Network             Current   Current Is
+ Vserver  Interface   Admin/Oper  Address/Mask        Node      Port    Home
+ -------- ----------  ----------  ------------------  --------- ------- ----
+ vs0
+          a0a         up/down     10.63.0.53/24       node1     a0a     true
+          data1       up/up       10.63.0.50/18       node1     e0c     true
+          rads1       up/up       10.63.0.51/18       node1     e1a     true
+          rads2       up/down     10.63.0.52/24       node1     e1b     true
+ vs1
+          lif1        up/up       192.17.176.120/24   node1     e0c     true
+          lif2        up/up       172.17.176.121/24   node1     e1a     true
+----
+. [[step2]]Modifica le impostazioni di ripristino automatico di tutte le LIF su node1 e node2:
++
+`network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -auto-revert false`
+
+. [[step3]]eseguire i seguenti passaggi per migrare qualsiasi file LIF dati NAS ospitati su gruppi di interfacce e VLAN sul node1:
++
+.. [[substepa]] Migrate le LIF ospitate su qualsiasi gruppo di interfacce e le VLAN sul node1 a una porta sul node2 in grado di ospitare LIF sulla stessa rete dei gruppi di interfacce immettendo il seguente comando, una volta per ogni LIF:
++
+`network interface migrate -vserver _Vserver_name_ -lif _LIF_name_ -destination-node _node2_ –destination-port _netport|ifgrp_`
+
+.. Modificare la porta home e il nodo home di LIF e VLAN in <<substepa,Sotto-fase A.>> Alla porta e al nodo che attualmente ospitano le LIF immettendo il seguente comando, una volta per ciascuna LIF:
++
+`network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -home-node _node2_ - home-port _netport|ifgrp_`
+
+
+
+. [[step4]]eseguire una delle seguenti operazioni:
++
+[cols="20,80"]
+|===
+| Se il cluster è configurato per... | Quindi... 
+
+
+| NAS | Completo <<man_lif_1_2_step5,Fase 5>> attraverso <<man_lif_1_2_step8,Fase 8>>. 
+
+
+| SAN | Disattivare tutte le LIF SAN sul nodo per disattivarle per l'aggiornamento:
+`network interface modify -vserver _Vserver-name_ -lif _LIF_name_ -home-node _node_to_upgrade_ -home-port _netport|ifgrp_ -status-admin down` 
+|===
+. [[man_lif_1_2_step5]]Migrare i LIF dei dati NAS da node1 a node2 immettendo il seguente comando, una volta per ciascun LIF dei dati:
++
+`network interface migrate -vserver _Vserver-name_ -lif _LIF_name_ -destination-node _node2_ -destination-port _data_port_`
+
+. [[step6]]immettere il seguente comando ed esaminare l'output per verificare che i file LIF siano stati spostati nelle porte corrette e che i file LIF abbiano lo stato di up immettendo il seguente comando su entrambi i nodi ed esaminando l'output:
++
+`network interface show -curr-node _node2_ -data-protocol nfs|cifs`
+
+. [[step7]]Modifica del nodo principale delle LIF migrate:
++
+`network interface modify -vserver _Vserver-name_ -lif _LIF_name_ -home-node _node2_ -home-port _port_name_`
+
+. [[man_lif_1_2_step8]]verificare se LIF sta utilizzando la porta come porta principale o corrente. Se la porta non è domestica o corrente, passare a. <<man_lif_1_2_step9,Fase 9>>:
++
+`network interface show -home-node _node2_ -home-port _port_name_`
+
++
+`network interface show -curr-node _node_name_ -curr-port _port_name_`
+
+. [[man_lif_1_2_step9]]se le LIF utilizzano la porta come porta home o porta corrente, modificare la LIF in modo che utilizzi una porta diversa:
++
+`network interface migrate -vserver _Vserver-name_ -lif _LIF_name_ -destination–node _node_name_ -destination-port _port_name_`
+
++
+`network interface modify -vserver _Vserver-name_ -lif _LIF_name_ -home–node _node_name_ -home-port _port_name_`
+
+. [[step10]]se i LIF non sono attivi, imposta lo stato amministrativo dei LIF su "up" immettendo il seguente comando, una volta per ciascun LIF:
++
+`network interface modify -vserver _Vserver-name_ -lif _LIF_name_ -home-node _nodename_ -status-admin up`
+
++
+
+NOTE: Per le configurazioni MetroCluster, potrebbe non essere possibile modificare il dominio di trasmissione di una porta perché è associata a una porta che ospita la LIF di una macchina virtuale di storage di destinazione (SVM). Immettere il seguente comando dalla SVM di origine corrispondente sul sito remoto per riallocare la LIF di destinazione su una porta appropriata:
+`metrocluster vserver resync -vserver _Vserver_name_`
+
+. [[step11]]immettere il seguente comando ed esaminarne l'output per verificare che non vi siano LIF di dati rimasti sul node1:
++
+`network interface show -curr-node _node1_ -role data`
+
+

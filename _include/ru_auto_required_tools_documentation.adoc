@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+È necessario disporre di strumenti specifici per installare il nuovo hardware e consultare altri documenti durante il processo di aggiornamento.
+
+Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
+
+* Cintura per la messa a terra
+* Cacciavite Phillips n. 2
+
+
+Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento e dei siti di riferimento necessari per questo aggiornamento

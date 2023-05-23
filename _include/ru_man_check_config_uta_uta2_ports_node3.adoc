@@ -1,0 +1,260 @@
+= Controllare e configurare le porte UTA/UTA2 sul nodo 3
+:allow-uri-read: 
+
+
+
+
+== Controllare e configurare le porte UTA/UTA2 sul nodo 3
+
+Se node3 dispone di porte UTA/UTA2 integrate o di una scheda UTA/UTA2, è necessario controllare la configurazione delle porte ed eventualmente riconfigurarle, a seconda di come si desidera utilizzare il sistema aggiornato.
+
+.Prima di iniziare
+È necessario disporre dei moduli SFP+ corretti per le porte UTA/UTA2.
+
+.A proposito di questa attività
+Se si desidera utilizzare una porta UTA/UTA2 (Unified Target Adapter) per FC, è necessario prima verificare la configurazione della porta.
+
+
+NOTE: I materiali di marketing NetApp potrebbero utilizzare il termine UTA2 per fare riferimento agli adattatori e alle porte CNA. Tuttavia, la CLI utilizza il termine CNA.
+
+È possibile utilizzare `ucadmin show` comando per verificare la configurazione corrente della porta:
+
+[listing]
+----
+*> ucadmin show
+          Current  Current    Pending  Pending    Admin
+ Adapter  Mode     Type       Mode     Type       Status
+ -------  -------  ---------  -------  ---------  -----------
+ 0e       fc       target     -        initiator  offline
+ 0f       fc       target     -        initiator  offline
+ 0g       fc       target     -        initiator  offline
+ 0h       fc       target     -        initiator  offline
+ 1a       fc       target     -        -          online
+ 1b       fc       target     -        -          online
+6 entries were displayed.
+----
+Le porte UTA/UTA2 possono essere configurate in modalità FC nativa o UTA/UTA2. La modalità FC supporta l'iniziatore FC e la destinazione FC; la modalità UTA/UTA2 consente la condivisione simultanea del traffico NIC e FCoE con la stessa interfaccia SFP+ 10 GbE e supporta le destinazioni FC.
+
+Le porte UTA/UTA2 potrebbero essere presenti su un adattatore o sul controller e presentano le seguenti configurazioni, ma è necessario controllare la configurazione delle porte UTA/UTA2 sul nodo 3 e modificarla, se necessario:
+
+* Le schede UTA/UTA2 ordinate al momento dell'ordine del controller vengono configurate prima della spedizione per avere la personalità richiesta.
+* Le schede UTA/UTA2 ordinate separatamente dal controller vengono fornite con il linguaggio di destinazione FC predefinito.
+* Le porte UTA/UTA2 integrate sui nuovi controller vengono configurate prima della spedizione in modo da avere la personalità richiesta.
++
+
+NOTE: *Attenzione*: Se il sistema dispone di dischi di storage, è necessario immettere i comandi in questa sezione al prompt del cluster, a meno che non venga richiesto di accedere alla modalità di manutenzione. Se si dispone di un sistema VSeries o del software di virtualizzazione FlexArray e si è connessi agli array di storage, è necessario immettere i comandi in questa sezione al prompt della modalità di manutenzione. Per configurare le porte UTA/UTA2, è necessario essere in modalità di manutenzione.
+
+
+
+.Fasi
+. Verificare come le porte sono attualmente configurate inserendo uno dei seguenti comandi sul nodo 3:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi di storage | `system node hardware unified-connect show` 
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
+|===
++
+Il sistema visualizza un output simile ai seguenti esempi:
+
++
+[listing]
+----
+ cluster1::> system node hardware unified-connect show
+
+                Current  Current    Pending  Pending  Admin
+ Node  Adapter  Mode     Type       Mode     Type     Status
+ ----  -------  -------  ---------  -------  -------  ------
+ f-a   0e       fc       initiator  -        -        online
+ f-a   0f       fc       initiator  -        -        online
+ f-a   0g       cna      target     -        -        online
+ f-a   0h       cna      target     -        -        online
+ f-b   0e       fc       initiator  -        -        online
+ f-b   0f       fc       initiator  -        -        online
+ f-b   0g       cna      target     -        -        online
+ f-b   0h       cna      target     -        -        online
+ 12 entries were displayed.
+----
++
+[listing]
+----
+*> ucadmin show
+         Current  Current    Pending  Pending  Admin
+Adapter  Mode     Type       Mode     Type     Status
+-------  -------  ---------  -------  -------  ------
+0e       fc       initiator  -        -        online
+0f       fc       initiator  -        -        online
+0g       cna      target     -        -        online
+0h       cna      target     -        -        online
+0e       fc       initiator  -        -        online
+0f       fc       initiator  -        -        online
+0g       cna      target     -        -        online
+0h       cna      target     -        -        online
+*>
+----
+. [[fase 2]]se il modulo SFP+ corrente non corrisponde all'utilizzo desiderato, sostituirlo con il modulo SFP+ corretto.
++
+Contattare il rappresentante NetApp per ottenere il modulo SFP+ corretto.
+
+. [[step3]]esaminare l'output di `system node hardware unified-connect show` oppure `ucadmin show` Per determinare se le porte UTA/UTA2 hanno la personalità desiderata.
+. [[step4]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se le porte UTA/UTA2... | Quindi... 
+
+
+| Non avere la personalità che si desidera | Passare a. <<man_check_3_step5,Fase 5>>. 
+
+
+| Avere la personalità che si desidera | Saltare i passaggi da 5 a 12 e passare a. <<man_check_3_step13,Fase 13>>. 
+|===
+. [[man_check_3_step5]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi di storage e sta eseguendo Clustered Data ONTAP 8.3 | Fare il boot node3 e accedere alla modalità di manutenzione:
+`boot_ontap maint` 
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Passare a. <<man_check_3_step6,Fase 6>>. Dovrebbe essere già attiva la modalità di manutenzione. 
+|===
+. [[man_check_3_step6]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se si sta configurando... | Quindi... 
+
+
+| Porte su una scheda UTA/UTA2 | Passare a. <<man_check_3_step7,Fase 7>>. 
+
+
+| Porte UTA/UTA2 integrate | Saltare la fase 7 e passare a. <<man_check_3_step8,Fase 8>>. 
+|===
+. [[MAN_check_3_step7]]se la scheda di rete è in modalità initiator e la porta UTA/UTA2 è in linea, portare la porta UTA/UTA2 offline:
++
+`storage disable adapter _adapter_name_`
+
++
+Gli adattatori in modalità di destinazione sono automaticamente offline in modalità di manutenzione.
+
+. [[man_check_3_step8]]se la configurazione corrente non corrisponde all'utilizzo desiderato, modificare la configurazione in base alle necessità:
++
+`ucadmin modify -m fc|cna -t initiator|target _adapter_name_`
+
++
+** `-m` è la modalità personality, `fc` oppure `cna`.
+** `-t` È di tipo FC4, `target` oppure `initiator`.
++
+
+NOTE: È necessario utilizzare FC Initiator per unità nastro, sistemi di virtualizzazione FlexArray e configurazioni MetroCluster. È necessario utilizzare la destinazione FC per i client SAN.
+
+
+
+. Verificare le impostazioni:
++
+`ucadmin show`
+
+. Verificare le impostazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi di storage  a| 
+.. Arrestare il sistema:
++
+`halt`
+
++
+Il sistema si arresta al prompt dell'ambiente di avvio.
+
+.. Immettere il seguente comando:
++
+`boot_ontap`
+
+
+
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Riavvio in modalità di manutenzione:
+`boot_netapp maint` 
+|===
+. [[step11]]verificare le impostazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi di storage | `system node hardware unified-connect show` 
+
+
+| È un V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
+|===
++
+L'output degli esempi seguenti mostra che il tipo di adattatore FC4 "1b" sta cambiando in `initiator` e che la modalità degli adattatori "2a" e "2b" stia cambiando in `cna`:
+
++
+[listing]
+----
+ cluster1::> system node hardware unified-connect show
+
+                Current  Current    Pending  Pending      Admin
+ Node  Adapter  Mode     Type       Mode     Type         Status
+ ----  -------  -------  ---------  -------  -----------  ------
+ f-a   1a       fc       initiator  -        -            online
+ f-a   1b       fc       target     -        initiator    online
+ f-a   2a       fc       target     cna      -            online
+ f-a   2b       fc       target     cna      -            online
+
+ 4 entries were displayed.
+----
++
+[listing]
+----
+*> ucadmin show
+         Current  Current    Pending  Pending    Admin
+Adapter  Mode     Type       Mode     Type       Status
+-------  -------  ---------  -------  ---------  ------
+1a       fc       initiator  -        -          online
+1b       fc       target     -        initiator  online
+2a       fc       target     cna      -          online
+2b       fc       target     cna      -          online
+*>
+----
+. [[step12a]]posizionare le porte di destinazione online immettendo uno dei seguenti comandi, una volta per ciascuna porta:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi di storage | `network fcp adapter modify -node _node_name_ -adapter _adapter_name_ -state up` 
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `fcp config _adapter_name_ up` 
+|===
+. [[MAN_check_3_step13]]collegare la porta via cavo.
+. [[step14]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema... | Quindi... 
+
+
+| Dispone di dischi di storage | Passare a. link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"]. 
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare a _Install e fare il boot node3_ e riprendere da link:install_boot_node3.html#step7["Fase 7"]. 
+|===
+

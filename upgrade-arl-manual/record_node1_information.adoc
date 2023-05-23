@@ -1,0 +1,203 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/record_node1_information.html 
+keywords: record, information, node1, NVRAM 
+summary: 'Registrare le informazioni relative alla rete cluster node1, alla gestione, alle porte FC e all"ID del sistema NVRAM durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.' 
+---
+= Registrare le informazioni del nodo 1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di spegnere e dismettere il node1, è necessario registrare le informazioni relative alla rete del cluster, alla gestione e alle porte FC, nonché l'ID del sistema NVRAM. Queste informazioni sono necessarie più avanti nella procedura quando si esegue il mapping del nodo 1 al nodo 3 e si riassegnano i dischi.
+
+.Fasi
+. [[step1]]immettere il seguente comando e acquisirne l'output:
++
+`network route show`
+
++
+Il sistema visualizza un output simile al seguente esempio:
+
++
+[listing]
+----
+ cluster::> network route show
+
+ Vserver        Destination    Gateway      Metric
+  -------------- -------------- ----------- -------
+  iscsi vserver  0.0.0.0/0      10.10.50.1  20
+  node1          0.0.0.0/0      10.10.20.1  10
+  ....
+  node2          0.0.0.0/0      192.169.1.1 20
+----
+. Immettere il seguente comando e acquisire l'output:
++
+`vserver services name-service dns show`
+
++
+Il sistema visualizza un output simile al seguente esempio:
+
++
+[listing]
+----
+ cluster::> vserver services name-service dns show
+                                                               Name
+ Vserver        State     Domains                              Servers
+ -------------- --------- ------------------------------------ ---------------
+ node 1 2       enabled   alpha.beta.gamma.netapp.com          10.10.60.10,
+                                                               10.10.60.20
+ vs_base1       enabled   alpha.beta.gamma.netapp.com,         10.10.60.10,
+                          beta.gamma.netapp.com,               10.10.60.20
+ ...
+ ...
+ vs peer1        enabled  alpha.beta.gamma.netapp.com,         10.10.60.10,
+                          gamma.netapp.com                     10.10.60.20
+----
+. [[man_record_node1_step3]]trova la rete del cluster e le porte di gestione dei nodi sul node1 immettendo il seguente comando su uno dei controller:
++
+`network interface show -curr-node _node1_ -role cluster,intercluster,node-mgmt,cluster-mgmt`
+
++
+Il sistema visualizza le LIF di cluster, intercluster, gestione dei nodi e gestione dei cluster per il nodo del cluster, come illustrato nell'esempio seguente:
+
++
+[listing]
+----
+ cluster::> network interface show -curr-node <node1>
+            -role cluster,intercluster,node-mgmt,cluster-mgmt
+
+              Logical       Status     Network            Current  Current Is
+  Vserver     Interface     Admin/Oper Address/Mask       Node     Port    Home
+  ----------- ------------- ---------- ------------------ -------- ------- ----
+  vserver1
+              cluster mgmt   up/up     192.168.x.xxx/24   node1    e0c     true
+  node1
+              intercluster   up/up     192.168.x.xxx/24   node1    e0e     true
+              clus1          up/up     169.254.xx.xx/24   node1    e0a     true
+              clus2          up/up     169.254.xx.xx/24   node1    e0b     true
+              mgmt1          up/up     192.168.x.xxx/24   node1    e0c     true
+ 5 entries were displayed.
+----
++
+
+NOTE: Il sistema potrebbe non disporre di LIF intercluster.
+
+. Acquisire le informazioni nell'output del comando in <<man_record_node1_step3,Fase 3>> da utilizzare nella sezione link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"].
++
+Le informazioni di output sono necessarie per mappare le nuove porte del controller alle vecchie porte del controller.
+
+. Immettere il seguente comando su node1:
++
+`network port show -node _node1_ -type physical`
+
++
+Il sistema visualizza le porte fisiche sul nodo, come mostrato nell'esempio seguente:
+
++
+[listing]
+----
+ sti8080mcc-htp-008::> network port show -node sti8080mcc-htp-008 -type physical
+
+ Node: sti8080mcc-htp-008
+
+                                                                  Ignore
+                                            Speed(Mbps)  Health   Health
+ Port  IPspace  Broadcast Domain Link MTU   Admin/Oper   Status   Status
+ ----  -------  ---------------- ---- ----  -----------  -------  -------
+ e0M   Default  Mgmt             up   1500  auto/1000    healthy  false
+ e0a   Default  Default          up   9000  auto/10000   healthy  false
+ e0b   Default  -                up   9000  auto/10000   healthy  false
+ e0c   Default  -                down 9000  auto/-       -        false
+ e0d   Default  -                down 9000  auto/-       -        false
+ e0e   Cluster  Cluster          up   9000  auto/10000   healthy  false
+ e0f   Default  -                up   9000  auto/10000   healthy  false
+ e0g   Cluster  Cluster          up   9000  auto/10000   healthy  false
+ e0h   Default  Default          up   9000  auto/10000   healthy  false
+ 9 entries were displayed.
+----
+. Registrare le porte e i relativi domini di trasmissione.
++
+I domini di broadcast dovranno essere mappati alle nuove porte sul nuovo controller più avanti nella procedura.
+
+. Immettere il seguente comando su node1:
++
+`network fcp adapter show -node _node1_`
+
++
+Il sistema visualizza le porte FC sul nodo, come mostrato nell'esempio seguente:
+
++
+[listing]
+----
+ cluster::> fcp adapter show -node <node1>
+                      Connection  Host
+ Node         Adapter Established Port Address
+ ------------ ------- ----------- ------------
+ node1
+               0a     ptp         11400
+ node1
+               0c     ptp         11700
+ node1
+               6a     loop        0
+ node1
+               6b     loop        0
+ 4 entries were displayed.
+----
+. Registrare le porte.
++
+Le informazioni di output sono necessarie per mappare le nuove porte FC sul nuovo controller più avanti nella procedura.
+
+. In caso contrario, controllare se ci sono gruppi di interfacce o VLAN configurati sul nodo 1 immettendo i seguenti comandi:
++
+`network port ifgrp show`
+
++
+`network port vlan show`
+
++
+Verranno utilizzate le informazioni contenute nella sezione link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"].
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="60,40"]
+|===
+| Se... | Quindi... 
+
+
+| Il numero dell'ID del sistema NVRAM è stato registrato nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]. | Passare alla sezione successiva, link:retire_node1.html["Ritirare il node1"]. 
+
+
+| Il numero dell'ID del sistema NVRAM non è stato registrato nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"] | Completo <<man_record_node1_step11,Fase 11>> e. <<man_record_node1_step12,Fase 12>> quindi passare a. link:retire_node1.html["Ritirare il node1"]. 
+|===
+. [[man_record_node1_step11]]immettere il seguente comando su uno dei controller:
++
+`system node show -instance -node _node1_`
+
++
+Il sistema visualizza le informazioni relative al nodo 1 come mostrato nell'esempio seguente:
+
++
+[listing]
+----
+ cluster::> system node show -instance -node <node1>
+                              Node: node1
+                             Owner:
+                          Location: GDl
+                             Model: FAS6240
+                     Serial Number: 700000484678
+                         Asset Tag: -
+                            Uptime: 20 days 00:07
+                   NVRAM System ID: 1873757983
+                         System ID: 1873757983
+                            Vendor: NetApp
+                            Health: true
+                       Eligibility: true
+----
+. [[man_record_node1_step12]]registrare il numero di ID del sistema NVRAM da utilizzare nella sezione link:install_boot_node3.html["Installazione e boot node3"].
+

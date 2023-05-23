@@ -1,0 +1,172 @@
+---
+permalink: upgrade/upgrade-prepare-when-moving-storage.html 
+sidebar: sidebar 
+keywords: licenses 
+summary: 'Prima di eseguire l"aggiornamento spostando lo storage, è necessario raccogliere informazioni sulle licenze dai nodi originali, pianificare la configurazione di rete, registrare gli ID di sistema e preparare i file necessari per il netboot.' 
+---
+= Preparatevi per l'aggiornamento durante lo spostamento dello storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di eseguire l'aggiornamento spostando lo storage, è necessario raccogliere informazioni sulle licenze dai nodi originali, pianificare la configurazione di rete, registrare gli ID di sistema e preparare i file necessari per il netboot.
+
+.Fasi
+. Visualizzare e registrare le informazioni di licenza dai nodi originali, node1 e node2:
++
+`system license show`
+
+. Se si utilizza Storage Encryption sulla coppia ha node1/node2 e i nuovi nodi dispongono di dischi abilitati alla crittografia, assicurarsi che i dischi dei nodi originali siano digitati correttamente:
++
+.. Visualizza informazioni sui dischi con crittografia automatica (SED)
++
+`storage encryption disk show`
+
+.. Se alcuni dischi sono associati a una chiave ID sicura non di produzione (non MSID), reinserirli in una chiave MSID
++
+`storage encryption disk modify`
+
+
+
+. [[Prepare_move_store_3]]Registra le informazioni sulla porta e sulla configurazione LIF sulla coppia ha node1/node2:
++
+[cols="1,2"]
+|===
+| Per visualizzare informazioni su... | Inserisci... 
+
+
+ a| 
+Shelf, numero di dischi in ogni shelf, dettagli dello storage flash, memoria, NVRAM e schede di rete
+ a| 
+`system node run -node _node_name_ sysconfig`
+
+
+
+ a| 
+LIF di gestione di nodi e reti cluster
+ a| 
+`network interface show -role cluster,node-mgmt`
+
+
+
+ a| 
+Porte fisiche
+ a| 
+`network port show -node _node_name_ -type physical`
+
+
+
+ a| 
+Gruppi di failover
+ a| 
+`network interface failover-groups show -vserver _vserver_name_`
+
+Registrare i nomi e le porte dei gruppi di failover che non sono a livello di cluster.
+
+
+
+ a| 
+Configurazione della VLAN
+ a| 
+`network port vlan show -node _node_name_`
+
+Registrare ogni coppia di porte di rete e ID VLAN.
+
+
+
+ a| 
+Configurazione del gruppo di interfacce
+ a| 
+`network port ifgrp show -node _node_name_ -instance`
+
+Annotare i nomi dei gruppi di interfacce e le porte ad essi assegnate.
+
+
+
+ a| 
+Domini di broadcast
+ a| 
+`network port broadcast-domain show`
+
+
+
+ a| 
+Informazioni IPSpace
+ a| 
+`network ipspace show`
+
+|===
+. Ottenere informazioni sulle porte del cluster predefinite, le porte dati e le porte di gestione dei nodi per ogni nuovo nodo che si sta aggiornando a: https://hwu.netapp.com["NetApp Hardware Universe"^]
+. [[ASSIGN_Lifs]]alcuni sistemi, ad esempio FAS8300, AFF A400 o FAS8700, Utilizzare le porte "e0a" e "e0b" come porte di interconnessione ad alta disponibilità (ha). Se si esegue l'aggiornamento da un sistema, ad esempio FAS8200 o AFF A300, a un sistema che utilizza le porte "e0a" e "e0b" come porte di interconnessione ha, È necessario riassegnare le LIF di gestione e di intercluster configurate su queste porte del sistema originale a porte alternative del sistema sostitutivo.
++
+
+WARNING: Quando le porte "e0a" e "e0b" vengono utilizzate come porte di interconnessione ha sul sistema sostitutivo, qualsiasi LIF di gestione o intercluster configurata su queste porte potrebbe causare un errore di aggiornamento impedendo alla configurazione ha di utilizzare le porte "e0a" e "e0b" per avviare il sistema sostitutivo.
+
++
+--
+.. Verificare se il sistema sostitutivo utilizza le porte "e0a" e "e0b" come porte ha: https://hwu.netapp.com["NetApp Hardware Universe"^]
+.. Se necessario, identificare le LIF di gestione o intercluster configurate sulle porte "e0a" e "e0b" del sistema originale:
++
+`network interface show -home-port _port_name_`
+
+.. Se necessario, riassegnare solo le LIF di gestione o intercluster interessate alle porte di rete che non vengono utilizzate come porte ha sul sistema sostitutivo:
++
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-port _new_port_name_`
+
++
+`network interface revert -vserver _vserver_name_ -lif _LIF_name_`
+
++
+Nell'esempio seguente, le LIF di gestione e di intercluster sulle porte di rete "e0a" e "e0b" vengono riassegnate alle porte di rete "e1a" e "e1b". I nodi potrebbero utilizzare porte di rete diverse in quanto variano in base al sistema.
+
++
+image::../upgrade/media/reassign_lifs.PNG[Riassegnazione di LIF alle porte di rete del sistema sostitutivo]
+
+
+
+--
+. [[Prepare_move_store_5]]Scarica e prepara i file utilizzati per eseguire il netboot.
++
+Dopo aver installato i nuovi nodi, potrebbe essere necessario eseguire il netboot per verificare che i nuovi nodi eseguano la stessa versione di ONTAP dei nodi originali. Il termine netboot indica che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Durante la preparazione per il netboot, è necessario inserire una copia dell'immagine di boot di ONTAP 9 su un server Web a cui il sistema può accedere.
+
++
+.. Accedere a. https://mysupport.netapp.com/site/["Sito di supporto NetApp"^] per scaricare i file utilizzati per eseguire il netboot del sistema.
+.. Scaricare il software ONTAP appropriato dalla sezione di download del software del sito di supporto NetApp e memorizzare il `<ontap_version>_image.tgz` file in una directory accessibile dal web.
+.. Passare alla directory accessibile dal Web e verificare che i file necessari siano disponibili.
+
+
++
+[cols="1,2"]
+|===
+| Per... | Quindi... 
+
+
+ a| 
+*SISTEMI DELLE SERIE FAS2200, FAS2500, FAS3200, FAS6200, FAS/AFF8000*
+ a| 
+Estrarre il contenuto di `<ontap_version>_image.tgz` file nella directory di destinazione:
+`tar -zxvf <ontap_version>_image.tgz`
+
+*Nota:* se si sta estraendo il contenuto su Windows, utilizzare 7-zip o WinRAR per estrarre l'immagine di netboot.
+
+L'elenco delle directory deve contenere una cartella netboot con un file kernel:
+`netboot/kernel`
+
+
+
+ a| 
+*Tutti gli altri sistemi*
+ a| 
+L'elenco delle directory deve contenere il seguente file:
+
+`<ontap_version>_image.tgz`
+
+
+NOTE: Non è necessario estrarre il contenuto di `<ontap_version>_image.tgz` file.
+
+|===
+
+
+Verranno utilizzate le informazioni nella directory per xref:upgrade-set-up-new-nodes.adoc[impostare i nuovi nodi].

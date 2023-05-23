@@ -1,0 +1,57 @@
+---
+permalink: upgrade/upgrade_reassign_drives_node1_to_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: Collegare fisicamente il nodo 1 al nodo 3 prima di riassegnare i dischi dal nodo 1 al nodo 3 
+---
+= Riassegnare i dischi dal nodo 1 al nodo 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver convertito il nodo 1 di AFF A250 in uno shelf di dischi NS224 e aver effettuato il collegamento al nodo 3 di AFF A400, è necessario riassegnare i dischi che in precedenza appartenevano al nodo 1 al nodo 3.
+
+.Fasi
+. Al prompt DEL CARICATORE, fare il boot node3 in Maintenance Mode (modalità di manutenzione):
++
+`boot_ontap maint`
+
+. Mostrare lo stato delle interfacce 100GbE:
++
+`storage port show`
+
+. Impostare le interfacce 100GbE sulle porte di storage:
++
+`storage port modify -p e0c -m storage`
+
++
+`storage port modify -p e0d -m storage`
+
+. Verificare le modifiche di modalità alle interfacce 100GbE:
++
+`storage port show`
+
+. Visualizza tutti i dischi collegati:
++
+`disk show -v`
+
+. Registrare l'ID del sistema locale.
+. Riassegnare tutti i dischi da node1 a node3:
++
+`disk reassign -s _node1_ -d _node3_ -p _node2_`
+
+. Verificare che tutte le unità riassegnate siano visualizzabili con il nuovo ID di sistema:
++
+`disk show -s _node3 system ID_`
+
++
+
+NOTE: Se i dischi non sono visualizzabili, *ARRESTARE* e contattare il supporto tecnico per assistenza.
+
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
+

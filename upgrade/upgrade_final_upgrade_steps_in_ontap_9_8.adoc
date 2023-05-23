@@ -1,0 +1,114 @@
+---
+permalink: upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html 
+sidebar: sidebar 
+keywords: complete, procedure, upgrading, upgrade, moving, move, storage, delete, unused, port, lif, re-enable, failover, availability, service, processor, sp, autosupport, volume, encryption, fc, cna, perform final upgrade steps in ontap 9.8 
+summary: 'Per completare la procedura di aggiornamento spostando lo storage, è necessario eliminare le porte e i AutoSupport inutilizzati dai nuovi nodi, riattivare il failover dello storage o l"alta disponibilità, configurare il Service Processor, installare nuove licenze e configurare il LIF. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o CNA.' 
+---
+= Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per completare la procedura di aggiornamento spostando lo storage, è necessario eliminare le porte e i AutoSupport inutilizzati dai nuovi nodi, riattivare il failover dello storage o l'alta disponibilità, configurare il Service Processor (SP), installare nuove licenze e impostare i LIF. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o CNA.
+
+.Prima di iniziare
+Questa procedura si applica ai sistemi che eseguono ONTAP 9.8 o versioni successive. Se si utilizza ONTAP 9.7 o versioni precedenti, è necessario seguire la procedura descritta in xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[Esecuzione delle fasi finali dell'aggiornamento in ONTAP 9.7 o versioni precedenti].
+
+.Fasi
+. Se sul sistema è in esecuzione ONTAP 9.7 o versione precedente, *STOP*. È necessario utilizzare la procedura descritta in xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[Esecuzione delle fasi finali dell'aggiornamento in ONTAP 9.7 o versioni precedenti].
+. Dal prompt del sistema storage, visualizzare le informazioni relative ai LIF:
++
+`network interface show`
+
+. Se ci si trova in un ambiente SAN, eliminare le LIF inutilizzate dal set di porte in modo da poterle rimuovere:
++
+.. Visualizzare l'elenco dei set di porte:
++
+`lun portset show`
+
+.. Rimuovere eventuali LIF inutilizzati dal set di porte:
++
+`lun portset remove`
+
+
+
+. Rimuovere ogni LIF inutilizzato dai nuovi nodi:
++
+`network interface delete`
+
+. Riattivare il failover dello storage o l'alta disponibilità sulla nuova coppia di nodi in base alle esigenze:
++
+[cols="1,2"]
+|===
+| Se si dispone di un... | Quindi... 
+
+
+ a| 
+Cluster a due nodi
+ a| 
+Riattivare l'alta disponibilità: `cluster ha modify -configured true`
+
+
+
+ a| 
+Un cluster con più di due nodi
+ a| 
+Riattivare il failover dello storage: `storage failover modify -node node_name -enabled true`
+
+|===
+. Configurare l'SP sui nuovi nodi in base alle necessità:
++
+`system service-processor network modify`
+
+. Installare nuove licenze sui nuovi nodi in base alle necessità:
++
+`system license add`
+
+. Impostare AutoSupport sui nuovi nodi:
++
+`system node autosupport modify`
+
+. Da ogni nuovo nodo, inviare un messaggio AutoSupport post-aggiornamento al supporto tecnico:
++
+`system node autosupport invoke -node node_name -type all -message "MAINT=END node_name successfully upgraded from platform_old to platform_new"`
+
+. Ripristinare la funzionalità Storage o Volume Encryption utilizzando la procedura appropriata in https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Gestire la crittografia con la CLI"^] contenuto.
++
+Utilizzare una delle seguenti procedure, a seconda che si utilizzi la gestione delle chiavi integrata o esterna:
+
++
+** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi integrate`"
+** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi esterne`"
+
+
+. Se i nuovi nodi dispongono di porte FC (onboard or on FC adapter), porte CNA integrate o una scheda CNA, configurare le porte FC o CNA immettendo il seguente comando al prompt del sistema di storage:
++
+`system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
+
++
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["Gestione SAN con CLI"^]
+
++
+È possibile modificare la configurazione CNA solo quando gli adattatori CNA sono offline.
+
+. Impostare un cluster senza switch sui nuovi nodi, se necessario.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migrazione a un cluster con switch a due nodi con switch cluster Cisco"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migrazione a un cluster con switch a due nodi con switch di cluster NetApp CN1610"^]
+
+. Se necessario, decommissionare i sistemi originali attraverso il NetApp Support Site per informare NetApp che i sistemi non sono più in funzione e possono essere rimossi dai database di supporto:
++
+.. Accedere a. https://mysupport.netapp.com/site/global/dashboard["Supporto NetApp"^] sito.
+.. Fare clic sul collegamento *My Installed Systems* (sistemi installati).
+.. Nella pagina sistemi installati, inserire il numero di serie del vecchio sistema nel modulo, quindi fare clic su *Go!*
+.. Nella pagina del modulo di dismissione, compila il modulo e fai clic su *Invia*.
+
+
+
+
+.Al termine
+La procedura di aggiornamento è stata completata.

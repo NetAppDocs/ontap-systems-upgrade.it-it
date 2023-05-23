@@ -1,0 +1,26 @@
+= Verificare la presenza di errori di trasferimento degli aggregati
+:allow-uri-read: 
+
+
+
+
+== Verificare la presenza di errori di trasferimento degli aggregati
+
+Durante la procedura, l'ARL potrebbe non funzionare nella fase 2, 3 o 5.
+
+.Fasi
+. Immettere il seguente comando ed esaminare l'output:
++
+`storage aggregate relocation show`
+
++
+Il `storage aggregate relocation show` il comando mostra quali aggregati sono stati riallocati correttamente e quali no, insieme alle cause del guasto.
+
+. Verificare la presenza di eventuali messaggi EMS nella console.
+. Eseguire una delle seguenti operazioni:
++
+** Intraprendere l'azione correttiva appropriata, a seconda dell'output di `storage aggregate relocation show` E l'output del messaggio EMS.
+** Forzare il trasferimento dell'aggregato o degli aggregati utilizzando `override-vetoes` o il `override-destination-checks` opzione di `storage aggregate relocation start` comando.
+
+
+

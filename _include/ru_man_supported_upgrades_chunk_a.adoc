@@ -1,0 +1,15 @@
+= 
+:allow-uri-read: 
+
+
+* I controller sostitutivi devono avere una capacità uguale o superiore a quella dei controller originali. Capacità uguale o superiore si riferisce agli attributi, ad esempio le dimensioni della NVRAM, il volume, il LUN o i limiti del numero di aggregati; si riferisce anche alle dimensioni massime del volume o dell'aggregato dei nuovi nodi.
+* È possibile aggiornare i seguenti tipi di sistemi:
++
+** Da un sistema FAS a un sistema FAS.
+** Da un sistema FAS a un sistema con software di virtualizzazione FlexArray o un sistema V-Series.
+** Da un sistema AFF a un sistema AFF.
+** Un sistema con software di virtualizzazione FlexArray o un sistema V-Series su un sistema FAS, a condizione che il sistema con software di virtualizzazione FlexArray o il sistema V-Series non disponga di LUN array.
+** Da un sistema V-Series a un sistema con software di virtualizzazione FlexArray o un sistema V-Series.
+
+
+

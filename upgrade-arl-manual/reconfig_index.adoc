@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/reconfig_index.html 
+keywords: reconfigure, fc, switch, layout, RCF, metrocluster 
+summary: Per ONTAP 9.1 o versioni successive, riconfigurare il layout delle porte e applicare gli RCF più recenti durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Riconfigurare il layout dello switch FC per ONTAP 9.1 o versione successiva
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se il layout dello switch FC esistente è stato configurato prima di ONTAP 9.1, è necessario riconfigurare il layout delle porte e applicare i file di configurazione di riferimento (RCF) più recenti. Questa procedura si applica solo alle configurazioni MetroCluster FC.
+
+.Prima di iniziare
+È necessario identificare gli switch FC presenti nel dominio fabric.
+
+È necessaria la password admin e l'accesso a un server FTP o SCP.
+
+.A proposito di questa attività
+È necessario eseguire questa attività se il layout dello switch FC esistente è stato configurato prima di ONTAP 9.1 e si sta eseguendo l'aggiornamento a un modello di piattaforma supportato in ONTAP 9.1 o versione successiva. Non è necessario eseguire l'aggiornamento da un layout di switch esistente configurato per ONTAP 9.1 o versione successiva.
+
+Questa procedura è senza interruzioni e richiede circa quattro ore per il completamento (esclusi rack e stack) quando i dischi vengono azzerati.
+
+.Fasi
+. link:send_custom_asup_message_prior_reconfig_switches.html["Inviare un messaggio AutoSupport personalizzato prima di riconfigurare gli switch"]
+. link:verify_health_mcc_config.html["Verificare lo stato della configurazione MetroCluster"]
+. link:check_mcc_config_errors.html["Verificare la presenza di errori di configurazione MetroCluster"]
+. link:persist_disable_switches.html["Disattivare in modo persistente gli switch"]
+. link:determine_new_cabling_layout.html["Determinare il nuovo layout del cablaggio"]
+. link:apply_RCF_files_recable_switches.html["Applicare i file RCF e recuperare gli switch"]
+. link:persist_enable_switches.html["Abilitare gli switch in modo persistente"]
+. link:verify_swtichover_healing_switchback.html["Verificare lo switchover, la riparazione e lo switchback"]
+

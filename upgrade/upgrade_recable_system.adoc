@@ -1,0 +1,31 @@
+---
+permalink: upgrade/upgrade-recable-system.html 
+sidebar: sidebar 
+keywords: run, diagnostic, recable, controller, module, storage, network, connection, recable the system 
+summary: Dopo aver eseguito la diagnostica, è necessario recuperare le connessioni di rete e di storage del modulo controller. 
+---
+= Riabilitare il sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver eseguito la diagnostica, è necessario recuperare le connessioni di rete e di storage del modulo controller.
+
+. Ricable del sistema.
+. Verificare che il cablaggio sia corretto utilizzando Config Advisor.
++
+.. Scaricare e installare Config Advisor dal sito del supporto NetApp.
++
+http://mysupport.netapp.com/["mysupport.netapp.com"]
+
+.. Inserire le informazioni relative al sistema di destinazione, quindi fare clic su *Collect Data* (raccolta dati).
+.. Fare clic sulla scheda *cabling*, quindi esaminare l'output.
++
+Assicurarsi che tutti gli shelf di dischi siano visualizzati e che tutti i dischi appaiano nell'output, correggendo eventuali problemi di cablaggio rilevati.
+
+.. Controllare gli altri cavi facendo clic sulla scheda appropriata, quindi esaminare l'output di Config Advisor.
+
+
+

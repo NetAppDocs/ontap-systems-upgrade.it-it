@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/restore_key_manager_config_node2.html 
+keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption 
+summary: Se necessario, ripristinare la configurazione del gestore delle chiavi sul nodo 2 durante un aggiornamento da AFF A700 a AFF A900. 
+---
+= Ripristinare la configurazione del gestore delle chiavi sul nodo 2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se si utilizza NetApp aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione della crittografia deve essere sincronizzata con i nuovi nodi. Se non si risincronizza il gestore delle chiavi, quando si trasferono gli aggregati node2 dal nodo aggiornato1 al nodo aggiornato2 utilizzando ARL, potrebbero verificarsi errori perché node2 non dispone delle chiavi di crittografia necessarie per portare online volumi e aggregati crittografati.
+
+.A proposito di questa attività
+Sincronizzare la configurazione della crittografia con i nuovi nodi seguendo questa procedura:
+
+.Fasi
+. Eseguire il seguente comando da node2:
++
+`security key-manager onboard sync`
+
+. Prima di spostare gli aggregati di dati, verificare che la chiave SVM-KEK sia ripristinata su "true" in node2:
++
+[listing]
+----
+::> security key-manager key query -node node2 -fields restored -key-type SVM-KEK
+----
++
+.Esempio
+[listing]
+----
+::> security key-manager key query -node node2 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node2    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
+

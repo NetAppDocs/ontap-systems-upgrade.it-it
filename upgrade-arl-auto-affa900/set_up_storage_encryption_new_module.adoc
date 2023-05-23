@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/set_up_storage_encryption_new_module.html 
+keywords: set up storage, encryption, controller, module, node 
+summary: Se necessario, configurare la crittografia dello storage, installare i certificati SSL e configurare i server di gestione delle chiavi durante un aggiornamento da AFF A700 a AFF A900. 
+---
+= Impostare Storage Encryption sul nuovo modulo controller
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se il controller sostituito o il partner ha del nuovo controller utilizza Storage Encryption, è necessario configurare il nuovo modulo controller per Storage Encryption, inclusa l'installazione dei certificati SSL e la configurazione dei server di gestione delle chiavi.
+
+.A proposito di questa attività
+Questa procedura include i passaggi che vengono eseguiti sul nuovo modulo controller. Immettere il comando sul nodo corretto.
+
+.Fasi
+. Verificare che i server di gestione delle chiavi siano ancora disponibili, che il loro stato e le relative informazioni sulla chiave di autenticazione:
++
+`security key-manager external show-status`
+
++
+`security key-manager onboard show-backup`
+
+. Aggiungere i server di gestione delle chiavi elencati nel passaggio precedente all'elenco dei server di gestione delle chiavi nel nuovo controller.
++
+.. Aggiungere il server di gestione delle chiavi:
++
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
+
+.. Ripetere il passaggio precedente per ciascun server di gestione delle chiavi elencato. È possibile collegare fino a quattro server di gestione delle chiavi.
+.. Verificare che i server di gestione delle chiavi siano stati aggiunti correttamente:
++
+`security key-manager external show`
+
+
+
+. Sul nuovo modulo controller, eseguire la configurazione guidata della gestione delle chiavi per configurare e installare i server di gestione delle chiavi.
++
+È necessario installare gli stessi server di gestione delle chiavi installati sul modulo controller esistente.
+
++
+.. Avviare la configurazione guidata del server di gestione delle chiavi sul nuovo nodo:
++
+`security key-manager external enable`
+
+.. Completare la procedura guidata per configurare i server di gestione delle chiavi.
+
+
+. Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo:
++
+`security key-manager external restore -node _new_controller_name_`
+
+

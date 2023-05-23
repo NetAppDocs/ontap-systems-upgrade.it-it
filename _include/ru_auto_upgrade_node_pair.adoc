@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+Per aggiornare la coppia di nodi, è necessario preparare i nodi originali ed eseguire una serie di passaggi sia sul nodo originale che su quello nuovo. È quindi possibile decommissionare i nodi originali.

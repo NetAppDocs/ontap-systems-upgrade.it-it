@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/overview_of_the_arl_upgrade.html 
+keywords: aggregate relocation, upgrade, process, overview, stages 
+summary: 'Comprendere la procedura per aggiornare i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` i comandi funzionano.' 
+---
+= Panoramica dell'aggiornamento ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di aggiornare i nodi utilizzando ARL, è necessario comprendere il funzionamento della procedura. In questo contenuto, la procedura viene suddivisa in diverse fasi.
+
+
+
+== Aggiornare la coppia di nodi
+
+Per aggiornare la coppia di nodi, è necessario preparare i nodi originali ed eseguire una serie di passaggi sia sul nodo originale che su quello nuovo. È quindi possibile decommissionare i nodi originali.
+
+
+
+== Panoramica della sequenza di aggiornamento ARL
+
+Durante la procedura, si aggiorna l'hardware del controller originale con l'hardware del controller sostitutivo, un controller alla volta, sfruttando la configurazione della coppia ha per trasferire la proprietà degli aggregati non root. Tutti gli aggregati non root devono essere sottoposti a due rilocazioni per raggiungere la destinazione finale, che è il nodo aggiornato corretto.
+
+Ogni aggregato ha un proprietario di casa e un proprietario corrente. Il proprietario della casa è il proprietario effettivo dell'aggregato e il proprietario attuale è il proprietario temporaneo.
+
+La seguente tabella descrive le attività di alto livello eseguite durante ciascuna fase e lo stato di proprietà aggregata alla fine della fase. Le fasi dettagliate vengono fornite più avanti nella procedura:
+
+[cols="25,75"]
+|===
+| Fase | Fasi 
+
+
+| link:stage_1_index.html["Fase 1. Preparatevi per l'aggiornamento"]  a| 
+Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È necessario registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando OKM e si può scegliere di interrompere le relazioni di SnapMirror.
+
+Proprietà aggregata alla fine della fase 1:
+
+* Node1 è il proprietario della casa e l'attuale proprietario degli aggregati node1.
+* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2.
+
+
+
+
+| link:stage_2_index.html["Fase 2. Spostare e dismettere il node1"]  a| 
+Durante la fase 2, è possibile spostare gli aggregati non root node1 e le LIF dei dati NAS in node2. Questo processo è in gran parte automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione. Se necessario, spostare gli aggregati non riusciti o vetoed. È necessario registrare le informazioni necessarie per il node1 da utilizzare più avanti nella procedura e quindi dismettere il node1. Puoi anche prepararti a netboot node3 e node4 più avanti nella procedura.
+
+Proprietà aggregata alla fine della fase 2:
+
+* Node2 è l'attuale proprietario degli aggregati node1.
+* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2.
+
+
+
+
+| link:stage_3_index.html["Fase 3. Installazione e boot node3"]  a| 
+Durante la fase 3, si installa e si avvia node3, si mappano le porte di gestione del cluster e dei nodi da node1 a node3 e si verifica l'installazione node3. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3 e confermare che node3 si è Unito al quorum. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
+
+Proprietà aggregata alla fine della fase 3:
+
+* Node3 è il proprietario della casa e il proprietario corrente degli aggregati node1.
+* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2.
+
+
+
+
+| link:stage_4_index.html["Fase 4. Spostare e dismettere il node2"]  a| 
+Durante la fase 4, è possibile spostare node2 aggregati non root e LIF di dati non SAN in node3. È inoltre possibile registrare le informazioni necessarie per il node2, quindi dismettere il node2.
+
+Proprietà aggregata alla fine della fase 4:
+
+* Node3 è il proprietario della casa e l'attuale proprietario di aggregati che originariamente appartenevano al node1.
+* Node2 è il proprietario domestico degli aggregati node2.
+* Node3 è l'attuale proprietario degli aggregati node2.
+
+
+
+
+| link:stage_5_index.html["Fase 5. Installazione e boot node4"]  a| 
+Durante la fase 5, si installa e si avvia node4, si mappano le porte di gestione del cluster e dei nodi da node2 a node4 e si verifica l'installazione node4. Se necessario, impostare la configurazione FC o UTA/UTA2 su node4 e confermare che node4 si è Unito al quorum. È inoltre possibile spostare le LIF dei dati NAS node2 e gli aggregati non root da node3 a node4 e verificare che le LIF SAN esistano sul node4.
+
+Proprietà aggregata alla fine della fase 5:
+
+* Node3 è il proprietario di casa e l'attuale proprietario degli aggregati che originariamente appartenevano al node1.
+* Node4 è il proprietario della casa e l'attuale proprietario di aggregati che originariamente appartenevano al node2.
+
+
+
+
+| link:stage_6_index.html["Fase 6. Completare l'aggiornamento"]  a| 
+Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, configuri e configuri Storage Encryption o NetApp Volume Encryption. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
+
+|===

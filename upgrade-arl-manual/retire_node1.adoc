@@ -1,0 +1,212 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/retire_node1.html 
+keywords: retire, node1, epsilon, shut down, failover 
+summary: Disattivare la coppia ha con node2 e chiudere node1 correttamente durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Ritirare il node1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per dismettere il node1, è necessario disattivare la coppia ha con node2, chiudere il node1 correttamente e rimuoverlo dal rack o dallo chassis.
+
+.Fasi
+. Verificare il numero di nodi nel cluster:
++
+`cluster show`
+
++
+Il sistema visualizza i nodi nel cluster, come illustrato nell'esempio seguente:
+
++
+[listing]
+----
+cluster::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+. [[man_retyre_1_step2]]Disattiva il failover dello storage, a seconda dei casi:
++
+[cols="35,65"]
+|===
+| Se il cluster è... | Quindi... 
+
+
+| Un cluster a due nodi  a| 
+.. Disattivare la disponibilità elevata del cluster immettendo il seguente comando su uno dei nodi:
+
+
+`cluster ha modify -configured false`
+
+.. Disattivare il failover dello storage:
+
+
+`storage failover modify -node _node1_ -enabled false`
+
+
+
+| Un cluster con più di due nodi | Disattivare il failover dello storage:
+`storage failover modify -node _node1_ -enabled false` 
+|===
++
+
+WARNING: Se non si disattiva il failover dello storage, può verificarsi un errore di upgrade del controller che può interrompere l'accesso ai dati e causare la perdita di dati.
+
+. Verificare che il failover dello storage sia stato disattivato:
++
+`storage failover show`
+
++
+L'esempio seguente mostra l'output di `storage failover show` comando quando il failover dello storage è stato disattivato per un nodo:
+
++
+[listing]
+----
+ cluster::> storage failover show
+                               Takeover
+ Node           Partner        Possible State Description
+ -------------- -------------- -------- -------------------------------------
+ node1          node2          false    Connected to node2, Takeover
+                                        is not possible: Storage failover is
+                                        disabled
+
+ node2          node1          false    Node owns partner's aggregates as part
+                                        of the nondisruptive controller upgrade
+                                        procedure. Takeover is not possible:
+                                        Storage failover is disabled
+ 2 entries were displayed.
+----
+. Verificare lo stato LIF dei dati:
++
+`network interface show -role data -curr-node _node2_ -home-node _node1_`
+
++
+Controllare nella colonna *Status Admin/Oper* (Amministrazione stato/Oper*) se le LIF non sono attive. Se i LIF non sono attivi, consultare link:troubleshoot_index.html["Troublehoot"] sezione.
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il cluster è... | Quindi... 
+
+
+| Un cluster a due nodi | Passare a. <<man_retire_1_step6,Fase 6>>. 
+
+
+| Un cluster con più di due nodi | Passare a. <<man_retire_1_step8,Fase 8>>. 
+|===
+. [[man_retyre_1_step6]]Accedi al livello di privilegio avanzato su uno dei nodi:
++
+`set -privilege advanced`
+
+. [[step7]]verificare che il cluster ha sia stato disattivato:
++
+`cluster ha show`
+
++
+Il sistema visualizza il seguente messaggio:
+
++
+[listing]
+----
+High Availability Configured: false
+----
++
+Se il cluster ha non è stato disattivato, ripetere <<man_retire_1_step2,Fase 2>>.
+
+. [[man_retyre_1_step8]]Controlla se il node1 attualmente contiene epsilon:
++
+`cluster show`
+
++
+Poiché esiste la possibilità di un legame in un cluster con un numero pari di nodi, un nodo ha un peso di voto frazionario aggiuntivo chiamato epsilon. Fare riferimento a. link:other_references.html["Riferimenti"] Per ulteriori informazioni, fare riferimento a _System Administration Reference_.
+
++
+[NOTE]
+====
+Se si dispone di un cluster a quattro nodi, epsilon potrebbe trovarsi su un nodo di una coppia ha diversa nel cluster.
+
+Se si sta aggiornando una coppia ha in un cluster con più coppie ha, è necessario spostare epsilon nel nodo di una coppia ha non sottoposta a un aggiornamento del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed.
+
+====
++
+Il seguente esempio mostra che node1 contiene epsilon:
+
++
+[listing]
+----
+ cluster::*> cluster show
+
+ Node                 Health  Eligibility  Epsilon
+ -------------------- ------- ------------ ------------
+ node1                true    true         true
+ node2                true    true         false
+----
+. Se node1 contiene epsilon, contrassegnare epsilon `false` sul nodo in modo che possa essere trasferito al nodo 2:
++
+`cluster modify -node _node1_ -epsilon false`
+
+. Trasferire epsilon al nodo 2 contrassegnando epsilon `true` al nodo 2:
++
+`cluster modify -node _node2_ -epsilon true`
+
+. Verificare che si sia verificata la modifica in node2:
++
+`cluster show`
+
++
+[listing]
+----
+ cluster::*> cluster show
+ Node                 Health  Eligibility  Epsilon
+ -------------------- ------- ------------ ------------
+ node1                true    true         false
+ node2                true    true         true
+----
++
+L'epsilon per il node2 dovrebbe ora essere vero e l'epsilon per il node1 dovrebbe essere falso.
+
+. Verificare se il setup è un cluster senza switch a due nodi:
++
+`network options switchless-cluster show`
+
++
+[listing]
+----
+ cluster::*> network options switchless-cluster show
+
+ Enable Switchless Cluster: false/true
+----
++
+Il valore di questo comando deve corrispondere allo stato fisico del sistema.
+
+. Tornare al livello di amministrazione:
++
+`set -privilege admin`
+
+. Arrestare il node1 dal prompt node1:
++
+`system node halt -node _node1_`
+
++
+
+WARNING: *Attenzione*: Se il node1 si trova nello stesso chassis del node2, non spegnere lo chassis utilizzando l'interruttore di alimentazione o tirando il cavo di alimentazione. In tal caso, il nodo 2, che sta servendo i dati, si spegnerà.
+
+. Quando il sistema richiede di confermare che si desidera arrestare il sistema, immettere `y`.
++
+Il nodo si arresta al prompt dell'ambiente di boot.
+
+. Quando node1 visualizza il prompt dell'ambiente di avvio, rimuoverlo dallo chassis o dal rack.
++
+Una volta completato l'aggiornamento, è possibile decommissionare il node1. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+
+

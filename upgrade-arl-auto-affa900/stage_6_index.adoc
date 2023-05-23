@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_6_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Fase 1 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP 9.8 o versioni successive.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 6, si avvia node2 con controller e moduli NVRAM aggiornati e si verifica l'installazione node2 aggiornata. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. È inoltre possibile spostare gli aggregati non root node1 e le LIF dei dati NAS dal node1 al node2 aggiornato e verificare che le LIF SAN esistano sul node2.
+
+. link:boot_node2_with_a900_controller_and_nvs.html["Punto di avvio2 con controller AFF A900 o FAS9500 e moduli NVRAM"]
+. link:verify_node2_installation.html["Verificare l'installazione di node2"]
+. link:restore_key_manager_config_node2.html["Ripristinare la configurazione del gestore delle chiavi sul nodo 2"]
+. link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"]
+

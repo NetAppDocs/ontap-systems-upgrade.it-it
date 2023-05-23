@@ -1,0 +1,28 @@
+---
+permalink: upgrade/upgrade-install-new-nodes.html 
+sidebar: sidebar 
+keywords: upgrade, moving, move, storage, install, node3, node4, attach, power, console, network, connection, install the new nodes 
+summary: 'Quando si esegue l"aggiornamento spostando lo storage, si inizia installando il nodo 3 e il nodo 4 e collegando le connessioni di alimentazione, console e rete ai nuovi nodi.' 
+---
+= Installare i nuovi nodi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si esegue l'aggiornamento spostando lo storage, si inizia installando il nodo 3 e il nodo 4 e collegando le connessioni di alimentazione, console e rete ai nuovi nodi.
+
+.Fasi
+. Se necessario, installare gli adattatori in node3 e node4, seguendo le istruzioni nella procedura di installazione dell'adattatore appropriata.
+. Installare i nuovi nodi seguendo le _istruzioni di installazione e configurazione_ della piattaforma.
++
+A questo punto, non collegare shelf di dischi dai nodi originali ai nuovi nodi.
+
+. Collegare le connessioni di alimentazione e console alla coppia ha node3/node4, seguendo le _istruzioni di installazione e configurazione_ della piattaforma.
+. Collegare i cavi di rete.
+. Trasferire tutti i cavi rimanenti, ad eccezione dei cavi dello shelf storage, dalla coppia ha node1/node2 alle porte corrispondenti rispettivamente sul node3/node4.
++
+Sono inclusi i cavi Fibre Channel ed Ethernet non utilizzati per collegare gli shelf di storage.
+
+

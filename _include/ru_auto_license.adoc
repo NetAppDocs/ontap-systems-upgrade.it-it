@@ -1,0 +1,15 @@
+= Licenza
+:allow-uri-read: 
+
+
+
+
+== Licenza
+
+Quando si configura un cluster, la procedura guidata richiede di inserire la chiave di licenza del cluster. Tuttavia, alcune funzionalità richiedono licenze aggiuntive, che vengono emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
+
+Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare la nuova chiave di licenza o le nuove chiavi per il nuovo controller al termine dell'aggiornamento.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_, dove è possibile ottenere nuove chiavi di licenza a 2 caratteri per ONTAP. Le chiavi sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
+
+Per informazioni dettagliate sulle licenze, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.

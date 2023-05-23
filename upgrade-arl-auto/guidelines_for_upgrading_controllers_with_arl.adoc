@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: upgrade, controllers, guidelines, ARL, aggregate relocation, supported upgrades, two-node, cluster, troubleshoot 
+summary: 'Capire se è possibile aggiornare i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Linee guida per l'aggiornamento dei controller con ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per capire se è possibile utilizzare ARL (aggregate relocation) per aggiornare una coppia di controller che eseguono ONTAP 9.5 a ONTAP 9.7, dipende dalla piattaforma e dalla configurazione dei controller originali e sostitutivi.
+
+
+
+== Aggiornamenti supportati per ARL
+
+Quando si aggiorna una coppia di nodi utilizzando questa procedura ARL per ONTAP 9.5 a ONTAP 9.7, è necessario verificare che ARL possa essere eseguito sui controller originali e sostitutivi.
+
+Controllare le dimensioni di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. È quindi necessario confrontare le dimensioni e il numero di dischi aggregati supportati con le dimensioni e il numero di dischi aggregati supportati dal nuovo sistema. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _Hardware Universe_ dove queste informazioni sono disponibili. La dimensione aggregata e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione aggregata e al numero di dischi supportati dal sistema originale.
+
+È necessario verificare nelle regole di combinazione del cluster se i nuovi nodi possono diventare parte del cluster con i nodi esistenti, quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di combinazione dei cluster, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+
+
+NOTE: Prima di eseguire un aggiornamento del sistema AFF, è necessario aggiornare ONTAP alla versione 9.5P1 o successiva. Questi livelli di release sono necessari per un aggiornamento corretto.
+
+
+NOTE: Se si sta aggiornando un sistema che supporta dischi interni (ad esempio, un sistema FAS2700 o AFF A250) ma NON dispone di dischi interni, fare riferimento a. link:other_references.html["Riferimenti"] E utilizzare la procedura descritta nella sezione _aggregate Relocation to Manually Upgrade Controller hardware_ content (trasferimento aggregato per aggiornare manualmente l'hardware del controller) corretta per la versione di ONTAP in uso.
+
+Se si utilizza ONTAP 9.6P11, 9.7P8 o versioni successive, si consiglia di attivare il Takeover di connettività, livellosità e monitoraggio della disponibilità (CLAM) per riportare il cluster al quorum quando si verificano determinati guasti del nodo. Il `kernel-service` il comando richiede un accesso avanzato a livello di privilegio. Per ulteriori informazioni, consulta: https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["Articolo SU436 della Knowledge base di NetApp: Modifica della configurazione predefinita DI Takeover DI CLAM"^].
+
+L'upgrade del controller tramite ARL è supportato sui sistemi configurati con volumi di conformità SnapLock Enterprise e SnapLock.
+
+
+
+== Cluster senza switch a due nodi
+
+Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.
+
+
+
+== Aggiornamenti non supportati per ARL
+
+Non è possibile eseguire i seguenti aggiornamenti:
+
+* Ai controller sostitutivi che non supportano gli shelf di dischi collegati ai controller originali
++
+Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento a _Hardware Universe_ per informazioni sul supporto dei dischi.
+
+* Ai controller entry-level con dischi interni, ad esempio FAS 2500.
++
+Se si desidera aggiornare i controller entry-level con dischi interni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_ e passare alla procedura _aggiornamento di una coppia di nodi che eseguono Clustered Data ONTAP spostando volumi_.
+
+
+
+
+
+== Risoluzione dei problemi
+
+In caso di problemi durante l'aggiornamento dei controller, consultare la sezione link:troubleshoot_index.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni.
+
+Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.

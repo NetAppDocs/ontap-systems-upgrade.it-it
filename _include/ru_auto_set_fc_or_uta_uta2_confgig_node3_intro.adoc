@@ -1,0 +1,11 @@
+= 
+:allow-uri-read: 
+
+
+Se node3 dispone di porte FC integrate, porte UTA/UTA2 (onboard Unified target adapter) o una scheda UTA/UTA2, è necessario configurare le impostazioni prima di completare il resto della procedura.
+
+.A proposito di questa attività
+Potrebbe essere necessario completare la sezione <<Configurare le porte FC sul nodo 3>>, la sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>, o entrambe le sezioni.
+
+
+NOTE: I materiali di marketing NetApp potrebbero utilizzare il termine UTA2 per fare riferimento alle porte e agli adattatori CNA (Converged Network Adapter). Tuttavia, la CLI utilizza il termine CNA.

@@ -1,0 +1,395 @@
+= 
+:allow-uri-read: 
+
+
+. Registrare il modello, l'ID del sistema e il numero di serie di entrambi i nodi:
++
+`system node show -node _node1,node2_ -instance`
+
++
+
+NOTE: Le informazioni verranno utilizzate per riassegnare i dischi e decommissionare i nodi originali.
+
+. Immettere il seguente comando sia sul nodo 1 che sul nodo 2 e registrare le informazioni sugli shelf, il numero di dischi in ogni shelf, i dettagli dello storage flash, la memoria, la NVRAM e le schede di rete dall'output:
++
+`run -node _node_name_ sysconfig`
+
++
+
+NOTE: È possibile utilizzare le informazioni per identificare i componenti o gli accessori che si desidera trasferire al nodo 3 o al nodo 4. Se non si sa se i nodi sono sistemi V-Series o se si dispone di software di virtualizzazione FlexArray, si può imparare anche dall'output.
+
+. Immettere il seguente comando sia su node1 che su node2 e registrare gli aggregati che sono online su entrambi i nodi:
++
+`storage aggregate show -node _node_name_ -state online`
+
++
+
+NOTE: È possibile utilizzare queste informazioni e le informazioni riportate nel seguente passaggio per verificare che gli aggregati e i volumi rimangano online durante l'intera procedura, ad eccezione del breve periodo in cui sono offline durante il trasferimento.
+
+. [[man_Prepare_Nodes_step19]]immettere il seguente comando sia su node1 che su node2 e registrare i volumi offline su entrambi i nodi:
++
+`volume show -node _node_name_ -state offline`
+
++
+
+NOTE: Dopo l'aggiornamento, eseguire di nuovo il comando e confrontare l'output con l'output in questa fase per verificare se altri volumi sono andati offline.
+
++
+.. Immettere i seguenti comandi per verificare se sono configurati gruppi di interfacce o VLAN su node1 o node2:
++
+`network port ifgrp show`
+
++
+`network port vlan show`
+
++
+Annotare se i gruppi di interfacce o le VLAN sono configurati su node1 o node2; tali informazioni sono necessarie nella fase successiva e successiva della procedura.
+
+.. Completare i seguenti passaggi secondari su node1 e node2 per confermare che le porte fisiche possono essere mappate correttamente più avanti nella procedura:
+
+
+. Immettere il seguente comando per verificare la presenza di gruppi di failover sul nodo diversi da `clusterwide`:
++
+`network interface failover-groups show`
+
++
+I gruppi di failover sono insiemi di porte di rete presenti nel sistema. Poiché l'aggiornamento dell'hardware del controller può modificare la posizione delle porte fisiche, i gruppi di failover possono essere modificati inavvertitamente durante l'aggiornamento.
+
++
+Il sistema visualizza i gruppi di failover sul nodo, come illustrato nell'esempio seguente:
+
++
+....
+cluster::> network interface failover-groups show
+
+Vserver             Group             Targets
+------------------- ----------------- ----------
+Cluster             Cluster           node1:e0a, node1:e0b
+                                      node2:e0a, node2:e0b
+
+fg_6210_e0c         Default           node1:e0c, node1:e0d
+                                      node1:e0e, node2:e0c
+                                      node2:e0d, node2:e0e
+
+2 entries were displayed.
+....
+. Se sono presenti gruppi di failover diversi da `clusterwide`, registrare i nomi dei gruppi di failover e le porte che appartengono ai gruppi di failover.
+. Immettere il seguente comando per verificare se nel nodo sono configurate VLAN:
++
+`network port vlan show -node _node_name_`
+
++
+Le VLAN sono configurate su porte fisiche. Se le porte fisiche cambiano, sarà necessario ricreare le VLAN in un secondo momento della procedura.
+
++
+Il sistema visualizza le VLAN configurate sul nodo, come illustrato nell'esempio seguente:
+
++
+....
+cluster::> network port vlan show
+
+Network Network
+Node    VLAN Name Port    VLAN ID MAC Address
+------  --------- ------- ------- ------------------
+node1   e1b-70    e1b     70      00:15:17:76:7b:69
+....
+. Se nel nodo sono configurate VLAN, prendere nota di ogni associazione di porte di rete e ID VLAN.
++
+.. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se i gruppi di interfacce o LE VLAN sono... | Quindi... 
+
+
+| On node1 o node2 | Completo <<man_prepare_nodes_step23,Fase 23>> e. <<man_prepare_nodes_step24,Fase 24>>. 
+
+
+| Non su node1 o node2 | Passare a. <<man_prepare_nodes_step24,Fase 24>>. 
+|===
+.. [[man_Prepare_Nodes_step23]] se non si sa se node1 e node2 si trovano in un ambiente SAN o non SAN, immettere il seguente comando ed esaminarne l'output:
++
+`network interface show -vserver _vserver_name_ -data-protocol iscsi|fcp`
+
++
+Se non sono configurati né iSCSI né FC per SVM, il comando visualizza un messaggio simile all'esempio seguente:
+
++
+....
+cluster::> network interface show -vserver Vserver8970 -data-protocol iscsi|fcp
+There are no entries matching your query.
+....
++
+È possibile verificare che il nodo si trovi in un ambiente NAS utilizzando `network interface show` con il `-data-protocol nfs|cifs` parametri.
+
++
+Se iSCSI o FC sono configurati per SVM, il comando visualizza un messaggio simile all'esempio seguente:
+
++
+....
+cluster::> network interface show -vserver vs1 -data-protocol iscsi|fcp
+
+         Logical    Status     Network            Current  Current Is
+Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
+-------- ---------- ---------- ------------------ -------- ------- ----
+vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true
+....
+.. [[man_Prepare_Nodes_step24]]verificare che tutti i nodi del cluster siano in quorum completando le seguenti fasi secondarie:
+
+
+. Immettere il livello di privilegio avanzato:
++
+`set -privilege advanced`
+
++
+Il sistema visualizza il seguente messaggio:
+
++
+....
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
+Do you wish to continue? (y or n):
+....
+. Invio `y`.
+. Verificare lo stato del servizio cluster nel kernel, una volta per ogni nodo:
++
+`cluster kernel-service show`
+
++
+Il sistema visualizza un messaggio simile al seguente esempio:
+
++
+....
+cluster::*> cluster kernel-service show
+
+Master        Cluster       Quorum        Availability  Operational
+Node          Node          Status        Status        Status
+------------- ------------- ------------- ------------- -------------
+node1         node1         in-quorum     true          operational
+              node2         in-quorum     true          operational
+
+2 entries were displayed.
+....
++
+I nodi di un cluster sono in quorum quando una semplice maggioranza di nodi è in buone condizioni e può comunicare tra loro. Per ulteriori informazioni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.
+
+. Tornare al livello di privilegi amministrativi:
++
+`set -privilege admin`
+
++
+.. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il cluster... | Quindi... 
+
+
+| HA UNA SAN configurata | Passare a. <<man_prepare_nodes_step26,Fase 26>>. 
+
+
+| NON ha SAN configurato | Passare a. <<man_prepare_nodes_step29,Fase 29>>. 
+|===
+.. [[man_Prepare_Nodes_step26]]verificare che vi siano LIF SAN su node1 e node2 per ogni SVM che ha UN servizio SAN iSCSI o FC abilitato immettendo il seguente comando ed esaminandone l'output:
++
+`network interface show -data-protocol iscsi|fcp -home-node _node_name_`
+
++
+Il comando visualizza le informazioni LIF SAN per node1 e node2. Gli esempi seguenti mostrano lo stato nella colonna Status Admin/Oper come up/up, indicando che SAN iSCSI e il servizio FC sono abilitati:
+
++
+....
+cluster::> network interface show -data-protocol iscsi|fcp
+            Logical    Status     Network                  Current   Current Is
+Vserver     Interface  Admin/Oper Address/Mask             Node      Port    Home
+----------- ---------- ---------- ------------------       --------- ------- ----
+a_vs_iscsi  data1      up/up      10.228.32.190/21         node1     e0a     true
+            data2      up/up      10.228.32.192/21         node2     e0a     true
+
+b_vs_fcp    data1      up/up      20:09:00:a0:98:19:9f:b0  node1     0c      true
+            data2      up/up      20:0a:00:a0:98:19:9f:b0  node2     0c      true
+
+c_vs_iscsi_fcp data1   up/up      20:0d:00:a0:98:19:9f:b0  node2     0c      true
+            data2      up/up      20:0e:00:a0:98:19:9f:b0  node2     0c      true
+            data3      up/up      10.228.34.190/21         node2     e0b     true
+            data4      up/up      10.228.34.192/21         node2     e0b     true
+....
++
+In alternativa, è possibile visualizzare informazioni LIF più dettagliate immettendo il seguente comando:
+
++
+`network interface show -instance -data-protocol iscsi|fcp`
+
+.. Acquisire la configurazione predefinita di qualsiasi porta FC sui nodi originali immettendo il seguente comando e registrando l'output dei sistemi:
++
+`ucadmin show`
+
++
+Il comando visualizza le informazioni su tutte le porte FC del cluster, come illustrato nell'esempio seguente:
+
++
+....
+cluster::> ucadmin show
+
+                Current Current   Pending Pending   Admin
+Node    Adapter Mode    Type      Mode    Type      Status
+------- ------- ------- --------- ------- --------- -----------
+node1   0a      fc      initiator -       -         online
+node1   0b      fc      initiator -       -         online
+node1   0c      fc      initiator -       -         online
+node1   0d      fc      initiator -       -         online
+node2   0a      fc      initiator -       -         online
+node2   0b      fc      initiator -       -         online
+node2   0c      fc      initiator -       -         online
+node2   0d      fc      initiator -       -         online
+8 entries were displayed.
+....
++
+È possibile utilizzare le informazioni dopo l'aggiornamento per impostare la configurazione delle porte FC sui nuovi nodi.
+
+.. Se si sta aggiornando un sistema V-Series o un sistema con software di virtualizzazione FlexArray, acquisire informazioni sulla topologia dei nodi originali immettendo il seguente comando e registrando l'output:
++
+`storage array config show -switch`
+
++
+Il sistema visualizza le informazioni sulla topologia, come mostrato nell'esempio seguente:
+
++
+....
+cluster::> storage array config show -switch
+
+      LUN LUN                                  Target Side Initiator Side Initi-
+Node  Grp Cnt Array Name    Array Target Port  Switch Port Switch Port    ator
+----- --- --- ------------- ------------------ ----------- -------------- ------
+node1 0   50  I_1818FAStT_1
+                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:3  0d
+                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:4  2b
+                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:1  0c
+node2 0   50  I_1818FAStT_1
+                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:1  0d
+                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:2  2b
+                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:3  0c
+                            208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
+7 entries were displayed.
+....
+.. [[man_Prepare_Nodes_step29]]completare i seguenti passaggi secondari:
+
+
+. Immettere il seguente comando su uno dei nodi originali e registrare l'output:
++
+`service-processor show -node * -instance`
+
++
+Il sistema visualizza informazioni dettagliate sull'SP su entrambi i nodi.
+
+. Verificare che lo stato SP sia `online`.
+. Verificare che la rete SP sia configurata.
+. Registrare l'indirizzo IP e altre informazioni sull'SP.
++
+È possibile riutilizzare i parametri di rete dei dispositivi di gestione remota, in questo caso gli SP, dal sistema originale per gli SP sui nuovi nodi. Per informazioni dettagliate sull'SP, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _riferimento per l'amministrazione del sistema_ e ai comandi di _ONTAP 9: Riferimento pagina manuale_.
+
++
+.. [[man_Prepare_Nodes_step30]]se si desidera che i nuovi nodi abbiano la stessa funzionalità concessa in licenza dei nodi originali, immettere il seguente comando per visualizzare le licenze del cluster sul sistema originale:
++
+`system license show -owner *`
+
++
+L'esempio seguente mostra le licenze del sito per il cluster1:
+
++
+....
+system license show -owner *
+Serial Number: 1-80-000013
+Owner: cluster1
+
+Package           Type    Description           Expiration
+----------------- ------- --------------------- -----------
+Base              site    Cluster Base License  -
+NFS               site    NFS License           -
+CIFS              site    CIFS License          -
+SnapMirror        site    SnapMirror License    -
+FlexClone         site    FlexClone License     -
+SnapVault         site    SnapVault License     -
+6 entries were displayed.
+....
+.. Ottenere nuove chiavi di licenza per i nuovi nodi presso il _NetApp Support Site_. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_.
++
+Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
+
+.. Verificare se il sistema originale ha abilitato AutoSupport immettendo il seguente comando su ciascun nodo ed esaminandone l'output:
++
+`system node autosupport show -node _node1,node2_`
+
++
+L'output del comando indica se AutoSupport è attivato, come illustrato nell'esempio seguente:
+
++
+....
+cluster::> system node autosupport show -node node1,node2
+
+Node             State     From          To                Mail Hosts
+---------------- --------- ------------- ----------------  ----------
+node1            enable    Postmaster    admin@netapp.com  mailhost
+
+node2            enable    Postmaster    -                 mailhost
+2 entries were displayed.
+....
+.. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il sistema originale... | Quindi... 
+
+
+| AutoSupport attivato...  a| 
+Passare a. <<man_prepare_nodes_step34,Fase 34>>.
+
+
+
+| AutoSupport non è abilitato...  a| 
+Abilitare AutoSupport seguendo le istruzioni contenute nella sezione _riferimento per l'amministrazione del sistema_. (Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.)
+
+*Nota:* AutoSupport è attivato per impostazione predefinita quando si configura il sistema di storage per la prima volta. Sebbene sia possibile disattivare AutoSupport in qualsiasi momento, è necessario lasciarlo attivato. L'abilitazione di AutoSupport consente di identificare in modo significativo i problemi e le soluzioni in caso di problemi nel sistema storage.
+
+|===
+.. [[man_Prepare_Nodes_step34]]verificare che AutoSupport sia configurato con i dettagli corretti dell'host di posta e gli ID di posta elettronica del destinatario immettendo il seguente comando su entrambi i nodi originali ed esaminando l'output:
++
+`system node autosupport show -node node_name -instance`
+
++
+Per informazioni dettagliate su AutoSupport, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _riferimento per l'amministrazione del sistema_ e ai comandi di _ONTAP 9: Riferimento pagina manuale_.
+
+.. [[man_Prepare_Nodes_step35,fase 35]] Invia un messaggio AutoSupport a NetApp per node1 immettendo il seguente comando:
++
+`system node autosupport invoke -node node1 -type all -message "Upgrading node1 from platform_old to platform_new"`
+
++
+
+NOTE: Non inviare un messaggio AutoSupport a NetApp per node2 a questo punto; lo si esegue più avanti nella procedura.
+
+.. [[man_Prepare_Nodes_step36, fase 36]] verificare che il messaggio AutoSupport sia stato inviato immettendo il seguente comando ed esaminandone l'output:
++
+`system node autosupport show -node _node1_ -instance`
+
++
+I campi `Last Subject Sent:` e. `Last Time Sent:` contiene il titolo dell'ultimo messaggio inviato e l'ora in cui il messaggio è stato inviato.
+
+.. Se il sistema utilizza dischi con crittografia automatica, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] Per determinare il tipo di unità con crittografia automatica in uso sulla coppia ha che si sta aggiornando. Il software ONTAP supporta due tipi di dischi con crittografia automatica:
++
+--
+*** Dischi SAS o NVMe NetApp Storage Encryption (NSE) certificati FIPS
+*** Dischi NVMe con crittografia automatica non FIPS (SED)
+
+
+[NOTE]
+====
+Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nodo o coppia ha.
+
+È possibile combinare SED con dischi non crittografanti sullo stesso nodo o coppia ha.
+
+====
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["Scopri di più sulle unità con crittografia automatica supportate"^].
+
+--
+
+
+

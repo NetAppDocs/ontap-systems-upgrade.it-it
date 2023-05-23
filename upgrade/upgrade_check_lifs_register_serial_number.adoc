@@ -1,0 +1,41 @@
+---
+permalink: upgrade/upgrade-check-lifs-register-serial-number.html 
+sidebar: sidebar 
+keywords: lifs 
+summary: Prima di riportare il nodo sostitutivo in servizio, verificare che i AutoSupport si trovino sulle porte home, registrare il numero di serie del nodo sostitutivo, se abilitato, e ripristinare il giveback automatico. 
+---
+= Verificare le LIF e registrare il numero di serie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di riportare il nodo sostitutivo in servizio, è necessario verificare che i AutoSupport si trovino sulle porte home, registrare il numero di serie del nodo sostitutivo, se abilitato, e ripristinare il giveback automatico.
+
+. Verificare che le interfacce logiche stiano segnalando al server principale e alle porte: `network interface show -is-home false`
++
+Se alcuni LIF sono elencati come falsi, ripristinarli alle porte home: `network interface revert *`
+
+. Registrare il numero di serie del sistema presso il supporto NetApp.
++
+[cols="1,2"]
+|===
+| Se... | Quindi... 
+
+
+ a| 
+AutoSupport è attivato
+ a| 
+Inviare un messaggio AutoSupport per registrare il numero di serie.
+
+
+
+ a| 
+AutoSupport non attivato
+ a| 
+Contattare il supporto NetApp per registrare il numero di serie.
+
+|===
+. Se il giveback automatico è stato disattivato, riabilitarlo: `storage failover modify -node local -auto-giveback true`
+

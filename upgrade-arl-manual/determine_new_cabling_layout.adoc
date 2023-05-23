@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/determine_new_cabling_layout.html 
+keywords: cable, cabling, layout, disk shelf, fc switches 
+summary: Determinare il layout del cablaggio per i nuovi moduli controller e shelf di dischi durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Determinare il nuovo layout del cablaggio
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario determinare il cablaggio dei nuovi moduli controller e dei nuovi shelf di dischi per gli switch FC esistenti.
+
+.A proposito di questa attività
+Questa attività deve essere eseguita in ogni sito MetroCluster.
+
+.Fase
+Utilizzare il contenuto _Fabric-Attached MetroCluster Installation and Configuration_ per determinare il layout del cablaggio per il tipo di switch in uso, utilizzando l'utilizzo della porta per una configurazione MetroCluster a otto nodi. L'utilizzo della porta dello switch FC deve corrispondere all'utilizzo descritto nel contenuto, in modo da poter utilizzare i file di configurazione di riferimento (RCF).
+
+Passare a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _installazione e configurazione del MetroCluster collegato al fabric_.
+
+
+NOTE: Se l'ambiente non può essere cablato in modo da poter utilizzare gli RCF, contattare il supporto tecnico. Non utilizzare questa procedura se il cablaggio non può utilizzare RCF.

@@ -1,0 +1,18 @@
+= 
+:allow-uri-read: 
+
+
+.Fasi
+. Per sincronizzare la configurazione della crittografia per Onboard Key Manager, eseguire il seguente comando al prompt del cluster:
++
+|===
+| Per questa versione di ONTAP… | Utilizzare questo comando... 
+
+
+| ONTAP 9.6 o 9.7 | `security key-manager onboard sync` 
+
+
+| ONTAP 9.5 | `security key-manager setup -node _node_name_` 
+|===
+. Immettere la passphrase a livello di cluster per Onboard Key Manager.
+

@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+Questa procedura include suggerimenti per la risoluzione dei problemi.
+
+In caso di problemi durante l'aggiornamento dei controller, consultare la sezione link:troubleshoot_index.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni.
+
+Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.

@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/required_tools_and_documentation.html 
+keywords: required, tools, documentation, install, worksheet, ontap 
+summary: 'È necessario disporre di alcuni strumenti e documentazione per aggiornare i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Strumenti e documentazione richiesti
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario disporre di strumenti specifici per installare il nuovo hardware e consultare altri documenti durante il processo di aggiornamento.
+
+Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
+
+* Cintura per la messa a terra
+* Cacciavite Phillips n. 2
+
+
+Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento e dei siti di riferimento necessari per questo aggiornamento

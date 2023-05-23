@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_4_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Fase 1 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP 9.8 o versioni successive.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 al node1 aggiornato e dismettere node2.
+
+.Fasi
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["Spostare aggregati non root e LIF dati NAS da node2 a node1"]
+. link:retire_node2.html["Andare in pensione node2"]
+

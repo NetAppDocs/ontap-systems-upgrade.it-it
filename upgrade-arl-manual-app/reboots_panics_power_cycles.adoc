@@ -1,0 +1,225 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/reboots_panics_power_cycles.html 
+keywords: reboot, crash, panic, failure, upgrade 
+summary: 'Il sistema potrebbe bloccarsi (riavvio, panico o ciclo di alimentazione) durante le diverse fasi di un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive.' 
+---
+= Riavvio, panic o cicli di alimentazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il sistema potrebbe bloccarsi (riavvio, panico o ciclo di alimentazione) durante diverse fasi dell'aggiornamento. La soluzione a questi problemi dipende da quando si verificano.
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la fase 2
+
+Gli arresti anomali possono verificarsi prima, durante o subito dopo la fase 2, durante la quale si spostano gli aggregati da node1 a node2, si spostano le LIF dei dati e LE LIF SAN di proprietà di node1 in node2, si registrano le informazioni node1 e si ritirano node1.
+
+
+
+=== Node1 o node2 si blocca prima della fase 2 con ha ancora attivato
+
+Se node1 o node2 si bloccano prima della fase 2, nessun aggregato è stato ancora trasferito e la configurazione ha è ancora attivata.
+
+.A proposito di questa attività
+Il takeover e il giveback possono procedere normalmente.
+
+.Fasi
+. Verificare la presenza di messaggi EMS emessi dal sistema nella console ed eseguire l'azione correttiva consigliata.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node1 si blocca durante o subito dopo la fase 2 con ha ancora attivato
+
+Alcuni o tutti gli aggregati sono stati riallocati da node1 a node2 e ha è ancora abilitato. Node2 prenderà il controllo del volume root di node1 e di qualsiasi aggregato non root che non sia stato trasferito.
+
+.A proposito di questa attività
+La proprietà degli aggregati che sono stati ricollocati è uguale alla proprietà degli aggregati non root che sono stati presi in consegna perché il proprietario di casa non è cambiato. Quando nod1 entra in `waiting for giveback state`, node2 restituirà tutti gli aggregati non root node1.
+
+.Fasi
+. Completo link:relocate_non_root_aggr_node1_node2.html#step1["Fase 1"] Nella sezione _spostare nuovamente gli aggregati non root da node1 a node2_.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node1 si blocca dopo la fase 2 mentre ha è disattivato
+
+Node2 non prenderà il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
+
+.Fasi
+. Far salire il node1.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
++
+È possibile che vengano visualizzate alcune modifiche nell'output di `storage failover show` comando, ma questo è tipico e non influisce sulla procedura. Consultare la sezione relativa alla risoluzione dei problemi link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output["Il failover dello storage non previsto mostra l'output del comando"].
+
+
+
+
+
+=== Node2 non funziona durante o dopo la fase 2 con ha ancora attivato
+
+Node1 ha trasferito alcuni o tutti i suoi aggregati al node2. HA è attivato.
+
+.A proposito di questa attività
+Node1 prenderà il controllo di tutti gli aggregati del node2 e di tutti i suoi aggregati che aveva trasferito al node2. Quando noda2 entra in `Waiting for Giveback` state, node1 restituisce tutti gli aggregati del node2.
+
+.Fasi
+. Completo link:relocate_non_root_aggr_node1_node2.html#step1["Fase 1"] Nella sezione _spostare nuovamente gli aggregati non root da node1 a node2_.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node2 si blocca dopo la fase 2 e dopo la disattivazione di ha
+
+Node1 non prenderà il posto.
+
+.Fasi
+. Alzati il node2.
++
+Durante l'avvio di node2 si verifica un'interruzione del client per tutti gli aggregati.
+
+. Continuare con il resto della procedura di aggiornamento della coppia di nodi.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la fase 3
+
+Gli errori possono verificarsi durante o subito dopo la fase 3, durante la quale si installa e si avvia node3, si mappano le porte da node1 a node3, si spostano le LIF dei dati e LE LIF SAN appartenenti a node1 e node2 in node3 e si spostano tutti gli aggregati da node2 a node3.
+
+
+
+=== Node2 si blocca durante la fase 3 con ha disattivato e prima di spostare qualsiasi aggregato
+
+Node3 non si prenderà il controllo in seguito a un crash node2, in quanto ha è già disattivato.
+
+.Fasi
+. Alzati il node2.
++
+Durante l'avvio di node2 si verifica un'interruzione del client per tutti gli aggregati.
+
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node2 si blocca durante la fase 3 dopo aver riallocato alcuni o tutti gli aggregati
+
+Node2 ha trasferito alcuni o tutti i suoi aggregati al node3, che servirà i dati degli aggregati che sono stati ricollocati. HA disattivato.
+
+.A proposito di questa attività
+Si verificherà un'interruzione del client per gli aggregati che non sono stati ricollocati.
+
+.Fasi
+. Alzati il node2.
+. Spostare gli aggregati rimanenti completando link:relocate_non_root_aggr_node2_node3.html#step1["Fase 1"] attraverso link:relocate_non_root_aggr_node2_node3.html#step3["Fase 3"] Nella sezione _spostare gli aggregati non root da node2 a node3_.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node3 si blocca durante la fase 3 e prima che node2 abbia riallocato gli aggregati
+
+Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
+
+.Fasi
+. Alzati il node3.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node3 si blocca durante la fase 3 durante il trasferimento dell'aggregato
+
+Se il nodo 3 si blocca mentre il nodo 2 sta spostando gli aggregati al nodo 3, il nodo 2 interrompe il trasferimento degli aggregati rimanenti.
+
+.A proposito di questa attività
+Node2 continua a servire gli aggregati rimanenti, ma gli aggregati che erano già stati ricollocati in node3 incontrano un'interruzione del client durante l'avvio di node3.
+
+.Fasi
+. Alzati il node3.
+. Completo link:relocate_non_root_aggr_node2_node3.html#step3["Fase 3"] Sempre nella sezione _spostare gli aggregati non root da node2 a node3_.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node3 non riesce ad avviarsi dopo il blocco nella fase 3
+
+A causa di un guasto catastrofico, il node3 non può essere avviato in seguito a un crash durante la fase 3.
+
+.Fase
+. Contattare il supporto tecnico.
+
+
+
+
+=== Node2 si blocca dopo la fase 3 ma prima della fase 5
+
+Node3 continua a fornire dati per tutti gli aggregati. La coppia ha è disattivata.
+
+.Fasi
+. Alzati il node2.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node3 si blocca dopo la fase 3 ma prima della fase 5
+
+Node3 si blocca dopo la fase 3 ma prima della fase 5. La coppia ha è disattivata.
+
+.Fasi
+. Alzati il node3.
++
+Si verificherà un'interruzione del servizio client per tutti gli aggregati.
+
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la fase 5
+
+I crash possono verificarsi durante la fase 5, in cui si installa e si avvia node4, si mappano le porte da node2 a node4, si spostano le LIF dei dati e LE LIF SAN appartenenti a node2 da node3 a node4 e si spostano tutti gli aggregati di node2 da node3 a node4.
+
+
+
+=== Node3 si blocca durante la fase 5
+
+Node3 ha trasferito alcuni o tutti gli aggregati del node2 al node4. Node4 non prende il controllo, ma continua a servire aggregati non root che node3 ha già trasferito. La coppia ha è disattivata.
+
+.A proposito di questa attività
+Si verifica un'interruzione per il resto degli aggregati fino a quando il node3 non viene riavviato.
+
+.Fasi
+. Alzati il node3.
+. Riallocare gli aggregati rimanenti che appartenevano al node2 ripetendo link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Fase 1"] attraverso link:relocate_node2_non_root_aggr_node3_node4.html#step3["Fase 3"] Nella sezione _spostare gli aggregati non root di node2 da node3 a node4_.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node4 si blocca durante la fase 5
+
+Node3 ha trasferito alcuni o tutti gli aggregati del node2 al node4. Node3 non prende il controllo, ma continua a servire aggregati non root che node3 possiede e quelli che non sono stati ricollocati. HA disattivato.
+
+.A proposito di questa attività
+Esiste un'interruzione per gli aggregati non root che sono stati già ricollocati fino al riavvio di node4.
+
+.Fasi
+. Far salire il node4.
+. Riallocare gli aggregati rimanenti che appartenevano al node2 completando di nuovo link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Fase 1"] attraverso link:relocate_node2_non_root_aggr_node3_node4.html#step3["Fase 3"] In _spostare gli aggregati non root di node2 da node3 a node4_.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+

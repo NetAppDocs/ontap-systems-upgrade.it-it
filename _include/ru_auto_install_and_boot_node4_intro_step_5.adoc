@@ -1,0 +1,66 @@
+= 
+:allow-uri-read: 
+
+
+È necessario eseguire il netboot node4 se non dispone della stessa versione di ONTAP 9 installata sul node2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avviamenti del sistema, seguendo le istruzioni riportate in link:prepare_for_netboot.html["Preparatevi per il netboot"].
+
+.Importante:
+* Se si sta eseguendo l'upgrade di un sistema V-Series collegato a storage array o a un sistema con software di virtualizzazione FlexArray collegato a storage array, è necessario completare la procedura <<auto_install4_step1,Fase 1>> attraverso <<auto_install4_step21,Fase 21>>, quindi uscire da questa sezione e seguire le istruzioni a. link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"] e a. link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"], Immissione di comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere con <<auto_install4_step23,Fase 23>>.
+* Tuttavia, se si sta aggiornando un sistema con dischi di storage, è necessario completare l'intera sezione e passare alla sezione link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"], immettendo i comandi al prompt del cluster.
+
+
+.Fasi
+. [[auto_install4_step1]]assicurarsi che node4 disponga di spazio rack sufficiente.
++
+Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire il nodo 4 nella stessa posizione del nodo 3. Se node2 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.
+
+. Installare il nodo 4 nel rack seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ relative al modello di nodo.
+. Nodo del cablo4, spostamento delle connessioni dal nodo 2 al nodo 4.
++
+Collegare i seguenti collegamenti seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ o nei _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node4, il documento relativo allo shelf di dischi e _gestione dell'alta disponibilità_.
+
++
+Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento ai _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ e alla _gestione dell'alta disponibilità_.
+
++
+** Console (porta di gestione remota)
+** Porte del cluster
+** Porte dati
+** Porte di gestione di cluster e nodi
+** Storage
+** Configurazioni SAN: Porte switch FC e Ethernet iSCSI
++
+
+NOTE: Potrebbe non essere necessario spostare la connessione scheda di interconnessione/scheda FC-VI o cavo di interconnessione/FC-VI dal nodo 2 al nodo 4, poiché la maggior parte dei modelli di piattaforma dispone di modelli di schede di interconnessione univoci. Per la configurazione MetroCluster, è necessario spostare le connessioni del cavo FC-VI dal nodo 2 al nodo 4. Se il nuovo host non dispone di una scheda FC-VI, potrebbe essere necessario spostare la scheda FC-VI.
+
+
+
+. Accendere il dispositivo al nodo 4, quindi interrompere il processo di avvio premendo `Ctrl-C` sul terminale della console per accedere al prompt dell'ambiente di boot.
++
+
+NOTE: Quando si avvia node4, potrebbe essere visualizzato il seguente messaggio di avviso:
+
++
+....
+WARNING: The battery is unfit to retain data during a power outage. This is likely
+         because the battery is discharged but could be due to other temporary
+         conditions.
+         When the battery is ready, the boot process will complete
+         and services will be engaged. To override this delay, press 'c' followed
+         by 'Enter'
+....
+. Se viene visualizzato il messaggio di avviso nella fase 4, eseguire le seguenti operazioni:
++
+.. Verificare la presenza di eventuali messaggi della console che potrebbero indicare un problema diverso da una batteria NVRAM in esaurimento e, se necessario, intraprendere le azioni correttive necessarie.
+.. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
++
+
+WARNING: *Attenzione: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+
++
+
+NOTE: Fare riferimento a. link:prepare_for_netboot.html["Preparatevi per il netboot"].
+
+
+
+

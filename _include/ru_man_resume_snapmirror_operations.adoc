@@ -1,0 +1,16 @@
+= 
+:allow-uri-read: 
+
+
+È possibile riprendere i trasferimenti di SnapMirror che sono stati disattivati prima dell'aggiornamento e riprendere le relazioni di SnapMirror. Gli aggiornamenti sono programmati una volta completato l'aggiornamento.
+
+.Fasi
+. Verificare lo stato di SnapMirror sulla destinazione:
++
+`snapmirror show`
+
+. Riprendere la relazione di SnapMirror:
++
+`snapmirror resume -destination–vserver _vserver_name_`
+
+

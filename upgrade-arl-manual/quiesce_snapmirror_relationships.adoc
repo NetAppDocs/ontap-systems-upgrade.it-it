@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/quiesce_snapmirror_relationships.html 
+keywords: quiesce, snapmirror, relationship, netboot, destination cluster 
+summary: Prima di avviare il sistema dalla rete, interrompere tutte le relazioni di SnapMirror durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Interrompere le relazioni di SnapMirror
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di avviare il sistema dalla rete, è necessario verificare che tutte le relazioni SnapMirror siano state rinunciate. Quando una relazione SnapMirror viene ritirata, rimane irreparata in caso di riavvii e failover.
+
+.Fasi
+. Verificare lo stato della relazione SnapMirror sul cluster di destinazione:
++
+`snapmirror show`
+
++
+
+NOTE: Se lo stato è `Transferring`, è necessario interrompere questi trasferimenti:
+`snapmirror abort -destination-vserver _vserver name_`
+
++
+L'interruzione non riesce se la relazione SnapMirror non si trova in `Transferring` stato.
+
+. Interrompere tutte le relazioni tra il cluster:
++
+`snapmirror quiesce -destination-vserver *`
+
+

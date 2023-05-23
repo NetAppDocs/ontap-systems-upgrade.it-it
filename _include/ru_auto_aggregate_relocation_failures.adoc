@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+Il trasferimento di aggregati (ARL) potrebbe non riuscire in diversi punti durante l'aggiornamento.

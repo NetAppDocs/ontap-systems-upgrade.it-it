@@ -1,0 +1,73 @@
+---
+permalink: upgrade/upgrade-move-lifs-to-new-nodes.html 
+sidebar: sidebar 
+keywords: move, volume, original, node, migrate, non-san, lif, cluster-management, move non-san data lifs and cluster management lifs to the new nodeas 
+summary: Dopo aver spostato i volumi dai nodi originali, è necessario migrare le LIF di dati non SAN e le LIF di gestione del cluster dai nodi originali ai nuovi nodi. 
+---
+= Spostare le LIF di dati non SAN e le LIF di gestione del cluster nei nuovi nodi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver spostato i volumi dai nodi originali, è necessario migrare i LIF di dati non SAN e i LIF di gestione del cluster dai nodi originali ai nuovi nodi.
+
+.A proposito di questa attività
+Non è possibile migrare una LIF utilizzata per le operazioni di copy-offload con le API vStorage VMware per l'integrazione array (VAAI).
+
+.Fasi
+. Dal nodo in cui è ospitato il LIF del cluster, modificare le porte home per le LIF di dati non SAN dai nodi originali ai nuovi nodi:
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _new_node_name_ -home-port {<netport|ifgrp>}`
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="1,2"]
+|===
+| Se si desidera eseguire la migrazione... | Quindi, immettere... 
+
+
+ a| 
+Una LIF specifica
+ a| 
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -source-node _source_node_name_ -destination-node _dest_node_name_ -destination-port _dest_port_name_`
+
+
+
+ a| 
+Tutte le LIF di dati non SAN e le LIF di gestione del cluster
+ a| 
+`network interface migrate-all -node _node_name_`
+
+|===
++
+Il seguente comando migra una LIF denominata "datalif1" sulla SVM "vs0" alla porta "e0d" su "node0b":
+
++
+[listing]
+----
+cluster::> network interface migrate -vserver vs0 -lif datalif1 -destination-node node0b -destination-port e0d
+----
++
+Il seguente comando migra tutti i dati e le LIF di gestione del cluster dal nodo (locale) corrente:
+
++
+[listing]
+----
+cluster::> network interface migrate-all -node local
+----
+. Controllare se il nodo principale della LIF di gestione del cluster si trova su uno dei nodi originali: `network interface show -lif cluster_mgmt -fields home-node`
+. Se il nodo principale della LIF di gestione del cluster si trova su uno dei nodi originali, completare la seguente procedura:
++
+.. Spostare il nodo principale della LIF di gestione del cluster in uno dei nuovi nodi:
++
+`network interface modify -vserver _cluster_name_ -lif cluster_mgmt -home-node _new_node_name_ -home-port {<netport|ifgrp>}`
+
+.. Migrare la LIF di gestione del cluster in uno dei nuovi nodi:
++
+`network interface migrate -vserver _vserver_name_ -lif cluster-mgmt -destination-node _new_node_name_ -destination-port {<netport|ifgrp>}`
+
+
+
+

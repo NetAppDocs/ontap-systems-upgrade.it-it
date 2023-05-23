@@ -1,0 +1,29 @@
+---
+permalink: upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: Collegare fisicamente il nodo 1 al nodo 3 prima di riassegnare i dischi dal nodo 1 al nodo 3 
+---
+= Converti il node1 in uno shelf di dischi e connettiti al node3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Convertire il nodo AFF A250 1 in uno shelf di dischi NS224 e collegarlo al nodo AFF A400 3 prima di riassegnare i dischi dal nodo 1 al nodo 3.
+
+.Fasi
+. Scollegare tutti i cavi di rete dal nodo 1.
+. Rimuovere il nodo 1 dallo chassis AFF A250.
+. Inserire il modulo NVMe shelf (NSM) nell'alloggiamento del nodo 1.
+. Collegare l'NSM al nodo 3 collegando la porta node3 100GbE e0c alla porta NSM A e0a.
++
+image::../upgrade/media/a400_with_ns224_shelf.PNG[AFF A400 con uno shelf NS224]
+
+. Collegare il cablaggio da 25 GbE dalle porte node1 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul node3.
++
+
+NOTE: Se le porte integrate da 25 GbE non sono presenti sul nodo 3, è possibile utilizzare un adattatore PCIe da 25 GbE per effettuare la connessione.
+
+

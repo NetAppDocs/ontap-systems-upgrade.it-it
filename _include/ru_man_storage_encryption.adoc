@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+I nodi originali o i nuovi nodi potrebbero essere abilitati per Storage Encryption. In tal caso, è necessario eseguire ulteriori operazioni in questa procedura per verificare che Storage Encryption sia impostato correttamente.
+
+Se si desidera utilizzare Storage Encryption, tutti i dischi associati ai nodi devono disporre di dischi con crittografia automatica.

@@ -1,0 +1,127 @@
+---
+permalink: upgrade/upgrade-shutdown-remove-original-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Quando si arrestano e si rimuovono i nodi originali, è necessario inviare un messaggio AutoSupport relativo all"aggiornamento, distruggere le caselle postali, spegnere i nodi e rimuovere lo chassis.' 
+---
+= Chiudere i nodi originali
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si arrestano e si rimuovono i nodi originali, è necessario inviare un messaggio AutoSupport relativo all'aggiornamento, distruggere le caselle postali, spegnere i nodi e rimuovere lo chassis.
+
+.Fasi
+. Inviare un messaggio AutoSupport da node1 e node2 per informare il supporto tecnico dell'aggiornamento:
++
+`system node autosupport invoke -node _node_name_ -type all -message "MAINT=2h Upgrading _node_name_ from _platform_original_ to _platform_new_"`
+
+. Disattivare l'alta disponibilità o il failover dello storage su node1 e node2:
++
+[cols="1,2"]
+|===
+| Se si dispone di un... | Inserisci... 
+
+
+ a| 
+Cluster a due nodi
+ a| 
+.. `cluster ha modify -configured false`
+.. `storage failover modify -node _node_name_ -enabled false`
+
+
+
+
+ a| 
+Cluster con più di due nodi
+ a| 
+`storage failover modify -node _node_name_ -enabled false`
+
+|===
+. Arrestare il nodo:
++
+`system node halt -node _node_name_`
+
++
+È possibile eliminare il controllo del quorum durante il processo di riavvio utilizzando `-ignore-quorum-warnings` opzione.
+
+. Connettersi alla console seriale, se non si è già connessi. Il nodo deve trovarsi al prompt DEL CARICATORE. Utilizzare `boot_ontap maint` comando per l'avvio in modalità di manutenzione.
++
+Potrebbe essere visualizzato un messaggio che richiede di confermare che il nodo partner è inattivo o che il Takeover è disattivato manualmente sul nodo partner. È possibile immettere `yes` per continuare.
+
+. [[shutdown_node_step5]]Registra l'ID di sistema di ciascun nodo originale, ottenuto tramite le informazioni sulla proprietà del disco in modalità Maintenance:
++
+`disk show -v`
+
++
+Gli ID di sistema sono necessari quando si assegnano i dischi dai nodi originali ai nuovi nodi.
+
++
+[listing]
+----
+*> disk show -v
+Local System ID: 118049495
+DISK    OWNER               POOL    SERIAL NUMBER          HOME
+----    -----               ----    -------------          ----
+0a.33   node1 (118049495)   Pool0   3KS6BN970000973655KL   node1 (118049495)
+0a.32   node1 (118049495)   Pool0   3KS6BCKD000097363ZHK   node1 (118049495)
+0a.36   node1 (118049495)   Pool0   3KS6BL9H000097364W74   node1 (118049495)
+...
+----
+. Se si dispone della configurazione della porta FC o CNA, visualizzare la configurazione in modalità manutenzione:
++
+`ucadmin show`
+
++
+Registrare l'output del comando per riferimenti successivi.
+
++
+[listing]
+----
+*> ucadmin show
+Current Current Pending   Pending
+Adapter Mode    Type      Mode    Type    Status
+------- ------- --------- ------- ------- ------
+0e      fc      initiator -       -       online
+0f      fc      initiator -       -       online
+0g      cna     target    -       -       online
+0h      cna     target    -       -       online
+...
+----
+. In modalità Maintenance (manutenzione), distruggere le caselle di posta node1 e node2: +
++
+`mailbox destroy local`
+
++
+La console visualizza un messaggio simile al seguente:
+
++
+[listing]
+----
+Destroying mailboxes forces a node to create new empty mailboxes, which
+clears any takeover state, removes all knowledge of out-of-date plexes and
+mirrored volumes, and will prevent management services from going online in
+2-node cluster HA configurations.
+Are you sure you want to destroy the local mailboxes?
+----
+. Distruggere le mailbox immettendo `y` quando viene visualizzato un prompt simile a quanto segue:
++
+[listing]
+----
+.............Mailboxes destroyed
+Takeover On Reboot option will be set to ON after the node boots.
+This option is ON by default except on setups that have iSCSI or FCP license.
+Use "storage failover modify -node <nodename> -onreboot false" to turn it OFF.
+
+*>
+----
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
+. Spegnere il connettore di alimentazione 1 e node2, quindi scollegarli dalla presa di corrente.
+. Etichettare e rimuovere tutti i cavi dal nodo 1 e dal nodo 2.
+. Rimuovere il telaio che contiene il node1 e il node2.
+

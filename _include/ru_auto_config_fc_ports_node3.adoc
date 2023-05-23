@@ -1,0 +1,80 @@
+= Configurare le porte FC sul nodo 3
+:allow-uri-read: 
+
+
+
+
+== Configurare le porte FC sul nodo 3
+
+Se node3 dispone di porte FC, integrate o su un adattatore FC, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, perché le porte non sono preconfigurate. Se le porte non sono configurate, si potrebbe verificare un'interruzione del servizio.
+
+.Prima di iniziare
+È necessario disporre dei valori delle impostazioni della porta FC del nodo 1 salvati nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"].
+
+.A proposito di questa attività
+È possibile saltare questa sezione se il sistema non dispone di configurazioni FC. Se il sistema dispone di porte UTA/UTA2 integrate o di una scheda UTA/UTA2, configurarle in <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>.
+
+
+IMPORTANT: Se il sistema dispone di dischi di storage, immettere i comandi in questa sezione al prompt del cluster. Se si dispone di un "sistema V-Series" o si dispone del software di virtualizzazione FlexArray e si è connessi agli array di storage, immettere i comandi in questa sezione nella modalità di manutenzione.
+
+. [[fase 1]]Confronta le impostazioni FC sul nodo 3 con quelle acquisite in precedenza dal nodo 1.
+. [[step2]]eseguire una delle seguenti operazioni:
++
+[cols="30,70"]
+|===
+| Se il sistema che si sta aggiornando... | Quindi… 
+
+
+| Dispone di dischi di storage  a| 
+In modalità di manutenzione (opzione 5 nel menu di avvio), modificare le porte FC sul nodo 3 in base alle necessità:
+
+** Per programmare le porte di destinazione:
+
+
+`ucadmin modify -m fc -t target _adapter_`
+
+** Per programmare le porte initiator:
+
+
+`ucadmin modify -m fc -t initiator _adapter_`
+
+`-t` È il tipo FC4: Destinazione o iniziatore.
+
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
+In modalità di manutenzione (opzione 5 nel menu di avvio), modificare le porte FC sul nodo 3 in base alle necessità:
+
+`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
+
+`-t` È il tipo, la destinazione o l'iniziatore FC4.
+
+
+NOTE: Le porte FC devono essere programmate come iniziatori.
+
+|===
+. [[step3]]eseguire una delle seguenti operazioni:
++
+[cols="30,70"]
+|===
+| Se il sistema che si sta aggiornando... | Quindi… 
+
+
+| Dispone di dischi di storage | Verificare le nuove impostazioni utilizzando il seguente comando ed esaminare l'output:
+`ucadmin show` 
+
+
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Verificare le nuove impostazioni utilizzando il seguente comando ed esaminare l'output:
+`ucadmin show` 
+|===
+. [[step4]]Esci dalla modalità di manutenzione:
++
+`halt`
+
+. Avviare il sistema dal prompt del caricatore:
++
+`boot_ontap menu`
+
+. [[step6]]dopo aver immesso il comando, attendere che il sistema si arresti al prompt dell'ambiente di avvio.
+. Selezionare l'opzione `5` dal menu di avvio per la modalità di manutenzione.
+

@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node4.html 
+keywords: node4, interface group, VLANs, broadcast domains, re-create 
+summary: 'Ricreare le VLAN, i gruppi di interfacce e i domini di broadcast del nodo 2 sul nodo 4 quando si aggiornano i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Ricreare VLAN, gruppi di interfacce e domini di broadcast sul nodo 4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver confermato che node4 è in quorum e può comunicare con node3, è necessario ricreare le VLAN, i gruppi di interfacce e i domini di broadcast di node2 sul node4. È inoltre necessario aggiungere le porte node3 ai domini di trasmissione appena ricreati.
+
+.A proposito di questa attività
+Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] E link a _Network Management_.
+
+.Fasi
+. Ricreare le VLAN sul nodo 4 utilizzando le informazioni sul nodo 2 registrate nel link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"] sezione:
++
+`network port vlan create -node _node4_ -vlan _vlan-names_`
+
+. Ricreare i gruppi di interfacce sul nodo 4 utilizzando le informazioni sul nodo 2 registrate nel link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"] sezione:
++
+`network port ifgrp create -node _node4_ -ifgrp _port_ifgrp_names_-distr-func`
+
+. Ricreare i domini di trasmissione sul nodo 4 utilizzando le informazioni sul nodo 2 registrate nel link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"] sezione:
++
+`network port broadcast-domain create -ipspace Default -broadcast-domain _broadcast_domain_names_ -mtu _mtu_size_ -ports _node_name:port_name,node_name:port_name_`
+
+. Aggiungere le 4 porte node4 ai domini di trasmissione appena ricreati:
++
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_names_ -ports _node_name:port_name,node_name:port_name_`
+
+

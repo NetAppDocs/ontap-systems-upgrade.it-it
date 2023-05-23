@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/stage_6_index.html 
+keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster, stage 6 
+summary: 'Fase 6 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP da 9.5 a 9.7.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, configuri e configuri Storage Encryption o NetApp Volume Encryption. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
+
+.Fasi
+. link:manage-authentication-using-kmip-servers.html["Gestire l'autenticazione utilizzando i server KMIP"]
+. link:ensure_new_controllers_are_set_up_correctly.html["Verificare che i nuovi controller siano impostati correttamente"]
+. link:set_up_storage_encryption_new_module.html["Impostare Storage Encryption sul nuovo modulo controller"]
+. link:set_up_netapp_volume_encryption_new_module.html["Impostare NetApp Volume o aggregate Encryption sul nuovo modulo controller"]
+. link:decommission_old_system.html["Decommissionare il vecchio sistema"]
+. link:resume_snapmirror_operations.html["Riprendere le operazioni di SnapMirror"]
+
+
+.Per la configurazione MetroCluster FC
+Per la configurazione MetroCluster FC, è necessario sostituire i nodi del sito di disaster recovery/failover il prima possibile. La mancata corrispondenza nei modelli di controller all'interno di un MetroCluster non è supportata perché la mancata corrispondenza del modello di controller può causare la offline del mirroring del disaster recovery. Utilizzare il comando -`skip-metrocluster-check true` Opzione per ignorare i controlli MetroCluster quando si sostituiscono i nodi nel secondo sito.

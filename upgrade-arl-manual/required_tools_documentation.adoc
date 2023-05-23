@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/required_tools_documentation.html 
+keywords: Tool, documentation, center, content, reference, worksheet 
+summary: Per eseguire un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti, è necessario disporre di determinati strumenti e documentazione. 
+---
+= Strumenti e documentazione richiesti
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario disporre di strumenti specifici per installare il nuovo hardware e consultare altri documenti durante il processo di aggiornamento. È inoltre necessario registrare le informazioni essenziali per completare l'aggiornamento del controller; viene fornito un foglio di lavoro per registrare le informazioni.
+
+Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
+
+* Cintura per la messa a terra
+* Cacciavite Phillips n. 2
+
+
+Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento richiesti per questo aggiornamento.

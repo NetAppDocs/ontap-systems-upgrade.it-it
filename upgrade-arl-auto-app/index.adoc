@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
+summary: 'È possibile aggiornare l"hardware del controller con ONTAP 9.8 o versione successiva utilizzando `system controller replace` , riallocando la proprietà di aggregati non root.' 
+---
+= Panoramica
+:allow-uri-read: 
+
+
+[role="lead lead"]
+Questa procedura descrive come aggiornare l'hardware del controller utilizzando ARL (aggregate relocation) per le seguenti configurazioni di sistema:
+
+[cols="40,20,40"]
+|===
+| Metodo | Versione di ONTAP | Sistemi supportati 
+
+
+| Utilizzo di `system controller replace` comandi | 9.8 o versione successiva | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_98_supported_systems["Link alla matrice dei sistemi supportati"] 
+|===
+Durante la procedura, l'hardware del controller originale viene aggiornato con l'hardware del controller sostitutivo, riallocando la proprietà degli aggregati non root. La migrazione degli aggregati viene eseguita più volte da un nodo all'altro per confermare che almeno un nodo fornisce i dati degli aggregati durante l'intera procedura di aggiornamento. Inoltre, è possibile migrare le interfacce logiche dei dati (LIF) e assegnare le porte di rete sul nuovo controller ai gruppi di interfacce durante la procedura.
+
+.Terminologia utilizzata in queste informazioni
+In queste informazioni, i nodi originali sono chiamati "node1" e "node2", mentre i nuovi nodi sono chiamati "node3" e "node4". Durante la procedura descritta, il node1 viene sostituito dal node3, mentre il node2 viene sostituito dal node4. I termini "node1", "node2", "node3" e "node4" vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituire i nomi reali dei nodi originale e nuovo. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
+
+In queste informazioni, il termine "sistemi con software di virtualizzazione FlexArray" si riferisce ai sistemi che appartengono a queste nuove piattaforme. Il termine "sistema V-Series" si riferisce ai sistemi hardware separati che possono essere collegati agli array di storage.
+
+.Informazioni importanti:
+* Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. È inoltre necessario leggere e comprendere link:guidelines_for_upgrading_controllers_with_arl.html["Linee guida per l'aggiornamento dei controller con ARL"] e a. link:overview_of_the_arl_upgrade.html["Panoramica dell'aggiornamento ARL"] prima di iniziare l'aggiornamento.
+* Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato. I passaggi necessari per preparare i controller usati con `wipeconfig` i comandi non sono inclusi in questa procedura. È necessario contattare il supporto tecnico se l'hardware del controller sostitutivo è stato utilizzato in precedenza, soprattutto se i controller eseguivano Data ONTAP in modalità 7.
+* È possibile utilizzare ARL per eseguire un aggiornamento semplificato senza interruzioni del controller a un nuovo controller che esegue una versione ONTAP successiva rispetto alla versione in esecuzione sul cluster che si sta aggiornando. Le combinazioni della versione ONTAP per i controller vecchi e nuovi sono determinate dal modello di cadenza NDU della release software ONTAP. Ad esempio, se si dispone di un controller che esegue ONTAP 9.8 e si tratta dell'ultima versione supportata per tale controller, è possibile eseguire l'aggiornamento a un nuovo controller che esegue una versione di ONTAP successiva a ONTAP 9.8.
++
+Questa procedura di aggiornamento si applica principalmente agli scenari di aggiornamento in cui il modello di controller da sostituire non supporta le versioni successive di ONTAP e il nuovo controller non supporta le versioni precedenti di ONTAP.
+
+* È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia di ha (High Availability) nel cluster.
+* Questa procedura si applica ai sistemi FAS, V-Series, AFF e ai sistemi con software di virtualizzazione FlexArray. I sistemi FAS rilasciati dopo ONTAP 9.5 possono essere collegati agli array di storage se viene installata la licenza richiesta. Per ulteriori informazioni sui modelli di storage array e V-Series, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_ e accedere alla matrice di supporto V-Series.
+* Questa procedura si applica ai sistemi che eseguono la configurazione NetApp MetroCluster a 4 nodi o superiore. Poiché i siti di configurazione MetroCluster possono trovarsi in due posizioni fisicamente diverse, l'aggiornamento automatizzato del controller deve essere eseguito singolarmente in ciascun sito MetroCluster per una coppia ha.
+* Per i sistemi non MetroCluster, come i cluster ha, l'upgrade ARL è l'unica procedura supportata.
+* Se si sta eseguendo l'aggiornamento da un sistema AFF A320, è possibile utilizzare i movimenti dei volumi per aggiornare l'hardware del controller o contattare il supporto tecnico. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+

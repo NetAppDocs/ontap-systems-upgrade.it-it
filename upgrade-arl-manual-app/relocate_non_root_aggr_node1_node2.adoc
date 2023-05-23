@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/relocate_non_root_aggr_node1_node2.html 
+keywords: non-root aggregate, nonroot, move, relocate, nas 
+summary: Spostare gli aggregati non root dal nodo 1 al nodo 2 e verificare il trasferimento durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive. 
+---
+= Spostare gli aggregati non root dal nodo 1 al nodo 2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di poter sostituire il nodo 1 con il nodo 3, è necessario spostare gli aggregati non root da node1 a node2 utilizzando il comando di trasferimento degli aggregati di storage e verificando quindi il trasferimento.
+
+.Fasi
+. [[step1]]spostare gli aggregati non root completando le seguenti fasi secondarie:
++
+.. Impostare il livello di privilegio su Advanced (avanzato):
++
+`set -privilege advanced`
+
+.. Immettere il seguente comando:
++
+`storage aggregate relocation start -node _node1_ -destination _node2_ -aggregate-list * -ndo-controller-upgrade true`
+
+.. Quando richiesto, immettere `y`.
++
+Il trasferimento avverrà in background. La riposizionamento di un aggregato potrebbe richiedere da pochi secondi a un paio di minuti. Il tempo include sia le parti di fuori servizio del client che quelle di non fuori servizio. Il comando non ricolloca nessun aggregato offline o limitato.
+
+.. Tornare al livello admin immettendo il seguente comando:
++
+`set -privilege admin`
+
+
+
+. Controllare lo stato di rilocazione immettendo il seguente comando sul nodo 1:
++
+`storage aggregate relocation show -node _node1_`
+
++
+Viene visualizzato l'output `Done` per un aggregato dopo che è stato trasferito.
+
++
+
+NOTE: Attendere che tutti gli aggregati non root di proprietà di node1 siano stati riallocati in node2 prima di procedere con la fase successiva.
+
+. Eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| In caso di trasferimento... | Quindi... 
+
+
+| Di tutti gli aggregati ha successo | Passare a. <<man_relocate_1_2_step4,Fase 4>>. 
+
+
+| Di qualsiasi aggregato non funziona o viene vetoato  a| 
+.. Controllare i registri EMS per l'azione correttiva.
+.. Eseguire l'azione correttiva.
+.. Spostare eventuali aggregati guasti o vetoed:
+`storage aggregate relocation start -node _node1_ - destination _node2_ -aggregate-list * -ndo-controller-upgrade true`
+.. Quando richiesto, immettere `y`.
+.. Tornare al livello di amministrazione:
+`set -privilege admin`Se necessario, è possibile forzare il trasferimento utilizzando uno dei seguenti metodi:
++
+*** Ignora i controlli di veto:
+`storage aggregate relocation start -override-vetoes true -ndo-controller-upgrade`
+*** Ignora controlli destinazione:
+`storage aggregate relocation start -override-destination-checks true -ndo-controller-upgrade`
+
+
+
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi alla gestione di _dischi e aggregati con il contenuto CLI_ e i comandi di _ONTAP 9: Manuale di riferimento pagina_ per ulteriori informazioni sui comandi di spostamento degli aggregati di storage.
+
+|===
+. [[man_delocate_1_2_step4]]] verifica che tutti gli aggregati non root siano online e che il loro stato sia su node2:
++
+`storage aggregate show -node _node2_ -state online -root false`
+
++
+L'esempio seguente mostra che gli aggregati non root su node2 sono online:
+
++
+[listing]
+----
+cluster::> storage aggregate show -node node2 state online -root false
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+aggr_1
+           744.9GB 744.8GB      0% online       5 node2            raid_dp,
+                                                                   normal
+aggr_2     825.0GB 825.0GB      0% online       1 node2            raid_dp,
+                                                                   normal
+2 entries were displayed.
+----
++
+Se gli aggregati sono andati offline o diventano estranei sul node2, portarli online usando il seguente comando su node2, una volta per ogni aggregato:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Verificare che tutti i volumi siano online sul nodo 2 immettendo il seguente comando sul nodo 2 ed esaminandone l'output:
++
+`volume show -node _node2_ -state offline`
+
++
+Se alcuni volumi sono offline sul nodo 2, portarli online utilizzando il seguente comando sul nodo 2, una volta per ogni volume:
+
++
+`volume online -vserver _vserver-name_ -volume _volume-name_`
+
++
+Il `vserver-name` da utilizzare con questo comando si trova nell'output del precedente `volume show` comando.
+
+. Immettere il seguente comando su node2:
++
+`storage failover show -node _node2_`
+
++
+L'output dovrebbe visualizzare il seguente messaggio:
+
++
+[listing]
+----
+Node owns partner's aggregates as part of the nondisruptive controller upgrade procedure.
+----
+. Verificare che node1 non possiedi aggregati non root online:
++
+`storage aggregate show -owner-name _node1_ -ha-policy sfo -state online`
+
++
+L'output non dovrebbe visualizzare alcun aggregato non root online, che è già stato trasferito in node2.
+
+

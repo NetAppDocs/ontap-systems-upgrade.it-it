@@ -1,0 +1,55 @@
+---
+permalink: upgrade/upgrade-decide-to-use-this-guide.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Questo contenuto descrive come aggiornare l"hardware del controller di un sistema AFF o FAS in un cluster spostando lo storage o i volumi.' 
+---
+= Decidere se eseguire l'upgrade spostando volumi o storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questo contenuto descrive come aggiornare l'hardware del controller di un sistema AFF o FAS in un cluster spostando lo storage o i volumi.
+
+Utilizzare questa procedura se si desidera aggiornare l'hardware del controller nelle seguenti situazioni:
+
+
+NOTE: Le procedure di aggiornamento dell'hardware sono state semplificate in ONTAP 9.8 con l'introduzione della funzione di posizionamento automatico delle porte.
+
+* I nodi originali e nuovi sono compatibili e supportati.
+* Si sta eseguendo l'aggiornamento di una coppia di nodi che eseguono ONTAP 9.0 o versione successiva a una nuova coppia di nodi che eseguono la stessa release.
+* Si stanno riutilizzando gli indirizzi IP, le maschere di rete e i gateway dei nodi originali sui nuovi nodi.
+* Si prevede di aggiornare l'hardware del controller spostando lo storage o spostando i volumi.
+* Siete pronti a eseguire una procedura di interruzione se state eseguendo l'upgrade spostando lo storage.
++
+L'aggiornamento mediante lo spostamento dei volumi non comporta interruzioni.
+
+* Si prevede di convertire un nodo di un modello supportato in uno shelf di dischi, quindi di collegarlo ai nuovi nodi.
+
+
+Se si sta aggiornando una configurazione MetroCluster a due nodi, è necessario utilizzare la procedura descritta in https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Upgrade ed espansione di MetroCluster®"^] contenuto.
+
+Questo contenuto non descrive come utilizzare ARL (aggregate relocation) per aggiornare l'hardware del controller, come descritto nella link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html["Upgrade dell'hardware del controller ARL"^] contenuto.
+
+Se si sta sostituendo un singolo componente, consultare il volantino FRU (Field-Replaceable Unit) relativo a tale componente.
+
+[NOTE]
+====
+Nei passaggi per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage, i nodi originali sono chiamati node1 e node2, mentre i nuovi nodi sono chiamati node3 e node4. Durante la procedura descritta, il node1 viene sostituito dal node3, mentre il node2 viene sostituito dal node4.
+
+image::../upgrade/media/original_to_new_nodes.png[da originale a nuovi nodi]
+
+====
+I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituire i nomi reali dei nodi originale e nuovo. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
+
+*Informazioni correlate*
+
+xref:upgrade-considerations.adoc[Considerazioni per l'aggiornamento dell'hardware del controller]
+
+xref:upgrade-methods.adoc[Scegliere i metodi per aggiornare l'hardware del controller]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Dove trovare le procedure per le attività di manutenzione di MetroCluster"^]
+
+https://hwu.netapp.com["NetApp Hardware Universe"^]

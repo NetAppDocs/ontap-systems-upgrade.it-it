@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+Con ONTAP 9.5 e versioni successive, è possibile utilizzare i server KMIP (Key Management Interoperability Protocol) per gestire le chiavi di autenticazione.
+
+.Fasi
+. Aggiungere un nuovo controller:
++
+`security key-manager setup -node _new_controller_name_`
+
+. Aggiungere il gestore delle chiavi:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+. Verificare che i server di gestione delle chiavi siano configurati e disponibili per tutti i nodi del cluster:
++
+`security key-manager show -status`
+
+. Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo:
++
+`security key-manager restore -node _new_controller_name_`
+
+

@@ -1,0 +1,10 @@
+= 
+:allow-uri-read: 
+
+
+Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 a node3. È necessario registrare le informazioni necessarie per il node2 e poi dismettere il node2.
+
+.Fasi
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"]
+. link:retire_node2.html["Andare in pensione node2"]
+

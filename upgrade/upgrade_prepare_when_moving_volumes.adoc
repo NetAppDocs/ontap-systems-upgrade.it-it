@@ -1,0 +1,51 @@
+---
+permalink: upgrade/upgrade-prepare-when-moving-volumes.html 
+sidebar: sidebar 
+keywords: perform, preparation, upgrading, upgrade, controller, hardware, moving, move, volume, prepare for the upgrade when moving volumes 
+summary: 'È necessario eseguire alcune fasi di preparazione prima di aggiornare l"hardware del controller spostando i volumi.' 
+---
+= Preparatevi per l'aggiornamento durante lo spostamento dei volumi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario eseguire alcuni passaggi di preparazione prima di aggiornare l'hardware del controller spostando i volumi.
+
+.Fasi
+. Visualizzare i volumi sui nodi originali:
++
+`volume show`
+
++
+Il comando output consente di preparare l'elenco dei volumi da spostare nei nuovi nodi.
+
+. Visualizzare e registrare le informazioni di licenza dai nodi originali:
++
+`system license show`
+
+. Se si utilizza Storage Encryption sui nodi originali e i nuovi nodi dispongono di dischi abilitati alla crittografia, assicurarsi che i dischi dei nodi originali siano digitati correttamente:
++
+.. Visualizza informazioni sui dischi con crittografia automatica (SED):
++
+`storage encryption disk show`
+
+.. Se alcuni dischi sono associati a una chiave ID sicura non di produzione (non MSID), reinserirli in una chiave MSID:
++
+`storage encryption disk modify`
+
+
+
+. Se il cluster si trova attualmente in una configurazione senza switch a due nodi, migrare il cluster in un cluster con switch a due nodi utilizzando il tipo di switch preferito.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migrazione a un cluster con switch a due nodi con switch cluster Cisco"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migrazione a un cluster con switch a due nodi con switch di cluster NetApp CN1610"^]
+
+. Inviare un messaggio AutoSupport da ciascun nodo originale per informare il supporto tecnico dell'aggiornamento:
++
+`system node autosupport invoke -node _node_name_ -type all -message "Upgrading node_name from _platform_original_ to _platform_new_"`
+
+

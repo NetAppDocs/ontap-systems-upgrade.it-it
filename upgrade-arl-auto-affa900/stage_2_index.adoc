@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_2_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Fase 2 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP 9.8 o versioni successive.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 2, è possibile spostare gli aggregati non root node1 e le LIF dei dati NAS in node2. Questo processo è in gran parte automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione. Se necessario, spostare gli aggregati non riusciti o vetoed. È necessario registrare le informazioni node1 per utilizzarle successivamente nella procedura, quindi sostituire il controller node1 corrispondente e i moduli NVRAM, dismettere il node1 e avviare la rete con il node1 aggiornato.
+
+.Fasi
+. link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Spostare gli aggregati non root e le LIF dei dati NAS di proprietà del node1 al node2"]
+. link:relocate_failed_or_vetoed_aggr.html["Spostare gli aggregati non riusciti o vetoed"]
+. link:retire_node1.html["Ritirare il node1"]
+. link:netboot_node1.html["NetBoot"]
+

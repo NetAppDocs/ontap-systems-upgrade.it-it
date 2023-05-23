@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Verificare le operazioni di switchover, riparazione e switchback della configurazione MetroCluster.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _Gestione MetroCluster e disaster recovery_ e utilizzare le procedure indicate per lo switchover negoziato, la riparazione e lo switchback.

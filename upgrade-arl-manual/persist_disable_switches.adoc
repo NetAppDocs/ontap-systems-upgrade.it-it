@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/persist_disable_switches.html 
+keywords: disable, switches, fabric, persistent, modify, configuration, configure 
+summary: Disattivare gli switch Brocade e Cisco nel fabric e modificare la configurazione durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Disattivare gli switch in modo indisabile
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario disattivare gli switch nel fabric in modo persistente per modificarne la configurazione.
+
+.A proposito di questa attività
+Per disattivare gli switch, eseguire i comandi sulla riga di comando dello switch; i comandi utilizzati per questo non sono comandi ONTAP.
+
+.Fase
+Disattivare in modo persistente lo switch:
+
+* Per gli switch Brocade, utilizzare `switchCfgPersistentDisable` comando.
+* Per gli switch Cisco, utilizzare `suspend` comando.
+
+
+Il seguente comando disattiva uno switch Brocade in modo persistente:
+
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentDisable
+----
+Il seguente comando disattiva uno switch Cisco:
+
+[listing]
+----
+vsan [vsna #] suspend
+----

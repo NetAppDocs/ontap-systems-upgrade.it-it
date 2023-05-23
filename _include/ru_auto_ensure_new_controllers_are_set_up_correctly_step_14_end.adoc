@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+. Se si desidera configurare un cluster senza switch sui nuovi nodi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e seguire le istruzioni in _passaggio a un cluster senza switch a due nodi_.
+
+
+.Al termine
+Se Storage Encryption è attivato su node3 e node4, completare la sezione link:set_up_storage_encryption_new_module.html["Impostare Storage Encryption sul nuovo modulo controller"]. In caso contrario, completare la sezione link:decommission_old_system.html["Decommissionare il vecchio sistema"].

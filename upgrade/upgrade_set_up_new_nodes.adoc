@@ -1,0 +1,124 @@
+---
+permalink: upgrade/upgrade-set-up-new-nodes.html 
+sidebar: sidebar 
+keywords: upgrade, nodes, moving, storage, port, original, new 
+summary: 'Durante il processo di aggiornamento mediante lo spostamento dello storage, si accende node3 e node4, si avvia l"immagine software e si configurano i nodi.' 
+---
+= Impostare i nuovi nodi
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante il processo di aggiornamento mediante lo spostamento dello storage, si accende node3 e node4, si avvia l'immagine software e si configurano i nodi. Il layout fisico delle porte tra i nodi originale e nuovo può essere diverso. È necessario eseguire il mapping delle porte tra i nodi originali e quelli sostitutivi per identificare il layout corretto di porte e connessioni.
+
+.Prima di iniziare
+Se la versione di ONTAP in esecuzione sui nuovi nodi è diversa da quella dei nodi originali, è necessario aver scaricato la versione corretta `<ontap_version>_image.tgz` Dal sito di supporto NetApp a una directory accessibile dal Web (vedere _preparazione per l'aggiornamento durante lo spostamento dello storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["Fase 5"]). Hai bisogno di `<ontap_version>_image.tgz` per eseguire un netboot del sistema.
+
+.Fasi
+. Accendere il terminale di node3, quindi premere immediatamente Ctrl-C sul terminale della console per accedere al prompt DEL CARICATORE.
++
+Se il nodo 3 e il nodo 4 si trovano nello stesso chassis, passare alla fase 2. In caso contrario, passare alla fase 3.
+
+. Se node3 e node4 si trovano in una configurazione a singolo chassis (con controller nello stesso chassis):
++
+.. Collegare una console seriale al nodo 4.
+.. Accendere il dispositivo al nodo 4, se non È GIÀ ACCESO, quindi interrompere il processo di avvio premendo Ctrl-C sul terminale della console per accedere al prompt DEL CARICATORE.
++
+L'alimentazione dovrebbe essere già ATTIVA se entrambi i controller si trovano nello stesso chassis.
+
++
+Lasciare il nodo 4 al prompt DEL CARICATORE; tornare a questa procedura e ripetere questi passaggi dopo l'installazione del nodo 3.
+
+
+
+. Al prompt DEL CARICATORE, immettere il seguente comando:
++
+`set-defaults`
+
+. Al prompt DEL CARICATORE, configurare la connessione netboot per una LIF di gestione:
++
+[cols="25,75"]
+|===
+| Se l'indirizzo IP è... | Quindi... 
+
+
+| DHCP | Configurare la connessione automatica:
+`ifconfig e0M -auto` 
+
+
+| Statico | Configurare la connessione manuale:
+`ifconfig e0M -addr=ip_addr -mask=netmask -gw=gateway` 
+|===
+. Al prompt DEL CARICATORE, eseguire netboot al nodo 3:
++
+[cols="25,75"]
+|===
+| Per... | Quindi... 
+
+
+| SISTEMI DELLE SERIE FAS2200, FAS2500, FAS3200, FAS6200, FAS/AFF8000 | `netboot \http://web_server_ip/path_to_webaccessible_directory/netboot/kernel` 
+
+
+| Tutti gli altri sistemi | `netboot \http://web_server_ip/path_to_webaccessible_directory/ontap_version_image.tgz` 
+|===
++
+Il `path_to_the_web-accessible_directory` è la posizione del scaricato
+`<ontap_version>_image.tgz` file.
+
++
+
+NOTE: Se non si riesce ad eseguire l'avvio da rete dei nuovi controller, contattare il supporto tecnico.
+
+. Dal menu di avvio, selezionare l'opzione *(7) installare prima il nuovo software* per scaricare e installare la nuova immagine software sul dispositivo di avvio.
++
+Ignorare il seguente messaggio: `"This procedure is not supported for NonDisruptive Upgrade on an HA pair"`. Si applica agli aggiornamenti software senza interruzioni e non agli aggiornamenti dei controller.
+
+. Se viene richiesto di continuare la procedura, inserire y e quando viene richiesto il pacchetto, inserire l'URL del file immagine:
++
+`/http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz`
+
++
+Immettere nome utente/password, se applicabile, oppure premere Invio per continuare.
+
+. Invio `n` per ignorare il ripristino del backup quando viene visualizzato un prompt simile a quanto segue:
++
+[listing]
+----
+`Do you want to restore the backup configuration now? {y|n}`
+----
+. Riavviare immettendo `y` quando viene visualizzato un prompt simile a quanto segue:
++
+[listing]
+----
+`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}`
+----
+. Interrompere il processo di riavvio premendo Ctrl-C per visualizzare il menu di avvio quando richiesto dal sistema.
+. Dal menu di avvio, selezionare *(5) Maintenance mode boot* (Avvio in modalità manutenzione) per accedere alla modalità Maintenance (manutenzione).
+. Se necessario, apportare modifiche alle porte FC o CNA sul nodo, quindi riavviare il nodo in modalità Maintenance (manutenzione).
++
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["Gestione SAN con CLI"^]
+
+. Verificare che l'output del comando sia visualizzato `ha`:
++
+[listing]
+----
+*> ha-config show
+ Chassis HA configuration: ha
+ Controller HA configuration: ha
+----
++
+I sistemi registrano in una PROM se si trovano in una coppia ha o in una configurazione standalone. Lo stato deve essere lo stesso su tutti i componenti all'interno del sistema standalone o della coppia ha
+
++
+Il `ha-config modify controller ha` il comando si configura `ha` per l'impostazione del controller. Il `ha-config modify chassis ha` il comando si configura `ha` per l'impostazione dello chassis.
+
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
++
+Il sistema si arresta al prompt DEL CARICATORE
+
+

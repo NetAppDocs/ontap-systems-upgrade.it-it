@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+Dopo aver inserito fisicamente il nodo 3 e il nodo 4 più avanti nella procedura, potrebbe essere necessario eseguire il netboot. Il termine "netboot" indica che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Durante la preparazione per il netboot, è necessario inserire una copia dell'immagine di boot di ONTAP 9 su un server Web a cui il sistema può accedere.
+
+.Prima di iniziare
+* Verificare che sia possibile accedere a un server HTTP con il sistema.
+* Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e scaricare i file di sistema necessari per la piattaforma e la versione corretta di ONTAP.
+
+
+.A proposito di questa attività
+È necessario eseguire il netboot dei nuovi controller se non sono installati sulla stessa versione di ONTAP 9 installata sui controller originali. Dopo aver installato ciascun nuovo controller, avviare il sistema dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avvii del sistema.

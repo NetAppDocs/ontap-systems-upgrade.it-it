@@ -1,0 +1,92 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/verify_node4_installation.html 
+keywords: verify, node4, installation, MetroCluster, restore, key, manager 
+summary: 'Verificare che il nodo 4 si unisca al quorum, ricreare le VLAN del nodo 1, i gruppi di interfacce e i domini di trasmissione e ripristinare la configurazione del gestore delle chiavi quando si aggiornano i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Verificare l'installazione di node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver installato e avviato il nodo 4, è necessario verificare che sia installato correttamente, che faccia parte del cluster e che sia in grado di comunicare con il nodo 3.
+
+.A proposito di questa attività
+A questo punto della procedura, l'operazione verrà messa in pausa quando node4 si unisce al quorum.
+
+.Fasi
+. Verificare che node4 si sia Unito al quorum:
++
+`cluster show -node node4 -fields health`
+
+. Verificare che node4 faccia parte dello stesso cluster di node3 e sia integro immettendo il seguente comando:
++
+`cluster show`
+
+. Controllare lo stato dell'operazione e verificare che le informazioni di configurazione per node4 siano le stesse di node2:
++
+`system controller replace show-details`
+
++
+Se la configurazione è diversa per node4, potrebbe verificarsi un'interruzione del sistema in seguito alla procedura.
+
+. Verificare che il controller sostituito sia configurato correttamente per la configurazione MetroCluster e non in modalità di switch-over.
++
+
+CAUTION: *Attenzione:* in questa fase la configurazione MetroCluster non sarà in uno stato normale e potrebbero essere presenti errori da risolvere. Vedere link:verify_health_of_metrocluster_config.html["Verificare lo stato della configurazione MetroCluster"].
+
+
+
+
+
+== Ricreare VLAN, gruppi di interfacce e domini di broadcast sul nodo 4
+
+Dopo aver confermato che node4 è in quorum e può comunicare con node3, è necessario ricreare le VLAN, i gruppi di interfacce e i domini di broadcast di node2 sul node4. È inoltre necessario aggiungere le porte node3 ai domini di trasmissione appena ricreati.
+
+.A proposito di questa attività
+Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] E link a _Network Management_.
+
+.Fasi
+. Ricreare le VLAN sul nodo 4 utilizzando le informazioni sul nodo 2 registrate nel link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"] sezione:
++
+`network port vlan create -node _node4_ -vlan _vlan-names_`
+
+. Ricreare i gruppi di interfacce sul nodo 4 utilizzando le informazioni sul nodo 2 registrate nel link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"] sezione:
++
+`network port ifgrp create -node _node4_ -ifgrp _port_ifgrp_names_-distr-func`
+
+. Ricreare i domini di trasmissione sul nodo 4 utilizzando le informazioni sul nodo 2 registrate nel link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"] sezione:
++
+`network port broadcast-domain create -ipspace Default -broadcast-domain _broadcast_domain_names_ -mtu _mtu_size_ -ports _node_name:port_name,node_name:port_name_`
+
+. Aggiungere le 4 porte node4 ai domini di trasmissione appena ricreati:
++
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_names_ -ports _node_name:port_name,node_name:port_name_`
+
+
+
+
+
+== Ripristinare la configurazione del gestore delle chiavi sul nodo 4
+
+Se si utilizza NetApp aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione della crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina il gestore delle chiavi, quando si trasferiranno gli aggregati node2 da node3 a node4 utilizzando ARL, i volumi crittografati verranno portati offline.
+
+.Fasi
+. Per sincronizzare la configurazione della crittografia per Onboard Key Manager, eseguire il seguente comando al prompt del cluster:
++
+|===
+| Per questa versione di ONTAP… | Utilizzare questo comando... 
+
+
+| ONTAP 9.6 o 9.7 | `security key-manager onboard sync` 
+
+
+| ONTAP 9.5 | `security key-manager setup -node _node_name_` 
+|===
+. Immettere la passphrase a livello di cluster per Onboard Key Manager.
+

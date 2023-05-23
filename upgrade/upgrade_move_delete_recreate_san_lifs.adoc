@@ -1,0 +1,19 @@
+---
+permalink: upgrade/upgrade_move_delete_recreate_san_lifs.html 
+sidebar: sidebar 
+keywords: cluster, san, environment, delete, lif, re-create, move san lifs, create 
+summary: 'A seconda del contenuto del cluster e dell"ambiente del cluster, è necessario spostare, eliminare o creare LIF SAN o ricreare LIF SAN eliminate.' 
+---
+= Panoramica
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A seconda del contenuto del cluster e dell'ambiente del cluster, è necessario spostare, eliminare o creare LIF SAN o ricreare LIF SAN eliminate.
+
+* link:upgrade_considerations_move_san_lifs.html["Considerazioni per lo spostamento DI SAN LIFS"]
+* link:upgrade-delete-san-lifs.html["Eliminare le LIF SAN non più richieste dai nodi originali"]
+* link:upgrade_create_recreate_san_lifs.html["Creare nuove LIF SAN o ricreare le LIF SAN eliminate"]
+

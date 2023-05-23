@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/persist_enable_switches.html 
+keywords: enable, switches, fabric, persistent 
+summary: Abilitare costantemente gli switch Brocade e Cisco nel fabric durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
+---
+= Abilitare gli switch in modo persistente
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È necessario abilitare gli switch nel fabric in modo persistente.
+
+.Fase
+Abilitare costantemente lo switch:
+
+* Per gli switch Brocade, utilizzare `switchCfgPersistentenable` comando.
++
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentenable
+----
+* Per gli switch Cisco, utilizzare `no suspend` comando.
++
+[listing]
+----
+vsan [vsna #]no suspend
+----
+

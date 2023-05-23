@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_1_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Fase 1 sequenza di processo per un aggiornamento ARL con `system controller replace` Comandi sui controller che eseguono ONTAP 9.8 o versioni successive.' 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 1, verificare di disporre dell'hardware corretto per un aggiornamento da AFF A700 a AFF A900 o FAS9000 a FAS9500, eseguire i controlli preliminari e, se necessario, correggere la proprietà aggregata. È necessario registrare alcune informazioni se si gestisce Storage Encryption utilizzando OKM e si può scegliere di interrompere le relazioni di SnapMirror.
+
+.Fasi
+. link:verify_upgrade_hardware.html["Verificare l'hardware di aggiornamento"]
+. link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]
+. link:manage_storage_encryption_using_okm.html["Gestire Storage Encryption utilizzando Onboard Key Manager"]
+

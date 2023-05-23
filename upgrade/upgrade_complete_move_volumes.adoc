@@ -1,0 +1,66 @@
+---
+permalink: upgrade/upgrade-complete-move-volumes.html 
+sidebar: sidebar 
+keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
+summary: 'Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e configurare AutoSupport. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o NCA.' 
+---
+= Completare l'aggiornamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e impostare AutoSupport. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o NCA.
+
+. Configurare l'SP sui nuovi nodi in base alle necessità:
++
+`system service-processor network modify`
+
+. Installare nuove licenze sui nuovi nodi in base alle necessità:
++
+`system license add`
+
+. Impostare AutoSupport sui nuovi nodi:
++
+`system node autosupport modify`
+
+. Da ogni nuovo nodo, inviare un messaggio AutoSupport post-aggiornamento al supporto tecnico:
++
+`system node autosupport invoke -node node_name -type all -message "node_name successfully upgraded from platform_old to platform_new"`
+
+. Ripristinare la funzionalità Storage o Volume Encryption utilizzando la procedura appropriata inhttps://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Gestire la crittografia con la CLI"^] contenuto.
++
+Utilizzare una delle seguenti procedure, a seconda che si utilizzi la gestione delle chiavi integrata o esterna:
+
++
+** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi integrate`"
+** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi esterne`"
+
+
+. Se i nuovi nodi dispongono di porte FC (onboard or on FC adapter), porte CNA integrate o una scheda CNA, configurare le porte FC o CNA, immettere il seguente comando dal prompt del sistema di storage:
++
+`system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
+
++
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["Gestione SAN con CLI"^]
+
++
+È possibile modificare la configurazione CNA solo quando gli adattatori CNA sono offline.
+
+. Impostare un cluster senza switch sui nuovi nodi, se necessario.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migrazione a un cluster con switch a due nodi con switch cluster Cisco"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migrazione a un cluster con switch a due nodi con switch di cluster NetApp CN1610"^]
+
+. Se necessario, decommissionare i sistemi originali attraverso il NetApp Support Site per informare NetApp che i sistemi non sono più in funzione e possono essere rimossi dai database di supporto:
++
+.. Accedere a. https://mysupport.netapp.com/site/global/dashboard["Supporto NetApp"^] sito.
+.. Fare clic sul collegamento *My Installed Systems* (sistemi installati).
+.. Nella pagina *sistemi installati*, inserire il numero di serie del vecchio sistema nel modulo, quindi fare clic su *Vai!*
+.. Nella pagina del modulo di dismissione, compila il modulo e fai clic su *Invia*.
+
+
+

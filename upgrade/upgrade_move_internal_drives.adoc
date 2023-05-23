@@ -1,0 +1,47 @@
+---
+permalink: upgrade/upgrade-move-internal-drives.html 
+sidebar: sidebar 
+keywords: node, support, model, upgrading, upgrade, moving, move, storage, internal, sata, drive, ssd, drive, shelf, attach, cluster, transfer, sas, drive, move internal drives from an original node 
+summary: Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile spostare le unità SATA, SSD o SAS interne del nodo in uno shelf di dischi collegato al nuovo nodo dello stesso cluster. 
+---
+= Spostare le unità interne da un nodo originale
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile spostare le unità SATA, SSD o SAS interne del nodo in uno shelf di dischi collegato al nuovo nodo dello stesso cluster.
+
+.Prima di iniziare
+* Devi aver controllato link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"] informazioni sullo spostamento dei dischi interni.
++
+Contattare il supporto tecnico se si necessita di indicazioni specifiche per la propria configurazione.
+
+* I supporti delle unità SATA, SSD o SAS del nodo originale devono essere compatibili con il nuovo shelf di dischi.
+* Al nuovo nodo deve essere già collegato uno shelf di dischi compatibile.
+* Lo shelf di dischi deve disporre di alloggiamenti liberi sufficienti per alloggiare i cassetti delle unità SATA, SSD o SAS del nodo originale.
+
+
+.Fasi
+. Rimuovere delicatamente il pannello frontale dal sistema.
+. [[Move_int_Drive_2]]premere il pulsante di rilascio sul lato sinistro del supporto del disco.
++
+La maniglia della camma sul supporto si apre parzialmente e il supporto si disinnesta dal piano intermedio.
+
+. Tirare la maniglia della camma in posizione completamente aperta per rimuovere il supporto dalla scheda intermedia, quindi estrarre delicatamente il supporto dallo shelf.
++
+
+NOTE: Utilizzare sempre due mani per rimuovere, installare o trasportare un disco. Tuttavia, non posizionare le mani sulle schede delle unità esposte nella parte inferiore del supporto.
+
+. Con la maniglia della camma in posizione aperta, inserire il supporto in uno slot del nuovo ripiano, spingendo con decisione fino a quando il supporto non si ferma.
++
+
+NOTE: Inserire il supporto con due mani.
+
+. [[Move_int_drive_5]] chiudere la maniglia della camma in modo che il supporto sia completamente inserito nella scheda intermedia e la maniglia scatti in posizione.
++
+Chiudere lentamente la maniglia in modo che sia allineata correttamente con la parte anteriore del supporto.
+
+. Ripetere <<move_int_drive_2,Fase 2>> attraverso <<move_int_drive_5,Fase 5>> per tutti i dischi che si stanno trasferendo al nuovo sistema.
+

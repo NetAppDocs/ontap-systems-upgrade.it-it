@@ -1,0 +1,28 @@
+---
+permalink: upgrade/upgrade-optional-move-internal-storage.html 
+sidebar: sidebar 
+keywords: node, support, model, internal, sata, drive, ssd, moving, move, upgrading, upgrade, convert, move internal storage or convert the system to a drive shelf 
+summary: Se il nodo originale è uno dei modelli supportati, è possibile spostare i dischi SATA, SSD o SAS interni su uno shelf di dischi collegato ai nuovi nodi durante il processo di aggiornamento mediante lo spostamento dello storage. È inoltre possibile convertire il sistema in uno shelf di dischi e collegarlo ai nuovi nodi. 
+---
+= Panoramica
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se il nodo originale è uno dei modelli supportati, è possibile spostare i dischi SATA, SSD o SAS interni su uno shelf di dischi collegato ai nuovi nodi durante il processo di aggiornamento mediante lo spostamento dello storage. È inoltre possibile convertire il sistema in uno shelf di dischi e collegarlo ai nuovi nodi.
+
+.A proposito di questa attività
+È possibile spostare dischi o shelf di dischi solo all'interno dello stesso cluster.
+
+.Scelte
+* link:upgrade-move-internal-drives.html["Spostare le unità interne da un nodo originale"]
++
+Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile spostare le unità SATA, SSD o SAS interne del nodo in uno shelf di dischi collegato al nuovo nodo dello stesso cluster.
+
+* link:upgrade-convert-node-to-shelf.html["Convertire un nodo originale in uno shelf di dischi"]
++
+Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile convertire il nodo in uno shelf di dischi e collegarlo ai nuovi nodi nello stesso cluster.
+
+

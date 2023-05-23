@@ -1,0 +1,142 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/set_up_netapp_volume_encryption_new_module.html 
+keywords: set up, netapp volume encryption, controller, module, nve, node 
+summary: 'Se necessario, configurare il nuovo modulo controller per NVE o NAE quando si aggiornano i controller con ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Impostare NetApp Volume o aggregate Encryption sul nuovo modulo controller
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se il controller sostituito o il partner ad alta disponibilità (ha) del nuovo controller utilizza NetApp Volume Encryption (NVE) o NetApp aggregate Encryption (NAE), è necessario configurare il nuovo modulo controller per NVE o NAE.
+
+.A proposito di questa attività
+Questa procedura include i passaggi che vengono eseguiti sul nuovo modulo controller. Immettere il comando sul nodo corretto.
+
+[role="tabbed-block"]
+====
+.ONTAP 9.6 e 9.7
+--
+*Configurare NVE o NAE sui controller che eseguono ONTAP 9.6 o 9.7*
+
+.Fasi
+. Verificare che i server di gestione delle chiavi siano ancora disponibili, che il loro stato e le relative informazioni sulla chiave di autenticazione:
++
+`security key-manager key query -node node`
+
+. Aggiungere i server di gestione delle chiavi elencati nel passaggio precedente all'elenco dei server di gestione delle chiavi nel nuovo controller:
++
+.. Aggiungere il server di gestione delle chiavi:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+.. Ripetere il passaggio precedente per ciascun server di gestione delle chiavi elencato.
++
+È possibile collegare fino a quattro server di gestione delle chiavi.
+
+.. Verificare che i server di gestione delle chiavi siano stati aggiunti correttamente:
++
+`security key-manager show`
+
+
+
+. Sul nuovo modulo controller, eseguire la configurazione guidata della gestione delle chiavi per configurare e installare i server di gestione delle chiavi.
++
+È necessario installare gli stessi server di gestione delle chiavi installati sul modulo controller esistente.
+
++
+.. Avviare la configurazione guidata del server di gestione delle chiavi sul nuovo nodo:
++
+`security key-manager setup -node _new_controller_name_`
+
+.. Completare la procedura guidata per configurare i server di gestione delle chiavi.
+
+
+. Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo.
++
+** Ripristinare l'autenticazione per il gestore delle chiavi esterno:
++
+`security key-manager external restore`
+
++
+Questo comando richiede la passphrase di Onboard Key Manager (OKM).
+
++
+Per ulteriori informazioni, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_restore_external_key_manager_server_configuration_from_the_ONTAP_boot_menu["Come ripristinare la configurazione del server di gestione delle chiavi esterne dal menu di avvio di ONTAP"^].
+
+** Ripristinare l'autenticazione per OKM:
++
+`security key-manager onboard sync`
+
+
+
+
+
+--
+.ONTAP 9.5
+--
+*Configurare NVE o NAE sui controller che eseguono ONTAP 9.5*
+
+.Fasi
+. Verificare che i server di gestione delle chiavi siano ancora disponibili, che il loro stato e le relative informazioni sulla chiave di autenticazione:
++
+`security key-manager key show`
+
+. Aggiungere i server di gestione delle chiavi elencati nel passaggio precedente all'elenco dei server di gestione delle chiavi nel nuovo controller:
++
+.. Aggiungere il server di gestione delle chiavi:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+.. Ripetere il passaggio precedente per ciascun server di gestione delle chiavi elencato.
++
+È possibile collegare fino a quattro server di gestione delle chiavi.
+
+.. Verificare che i server di gestione delle chiavi siano stati aggiunti correttamente:
++
+`security key-manager show`
+
+
+
+. Sul nuovo modulo controller, eseguire la configurazione guidata della gestione delle chiavi per configurare e installare i server di gestione delle chiavi.
++
+È necessario installare gli stessi server di gestione delle chiavi installati sul modulo controller esistente.
+
++
+.. Avviare la configurazione guidata del server di gestione delle chiavi sul nuovo nodo:
++
+`security key-manager setup -node _new_controller_name_`
+
+.. Completare la procedura guidata per configurare i server di gestione delle chiavi.
+
+
+. Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo.
++
+** Ripristinare l'autenticazione per il gestore delle chiavi esterno:
++
+`security key-manager external restore`
+
++
+Questo comando richiede la passphrase di Onboard Key Manager (OKM).
+
++
+Per ulteriori informazioni, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_restore_external_key_manager_server_configuration_from_the_ONTAP_boot_menu["Come ripristinare la configurazione del server di gestione delle chiavi esterne dal menu di avvio di ONTAP"^].
+
+** Ripristinare l'autenticazione per OKM:
++
+`security key-manager setup -node _node_name_`
+
+
+
+
+
+--
+====
+.Al termine
+Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere i server di gestione delle chiavi esterne. Riportare i volumi online utilizzando `volume online` comando.

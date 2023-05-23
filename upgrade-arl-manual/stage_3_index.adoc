@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage_3_index.html 
+keywords: relocate, retire, node1, steps, stage 3 
+summary: Fase 3 sequenza di processo per un aggiornamento ARL manuale su controller con ONTAP 9.7 o versioni precedenti. 
+---
+= Panoramica
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 3, si installa e si avvia node3, si mappano le porte di gestione del cluster e dei nodi da node1 a node3, si verifica l'installazione node3 e si spostano le LIF dei dati e LE LIF SAN appartenenti al node1 da node2 a node3. Puoi anche spostare tutti gli aggregati da node2 a node3 e spostare i dati LIF e SAN LIF di proprietà di node2 a node3.
+
+.Fasi
+. link:install_boot_node3.html["Installazione e boot node3"]
+. link:set_fc_uta_uta2_config_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"]
+. link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"]
+. link:verify_node3_installation.html["Verificare l'installazione di node3"]
+. link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Spostare le LIF dei dati NAS di proprietà del node1 da node2 a node3 e verificare le LIF SAN sul node3"]
+. link:relocate_non_root_aggr_node2_node3.html["Spostare gli aggregati non root dal nodo 2 al nodo 3"]
+. link:move_nas_lifs_node2_node3.html["Spostare le LIF dei dati NAS di proprietà del node2 al node3"]
+

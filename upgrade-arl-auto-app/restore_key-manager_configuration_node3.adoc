@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/restore_key-manager_configuration_node3.html 
+keywords: restoring, key-manager, configuration, node3, nve, arl, encryption, netapp, volume 
+summary: 'Se necessario, ripristinare la configurazione del gestore delle chiavi sul nodo 3 quando si aggiornano i controller con ONTAP 9.8 o versione successiva utilizzando `system controller replace` comandi.' 
+---
+= Ripristinare la configurazione del gestore delle chiavi sul node3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se si utilizza NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione della crittografia deve essere sincronizzata con i nuovi nodi. Se non si sincronizza il gestore delle chiavi, quando si riposizionano gli aggregati node1 da node2 a node3 utilizzando ARL, potrebbero verificarsi errori perché node3 non dispone delle chiavi di crittografia necessarie per portare online volumi e aggregati crittografati.
+
+.A proposito di questa attività
+Sincronizzare la configurazione della crittografia con i nuovi nodi seguendo questa procedura:
+
+.Fasi
+. Eseguire il seguente comando da node3:
++
+`security key-manager onboard sync`
+
+. Prima di spostare gli aggregati di dati, verificare che la chiave SVM-KEK sia stata ripristinata su "true" al nodo 3:
++
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+----
++
+.Esempio
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node3    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
+

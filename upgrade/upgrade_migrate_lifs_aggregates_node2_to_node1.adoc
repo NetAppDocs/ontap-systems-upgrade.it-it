@@ -1,0 +1,96 @@
+---
+permalink: upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
+summary: 'Migrare le interfacce logiche (LIF) e gli aggregati di dati sul nodo 2 al nodo 1.' 
+---
+= Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di convertire il nodo 2 di AFF A250 in uno shelf di dischi, è necessario migrare le interfacce logiche (LIF) e gli aggregati di dati sul nodo 2 in node1.
+
+.Prima di iniziare
+Verificare di soddisfare i seguenti requisiti:
+
+* I controller AFF A250 e AFF A400 dispongono della stessa versione di patch e release di ONTAP installata.
+* Entrambi i controller AFF A400 sono in standby su `Maintenance Mode` prompt.
+* Hai a disposizione tutti i cavi appropriati.
+
+
+.A proposito di questa attività
+I seguenti passaggi vengono eseguiti su AFF A250 node1.
+
+.Fasi
+. Disattivare il giveback automatico di failover del cluster:
++
+`storage failover modify -node _node_name_ -auto-giveback false`
+
+. Disattivare l'autorevert dei LIF su entrambi i nodi della coppia ha:
++
+`network interface modify -lif * -auto-revert false`
+
+. Visualizzare lo stato di tutte le LIF della rete dati:
++
+`network interface show -role data`
+
+. Visualizzare lo stato delle LIF di gestione del cluster:
++
+`network interface show cluster_mgmt`
+
+. Migrare tutti i dati LIF dalle macchine virtuali dello storage ospitate sul node2:
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+
++
+
+NOTE: Questo comando esegue la migrazione solo di LIF non SAN. Non è possibile utilizzarlo per migrare LIF iSCSI e FCP.
+
+. Visualizzare lo stato di tutti i dati LIF nel cluster:
++
+`network interface show -role data`
+
+. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+
+. Visualizzare lo stato di tutti gli aggregati di dati nel cluster:
++
+`storage aggregate show`
+
+. Visualizzare l'idoneità al failover:
++
+`storage failover show`
+
+. Migrare gli aggregati di dati dal nodo 2 al nodo 1:
++
+`storage aggregate relocation start -aggregate _aggregate_name_ -node _node2_ -destination _node1_`
+
+. Visualizzare lo stato di tutti gli aggregati di dati nel cluster:
++
+`storage aggregate show`
+
+. Visualizzare lo stato di tutti i volumi di dati nel cluster:
++
+`volume show`
+
+. Visualizzare il `ha` stato e proprietà di epsilon:
++
+`cluster show`
+
+. Disattiva `cluster ha`:
++
+`cluster ha modify -configured false`
+
+. Visualizzare il `ha` stato e proprietà di epsilon:
++
+`cluster show`
+
+. Arrestare il nodo 2:
++
+`halt -node _node2_ -inhibit-takeover true -ignore-quorum-warnings true`
+
+

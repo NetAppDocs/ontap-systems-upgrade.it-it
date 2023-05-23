@@ -1,0 +1,217 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/prepare_nodes_for_upgrade.html 
+keywords: preparing, nodes, upgrade 
+summary: 'Preparare i nodi ed eseguire una serie di controlli preliminari quando si aggiornano i controller con ONTAP 9.8 o versione successiva utilizzando `system controller replace` comandi.' 
+---
+= Preparare i nodi per l'aggiornamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per preparare i nodi per l'aggiornamento, attenersi alla seguente procedura.
+
+.Fasi
+. Iniziare il processo di sostituzione del controller immettendo il seguente comando nella riga di comando ONTAP:
++
+`system controller replace start -nodes _node_names_`
+
++
+[NOTE]
+====
+** A partire da ONTAP 9.10.1, la procedura di aggiornamento automatica basata su switchover negoziato (NSO) è l'impostazione predefinita per una configurazione FC MetroCluster a quattro nodi. Se si sta aggiornando una configurazione MetroCluster FC a quattro nodi, quando si esegue `system controller replace start` È necessario impedire l'avvio della procedura basata su NSO impostando il `-nso` parametro a. `false`:
++
+`system controller replace start -nodes _node_names_ -nso false`
+
+** Il `system controller replace start` il comando può essere eseguito solo a livello di privilegi avanzati:
++
+`set -privilege advanced`
+
+
+
+====
++
+Viene visualizzato il seguente output:
+
++
+....
+Warning:
+1. Current ONTAP version is 9.x
+Before starting controller replacement operation, ensure that the new controllers are running the version 9.x
+
+2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM  batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
+
+Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
+
+3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+Do you want to continue? {y|n}: y
+....
+. Premere `y`, viene visualizzato il seguente output:
++
+....
+Controller replacement operation: Prechecks in progress.
+Controller replacement operation has been paused for user intervention.
+....
++
+Il sistema esegue i seguenti controlli preliminari; registrare l'output di ogni controllo preliminare per l'utilizzo in seguito nella procedura:
+
++
+[cols="35,65"]
+|===
+| Eseguire un controllo preliminare | Descrizione 
+
+
+| Verifica dello stato del cluster | Controlla tutti i nodi del cluster per verificarne l'integrità. 
+
+
+| MCC Cluster Check (controllo cluster MCC) | Verifica se il sistema è una configurazione MetroCluster. L'operazione rileva automaticamente se si tratta o meno di una configurazione MetroCluster ed esegue i controlli preliminari e di verifica specifici. È supportata solo la configurazione MetroCluster FC a 4 nodi. In caso di configurazione MetroCluster a 2 nodi e configurazione IP MetroCluster a 4 nodi, il controllo non riesce. Se la configurazione MetroCluster è in stato di switchover, il controllo non riesce. 
+
+
+| Verifica dello stato di trasferimento aggregato | Verifica se è già in corso un trasferimento di aggregati. Se è in corso un altro trasferimento di aggregati, il controllo non riesce. 
+
+
+| Controllo del nome del modello | Verifica se i modelli di controller sono supportati per questa procedura. Se i modelli non sono supportati, l'operazione non riesce. 
+
+
+| Verifica del quorum del cluster | Verifica che i nodi da sostituire siano in quorum. Se i nodi non sono in quorum, l'attività non riesce. 
+
+
+| Verifica della versione dell'immagine | Verifica che i nodi da sostituire eseguano la stessa versione di ONTAP. Se le versioni dell'immagine ONTAP sono diverse, l'operazione non riesce. Sui nuovi nodi deve essere installata la stessa versione di ONTAP 9.x installata sui nodi originali. Se nei nuovi nodi è installata una versione diversa di ONTAP, è necessario eseguire il netboot dei nuovi controller dopo averli installati. Per istruzioni su come aggiornare ONTAP, fare riferimento a. link:other_references.html["Riferimenti"] Collegamento a _Upgrade ONTAP_. 
+
+
+| Verifica dello stato HA | Controlla se entrambi i nodi da sostituire sono in una configurazione di coppia ad alta disponibilità (ha). Se il failover dello storage non è abilitato per i controller, l'operazione non riesce. 
+
+
+| Verifica dello stato dell'aggregato | Se i nodi che vengono sostituiti possiedono aggregati per i quali non sono proprietari di casa, l'attività non riesce. I nodi non devono possedere aggregati non locali. 
+
+
+| Verifica dello stato del disco | Se i nodi da sostituire presentano dischi mancanti o guasti, l'attività non riesce. In caso di dischi mancanti, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Disk and aggregate management con CLI_, _Logical storage management con CLI_ e _High Availability management_ per configurare lo storage per la coppia ha. 
+
+
+| Verifica dello stato LIF dei dati | Controlla se uno dei nodi da sostituire dispone di LIF di dati non locali. I nodi non devono contenere file di dati di cui non sono proprietari. Se uno dei nodi contiene LIF di dati non locali, l'attività non riesce. 
+
+
+| Stato LIF del cluster | Verifica se le LIF del cluster sono in funzione per entrambi i nodi. Se le LIF del cluster non sono attive, l'attività non riesce. 
+
+
+| Verifica dello stato ASUP | Se le notifiche ASUP non sono configurate, l'attività non riesce. È necessario attivare ASUP prima di iniziare la procedura di sostituzione del controller. 
+
+
+| Verifica dell'utilizzo della CPU | Controlla se l'utilizzo della CPU è superiore al 50% per uno dei nodi da sostituire. Se l'utilizzo della CPU è superiore al 50% per un periodo di tempo considerevole, il task non riesce. 
+
+
+| Controllo ricostruzione aggregata | Controlla se la ricostruzione avviene su qualsiasi aggregato di dati. Se la ricostruzione aggregata è in corso, l'operazione non riesce. 
+
+
+| Verifica del processo di affinità del nodo | Controlla se sono in esecuzione lavori di affinità del nodo. Se i lavori di affinità del nodo sono in esecuzione, il controllo non riesce. 
+|===
+. Una volta avviata l'operazione di sostituzione del controller e completate le verifiche preliminari, l'operazione viene interrotta e consente di raccogliere informazioni di output che potrebbero essere necessarie in seguito durante la configurazione del node3.
++
+
+NOTE: Se si dispone di un sistema con più di due porte cluster per nodo, ad esempio un sistema FAS8080 o AFF8080, prima di avviare l'aggiornamento, è necessario migrare e riassegnare le LIF del cluster a due porte cluster per nodo. Se si esegue l'aggiornamento del controller con più di due porte cluster per nodo, le LIF del cluster potrebbero non essere presenti sul nuovo controller dopo l'aggiornamento.
+
+. Eseguire il seguente set di comandi come indicato dalla procedura di sostituzione del controller sulla console di sistema.
++
+Dalla porta seriale collegata a ciascun nodo, eseguire e salvare singolarmente l'output dei seguenti comandi:
+
++
+** `vserver services name-service dns show`
+** `network interface show -curr-node _local_ -role _cluster,intercluster,node-mgmt,cluster-mgmt,data_`
+** `network port show -node _local_ -type physical`
+** `service-processor show -local -instance`
+** `network fcp adapter show -node _local_`
+** `network port ifgrp show`
+** `system node show -instance -node _local_`
+** `run -node _local_ sysconfig`
+** `storage aggregate show -node _local_`
+** `volume show -node _local_`
+** `storage array config show -switch _switch_name_`
+** `system license show -owner _local_`
+** `storage encryption disk show`
+** `security key-manager onboard show-backup`
+** `security key-manager external show`
+** `security key-manager external show-status`
+** `network port reachability show -detail`
+
+
++
+
+NOTE: Se si utilizza NetApp Volume Encryption (NVE) o NetApp aggregate Encryption (NAE) con Onboard Key Manager (OKM), tenere la passphrase del gestore delle chiavi pronta per completare la risincronizzazione del gestore delle chiavi in un secondo momento della procedura.
+
+. Se il sistema utilizza dischi con crittografia automatica, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] Per determinare il tipo di unità con crittografia automatica in uso sulla coppia ha che si sta aggiornando. Il software ONTAP supporta due tipi di dischi con crittografia automatica:
++
+--
+** Dischi SAS o NVMe NetApp Storage Encryption (NSE) certificati FIPS
+** Dischi NVMe con crittografia automatica non FIPS (SED)
+
+
+[NOTE]
+====
+Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nodo o coppia ha.
+
+È possibile combinare SED con dischi non crittografanti sullo stesso nodo o coppia ha.
+
+====
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["Scopri di più sulle unità con crittografia automatica supportate"^].
+
+--
+
+
+
+
+== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+
+Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
+
+.Fasi
+. Restituire gli aggregati attualmente di proprietà del nodo partner al nodo home owner:
++
+`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
+
+. Verificare che né node1 né node2 possiedano ancora aggregati per i quali è il proprietario corrente (ma non il proprietario domestico):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+L'esempio seguente mostra l'output del comando quando un nodo è sia il proprietario corrente che il proprietario domestico degli aggregati:
+
++
+[listing]
+----
+cluster::> storage aggregate show -nodes node1 -is-home true -fields owner-name,home-name,state
+aggregate   home-name  owner-name  state
+---------   ---------  ----------  ------
+aggr1       node1      node1       online
+aggr2       node1      node1       online
+aggr3       node1      node1       online
+aggr4       node1      node1       online
+
+4 entries were displayed.
+----
+
+
+
+
+=== Al termine
+
+È necessario riavviare il processo di sostituzione del controller:
+
+`system controller replace start -nodes _node_names_`
+
+
+
+== Licenza
+
+Quando si configura un cluster, la procedura guidata richiede di inserire la chiave di licenza del cluster. Tuttavia, alcune funzionalità richiedono licenze aggiuntive, che vengono emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
+
+Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare la nuova chiave di licenza o le nuove chiavi per il nuovo controller al termine dell'aggiornamento.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_, dove è possibile ottenere nuove chiavi di licenza a 2 caratteri per ONTAP. Le chiavi sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
+
+Per informazioni dettagliate sulle licenze, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.

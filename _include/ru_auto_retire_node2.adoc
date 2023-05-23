@@ -1,0 +1,18 @@
+= 
+:allow-uri-read: 
+
+
+Per dismettere il node2, è necessario chiudere il node2 correttamente e rimuoverlo dal rack o dallo chassis.
+
+.Fasi
+. Riprendere l'operazione:
++
+`system controller replace resume`
+
++
+Il nodo si arresta automaticamente.
+
+
+
+.Al termine
+È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].

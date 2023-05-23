@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/automate_the_controller_upgrade_process.html 
+keywords: automate, controller, upgrade, nondisruptive 
+summary: Utilizzare la procedura ARL parzialmente automatica per aggiornare i controller che eseguono ONTAP 9.5 alla versione 9.7. 
+---
+= Automatizzare il processo di aggiornamento del controller
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante un aggiornamento del controller, il controller viene sostituito con un altro controller che esegue una piattaforma più recente o più potente.
+
+Le versioni precedenti di questo contenuto contenevano istruzioni per un processo di aggiornamento del controller senza interruzioni, che comprendeva passaggi interamente manuali. Questo contenuto fornisce i passaggi per la nuova procedura automatica.
+
+Il processo manuale è stato lungo e complesso, ma in questa procedura semplificata è possibile implementare un aggiornamento del controller utilizzando il trasferimento degli aggregati, che consente aggiornamenti più efficienti e senza interruzioni per le coppie ha. Le procedure manuali sono notevolmente inferiori, in particolare per quanto riguarda la convalida, la raccolta di informazioni e i controlli successivi.

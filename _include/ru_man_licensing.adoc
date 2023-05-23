@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Quando si configura un cluster, la procedura guidata richiede di inserire la chiave di licenza del cluster. Tuttavia, alcune funzionalità richiedono licenze aggiuntive, che vengono emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
+
+Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller e continueranno a funzionare. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare la nuova chiave di licenza o le nuove chiavi per il nuovo controller al termine dell'aggiornamento.

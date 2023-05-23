@@ -1,0 +1,131 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/other_references.html 
+keywords: other references, documentation, hardware universe, content, documentation center, information 
+summary: Contenuti di riferimento e siti Web richiesti per supportare un aggiornamento ARL manuale su controller con ONTAP 9.7 o versioni precedenti. 
+---
+= Riferimenti
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando si eseguono le procedure di questo contenuto, potrebbe essere necessario consultare il contenuto di riferimento o visitare i siti Web di riferimento.
+
+* <<Contenuto di riferimento>>
+* <<Siti di riferimento>>
+
+
+
+
+== Contenuto di riferimento
+
+I contenuti specifici di questo aggiornamento sono elencati nella tabella seguente.
+
+[cols="40,60"]
+|===
+| Contenuto | Descrizione 
+
+
+| link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["Panoramica sull'amministrazione con la CLI"^] | Descrive come amministrare i sistemi ONTAP, illustra come utilizzare l'interfaccia CLI, come accedere al cluster, come gestire i nodi e molto altro ancora. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/software_setup/concept_decide_whether_to_use_ontap_cli.html["Decidere se utilizzare Gestore di sistema o l'interfaccia utente di ONTAP per la configurazione del cluster"^] | Descrive come configurare ONTAP. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestione di dischi e aggregati con CLI"^] | Descrive come gestire lo storage fisico ONTAP utilizzando la CLI. Mostra come creare, espandere e gestire gli aggregati, come lavorare con gli aggregati di Flash Pool, come gestire i dischi e come gestire le policy RAID. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Installazione e configurazione di Fabric-Attached MetroCluster"^] | Descrive come installare e configurare i componenti hardware e software di MetroCluster in una configurazione fabric. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["Requisiti e riferimenti per l'installazione della virtualizzazione FlexArray"^] | Contiene istruzioni sul cablaggio e altre informazioni per i sistemi di virtualizzazione FlexArray. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Gestione dell'alta disponibilità"^] | Descrive come installare e gestire le configurazioni in cluster ad alta disponibilità, tra cui failover dello storage e takeover/giveback. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/volumes/index.html["Gestione dello storage logico con la CLI"^] | Descrive come gestire in modo efficiente le risorse di storage logico, utilizzando volumi, volumi FlexClone, file e LUN, Volumi FlexCache, deduplica, compressione, qtree e quote. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["Gestione MetroCluster e disaster recovery"^] | Descrive come eseguire le operazioni di switchover e switchback MetroCluster, sia nelle operazioni di manutenzione pianificate che in caso di disastro. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Upgrade ed espansione di MetroCluster"^] | Vengono fornite procedure per l'aggiornamento dei modelli di controller e storage nella configurazione MetroCluster, la transizione da una configurazione MetroCluster FC a una configurazione MetroCluster IP e l'espansione della configurazione MetroCluster mediante l'aggiunta di nodi aggiuntivi. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestione della rete"^] | Descrive come configurare e gestire le porte di rete fisiche e virtuali (VLAN e gruppi di interfacce), i LIF, il routing e i servizi di risoluzione degli host nei cluster; ottimizza il traffico di rete mediante il bilanciamento del carico; monitora il cluster utilizzando SNMP. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-900%2Fhome.html["Comandi di ONTAP 9.0: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.0 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-910%2Fhome.html["Comandi di ONTAP 9.1: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.1 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-920%2Fhome.html["Comandi di ONTAP 9.2: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.2 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-930%2Fhome.html["Comandi di ONTAP 9.3: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.3 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-940%2Fhome.html["Comandi di ONTAP 9.4: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.4 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-950%2Fhome.html["Comandi di ONTAP 9.5: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.5 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-960%2Fhome.html["Comandi di ONTAP 9.6: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.6 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-970%2Fhome.html["Comandi di ONTAP 9.7: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.7 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html["Comandi di ONTAP 9.8: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.8 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-991/home.html["Comandi di ONTAP 9.9.1: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.9.1 supportati. 
+
+
+| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html["Comandi di ONTAP 9.10.1: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.10.1 supportati. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["Gestione SAN con CLI"^] | Descrive come configurare e gestire LUN, igroups e destinazioni utilizzando i protocolli iSCSI e FC, nonché spazi dei nomi e sottosistemi utilizzando il protocollo NVMe/FC. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/san-config/index.html["Riferimento alla configurazione SAN"^] | Contiene informazioni sulle topologie FC e iSCSI e sugli schemi di cablaggio. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando volumi o storage"^] | Descrive come aggiornare rapidamente l'hardware del controller in un cluster spostando lo storage o i volumi. Descrive inoltre come convertire un modello supportato in uno shelf di dischi. 
+
+
+| link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare ONTAP"^] | Contiene le istruzioni per scaricare e aggiornare ONTAP. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Utilizzare i comandi "System controller replace" per aggiornare AFF A700 a AFF A900 o FAS9000 a FAS9500 con ONTAP 9.10.1 o versione successiva"^] | Descrive le procedure di trasferimento degli aggregati necessarie per aggiornare senza interruzioni un sistema AFF A700 a un sistema AFF A900 o FAS9000 a un sistema FAS9500 con ONTAP 9.10.1 o versione successiva utilizzando i comandi "system controller replace". 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Utilizzare i comandi "System controller replace" per aggiornare l'hardware del controller con ONTAP 9.8 o versione successiva"^] | Descrive le procedure di trasferimento degli aggregati necessarie per l'aggiornamento senza interruzioni dei controller che eseguono ONTAP 9.8 utilizzando i comandi "system controller replace". 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["Utilizzare il trasferimento di aggregati per aggiornare manualmente l'hardware del controller con ONTAP 9.8 o versione successiva"^] | Descrive le procedure di trasferimento degli aggregati necessarie per eseguire aggiornamenti manuali dei controller senza interruzioni con ONTAP 9.8 o versione successiva. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["Utilizzare i comandi "System controller replace" per aggiornare l'hardware del controller che esegue ONTAP 9.5 a ONTAP 9.7"^] | Vengono descritte le procedure di riposizionamento degli aggregati necessarie per aggiornare senza interruzioni i controller che eseguono ONTAP 9.5 a ONTAP 9.7 utilizzando i comandi "system controller replace". 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["Utilizzare il trasferimento di aggregati per aggiornare manualmente l'hardware del controller con ONTAP 9.7 o versione precedente"^] | Descrive le procedure di trasferimento degli aggregati necessarie per eseguire aggiornamenti manuali dei controller senza interruzioni con ONTAP 9.7 o versione precedente. 
+|===
+
+
+== Siti di riferimento
+
+Il link:https://mysupport.netapp.com["Sito di supporto NetApp"^] Contiene inoltre documentazione sulle schede di interfaccia di rete (NIC) e su altri componenti hardware che potrebbero essere utilizzati con il sistema. Contiene anche link:https://hwu.netapp.com["Hardware Universe"^], che fornisce informazioni sull'hardware supportato dal nuovo sistema.
+
+Accesso https://docs.netapp.com/us-en/ontap/index.html["Documentazione di ONTAP 9"^].
+
+Accedere a. link:https://mysupport.netapp.com/site/tools["Active IQ Config Advisor"^] tool.

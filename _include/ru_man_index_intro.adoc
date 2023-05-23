@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+Questo contenuto descrive come aggiornare l'hardware del controller senza interruzioni utilizzando il trasferimento aggregato.
+
+È possibile aggiornare senza interruzioni l'hardware del controller su una coppia di nodi che eseguono ONTAP 9 eseguendo la migrazione degli aggregati non root dai nodi originali ai nuovi nodi nello stesso cluster. I dati ospitati sui nodi che vengono aggiornati sono accessibili durante l'aggiornamento.
+
+Questa procedura utilizza un metodo chiamato ARL (aggregate relocation), che sfrutta la configurazione ha per consentire di spostare la proprietà di aggregati non root da un nodo a un altro se condividono lo storage all'interno dello stesso cluster.

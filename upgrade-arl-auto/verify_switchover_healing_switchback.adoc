@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/verify_switchover_healing_switchback.html 
+keywords: switchover, healing,  switchback, metrocluster 
+summary: 'Verificare le operazioni di switchover, riparazione e switchback della configurazione MetroCluster quando si aggiornano i controller che eseguono ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Verificare lo switchover, la riparazione e lo switchback
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Verificare le operazioni di switchover, riparazione e switchback della configurazione MetroCluster.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _Gestione MetroCluster e disaster recovery_ e utilizzare le procedure indicate per lo switchover negoziato, la riparazione e lo switchback.

@@ -1,0 +1,193 @@
+= Si riavvia, esegue il panic o si accende durante la fase di pre-controllo
+:allow-uri-read: 
+
+
+Il sistema potrebbe bloccarsi (riavvio, panico o ciclo di alimentazione) durante diverse fasi dell'aggiornamento.
+
+La soluzione a questi problemi dipende da quando si verificano.
+
+
+
+== Si riavvia, esegue il panic o si accende durante la fase di pre-controllo
+
+
+
+=== Node1 o node2 si blocca prima della fase di pre-check con la coppia ha ancora attivata
+
+Se il nodo 1 o il nodo 2 si bloccano prima della fase di pre-controllo, non è stato ancora trasferito alcun aggregato e la configurazione della coppia ha è ancora abilitata.
+
+.A proposito di questa attività
+Il takeover e il giveback possono procedere normalmente.
+
+.Fasi
+. Controllare la console per i messaggi EMS che il sistema potrebbe aver emesso e adottare l'azione correttiva consigliata.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la prima fase di rilascio delle risorse
+
+
+
+=== Node1 si blocca durante la prima fase di resource-release con la coppia ha ancora attivata
+
+Alcuni o tutti gli aggregati sono stati ricollocati da node1 a node2 e la coppia ha è ancora abilitata. Node2 prende il controllo del volume root del node1 e di qualsiasi aggregato non root che non sia stato trasferito.
+
+.A proposito di questa attività
+La proprietà degli aggregati che sono stati ricollocati è uguale alla proprietà degli aggregati non root che sono stati presi in consegna perché il proprietario di casa non è cambiato.
+
+Quando nod1 entra in `waiting for giveback` state, node2 restituisce tutti gli aggregati non root node1.
+
+.Fasi
+. Dopo l'avvio di node1, tutti gli aggregati non root di node1 sono tornati a node1. È necessario eseguire un trasferimento manuale degli aggregati dal nodo 1 al nodo 2:
+`storage aggregate relocation start -node node1 -destination node2 -aggregate -list * -ndocontroller-upgrade true`
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node1 si blocca durante la prima fase di resource-release mentre la coppia ha è disattivata
+
+Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
+
+.Fasi
+. Far salire il node1.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node2 si guasta durante la prima fase di resource-release con la coppia ha ancora attivata
+
+Node1 ha trasferito alcuni o tutti i suoi aggregati al node2. La coppia ha è attivata.
+
+.A proposito di questa attività
+Node1 prende il controllo di tutti gli aggregati del node2 e di qualsiasi aggregato che aveva trasferito al node2. All'avvio di node2, il trasferimento dell'aggregato viene completato automaticamente.
+
+.Fasi
+. Alzati il node2.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node2 si blocca durante la prima fase di resource-release e dopo la disattivazione della coppia ha
+
+Node1 non prende il posto.
+
+.Fasi
+. Alzati il node2.
++
+Un'interruzione del client si verifica per tutti gli aggregati mentre node2 è in fase di avvio.
+
+. Continuare con il resto della procedura di aggiornamento della coppia di nodi.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la prima fase di verifica
+
+
+
+=== Node2 si blocca durante la prima fase di verifica con la coppia ha disattivata
+
+Node3 non prende il controllo in seguito a un crash node2 in quanto la coppia ha è già disattivata.
+
+.Fasi
+. Alzati il node2.
++
+Un'interruzione del client si verifica per tutti gli aggregati mentre node2 è in fase di avvio.
+
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node3 si blocca durante la prima fase di verifica con la coppia ha disattivata
+
+Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
+
+.Fasi
+. Alzati il node3.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la prima fase di recupero delle risorse
+
+
+
+=== Node2 si blocca durante la prima fase di recupero delle risorse durante il trasferimento degli aggregati
+
+Node2 ha riallocato alcuni o tutti i suoi aggregati dal node1 al node3. Node3 fornisce i dati degli aggregati che sono stati ricollocati. La coppia ha è disattivata e quindi non c'è alcun Takeover.
+
+.A proposito di questa attività
+Esiste un'interruzione del client per gli aggregati che non sono stati ricollocati. All'avvio di node2, gli aggregati di node1 vengono ricollocati in node3.
+
+.Fasi
+. Alzati il node2.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+=== Node3 si blocca durante la prima fase di recupero delle risorse durante il trasferimento degli aggregati
+
+Se node3 si blocca mentre node2 sta spostando gli aggregati in node3, l'attività continua dopo l'avvio di node3.
+
+.A proposito di questa attività
+Node2 continua a servire gli aggregati rimanenti, ma gli aggregati che erano già stati ricollocati in node3 incontrano un'interruzione del client durante l'avvio di node3.
+
+.Fasi
+. Alzati il node3.
+. Continuare con l'aggiornamento del controller.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la fase di post-controllo
+
+
+
+=== Node2 o node3 si bloccano durante la fase post-check
+
+La coppia ha è disattivata, quindi non si tratta di un Takeover. Si verifica un'interruzione del client per gli aggregati appartenenti al nodo che ha riavviato il sistema.
+
+.Fasi
+. Richiamare il nodo.
+. Continuare con la procedura di aggiornamento della coppia di nodi.
+
+
+
+
+== Riavvio, panic o cicli di alimentazione durante la seconda fase di rilascio delle risorse
+
+
+
+=== Node3 si blocca durante la seconda fase di rilascio delle risorse
+
+Se node3 si blocca mentre node2 sta spostando gli aggregati, l'attività continua dopo l'avvio di node3.
+
+.A proposito di questa attività
+Node2 continua a servire gli aggregati rimanenti, ma gli aggregati già ricollocati negli aggregati di node3 e node3 incontrano interruzioni del client durante l'avvio di node3.
+
+.Fasi
+. Alzati il node3.
+. Continuare con la procedura di aggiornamento del controller.
+
+
+
+
+=== Node2 si blocca durante la seconda fase di rilascio delle risorse
+
+Se il nodo 2 si blocca durante il trasferimento dell'aggregato, il nodo 2 non viene sostituito.
+
+.A proposito di questa attività
+Node3 continua a servire gli aggregati che sono stati ricollocati, ma gli aggregati di proprietà di node2 incontrano interruzioni dei client.
+
+.Fasi
+. Alzati il node2.
+. Continuare con la procedura di aggiornamento del controller.
+

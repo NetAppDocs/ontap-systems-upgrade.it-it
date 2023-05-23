@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_node3_installation.html 
+keywords: verify, node3, install, installation, node4 
+summary: 'Verificare l"installazione e la comunicazione del nodo 3 con il nodo 2 durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.' 
+---
+= Verificare l'installazione di node3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver installato e avviato il nodo 3, è necessario verificare che sia installato correttamente, che faccia parte del cluster e che sia in grado di comunicare con il nodo 2.
+
+.Fasi
+. [[fase 1]]al prompt del sistema, accedere a node3. Quindi, verificare che node3 faccia parte dello stesso cluster di node2 e sia integro:
++
+`cluster show`
+
+. [[step2]]verifica che node3 possa comunicare con node2 e che tutti i LIF siano in funzione:
++
+`network interface show -curr-node _node3_`
+
+. [[step3]]eseguire una delle seguenti operazioni:
++
+[cols="35,65"]
+|===
+| Se il cluster è... | Quindi... 
+
+
+| In un ambiente SAN | Completo <<step4,Fase 4>> quindi passare alla sezione link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Spostamento delle LIF dei dati NAS di proprietà del node1 da node2 a node3 e verifica delle LIF SAN sul node3"]. 
+
+
+| Non in un ambiente SAN | Saltare la fase 4 e passare a. link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Spostamento delle LIF dei dati NAS di proprietà del node1 da node2 a node3 e verifica delle LIF SAN sul node3"]. 
+|===
+. [[fase 4]] verificare che node2 e node3 siano in quorum immettendo il seguente comando su uno dei nodi ed esaminandone l'output:
++
+`event log show -messagename scsiblade.*`
+
++
+L'esempio seguente mostra l'output quando i nodi nel cluster sono in quorum:
+
++
+[listing]
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+

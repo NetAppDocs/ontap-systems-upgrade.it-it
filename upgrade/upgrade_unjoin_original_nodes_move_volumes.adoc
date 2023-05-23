@@ -1,0 +1,84 @@
+---
+permalink: upgrade/upgrade-unjoin-original-nodes-move-volumes.html 
+sidebar: sidebar 
+keywords: volume, move, node, unjoin, original, cluster, configuration, disk, initialize, unjoin the original nodes from the cluster 
+summary: Una volta spostati i volumi nei nuovi nodi, si disuniscono i nodi originali dal cluster. Quando si disunisce un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati. 
+---
+= Disunire i nodi originali dal cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una volta spostati i volumi nei nuovi nodi, si disuniscono i nodi originali dal cluster. Quando si disunisce un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati.
+
+.Fasi
+. Disattivare la configurazione ad alta disponibilità sui nodi originali: `storage failover modify -node _original_node_name_ -enabled false`
+. Accedere al livello di privilegio avanzato:
++
+`set -privilege advanced`
+
+. Identificare il nodo che ha epsilon:
++
+`cluster show`
+
++
+Nell'esempio seguente, "node0" attualmente contiene epsilon:
+
++
+[listing]
+----
+cluster::*>
+Node                 Health  Eligibility  Epsilon
+-------------------- ------- ------------ ------------
+node0                true    true         true
+node1                true    true         false
+node2                true    true         false
+node3                true    true         false
+----
+. Se uno dei nodi originali contiene epsilon, spostare epsilon in un nodo diverso:
++
+.. Rimuovere epsilon dal nodo originale: +
+`cluster modify -node _original_node_name_ -epsilon false`
+.. Assegnare epsilon a un nodo diverso: +
+`cluster modify -node _new_node_name_ -epsilon true`
+
+
+. Da un nodo che rimarrà nel cluster, disunire ciascun nodo originale dal cluster (livello di privilegio avanzato):
++
+`cluster unjoin -node _original_node_name_`
+
++
+Il sistema visualizza un messaggio simile al seguente:
+
++
+[listing]
+----
+Warning: This command will unjoin node node_name from the cluster. You
+         must unjoin the failover partner as well. After the node is
+         successfully unjoined, erase its configuration and initialize all
+         disks by using the "Clean configuration and initialize all disks (4)"
+         option from the boot menu.
+         Do you want to continue? {y|n}: y
+----
+. Invio `y` per continuare.
++
+Il nodo non Unito viene riavviato automaticamente e si ferma al menu di boot.
+
+. Dal menu di boot del nodo non Unito, selezionare l'opzione *(4) clean Configuration (pulizia configurazione) e inizializzare tutti i dischi* per cancellare la configurazione del nodo e inizializzare tutti i dischi.
++
+Il sistema visualizza un messaggio simile al seguente:
+
++
+[listing]
+----
+Zero disks, reset config and install a new file system?:
+This will erase all the data on the disks, are you sure?:
+----
+. Invio `y` su entrambi i prompt.
+. Se il cluster ha solo due nodi rimanenti, configurare la disponibilità elevata per il cluster a due nodi:
++
+`cluster ha modify -configured true`
+
+

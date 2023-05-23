@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/issues_in_multiple_stages_of_procedure.html 
+keywords: issues, arise, multiple, stages, procedure 
+summary: 'Informazioni sui problemi che potrebbero verificarsi quando si aggiornano i controller con ONTAP 9.5 a 9.7 utilizzando `system controller replace` comandi.' 
+---
+= Problemi che possono verificarsi in più fasi della procedura
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Alcuni problemi possono verificarsi durante diverse fasi della procedura.
+
+
+
+== Output imprevisto del comando "show di failover dello storage"
+
+Durante la procedura, se il nodo che ospita tutti gli aggregati di dati viene avviato accidentalmente o viene riavviato, potrebbe essere visualizzato un output imprevisto per `storage failover show` comando prima e dopo il riavvio, il panico o il ciclo di alimentazione.
+
+.A proposito di questa attività
+Potrebbe essere visualizzato un output imprevisto da `storage failover show` Comando in fase 2, fase 3, fase 4 o fase 5.
+
+L'esempio seguente mostra l'output previsto di `storage failover show` comando se non ci sono riavvii o panic sul nodo che ospita tutti gli aggregati di dati:
+
+....
+cluster::> storage failover show
+
+                   Takeover
+Node     Partner   Possible  State Description
+-------  --------  --------- -----------------
+node1    node2     false     Unknown
+node2    node1     false     Node owns partner aggregates as part of the non-disruptive head upgrade procedure. Takeover is not possible: Storage failover is disabled.
+....
+L'esempio seguente mostra l'output di `storage failover show` comando dopo un riavvio o un panic:
+
+....
+cluster::> storage failover show
+
+                   Takeover
+Node     Partner   Possible  State Description
+-------  --------  --------- -----------------
+node1    node2     -         Unknown
+node2    node1     false     Waiting for node1, Partial giveback, Takeover is not possible: Storage failover is disabled
+....
+Sebbene l'output indichi che un nodo è in giveback parziale e che il failover dello storage è disattivato, è possibile ignorare questo messaggio.
+
+.Fasi
+Non è richiesta alcuna azione; continuare con la procedura di aggiornamento della coppia di nodi.

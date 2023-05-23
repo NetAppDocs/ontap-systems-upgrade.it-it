@@ -1,0 +1,16 @@
+= 
+:allow-uri-read: 
+
+
+* L'upgrade del controller tramite ARL è supportato sui sistemi configurati con volumi di conformità SnapLock Enterprise e SnapLock.
+
+
+È necessario verificare se l'ARL può essere eseguito sui controller originali e sostitutivi. È necessario controllare le dimensioni di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Quindi confrontarli con la dimensione aggregata e il numero di dischi supportati dal nuovo sistema. Per accedere a queste informazioni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_. La dimensione aggregata e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione aggregata e al numero di dischi supportati dal sistema originale.
+
+È necessario verificare nelle regole di combinazione del cluster se i nuovi nodi possono diventare parte del cluster con i nodi esistenti quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di combinazione dei cluster, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+
+
+NOTE: Entrambi i sistemi sono ad alta disponibilità (ha) o non ha. Entrambi i nodi devono avere la personalità abilitata o disabilitata; non è possibile combinare un nodo con la personalità ottimizzata per All Flash abilitata con un nodo che non ha la personalità abilitata nella stessa coppia ha. Se le personalità sono diverse, contattare il supporto tecnico.
+
+
+NOTE: Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di porte diverse, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Fare riferimento a. link:other_references.html["Riferimenti"] Per informazioni dettagliate su piattaforme specifiche, consultare il sito Web del supporto NetApp _Hardware Universe_.

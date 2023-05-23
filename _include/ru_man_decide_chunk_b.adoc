@@ -1,0 +1,10 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
+
+Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.

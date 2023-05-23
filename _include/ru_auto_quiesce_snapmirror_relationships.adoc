@@ -1,0 +1,30 @@
+= Interrompere le relazioni di SnapMirror (facoltativo)
+:allow-uri-read: 
+
+
+
+
+== Interrompere le relazioni di SnapMirror (facoltativo)
+
+Prima di continuare con la procedura, è necessario confermare che tutte le relazioni di SnapMirror siano interrotti. Quando una relazione SnapMirror viene ritirata, rimane irreparata in caso di riavvii e failover.
+
+.Fasi
+. Verificare lo stato della relazione SnapMirror sul cluster di destinazione:
++
+`snapmirror show`
+
++
+[NOTE]
+====
+Se lo stato è "trasferimento", è necessario interrompere questi trasferimenti:
+`snapmirror abort -destination-vserver _vserver_name_`
+
+====
++
+L'interruzione non riesce se la relazione SnapMirror non si trova nello stato di "trasferimento".
+
+. Interrompere tutte le relazioni tra il cluster:
++
+`snapmirror quiesce -destination-vserver *`
+
+
