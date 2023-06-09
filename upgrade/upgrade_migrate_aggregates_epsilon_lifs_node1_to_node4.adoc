@@ -14,7 +14,7 @@ summary: Migrare gli aggregati di dati, epsilon e LIF dal nodo 1 al nodo 4.
 Prima di convertire il nodo 1 di AFF A250 in uno shelf di dischi, è necessario migrare gli aggregati di dati, l'epsilon e le interfacce logiche (LIF) sul nodo 1 al nodo 4 di AFF A400.
 
 .Fasi
-. Al prompt DEL CARICATORE per il nodo, avviare il nodo nel menu di boot:
+. Al prompt DEL CARICATORE per node4, avviare il nodo nel menu di boot:
 +
 `boot_ontap menu`
 
@@ -26,7 +26,7 @@ Questa operazione sostituisce tutte le configurazioni basate su flash con l'ulti
 +
 [NOTE]
 ====
-Come previsto, il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.
+Il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.
 
 Il nodo segnala un avviso di mancata corrispondenza dell'ID di sistema. Invio `y` Per eseguire l'override dell'ID di sistema.
 
@@ -43,11 +43,31 @@ Il nodo segnala un avviso di mancata corrispondenza dell'ID di sistema. Invio `y
 ====
 Se le porte del cluster di sistema non sono simili quando si aggiorna un AFF A250 a un AFF A400, potrebbe essere necessario modificare temporaneamente le interfacce sul nodo 4 in porte del cluster:
 
-.. `network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
-.. `network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
-
+`network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
 
 ====
++
+`network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
+
+. Attendere che il cluster entri in quorum, quindi verificare che i nodi del cluster siano integri:
++
+`– cluster show`
+
++
+
+NOTE: La coppia ha e il failover dello storage rimangono disattivati nello stato corrente.
+
+. Spostare le LIF del cluster sulle porte del cluster TEMPORANEE 25G sul nodo 4:
++
+`network interface modify`
+
+. Se i gruppi di interfacce e le VLAN dati sono in uso sul cluster AFF A250 che si sta aggiornando, eseguire questo passaggio. In caso contrario, passare a. <<migrate_node1_nod4,Fase 8>>.
++
+I nomi delle porte di rete fisiche sono diversi tra i sistemi AFF A250 e AFF A400. Di conseguenza, potrebbero esserci gruppi di interfacce configurati in modo errato e VLAN spostate sul nodo 4. Controllare e, se necessario, correggere eventuali gruppi di interfacce configurati in modo errato e VLAN spostate.
+
+
+
+[[migrate_node1_nod4]]
 . Migrare gli aggregati di dati dal nodo 1 al nodo 4:
 +
 `storage aggregate relocation start -aggregate-list _aggregate_list_name_ -node _node1_ -destination _node4_ -ndo-controller-upgrade true -override-destination-checks true`
@@ -60,11 +80,11 @@ Se le porte del cluster di sistema non sono simili quando si aggiorna un AFF A25
 +
 .. Rimuovere epsilon dal nodo 1:
 +
-`cluster modify -epsilon false -node _local_node_name_`
+`cluster modify -epsilon false -node _node1_`
 
 .. Sposta epsilon al nodo 4:
 +
-`cluster modify -epsilon true -node _partner_node_name_`
+`cluster modify -epsilon true -node _node4_`
 
 
 
@@ -78,7 +98,7 @@ Se le porte del cluster di sistema non sono simili quando si aggiorna un AFF A25
 
 . Migrare tutti i dati LIF al nodo 4:
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node4_ -destination-port _port_name_`
 
 . Visualizzare lo stato di tutti i dati LIF nel cluster:
 +
@@ -86,7 +106,7 @@ Se le porte del cluster di sistema non sono simili quando si aggiorna un AFF A25
 
 . Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 
 . Migrare la LIF di gestione del cluster:
 +
@@ -101,3 +121,6 @@ Se le porte del cluster di sistema non sono simili quando si aggiorna un AFF A25
 `halt -node _node1_ -inhibit-takeover true -ignore-quorum-warnings true`
 
 
+
+.Quali sono le prossime novità?
+link:upgrade_convert_node1_drive_shelf_connect_node3.html["Converti il node1 in uno shelf di dischi e connettiti al node3"]

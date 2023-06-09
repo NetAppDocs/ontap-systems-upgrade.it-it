@@ -14,7 +14,7 @@ summary: Preparare il node3, collegare il nodo node3 al node4, quindi migrare le
 Per completare l'aggiornamento, si connette il nodo 3 al nodo 4 e quindi si migrano le interfacce logiche dei dati (LIF) e gli aggregati di dati sul nodo 4 al nodo 3.
 
 .Fasi
-. Al prompt DEL CARICATORE del nodo, avviare il nodo nel menu di boot:
+. Al prompt DEL CARICATORE per node3, avviare il nodo nel menu di boot:
 +
 `boot_ontap menu`
 
@@ -27,16 +27,16 @@ Questa operazione sostituisce tutte le configurazioni basate su flash con l'ulti
 +
 [NOTE]
 ====
-Come previsto, il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.
+Il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.
 
 Il nodo segnala una mancata corrispondenza dell'ID di sistema. Invio `y` Per eseguire l'override dell'ID di sistema.
 
 ====
 . Collegare il nodo 3 al nodo 4:
 +
-.. Collegare i cavi multipath ad alta disponibilità (MPHA) allo shelf NS224 per garantire la ridondanza.
-.. Collegare i cavi ha Pair (se interfacce separate) tra i nodi.
-.. Collegare i cavi del cluster (se interfacce separate) tra i nodi.
+.. Collegare i cavi multipath ad alta disponibilità (MPHA) allo shelf NS224 per garantire la ridondanza. Collegare la porta node3 100GbE e0d alla porta NSM B e0b e collegare la porta node4 100GbE e0d alla porta NSM A e0a.
+.. Verificare che le porte ha e0a e e0b siano collegate tra i nodi.
+.. Verificare che le porte del cluster e3a ed e3b siano collegate tra i nodi.
 
 
 . Migrare le LIF del cluster:
@@ -65,27 +65,29 @@ NOTE: A partire da ONTAP 9.8, i nuovi spazi IP e uno o più domini di broadcast 
 +
 `network interface show -role cluster`
 
-. Migrazione di tutte le LIF di rete del cluster alle porte domestiche:
+. Migrare tutte le LIF di rete del cluster su entrambi i nodi alle porte domestiche:
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+
+. Visualizza tutte le LIF della rete del cluster:
 +
 `network interface show -role cluster`
 
-. Visualizza tutti i LIF della rete dati:
+. Verificare le porte home per le LIF della rete del cluster:
 +
-`network interface show -role data`
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-port _port_name_`
 
 . Migrare tutti i dati LIF al nodo 3:
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
 
 . Visualizza tutti i LIF della rete dati:
 +
 `network interface show -role data`
 
+. Configurare il nodo home e la porta home per tutti i file di dati LIF. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
 +
-I LIF di gestione e cluster non possono migrare tra nodi. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
-
-+
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_ -lif lif_name -home-node _node_name_ -home-port _port_name_ -status-admin up`
 
 . Migrare la LIF di gestione del cluster:
 +
@@ -114,6 +116,10 @@ I LIF di gestione e cluster non possono migrare tra nodi. Se le LIF non sono att
 . Abilitare il ripristino automatico delle LIF di rete tra i nodi:
 +
 `network interface modify -lif * -auto-revert true`
+
+. Attiva giveback automatico per il failover dello storage:
++
+`storage failover modify -node * -auto-giveback true`
 
 . Visualizzare lo stato del cluster:
 +

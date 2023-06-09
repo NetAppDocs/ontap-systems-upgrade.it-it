@@ -14,7 +14,7 @@ summary: Collegare fisicamente il nodo 2 al nodo 4 prima di riassegnare i dischi
 Dopo aver convertito il nodo AFF A250 2 in uno shelf di dischi NS224 e aver effettuato il collegamento al nodo AFF A400 4, è necessario riassegnare i dischi che in precedenza appartenevano al nodo 2 al nodo 4.
 
 .Prima di iniziare
-Verificare che sia il nodo 2 che il nodo 4 siano in standby al prompt DEL CARICATORE.
+Verificare che il nodo 3 e il nodo 4 siano entrambi in standby al prompt DEL CARICATORE.
 
 .A proposito di questa attività
 Eseguire le seguenti operazioni al nodo 4.
@@ -40,7 +40,7 @@ Eseguire le seguenti operazioni al nodo 4.
 `storage port show`
 
 +
-Viene visualizzato un output simile al seguente:
+Viene visualizzato un output simile al seguente esempio:
 
 +
 [listing]
@@ -59,16 +59,16 @@ Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added
 Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
 ---- ---- ------- ----------- -------- ------- -------
 e0c  ENET storage 100 Gb/s    enabled  online  30
-e0d  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  offline 30
 ----
 . Visualizza tutti i dischi collegati:
 +
 `disk show -v`
 
-. Registrare l'ID del sistema locale.
+. Registrare il valore dell'ID del sistema locale; si tratta dell'ID del sistema di node4. Registrare anche gli ID di sistema di node1 e node2 dalla colonna "OWNER".
 . Riassegnare tutti i dischi dal nodo 2 al nodo 4:
 +
-`disk reassign -s _node2_ -d _node4_ -p _node1_`
+`disk reassign -s _node2_system_ID_ -d _node4_system_ID_ -p _node1_system_ID_`
 
 . Verificare che tutte le unità riassegnate siano visualizzabili con il nuovo ID di sistema:
 +
@@ -78,8 +78,15 @@ e0d  ENET storage 100 Gb/s    enabled  online  30
 
 NOTE: Se i dischi non sono visualizzabili, *ARRESTARE* e contattare il supporto tecnico per assistenza.
 
+. Verificare che l'aggregato root di node2 sia riportato nell'output e che l'aggregato sia online:
++
+`aggr status`
+
 . Uscire dalla modalità di manutenzione:
 +
 `halt`
 
 
+
+.Quali sono le prossime novità?
+link:upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html["Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4"]

@@ -33,18 +33,40 @@ Dopo aver convertito il nodo 1 di AFF A250 in uno shelf di dischi NS224 e aver e
 +
 `storage port show`
 
++
+Viene visualizzato un output simile al seguente esempio:
+
++
+[listing]
+----
+*> storage port modify -p e0c -m storage
+Nov 10 16:27:23 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0c to storage mode.
+
+Nov 10 16:27:29 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8885.
+
+*> storage port modify -p e0d -m storage
+Nov 10 16:27:34 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0d to storage mode.
+
+Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8886.
+
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e0c  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  offline 30
+----
 . Visualizza tutti i dischi collegati:
 +
 `disk show -v`
 
-. Registrare l'ID del sistema locale.
+. Registrare il valore dell'ID del sistema locale; si tratta dell'ID del sistema di node3. Registrare anche gli ID di sistema di node1 e node2 dalla colonna "OWNER".
 . Riassegnare tutti i dischi da node1 a node3:
 +
-`disk reassign -s _node1_ -d _node3_ -p _node2_`
+`disk reassign -s _node1_system_ID_ -d _node3_system_ID_ -p _node4_system_ID_`
 
 . Verificare che tutte le unità riassegnate siano visualizzabili con il nuovo ID di sistema:
 +
-`disk show -s _node3 system ID_`
+`disk show -s _node3_system_ID_`
 
 +
 
@@ -55,3 +77,6 @@ NOTE: Se i dischi non sono visualizzabili, *ARRESTARE* e contattare il supporto 
 `halt`
 
 
+
+.Quali sono le prossime novità?
+link:upgrade_migrate_lIFs_aggregates_node4_node3.html["Migrazione di LIF e aggregati di dati dal nodo 4 al node3"]

@@ -65,7 +65,7 @@ Il trasferimento dello storage interno è un'attività opzionale del workflow pe
 
 Situazioni in cui potrebbero essere necessarie ulteriori operazioni
 
-* Se si sta eseguendo l'aggiornamento da un sistema AFF A250 a un sistema AFF A400, vedere xref:upgrade-aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi].
+* Se si sta eseguendo l'aggiornamento da un sistema AFF A250 a un sistema AFF A400, vedere xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi].
 * Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema.
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]

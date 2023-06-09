@@ -21,15 +21,14 @@ Convertire il nodo AFF A250 2 in uno shelf di dischi NS224 e collegarlo al nodo 
 +
 image::../upgrade/media/a400_with_ns224_shelf.PNG[AFF A400 con uno shelf NS224]
 
-. Collegare il cablaggio da 25 GbE dalle porte node2 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul node4.
+. Collegare il cablaggio da 25 GbE dalle porte node2 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul node4 per creare connessioni cluster temporanee.
 +
 
-NOTE: Se le porte integrate da 25 GbE non sono presenti sul nodo 4, è possibile utilizzare un adattatore PCIe da 25 GbE per effettuare la connessione.
+NOTE: Se il sistema AFF A400 utilizza porte FC come porte integrate, installare un adattatore Ethernet da 25 GB in ciascun nodo per la connettività del cluster durante la migrazione.
 
-. Se il sistema AFF A400 utilizza porte FC come porte integrate, installare un adattatore Ethernet da 25 GB in ciascun nodo per la connettività del cluster durante la migrazione:
-+
-.. Collegare i cavi ha Pair tra i nodi AFF A400 utilizzando le porte e0a e e0b.
-.. Collegare i cavi del cluster tra i nodi AFF A400 utilizzando le porte e3a e e3b.
+. Collegare i cavi di interconnessione ha da 25 GbE tra i nodi AFF A400 utilizzando le porte e0a e e0b. Non collegare le porte in modo incrociato.
+. Collegare i cavi di interconnessione del cluster da 100 GbE tra i nodi AFF A400 utilizzando le porte e3a ed e3b. Non collegare le porte in modo incrociato.
 
 
-
+.Quali sono le prossime novità?
+link:upgrade_reassign_drives_node2_to_node4.html["Riassegnare i dischi dal nodo 2 al nodo 4"]

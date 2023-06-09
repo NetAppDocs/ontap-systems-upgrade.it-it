@@ -24,6 +24,8 @@ homepage:
     links:
     - title: Aggiornare l'hardware del controller
       url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+    - title: Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: Eseguire l'upgrade spostando gli aggregati su sistemi che eseguono ONTAP
       9.8 e versioni successive
     links:

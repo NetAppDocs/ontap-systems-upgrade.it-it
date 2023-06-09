@@ -16,8 +16,17 @@ Prima di convertire il nodo 2 di AFF A250 in uno shelf di dischi, è necessario 
 .Prima di iniziare
 Verificare di soddisfare i seguenti requisiti:
 
-* I controller AFF A250 e AFF A400 dispongono della stessa versione di patch e release di ONTAP installata.
-* Entrambi i controller AFF A400 sono in standby su `Maintenance Mode` prompt.
+* I controller AFF A250 e AFF A400 eseguono la stessa versione di patch e release di ONTAP.
++
+[NOTE]
+====
+** È necessario eseguire il netboot e installare la versione di ONTAP su ogni AFF A400 identica alla versione in esecuzione su AFF A250.
+** Sia l'immagine di avvio primaria che quella di backup di ciascun sistema AFF A400 devono avere la stessa versione di ONTAP.
+** Se i cluster AFF A400 sono stati configurati in precedenza, è necessario eliminare qualsiasi configurazione residua del cluster eseguendo una `wipeconfig` dal menu di boot.
+
+
+====
+* Entrambi i controller AFF A400 sono in standby al prompt DEL CARICATORE.
 * Hai a disposizione tutti i cavi appropriati.
 
 
@@ -25,9 +34,13 @@ Verificare di soddisfare i seguenti requisiti:
 I seguenti passaggi vengono eseguiti su AFF A250 node1.
 
 .Fasi
-. Disattivare il giveback automatico di failover del cluster:
+. Accedere al livello di privilegio avanzato:
 +
-`storage failover modify -node _node_name_ -auto-giveback false`
+`set -privilege advanced`
+
+. Disattiva giveback automatico di failover dello storage:
++
+`storage failover modify -node _node1_ -auto-giveback false`
 
 . Disattivare l'autorevert dei LIF su entrambi i nodi della coppia ha:
 +
@@ -39,11 +52,11 @@ I seguenti passaggi vengono eseguiti su AFF A250 node1.
 
 . Visualizzare lo stato delle LIF di gestione del cluster:
 +
-`network interface show cluster_mgmt`
+`network interface show -role cluster_mgmt`
 
 . Migrare tutti i dati LIF dalle macchine virtuali dello storage ospitate sul node2:
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node1_ -destination-port _port_name_`
 
 +
 
@@ -55,7 +68,7 @@ NOTE: Questo comando esegue la migrazione solo di LIF non SAN. Non è possibile 
 
 . Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 
 . Visualizzare lo stato di tutti gli aggregati di dati nel cluster:
 +
@@ -94,3 +107,6 @@ NOTE: Questo comando esegue la migrazione solo di LIF non SAN. Non è possibile 
 `halt -node _node2_ -inhibit-takeover true -ignore-quorum-warnings true`
 
 
+
+.Quali sono le prossime novità?
+link:upgrade_convert_node2_drive_shelf_connect_node4.html["Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4"]
