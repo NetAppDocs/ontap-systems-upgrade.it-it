@@ -4705,7 +4705,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:20:51 +0000">05/23/2023</time>
+    <time datetime="2023-06-09 14:36:37 +0000">06/09/2023</time>
     
   
 
@@ -4720,7 +4720,7 @@
 </div>
 <div class="paragraph">
 <div class="title">Prima di iniziare</div>
-<p>Verificare che sia il nodo 2 che il nodo 4 siano in standby al prompt DEL CARICATORE.</p>
+<p>Verificare che il nodo 3 e il nodo 4 siano entrambi in standby al prompt DEL CARICATORE.</p>
 </div>
 <div class="paragraph">
 <div class="title">A proposito di questa attività</div>
@@ -4756,7 +4756,7 @@
 <p><code>storage port show</code></p>
 </div>
 <div class="paragraph">
-<p>Viene visualizzato un output simile al seguente:</p>
+<p>Viene visualizzato un output simile al seguente esempio:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4774,7 +4774,7 @@ Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added
 Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
 ---- ---- ------- ----------- -------- ------- -------
 e0c  ENET storage 100 Gb/s    enabled  online  30
-e0d  ENET storage 100 Gb/s    enabled  online  30</pre>
+e0d  ENET storage 100 Gb/s    enabled  offline 30</pre>
 </div>
 </div>
 </li>
@@ -4785,12 +4785,12 @@ e0d  ENET storage 100 Gb/s    enabled  online  30</pre>
 </div>
 </li>
 <li>
-<p>Registrare l&#8217;ID del sistema locale.</p>
+<p>Registrare il valore dell&#8217;ID del sistema locale; si tratta dell&#8217;ID del sistema di node4. Registrare anche gli ID di sistema di node1 e node2 dalla colonna "OWNER".</p>
 </li>
 <li>
 <p>Riassegnare tutti i dischi dal nodo 2 al nodo 4:</p>
 <div class="paragraph">
-<p><code>disk reassign -s <em>node2</em> -d <em>node4</em> -p <em>node1</em></code></p>
+<p><code>disk reassign -s <em>node2_system_ID</em> -d <em>node4_system_ID</em> -p <em>node1_system_ID</em></code></p>
 </div>
 </li>
 <li>
@@ -4812,12 +4812,22 @@ Se i dischi non sono visualizzabili, <strong>ARRESTARE</strong> e contattare il 
 </div>
 </li>
 <li>
+<p>Verificare che l&#8217;aggregato root di node2 sia riportato nell&#8217;output e che l&#8217;aggregato sia online:</p>
+<div class="paragraph">
+<p><code>aggr status</code></p>
+</div>
+</li>
+<li>
 <p>Uscire dalla modalità di manutenzione:</p>
 <div class="paragraph">
 <p><code>halt</code></p>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<div class="title">Quali sono le prossime novità?</div>
+<p><a href="upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html">"Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4"</a></p>
 </div>
 
     </article>

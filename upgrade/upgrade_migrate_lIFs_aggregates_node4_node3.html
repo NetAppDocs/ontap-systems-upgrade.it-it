@@ -4705,7 +4705,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:20:51 +0000">05/23/2023</time>
+    <time datetime="2023-06-09 14:36:37 +0000">06/09/2023</time>
     
   
 
@@ -4722,7 +4722,7 @@
 <div class="title">Fasi</div>
 <ol class="arabic">
 <li>
-<p>Al prompt DEL CARICATORE del nodo, avviare il nodo nel menu di boot:</p>
+<p>Al prompt DEL CARICATORE per node3, avviare il nodo nel menu di boot:</p>
 <div class="paragraph">
 <p><code>boot_ontap menu</code></p>
 </div>
@@ -4746,7 +4746,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Come previsto, il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.</p>
+<p>Il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.</p>
 </div>
 <div class="paragraph">
 <p>Il nodo segnala una mancata corrispondenza dell&#8217;ID di sistema. Invio <code>y</code> Per eseguire l&#8217;override dell&#8217;ID di sistema.</p>
@@ -4761,13 +4761,13 @@
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Collegare i cavi multipath ad alta disponibilità (MPHA) allo shelf NS224 per garantire la ridondanza.</p>
+<p>Collegare i cavi multipath ad alta disponibilità (MPHA) allo shelf NS224 per garantire la ridondanza. Collegare la porta node3 100GbE e0d alla porta NSM B e0b e collegare la porta node4 100GbE e0d alla porta NSM A e0a.</p>
 </li>
 <li>
-<p>Collegare i cavi ha Pair (se interfacce separate) tra i nodi.</p>
+<p>Verificare che le porte ha e0a e e0b siano collegate tra i nodi.</p>
 </li>
 <li>
-<p>Collegare i cavi del cluster (se interfacce separate) tra i nodi.</p>
+<p>Verificare che le porte del cluster e3a ed e3b siano collegate tra i nodi.</p>
 </li>
 </ol>
 </div>
@@ -4815,21 +4815,27 @@ A partire da ONTAP 9.8, i nuovi spazi IP e uno o più domini di broadcast potreb
 </div>
 </li>
 <li>
-<p>Migrazione di tutte le LIF di rete del cluster alle porte domestiche:</p>
+<p>Migrare tutte le LIF di rete del cluster su entrambi i nodi alle porte domestiche:</p>
+<div class="paragraph">
+<p><code>network interface migrate -vserver <em>vserver_name</em> -lif <em>lif_name</em> -destination-node <em>node_name</em> -destination-port <em>port_name</em></code></p>
+</div>
+</li>
+<li>
+<p>Visualizza tutte le LIF della rete del cluster:</p>
 <div class="paragraph">
 <p><code>network interface show -role cluster</code></p>
 </div>
 </li>
 <li>
-<p>Visualizza tutti i LIF della rete dati:</p>
+<p>Verificare le porte home per le LIF della rete del cluster:</p>
 <div class="paragraph">
-<p><code>network interface show -role data</code></p>
+<p><code>network interface modify -vserver <em>vserver_name</em> -lif <em>lif_name</em> -home-port <em>port_name</em></code></p>
 </div>
 </li>
 <li>
 <p>Migrare tutti i dati LIF al nodo 3:</p>
 <div class="paragraph">
-<p><code>network interface migrate -vserver <em>vserver_name</em> -lif <em>lif_name</em> -destination-node <em>node_name</em></code></p>
+<p><code>network interface migrate -vserver <em>vserver_name</em> -lif <em>lif_name</em> -destination-node <em>node_name</em> -destination-port <em>port_name</em></code></p>
 </div>
 </li>
 <li>
@@ -4837,11 +4843,11 @@ A partire da ONTAP 9.8, i nuovi spazi IP e uno o più domini di broadcast potreb
 <div class="paragraph">
 <p><code>network interface show -role data</code></p>
 </div>
+</li>
+<li>
+<p>Configurare il nodo home e la porta home per tutti i file di dati LIF. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su <code>up</code> Immettendo il seguente comando, una volta per ogni LIF:</p>
 <div class="paragraph">
-<p>I LIF di gestione e cluster non possono migrare tra nodi. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su <code>up</code> Immettendo il seguente comando, una volta per ogni LIF:</p>
-</div>
-<div class="paragraph">
-<p><code>network interface modify -vserver <em>vserver_name</em> -lif <em>lif_name</em> -home-node <em>node_name</em> -status-admin up</code></p>
+<p><code>network interface modify -vserver <em>vserver_name</em> -lif lif_name -home-node <em>node_name</em> -home-port <em>port_name</em> -status-admin up</code></p>
 </div>
 </li>
 <li>
@@ -4884,6 +4890,12 @@ A partire da ONTAP 9.8, i nuovi spazi IP e uno o più domini di broadcast potreb
 <p>Abilitare il ripristino automatico delle LIF di rete tra i nodi:</p>
 <div class="paragraph">
 <p><code>network interface modify -lif * -auto-revert true</code></p>
+</div>
+</li>
+<li>
+<p>Attiva giveback automatico per il failover dello storage:</p>
+<div class="paragraph">
+<p><code>storage failover modify -node * -auto-giveback true</code></p>
 </div>
 </li>
 <li>

@@ -4705,7 +4705,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:20:51 +0000">05/23/2023</time>
+    <time datetime="2023-06-09 14:36:37 +0000">06/09/2023</time>
     
   
 
@@ -4739,7 +4739,7 @@
 </div>
 </li>
 <li>
-<p>Collegare il cablaggio da 25 GbE dalle porte node2 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul node4.</p>
+<p>Collegare il cablaggio da 25 GbE dalle porte node2 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul node4 per creare connessioni cluster temporanee.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -4747,26 +4747,23 @@
 <img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
 </td>
 <td class="content">
-Se le porte integrate da 25 GbE non sono presenti sul nodo 4, è possibile utilizzare un adattatore PCIe da 25 GbE per effettuare la connessione.
+Se il sistema AFF A400 utilizza porte FC come porte integrate, installare un adattatore Ethernet da 25 GB in ciascun nodo per la connettività del cluster durante la migrazione.
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>Se il sistema AFF A400 utilizza porte FC come porte integrate, installare un adattatore Ethernet da 25 GB in ciascun nodo per la connettività del cluster durante la migrazione:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Collegare i cavi ha Pair tra i nodi AFF A400 utilizzando le porte e0a e e0b.</p>
+<p>Collegare i cavi di interconnessione ha da 25 GbE tra i nodi AFF A400 utilizzando le porte e0a e e0b. Non collegare le porte in modo incrociato.</p>
 </li>
 <li>
-<p>Collegare i cavi del cluster tra i nodi AFF A400 utilizzando le porte e3a e e3b.</p>
+<p>Collegare i cavi di interconnessione del cluster da 100 GbE tra i nodi AFF A400 utilizzando le porte e3a ed e3b. Non collegare le porte in modo incrociato.</p>
 </li>
 </ol>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<div class="title">Quali sono le prossime novità?</div>
+<p><a href="upgrade_reassign_drives_node2_to_node4.html">"Riassegnare i dischi dal nodo 2 al nodo 4"</a></p>
 </div>
 
     </article>

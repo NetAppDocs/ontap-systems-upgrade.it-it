@@ -4705,7 +4705,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:20:51 +0000">05/23/2023</time>
+    <time datetime="2023-06-09 14:36:37 +0000">06/09/2023</time>
     
   
 
@@ -4739,7 +4739,7 @@
 </div>
 </li>
 <li>
-<p>Collegare il cablaggio da 25 GbE dalle porte node1 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul node3.</p>
+<p>Spostare le connessioni del cluster temporanee al nodo 3 spostando il cablaggio 25GbE dalle porte node1 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul nodo 3.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -4747,13 +4747,17 @@
 <img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
 </td>
 <td class="content">
-Se le porte integrate da 25 GbE non sono presenti sul nodo 3, è possibile utilizzare un adattatore PCIe da 25 GbE per effettuare la connessione.
+Se il sistema AFF A400 utilizza porte FC come porte integrate, installare un adattatore Ethernet da 25 GB in ciascun nodo per la connettività del cluster durante la migrazione.
 </td>
 </tr>
 </table>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<div class="title">Quali sono le prossime novità?</div>
+<p><a href="upgrade_reassign_drives_node1_to_node3.html">"Riassegnare i dischi dal nodo 1 al nodo 3"</a></p>
 </div>
 
     </article>

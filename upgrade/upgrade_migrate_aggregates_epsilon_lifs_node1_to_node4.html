@@ -4705,7 +4705,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:20:51 +0000">05/23/2023</time>
+    <time datetime="2023-06-09 14:36:37 +0000">06/09/2023</time>
     
   
 
@@ -4722,7 +4722,7 @@
 <div class="title">Fasi</div>
 <ol class="arabic">
 <li>
-<p>Al prompt DEL CARICATORE per il nodo, avviare il nodo nel menu di boot:</p>
+<p>Al prompt DEL CARICATORE per node4, avviare il nodo nel menu di boot:</p>
 <div class="paragraph">
 <p><code>boot_ontap menu</code></p>
 </div>
@@ -4743,7 +4743,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Come previsto, il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.</p>
+<p>Il nodo si riavvia automaticamente per caricare la nuova copia del file system /var.</p>
 </div>
 <div class="paragraph">
 <p>Il nodo segnala un avviso di mancata corrispondenza dell&#8217;ID di sistema. Invio <code>y</code> Per eseguire l&#8217;override dell&#8217;ID di sistema.</p>
@@ -4771,21 +4771,51 @@
 <div class="paragraph">
 <p>Se le porte del cluster di sistema non sono simili quando si aggiorna un AFF A250 a un AFF A400, potrebbe essere necessario modificare temporaneamente le interfacce sul nodo 4 in porte del cluster:</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
+<div class="paragraph">
 <p><code>network port modify -node <em>node4</em> -port <em>port_name</em> -mtu 9000 -ipspace Cluster</code></p>
-</li>
-<li>
-<p><code>network interface migrate -vserver Cluster -lif <em>cluster_LIF</em>  -destination-node <em>node4</em> -destination-port <em>port_name</em></code></p>
-</li>
-</ol>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><code>network interface migrate -vserver Cluster -lif <em>cluster_LIF</em>  -destination-node <em>node4</em> -destination-port <em>port_name</em></code></p>
+</div>
 </li>
+<li>
+<p>Attendere che il cluster entri in quorum, quindi verificare che i nodi del cluster siano integri:</p>
+<div class="paragraph">
+<p><code>– cluster show</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+La coppia ha e il failover dello storage rimangono disattivati nello stato corrente.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Spostare le LIF del cluster sulle porte del cluster TEMPORANEE 25G sul nodo 4:</p>
+<div class="paragraph">
+<p><code>network interface modify</code></p>
+</div>
+</li>
+<li>
+<p>Se i gruppi di interfacce e le VLAN dati sono in uso sul cluster AFF A250 che si sta aggiornando, eseguire questo passaggio. In caso contrario, passare a. <a href="#migrate_node1_nod4">Fase 8</a>.</p>
+<div class="paragraph">
+<p>I nomi delle porte di rete fisiche sono diversi tra i sistemi AFF A250 e AFF A400. Di conseguenza, potrebbero esserci gruppi di interfacce configurati in modo errato e VLAN spostate sul nodo 4. Controllare e, se necessario, correggere eventuali gruppi di interfacce configurati in modo errato e VLAN spostate.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="migrate_node1_nod4" class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Migrare gli aggregati di dati dal nodo 1 al nodo 4:</p>
 <div class="paragraph">
@@ -4805,13 +4835,13 @@
 <li>
 <p>Rimuovere epsilon dal nodo 1:</p>
 <div class="paragraph">
-<p><code>cluster modify -epsilon false -node <em>local_node_name</em></code></p>
+<p><code>cluster modify -epsilon false -node <em>node1</em></code></p>
 </div>
 </li>
 <li>
 <p>Sposta epsilon al nodo 4:</p>
 <div class="paragraph">
-<p><code>cluster modify -epsilon true -node <em>partner_node_name</em></code></p>
+<p><code>cluster modify -epsilon true -node <em>node4</em></code></p>
 </div>
 </li>
 </ol>
@@ -4832,7 +4862,7 @@
 <li>
 <p>Migrare tutti i dati LIF al nodo 4:</p>
 <div class="paragraph">
-<p><code>network interface migrate -vserver <em>vserver_name</em> -lif <em>lif_name</em> -destination-node <em>node_name</em></code></p>
+<p><code>network interface migrate -vserver <em>vserver_name</em> -lif <em>lif_name</em> -destination-node <em>node4</em> -destination-port <em>port_name</em></code></p>
 </div>
 </li>
 <li>
@@ -4844,7 +4874,7 @@
 <li>
 <p>Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su <code>up</code> Immettendo il seguente comando, una volta per ogni LIF:</p>
 <div class="paragraph">
-<p><code>network interface modify -vserver <em>vserver_name</em> -lif <em>lif_name</em> -home-node <em>node_name</em> -status-admin up</code></p>
+<p><code>network interface modify -vserver <em>vserver_name</em> -lif <em>lif_name</em> -status-admin up</code></p>
 </div>
 </li>
 <li>
@@ -4866,6 +4896,10 @@
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<div class="title">Quali sono le prossime novità?</div>
+<p><a href="upgrade_convert_node1_drive_shelf_connect_node3.html">"Converti il node1 in uno shelf di dischi e connettiti al node3"</a></p>
 </div>
 
     </article>
