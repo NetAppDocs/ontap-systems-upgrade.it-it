@@ -31,7 +31,7 @@ Non è possibile migrare una LIF utilizzata per le operazioni di copy-offload co
  a| 
 Una LIF specifica
  a| 
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -source-node _source_node_name_ -destination-node _dest_node_name_ -destination-port _dest_port_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _dest_node_name_ -destination-port _dest_port_name_`
 
 
 
