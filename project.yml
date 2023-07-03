@@ -29,7 +29,8 @@ homepage:
   - title: Eseguire l'upgrade spostando gli aggregati su sistemi che eseguono ONTAP
       9.8 e versioni successive
     links:
-    - title: Utilizzare i comandi "System controller replace" (da AFF A700 a AFF A900)
+    - title: Utilizzare i comandi "System controller replace" per aggiornare i modelli
+        di controller nello stesso chassis
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
     - title: Utilizzare i comandi "system controller replace" (sostituzione controller
         di sistema) (maggior parte dei sistemi)

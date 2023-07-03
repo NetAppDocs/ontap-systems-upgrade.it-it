@@ -1,12 +1,10 @@
 ---
 section: upgrade-arl-auto-affa900
-title: Utilizzare i comandi "System controller replace" per aggiornare AFF A700 a
-  AFF A900 o FAS9000 a FAS9500
+title: Utilizzare i comandi "System controller replace" per aggiornare i modelli di
+  controller nello stesso chassis
 entries:
 - title: Panoramica
   url: "/upgrade-arl-auto-affa900/index.html"
-- title: Automatizzare il processo di aggiornamento del controller
-  url: "/upgrade-arl-auto-affa900/automate_the_controller_upgrade_process.html"
 - title: Decidere se utilizzare il contenuto di trasferimento aggregato
   url: "/upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html"
 - title: Strumenti e documentazione richiesti
@@ -26,7 +24,7 @@ entries:
     url: "/upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html"
   - title: Gestire la crittografia dello storage utilizzando Onboard Key Manager
     url: "/upgrade-arl-auto-affa900/manage_storage_encryption_using_okm.html"
-- title: Fase 2. Spostare le risorse e dismettere il nodo AFF A700 o FAS9000 1
+- title: Fase 2. Spostare le risorse e dismettere il node1
   entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_2_index.html"
@@ -37,13 +35,15 @@ entries:
     url: "/upgrade-arl-auto-affa900/relocate_failed_or_vetoed_aggr.html"
   - title: Ritirare il node1
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
+  - title: Sostituire i moduli di sistema node1
+    url: "/upgrade-arl-auto-affa900/replace_node1_system_modules.html"
   - title: Node1 NetBoot
     url: "/upgrade-arl-auto-affa900/netboot_node1.html"
-- title: Fase 3. Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+- title: Fase 3. Fare il boot node1 con i moduli di sistema sostitutivi
   entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_3_index.html"
-  - title: Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+  - title: Fare il boot node1 con i moduli di sistema sostitutivi
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
   - title: Verificare l'installazione di node1
     url: "/upgrade-arl-auto-affa900/verify_node1_installation.html"
@@ -53,7 +53,7 @@ entries:
   - title: Spostare gli aggregati non root e le LIF di dati NAS di proprietà del node1
       dal node2 al node1 aggiornato
     url: "/upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html"
-- title: Fase 4. Spostare le risorse dal node2 e dismettere il node2
+- title: Fase 4. Spostare le risorse e dismettere il node2
   entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_4_index.html"
@@ -61,20 +61,19 @@ entries:
     url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html"
   - title: Andare in pensione node2
     url: "/upgrade-arl-auto-affa900/retire_node2.html"
-- title: Fase 5. Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo
-    2
+- title: Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2
   entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_5_index.html"
-  - title: Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2
-    url: "/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html"
+  - title: Installare i moduli di sistema sostitutivi sul nodo 2
+    url: "/upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html"
   - title: Node2 NetBoot
     url: "/upgrade-arl-auto-affa900/netboot_node2.html"
-- title: Fase 6. Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+- title: Fase 6. Fare il boot node2 con i moduli di sistema sostitutivi
   entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_6_index.html"
-  - title: Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+  - title: Fare il boot node2 con i moduli di sistema sostitutivi
     url: "/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html"
   - title: Verificare l'installazione di node2
     url: "/upgrade-arl-auto-affa900/verify_node2_installation.html"

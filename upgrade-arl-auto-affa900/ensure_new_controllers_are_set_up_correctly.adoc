@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/ensure_new_controllers_are_set_up_correctly.html 
 keywords: ensure, controllers, new, setup, ha, pair, node1, node2, lif, cluster, high, availability 
-summary: 'Verificare che la coppia ha sia attivata, verificare l"accesso allo storage node1 e node2 e la LIF e confermare la proprietà aggregata dopo l"aggiornamento di un AFF A700 a un AFF A900.' 
+summary: 'Verificare che la coppia ha sia attivata, verificare l"accesso allo storage node1 e node2 e LIF e confermare la proprietà aggregata dopo l"aggiornamento dei modelli di controller nello stesso chassis.' 
 ---
 = Verificare che i nuovi controller siano impostati correttamente
 :hardbreaks:
@@ -29,11 +29,11 @@ L'esempio seguente mostra l'output del comando quando è attivato il failover de
 [listing]
 ----
 cluster::> storage failover show
-                                Takeover
-Node	         Partner	        Possible	      State Description
--------------  --------------   --------------  ------------------
-node1	         node2            true	           Connected to node2
-node2	         node1            true	           Connected to node1
+                          Takeover
+Node	    Partner       Possible      State Description
+----------  -----------   ------------  ------------------
+node1	    node2         true	        Connected to node2
+node2	    node1         true	        Connected to node1
 ----
 . Verificare che node1 e node2 appartengano allo stesso cluster utilizzando il seguente comando ed esaminando l'output:
 +
@@ -123,7 +123,7 @@ Invio `y` per rimuovere tutti i pacchetti.
 +
 È possibile confrontare l'output con quello acquisito in link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"] sezione.
 
-. [[unset_maxwait]] se nella configurazione vengono utilizzate unità con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (Ad esempio, in _Node2 di avvio con AFF A900 o il controller FAS9500 e i moduli NVRAM_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Fase 1"]), è necessario annullare l'impostazione della variabile:
+. [[unset_maxwait]] se nella configurazione vengono utilizzate unità con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (Ad esempio, in _Boot node2 with the replacement system modules_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Fase 1"]), è necessario annullare l'impostazione della variabile:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 

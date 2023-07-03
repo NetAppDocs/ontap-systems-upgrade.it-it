@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html 
-keywords: preparing, nodes, upgrade, stage 1, prechecks 
-summary: Preparare i nodi ed eseguire una serie di controlli preliminari durante un aggiornamento da AFF A700 a AFF A900. 
+keywords: preparing, prepare, nodes, upgrade, stage 1, prechecks, old, system, chassis, disk, disks 
+summary: Preparare i nodi ed eseguire una serie di controlli preliminari quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
 ---
 = Preparare i nodi per l'aggiornamento
 :hardbreaks:
@@ -14,9 +14,36 @@ summary: Preparare i nodi ed eseguire una serie di controlli preliminari durante
 
 
 [role="lead"]
-Durante la fase 1, è necessario preparare i nodi per l'aggiornamento ed eseguire una serie di controlli preliminari. È inoltre necessario prepararsi all'avvio in rete dei nuovi controller.
+Il processo di sostituzione del controller inizia con una serie di controlli preliminari. Si raccolgono inoltre informazioni sui nodi originali da utilizzare più avanti nella procedura e, se necessario, si determina il tipo di unità con crittografia automatica in uso.
 
 .Fasi
+. Elencare la versione del firmware del Service Processor (SP) o del Baseboard Management Controller (BMC) in esecuzione sul vecchio controller:
++
+`service-processor show` comando:
+
++
+Verificare di disporre di una versione del firmware SP o BMC supportata:
+
++
+[cols="30,35,35"]
+|===
+| Vecchio controller | SP o BMC | Versione minima del firmware 
+
+
+| AFF A220 | BMC | 11,9P1 
+
+
+| AFF A200 | SP | 5.11P1 
+
+
+| AFF C190 | BMC | 11,9P1 
+
+
+| FAS2620 | SP | 5.11P1 
+
+
+| FAS2720 | BMC | 11,9P1 
+|===
 . Iniziare il processo di sostituzione del controller immettendo il seguente comando nella modalità avanzata dei privilegi della riga di comando ONTAP:
 +
 `set -privilege advanced`
@@ -189,10 +216,10 @@ aggr4       node1      node1       online
 
 == Licenza
 
-Quando si configura un cluster, la procedura guidata richiede di inserire la chiave di licenza del cluster. Tuttavia, alcune funzionalità richiedono licenze aggiuntive, che vengono emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
+Ogni nodo del cluster deve disporre di un proprio file di licenza NetApp (NLF).
 
-Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare la nuova chiave di licenza o le nuove chiavi per il nuovo controller al termine dell'aggiornamento.
+Se non si dispone di un NLF, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare l'NLF per il nuovo controller al termine dell'aggiornamento.
 
-Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _NetApp Support Site_, dove è possibile ottenere nuove chiavi di licenza a 2 caratteri per la versione 9.10.1 o successiva. Le chiavi sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
+Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_ dove è possibile ottenere il proprio NLF. Gli NLFs sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle risorse di rete non disponibili, contattare il rappresentante commerciale NetApp.
 
 Per informazioni dettagliate sulle licenze, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.

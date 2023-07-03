@@ -14,7 +14,7 @@ summary: 'Fase 1 sequenza di processo per un aggiornamento ARL con `system contr
 
 
 [role="lead"]
-Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È necessario registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando OKM e si può scegliere di interrompere le relazioni di SnapMirror.
+Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È necessario registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando Onboard Key Manager ed è possibile scegliere di interrompere le relazioni di SnapMirror.
 
 .Fasi
 . link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]

@@ -131,7 +131,7 @@ NOTE: È necessario confermare di spostare I file LIF SAN su una porta con la st
 +
 `network interface show -home-node <node4> -role data`
 
-.. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su UP immettendo il seguente comando, una volta per ciascuna LIF:
+.. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 

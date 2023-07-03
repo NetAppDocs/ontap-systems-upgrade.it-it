@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: /upgrade-arl-auto-affa900/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html 
 keywords: moving, non-root, aggregates, nas, lif, node1, node2 
-summary: Verificare che le LIF dei dati NAS di node2 sul node1 vengano ricollocate dal node1 al node2 durante un aggiornamento da AFF A700 a AFF A900. 
+summary: Verificare che le LIF dei dati NAS di node2 sul node1 vengano ricollocate dal node1 al node2 quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
 ---
 = Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2
 :hardbreaks:
@@ -55,7 +55,7 @@ Il sistema esegue i seguenti controlli:
 
 --
 +
-Dopo aver eseguito questi controlli, il sistema ricolloca gli aggregati non root e i dati LIF NAS in node2, che è ora in esecuzione sul controller AFF A900 o FAS9500.
+Dopo aver eseguito questi controlli, il sistema ricolloca gli aggregati non root e le LIF dei dati NAS in node2, che è ora in esecuzione sul controller sostitutivo.
 
 +
 L'operazione di sostituzione del controller viene interrotta al termine del trasferimento delle risorse.

@@ -38,7 +38,7 @@ La seguente tabella descrive le attività di alto livello eseguite durante ciasc
 
 
 | link:stage_1_index.html["Fase 1. Preparatevi per l'aggiornamento"]  a| 
-Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È necessario registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando OKM e si può scegliere di interrompere le relazioni di SnapMirror.
+Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È necessario registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando Onboard Key Manager ed è possibile scegliere di interrompere le relazioni di SnapMirror.
 
 Proprietà aggregata alla fine della fase 1:
 

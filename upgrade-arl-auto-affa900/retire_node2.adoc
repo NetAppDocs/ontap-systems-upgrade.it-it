@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/retire_node2.html 
-keywords: retire, node2 
-summary: Chiudere il node2 e rimuoverlo dal rack o dallo chassis durante un aggiornamento da AFF A700 a AFF A900. 
+keywords: retire, node2, retiring, node 
+summary: Chiudere il node2 e rimuoverlo dal rack o dallo chassis quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
 ---
 = Andare in pensione node2
 :hardbreaks:

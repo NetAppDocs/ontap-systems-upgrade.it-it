@@ -106,7 +106,7 @@ I contenuti specifici di questo aggiornamento sono elencati nella tabella seguen
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare ONTAP"^] | Contiene le istruzioni per scaricare e aggiornare ONTAP. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Utilizzare i comandi "System controller replace" per aggiornare AFF A700 a AFF A900 o FAS9000 a FAS9500 con ONTAP 9.10.1 o versione successiva"^] | Descrive le procedure di trasferimento degli aggregati necessarie per aggiornare senza interruzioni un sistema AFF A700 a un sistema AFF A900 o FAS9000 a un sistema FAS9500 con ONTAP 9.10.1 o versione successiva utilizzando i comandi "system controller replace". 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"^] | Descrive le procedure di riposizionamento degli aggregati necessarie per l'aggiornamento senza interruzioni di un sistema mantenendo i vecchi dischi e chassis del sistema. 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Utilizzare i comandi "System controller replace" per aggiornare l'hardware del controller con ONTAP 9.8 o versione successiva"^] | Descrive le procedure di trasferimento degli aggregati necessarie per l'aggiornamento senza interruzioni dei controller che eseguono ONTAP 9.8 utilizzando i comandi "system controller replace". 

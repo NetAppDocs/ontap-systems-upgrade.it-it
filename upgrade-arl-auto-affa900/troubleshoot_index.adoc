@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/troubleshoot_index.html 
-keywords: troubleshooting, node, aggregate, lif, migrate, failure 
-summary: Risolvere i problemi che potrebbero verificarsi durante un aggiornamento da AFF A700 a AFF A900. 
+keywords: troubleshooting, troublehsoot, node, aggregate, lif, migrate, failure 
+summary: Risolvere i problemi che potrebbero verificarsi quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
 ---
 = Risolvere i problemi
 :hardbreaks:

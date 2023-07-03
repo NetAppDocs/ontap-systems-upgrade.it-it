@@ -14,7 +14,7 @@ summary: 'Decidere se utilizzare ARL per aggiornare i controller con ONTAP 9.8 o
 
 
 [role="lead"]
-Questo contenuto descrive come aggiornare i controller di storage in una coppia ha con nuovi controller mantenendo tutti i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
+Questo contenuto descrive come aggiornare i controller di storage in una coppia ha con nuovi controller mantenendo i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
 
 È possibile utilizzare questo contenuto nei seguenti casi:
 

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html 
-keywords: boot, NVRAM, controller, module, node2, aff, a700, a900 
-summary: Punto di avvio2 con il modulo controller AFF A900 e il modulo NVRAM. 
+keywords: boot, NVRAM, controller, module, node2, replacement 
+summary: Fare il boot node2 con i moduli controller sostitutivi quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
 ---
-= Punto di avvio2 con controller AFF A900 o FAS9500 e moduli NVRAM
+= Fare il boot node2 con i moduli di sistema sostitutivi
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,8 +14,27 @@ summary: Punto di avvio2 con il modulo controller AFF A900 e il modulo NVRAM.
 
 
 [role="lead"]
-Node2 con il controller AFF A900 o FAS9500 e i moduli NVRAM è ora pronto per l'aggiornamento. Un aggiornamento da AFF A700 a AFF A900 o da FAS9000 a FAS9500 sostituendo il controller e i moduli NVRAM comporta lo spostamento solo della console e delle connessioni di gestione. In questa sezione vengono fornite le procedure necessarie per l'avvio del nodo 2 con il controller AFF A900 o FAS9500 e i moduli NVRAM.
+Node2 con i moduli sostitutivi è ora pronto per l'avvio. L'aggiornamento mediante lo scambio dei moduli di sistema comporta lo spostamento solo della console e delle connessioni di gestione. Questa sezione fornisce i passaggi necessari per eseguire l'avvio del nodo 2 con i moduli sostitutivi per le seguenti configurazioni di aggiornamento:
 
+[cols="35,65"]
+|===
+| Vecchio controller node2 | Moduli di sistema di sostituzione node2 
+
+
+| AFF A220
+AFF A200
+AFF C190 | Modulo controller A150 AFF 
+
+
+| FAS2620
+FAS2720 | Modulo controller FAS2820 
+
+
+| AFF A700 | Controller AFF A900 e moduli NVRAM 
+
+
+| FAS9000 | Controller FAS9500 e moduli NVRAM 
+|===
 .Fasi
 . [[boot_node2_step1]]se sono installati dischi NetApp Storage Encryption (NSE), attenersi alla seguente procedura.
 +
@@ -51,7 +70,7 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 +
 `boot_ontap menu`
 
-. Riassegnare i dischi AFF A700 node2 a AFF A900 node2 immettendo "22/7" e selezionando l'opzione nascosta `boot_after_controller_replacement` quando il nodo si arresta nel menu di boot.
+. Riassegnare i vecchi dischi node2 al nodo sostituzione2 immettendo "22/7" e selezionando l'opzione nascosta `boot_after_controller_replacement` quando il nodo si arresta nel menu di boot.
 +
 Dopo un breve intervallo di tempo, viene richiesto di inserire il nome del nodo da sostituire. Se sono presenti dischi condivisi (chiamati anche Advanced Disk Partitioning (ADP) o dischi partizionati), viene richiesto di inserire il nome del nodo del partner ha.
 

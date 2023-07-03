@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/lif_migration_failure.html 
 keywords: lif, migration, failure, mtu 
-summary: Le LIF non sono online dopo la migrazione nella fase 2, 3 o 5 durante un aggiornamento da AFF A700 a AFF A900. 
+summary: Le LIF non sono online dopo la migrazione nella fase 2, 3 o 5 quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
 ---
 = Errore di migrazione LIF
 :hardbreaks:

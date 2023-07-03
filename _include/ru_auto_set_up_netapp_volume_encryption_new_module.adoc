@@ -11,7 +11,7 @@ Questa procedura include i passaggi che vengono eseguiti sul nuovo modulo contro
 ====
 .Gestione delle chiavi integrata
 --
-*Configurare NVE o NAE utilizzando Onboard Key Manager*
+Configurare NVE o NAE utilizzando Onboard Key Manager.
 
 .Fasi
 . Ripristinare le chiavi di autenticazione da tutti i server di gestione delle chiavi collegati al nuovo nodo:
@@ -23,7 +23,7 @@ Questa procedura include i passaggi che vengono eseguiti sul nuovo modulo contro
 --
 .Gestione esterna delle chiavi
 --
-*Configurare NVE o NAE utilizzando la gestione delle chiavi esterne*
+Configurare NVE o NAE utilizzando External Key Management.
 
 .Fasi
 . Verificare che i server di gestione delle chiavi siano ancora disponibili, che il loro stato e le relative informazioni sulla chiave di autenticazione:
