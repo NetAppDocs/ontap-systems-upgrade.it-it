@@ -9,15 +9,15 @@
   <meta property="og:title" content="Panoramica" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" />
-	<meta property="og:description" content="È possibile aggiornare l"hardware del controller su un AFF A700 a un AFF A900 sostituendo il modulo controller e NVS." />
+	<meta property="og:description" content="È possibile aggiornare l"hardware del controller convertendo un vecchio sistema in un sistema sostitutivo, mantenendo il vecchio chassis e i dischi del sistema." />
   <meta property="og:image" content="https://docs.netapp.com/it-it/ontap-systems-upgrade/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="È possibile aggiornare l"hardware del controller su un AFF A700 a un AFF A900 sostituendo il modulo controller e NVS.">
-  <meta name="keywords" content=" aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, aff, a700, a900"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="È possibile aggiornare l"hardware del controller convertendo un vecchio sistema in un sistema sostitutivo, mantenendo il vecchio chassis e i dischi del sistema.">
+  <meta name="keywords" content=" aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, old, system, chassis, disk, disks"><!-- Icons -->
   <link rel="icon" href="/it-it/ontap-systems-upgrade/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -662,17 +662,15 @@
           
           <a target="_blank" 
             
-              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Utilizzare_i_comandi__System_controller_replace__per_aggiornare_AFF_A700_a_AFF_A900_o_FAS9000_a_FAS9500.pdf" 
+              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Utilizzare_i_comandi__System_controller_replace__per_aggiornare_i_modelli_di_controller_nello_stesso_chassis.pdf" 
             
           >
             <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            Utilizzare i comandi "System controller replace" per aggiornare AFF A700 a AFF A900 o FAS9000 a FAS9500
+            Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis
           </a>
           
     <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
   
-
-
 
 
 
@@ -723,11 +721,46 @@
           
           <a target="_blank" 
             
-              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_2__Spostare_le_risorse_e_dismettere_il_nodo_AFF_A700_o_FAS9000_1.pdf" 
+              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_2__Spostare_le_risorse_e_dismettere_il_node1.pdf" 
             
           >
             <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            Fase 2. Spostare le risorse e dismettere il nodo AFF A700 o FAS9000 1
+            Fase 2. Spostare le risorse e dismettere il node1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_3__Fare_il_boot_node1_con_i_moduli_di_sistema_sostitutivi.pdf" 
+            
+          >
+            <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
+            Fase 3. Fare il boot node1 con i moduli di sistema sostitutivi
           </a>
           
 
@@ -756,44 +789,11 @@
           
           <a target="_blank" 
             
-              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_3__Punto_di_avvio1_con_il_controller_AFF_A900_o_FAS9500_e_i_moduli_NVRAM.pdf" 
+              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_4__Spostare_le_risorse_e_dismettere_il_node2.pdf" 
             
           >
             <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            Fase 3. Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM
-          </a>
-          
-
-
-
-
-
-
-
-
-
-
-        </li>
-      </ul>
-    
-
-  
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_4__Spostare_le_risorse_dal_node2_e_dismettere_il_node2.pdf" 
-            
-          >
-            <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            Fase 4. Spostare le risorse dal node2 e dismettere il node2
+            Fase 4. Spostare le risorse e dismettere il node2
           </a>
           
 
@@ -818,11 +818,11 @@
           
           <a target="_blank" 
             
-              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_5__Installare_i_moduli_NVRAM_e_controller_AFF_A900_o_FAS9500_sul_nodo_2.pdf" 
+              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_5__Installare_i_moduli_di_sistema_sostitutivi_sul_nodo_2.pdf" 
             
           >
             <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            Fase 5. Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2
+            Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2
           </a>
           
 
@@ -847,11 +847,11 @@
           
           <a target="_blank" 
             
-              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_6__Punto_di_avvio2_con_il_controller_AFF_A900_o_FAS9500_e_i_moduli_NVRAM.pdf" 
+              href="/it-it/ontap-systems-upgrade/pdfs/sidebar/Fase_6__Fare_il_boot_node2_con_i_moduli_di_sistema_sostitutivi.pdf" 
             
           >
             <img src="/it-it/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            Fase 6. Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+            Fase 6. Fare il boot node2 con i moduli di sistema sostitutivi
           </a>
           
 
@@ -2547,11 +2547,11 @@
         Panoramica
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Utilizzare i comandi "System controller replace" per aggiornare AFF A700 a AFF A900 o FAS9000 a FAS9500"
+      data-pdf-filename="Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"
       data-li-level="2" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Utilizzare i comandi "System controller replace" per aggiornare AFF A700 a AFF A900 o FAS9000 a FAS9500</div>
+        <div class="na-navbar-padding"> Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -2561,13 +2561,6 @@
       class="  active "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html">
         Panoramica
-      </a></li><li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Automatizzare il processo di aggiornamento del controller"
-      data-li-level="3#" 
-      class=" "
-    ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/automate_the_controller_upgrade_process.html">
-        Automatizzare il processo di aggiornamento del controller
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Decidere se utilizzare il contenuto di trasferimento aggregato"
@@ -2635,11 +2628,11 @@
         Gestire la crittografia dello storage utilizzando Onboard Key Manager
       </a></li></ul></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Fase 2. Spostare le risorse e dismettere il nodo AFF A700 o FAS9000 1"
+      data-pdf-filename="Fase 2. Spostare le risorse e dismettere il node1"
       data-li-level="3" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Fase 2. Spostare le risorse e dismettere il nodo AFF A700 o FAS9000 1</div>
+        <div class="na-navbar-padding"> Fase 2. Spostare le risorse e dismettere il node1</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -2672,6 +2665,13 @@
         Ritirare il node1
       </a></li><li 
       data-pdf-exists="true" 
+      data-pdf-filename="Sostituire i moduli di sistema node1"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/replace_node1_system_modules.html">
+        Sostituire i moduli di sistema node1
+      </a></li><li 
+      data-pdf-exists="true" 
       data-pdf-filename="Node1 NetBoot"
       data-li-level="4#" 
       class=" "
@@ -2679,11 +2679,11 @@
         Node1 NetBoot
       </a></li></ul></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Fase 3. Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM"
+      data-pdf-filename="Fase 3. Fare il boot node1 con i moduli di sistema sostitutivi"
       data-li-level="3" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Fase 3. Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM</div>
+        <div class="na-navbar-padding"> Fase 3. Fare il boot node1 con i moduli di sistema sostitutivi</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -2695,11 +2695,11 @@
         Panoramica
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM"
+      data-pdf-filename="Fare il boot node1 con i moduli di sistema sostitutivi"
       data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html">
-        Punto di avvio1 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+        Fare il boot node1 con i moduli di sistema sostitutivi
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Verificare l'installazione di node1"
@@ -2723,11 +2723,11 @@
         Spostare gli aggregati non root e le LIF di dati NAS di proprietà del node1 dal node2 al node1 aggiornato
       </a></li></ul></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Fase 4. Spostare le risorse dal node2 e dismettere il node2"
+      data-pdf-filename="Fase 4. Spostare le risorse e dismettere il node2"
       data-li-level="3" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Fase 4. Spostare le risorse dal node2 e dismettere il node2</div>
+        <div class="na-navbar-padding"> Fase 4. Spostare le risorse e dismettere il node2</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -2753,11 +2753,11 @@
         Andare in pensione node2
       </a></li></ul></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Fase 5. Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2"
+      data-pdf-filename="Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2"
       data-li-level="3" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Fase 5. Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2</div>
+        <div class="na-navbar-padding"> Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -2769,11 +2769,11 @@
         Panoramica
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2"
+      data-pdf-filename="Installare i moduli di sistema sostitutivi sul nodo 2"
       data-li-level="4#" 
       class=" "
-    ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html">
-        Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2
+    ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html">
+        Installare i moduli di sistema sostitutivi sul nodo 2
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Node2 NetBoot"
@@ -2783,11 +2783,11 @@
         Node2 NetBoot
       </a></li></ul></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Fase 6. Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM"
+      data-pdf-filename="Fase 6. Fare il boot node2 con i moduli di sistema sostitutivi"
       data-li-level="3" 
       class="subfolders "
     ><a href="#">
-        <div class="na-navbar-padding"> Fase 6. Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM</div>
+        <div class="na-navbar-padding"> Fase 6. Fare il boot node2 con i moduli di sistema sostitutivi</div>
       </a>
       <ul style="display: none;">
         <li 
@@ -2799,11 +2799,11 @@
         Panoramica
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM"
+      data-pdf-filename="Fare il boot node2 con i moduli di sistema sostitutivi"
       data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html">
-        Punto di avvio2 con il controller AFF A900 o FAS9500 e i moduli NVRAM
+        Fare il boot node2 con i moduli di sistema sostitutivi
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Verificare l'installazione di node2"
@@ -4683,21 +4683,21 @@
   </div>
 </div>
 
-      <div class="ie-nmt-disclaimer">
-  <span>
-    <div class="ie-nmt-disclaimer-container">
-      <div class="ie-nmt-disclaimer-icon">
-        <svg class="luci-icon" aria-hidden="true">
-          <use xlink:href="/it-it/ontap-systems-upgrade/images/sprite.svg#circle-info">
-        </svg>
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <svg class="luci-icon" aria-hidden="true">
+            <use xlink:href="/it-it/ontap-systems-upgrade/images/sprite.svg#circle-info">
+          </svg>
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+        </div>
+        <div style="clear:both;"></div>
       </div>
-      <div class="ie-nmt-disclaimer-content">
-        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
-      </div>
-      <div style="clear:both;"></div>
-    </div>
-  </span>
-</div><div class="n-doc__component-detail-heading-wrap">
+    </span>
+  </div><div class="n-doc__component-detail-heading-wrap">
   <h1 class="n-doc__component-detail-heading">Panoramica</h1>
 </div>
 
@@ -4711,45 +4711,141 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>Questa procedura descrive come aggiornare l&#8217;hardware del controller utilizzando ARL (aggregate relocation) per le seguenti configurazioni di sistema:</p>
+<p>Questa procedura descrive come aggiornare senza interruzioni l&#8217;hardware del controller su una coppia ha utilizzando il trasferimento aggregato (ARL) per le seguenti configurazioni di sistema. La procedura converte il vecchio sistema nel sistema sostitutivo, mantenendo il vecchio chassis e i dischi del sistema.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/warning.svg" alt="Attenzione">
+</td>
+<td class="content">
+Questa procedura si applica rigorosamente alle seguenti configurazioni di aggiornamento. Non utilizzare questa procedura per eseguire un aggiornamento tra altre combinazioni di sistema.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 30%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 30%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Metodo</th>
-<th class="tableblock halign-left valign-top">Versione di ONTAP</th>
-<th class="tableblock halign-left valign-top">Sistemi supportati</th>
-<th class="tableblock halign-left valign-top">Descrizione</th>
+<th class="tableblock halign-left valign-top">Vecchio sistema</th>
+<th class="tableblock halign-left valign-top">Sistema sostitutivo</th>
+<th class="tableblock halign-left valign-top">Versioni di ONTAP supportate</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizzo di <code>system controller replace</code> comandi</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P10, 9.11.1P6 o versioni successive</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Da AFF A700 a AFF A900</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Converte un sistema AFF A700 in un sistema AFF A900, mantenendo lo chassis A700</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A220</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A150</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P15, 9.11.1P11, 9.12.1P5 e versioni successive</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Utilizzo di <code>system controller replace</code> comandi</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P10, 9.11.1P6 o versioni successive</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Da FAS9000 a FAS9500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Converte un sistema FAS9000 in un sistema FAS9500, mantenendo lo chassis FAS9000.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A200</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A150</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>9.10.1P15, 9.11.1P11 e versioni successive (AFF A200 e AFF A150)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+AFF A200 non supporta le versioni di ONTAP successive alla 9.11.1.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF C190</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A150</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P15, 9.11.1P11, 9.12.1P5 e versioni successive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS2620</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS2820</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>9.11.1P7 e versioni successive (FAS2620)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+FAS2620 non supporta le versioni di ONTAP successive alla 9.11.1.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>9.13.1 e versioni successive (FAS2820)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS2720</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS2820</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.13.1 e versioni successive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A700</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P10, 9.11.1P6 e versioni successive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P10, 9.11.1P6 e versioni successive</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
+</td>
+<td class="content">
 <div class="paragraph">
-<p>È possibile aggiornare senza interruzioni l&#8217;hardware del controller su una coppia ad alta disponibilità (ha) scambiando il controller e i moduli NVRAM. Innanzitutto, si esegue la migrazione degli aggregati non root tra i vecchi nodi controller. Dopo l&#8217;installazione, si esegue la migrazione degli aggregati non root dai vecchi nodi controller ai nodi controller sostitutivi. I dati ospitati sui nodi che si sta aggiornando sono accessibili durante la procedura di aggiornamento.</p>
+<p>NetApp consiglia, quando possibile, di disporre della stessa versione di ONTAP sul sistema precedente e sul sistema sostitutivo.</p>
+</div>
+<div class="paragraph">
+<p>Le versioni minime di ONTAP riportate nella tabella precedente sono obbligatorie. Queste versioni di ONTAP dispongono della versione del firmware del processore di servizio o del BMC (Baseboard Management Controller) necessaria per supportare la combinazione di tipi di controller all&#8217;interno di uno chassis durante un aggiornamento.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Durante la procedura, gli aggregati non root vengono migrati tra i vecchi nodi controller. Dopo l&#8217;installazione, si esegue la migrazione degli aggregati non root dai vecchi nodi controller ai nodi controller sostitutivi. I dati ospitati sui nodi che si sta aggiornando sono accessibili durante la procedura di aggiornamento.</p>
 </div>
 <div class="paragraph">
 <div class="title">A proposito di questa attività</div>
-<p>Durante questa procedura di aggiornamento del controller, è possibile sostituire solo le due FRU (Field Replaceable Unit) su ciascun nodo del sistema AFF A700 o FAS9000 con le nuove FRU.</p>
+<p>Durante questa procedura di aggiornamento del controller, eseguire una delle seguenti procedure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sostituire il modulo controller su ciascun nodo del sistema AFF A220, AFF A200 o AFF C190 con il nuovo modulo AFF A150.</p>
+</li>
+<li>
+<p>Sostituire il modulo controller su ciascun nodo del sistema FAS2620 o FAS2720 con il nuovo modulo FAS2820.</p>
+</li>
+<li>
+<p>Sostituire i due moduli controller e NVRAM su ciascun nodo del sistema AFF A700 o FAS9000 con i nuovi moduli AFF A900 o FAS9500.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4794,15 +4890,28 @@ I termini <strong>node1</strong> e <strong>node2</strong> sono utilizzati solo c
 <p>È possibile utilizzare questa procedura per aggiornare l&#8217;hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia ha nel cluster.</p>
 </li>
 <li>
-<p>Questa procedura si applica solo ai sistemi AFF A700 e FAS9000. Per tutti gli altri modelli di controller che richiedono l&#8217;aggiornamento a un sistema AFF A900 o FAS9500, fare riferimento a. <a href="other_references.html">"Riferimenti"</a> Per collegarsi ai comandi di <em>sostituzione del controller di sistema" per aggiornare l&#8217;hardware del controller che esegue ONTAP 9.8 o versione successiva</em> e al contenuto di <em>utilizzo del trasferimento aggregato per aggiornare manualmente l&#8217;hardware del controller che esegue ONTAP 9.8 o versione successiva</em>.</p>
+<p>Se si dispone di uno switch non supportato dalla versione di ONTAP e dal sistema sostitutivo a cui si sta eseguendo l&#8217;aggiornamento, fare riferimento a. <a href="other_references.html">"Riferimenti"</a> Per collegarsi a <em>Hardware Universe</em>.</p>
+</li>
+<li>
+<p>Questa procedura si applica solo ai sistemi AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, Sistemi AFF A700 e FAS9000. Per tutti gli altri modelli di controller che richiedono l&#8217;aggiornamento a un sistema AFF A150, FAS2820, AFF A900 o FAS9500, fare riferimento a. <a href="other_references.html">"Riferimenti"</a> Per collegarsi ai comandi di <em>sostituzione del controller di sistema" per aggiornare l&#8217;hardware del controller con ONTAP 9.8 o versione successiva</em> e al contenuto <em>utilizzo del trasferimento aggregato per aggiornare manualmente l&#8217;hardware del controller con ONTAP 9.8 o versione successiva</em>.</p>
 </li>
 <li>
 <p>I sistemi AFF A900 e FAS9500 supportano solo l&#8217;alimentazione high-line (da 200 V a 240 V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l&#8217;alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.</p>
 </li>
 <li>
-<p>Se si esegue l&#8217;aggiornamento da un sistema AFF A700 o FAS9000 con downtime, è possibile aggiornare l&#8217;hardware del controller spostando lo storage o contattare il supporto tecnico. Fare riferimento a. <a href="other_references.html">"Riferimenti"</a> Per collegarsi a <em>Upgrade spostando volumi o storage</em>.</p>
+<p>Se si esegue l&#8217;aggiornamento da AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, Il sistema AFF A700 o FAS9000 con downtime consente di aggiornare l&#8217;hardware del controller spostando lo storage o di contattare il supporto tecnico. Fare riferimento a. <a href="other_references.html">"Riferimenti"</a> Per collegarsi a <em>Upgrade spostando volumi o storage</em>.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="automatizzare-il-processo-di-aggiornamento-del-controller">Automatizzare il processo di aggiornamento del controller</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Questa procedura supporta i seguenti aggiornamenti del controller e fornisce i passaggi per la procedura automatica, che utilizza l&#8217;assegnazione automatica del disco e i controlli di raggiungibilità delle porte di rete per semplificare l&#8217;esperienza di aggiornamento del controller.</p>
+</div>
+</div>
 </div>
 
     </article>
