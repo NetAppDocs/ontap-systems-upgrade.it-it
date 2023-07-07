@@ -19,7 +19,7 @@ Il processo di sostituzione del controller inizia con una serie di controlli pre
 .Fasi
 . Elencare la versione del firmware del Service Processor (SP) o del Baseboard Management Controller (BMC) in esecuzione sul vecchio controller:
 +
-`service-processor show` comando:
+`service-processor show`
 
 +
 Verificare di disporre di una versione del firmware SP o BMC supportata:
@@ -150,7 +150,7 @@ Dalla porta seriale collegata a ciascun nodo, eseguire e salvare singolarmente l
 
 +
 
-NOTE: Se si utilizza NetApp Volume Encryption (NVE) o NetApp aggregate Encryption (NAE) con Onboard Key Manager, tenere la passphrase del gestore delle chiavi pronta per completare la risincronizzazione del gestore delle chiavi in un secondo momento della procedura.
+NOTE: Se la crittografia del volume NetApp (NVE) o la crittografia aggregata NetApp (NAE) utilizzando Gestione chiavi integrata è in uso, tenere la passphrase del gestore delle chiavi pronta per completare la risincronizzazione del gestore delle chiavi in un secondo momento della procedura.
 
 . Se il sistema utilizza dischi con crittografia automatica, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] Per determinare il tipo di unità con crittografia automatica in uso sulla coppia ha che si sta aggiornando. Il software ONTAP supporta due tipi di dischi con crittografia automatica:
 +

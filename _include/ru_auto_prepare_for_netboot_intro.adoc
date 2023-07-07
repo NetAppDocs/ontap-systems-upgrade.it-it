@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Dopo aver inserito fisicamente il nodo 3 e il nodo 4 più avanti nella procedura, potrebbe essere necessario eseguire il netboot. Il termine "netboot" indica che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Durante la preparazione per il netboot, è necessario inserire una copia dell'immagine di boot di ONTAP 9 su un server Web a cui il sistema può accedere.
+Dopo aver inserito fisicamente il nodo 3 e il nodo 4 più avanti nella procedura, potrebbe essere necessario eseguire il netboot. Il termine "netboot" indica che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Quando ci si prepara per il netboot, si inserisce una copia dell'immagine di boot di ONTAP 9 su un server web a cui il sistema può accedere.
 
 .Prima di iniziare
 * Verificare che sia possibile accedere a un server HTTP con il sistema.

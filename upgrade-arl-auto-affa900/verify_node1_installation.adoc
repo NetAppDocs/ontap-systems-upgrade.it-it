@@ -17,7 +17,7 @@ summary: 'Verificare l"installazione del nodo 1 con i moduli sostitutivi quando 
 È necessario verificare l'installazione node1 con i moduli di sistema sostitutivi. Poiché non sono state apportate modifiche alle porte fisiche, non è necessario mappare le porte fisiche dal vecchio nodo 1 al nodo sostituo1.
 
 .A proposito di questa attività
-Dopo aver avviato il nodo 1 con il modulo controller sostitutivo, è necessario verificare che sia installato correttamente. È necessario attendere che il nodo 1 si unisca al quorum, quindi riprendere l'operazione di sostituzione del controller.
+Dopo aver avviato il nodo 1 con il modulo controller sostitutivo, verificare che sia installato correttamente. È necessario attendere che il nodo 1 si unisca al quorum, quindi riprendere l'operazione di sostituzione del controller.
 
 A questo punto della procedura, l'operazione di aggiornamento del controller dovrebbe essere stata sospesa poiché node1 tenta di unirsi automaticamente al quorum.
 

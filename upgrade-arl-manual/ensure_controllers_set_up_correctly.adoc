@@ -14,7 +14,7 @@ summary: 'Abilitare la coppia ha, verificare l"accesso allo storage node3 e node
 
 
 [role="lead"]
-Per confermare la corretta configurazione, è necessario attivare la coppia ha. È inoltre necessario verificare che node3 e node4 possano accedere reciprocamente allo storage e che non siano in possesso di LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, devi confermare che node3 possiede gli aggregati di node1 e che node4 possiede gli aggregati di node2 e che i volumi per entrambi i nodi sono online.
+Per confermare la corretta configurazione, attivare la coppia ha. Inoltre, è possibile verificare che node3 e node4 possano accedere reciprocamente allo storage e che nessuno dei due possieda le LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, confermi che node3 possiede gli aggregati di node1 e che node4 possiede gli aggregati di node2 e che i volumi per entrambi i nodi sono online.
 
 .Fasi
 . Abilitare il failover dello storage immettendo il seguente comando su uno dei nodi:

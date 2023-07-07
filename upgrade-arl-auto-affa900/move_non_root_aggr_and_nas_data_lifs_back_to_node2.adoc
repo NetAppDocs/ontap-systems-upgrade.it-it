@@ -14,7 +14,7 @@ summary: Verificare che le LIF dei dati NAS di node2 sul node1 vengano ricolloca
 
 
 [role="lead"]
-Dopo aver verificato la configurazione di rete sul nodo 2 e prima di spostare gli aggregati dal nodo 1 al nodo 2, è necessario verificare che le LIF dei dati NAS appartenenti al nodo 2 che sono attualmente sul nodo 1 vengano ricollocate dal nodo 1 al nodo 2. È inoltre necessario verificare che le LIF SAN esistano sul nodo 2.
+Dopo aver verificato la configurazione di rete sul nodo 2 e prima di spostare gli aggregati dal nodo 1 al nodo 2, verificare che i dati NAS LIF appartenenti al nodo 2 che sono attualmente sul nodo 1 vengano ricollocati dal nodo 1 al nodo 2. È inoltre necessario verificare che le LIF SAN esistano sul nodo 2.
 
 .A proposito di questa attività
 Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 2 online, è necessario verificare che i LIF siano integri e posizionati sulle porte appropriate.

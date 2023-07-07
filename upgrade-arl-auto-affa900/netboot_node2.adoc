@@ -14,7 +14,7 @@ summary: 'Dopo aver scambiato i corrispondenti moduli di sistema node2 sostituti
 
 
 [role="lead"]
-Dopo aver scambiato i corrispondenti moduli di sistema node2 sostitutivi, potrebbe essere necessario eseguire il netboot. Il termine netboot significa che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Durante la preparazione per il netboot, è necessario inserire una copia dell'immagine di boot di ONTAP 9 su un server Web a cui il sistema può accedere.
+Dopo aver scambiato i corrispondenti moduli di sistema node2 sostitutivi, potrebbe essere necessario eseguire il netboot. Il termine netboot significa che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Quando ci si prepara per il netboot, si inserisce una copia dell'immagine di boot di ONTAP 9 su un server web a cui il sistema può accedere.
 
 Non è possibile controllare la versione di ONTAP installata sul supporto di avvio del modulo controller sostitutivo, a meno che non sia installata in uno chassis e accesa. La versione di ONTAP sul supporto di avvio del sistema sostitutivo deve essere la stessa della versione di ONTAP in esecuzione sul vecchio sistema che si sta aggiornando e le immagini di avvio primaria e di backup devono corrispondere. È possibile configurare le immagini eseguendo un netboot seguito da `wipeconfig` dal menu di boot. Se il modulo controller è stato utilizzato in precedenza in un altro cluster, il `wipeconfig` il comando cancella qualsiasi configurazione residua sul supporto di avvio.
 

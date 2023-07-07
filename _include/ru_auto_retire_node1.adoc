@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Per dismettere il node1, riprendere l'operazione automatica per disattivare correttamente la coppia ha con node2 e chiudere node1. In seguito, rimuovere il nodo 1 dal rack o dallo chassis.
+Per dismettere il node1, riprendere l'operazione automatica per disattivare correttamente la coppia ha con node2 e chiudere node1. Più avanti nella procedura, rimuovere il nodo 1 dal rack o dallo chassis.
 
 .Fasi
 . Riprendere l'operazione:

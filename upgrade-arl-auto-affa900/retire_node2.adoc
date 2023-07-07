@@ -14,7 +14,7 @@ summary: Chiudere il node2 e rimuoverlo dal rack o dallo chassis quando si utili
 
 
 [role="lead"]
-Per dismettere il node2, è necessario chiudere il node2 correttamente e rimuoverlo dal rack o dallo chassis.
+Per dismettere il node2, chiudere il node2 correttamente e rimuoverlo dal rack o dallo chassis.
 
 .Fasi
 . Riprendere l'operazione:

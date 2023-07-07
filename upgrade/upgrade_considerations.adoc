@@ -13,12 +13,15 @@ summary: 'Per pianificare l"aggiornamento, è necessario acquisire familiarità 
 [role="lead"]
 Per pianificare l'aggiornamento, è necessario acquisire familiarità con le considerazioni generali sull'aggiornamento. Se necessario, contattare il supporto tecnico per consigli e indicazioni specifiche sulla configurazione del cluster.
 
-Requisiti e limitazioni
-
+.Requisiti e limitazioni
 * La procedura per l'aggiornamento mediante lo spostamento dello storage è un'operazione di interruzione. La procedura per l'aggiornamento mediante lo spostamento dei volumi è senza interruzioni.
-* I nuovi nodi devono supportare la stessa versione software dei nodi originali.
+* I nodi originali devono supportare la stessa versione software dei nuovi nodi.
 +
 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare ONTAP"^]
+
++
+
+NOTE: Per ulteriori informazioni sugli aggiornamenti del cluster delle versioni software miste, vedere https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Cluster ONTAP a versione mista"^].
 
 * È necessario rispettare le dimensioni massime del cluster.
 +

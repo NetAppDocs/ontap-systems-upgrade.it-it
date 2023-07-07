@@ -14,7 +14,7 @@ summary: 'Fase 1 sequenza di processo per un aggiornamento ARL con `system contr
 
 
 [role="lead"]
-Durante la fase 1, verificare di disporre dell'hardware corretto per l'aggiornamento, eseguire i controlli preliminari e, se necessario, correggere la proprietà aggregata. Se si gestisce Storage Encryption utilizzando Onboard Key Manager, è necessario registrare alcune informazioni ed è possibile scegliere di interrompere le relazioni di SnapMirror.
+Durante la fase 1, verificare di disporre dell'hardware corretto per l'aggiornamento, eseguire i controlli preliminari e, se necessario, correggere la proprietà aggregata. È inoltre possibile registrare alcune informazioni se si gestisce Storage Encryption utilizzando Onboard Key Manager e scegliere di interrompere le relazioni di SnapMirror.
 
 .Fasi
 . link:verify_upgrade_hardware.html["Verificare l'hardware di aggiornamento"]

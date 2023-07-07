@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-È necessario raccogliere determinate informazioni per aggiornare correttamente i nodi originali. Le informazioni includono ID dei nodi, dettagli di porta e LIF, chiavi di licenza e indirizzi IP.
+È necessario raccogliere determinate informazioni per supportare l'aggiornamento dei nodi originali. Queste informazioni includono gli ID dei nodi, i dettagli di porta e LIF, le chiavi di licenza e gli indirizzi IP.
 
 È possibile utilizzare il seguente foglio di lavoro per registrare le informazioni da utilizzare in seguito nella procedura:
 

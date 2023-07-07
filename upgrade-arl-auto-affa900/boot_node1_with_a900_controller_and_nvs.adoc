@@ -35,8 +35,8 @@ FAS2720 | Modulo controller FAS2820 ^1^
 
 | FAS9000 | Controller FAS9500 e moduli NVRAM ^2^ 
 |===
-^1^ l'aggiornamento sostituendo il modulo controller comporta lo spostamento di tutte le connessioni dal vecchio al modulo controller sostitutivo.
-^2^ l'aggiornamento mediante lo scambio di controller e moduli NVRAM comporta lo spostamento solo della console e delle connessioni di gestione.
+^1^ quando si sostituiscono i moduli controller, si spostano tutte le connessioni dal vecchio al modulo controller sostitutivo.
+^2^ quando si sostituiscono il controller e i moduli NVRAM, vengono spostate solo le connessioni della console e di gestione.
 
 .Fasi
 . Se si dispone di unità NetApp Storage Encryption (NSE) installate, attenersi alla seguente procedura.

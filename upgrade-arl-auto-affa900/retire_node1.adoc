@@ -14,7 +14,7 @@ summary: Disattivare la coppia ha con node2 e chiudere node1 quando si utilizza 
 
 
 [role="lead"]
-Per dismettere il node1, riprendere l'operazione automatica per disattivare la coppia ha con node2 e spegnere il node1 correttamente. In seguito, rimuovere i vecchi moduli di sistema dallo chassis node1 e installare i moduli sostitutivi sul node1.
+Per dismettere il node1, riprendere l'operazione automatica per disattivare la coppia ha con node2 e spegnere il node1 correttamente.
 
 .Fasi
 . Riprendere l'operazione:

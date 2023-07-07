@@ -66,7 +66,7 @@ Le versioni minime di ONTAP riportate nella tabella precedente sono obbligatorie
 Durante la procedura, gli aggregati non root vengono migrati tra i vecchi nodi controller. Dopo l'installazione, si esegue la migrazione degli aggregati non root dai vecchi nodi controller ai nodi controller sostitutivi. I dati ospitati sui nodi che si sta aggiornando sono accessibili durante la procedura di aggiornamento.
 
 .A proposito di questa attività
-Durante questa procedura di aggiornamento del controller, eseguire una delle seguenti procedure:
+Durante questa procedura di aggiornamento del controller, eseguire uno dei seguenti aggiornamenti:
 
 * Sostituire il modulo controller su ciascun nodo del sistema AFF A220, AFF A200 o AFF C190 con il nuovo modulo AFF A150.
 * Sostituire il modulo controller su ciascun nodo del sistema FAS2620 o FAS2720 con il nuovo modulo FAS2820.
@@ -97,4 +97,4 @@ NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi 
 
 == Automatizzare il processo di aggiornamento del controller
 
-Questa procedura supporta i seguenti aggiornamenti del controller e fornisce i passaggi per la procedura automatica, che utilizza l'assegnazione automatica del disco e i controlli di raggiungibilità delle porte di rete per semplificare l'esperienza di aggiornamento del controller.
+Questa procedura fornisce i passaggi per la procedura automatica, che utilizza l'assegnazione automatica del disco e i controlli di raggiungibilità delle porte di rete per semplificare l'esperienza di aggiornamento del controller.

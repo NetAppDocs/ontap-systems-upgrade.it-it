@@ -14,7 +14,7 @@ summary: 'Verificare che la coppia ha sia attivata, verificare l"accesso allo st
 
 
 [role="lead"]
-Per confermare la corretta configurazione, è necessario verificare che la coppia ha sia attivata. È inoltre necessario verificare che node1 e node2 possano accedere reciprocamente allo storage e che nessuno dei due possieda le LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, è necessario verificare che tutti gli aggregati di dati si trovino sui nodi principali corretti e che i volumi di entrambi i nodi siano online. Se uno dei nuovi nodi dispone di un adattatore di destinazione unificato, è necessario ripristinare le configurazioni delle porte e modificare l'utilizzo dell'adattatore.
+Per confermare la corretta configurazione, verificare che la coppia ha sia attivata. Inoltre, è possibile verificare che node1 e node2 possano accedere reciprocamente allo storage e che nessuno dei due possieda le LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, è possibile verificare che tutti gli aggregati di dati si trovino sui nodi principali corretti e che i volumi di entrambi i nodi siano online. Se uno dei nuovi nodi dispone di un adattatore di destinazione unificato, è necessario ripristinare le configurazioni delle porte e modificare l'utilizzo dell'adattatore.
 
 .Fasi
 . Dopo i controlli post-node2, vengono attivate la coppia di ha cluster e failover dello storage per il cluster node2. Al termine dell'operazione, entrambi i nodi vengono visualizzati come completati e il sistema esegue alcune operazioni di pulizia.

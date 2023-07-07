@@ -14,7 +14,7 @@ summary: Quando si utilizza ARL per aggiornare i modelli di controller nello ste
 
 
 [role="lead"]
-Dopo aver scambiato i moduli di sistema sostitutivi corrispondenti, è necessario eseguire il netboot node1. Il termine netboot significa che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Durante la preparazione per il netboot, è necessario aggiungere una copia dell'immagine di boot di ONTAP 9 su un server Web a cui il sistema può accedere.
+Dopo aver scambiato i moduli di sistema sostitutivi corrispondenti, è necessario eseguire il netboot node1. Il termine netboot significa che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Quando ci si prepara per il netboot, si aggiunge una copia dell'immagine di boot di ONTAP 9 su un server web a cui il sistema può accedere.
 
 Non è possibile controllare la versione di ONTAP installata sul supporto di avvio del modulo controller sostitutivo, a meno che non sia installata in uno chassis e accesa. La versione di ONTAP sul supporto di avvio del sistema sostitutivo deve essere la stessa della versione di ONTAP in esecuzione sul vecchio sistema che si sta aggiornando e le immagini di avvio primaria e di backup devono corrispondere. Per verificare la versione minima supportata di ONTAP per l'aggiornamento, vedere link:index.html["Panoramica"].
 

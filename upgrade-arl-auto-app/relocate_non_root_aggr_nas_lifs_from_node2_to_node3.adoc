@@ -14,7 +14,7 @@ summary: 'Spostare gli aggregati non root di node2 in node3 quando si aggiornano
 
 
 [role="lead"]
-Prima di poter sostituire il node2 con il node4, è necessario spostare gli aggregati non root e le LIF dati NAS di proprietà di node2 in node3.
+Prima di sostituire il node2 con node4, spostare gli aggregati non root e le LIF dati NAS di proprietà di node2 in node3.
 
 .Prima di iniziare
 Una volta completati i controlli successivi alla fase precedente, la release di risorse per node2 si avvia automaticamente. Gli aggregati non root e le LIF di dati non SAN vengono migrati da node2 a node3.
