@@ -2401,11 +2401,11 @@
         Installare e unire nuovi nodi
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Creare aggregati e spostare volumi"
+      data-pdf-filename="Creare un aggregato e spostare i volumi"
       data-li-level="3#" 
       class=" "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html">
-        Creare aggregati e spostare volumi
+        Creare un aggregato e spostare i volumi
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Spostare le LIF di dati non SAN e le LIF di gestione del cluster"
@@ -4705,7 +4705,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-06-09 14:36:37 +0000">06/09/2023</time>
+    <time datetime="2023-07-07 19:29:18 +0000">07/07/2023</time>
     
   
 
@@ -4718,18 +4718,28 @@
 <div class="paragraph lead">
 <p>Per pianificare l&#8217;aggiornamento, è necessario acquisire familiarità con le considerazioni generali sull&#8217;aggiornamento. Se necessario, contattare il supporto tecnico per consigli e indicazioni specifiche sulla configurazione del cluster.</p>
 </div>
-<div class="paragraph">
-<p>Requisiti e limitazioni</p>
-</div>
 <div class="ulist">
+<div class="title">Requisiti e limitazioni</div>
 <ul>
 <li>
 <p>La procedura per l&#8217;aggiornamento mediante lo spostamento dello storage è un&#8217;operazione di interruzione. La procedura per l&#8217;aggiornamento mediante lo spostamento dei volumi è senza interruzioni.</p>
 </li>
 <li>
-<p>I nuovi nodi devono supportare la stessa versione software dei nodi originali.</p>
+<p>I nodi originali devono supportare la stessa versione software dei nuovi nodi.</p>
 <div class="paragraph">
 <p><a href="https://docs.netapp.com/us-en/ontap/upgrade/index.html" target="_blank" rel="noopener">"Aggiornare ONTAP"</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per ulteriori informazioni sugli aggiornamenti del cluster delle versioni software miste, vedere <a href="https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html" target="_blank" rel="noopener">"Cluster ONTAP a versione mista"</a>.
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>

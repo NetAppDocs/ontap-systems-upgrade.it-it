@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
   <head class="at-element-marker">
-  <title>Creare un aggregato e spostare i volumi nei nuovi nodi</title>
+  <title>Creare un aggregato e spostare i volumi</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Creare un aggregato e spostare i volumi nei nuovi nodi" />
+  <meta property="og:title" content="Creare un aggregato e spostare i volumi" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/it-it/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html" />
 	<meta property="og:description" content="Si crea almeno un aggregato su ciascuno dei nuovi nodi per memorizzare i volumi che si desidera spostare dai nodi originali. È necessario identificare un agg..." />
@@ -177,7 +177,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html&page-title=Creare un aggregato e spostare i volumi nei nuovi nodi" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-upgrade/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade/upgrade_create_aggregate_move_volumes.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-upgrade/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/ontap-systems-upgrade/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html&page-title=Creare un aggregato e spostare i volumi" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-upgrade/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade/upgrade_create_aggregate_move_volumes.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/ontap-systems-upgrade/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/ontap-systems-upgrade/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">IN QUESTA PAGINA</div>
@@ -2401,11 +2401,11 @@
         Installare e unire nuovi nodi
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Creare aggregati e spostare volumi"
+      data-pdf-filename="Creare un aggregato e spostare i volumi"
       data-li-level="3#" 
       class="  active "
     ><a class="na-navbar-padding" href="/it-it/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html">
-        Creare aggregati e spostare volumi
+        Creare un aggregato e spostare i volumi
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Spostare le LIF di dati non SAN e le LIF di gestione del cluster"
@@ -4698,14 +4698,14 @@
       </div>
     </span>
   </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Creare un aggregato e spostare i volumi nei nuovi nodi</h1>
+  <h1 class="n-doc__component-detail-heading">Creare un aggregato e spostare i volumi</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:20:51 +0000">05/23/2023</time>
+    <time datetime="2023-07-07 19:29:18 +0000">07/07/2023</time>
     
   
 
@@ -4715,7 +4715,30 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
+<p>Durante un aggiornamento del software ONTAP, i dati vengono migrati creando un aggregato sui nuovi nodi e spostando i volumi.</p>
+</div>
+<div class="paragraph">
+<p>Se la configurazione dello storage include volumi SAN o crittografati, è necessario spostare anche questi volumi:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#move_san_vols">Spostare i volumi SAN</a></p>
+</li>
+<li>
+<p><a href="#spostare-i-volumi-con-la-crittografia-attivata">Spostare i volumi con la crittografia attivata</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="creare-un-aggregato-e-spostare-i-volumi-nei-nuovi-nodi">Creare un aggregato e spostare i volumi nei nuovi nodi</h2>
+<div class="sectionbody">
+<div class="paragraph">
 <p>Si crea almeno un aggregato su ciascuno dei nuovi nodi per memorizzare i volumi che si desidera spostare dai nodi originali. È necessario identificare un aggregato per ciascun volume e spostare ciascun volume singolarmente.</p>
 </div>
 <div class="paragraph">
@@ -4725,17 +4748,29 @@
 <div class="paragraph">
 <p><a href="https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html" target="_blank" rel="noopener">"Individuare la procedura di protezione dei dati richiesta"</a>.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per ciascuna macchina virtuale di storage (SVM), NetApp consiglia di spostare tutti i volumi non root nel cluster prima di spostare il volume root ed eseguire questa procedura su una SVM alla volta.
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Fasi</div>
 <ol class="arabic">
 <li>
 <p>Creare almeno un aggregato su ogni nuovo nodo:</p>
 <div class="paragraph">
-<p><code>storage aggregate create -aggregate aggr_name -node new_node_name -diskcount integer</code></p>
+<p><code>storage aggregate create -aggregate <em>aggr_name</em> -node <em>new_node_name</em> -diskcount integer</code></p>
 </div>
 </li>
 <li>
-<p>Aggiungere il nuovo aggregato alla stessa SVM dell&#8217;aggregato sul nodo originale da cui si desidera spostare i volumi:</p>
+<p>Aggiungere il nuovo aggregato alla stessa SVM (Storage Virtual Machine) dell&#8217;aggregato sul nodo originale da cui si desidera spostare i volumi:</p>
 <div class="paragraph">
 <p><code>vserver add-aggregates</code></p>
 </div>
@@ -4752,7 +4787,7 @@
 <li>
 <p>Visualizzare le informazioni relative ai volumi che si desidera spostare dai nodi originali ai nuovi nodi:</p>
 <div class="paragraph">
-<p><code>volume show -vserver svm_name -node original_node_name</code></p>
+<p><code>volume show -vserver <em>svm_name</em> -node <em>original_node_name</em></code></p>
 </div>
 <div class="paragraph">
 <p>Conservare l&#8217;output del comando per riferimenti successivi.</p>
@@ -4775,7 +4810,7 @@ vs1       vs1root      aggr1        online     RW         20MB    18.88MB    5%
 <li>
 <p>Determinare un aggregato in cui è possibile spostare un determinato volume:</p>
 <div class="paragraph">
-<p><code>volume move target-aggr show -vserver svm_name -volume vol_name</code></p>
+<p><code>volume move target-aggr show -vserver <em>svm_name</em> -volume <em>vol_name</em></code></p>
 </div>
 <div class="paragraph">
 <p>L&#8217;esempio seguente mostra che il volume "user_max" sulla SVM "vs2" può essere spostato in uno qualsiasi degli aggregati elencati:</p>
@@ -4797,13 +4832,13 @@ node12a_aggr4    10.36GB         FCAL
 <li>
 <p>Eseguire un controllo di convalida su ciascun volume che si desidera spostare per verificare che sia possibile spostarlo nell&#8217;aggregato specificato:</p>
 <div class="paragraph">
-<p><code>volume move start -vserver svm_name -volume volume_name -destination-aggregate destination_aggregate_name -perform-validation-only true</code></p>
+<p><code>volume move start -vserver <em>svm_name</em> -volume <em>volume_name</em> -destination-aggregate <em>destination_aggregate_name</em> -perform-validation-only true</code></p>
 </div>
 </li>
 <li>
 <p>Spostare i volumi uno alla volta (livello di privilegio avanzato):</p>
 <div class="paragraph">
-<p><code>volume move start -vserver svm_name -volume vol_name -destination-aggregate destination_aggr_name -cutover-window integer</code></p>
+<p><code>volume move start -vserver <em>svm_name</em> -volume <em>vol_name</em> -destination-aggregate <em>destination_aggr_name</em> -cutover-window integer</code></p>
 </div>
 <div class="paragraph">
 <p>Non è possibile spostare il volume root del nodo (vol0). È possibile spostare altri volumi, inclusi i volumi root SVM.</p>
@@ -4812,13 +4847,13 @@ node12a_aggr4    10.36GB         FCAL
 <li>
 <p>Visualizzare il risultato di <code>volume move</code> operazione per verificare che i volumi siano stati spostati correttamente:</p>
 <div class="paragraph">
-<p><code>volume move show -vserver svm_name -volume vol_name</code></p>
+<p><code>volume move show -vserver <em>svm_name</em> -volume <em>vol_name</em></code></p>
 </div>
 </li>
 <li>
 <p>Se il <code>volume move</code> l&#8217;operazione non completa la fase finale dopo più tentativi, forza il completamento dello spostamento:</p>
 <div class="paragraph">
-<p><code>volume move trigger-cutover -vserver svm_name -volume vol_name -force true</code></p>
+<p><code>volume move trigger-cutover -vserver <em>svm_name</em> -volume <em>vol_name</em> -force true</code></p>
 </div>
 <div class="paragraph">
 <p>Il completamento dell&#8217;operazione di spostamento del volume può interrompere l&#8217;accesso del client al volume che si sta spostando.</p>
@@ -4827,10 +4862,28 @@ node12a_aggr4    10.36GB         FCAL
 <li>
 <p>Verificare che i volumi siano stati spostati correttamente nella SVM specificata e che si trovino nell&#8217;aggregato corretto:</p>
 <div class="paragraph">
-<p><code>volume show -vserver svm_name</code></p>
+<p><code>volume show -vserver <em>svm_name</em></code></p>
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spostare-i-volumi-san">Spostare i volumi SAN</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per spostare i volumi SAN, seguire la procedura descritta in <a href="https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html" target="_blank" rel="noopener">"Spostamento degli host iSCSI Linux da MetroCluster FC a nodi IP MetroCluster"</a>. Ciò vale per lo spostamento di volumi SAN in configurazioni MetroCluster e non MetroCluster.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spostare-i-volumi-con-la-crittografia-attivata">Spostare i volumi con la crittografia attivata</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per spostare i volumi con la crittografia aggregata attivata, seguire la procedura descritta in <a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/encrypt-existing-volume-task.html" target="_blank" rel="noopener">"Attivare la crittografia su un volume esistente con il comando di avvio spostamento volume"</a>.</p>
+</div>
+</div>
 </div>
 
     </article>
