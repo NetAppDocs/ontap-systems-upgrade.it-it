@@ -64,7 +64,7 @@ entries:
     url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
   - title: Installare e unire nuovi nodi
     url: "/upgrade/upgrade-install-and-join-new-nodes-move-vols.html"
-  - title: Creare un aggregato e spostare i volumi
+  - title: Creare un aggregato e spostare i volumi nei nuovi ndo
     url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
   - title: Spostare le LIF di dati non SAN e le LIF di gestione del cluster
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
