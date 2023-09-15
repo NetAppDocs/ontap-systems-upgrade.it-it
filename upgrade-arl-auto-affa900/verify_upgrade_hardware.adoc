@@ -21,12 +21,16 @@ Prima di iniziare l'aggiornamento, verificare di disporre dell'hardware corretto
 | Se si sta eseguendo l'aggiornamento... | Devi avere ... 
 
 
-| Da AFF A220 a AFF A150
-Da AFF A200 a AFF A150
-Da AFF C190 a AFF A150 | Due moduli controller 
+| AFF A220 configurato come ASA per ASA A150 | Due moduli controller 
+
+
+| Da AFF A220, AFF A200 o AFF C190 a AFF A150 | Due moduli controller 
 
 
 | FAS2620 o da FAS2720 a FAS2820 | Due moduli controller 
+
+
+| AFF A700 configurato come ASA per ASA A900 | Due controller e due moduli NVRAM 
 
 
 | Da AFF A700 a AFF A900 | Due controller e due moduli NVRAM 

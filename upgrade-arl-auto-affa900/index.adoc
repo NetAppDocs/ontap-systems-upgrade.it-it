@@ -24,11 +24,14 @@ WARNING: Questa procedura si applica rigorosamente alle seguenti configurazioni 
 | Vecchio sistema | Sistema sostitutivo | Versioni di ONTAP supportate 
 
 
+| AFF A220 configurato come ASA (All SAN Array) | ASA A150 | 9.13.1P1 e successivi 
+
+
 | AFF A220 | AFF A150 | 9.10.1P15, 9.11.1P11, 9.12.1P5 e versioni successive 
 
 
 | AFF A200 | AFF A150  a| 
-9.10.1P15, 9.11.1P11 e versioni successive (AFF A200 e AFF A150)
+9.10.1P15, 9.11.1P11 e successivi
 
 
 NOTE: AFF A200 non supporta le versioni di ONTAP successive alla 9.11.1.
@@ -39,7 +42,7 @@ NOTE: AFF A200 non supporta le versioni di ONTAP successive alla 9.11.1.
 
 
 | FAS2620 | FAS2820  a| 
-9.11.1P7 e versioni successive (FAS2620)
+9.11.1P7 (FAS2620)
 
 
 NOTE: FAS2620 non supporta le versioni di ONTAP successive alla 9.11.1.
@@ -49,6 +52,9 @@ NOTE: FAS2620 non supporta le versioni di ONTAP successive alla 9.11.1.
 
 
 | FAS2720 | FAS2820 | 9.13.1 e versioni successive 
+
+
+| AFF A700 configurato come ASA | ASA A900 | 9.13.1P1 e successivi 
 
 
 | AFF A700 | AFF A900 | 9.10.1P10, 9.11.1P6 e versioni successive 
@@ -68,9 +74,8 @@ Durante la procedura, gli aggregati non root vengono migrati tra i vecchi nodi c
 .A proposito di questa attività
 Durante questa procedura di aggiornamento del controller, eseguire uno dei seguenti aggiornamenti:
 
-* Sostituire il modulo controller su ciascun nodo del sistema AFF A220, AFF A200 o AFF C190 con il nuovo modulo AFF A150.
-* Sostituire il modulo controller su ciascun nodo del sistema FAS2620 o FAS2720 con il nuovo modulo FAS2820.
-* Sostituire i due moduli controller e NVRAM su ciascun nodo del sistema AFF A700 o FAS9000 con i nuovi moduli AFF A900 o FAS9500.
+* Scambiare il modulo controller su ciascun nodo del vecchio controller con il nuovo modulo. Ciò si applica a un aggiornamento del sistema AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720.
+* Scambiare il controller e i moduli NVRAM su ciascun nodo del vecchio controller con i nuovi moduli. Ciò si applica a un aggiornamento del sistema AFF A700 o FAS9000.
 
 
 
@@ -89,7 +94,7 @@ NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi 
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia ha nel cluster.
 * Se si dispone di uno switch non supportato dalla versione di ONTAP e dal sistema sostitutivo a cui si sta eseguendo l'aggiornamento, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
 * Questa procedura si applica solo ai sistemi AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, Sistemi AFF A700 e FAS9000. Per tutti gli altri modelli di controller che richiedono l'aggiornamento a un sistema AFF A150, FAS2820, AFF A900 o FAS9500, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi ai comandi di _sostituzione del controller di sistema" per aggiornare l'hardware del controller con ONTAP 9.8 o versione successiva_ e al contenuto _utilizzo del trasferimento aggregato per aggiornare manualmente l'hardware del controller con ONTAP 9.8 o versione successiva_.
-* I sistemi AFF A900 e FAS9500 supportano solo l'alimentazione high-line (da 200 V a 240 V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l'alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.
+* I sistemi ASA A900, AFF A900 e FAS9500 supportano solo l'alimentazione di linea alta (da 200V a 240V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l'alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.
 * Se si esegue l'aggiornamento da AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, Il sistema AFF A700 o FAS9000 con downtime consente di aggiornare l'hardware del controller spostando lo storage o di contattare il supporto tecnico. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
 

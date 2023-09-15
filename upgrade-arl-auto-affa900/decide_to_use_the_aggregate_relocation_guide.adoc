@@ -25,10 +25,16 @@ Seguire questa procedura nei seguenti casi:
 | Vecchio controller | Controller sostitutivo 
 
 
+| AFF A220 configurato come ASA | ASA A150 
+
+
 | AFF A220, AFF A200 o AFF C190 | AFF A150 
 
 
 | FAS2620 o FAS2720 | FAS2820 
+
+
+| AFF A700 configurato come ASA | ASA A900 
 
 
 | AFF A700 | AFF A900 
@@ -38,9 +44,8 @@ Seguire questa procedura nei seguenti casi:
 |===
 * Hai verificato con il tuo commerciale NetApp di aver ricevuto l'hardware per l'upgrade del controller:
 +
-** Controller A150 AFF
-** Controller FAS2820
-** Controller e moduli NVRAM AFF A900 o FAS9500 e le parti necessarie per l'aggiornamento.
+** Controller ASA A150, AFF A150 o FAS2820
+** Controller ASA A900, AFF A900 o FAS9500 e moduli NVRAM e le parti necessarie per l'upgrade
 
 
 * Si sta utilizzando la versione minima di ONTAP per l'aggiornamento. Per ulteriori informazioni, vedere link:index.html["Panoramica"].

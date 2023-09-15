@@ -21,6 +21,9 @@ Node2 con i moduli sostitutivi è ora pronto per l'avvio. L'aggiornamento median
 | Vecchio controller node2 | Moduli di sistema di sostituzione node2 
 
 
+| AFF A220 configurato come ASA | Modulo controller ASA A150 
+
+
 | AFF A220
 AFF A200
 AFF C190 | Modulo controller A150 AFF 
@@ -28,6 +31,9 @@ AFF C190 | Modulo controller A150 AFF
 
 | FAS2620
 FAS2720 | Modulo controller FAS2820 
+
+
+| AFF A700 configurato come ASA | Controller ASA A900 e moduli NVRAM 
 
 
 | AFF A700 | Controller AFF A900 e moduli NVRAM 

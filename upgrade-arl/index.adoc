@@ -31,7 +31,9 @@ Se si sta eseguendo un aggiornamento utilizzando i comandi di sistema, fare rife
 | Se si utilizza questa versione di ONTAP… | Per eseguire l'aggiornamento con i comandi di sistema, utilizzare… 
 
 
-| 9.10.1 o versione successiva | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"^] 
+| 9.10.1 o versione successiva | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"^]
+
+È possibile utilizzare questa procedura per aggiornare un controller AFF configurato come ASA (All SAN Array) a un controller ASA in determinati modelli e versioni del software ONTAP. link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Scopri di più"]. 
 
 
 | 9.8 o versione successiva | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Utilizzare i comandi "System controller replace" per aggiornare l'hardware del controller con ONTAP 9.8 o versione successiva"] 

@@ -72,7 +72,7 @@ NOTE: Potrebbero essere necessari altri parametri per l'interfaccia. Invio `help
 
 NOTE: Non interrompere l'avvio.
 
-. Attendere l'avvio del node1 sul modulo controller AFF A900 o FAS9500 e visualizzare le opzioni del menu di avvio come mostrato di seguito:
+. Attendere che node1 sia ora in esecuzione sul modulo controller ASA A900, AFF A900 o FAS9500 per l'avvio e visualizzare le opzioni del menu di avvio come mostrato di seguito:
 +
 [listing]
 ----

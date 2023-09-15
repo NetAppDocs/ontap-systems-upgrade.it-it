@@ -21,6 +21,9 @@ Node1 con i moduli sostitutivi è ora pronto per l'avvio. Questa sezione fornisc
 | Vecchio controller node1 | Moduli di sistema node1 sostitutivi 
 
 
+| AFF A220 configurato come ASA | Modulo controller AFF A150 ^1^ 
+
+
 | AFF A220
 AFF A200
 AFF C190 | Modulo controller AFF A150 ^1^ 
@@ -28,6 +31,9 @@ AFF C190 | Modulo controller AFF A150 ^1^
 
 | FAS2620
 FAS2720 | Modulo controller FAS2820 ^1^ 
+
+
+| AFF A700 configurato come ASA | Controller ASA A900 e moduli NVRAM ^2^ 
 
 
 | AFF A700 | Controller AFF A900 e moduli NVRAM ^2^ 

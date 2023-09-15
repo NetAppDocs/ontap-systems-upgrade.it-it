@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html 
-keywords: install, NVRAM, node2, controller, module, modules, replacement 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
 summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggiornamento ARL dei modelli di controller nello stesso chassis. 
 ---
 = Installare i moduli di sistema sostitutivi sul nodo 2
@@ -16,15 +16,15 @@ summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggior
 [role="lead"]
 Installare i moduli di sistema sostitutivi ricevuti per l'aggiornamento il node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
 
-* <<Installare il modulo controller AFF A150 o FAS2820 sul nodo 2>>
-* <<Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2>>
+* <<install_modules_a,Installare il modulo controller ASA A150, AFF A150 o FAS2820 su node2>>
+* <<install_modules_b,Installare la NVRAM ASA A900, AFF A900 o FAS9500 e i moduli controller su node2>>
 
 
 
 
-== Installare il modulo controller AFF A150 o FAS2820 sul nodo 2
+== Installare il modulo controller ASA A150, AFF A150 o FAS2820 su node2
 
-Installare il modulo controller AFF A150 o FAS2820 ricevuto per l'aggiornamento del node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
+Installare il modulo controller ASA A150, AFF A150 o FAS2820 ricevuto per l'aggiornamento su node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
 
 .Prima di iniziare
 * Se non si è già collegati a terra, mettere a terra correttamente.
@@ -60,14 +60,14 @@ NOTE: Per evitare di danneggiare i connettori, non esercitare una forza eccessiv
 
 
 
-== Installare i moduli NVRAM e controller AFF A900 o FAS9500 sul nodo 2
+== Installare la NVRAM ASA A900, AFF A900 o FAS9500 e i moduli controller su node2
 
-Installare i moduli NVRAM e controller AFF A900 o FAS9500 ricevuti per l'aggiornamento del node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
+Installare la NVRAM ASA A900, AFF A900 o FAS9500 e i moduli controller ricevuti per l'aggiornamento su node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
 
 Quando si esegue l'installazione, tenere presente quanto segue:
 
 * Spostare tutti i moduli di riempimento vuoti negli slot 6-1 e 6-2 dal vecchio modulo NVRAM al nuovo modulo NVRAM.
-* NON spostare il dispositivo di coredump dal modulo NVRAM A700 di AFF al modulo NVRAM A900 di AFF.
+* NON spostare il dispositivo di scarico dal modulo NVRAM AFF A700 al modulo NVRAM ASA A900 o AFF A900.
 * Spostare tutti i moduli flash cache installati nel modulo NVRAM FAS9000 nel modulo NVRAM FAS9500.
 
 
@@ -76,9 +76,9 @@ Se non si è già collegati a terra, mettere a terra correttamente.
 
 
 
-=== Installare il modulo NVRAM AFF A900 o FAS9500
+=== Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500
 
-Utilizzare la procedura seguente per installare il modulo NVRAM AFF A900 o FAS9500 nello slot 6 del nodo 2.
+Utilizzare la seguente procedura per installare il modulo NVRAM ASA A900, AFF A900 o FAS9500 nello slot 6 di node2.
 
 .Fasi
 . Allineare il modulo NVRAM ai bordi dell'apertura dello chassis nello slot 6.
@@ -87,9 +87,9 @@ Utilizzare la procedura seguente per installare il modulo NVRAM AFF A900 o FAS95
 
 
 
-=== Installare il modulo controller AFF A900 o FAS9500 nel nodo 2
+=== Installare il modulo controller ASA A900, AFF A900 o FAS9500 in node2
 
-Utilizzare la seguente procedura per installare il modulo controller AFF A900 o FAS9500 nel nodo 2.
+Utilizzare la seguente procedura per installare il modulo controller ASA A900, AFF A900 o FAS9500 in node2.
 
 .Fasi
 . Allineare l'estremità del modulo controller con l'alloggiamento B dello chassis, quindi spingere delicatamente il modulo controller a metà nel sistema.
