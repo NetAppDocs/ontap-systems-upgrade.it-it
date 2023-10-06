@@ -13,6 +13,8 @@ sidebar:
     url: "/index.html"
   - section: upgrade
   - section: upgrade-arl
+  - title: Note legali
+    url: "/legal-notices.html"
 homepage:
   tiles:
   - title: Inizia subito
