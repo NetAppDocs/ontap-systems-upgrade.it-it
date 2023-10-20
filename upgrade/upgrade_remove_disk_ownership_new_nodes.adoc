@@ -22,13 +22,13 @@ Questi passaggi vengono eseguiti su node3 e node4 uno dopo l'altro. La sequenza 
 * È necessario rimuovere la proprietà dei dischi solo per i dischi e gli shelf forniti con i nuovi controller.
 * Non è necessario rimuovere la proprietà dei dischi se si sta aggiornando l'hardware sostituendo un vecchio controller con un nuovo controller su una piattaforma di dischi interna, mantenendo al contempo lo chassis e i dischi del vecchio controller.
 +
-Ad esempio, se si sta aggiornando il sistema da A200 a A220 sostituendo solo il vecchio modulo controller A200 con il nuovo modulo controller A220, mantenendo al contempo in posizione lo chassis e i dischi del vecchio A200, Non rimuovere la proprietà dei dischi per il nuovo modulo controller A220 come descritto in questa sezione _Rimozione della proprietà dei dischi collegati ai nuovi nodi_.
+Ad esempio, se si sta aggiornando il sistema da un AFF A200 a un AFF A220 sostituendo il vecchio modulo controller AFF A200 con il nuovo modulo controller AFF A220 mantenendo al contempo in posizione lo chassis e i dischi del vecchio AFF A200, non rimuovere la proprietà dei dischi per il nuovo modulo controller AFF A220 come descritto in questa sezione _Rimozione della proprietà dei dischi collegati ai nuovi nodi_.
 
 +
 In caso di domande sulla rimozione della proprietà del disco durante un aggiornamento del controller, contattare il supporto tecnico NetApp.
 
 +
-Di seguito è riportato un elenco dei sistemi che dispongono di storage interno: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700, AFF A800, AFF A250.
+Di seguito è riportato un elenco dei sistemi con storage interno: FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s, AFF A800, AFF A250.
 
 +
 Se il sistema in uso non è elencato sopra, consultare la https://hwu.netapp.com["NetApp Hardware Universe"^] per verificare se dispone di dischi interni.

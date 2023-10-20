@@ -18,6 +18,7 @@ image::../upgrade/media/workflow_for_upgrading_by_moving_volumes.gif[Workflow pe
 .Fasi
 . xref:upgrade-prepare-when-moving-volumes.adoc[Preparatevi per l'aggiornamento durante lo spostamento dei volumi]
 . xref:upgrade-install-and-join-new-nodes-move-vols.adoc[Installare i nuovi nodi e unirli al cluster]
+. xref:upgrade_move_linux_iscsi_hosts_to_new_nodes.html[Spostamento degli host iSCSI Linux nei nuovi nodi]
 . xref:upgrade-create-aggregate-move-volumes.adoc[Creare un aggregato e spostare i volumi nei nuovi nodi]
 . xref:upgrade-move-lifs-to-new-nodes.adoc[Spostare le LIF di dati non SAN e le LIF di gestione del cluster nei nuovi nodi]
 . xref:upgrade_move_delete_recreate_san_lifs.adoc[Spostare, eliminare o creare LIFS SAN]

@@ -3712,19 +3712,9 @@
   <block id="1c21d383507612a44944a4ef460798a2" category="list-text">[[Move_int_drive_5]] chiudere la maniglia della camma in modo che il supporto sia completamente inserito nella scheda intermedia e la maniglia scatti in posizione.</block>
   <block id="aa6a7c81aeaad5ec8cef068df556cb9d" category="paragraph">Chiudere lentamente la maniglia in modo che sia allineata correttamente con la parte anteriore del supporto.</block>
   <block id="4d388dae867b0a86458ede8119b8865e" category="list-text">Ripetere <block ref="267cbc67ee851d16fc5833a2bb2eacbb" category="inline-xref-macro-rx"></block> attraverso <block ref="07cb79f26065ce7eb3e55fb46a8c9f8b" category="inline-xref-macro-rx"></block> per tutti i dischi che si stanno trasferendo al nuovo sistema.</block>
-  <block id="589fe3c8d827ae39970fa59898cfc3ee" category="summary">In generale, il modo in cui si aggiorna l'hardware del controller dipende dai modelli di piattaforma dei nodi originali. L'aggiornamento avviene spostando lo storage (procedura di interruzione) o spostando i volumi (procedura senza interruzioni).</block>
   <block id="5b0415c2846efde1fb66c48433f25633" category="doc">Scegliere i metodi per aggiornare l'hardware del controller</block>
-  <block id="39b87627b0135db0ab3ea0a8e2f859bd" category="paragraph">In generale, il modo in cui si aggiorna l'hardware del controller dipende dai modelli di piattaforma dei nodi originali. L'aggiornamento avviene spostando lo storage (una procedura di interruzione) o spostando i volumi (una procedura senza interruzioni).</block>
-  <block id="e8617aabffae0af74d02587319a2e105" category="image-alt">Metodi per aggiornare l'hardware del controller</block>
-  <block id="27f43fb944a56ff83e6e461d944a7f41" category="admonition">I modelli con dischi interni sono: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s, AFF A800, AFF C190, AFF C250, E AFF C800.</block>
   <block id="32f214bce43cce7090d2126fda118b4f" category="paragraph">Se il sistema in uso non è elencato sopra, consultare la<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> per verificare se dispone di dischi interni.</block>
   <block id="6a3104dd603be761e5020da6f96a9944" category="inline-xref-macro">Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi</block>
-  <block id="83a06e5916453976ff0100cc86be2ff9" category="paragraph">Se si sta eseguendo l'aggiornamento da un sistema AFF A250 a un sistema AFF A400, vedere <block ref="16a60590ab4a03950f527e475b265368" category="inline-xref-macro-rx"></block>.</block>
-  <block id="d33f2a600ba4fe43084a26e95e4908c0" category="paragraph">*Informazioni correlate*</block>
-  <block id="dafbb22fd53a8bbbcd7e0e587f256606" category="inline-link-macro">Workflow per l'aggiornamento mediante lo spostamento dello storage</block>
-  <block id="268c885d4c1c9189f00bfa017a5b9d17" category="paragraph"><block ref="268c885d4c1c9189f00bfa017a5b9d17" category="inline-link-macro-rx"></block></block>
-  <block id="7d466f4faaea4136b0f35ee3a444b2ee" category="inline-link-macro">Workflow per l'aggiornamento spostando i volumi</block>
-  <block id="c8b09d07f5441b617dbdf76973a08943" category="paragraph"><block ref="c8b09d07f5441b617dbdf76973a08943" category="inline-link-macro-rx"></block></block>
   <block id="530f824f291c9dbf82563102e66eb4ee" category="summary">Collegare fisicamente il nodo 2 al nodo 4 prima di riassegnare i dischi dal nodo 2 al nodo 4.</block>
   <block id="e90f638890adabd702a0e4a41624e1e7" category="paragraph">Dopo aver convertito il nodo AFF A250 2 in uno shelf di dischi NS224 e aver effettuato il collegamento al nodo AFF A400 4, è necessario riassegnare i dischi che in precedenza appartenevano al nodo 2 al nodo 4.</block>
   <block id="f451745de9dc10b2155ba09d2c6a86fa" category="paragraph">Eseguire le seguenti operazioni al nodo 4.</block>
@@ -3802,22 +3792,14 @@
   <block id="26ade9476b94b8c52725c91b6938ea23" category="paragraph">Utilizzare questa procedura se si desidera aggiornare l'hardware del controller nelle seguenti situazioni:</block>
   <block id="029d23f0db183aa13dd611784328ec8c" category="admonition">Le procedure di aggiornamento dell'hardware sono state semplificate in ONTAP 9.8 con l'introduzione della funzione di posizionamento automatico delle porte.</block>
   <block id="797fc5bb1530b93a4d119b95138dc85d" category="list-text">I nodi originali e nuovi sono compatibili e supportati.</block>
-  <block id="e047dcc5ff8dd437e2b3a8e513bf32f3" category="list-text">Si sta eseguendo l'aggiornamento di una coppia di nodi che eseguono ONTAP 9.0 o versione successiva a una nuova coppia di nodi che eseguono la stessa release.</block>
   <block id="afcdd6a539b6392327d97fd8eb2cd065" category="list-text">Si stanno riutilizzando gli indirizzi IP, le maschere di rete e i gateway dei nodi originali sui nuovi nodi.</block>
   <block id="4fd09292f1a407286c9372555595d59c" category="list-text">Si prevede di aggiornare l'hardware del controller spostando lo storage o spostando i volumi.</block>
   <block id="4836c86a753695232f6579b2d1e052e6" category="list-text">Siete pronti a eseguire una procedura di interruzione se state eseguendo l'upgrade spostando lo storage.</block>
   <block id="8cdba56188d6642a771d0c327a72af57" category="paragraph">L'aggiornamento mediante lo spostamento dei volumi non comporta interruzioni.</block>
   <block id="56089842bd614396cfba7cdf9bb6601f" category="list-text">Si prevede di convertire un nodo di un modello supportato in uno shelf di dischi, quindi di collegarlo ai nuovi nodi.</block>
-  <block id="ec9ed7bffd77d0096865ed2f7cdcc6cb" category="inline-link">Upgrade ed espansione di MetroCluster®</block>
-  <block id="b343f23906663addd5a74e2a7ef1081c" category="paragraph">Se si sta aggiornando una configurazione MetroCluster a due nodi, è necessario utilizzare la procedura descritta in<block ref="1c2430d337b01f5c69e59f26ce11e5ee" category="inline-link-rx"></block> contenuto.</block>
-  <block id="ee50784c4307d33a05ee2e7ea5146e6b" category="inline-link-macro">Upgrade dell'hardware del controller ARL</block>
-  <block id="a96bbb56bf9f254d0e2034d1d7d6da26" category="paragraph">Questo contenuto non descrive come utilizzare ARL (aggregate relocation) per aggiornare l'hardware del controller, come descritto nella <block ref="f1bb1f12e9cbaac696243166fca7cc1f" category="inline-link-macro-rx"></block> contenuto.</block>
-  <block id="aff7a731f5229621d23c4c3e8021e92e" category="paragraph">Se si sta sostituendo un singolo componente, consultare il volantino FRU (Field-Replaceable Unit) relativo a tale componente.</block>
   <block id="3d9010fa119828bc81f438c75af15b63" category="paragraph">Nei passaggi per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage, i nodi originali sono chiamati node1 e node2, mentre i nuovi nodi sono chiamati node3 e node4. Durante la procedura descritta, il node1 viene sostituito dal node3, mentre il node2 viene sostituito dal node4.</block>
   <block id="e338e550ae3c8accad87f4fd0e1f2380" category="image-alt">da originale a nuovi nodi</block>
-  <block id="f6fd8a1858185111bbea4bb0f44e07f6" category="paragraph">I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituire i nomi reali dei nodi originale e nuovo. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.</block>
   <block id="13157ca9b210750790526c100cf951d7" category="paragraph"><block ref="13157ca9b210750790526c100cf951d7" category="inline-xref-macro-rx"></block></block>
-  <block id="41e8d90d580396f4d1d06d6dcc1e6ff7" category="paragraph"><block ref="41e8d90d580396f4d1d06d6dcc1e6ff7" category="inline-xref-macro-rx"></block></block>
   <block id="4888a1163bab7e13f5a9de829f599dba" category="inline-link">Dove trovare le procedure per le attività di manutenzione di MetroCluster</block>
   <block id="effb241d20cc6c1913b072368a57f470" category="paragraph"><block ref="effb241d20cc6c1913b072368a57f470" category="inline-link-rx"></block></block>
   <block id="be560856af220999f45b0e64a842465a" category="summary">Una volta spostati i volumi nei nuovi nodi, si disuniscono i nodi originali dal cluster. Quando si disunisce un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati.</block>
@@ -3841,9 +3823,7 @@
   <block id="12750846be9d21d5385ed58a60cddf27" category="list-text">Gli shelf da node1 e node2 non sono fisicamente collegati a node3 e node4 in questa fase.</block>
   <block id="db39a0ef5bc94a0b575d978a8f76229a" category="list-text">È necessario rimuovere la proprietà dei dischi solo per i dischi e gli shelf forniti con i nuovi controller.</block>
   <block id="9ec9f63f098d105f79f28fc374c9efa9" category="list-text">Non è necessario rimuovere la proprietà dei dischi se si sta aggiornando l'hardware sostituendo un vecchio controller con un nuovo controller su una piattaforma di dischi interna, mantenendo al contempo lo chassis e i dischi del vecchio controller.</block>
-  <block id="eece111dbeb75d75a9174395ce77bfe2" category="paragraph">Ad esempio, se si sta aggiornando il sistema da A200 a A220 sostituendo solo il vecchio modulo controller A200 con il nuovo modulo controller A220, mantenendo al contempo in posizione lo chassis e i dischi del vecchio A200, Non rimuovere la proprietà dei dischi per il nuovo modulo controller A220 come descritto in questa sezione _Rimozione della proprietà dei dischi collegati ai nuovi nodi_.</block>
   <block id="70cb24dc68388db99857a34f097c9997" category="paragraph">In caso di domande sulla rimozione della proprietà del disco durante un aggiornamento del controller, contattare il supporto tecnico NetApp.</block>
-  <block id="aa5eafaf3f0b641d5e680da72815213b" category="paragraph">Di seguito è riportato un elenco dei sistemi che dispongono di storage interno: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700, AFF A800, AFF A250.</block>
   <block id="bd6c6f37524ad70ce38bbd0fcea22fe4" category="list-text">Al prompt DEL CARICATORE del nodo, immettere il comando:</block>
   <block id="1d16d3ddc3b796c6db7da6cbb645757e" category="list-text">Al prompt del menu di avvio, digitare<block ref="3de20f8f6d054d551e879fef0f0fc83c" prefix=" " category="inline-code"></block> Quindi premere Invio.</block>
   <block id="8b33e54d0bef1c80ef3462386d101928" category="paragraph">La seguente schermata mostra il prompt del menu di avvio.</block>
@@ -3889,37 +3869,10 @@
   <block id="9dd804cbb0c89e2e63928e7cedd0c88f" category="summary">Per pianificare l'aggiornamento, è necessario acquisire familiarità con le considerazioni generali sull'aggiornamento. Se necessario, contattare il supporto tecnico per consigli e indicazioni specifiche sulla configurazione del cluster.</block>
   <block id="b245fdf63109e1cd27dd2f23120f7502" category="paragraph">Per pianificare l'aggiornamento, è necessario acquisire familiarità con le considerazioni generali sull'aggiornamento. Se necessario, contattare il supporto tecnico per consigli e indicazioni specifiche sulla configurazione del cluster.</block>
   <block id="a3cb839890daad4f93490c8dec227de5" category="paragraph">Requisiti e limitazioni</block>
-  <block id="c9c36eddecbac88c824f0418b523c991" category="list-text">La procedura per l'aggiornamento mediante lo spostamento dello storage è un'operazione di interruzione. La procedura per l'aggiornamento mediante lo spostamento dei volumi è senza interruzioni.</block>
-  <block id="93f3fcba35aec9c0367976a9197bb132" category="list-text">È necessario rispettare le dimensioni massime del cluster.</block>
-  <block id="ab59755d5a1df870944890a24affe31a" category="paragraph">Quando si esegue l'aggiornamento spostando i volumi, i nuovi nodi vengono Uniti al cluster prima della rimozione dei nodi originali. Verificare che il numero di controller nel cluster non superi le dimensioni massime supportate durante la procedura.</block>
-  <block id="ebba69766eb24e95a1284fdab64d1a66" category="list-text">Quando si combinano diversi modelli di piattaforma controller in un cluster, è necessario seguire le regole di combinazione della piattaforma di storage.</block>
-  <block id="ec124c8a7a4170436f2890610e4aa1c9" category="list-text">I nuovi nodi devono disporre di storage sufficiente per lo storage associato ai nodi originali.</block>
-  <block id="5fbaf3818e4461fbf39776037d449b56" category="paragraph"><block ref="5fbaf3818e4461fbf39776037d449b56" category="inline-link-rx"></block></block>
-  <block id="f1f5f029bf97e95c9c37ecdaf7cf4e93" category="list-text">Le dimensioni dell'aggregato root e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori a quelli supportati dal sistema originale.</block>
-  <block id="b834460d0f5479ce8ff8376257efb419" category="paragraph">Per i requisiti di dimensione degli aggregati root, vedere<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block></block>
-  <block id="98f3e4c18f21b25897315931895d5cd5" category="list-text">I controller di una coppia ha devono essere due modelli AFF o due modelli FAS.</block>
-  <block id="fe2b4e59713b2c74efcd804489cd6316" category="list-text">È possibile eseguire l'upgrade spostando volumi o storage fisico da un FAS2xxx a un FAS2xxx successivo se i nodi si trovano nello stesso cluster. Ad esempio, è possibile spostare volumi o storage fisico da FAS2552 a FAS2750.</block>
-  <block id="821f1cb96d20770eca957d1d83c78ef0" category="list-text">Se si utilizza ONTAP 9.6P11, 9.7P8 o versioni successive, si consiglia di attivare il Takeover di connettività, livellosità e monitoraggio della disponibilità (CLAM) per riportare il cluster al quorum quando si verificano determinati guasti del nodo. Il<block ref="597c3b4a934e2258848e227f4aa9daee" prefix=" " category="inline-code"></block> il comando richiede un accesso avanzato a livello di privilegio. Per ulteriori informazioni, consulta:<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>. A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" " category="inline-code"></block> il parametro è attivato per impostazione predefinita.</block>
-  <block id="301e2a674920a7bb1b220a6ccd88ce36" category="inline-link">Scelta di un metodo di aggiornamento o refresh</block>
-  <block id="58e1fb49e8eda8dc590e37ebdffc8e85" category="list-text">Se si sta aggiornando una configurazione MetroCluster a due nodi, vedere:<block ref="a3f8fb08d450ed0f7b5dc460c9a9149e" category="inline-link-rx"></block></block>
   <block id="f2c81e3dbd5898a4f589948eb2c23e36" category="paragraph">Sistemi con storage interno</block>
-  <block id="0d9cedfc5d4329809a5596b4682832d3" category="admonition">I seguenti sistemi dispongono di storage interno: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s, AFF A800, AFF C190, AFF C250, E AFF C800.</block>
-  <block id="2c422b7143016a62faa144bc1c6e89e1" category="list-text">Se si dispone di un sistema con storage interno, il metodo consigliato per l'aggiornamento consiste nello spostamento dei volumi.</block>
-  <block id="e908e6e2b5df3efafd19fa616b538a72" category="list-text">Se si dispone di un sistema con storage interno, è possibile convertire il sistema in uno shelf di dischi e collegarlo a un nuovo nodo dello stesso cluster. I controller FAS2520 non possono essere convertiti in uno shelf di dischi.</block>
-  <block id="e9ddbc0542fbe11aae2eccf01c4e4a89" category="paragraph">La conversione di un sistema FAS255x in uno shelf di dischi è un'attività opzionale nel flusso di lavoro per l'aggiornamento mediante lo spostamento dello storage.</block>
   <block id="b96d37f28c3d7d06841f391d5e809dbd" category="list-text">Se si dispone di un sistema con storage interno o di un sistema con volumi o aggregati su unità SATA o SSD interne, è possibile eseguire l'aggiornamento trasferendo lo storage interno a uno shelf di dischi collegato al nuovo nodo dello stesso cluster.</block>
   <block id="3c62ff9b7896a5eed67cfbeb8bc9bfdf" category="paragraph">Il trasferimento dello storage interno è un'attività opzionale del workflow per l'aggiornamento mediante lo spostamento dello storage.</block>
-  <block id="ae966ba3c2ce03e0c6c49d4dfc8f5702" category="paragraph">Situazioni in cui potrebbero essere necessarie ulteriori operazioni</block>
-  <block id="4bbc849fe45c68c7c28841fb794547a0" category="list-text">Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema.</block>
-  <block id="667fc202a8b204ff5a82b8390500a41b" category="list-text">Se i nodi originali o i nuovi nodi utilizzano il software di virtualizzazione FlexArray.</block>
-  <block id="4a93c6361efc1101e7ca8ee6327b63ec" category="inline-link">Articolo della KB di NetApp: Quali sono le fasi specifiche di FlexArray per gli aggiornamenti e le sostituzioni dei controller NetApp</block>
-  <block id="b71567cb9c157f9c9b7aa387b9fe6ae0" category="paragraph"><block ref="b71567cb9c157f9c9b7aa387b9fe6ae0" category="inline-link-rx"></block></block>
-  <block id="7a3f3e085939e759393b43bef32cbc95" category="list-text">Se il cluster dispone di host SAN, potrebbe essere necessario adottare le misure necessarie per risolvere i problemi relativi alle modifiche del numero di serie del LUN.</block>
   <block id="31e9ea6f4ed38186085bf9a52128a461" category="inline-link">Come risolvere i problemi durante la sostituzione della scheda madre del controller di storage e gli aggiornamenti della testina con iSCSI e FCP</block>
-  <block id="b1ddd6d6d90c80426e14d10c6ded3cc0" category="paragraph"><block ref="b1ddd6d6d90c80426e14d10c6ded3cc0" category="inline-link-rx"></block></block>
-  <block id="6125b5468b29015c919d2eaf565415e6" category="list-text">Se il sistema utilizza ACP out-of-band, potrebbe essere necessario migrare da ACP out-of-band a ACP in-band.</block>
-  <block id="91d5a2c546d26762fc836e91700a4d86" category="inline-link">Articolo della Knowledge base di NetApp: Installazione e supporto ACP in-Band</block>
-  <block id="0af17efca2dae8b310233b584154a94b" category="paragraph"><block ref="0af17efca2dae8b310233b584154a94b" category="inline-link-rx"></block></block>
   <block id="b578e0f4f47404bddfc292477bc08776" category="inline-xref-macro">Aggiornare l'hardware del controller spostando lo storage</block>
   <block id="dbef6fd254e4765e61a6f3112a900a32" category="paragraph"><block ref="dbef6fd254e4765e61a6f3112a900a32" category="inline-xref-macro-rx"></block></block>
   <block id="9932dd20d13ac6c57fa0b56b3ed1e4a0" category="inline-xref-macro">Aggiornare l'hardware del controller spostando i volumi</block>
@@ -4327,12 +4280,9 @@
   <block id="4a249b60efb722cf2c3f1aa4209460e4" category="admonition">Se l'ambiente non può essere cablato in modo da poter utilizzare gli RCF, contattare il supporto tecnico. Non utilizzare questa procedura se il cablaggio non può utilizzare RCF.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
   <block id="ec01d482cf394f212f073921cfd9d5bd" category="sidebar">Note di rilascio di ONTAP</block>
-  <block id="10a85281b4bbd72e21850d0eaab35a67" category="sidebar">Eseguire l'upgrade spostando lo storage o i volumi (la maggior parte dei sistemi)</block>
   <block id="6c54fdf57ce13c518f1cc0d9d5f32820" category="sidebar">Aggiornare l'hardware del controller</block>
-  <block id="ddb75baab241feb0f5773b6f169099d5" category="sidebar">Eseguire l'upgrade spostando gli aggregati su sistemi che eseguono ONTAP 9.8 e versioni successive</block>
   <block id="194cc1951d00be469039af6dbda275d0" category="sidebar">Utilizzare i comandi "system controller replace" (sostituzione controller di sistema) (maggior parte dei sistemi)</block>
   <block id="b4d25e7f066e6393a7e3a6a7115b4f94" category="sidebar">Utilizzare i comandi manuali</block>
-  <block id="24f090bf6acc424f4c22ffff65009745" category="sidebar">Eseguire l'upgrade spostando gli aggregati su sistemi che eseguono ONTAP 9.7 e versioni precedenti</block>
   <block id="5f9c427150012de98abaaa70885c293c" category="sidebar">Utilizzare i comandi "System controller replace" (sostituzione controller di sistema) (maggior parte dei sistemi)</block>
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">Aggiornare i sistemi in una configurazione MetroCluster</block>
   <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">Selezionare la procedura di aggiornamento per la configurazione MetroCluster</block>
@@ -4374,7 +4324,6 @@
   <block id="a873c3af330abd13d1f0d13b37f0184a" category="sidebar">Fase 6. Completare l'aggiornamento (upgrade con ‘ssystem controller replace’ in ONTAP 9.5 to 9.7)</block>
   <block id="76fc41bc8d83116ac63baddd0b449b53" category="sidebar">Risoluzione dei problemi (aggiornamento con ‘ssystem controller replace’ in ONTAP 9.5 to 9.7)</block>
   <block id="ea61e2c2ff507048203824add1eb7c21" category="sidebar">Considerazioni</block>
-  <block id="2bfb87bbde1d2f1a85359c4188897f44" category="sidebar">Scegliere il metodo</block>
   <block id="78ab525858e669cbe2bbf5be70ac71b8" category="sidebar">Eseguire l'upgrade spostando lo storage</block>
   <block id="f8199556cf6a62ca9268aa50c99b34a1" category="sidebar">Preparatevi</block>
   <block id="1b775107e10aa9acb2f611db5db714f7" category="sidebar">Chiudere i nodi originali</block>
@@ -4687,9 +4636,7 @@ FAS2720</block>
   <block id="c6c7619b1c0744976ce686ab06900424" category="paragraph">Durante la fase 1, verificare di disporre dell'hardware corretto per l'aggiornamento, eseguire i controlli preliminari e, se necessario, correggere la proprietà aggregata. Se si gestisce Storage Encryption utilizzando Onboard Key Manager, è necessario registrare alcune informazioni ed è possibile scegliere di interrompere le relazioni di SnapMirror.</block>
   <block id="a39b228e0cb5998ca504b01d2a628df1" category="paragraph">Dopo aver avviato il nodo 1 con il modulo controller sostitutivo, verificare che sia installato correttamente. È necessario attendere che il nodo 1 si unisca al quorum, quindi riprendere l'operazione di sostituzione del controller.</block>
   <block id="f0f9c628caff4d38eb141bb9b81f6441" category="paragraph">Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 a node3. Inoltre, registrare le informazioni necessarie per il node2 da utilizzare più avanti nella procedura, quindi dismettere il node2.</block>
-  <block id="4ca61b6580e69e11b24f59b9ac4072a9" category="list-text">I nodi originali devono supportare la stessa versione software dei nuovi nodi.</block>
   <block id="36596c0816df78df5e957f4a98189433" category="inline-link">Cluster ONTAP a versione mista</block>
-  <block id="85e5b517efa68824f0234d73603eb6a7" category="admonition">Per ulteriori informazioni sugli aggiornamenti del cluster delle versioni software miste, vedere<block ref="d823e4718a376dd43333fd0519ed9811" category="inline-link-rx"></block>.</block>
   <block id="26e45a92e217288c9847a5d2ced10530" category="admonition">Per ciascuna macchina virtuale di storage (SVM), NetApp consiglia di spostare tutti i volumi non root nel cluster prima di spostare il volume root ed eseguire questa procedura su una SVM alla volta.</block>
   <block id="1c36e2804cb1ec373c2a554d3b816849" category="paragraph"><block ref="5f689443af4fd8e259550080d375f644" prefix="" category="inline-code"></block></block>
   <block id="d2d22984b72e7ba1d65fc825394c313c" category="list-text">Aggiungere il nuovo aggregato alla stessa SVM (Storage Virtual Machine) dell'aggregato sul nodo originale da cui si desidera spostare i volumi:</block>
@@ -4701,11 +4648,8 @@ FAS2720</block>
   <block id="bffd5b081e9a5849648039713909f29e" category="paragraph"><block ref="0b16dbbb7b08013a425b1eda1ac6c38b" prefix="" category="inline-code"></block></block>
   <block id="ce294e2d50479fda57c6fd56279415cc" category="paragraph"><block ref="fb8ac527e5a233ade0c11a4584eca81d" prefix="" category="inline-code"></block></block>
   <block id="c773b38bfd21b7a35d0d8783b04fa05f" category="inline-link">Attivare la crittografia su un volume esistente con il comando di avvio spostamento volume</block>
-  <block id="7dc9e3aa635e299178bab6d9a48bf453" category="inline-link">Spostare gli host iSCSI Linux da MetroCluster FC ai nodi IP MetroCluster</block>
-  <block id="0345ed9888a23976d10ee4dbe39e5b1c" category="paragraph">Se la configurazione dello storage include volumi SAN, seguire la procedura descritta in<block ref="850d31fae3bf8532793cf4bdf951a1e7" category="inline-link-rx"></block> per spostare questi volumi nei nuovi nodi.</block>
   <block id="666b05db74464377ceeeff39f469bcde" category="paragraph"><block ref="e31e4085164f9a5d9e1c0ec1ca25fc65" prefix="" category="inline-code"></block></block>
   <block id="214d6a2680fcbe83e2c825740dae5888" category="admonition">Se la configurazione dello storage include volumi con crittografia attivata, seguire la procedura descritta in<block ref="f72c159bffbf92db3704805be06f351f" category="inline-link-rx"></block> per spostare questi volumi.</block>
-  <block id="565ead98cf39206ccfb37fb835c84352" category="sidebar">Creare un aggregato e spostare i volumi nei nuovi ndo</block>
   <block id="d59048f21fd887ad520398ce677be586" category="inline-link-macro">Scopri di più</block>
   <block id="bfa6cc72f08aa2823167e389b6677da0" category="cell"><block ref="70d1727ffc9c452707805fb17e6a5b52" category="inline-link-macro-rx"></block>
 
@@ -4769,4 +4713,150 @@ FAS2720</block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="35c124f455f44a154eb3b514029ee58a" category="section-title">Informazioni sulla sicurezza e avvisi normativi</block>
   <block id="a6518839a3ee2f900f136494094df3cf" category="paragraph"><block ref="a6518839a3ee2f900f136494094df3cf" category="inline-link-rx"></block></block>
+  <block id="ea6cc97cd446c8ab07c46f26be73c50d" category="doc">Fase 1: Configurare nuove connessioni iSCSI</block>
+  <block id="552dfeee4aa45aab21f5db04ebc1f244" category="paragraph">Per spostare le connessioni iSCSI, è necessario impostare nuove connessioni iSCSI nei nuovi nodi.</block>
+  <block id="fc85dbac1706910c76a2b7a6f7638bdb" category="list-text">Creare interfacce iSCSI sui nuovi nodi e verificare la connettività ping dagli host iSCSI alle nuove interfacce sui nuovi nodi.</block>
+  <block id="7bbfc198d3ba29087c1dd1984313d004" category="inline-link">Creare interfacce di rete</block>
+  <block id="607be49a44f6d2de54aedb24c5821b8b" category="paragraph"><block ref="607be49a44f6d2de54aedb24c5821b8b" category="inline-link-rx"></block></block>
+  <block id="87c826df1266871a8db57cee9750cbd0" category="paragraph">Tutte le interfacce iSCSI della SVM devono essere raggiungibili dall'host iSCSI.</block>
+  <block id="9709761b16b5aefc81534e48c85098d7" category="list-text">Sull'host iSCSI, identificare le connessioni iSCSI esistenti dall'host al nodo precedente:</block>
+  <block id="90f2c25e2e05bd11190a9ace67be2df7" category="list-text">Sul nuovo nodo, verificare le connessioni dal nuovo nodo:</block>
+  <block id="840e7124a9aeed666f3cab70b890da0f" category="list-text">Nel nuovo nodo elenca le interfacce iSCSI in ONTAP per la SVM che contiene le interfacce:</block>
+  <block id="e817bc638b8c95d84d9d468a31b9a9c6" category="list-text">Sull'host iSCSI, eseguire il rilevamento su uno qualsiasi degli indirizzi IP iSCSI sulla SVM per rilevare le nuove destinazioni:</block>
+  <block id="6d5e653b42496cb611cacbd3f1622d89" category="paragraph">Il rilevamento può essere eseguito su qualsiasi indirizzo IP della SVM, incluse le interfacce non iSCSI.</block>
+  <block id="4c2900dfa972d4e54c006349317ed61b" category="list-text">Sull'host iSCSI, accedere a tutti gli indirizzi rilevati:</block>
+  <block id="50f723ce927cda10c297d19c642446b6" category="list-text">Sull'host iSCSI, verificare l'accesso e le connessioni:</block>
+  <block id="c833c589f902c8c0ddc3bdb645a85fe9" category="list-text">Sul nuovo nodo, verificare l'accesso e la connessione con l'host:</block>
+  <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Risultato</block>
+  <block id="4e7233ab8e56169d5783c1e27cf80e62" category="paragraph">Al termine di questa attività, l'host è in grado di visualizzare tutte le interfacce iSCSI (sui nodi vecchi e nuovi) ed è connesso a tutte queste interfacce.</block>
+  <block id="1ea11cf2a7632efb274bdc8804c13cc8" category="paragraph">I LUN e i volumi sono ancora fisicamente ospitati nei vecchi nodi. Poiché i LUN sono riportati solo sulle vecchie interfacce di nodo, l'host mostrerà solo i percorsi sui vecchi nodi. Per vedere questo, eseguire<block ref="41dc2c94e82e1c56ba876085acf5a974" prefix=" " category="inline-code"></block> e.<block ref="2fbf63deae0938cf669e6ca451f1eb2c" prefix=" " category="inline-code"></block> comandi sull'host ed esaminare gli output dei comandi.</block>
+  <block id="85ef9de042295f197ffebdafe8989eba" category="section-title">Passaggio 2: Aggiungere i nuovi nodi come nodi di reporting</block>
+  <block id="63caeb58f676a0ef9b76df2d7cb19636" category="paragraph">Dopo aver impostato le connessioni ai nuovi nodi, aggiungere i nuovi nodi come nodi di reporting.</block>
+  <block id="491bf790c89cc65e6e44bc71af9a4016" category="list-text">Nel nuovo nodo, elenca i nodi di reporting per le LUN sulla SVM:</block>
+  <block id="b04f1d6b7664813408094e25f316f33e" category="paragraph">I seguenti nodi di reporting sono nodi locali, mentre i LUN si trovano fisicamente sui vecchi nodi node_A_1-old e node_A_2-old.</block>
+  <block id="cc171fdd8df3207be64edefc9b40c9ba" category="list-text">Nel nuovo nodo, aggiungere i nodi di reporting:</block>
+  <block id="d0cc5c260aaa60f4409e8ab9a2fc50be" category="list-text">Sul nuovo nodo, verificare che siano presenti i nodi appena aggiunti:</block>
+  <block id="1e9ecffd328dcde30affda2b4f6c9ece" category="list-text">Il<block ref="a78608714add699f555f2a66df0ee249" prefix=" " category="inline-code"></block> Il pacchetto deve essere installato sull'host Linux. Questo impedisce un<block ref="b0c94f1494e22d963244e235719a2582" prefix=" " category="inline-code"></block> Errore quando si esegue nuovamente la scansione dell'host Linux per i LUN appena mappati utilizzando<block ref="685ca42026debec2f3691cc5faae67d5" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="9e684d318658354d8e928df696e09c90" category="paragraph">Sull'host, verificare che<block ref="a78608714add699f555f2a66df0ee249" prefix=" " category="inline-code"></block> il pacchetto è installato:</block>
+  <block id="bf0c6c5c08f9fbefa42c89aea32af827" category="list-text">Per una distribuzione basata su Debian:</block>
+  <block id="a06dd63aa02d1ca9f0480be58723d68a" category="list-text">Per una distribuzione basata su Red Hat:</block>
+  <block id="716de22554eea42da49644b2b136ecd9" category="paragraph">Se necessario, installare<block ref="a78608714add699f555f2a66df0ee249" prefix=" " category="inline-code"></block> Pacchetto sull'host Linux:</block>
+  <block id="7065b19f91f5ce4da99fc6ed95adb773" category="list-text">Sull'host, eseguire nuovamente la scansione del bus SCSI sull'host e scoprire i nuovi percorsi aggiunti:</block>
+  <block id="a206b7156387b72b6602cf4ab7999c62" category="list-text">Sull'host iSCSI, elencare i percorsi appena aggiunti:</block>
+  <block id="2a12888d763445436f29b56694f714b2" category="paragraph">Per ogni LUN vengono visualizzati quattro percorsi.</block>
+  <block id="fba41109e69c86f9eb83af48257072a8" category="list-text">Nel nuovo nodo spostare il volume/i volumi contenenti LUN dai nodi vecchi ai nuovi nodi.</block>
+  <block id="ac9a615f4366cb038c52dc84717f8ac2" category="list-text">Una volta completato lo spostamento del volume nei nuovi nodi, verificare che sia online:</block>
+  <block id="a8ccb2f6b92c9e7445e9a052ff3fb3f9" category="list-text">Le interfacce iSCSI sui nuovi nodi in cui risiede la LUN vengono aggiornate come percorsi primari. Se il percorso primario non viene aggiornato dopo lo spostamento del volume, eseguire<block ref="9e65638d5d13acb691c4bec2ede5a483" prefix=" " category="inline-code"></block> e.<block ref="4bcfa5223bd4ad05f8dd421976cbc1c1" prefix=" " category="inline-code"></block> sull'host o attendere semplicemente che venga eseguita la ripetizione della scansione multipath.</block>
+  <block id="162b2246503837a755b6cd4dddb0c228" category="paragraph">Nell'esempio seguente, il percorso primario è una LIF nel nuovo nodo.</block>
+  <block id="5fd8a55dd43f013ef906cc65f6986fc3" category="section-title">Passaggio 3: Rimuovere i nodi di reporting e ripetere la scansione dei percorsi</block>
+  <block id="907ed284747209370db5d2e6065cf477" category="paragraph">È necessario rimuovere i nodi di reporting e ripetere la scansione dei percorsi.</block>
+  <block id="829b0bec40a94531d8e7e7dd5076a8ac" category="list-text">Sul nuovo nodo, rimuovere i nodi di reporting remoti (i nuovi nodi) per le LUN Linux:</block>
+  <block id="2b57c94b011b67d2b972fc549295ffbe" category="paragraph">In questo caso, i nodi remoti sono vecchi.</block>
+  <block id="1eae5e7b27384996cd8a3ccaee9ed11b" category="list-text">Sul nuovo nodo, controllare i nodi di reporting delle LUN:</block>
+  <block id="b40a504ccb3da532382333f0ef630e2d" category="list-text">Sull'host iSCSI, eseguire nuovamente la scansione del bus SCSI:</block>
+  <block id="3ab536112aae2adb0154a97a03a97995" category="paragraph">I percorsi rimossi sono i percorsi dei vecchi nodi.</block>
+  <block id="5eb2f5a07f8114a82bfca62a5f95b81d" category="list-text">Sull'host iSCSI, verificare che siano visibili solo i percorsi dai nuovi nodi:</block>
+  <block id="51cf3e0b9519e41f1200c5d24db755de" category="summary">Upgrade dell'hardware del controller ricollocando aggregati, spostando volumi o spostando lo storage</block>
+  <block id="a56ce7e82e6bd0d524ca8eadec0f388f" category="summary">Sposta i volumi SAN nei nuovi nodi creando nuove connessioni iSCSI ed eseguendo nuovamente il canning dei percorsi iSCSI nei nuovi nodi.</block>
+  <block id="74805bd861930fc25abc9a91446a2694" category="doc">Spostamento degli host iSCSI Linux nei nuovi nodi</block>
+  <block id="c62a490dc179bcb1d44777cba5eb4845" category="paragraph">Prima di spostare I volumi SAN iSCSI sui nuovi nodi, è necessario creare nuove connessioni iSCSI ed eseguire nuovamente la scansione dei percorsi iSCSI verso i nuovi nodi.</block>
+  <block id="c19689d06a29f6feeef4510514125400" category="paragraph">Se non è necessario spostare i volumi SAN iSCSI durante l'aggiornamento spostando i volumi, ignorare questa procedura e passare a. <block ref="0187590ed6627836f657d0d4157f4bd9" category="inline-link-macro-rx"></block>.</block>
+  <block id="067e2e3846b3b294b518d3f733e2a96b" category="list-text">Le interfacce IPv4 vengono create quando si configurano le nuove connessioni iSCSI.</block>
+  <block id="53c3dbfeb6f99087434e72b6b5c6d75f" category="list-text">I comandi host e gli esempi sono specifici per i sistemi operativi LINUX.</block>
+  <block id="b3b6efa3f6df48fc93b3542c29661f7c" category="inline-xref-macro">Spostamento degli host iSCSI Linux nei nuovi nodi</block>
+  <block id="184c3f7752a9e68702c55c35faa973db" category="list-text"><block ref="184c3f7752a9e68702c55c35faa973db" category="inline-xref-macro-rx"></block></block>
+  <block id="fef2f3438d6db0111e356d7cf9de46ab" category="paragraph">Questo contenuto descrive come aggiornare l'hardware del controller di un sistema AFF, FAS o ASA in un cluster trasferendo storage o volumi.</block>
+  <block id="b01ff62768b0c0f969479f63cc8a0981" category="list-text">I nodi originali e nuovi eseguono ONTAP 9,0 o versioni successive. Quando possibile, NetApp consiglia di utilizzare la stessa versione di ONTAP sui nodi originale e sui nodi nuovi.</block>
+  <block id="7a4addbb19265c78a3cdb3aca2a49536" category="paragraph">Se l'upgrade del controller include versioni miste di ONTAP, vedere<block ref="d823e4718a376dd43333fd0519ed9811" category="inline-link-rx"></block> per ulteriori informazioni.</block>
+  <block id="524f05419622851f7f6289320cc91a6e" category="inline-link">Aggiornare, aggiornare o espandere la configurazione di MetroCluster</block>
+  <block id="54fbf367f6c88f6a32c90b81e113fdbc" category="paragraph">Se si sta aggiornando una configurazione MetroCluster, consultare la sezione<block ref="ce6e655e9cb4a81012dd5871edda628b" category="inline-link-rx"></block>.</block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="list-title">Informazioni correlate</block>
+  <block id="06852d9347cc17e2896148f62d8b43e8" category="list-text"><block ref="06852d9347cc17e2896148f62d8b43e8" category="inline-xref-macro-rx"></block></block>
+  <block id="ff13d8bc09b612151174d9b83a1e0634" category="paragraph">I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituirli con i nomi reali dei nodi originali e nuovi. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.</block>
+  <block id="6cbbb16b482dd046bc6d845094f114f9" category="list-text"><block ref="16a60590ab4a03950f527e475b265368" category="inline-xref-macro-rx"></block> (procedura senza interruzioni).</block>
+  <block id="608ce5a5400efa8f95d0e8e4878a465d" category="paragraph">Ad esempio, se si sta aggiornando il sistema da un AFF A200 a un AFF A220 sostituendo il vecchio modulo controller AFF A200 con il nuovo modulo controller AFF A220 mantenendo al contempo in posizione lo chassis e i dischi del vecchio AFF A200, non rimuovere la proprietà dei dischi per il nuovo modulo controller AFF A220 come descritto in questa sezione _Rimozione della proprietà dei dischi collegati ai nuovi nodi_.</block>
+  <block id="f5139354fcc216a1fa89fc75d4acdb39" category="paragraph">Di seguito è riportato un elenco dei sistemi con storage interno: FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s, AFF A800, AFF A250.</block>
+  <block id="3c78f0ccb18b56cf56ef7db01c7967a6" category="paragraph">A seconda dell'ambiente in uso, è necessario prendere in considerazione alcuni fattori prima di iniziare l'aggiornamento. Per iniziare, consultate la tabella seguente per vedere i requisiti e le limitazioni da prendere in considerazione.</block>
+  <block id="33461f62dffc4dbe16dd9531799c90a9" category="admonition">Prima di iniziare la procedura di aggiornamento del controller, devi rivedere tutte le domande elencate nella tabella seguente.</block>
+  <block id="0fd179ccf52878007441c354396dd56b" category="cell">Chiedetevi...</block>
+  <block id="ac39c3cf2a3ff363d8cdf7004a4e2c5d" category="cell">Se la vostra risposta è sì, allora fate questo.</block>
+  <block id="a6fb9eca9a6a0490cd13e215413591c8" category="cell">Devo combinare diversi modelli di piattaforma di controller in un cluster?</block>
+  <block id="08ed978efeefa9a3616b492036283ef9" category="inline-link-macro">Verifica di aver seguito le regole per combinare le piattaforme storage</block>
+  <block id="f8da82eef6d2e70e8ab5b51e47684d64" category="paragraph"><block ref="8d9eb7b78834373e7ffbd885dfb70505" category="inline-link-macro-rx"></block>.</block>
+  <block id="320cce5acf89a845e60ebc9db16938d4" category="paragraph">I controller in una coppia ha devono essere due modelli AFF, FAS o ASA.</block>
+  <block id="d3471ac1047d684f31d42d7b613c6403" category="cell">Posso utilizzare diverse versioni di ONTAP sui nodi originali e nuovi?</block>
+  <block id="ca189dbb46d0896b1743f452fe344293" category="inline-link">Controllare le versioni di ONTAP e i livelli di patch supportati dai nodi originale e da quelli nuovi</block>
+  <block id="8870bf8eb809743305db4031987fa36e" category="list-text"><block ref="b3ab3127149837ef7459a9eb97a04a54" category="inline-link-rx"></block>.</block>
+  <block id="7d01893ca79a018810882cd8d3394250" category="inline-link-macro">Aggiornare la versione ONTAP</block>
+  <block id="2268f05309a25f9d6de565ec4364d034" category="list-text">Quando possibile, NetApp consiglia di utilizzare la stessa versione di ONTAP sui nodi originale e sui nodi nuovi. Se ciò non è possibile, <block ref="a6dedec0dd1fe7caeb3c7769e262d6a2" category="inline-link-macro-rx"></block> Sui nodi originali alla versione massima supportata in modo che la differenza di versione tra i nodi originale e quelli nuovi NON sia superiore a quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.</block>
+  <block id="50250e80343bef6bd18b0a749aecd73b" category="inline-link">Scopri di più sui cluster ONTAP con versioni miste</block>
+  <block id="bb9ba0401316edbefdd465cc73bfbf1c" category="paragraph"><block ref="d732a285dea0d120c69b9115e25ab72f" category="inline-link-rx"></block>.</block>
+  <block id="5df011f91a8a4b3c3604963326b854f6" category="cell">I miei sistemi contengono dischi interni e sposto volumi?</block>
+  <block id="03259c6b8a6d786956d579ff4cc10e80" category="inline-link-macro">Verifica che i nuovi nodi dispongano di storage sufficiente per ospitare lo storage associato ai nodi originali</block>
+  <block id="fe8d23c8f1f89c647b05f88786860e80" category="list-text"><block ref="ea9e5a220a786a0a6080c57d99ea5697" category="inline-link-macro-rx"></block>.</block>
+  <block id="7b983afdfff63b1a4e8c9f90c53a5c85" category="list-text">Quando si esegue l'aggiornamento spostando i volumi, i nuovi nodi vengono Uniti al cluster prima della rimozione dei nodi originali. È necessario rispettare le dimensioni massime del cluster.</block>
+  <block id="4aeb33a2ebf8478abaffce2450e59b6f" category="inline-link">Verificare che il numero totale di controller nel cluster durante la procedura non superi le dimensioni massime supportate del cluster</block>
+  <block id="0c40cf8b20b5ebbd88d53401eaa32bd8" category="paragraph"><block ref="444b84c319bcdcd821287e2f046d0860" category="inline-link-rx"></block>.</block>
+  <block id="3097ad2af11c180c3e0a96a78dfe1685" category="inline-link">Gestione dello storage SAN</block>
+  <block id="259b1238f7182936d8b9a81032dea1c4" category="admonition">Se stai eseguendo l'upgrade di un cluster a 8 nodi con protocolli a blocchi come FCP, iSCSI o FCoE, verifica che i nuovi nodi pubblicizzino correttamente i LUN. Per ulteriori informazioni, vedere<block ref="cfeb6fd7632aa8a3aff6f995423e20e8" category="inline-link-rx"></block>.</block>
+  <block id="e8f22bb9bc721e9d507705c0b5091956" category="list-text"><block ref="7825023d8bc8048cc59c9149895b5f54" category="inline-link-macro-rx"></block> (procedura senza interruzioni).</block>
+  <block id="b1c4279027d78fc21fb097c66f6dfeed" category="cell">Devo spostare lo storage interno o convertire il sistema in uno shelf di dischi?</block>
+  <block id="080ce533b4abf86cd2d7593ae49edcf0" category="inline-link">Verificare che le dimensioni dell'aggregato root e il numero di dischi supportati dal nuovo sistema siano uguali o superiori a quelli supportati dal sistema originale</block>
+  <block id="ce65f5cbc22308e362b452a86faafd3b" category="list-text"><block ref="ab539adb97afbc3ff903f6aa5c840d77" category="inline-link-rx"></block>.</block>
+  <block id="a896b1815f91ec1823a72e8046b7c9a6" category="list-text"><block ref="8df77a1d078de7fe643ceb436b9ddb19" category="inline-link-macro-rx"></block> (una procedura distruttiva).</block>
+  <block id="40963580c922c5349edccc1df1cec10d" category="cell">Sto eseguendo l'upgrade di una coppia ha in un cluster con più coppie ha?</block>
+  <block id="589715d2ddec2a6045a52a7acc37f9bb" category="cell">Sposta l'epsilon sul nodo di una coppia ha che non è sottoposta a upgrade del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed.</block>
+  <block id="884c86aad3e51c838018719b57f060f2" category="cell">È in esecuzione ONTAP 9.6P11, 9.7P8 o versioni successive?</block>
+  <block id="f525c99954808d7384aff708b8aceacc" category="inline-link">Configurazione predefinita del takeover della VAM modificata</block>
+  <block id="7339d3b360bbf3ce7730b8d316034e9a" category="cell">NetApp consiglia di attivare il takeover di connettività, sopravvivenza e monitoraggio della disponibilità (CLAM) per riportare il cluster al quorum quando si verificano determinati guasti al nodo. Il<block ref="597c3b4a934e2258848e227f4aa9daee" prefix=" " category="inline-code"></block> il comando richiede un accesso avanzato a livello di privilegio. Per ulteriori informazioni, vedere l'articolo della Knowledge base di NetApp<block ref="d245d2b1219cc77af195e5bc9b9c1b8a" category="inline-link-rx"></block>.
+
+A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" " category="inline-code"></block> il parametro è attivato per impostazione predefinita.</block>
+  <block id="37d80afba8033b3bd680fdd98832ffa0" category="admonition">Puoi aggiornare un sistema integrato spostando i dati in un nuovo storage (spostando i volumi) o convertendo il sistema integrato esistente in uno shelf e poi migrando in un nuovo sistema (spostando lo storage). Ad esempio, puoi aggiornare un FAS2650 a un FAS8300 convertendo lo chassis del controller FAS2650 in uno shelf SAS DS224C e allegandolo a FAS8300. In entrambi i casi, la migrazione dei dati o lo shelf convertito rimane nel medesimo cluster con switch.</block>
+  <block id="3d5b6f212a9f9a8f458941f02e1c8242" category="paragraph">I seguenti sistemi dispongono di storage interno:</block>
+  <block id="4ee7b64a1be0d77f68ed41ed6379a628" category="cell">Sistemi con dischi interni</block>
+  <block id="2adfad23574eb23178e0667b817e4762" category="paragraph">FAS2620, FAS2650, FAS2720 E FAS2750</block>
+  <block id="adb7f3e551928f61f9156c1db3d8457e" category="paragraph">AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s, e AFF A800</block>
+  <block id="92e1b94479feb2f95a478b3c711abc05" category="cell">AFF C190, AFF C250 e AFF C800</block>
+  <block id="f863fbee1252ef77c8e32810d975d03d" category="cell">ASA A150, ASA A250, ASA A800 e ASA AFF A220</block>
+  <block id="9ae5a6f4cdea37ce0343ce6fe870ca8d" category="list-text">Se si dispone di un sistema con storage interno, è possibile convertire il sistema in uno shelf di dischi e collegarlo a un nuovo nodo dello stesso cluster.</block>
+  <block id="caaabddaf0ae26915d0c67052254e13f" category="admonition">Non è possibile convertire i sistemi AFF A700s, AFF A800, AFF C800 o ASA A800 in uno shelf di dischi.</block>
+  <block id="e83ec3e9b2b468e112627883187c2fd0" category="section-title">Situazioni in cui potrebbero essere necessarie ulteriori operazioni</block>
+  <block id="d79f8da307382ba028e64d108c30f593" category="inline-xref-macro">Si sta eseguendo l'aggiornamento da AFF A250 a AFF A400</block>
+  <block id="52a32d03c079aac136c05b21490e9d42" category="list-text"><block ref="af700f4d1c70ca1f359f7b935a5d8fbc" category="inline-xref-macro-rx"></block> (procedura senza interruzioni).</block>
+  <block id="e6dd5543cbcf668267e622e1c4af270f" category="list-text">Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Vedere<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block>.</block>
+  <block id="cb1a8b9d3abd4e33bdd8ea771ae95f90" category="inline-link">Quali sono i passaggi specifici per gli upgrade e le sostituzioni dei controller FlexArray per NetApp</block>
+  <block id="719139d3840fec9d3f2eb2a98eeabf46" category="list-text">Se i nodi originali o i nuovi nodi utilizzano il software per la virtualizzazione FlexArray, consultare l'articolo della Knowledge base<block ref="aa5f5c779b9d140822ad13dbd4dfcaef" category="inline-link-rx"></block>.</block>
+  <block id="68792e096612147f50fb8d94652f05d8" category="list-text">Se il cluster dispone di host SAN, potrebbe essere necessario adottare le misure necessarie per risolvere i problemi relativi alle modifiche del numero di serie del LUN. Consultare l'articolo della Knowledge base<block ref="569d16567e50864529bd25223ae78934" category="inline-link-rx"></block>.</block>
+  <block id="553f010b7f82ef72c54ff1aa7c24fbf4" category="inline-link">Configurazione e supporto ACP in banda</block>
+  <block id="2b9392a1d0dffc02bd7ad128f6e559e1" category="list-text">Se il sistema utilizza ACP out-of-band, potrebbe essere necessario migrare da ACP out-of-band a ACP in-band. Consultare l'articolo della Knowledge base<block ref="2fbb58c4060c5b42a116b319c000325d" category="inline-link-rx"></block></block>
+  <block id="64de845f98c675a9519d741f73b067d9" category="list-text"><block ref="64de845f98c675a9519d741f73b067d9" category="inline-link-macro-rx"></block></block>
+  <block id="0c3ddb60effd6213b641983514a7b646" category="summary">In generale, il modo in cui si aggiorna l'hardware del controller dipende dai modelli di piattaforma dei nodi originali. Puoi eseguire l'upgrade spostando aggregati o volumi storage (procedure senza interruzioni) o spostando lo storage (procedura che provoca interruzioni).</block>
+  <block id="81cf1b6821a9509701aa3ffa438696e8" category="doc">Scegliere la procedura di aggiornamento dell'hardware del controller</block>
+  <block id="730782d87341664d3c754f5ff1a5e235" category="paragraph">In generale, il modo in cui si aggiorna l'hardware del controller dipende dai modelli di piattaforma dei nodi originali. Puoi eseguire l'upgrade ricollocando gli aggregati o spostando i volumi (entrambe le procedure senza interruzioni) o spostando lo storage (una procedura che provoca interruzioni). Se si dispone di diverse versioni di ONTAP in esecuzione sui nodi originale e nuovo, potrebbe essere necessario eseguire un aggiornamento software prima di iniziare l'aggiornamento hardware.</block>
+  <block id="d28610d01016f5bb58284f316bba1cf4" category="paragraph">Scegliere una procedura di aggiornamento per un sistema con unità interne, elencate di seguito:</block>
+  <block id="5502efa05d4fb31521ff855aca634085" category="paragraph">Se il sistema non è presente nell'elenco, consultare la<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> per verificare se dispone di dischi interni.</block>
+  <block id="271991a921c3cf77fdc4a8243ff66c54" category="inline-image-macro">Flusso di lavoro decisionale per la scelta di una procedura di aggiornamento</block>
+  <block id="9e22cf6af1f2c4fe2e159cbec557ce04" category="paragraph"><block ref="9e22cf6af1f2c4fe2e159cbec557ce04" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5830cd7f72f9e60e4fa7226df7a6e5b4" category="open-title">Sistemi con solo unità esterne</block>
+  <block id="02f90960209613fdabef2c9b69f51f1a" category="paragraph">Scegliere una procedura di aggiornamento per un sistema con solo unità esterne, elencate di seguito:</block>
+  <block id="fdbb97a31e1f96988fd0043d40890691" category="list-text">FAS8200, FAS8300, FAS8700, FAS9000 E FAS9500</block>
+  <block id="da6fda94fbd6619e64543f3aae22461a" category="list-text">AFF A300, AFF A320, AFF A400, AFF A700 e AFF A900</block>
+  <block id="c9996a1b1fe92047dfbcfbef9989c233" category="list-text">AFF C400</block>
+  <block id="65843c424385c187542a7f02ef944f93" category="list-text">ASA A400, ASA A900 e ASA AFF A700</block>
+  <block id="6595bfc8c334bd6ea5c2da878f55e46c" category="paragraph">Se il sistema non è presente nell'elenco, consultare la<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> per verificare se dispone solo di unità esterne.</block>
+  <block id="06248cec6a83b53b418520bd0b9d07a5" category="paragraph"><block ref="06248cec6a83b53b418520bd0b9d07a5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4a7fecfc06856645d10df298d5553ed7" category="paragraph">Informazioni sulle procedure di aggiornamento dell'hardware del controller:</block>
+  <block id="1f43d36a6bcfed2f5249ca5ba8e671ba" category="inline-link-macro">Aggiornamento mediante trasferimento degli aggregati</block>
+  <block id="8f9fb90f68730e000102778c18115044" category="list-text"><block ref="8f9fb90f68730e000102778c18115044" category="inline-link-macro-rx"></block></block>
+  <block id="51d3b2a6cd78fb20797c74bb50b689f5" category="paragraph">Il trasferimento degli aggregati è una procedura di sostituzione. Non devi espandere e ridurre il cluster con i nuovi nodi, benefici per i cluster a due nodi senza switch. Lo spostamento dei dati mediante la riallocazione degli aggregati è più rapido rispetto alla copia dei dati tra gli aggregati durante lo spostamento dei volumi.</block>
+  <block id="73d856629c7408ec32b9b5ffa5af9ed6" category="list-text"><block ref="73d856629c7408ec32b9b5ffa5af9ed6" category="inline-link-macro-rx"></block></block>
+  <block id="8b9b2634fd898f04166a765851aba8f2" category="list-text"><block ref="8b9b2634fd898f04166a765851aba8f2" category="inline-link-macro-rx"></block></block>
+  <block id="b10988c4185192c8e53d7add421e9720" category="paragraph">*Note1*: La versione di ONTAP in esecuzione sui nodi originali deve essere supportata dai nuovi nodi. Se necessario, <block ref="a6dedec0dd1fe7caeb3c7769e262d6a2" category="inline-link-macro-rx"></block> sui nodi originali fino alla versione massima supportata. La differenza di versione tra il nodo originale e quello nuovo non può essere maggiore di quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.<block ref="ce537934e178c1610dae82a1b82553bf" category="inline-link-rx"></block>.</block>
+  <block id="441e5e19c045de8820e45a5b22e45056" category="paragraph">*Note2*: Un upgrade senza interruzioni richiede un nuovo sistema con storage e shelf dedicati per memorizzare i dati del sistema originale.</block>
+  <block id="272d55e2adea123757d8811eaaaebd88" category="paragraph">*Note3*: Durante l'upgrade con lo spostamento dei volumi, unisci i nuovi nodi, sposta volumi e LIF nei nuovi nodi, quindi unisci i nodi che desideri rimuovere dal cluster. Se stai aggiornando un cluster senza switch a due nodi, prima di aggiungere nuovi nodi puoi convertirlo in un cluster con switch collegato utilizzando una coppia di switch del cluster.</block>
+  <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">Documentazione sui sistemi AFF e FAS</block>
+  <block id="c2238e72fe75968b1d2d41e7beba323b" category="paragraph">Se si sostituisce un singolo componente, vedere<block ref="9e966fb68ec771eec4870f18e1909b4f" category="inline-link-rx"></block> E individuare il volantino FRU (Field-Replaceable Unit) relativo a quel componente.</block>
+  <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP 9,8 e versioni successive</block>
+  <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP 9,7 e versioni precedenti</block>
+  <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">Upgrade tramite spostamento di storage o volumi</block>
 </blocks>

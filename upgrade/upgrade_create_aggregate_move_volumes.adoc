@@ -13,11 +13,6 @@ summary: Si crea almeno un aggregato su ciascuno dei nuovi nodi per memorizzare 
 [role="lead"]
 Si crea almeno un aggregato su ciascuno dei nuovi nodi per memorizzare i volumi che si desidera spostare dai nodi originali. È necessario identificare un aggregato per ciascun volume e spostare ciascun volume singolarmente.
 
-[NOTE]
-====
-Se la configurazione dello storage include volumi SAN, seguire la procedura descritta in https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html["Spostare gli host iSCSI Linux da MetroCluster FC ai nodi IP MetroCluster"^] per spostare questi volumi nei nuovi nodi.
-
-====
 .Prima di iniziare
 Prima di poter spostare un volume, è necessario inizializzare le relazioni mirror di Data Protection.
 

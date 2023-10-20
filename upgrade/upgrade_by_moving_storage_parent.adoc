@@ -15,6 +15,15 @@ Se si sta aggiornando l'hardware del controller spostando lo storage, si prepara
 
 image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[Workflow per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage]
 
+[NOTE]
+====
+Nei passaggi per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage, i nodi originali sono chiamati node1 e node2, mentre i nuovi nodi sono chiamati node3 e node4. Durante la procedura descritta, il node1 viene sostituito dal node3, mentre il node2 viene sostituito dal node4.
+
+image::../upgrade/media/original_to_new_nodes.png[da originale a nuovi nodi]
+
+I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituirli con i nomi reali dei nodi originali e nuovi. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
+
+====
 .Fasi
 . xref:upgrade-prepare-when-moving-storage.adoc[Preparatevi per l'aggiornamento durante lo spostamento dello storage]
 . xref:upgrade-shutdown-remove-original-nodes.adoc[Chiudere i nodi originali]
@@ -26,4 +35,8 @@ image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[Workflow pe
 . xref:upgrade-attach-shelves-reassign-disks.adoc[Collegare shelf di storage e riassegnare la proprietà del disco]
 . xref:upgrade-restore-root-volume-config.adoc[Ripristinare la configurazione del volume root]
 . xref:upgrade-complete.adoc[Completare l'aggiornamento]
+
+
+.Informazioni correlate
+* xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi] (procedura senza interruzioni).
 

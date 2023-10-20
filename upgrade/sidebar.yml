@@ -6,8 +6,6 @@ entries:
   url: "/upgrade/upgrade-decide-to-use-this-guide.html"
 - title: Considerazioni
   url: "/upgrade/upgrade-considerations.html"
-- title: Scegliere il metodo
-  url: "/upgrade/upgrade-methods.html"
 - title: Eseguire l'upgrade spostando lo storage
   entries:
   - title: Workflow
@@ -64,7 +62,9 @@ entries:
     url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
   - title: Installare e unire nuovi nodi
     url: "/upgrade/upgrade-install-and-join-new-nodes-move-vols.html"
-  - title: Creare un aggregato e spostare i volumi nei nuovi ndo
+  - title: Spostamento degli host iSCSI Linux nei nuovi nodi
+    url: "/upgrade/upgrade_move_linux_iscsi_hosts_to_new_nodes.html"
+  - title: Creare un aggregato e spostare i volumi nei nuovi nodi
     url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
   - title: Spostare le LIF di dati non SAN e le LIF di gestione del cluster
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"

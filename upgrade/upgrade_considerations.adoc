@@ -13,52 +13,91 @@ summary: 'Per pianificare l"aggiornamento, è necessario acquisire familiarità 
 [role="lead"]
 Per pianificare l'aggiornamento, è necessario acquisire familiarità con le considerazioni generali sull'aggiornamento. Se necessario, contattare il supporto tecnico per consigli e indicazioni specifiche sulla configurazione del cluster.
 
-.Requisiti e limitazioni
-* La procedura per l'aggiornamento mediante lo spostamento dello storage è un'operazione di interruzione. La procedura per l'aggiornamento mediante lo spostamento dei volumi è senza interruzioni.
-* I nodi originali devono supportare la stessa versione software dei nuovi nodi.
+
+
+== Requisiti e limitazioni
+
+A seconda dell'ambiente in uso, è necessario prendere in considerazione alcuni fattori prima di iniziare l'aggiornamento. Per iniziare, consultate la tabella seguente per vedere i requisiti e le limitazioni da prendere in considerazione.
+
+
+NOTE: Prima di iniziare la procedura di aggiornamento del controller, devi rivedere tutte le domande elencate nella tabella seguente.
+
+[cols="30,70"]
+|===
+| Chiedetevi... | Se la vostra risposta è sì, allora fate questo. 
+
+
+| Devo combinare diversi modelli di piattaforma di controller in un cluster?  a| 
+link:https://hwu.netapp.com["Verifica di aver seguito le regole per combinare le piattaforme storage"^].
+
+I controller in una coppia ha devono essere due modelli AFF, FAS o ASA.
+
+
+
+| Posso utilizzare diverse versioni di ONTAP sui nodi originali e nuovi?  a| 
+. https://hwu.netapp.com["Controllare le versioni di ONTAP e i livelli di patch supportati dai nodi originale e da quelli nuovi"^].
+. Quando possibile, NetApp consiglia di utilizzare la stessa versione di ONTAP sui nodi originale e sui nodi nuovi. Se ciò non è possibile, link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare la versione ONTAP"^] Sui nodi originali alla versione massima supportata in modo che la differenza di versione tra i nodi originale e quelli nuovi NON sia superiore a quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.
 +
-link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare ONTAP"^]
+https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Scopri di più sui cluster ONTAP con versioni miste"^].
+
+
+
+
+
+| I miei sistemi contengono dischi interni e sposto volumi?  a| 
+. link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Verifica che i nuovi nodi dispongano di storage sufficiente per ospitare lo storage associato ai nodi originali"^].
+. Quando si esegue l'aggiornamento spostando i volumi, i nuovi nodi vengono Uniti al cluster prima della rimozione dei nodi originali. È necessario rispettare le dimensioni massime del cluster.
++
+https://hwu.netapp.com["Verificare che il numero totale di controller nel cluster durante la procedura non superi le dimensioni massime supportate del cluster"^].
 
 +
 
-NOTE: Per ulteriori informazioni sugli aggiornamenti del cluster delle versioni software miste, vedere https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Cluster ONTAP a versione mista"^].
+NOTE: Se stai eseguendo l'upgrade di un cluster a 8 nodi con protocolli a blocchi come FCP, iSCSI o FCoE, verifica che i nuovi nodi pubblicizzino correttamente i LUN. Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/ontap/san-management/index.html["Gestione dello storage SAN"^].
 
-* È necessario rispettare le dimensioni massime del cluster.
-+
-Quando si esegue l'aggiornamento spostando i volumi, i nuovi nodi vengono Uniti al cluster prima della rimozione dei nodi originali. Verificare che il numero di controller nel cluster non superi le dimensioni massime supportate durante la procedura.
-
-+
-https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* Quando si combinano diversi modelli di piattaforma controller in un cluster, è necessario seguire le regole di combinazione della piattaforma di storage.
-+
-https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* I nuovi nodi devono disporre di storage sufficiente per lo storage associato ai nodi originali.
-+
-https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Gestione di dischi e aggregati con CLI"^]
-
-* Le dimensioni dell'aggregato root e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori a quelli supportati dal sistema originale.
-+
-Per i requisiti di dimensione degli aggregati root, vedere https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* I controller di una coppia ha devono essere due modelli AFF o due modelli FAS.
-* È possibile eseguire l'upgrade spostando volumi o storage fisico da un FAS2xxx a un FAS2xxx successivo se i nodi si trovano nello stesso cluster. Ad esempio, è possibile spostare volumi o storage fisico da FAS2552 a FAS2750.
-* Se si sta aggiornando una coppia ha in un cluster con più coppie ha, è necessario spostare epsilon nel nodo di una coppia ha non sottoposta a un aggiornamento del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed.
-* Se si utilizza ONTAP 9.6P11, 9.7P8 o versioni successive, si consiglia di attivare il Takeover di connettività, livellosità e monitoraggio della disponibilità (CLAM) per riportare il cluster al quorum quando si verificano determinati guasti del nodo. Il `kernel-service` il comando richiede un accesso avanzato a livello di privilegio. Per ulteriori informazioni, consulta: https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["Articolo SU436 della Knowledge base di NetApp: Modifica della configurazione predefinita DI Takeover DI CLAM"^]. A partire da ONTAP 9.8, la `kcs-enable-takeover` il parametro è attivato per impostazione predefinita.
-* Se si sta aggiornando una configurazione MetroCluster a due nodi, vedere: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Scelta di un metodo di aggiornamento o refresh"^]
+. link:upgrade-by-moving-volumes-parent.html["Eseguire l'upgrade spostando i volumi"] (procedura senza interruzioni).
 
 
-Sistemi con storage interno
 
 
-NOTE: I seguenti sistemi dispongono di storage interno: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s, AFF A800, AFF C190, AFF C250, E AFF C800.
+| Devo spostare lo storage interno o convertire il sistema in uno shelf di dischi?  a| 
+. https://hwu.netapp.com/["Verificare che le dimensioni dell'aggregato root e il numero di dischi supportati dal nuovo sistema siano uguali o superiori a quelli supportati dal sistema originale"^].
+. link:upgrade-by-moving-storage-parent.html["Eseguire l'upgrade spostando lo storage"] (una procedura distruttiva).
 
+
+
+
+| Sto eseguendo l'upgrade di una coppia ha in un cluster con più coppie ha? | Sposta l'epsilon sul nodo di una coppia ha che non è sottoposta a upgrade del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed. 
+
+
+| È in esecuzione ONTAP 9.6P11, 9.7P8 o versioni successive? | NetApp consiglia di attivare il takeover di connettività, sopravvivenza e monitoraggio della disponibilità (CLAM) per riportare il cluster al quorum quando si verificano determinati guasti al nodo. Il `kernel-service` il comando richiede un accesso avanzato a livello di privilegio. Per ulteriori informazioni, vedere l'articolo della Knowledge base di NetApp https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["Configurazione predefinita del takeover della VAM modificata"^].
+
+A partire da ONTAP 9.8, la `kcs-enable-takeover` il parametro è attivato per impostazione predefinita. 
+|===
+
+NOTE: Puoi aggiornare un sistema integrato spostando i dati in un nuovo storage (spostando i volumi) o convertendo il sistema integrato esistente in uno shelf e poi migrando in un nuovo sistema (spostando lo storage). Ad esempio, puoi aggiornare un FAS2650 a un FAS8300 convertendo lo chassis del controller FAS2650 in uno shelf SAS DS224C e allegandolo a FAS8300. In entrambi i casi, la migrazione dei dati o lo shelf convertito rimane nel medesimo cluster con switch.
+
+
+
+== Sistemi con storage interno
+
+I seguenti sistemi dispongono di storage interno:
+
+[cols="4*"]
+|===
+4+| Sistemi con dischi interni 
+
+
+ a| 
+FAS2620, FAS2650, FAS2720 E FAS2750
+ a| 
+AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s, e AFF A800
+| AFF C190, AFF C250 e AFF C800 | ASA A150, ASA A250, ASA A800 e ASA AFF A220 
+|===
 * Se il sistema in uso non è elencato sopra, consultare la https://hwu.netapp.com["NetApp Hardware Universe"^] per verificare se dispone di dischi interni.
-* Se si dispone di un sistema con storage interno, il metodo consigliato per l'aggiornamento consiste nello spostamento dei volumi.
-* Se si dispone di un sistema con storage interno, è possibile convertire il sistema in uno shelf di dischi e collegarlo a un nuovo nodo dello stesso cluster. I controller FAS2520 non possono essere convertiti in uno shelf di dischi.
+* Se si dispone di un sistema con storage interno, è possibile convertire il sistema in uno shelf di dischi e collegarlo a un nuovo nodo dello stesso cluster.
 +
-La conversione di un sistema FAS255x in uno shelf di dischi è un'attività opzionale nel flusso di lavoro per l'aggiornamento mediante lo spostamento dello storage.
+
+NOTE: Non è possibile convertire i sistemi AFF A700s, AFF A800, AFF C800 o ASA A800 in uno shelf di dischi.
 
 * Se si dispone di un sistema con storage interno o di un sistema con volumi o aggregati su unità SATA o SSD interne, è possibile eseguire l'aggiornamento trasferendo lo storage interno a uno shelf di dischi collegato al nuovo nodo dello stesso cluster.
 +
@@ -66,31 +105,19 @@ Il trasferimento dello storage interno è un'attività opzionale del workflow pe
 
 
 
-Situazioni in cui potrebbero essere necessarie ulteriori operazioni
-
-* Se si sta eseguendo l'aggiornamento da un sistema AFF A250 a un sistema AFF A400, vedere xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi].
-* Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema.
-+
-https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* Se i nodi originali o i nuovi nodi utilizzano il software di virtualizzazione FlexArray.
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["Articolo della KB di NetApp: Quali sono le fasi specifiche di FlexArray per gli aggiornamenti e le sostituzioni dei controller NetApp"^]
-
-* Se il cluster dispone di host SAN, potrebbe essere necessario adottare le misure necessarie per risolvere i problemi relativi alle modifiche del numero di serie del LUN.
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["Come risolvere i problemi durante la sostituzione della scheda madre del controller di storage e gli aggiornamenti della testina con iSCSI e FCP"^]
-
-* Se il sistema utilizza ACP out-of-band, potrebbe essere necessario migrare da ACP out-of-band a ACP in-band.
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["Articolo della Knowledge base di NetApp: Installazione e supporto ACP in-Band"^]
 
 
+== Situazioni in cui potrebbero essere necessarie ulteriori operazioni
 
-*Informazioni correlate*
+* xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Si sta eseguendo l'aggiornamento da AFF A250 a AFF A400] (procedura senza interruzioni).
+* Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Vedere https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Se i nodi originali o i nuovi nodi utilizzano il software per la virtualizzazione FlexArray, consultare l'articolo della Knowledge base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["Quali sono i passaggi specifici per gli upgrade e le sostituzioni dei controller FlexArray per NetApp"^].
+* Se il cluster dispone di host SAN, potrebbe essere necessario adottare le misure necessarie per risolvere i problemi relativi alle modifiche del numero di serie del LUN. Consultare l'articolo della Knowledge base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["Come risolvere i problemi durante la sostituzione della scheda madre del controller di storage e gli aggiornamenti della testina con iSCSI e FCP"^].
+* Se il sistema utilizza ACP out-of-band, potrebbe essere necessario migrare da ACP out-of-band a ACP in-band. Consultare l'articolo della Knowledge base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["Configurazione e supporto ACP in banda"^]
 
-xref:upgrade-methods.adoc[Scegliere i metodi per aggiornare l'hardware del controller]
 
-xref:upgrade-by-moving-storage-parent.adoc[Aggiornare l'hardware del controller spostando lo storage]
+.Informazioni correlate
+* link:../choose_controller_upgrade_procedure.html["Scegliere i metodi per aggiornare l'hardware del controller"]
+* xref:upgrade-by-moving-storage-parent.adoc[Aggiornare l'hardware del controller spostando lo storage]
+* xref:upgrade-by-moving-volumes-parent.adoc[Aggiornare l'hardware del controller spostando i volumi]
 
-xref:upgrade-by-moving-volumes-parent.adoc[Aggiornare l'hardware del controller spostando i volumi]
