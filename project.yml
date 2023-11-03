@@ -39,8 +39,7 @@ homepage:
   - title: Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP
       9,7 e versioni precedenti
     links:
-    - title: Utilizzare i comandi "System controller replace" (sostituzione controller
-        di sistema) (maggior parte dei sistemi)
+    - title: Utilizzare i comandi "sostituzione centralina di sistema"
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
     - title: Utilizzare i comandi manuali
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/

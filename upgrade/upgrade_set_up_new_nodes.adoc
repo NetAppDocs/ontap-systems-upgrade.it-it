@@ -16,6 +16,8 @@ Durante il processo di aggiornamento mediante lo spostamento dello storage, si a
 .Prima di iniziare
 Se la versione di ONTAP in esecuzione sui nuovi nodi è diversa da quella dei nodi originali, è necessario aver scaricato la versione corretta `<ontap_version>_image.tgz` Dal sito di supporto NetApp a una directory accessibile dal Web (vedere _preparazione per l'aggiornamento durante lo spostamento dello storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["Fase 5"]). Hai bisogno di `<ontap_version>_image.tgz` per eseguire un netboot del sistema.
 
+È anche possibile utilizzare l'opzione di avvio USB per eseguire un netboot. Consultare l'articolo della Knowledge base link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["Come utilizzare il comando boot_recovery LOADER per installare ONTAP per la configurazione iniziale di un sistema"^].
+
 .Fasi
 . Accendere il terminale di node3, quindi premere immediatamente Ctrl-C sul terminale della console per accedere al prompt DEL CARICATORE.
 +

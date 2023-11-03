@@ -17,7 +17,7 @@ Se non è necessario spostare i volumi SAN iSCSI durante l'aggiornamento spostan
 
 .A proposito di questa attività
 * Le interfacce IPv4 vengono create quando si configurano le nuove connessioni iSCSI.
-* I comandi host e gli esempi sono specifici per i sistemi operativi LINUX.
+* I comandi host e gli esempi sono specifici per i sistemi operativi Linux.
 
 
 

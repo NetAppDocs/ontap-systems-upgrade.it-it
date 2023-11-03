@@ -4190,7 +4190,6 @@
   <block id="4aea10f3c0d7162a37d57f70bbb18869" category="summary">Far sapere a NetApp che il vecchio sistema non è più in funzione dopo aver completato un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.</block>
   <block id="82afd892d5c2a9e4e8762a660a4866cd" category="summary">Utilizzare la procedura di aggiornamento ARL manuale per aggiornare l'hardware del controller con ONTAP 9.7 o versione precedente, riallocando la proprietà di aggregati non root.</block>
   <block id="edcca90be305577ecf6fd870b41fb37e" category="cell">9.7 o versioni precedenti</block>
-  <block id="e6063d0ab61b368bdfbca64be36dbd64" category="list-text">Questa procedura si applica alle configurazioni MetroCluster a quattro e otto nodi che eseguono ONTAP 9.5 e versioni precedenti. Per le configurazioni MetroCluster con ONTAP 9.6 e versioni successive, visitare il sito Web all'indirizzo <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Collegamento a _utilizzo dei comandi di sostituzione del controller di sistema" per aggiornare l'hardware del controller che esegue ONTAP 9.5 a ONTAP 9.7_.</block>
   <block id="bd01c5b770f12580d6d085fd6e8ad756" category="summary">Prima di avviare il sistema dalla rete, interrompere tutte le relazioni di SnapMirror durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.</block>
   <block id="3e1152afdb3506d941739c9a1c017958" category="summary">Decidere se utilizzare la procedura ARL manuale per aggiornare i controller storage in una coppia ha con nuovi controller che eseguono ONTAP 9.7 o versioni precedenti.</block>
   <block id="c25935ce11d9d76fca75e6795d090984" category="list-text">Si dispone di un sistema che utilizza le configurazioni Fabric MetroCluster a 4 e 8 nodi con ONTAP 9.5 o versione precedente.</block>
@@ -4279,11 +4278,9 @@
   <block id="873e03798738ee8f4ea5e24bbff9d693" category="paragraph">Passare a. <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per collegarsi al contenuto di _installazione e configurazione del MetroCluster collegato al fabric_.</block>
   <block id="4a249b60efb722cf2c3f1aa4209460e4" category="admonition">Se l'ambiente non può essere cablato in modo da poter utilizzare gli RCF, contattare il supporto tecnico. Non utilizzare questa procedura se il cablaggio non può utilizzare RCF.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
-  <block id="ec01d482cf394f212f073921cfd9d5bd" category="sidebar">Note di rilascio di ONTAP</block>
   <block id="6c54fdf57ce13c518f1cc0d9d5f32820" category="sidebar">Aggiornare l'hardware del controller</block>
   <block id="194cc1951d00be469039af6dbda275d0" category="sidebar">Utilizzare i comandi "system controller replace" (sostituzione controller di sistema) (maggior parte dei sistemi)</block>
   <block id="b4d25e7f066e6393a7e3a6a7115b4f94" category="sidebar">Utilizzare i comandi manuali</block>
-  <block id="5f9c427150012de98abaaa70885c293c" category="sidebar">Utilizzare i comandi "System controller replace" (sostituzione controller di sistema) (maggior parte dei sistemi)</block>
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">Aggiornare i sistemi in una configurazione MetroCluster</block>
   <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">Selezionare la procedura di aggiornamento per la configurazione MetroCluster</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Più risorse</block>
@@ -4762,7 +4759,6 @@ FAS2720</block>
   <block id="c62a490dc179bcb1d44777cba5eb4845" category="paragraph">Prima di spostare I volumi SAN iSCSI sui nuovi nodi, è necessario creare nuove connessioni iSCSI ed eseguire nuovamente la scansione dei percorsi iSCSI verso i nuovi nodi.</block>
   <block id="c19689d06a29f6feeef4510514125400" category="paragraph">Se non è necessario spostare i volumi SAN iSCSI durante l'aggiornamento spostando i volumi, ignorare questa procedura e passare a. <block ref="0187590ed6627836f657d0d4157f4bd9" category="inline-link-macro-rx"></block>.</block>
   <block id="067e2e3846b3b294b518d3f733e2a96b" category="list-text">Le interfacce IPv4 vengono create quando si configurano le nuove connessioni iSCSI.</block>
-  <block id="53c3dbfeb6f99087434e72b6b5c6d75f" category="list-text">I comandi host e gli esempi sono specifici per i sistemi operativi LINUX.</block>
   <block id="b3b6efa3f6df48fc93b3542c29661f7c" category="inline-xref-macro">Spostamento degli host iSCSI Linux nei nuovi nodi</block>
   <block id="184c3f7752a9e68702c55c35faa973db" category="list-text"><block ref="184c3f7752a9e68702c55c35faa973db" category="inline-xref-macro-rx"></block></block>
   <block id="fef2f3438d6db0111e356d7cf9de46ab" category="paragraph">Questo contenuto descrive come aggiornare l'hardware del controller di un sistema AFF, FAS o ASA in un cluster trasferendo storage o volumi.</block>
@@ -4771,7 +4767,6 @@ FAS2720</block>
   <block id="524f05419622851f7f6289320cc91a6e" category="inline-link">Aggiornare, aggiornare o espandere la configurazione di MetroCluster</block>
   <block id="54fbf367f6c88f6a32c90b81e113fdbc" category="paragraph">Se si sta aggiornando una configurazione MetroCluster, consultare la sezione<block ref="ce6e655e9cb4a81012dd5871edda628b" category="inline-link-rx"></block>.</block>
   <block id="30f60d67f457bb040dffde52197a54da" category="list-title">Informazioni correlate</block>
-  <block id="06852d9347cc17e2896148f62d8b43e8" category="list-text"><block ref="06852d9347cc17e2896148f62d8b43e8" category="inline-xref-macro-rx"></block></block>
   <block id="ff13d8bc09b612151174d9b83a1e0634" category="paragraph">I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituirli con i nomi reali dei nodi originali e nuovi. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.</block>
   <block id="6cbbb16b482dd046bc6d845094f114f9" category="list-text"><block ref="16a60590ab4a03950f527e475b265368" category="inline-xref-macro-rx"></block> (procedura senza interruzioni).</block>
   <block id="608ce5a5400efa8f95d0e8e4878a465d" category="paragraph">Ad esempio, se si sta aggiornando il sistema da un AFF A200 a un AFF A220 sostituendo il vecchio modulo controller AFF A200 con il nuovo modulo controller AFF A220 mantenendo al contempo in posizione lo chassis e i dischi del vecchio AFF A200, non rimuovere la proprietà dei dischi per il nuovo modulo controller AFF A220 come descritto in questa sezione _Rimozione della proprietà dei dischi collegati ai nuovi nodi_.</block>
@@ -4859,4 +4854,9 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP 9,8 e versioni successive</block>
   <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP 9,7 e versioni precedenti</block>
   <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">Upgrade tramite spostamento di storage o volumi</block>
+  <block id="ef69680bc1ee7b1fd5e0950d56699d33" category="list-text">Questa procedura si applica alle configurazioni MetroCluster a quattro e otto nodi che eseguono ONTAP 9.5 e versioni precedenti. Per le configurazioni MetroCluster con ONTAP 9.6 e versioni successive, visitare il sito Web all'indirizzo <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per collegarsi a _utilizzando i comandi "sostituzione controller di sistema" per aggiornare l'hardware del controller che esegue ONTAP 9,5 a ONTAP 9,7_.</block>
+  <block id="187aa569481ce25a564facc34217dda3" category="list-text">I comandi host e gli esempi sono specifici per i sistemi operativi Linux.</block>
+  <block id="fcbf56c541d4d283030e94ff96a44848" category="paragraph">È anche possibile utilizzare l'opzione di avvio USB per eseguire un netboot. Consultare l'articolo della Knowledge base <block ref="184f8f7294797efad8be0da4fb907563" category="inline-link-macro-rx"></block>.</block>
+  <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">Note di rilascio di ONTAP</block>
+  <block id="806e982f94b5ab4054aa07ccb047ecdb" category="sidebar">Utilizzare i comandi "sostituzione centralina di sistema"</block>
 </blocks>
