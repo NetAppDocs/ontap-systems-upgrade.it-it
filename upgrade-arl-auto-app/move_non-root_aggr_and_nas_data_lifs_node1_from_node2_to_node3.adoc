@@ -19,6 +19,9 @@ Dopo aver verificato la configurazione di rete su node3 e prima di spostare gli 
 .A proposito di questa attività
 Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 3 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
 
+
+NOTE: Se si modifica la velocità delle porte delle schede di interfaccia di rete Ethernet basate su T6 o delle porte della scheda madre, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug online di NetApp ID 1570339"^] e l'articolo della knowledge base https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE"^] come guida.
+
 .Fasi
 . Riprendere l'operazione di trasferimento:
 +

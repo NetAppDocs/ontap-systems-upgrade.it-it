@@ -266,7 +266,7 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-. Se necessario, per ogni LIF del cluster che non è in ascolto sulla porta 7700, impostare lo stato amministrativo della LIF su `down` e poi `up`:
+. Per ogni cluster LIF che non è in ascolto sulla porta 7700, imposta lo stato amministrativo della LIF su `down` e poi `up`:
 +
 `::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
 

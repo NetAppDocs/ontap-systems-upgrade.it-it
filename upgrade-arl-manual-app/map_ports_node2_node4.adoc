@@ -84,10 +84,20 @@ Una volta migrate tutte le LIF del cluster e stabilita la comunicazione del clus
 +
 `cluster show -node node2 -fields health`
 
-.. Ogni LIF del cluster deve essere in ascolto sulla porta 7700. Verificare che le LIF del cluster siano in ascolto sulla porta 7700:
+.. In base alla versione di ONTAP in esecuzione sulla coppia ha sottoposta a upgrade, esegui una delle seguenti azioni:
 +
-`::> network connections listening show -vserver Cluster`
+[cols="30,70"]
+|===
+| Se la versione di ONTAP è... | Quindi... 
 
+
+| da 9,8 a 9.11.1 | Verificare che le LIF del cluster siano in ascolto sulla porta 7700:
+
+`::> network connections listening show -vserver Cluster` 
+
+
+| 9.12.1 o versione successiva | Saltare questo passaggio e passare a. <<man_map_2_Step3,Fase 3>>. 
+|===
 +
 La porta 7700 in ascolto sulle porte del cluster è il risultato previsto, come mostrato nell'esempio seguente per un cluster a due nodi:
 
@@ -105,7 +115,7 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-.. Se necessario, per ogni LIF del cluster che non è in ascolto sulla porta 7700, impostare lo stato amministrativo della LIF su `down` e poi `up`:
+.. Per ogni cluster LIF che non è in ascolto sulla porta 7700, imposta lo stato amministrativo della LIF su `down` e poi `up`:
 +
 `::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
 

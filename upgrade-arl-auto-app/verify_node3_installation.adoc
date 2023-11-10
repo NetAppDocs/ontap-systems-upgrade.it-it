@@ -39,10 +39,20 @@ L'output di `health` il campo deve essere `true`.
 +
 `cluster show`
 
-. Ogni LIF del cluster deve essere in ascolto sulla porta 7700. Verificare che le LIF del cluster siano in ascolto sulla porta 7700:
+. In base alla versione di ONTAP in esecuzione sulla coppia ha sottoposta a upgrade, esegui una delle seguenti azioni:
 +
-`::> network connections listening show -vserver Cluster`
+[cols="30,70"]
+|===
+| Se la versione di ONTAP è... | Quindi... 
 
+
+| da 9,8 a 9.11.1 | Verificare che le LIF del cluster siano in ascolto sulla porta 7700:
+
+`::> network connections listening show -vserver Cluster` 
+
+
+| 9.12.1 o versione successiva | Saltare questo passaggio e passare a. <<verify_node3_step_5,Fase 5>>. 
+|===
 +
 La porta 7700 in ascolto sulle porte del cluster è il risultato previsto, come mostrato nell'esempio seguente per un cluster a due nodi:
 
@@ -60,14 +70,14 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-. Se necessario, per ogni LIF del cluster che non è in ascolto sulla porta 7700, impostare lo stato amministrativo della LIF su `down` e poi `up`:
+. Per ogni cluster LIF che non è in ascolto sulla porta 7700, imposta lo stato amministrativo della LIF su `down` e poi `up`:
 +
 `::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
 
 +
 Ripetere il passaggio 3 per verificare che la LIF del cluster sia in ascolto sulla porta 7700.
 
-. Passare alla modalità avanzata dei privilegi:
+. [[Verify_node3_step_5]]passare alla modalità privilegi avanzati:
 +
 `set advanced`
 
@@ -127,6 +137,9 @@ Dopo aver confermato che node3 è in quorum e può comunicare con node2, verific
 
 .A proposito di questa attività
 Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Network Management_.
+
+
+NOTE: Se si modifica la velocità delle porte del cluster e0a e E1a nei sistemi AFF A800 o AFF C800, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug online di NetApp ID 1570339"^] e l'articolo della knowledge base https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE"^] come guida.
 
 .Fasi
 . [[step1]]Elenca tutte le porte fisiche sul nodo aggiornato1 (indicato come node3):
