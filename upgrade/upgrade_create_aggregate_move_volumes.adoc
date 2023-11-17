@@ -14,9 +14,12 @@ summary: Si crea almeno un aggregato su ciascuno dei nuovi nodi per memorizzare 
 Si crea almeno un aggregato su ciascuno dei nuovi nodi per memorizzare i volumi che si desidera spostare dai nodi originali. È necessario identificare un aggregato per ciascun volume e spostare ciascun volume singolarmente.
 
 .Prima di iniziare
-Prima di poter spostare un volume, è necessario inizializzare le relazioni mirror di Data Protection.
-
+* Prima di poter spostare un volume, è necessario inizializzare le relazioni mirror di Data Protection.
++
 https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["Individuare la procedura di protezione dei dati richiesta"^].
+
+* Se si trasferiscono volumi SAN iSCSI, verificare di disporre di quanto segue link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["Creazione di nuove connessioni iSCSI"].
+
 
 
 NOTE: Per ciascuna macchina virtuale di storage (SVM), NetApp consiglia di spostare tutti i volumi non root nel cluster prima di spostare il volume root ed eseguire questa procedura su una SVM alla volta.

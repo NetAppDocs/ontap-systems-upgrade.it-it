@@ -58,7 +58,7 @@ Il trasferimento degli aggregati è una procedura di sostituzione. Non devi espa
 
 [NOTE]
 ====
-*Note1*: La versione di ONTAP in esecuzione sui nodi originali deve essere supportata dai nuovi nodi. Se necessario, link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare la versione ONTAP"^] sui nodi originali fino alla versione massima supportata. La differenza di versione tra il nodo originale e quello nuovo non può essere maggiore di quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Scopri di più sui cluster ONTAP con versioni miste"^].
+*Note1*: La versione di ONTAP in esecuzione sui nodi originali deve essere supportata dai nuovi nodi. Se necessario, link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aggiornare la versione ONTAP"^] sui nodi originali fino alla versione massima supportata. La differenza di versione tra il nodo originale e quello nuovo non può essere maggiore di quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Scopri di più sui cluster ONTAP con versioni miste"^].
 
 *Note2*: Un upgrade senza interruzioni richiede un nuovo sistema con storage e shelf dedicati per memorizzare i dati del sistema originale.
 

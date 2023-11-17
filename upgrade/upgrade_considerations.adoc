@@ -36,7 +36,7 @@ I controller in una coppia ha devono essere due modelli AFF, FAS o ASA.
 
 | Posso utilizzare diverse versioni di ONTAP sui nodi originali e nuovi?  a| 
 . https://hwu.netapp.com["Controllare le versioni di ONTAP e i livelli di patch supportati dai nodi originale e da quelli nuovi"^].
-. Quando possibile, NetApp consiglia di utilizzare la stessa versione di ONTAP sui nodi originale e sui nodi nuovi. Se ciò non è possibile, link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare la versione ONTAP"^] Sui nodi originali alla versione massima supportata in modo che la differenza di versione tra i nodi originale e quelli nuovi NON sia superiore a quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.
+. Quando possibile, NetApp consiglia di utilizzare la stessa versione di ONTAP sui nodi originale e sui nodi nuovi. Se ciò non è possibile, link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aggiornare la versione ONTAP"^] Sui nodi originali alla versione massima supportata in modo che la differenza di versione tra i nodi originale e quelli nuovi NON sia superiore a quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.
 +
 https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Scopri di più sui cluster ONTAP con versioni miste"^].
 
