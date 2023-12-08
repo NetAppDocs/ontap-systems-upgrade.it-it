@@ -8,7 +8,7 @@ summary: 'È possibile aggiornare l"hardware del controller con ONTAP 9.8 o vers
 :allow-uri-read: 
 
 
-[role="lead lead"]
+[role="lead"]
 Questa procedura descrive come aggiornare l'hardware del controller utilizzando ARL (aggregate relocation) per le seguenti configurazioni di sistema:
 
 [cols="40,20,40"]

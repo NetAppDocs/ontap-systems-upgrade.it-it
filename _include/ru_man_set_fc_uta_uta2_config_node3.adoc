@@ -11,7 +11,7 @@ Potrebbe essere necessario completare l'operazione <<Configurare le porte FC sul
 NOTE: I materiali di marketing NetApp potrebbero utilizzare il termine "UTA2" per fare riferimento agli adattatori e alle porte CNA. Tuttavia, la CLI utilizza il termine "CNA".
 
 * Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 e si sta eseguendo l'aggiornamento di un sistema con dischi di storage, passare alla sezione link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"].
-* Tuttavia, se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray con array di storage e node3 non dispone di porte FC integrate, porte UTA/UTA integrate o una scheda UTA/UTA2, tornare a _Installazione e fare il boot node3_ e riprendere a link:install_boot_node3.html#step22["Fase 22"].
+* Tuttavia, se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray con array di storage e node3 non dispone di porte FC integrate, porte UTA/UTA integrate o una scheda UTA/UTA2, tornare a _Installazione e fare il boot node3_ e riprendere a link:install_boot_node3.html#man_install3_step22["Fase 22"].
 
 
 .Scelte:

@@ -11,18 +11,35 @@ summary: Eseguire un NDU per i sistemi NetApp AFF e FAS entry-level senza dover 
 
 
 [role="lead"]
-È possibile eseguire un upgrade senza interruzioni da un sistema NetApp AFF A250 a un sistema AFF A400 convertendo ciascun nodo AFF A250 in uno shelf di dischi NS224 e quindi collegandosi ai nodi sostitutivi AFF A400.
+Puoi eseguire un upgrade senza interruzioni da un sistema NetApp AFF A250 a un sistema NetApp AFF A400, convertendo ogni nodo AFF A250 in uno shelf di dischi NS224 e poi connettendoti ai nodi di sostituzione di AFF A400.
 
+.A proposito di questa attività
 In questa procedura, i controller di coppia ad alta disponibilità (ha) AFF A250 sono chiamati node1 e node2, mentre i controller di coppia ha A400 AFF sostitutivi sono chiamati node3 e node4.
 
-image::../upgrade/media/ndu_upgrade_entry_level_systems.PNG[Workflow per l'aggiornamento di AFF A250 a AFF A400 tramite la conversione in shelf di dischi]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade_migrate_lifs_aggregates_node2_to_node1.html["Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1"]
+[role="quick-margin-para"]
+Prima di convertire il nodo 2 di AFF A250 in uno shelf di dischi, è necessario migrare le interfacce logiche (LIF) e gli aggregati di dati sul nodo 2 in node1.
 
-.Fasi.
-. xref:upgrade_migrate_lifs_aggregates_node2_to_node1.adoc[Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1]
-. xref:upgrade_convert_node2_drive_shelf_connect_node4.adoc[Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4]
-. xref:upgrade_reassign_drives_node2_to_node4.adoc[Riassegnare i dischi dal nodo 2 al nodo 4]
-. xref:upgrade_migrate_aggregates_epsilon_lifs_node1_node4.adoc[Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4]
-. xref:upgrade_convert_node1_drive_shelf_connect_node3.html[Converti il node1 in uno shelf di dischi e connettiti al node3]
-. xref:upgrade_reassign_drives_node1_to_node3.adoc[Riassegnare i dischi dal nodo 1 al nodo 3]
-. xref:upgrade_migrate_lIFs_aggregates_node4_node3.adoc[Migrazione di LIF e aggregati di dati dal nodo 4 al node3]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:upgrade_convert_node2_drive_shelf_connect_node4.html["Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4"]
+[role="quick-margin-para"]
+AFF A250 node2 viene convertito in uno shelf di dischi da NS224 TB, quindi si connette a AFF A400 node4 prima di riassegnare i dischi da node2 TB a node4 TB.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:upgrade_reassign_drives_node2_to_node4.html["Riassegnare i dischi dal nodo 2 al nodo 4"]
+[role="quick-margin-para"]
+Dopo aver convertito AFF A250 node2 in uno shelf di dischi da NS224 TB e aver effettuato la connessione a AFF A400 node4, riassegnerai i dischi appartenenti in precedenza al gruppo node2-node4
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html["Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4"]
+[role="quick-margin-para"]
+Prima di convertire AFF A250 node1 in uno shelf di dischi, occorre eseguire la migrazione di aggregati di dati, epsilon e LIF su node1 in AFF A400 node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade_convert_node1_drive_shelf_connect_node3.html["Converti il node1 in uno shelf di dischi e connettiti al node3"]
+[role="quick-margin-para"]
+Convertire il nodo AFF A250 1 in uno shelf di dischi NS224 e collegarlo al nodo AFF A400 3 prima di riassegnare i dischi dal nodo 1 al nodo 3.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:upgrade_reassign_drives_node1_to_node3.html["Riassegnare i dischi dal nodo 1 al nodo 3"]
+[role="quick-margin-para"]
+Dopo aver convertito AFF A250 node1 in uno shelf di dischi da NS224 TB e aver effettuato la connessione a AFF A400 node3, riassegnerai i dischi appartenenti in precedenza al gruppo node1-node3.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:upgrade_migrate_lIFs_aggregates_node4_node3.html["Migrazione di LIF e aggregati di dati dal nodo 4 al node3"]
+[role="quick-margin-para"]
+Per completare l'upgrade, connetti node3 a node4 TB, quindi migra i dati LIF e gli aggregati di dati su node4 a node3.

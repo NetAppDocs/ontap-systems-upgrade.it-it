@@ -14,7 +14,7 @@ summary: È necessario ripristinare le informazioni di configurazione dal volume
 È necessario ripristinare le informazioni di configurazione dal volume root ai dispositivi di boot.
 
 
-NOTE: Se si esegue un upgrade del controller in-place a un sistema che utilizza le porte "e0a" e "e0b" come porte di interconnessione ad alta disponibilità (ha), ad esempio FAS8300, AFF A400 o FAS8700, verificare di disporre di xref:upgrade-prepare-when-moving-storage.html#assign_lifs[Riassegnato qualsiasi LIF di gestione o intercluster] configurato sulle porte "e0a" e "e0b" del sistema originale prima di avviare la procedura di aggiornamento.
+NOTE: Se si esegue un upgrade del controller in-place a un sistema che utilizza le porte "e0a" e "e0b" come porte di interconnessione ad alta disponibilità (ha), ad esempio FAS8300, AFF A400 o FAS8700, verificare di disporre di link:upgrade-prepare-when-moving-storage.html#assign_lifs["Riassegnato qualsiasi LIF di gestione o intercluster"] configurato sulle porte "e0a" e "e0b" del sistema originale prima di avviare la procedura di aggiornamento.
 
 .A proposito di questa attività
 Prima di passare alla fase successiva, è necessario eseguire questi passaggi su node3 e node4, completando ogni passaggio su un nodo e poi sull'altro.

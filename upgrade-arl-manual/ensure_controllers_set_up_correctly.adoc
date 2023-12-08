@@ -75,7 +75,7 @@ Se il nodo 3 o il nodo 4 possiede le LIF dei dati di proprietà di altri nodi de
 `volume show -node _node3_ -state offline`
 `volume show -node _node4_ -state offline`
 
-. Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea in cui sono stati acquisiti link:prepare_nodes_for_upgrade.html#step19d["Fase 19 (d)"] In _preparare i nodi per l'aggiornamento_ e portare online qualsiasi volume offline, come richiesto, immettendo il seguente comando, una volta per ogni volume:
+. Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea in cui sono stati acquisiti  link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step19["Fase 19 (d)"] In _preparare i nodi per l'aggiornamento_ e portare online qualsiasi volume offline, come richiesto, immettendo il seguente comando, una volta per ogni volume:
 +
 `volume online -vserver _vserver_name_ -volume _volume_name_`
 
@@ -86,7 +86,7 @@ Se il nodo 3 o il nodo 4 possiede le LIF dei dati di proprietà di altri nodi de
 +
 Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, ciascuna chiave di licenza separata da una virgola.
 
-. [[unset_maxwait_manual]]se nella configurazione vengono utilizzati dischi con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (ad esempio, in link:install_boot_node3.html#step16["Fase 16"] Of _Install and boot node3_), devi disimpostare la variabile:
+. [[unset_maxwait_manual]]se nella configurazione vengono utilizzati dischi con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (ad esempio, in link:install_boot_node3.html#man_install3_step16["Fase 16"] Of _Install and boot node3_), devi disimpostare la variabile:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 
@@ -129,7 +129,7 @@ Invio `y` per rimuovere tutti i pacchetti.
 `system license show`
 
 +
-È possibile confrontare l'output con quello acquisito link:prepare_nodes_for_upgrade.html#step30["Fase 30"] Di _preparare i nodi per l'aggiornamento_.
+È possibile confrontare l'output con quello acquisito link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step30["Fase 30"] Di _preparare i nodi per l'aggiornamento_.
 
 . Configurare gli SP eseguendo il seguente comando su entrambi i nodi:
 +

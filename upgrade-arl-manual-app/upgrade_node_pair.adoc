@@ -17,10 +17,10 @@ summary: 'È possibile preparare manualmente il nodo originale per l"aggiornamen
 Per aggiornare la coppia di nodi, è necessario preparare i nodi originali ed eseguire una serie di passaggi sia sul nodo originale che su quello nuovo. È quindi possibile decommissionare i nodi originali.
 
 .Fasi
-. link:stage1_prepare_for_upgrade.html["Fase 1: Preparazione per l'aggiornamento"]
-. link:stage2_relocate_retire_node1.html["Fase 2: Spostare e dismettere il node1"]
-. link:stage_3_install_boot_node3.html["Fase 3: Installazione e boot node3"]
-. link:stage4_record_info_retire_node2.html["Fase 4: Registrare le informazioni e dismettere il node2"]
-. link:stage5_install_boot_node4.html["Fase 5: Installazione e boot node4"]
-. link:stage6_complete_upgrade.html["Fase 6: Completare l'aggiornamento"]
+. link:stage_1_index.html["Fase 1: Preparazione per l'aggiornamento"]
+. link:stage_2_index.html["Fase 2: Spostare e dismettere il node1"]
+. link:stage_3_index.html["Fase 3: Installazione e boot node3"]
+. link:stage_4_index.html["Fase 4: Registrare le informazioni e dismettere il node2"]
+. link:stage_5_index.html["Fase 5: Installazione e boot node4"]
+. link:stage_6_index.html["Fase 6: Completare l'aggiornamento"]
 

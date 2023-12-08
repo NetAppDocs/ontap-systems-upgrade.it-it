@@ -1,0 +1,56 @@
+---
+indexpage:
+  lead: Questo sito fornisce le procedure di aggiornamento dei sistemi di storage
+    AFF e FAS. Seleziona la procedura di aggiornamento appropriata per il tuo sistema
+    storage.
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Note di rilascio di ONTAP
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
+    - title: Scegliere la procedura di aggiornamento dell'hardware del controller
+      url: "/choose_controller_upgrade_procedure.html"
+  - title: Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP
+      9,8 e versioni successive
+    links:
+    - title: Utilizzare i comandi "System controller replace" per aggiornare i modelli
+        di controller nello stesso chassis
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
+    - title: Utilizzare i comandi "system controller replace" (sostituzione controller
+        di sistema) (maggior parte dei sistemi)
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
+    - title: Utilizzare i comandi manuali
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
+  - title: Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP
+      9,7 e versioni precedenti
+    links:
+    - title: Utilizzare i comandi "sostituzione centralina di sistema"
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
+    - title: Utilizzare i comandi manuali
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/
+  - title: Upgrade tramite spostamento di storage o volumi
+    links:
+    - title: Aggiornare l'hardware del controller
+      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+    - title: Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
+  - title: Aggiornare i sistemi in una configurazione MetroCluster
+    links:
+    - title: Selezionare la procedura di aggiornamento per la configurazione MetroCluster
+      url: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html
+  - title: Più risorse
+    links:
+    - title: Documentazione sui sistemi ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentazione sugli switch ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html
+    - title: Documentazione del software ONTAP
+      url: https://docs.netapp.com/us-en/ontap/index.html
+    - title: NetApp Hardware Universe
+      url: https://hwu.netapp.com/
+    - title: NetApp Active IQ Config Advisor
+      url: https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor
+    - title: Matrice di interoperabilità NetApp
+      url: https://mysupport.netapp.com/matrix/#welcome
+    - title: Community NetApp
+      url: https://community.netapp.com/t5/ONTAP-and-FAS/ct-p/fas-ontap-oncommand-and-related-plug-ins

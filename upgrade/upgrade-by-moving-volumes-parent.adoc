@@ -1,0 +1,46 @@
+---
+permalink: upgrade/upgrade-by-moving-volumes-parent.html 
+sidebar: sidebar 
+keywords: upgrade by moving volumes 
+summary: 'Se si esegue l"aggiornamento spostando i volumi, si preparano i nodi originali e si uniscono i nuovi nodi al cluster. È possibile spostare i volumi nei nuovi nodi, configurare le LIF e disunire i nodi originali dal cluster. L"aggiornamento mediante lo spostamento dei volumi è una procedura senza interruzioni.' 
+---
+= Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si sta aggiornando l'hardware del controller spostando i volumi, si preparano i nodi originali e si uniscono i nuovi nodi al cluster. È possibile spostare i volumi nei nuovi nodi, configurare le LIF e disunire i nodi originali dal cluster. L'aggiornamento mediante lo spostamento dei volumi è una procedura senza interruzioni.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-prepare-when-moving-volumes.html["Preparatevi per l'aggiornamento durante lo spostamento dei volumi"]
+[role="quick-margin-para"]
+Prima di eseguire l'upgrade dell'hardware dei controller spostando i volumi, esegui alcuni passaggi di preparazione.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:upgrade-install-and-join-new-nodes-move-vols.html["Installare i nuovi nodi e unirli al cluster"]
+[role="quick-margin-para"]
+Oltre a installare i nuovi nodi, è possibile unirli al cluster in modo da spostare i volumi dai nodi originali.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["Spostamento degli host iSCSI Linux nei nuovi nodi"]
+[role="quick-margin-para"]
+Prima di spostare I volumi SAN iSCSI su nuovi nodi, è necessario creare nuove connessioni iSCSI ed eseguire nuovamente la scansione dei percorsi iSCSI verso i nuovi nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:upgrade-create-aggregate-move-volumes.html["Creare un aggregato e spostare i volumi nei nuovi nodi"]
+[role="quick-margin-para"]
+Viene creato almeno un aggregato in ciascuno dei nuovi nodi per memorizzare i volumi da spostare dai nodi originali. Devi identificare un aggregato per ciascun volume e spostarlo singolarmente
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade-move-lifs-to-new-nodes.html["Spostare le LIF di dati non SAN e le LIF di gestione del cluster nei nuovi nodi"]
+[role="quick-margin-para"]
+Dopo aver spostato i volumi dai nodi originali, è possibile migrare le LIF dati non SAN e le LIF di gestione cluster dai nodi originali ai nuovi nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:upgrade_move_delete_recreate_san_lifs.html["Spostare, eliminare o creare LIFS SAN"]
+[role="quick-margin-para"]
+In base ai contenuti del cluster e all'ambiente del cluster, puoi spostare, eliminare o creare LIF SAN o ricreare LIF SAN eliminate.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:upgrade-unjoin-original-nodes-move-volumes.html["Disunire i nodi originali dal cluster"]
+[role="quick-margin-para"]
+Una volta spostati i volumi nei nuovi nodi, si disuniscono i nodi originali dal cluster. Quando si disunisce un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Otto"]link:upgrade-complete-move-volumes.html["Completare l'aggiornamento"]
+[role="quick-margin-para"]
+Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e configurare AutoSupport. Potrebbe inoltre essere necessario configurare l'archiviazione o la crittografia dei volumi e configurare le porte FC o NCA.

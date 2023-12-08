@@ -219,6 +219,6 @@ f-a    2b      fc      target    cna      -          online
 | Dispone di dischi di storage | Passare a. link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"]. 
 
 
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare alla sezione _Installazione e boot node4_ e riprendere la sezione all'indirizzo link:install_boot_node4.html#Step9["Fase 9"]. 
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare alla sezione _Installazione e boot node4_ e riprendere la sezione all'indirizzo link:install_boot_node4.html#man_install4_Step9["Fase 9"]. 
 |===
 

@@ -89,7 +89,7 @@ Questi prompt potrebbero essere interrati nei messaggi della console. Se non si 
 Se `[localhost:disk.encryptNoSupport:ALERT]: Detected FIPS-certified encrypting drive` e, oppure `[localhost:diskown.errorDuringIO:error]: error 3 (disk failed) on disk` in caso di errori, attenersi alla seguente procedura:
 
 .. Arrestare il nodo al prompt DEL CARICATORE.
-.. Controllare e ripristinare i bootargs di crittografia dello storage indicati nella <<A900_boot_node2,Fase 1>>.
+.. Controllare e ripristinare i bootargs di crittografia dello storage indicati nella <<boot_node2_step1,Fase 1>>.
 .. Al prompt del caricatore, avviare:
 +
 `boot_ontap`

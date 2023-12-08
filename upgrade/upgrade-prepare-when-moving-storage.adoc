@@ -169,4 +169,4 @@ NOTE: Non è necessario estrarre il contenuto di `<ontap_version>_image.tgz` fil
 |===
 
 
-Verranno utilizzate le informazioni nella directory per xref:upgrade-set-up-new-nodes.adoc[impostare i nuovi nodi].
+Verranno utilizzate le informazioni nella directory per link:upgrade-set-up-new-nodes.html["impostare i nuovi nodi"].

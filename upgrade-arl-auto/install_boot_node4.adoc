@@ -276,7 +276,7 @@ L'installazione di un nuovo modulo controller modifica i valori WWPN associati a
 . Se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
 
 
-. Se si dispone di unità NetApp Storage Encryption (NSE) installate, attenersi alla seguente procedura.
+. [[auto_install4_step27]]se sono installate unità di crittografia archiviazione NetApp (NSE), procedere come segue.
 +
 
 NOTE: Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] per determinare il tipo di unità con crittografia automatica in uso.
@@ -308,7 +308,7 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 `boot_ontap menu`
 
 +
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che il node4 possa riconoscere i dischi del node2.
+Se non si dispone di una configurazione FC o UTA/UTA2, eseguire la procedura link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che il node4 possa riconoscere i dischi del node2.
 
-. [[fase 29]] per la configurazione MetroCluster, i sistemi V-Series e i sistemi con software di virtualizzazione FlexArray collegati agli array di storage, visitare il sito link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"].
+. [[step29]] per le configurazioni MetroCluster, i sistemi V-Series e i sistemi con il software di virtualizzazione FlexArray collegato agli array di storage, andare al link:set_fc_or_uta_uta2_config_node4.html# auto_check_4_STEP15[controllare e configurare le porte UTA/UTA2 su node4, passaggio 15].
 

@@ -16,7 +16,7 @@ summary: 'Utilizzare il trasferimento di aggregati per aggiornare l"hardware del
 [role="lead"]
 Questo contenuto descrive come aggiornare l'hardware del controller senza interruzioni utilizzando il trasferimento aggregato (ARL).
 
-Per altri metodi di aggiornamento dell'hardware del controller, fare riferimento a. xref:other_references.adoc[Riferimenti] Per collegarsi a _Upgrade spostando volumi o storage_.
+Per altri metodi di aggiornamento dell'hardware del controller, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
 È possibile aggiornare senza interruzioni l'hardware del controller su una coppia di nodi che eseguono ONTAP eseguendo la migrazione degli aggregati non root dai nodi originali ai nuovi nodi nello stesso cluster. I dati ospitati sui nodi che vengono aggiornati sono accessibili durante l'aggiornamento.
 

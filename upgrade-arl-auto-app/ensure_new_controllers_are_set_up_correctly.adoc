@@ -123,7 +123,7 @@ Invio `y` per rimuovere tutti i pacchetti.
 +
 È possibile confrontare l'output con quello acquisito nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"].
 
-. [[unset_maxwait_system_comands]]se nella configurazione vengono utilizzati dischi con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (ad esempio, in link:install_boot_node4.html#step27["Installazione e boot node4, passaggio 27"]), è necessario annullare l'impostazione della variabile:
+. [[unset_maxwait_system_comands]]se nella configurazione vengono utilizzati dischi con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (ad esempio, in link:install_boot_node4.html#auto_install4_step27["Installazione e boot node4, passaggio 27"]), è necessario annullare l'impostazione della variabile:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 

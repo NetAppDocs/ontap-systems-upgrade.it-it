@@ -23,9 +23,9 @@ Tuttavia, non è necessario eseguire il netboot node3 se ha la stessa versione o
 
 [IMPORTANT]
 ====
-Se si sta eseguendo l'upgrade di un sistema V-Series collegato a storage array o a un sistema con software di virtualizzazione FlexArray collegato a storage array, è necessario completare la procedura <<man_install3_step1,Fase 1>> attraverso <<man_install3_step5,Fase 5>>, lasciare questa sezione all'indirizzo <<man_install3_step6,Fase 6>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] se necessario, immettere i comandi in modalità di manutenzione. Quindi, tornare a questa sezione e riprendere con <<man_install3_step7,Fase 7>>.
+Se si sta eseguendo l'upgrade di un sistema V-Series collegato a storage array o a un sistema con software di virtualizzazione FlexArray collegato a storage array, è necessario completare la procedura <<man_install3_step1,Fase 1>> attraverso <<man_install3_step5,Fase 5>>, lasciare questa sezione all'indirizzo <<man_install3_step6,Fase 6>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] se necessario, immettere i comandi in modalità di manutenzione. Quindi, tornare a questa sezione e riprendere con <<man_install3_step7,Fase 7>>.
 
-Tuttavia, se si sta eseguendo l'aggiornamento di un sistema con dischi di storage, è necessario completare l'intera sezione e andare al link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"], immettendo i comandi al prompt del cluster.
+Tuttavia, se si sta eseguendo l'aggiornamento di un sistema con dischi di storage, è necessario completare l'intera sezione e andare al link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"], immettendo i comandi al prompt del cluster.
 
 ====
 .Fasi
@@ -100,7 +100,7 @@ NOTE: *Attenzione*: Non ignorare il ritardo; il mancato caricamento della batter
 
 
 | È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
-.. Passare a. link:set_fc_uta_uta2_config_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"] e completare le sottosezioni link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"], in base al sistema in uso.
+.. Passare a. link:set_fc_uta_uta2_config_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"] e completare le sottosezioni link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"], in base al sistema in uso.
 .. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<man_install3_step7,Fase 7>>.
 
 

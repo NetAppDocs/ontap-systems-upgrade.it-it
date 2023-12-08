@@ -1,0 +1,67 @@
+---
+permalink: upgrade/upgrade-by-moving-storage-parent.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: 'Se si esegue l"aggiornamento spostando lo storage, si preparano i nodi originali e si configurano i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete. L"aggiornamento tramite lo spostamento dello storage è una procedura di interruzione.' 
+---
+= Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si sta aggiornando l'hardware del controller spostando lo storage, si preparano i nodi originali e si configurano i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete. L'aggiornamento tramite lo spostamento dello storage è una procedura di interruzione.
+
+[NOTE]
+====
+Nei passaggi per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage, i nodi originali sono chiamati node1 e node2, mentre i nuovi nodi sono chiamati node3 e node4. Durante la procedura descritta, il node1 viene sostituito dal node3, mentre il node2 viene sostituito dal node4.
+
+image::../upgrade/media/original_to_new_nodes.png[Sostituzione di node3 e node4 con node1 e node2]
+
+I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituirli con i nomi reali dei nodi originali e nuovi. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
+
+====
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-prepare-when-moving-storage.html["Preparatevi per l'aggiornamento durante lo spostamento dello storage"]
+[role="quick-margin-para"]
+Prima di eseguire l'aggiornamento spostando lo spazio di archiviazione, è necessario raccogliere le informazioni sulle licenze dai nodi originali, pianificare la configurazione di rete, registrare gli ID di sistema e preparare i file necessari per il netboot.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:upgrade-shutdown-remove-original-nodes.html["Chiudere i nodi originali"]
+[role="quick-margin-para"]
+Quando si arrestano e si rimuovono i nodi originali, viene inviato un messaggio AutoSupport relativo all'aggiornamento, si distruggono le cassette postali, si spengono i nodi e si rimuove lo chassis.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:upgrade-remove-disk-ownership-new-nodes.html["Rimuovere la proprietà dei dischi collegati ai nuovi nodi"]
+[role="quick-margin-para"]
+Se i nuovi nodi hanno dischi interni o shelf add-on collegati al sistema, questi possono interferire con l'aggiornamento del controller.  È necessario rimuovere la proprietà di tutti i nuovi dischi forniti con node3/node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:upgrade-reset-default-configuration-node3-and-node4.html["Ripristinare la configurazione predefinita sui nuovi nodi"]
+[role="quick-margin-para"]
+Per verificare che le informazioni di configurazione sul supporto di avvio non interferiscano con l'aggiornamento del controller, è necessario ripristinare le impostazioni di configurazione predefinite delle configurazioni di node3 e node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade-install-new-nodes.html["Installare i nuovi nodi"]
+[role="quick-margin-para"]
+Quando si esegue l'aggiornamento spostando lo storage, si inizia installando il nodo 3 e il nodo 4 e collegando le connessioni di alimentazione, console e rete ai nuovi nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:upgrade-set-up-new-nodes.html["Impostare i nuovi nodi"]
+[role="quick-margin-para"]
+Durante il processo di aggiornamento mediante lo spostamento dello storage, si accende node3 e node4, si avvia l'immagine software e si configurano i nodi. Il layout fisico delle porte tra i nodi originale e nuovo può essere diverso. È necessario eseguire il mapping delle porte tra i nodi originali e quelli sostitutivi per identificare il layout corretto di porte e connessioni.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:upgrade-optional-move-internal-storage.html["Opzionale: Spostare lo storage interno o convertire il sistema in uno shelf di dischi"]
+[role="quick-margin-para"]
+Se il nodo originale è uno dei modelli supportati, è possibile spostare dischi SATA interni, SSD o dischi SAS in uno shelf di dischi collegato ai nuovi nodi durante il processo di upgrade, mediante lo spostamento dello storage. È inoltre possibile convertire il sistema in uno shelf di dischi e collegarlo ai nuovi nodi.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Otto"]link:upgrade-attach-shelves-reassign-disks.html["Collegare shelf di storage e riassegnare la proprietà del disco"]
+[role="quick-margin-para"]
+Si riassegnano i dischi che appartenevano rispettivamente a node1 e node2 a node3 e node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-9.png["Nove"]link:upgrade-restore-root-volume-config.html["Ripristinare la configurazione del volume root"]
+[role="quick-margin-para"]
+Le informazioni di configurazione vengono ripristinate dal volume root ai dispositivi di avvio.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-10.png["Dieci"]link:upgrade-complete.html["Completare l'aggiornamento"]
+[role="quick-margin-para"]
+Completare l'aggiornamento in ONTAP 9.8 o versione successiva o in ONTAP 9.7 o versione precedente.
+
+.Informazioni correlate
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi"] (procedura senza interruzioni).
+

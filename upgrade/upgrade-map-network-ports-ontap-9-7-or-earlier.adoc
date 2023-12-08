@@ -14,7 +14,7 @@ summary: 'Per consentire a node3 e node4 di comunicare tra loro nel cluster e co
 Per consentire a node3 e node4 di comunicare tra loro nel cluster e con la rete dopo l'aggiornamento, è necessario confermare che le porte fisiche sono configurate correttamente con le impostazioni per l'uso previsto, come cluster, dati e così via.
 
 .Prima di iniziare
-Questa procedura si applica ai sistemi che eseguono ONTAP 9.7 o versioni precedenti. Se si utilizza ONTAP 9.8 o versione successiva, è necessario seguire la procedura descritta in xref:upgrade-map-network-ports-ontap-9-8.adoc[Mappare le porte di rete utilizzando ONTAP 9.8 o versione successiva].
+Questa procedura si applica ai sistemi che eseguono ONTAP 9.7 o versioni precedenti. Se si utilizza ONTAP 9.8 o versione successiva, è necessario seguire la procedura descritta in link:upgrade-map-network-ports-ontap-9-8.html["Mappare le porte di rete utilizzando ONTAP 9.8 o versione successiva"].
 
 .A proposito di questa attività
 È necessario eseguire questi passaggi su node3 e node4.
@@ -23,7 +23,7 @@ Questa procedura si applica ai sistemi che eseguono ONTAP 9.7 o versioni precede
 NOTE: I seguenti esempi di comandi si riferiscono a "node1" perché in questa fase della procedura i nodi di sostituzione "node3" e "node4" sono in realtà denominati "node1" e "node2".
 
 .Fasi
-. Se sul sistema è in esecuzione ONTAP 9.8 o versione successiva, *STOP*. È necessario utilizzare la procedura descritta in xref:upgrade-map-network-ports-ontap-9-8.adoc[Mappare le porte di rete utilizzando ONTAP 9.8 o versione successiva].
+. Se sul sistema è in esecuzione ONTAP 9.8 o versione successiva, *STOP*. È necessario utilizzare la procedura descritta in link:upgrade-map-network-ports-ontap-9-8.html["Mappare le porte di rete utilizzando ONTAP 9.8 o versione successiva"].
 . Individuare le informazioni di configurazione di porta e LIF per node1 e node2 registrate in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Fase 3"].
 . Individuare le informazioni relative a porte, domini di trasmissione e IPspaces registrate in _preparazione per l'aggiornamento durante lo spostamento dello storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Fase 3"].
 +
@@ -138,4 +138,4 @@ Il seguente comando imposta la policy di failover su broadcast-domain-wide e uti
 
 
 .Al termine
-Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[Eseguire la procedura di aggiornamento finale in ONTAP 9.7 o versioni precedenti].
+Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo link:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html["Eseguire la procedura di aggiornamento finale in ONTAP 9.7 o versioni precedenti"].

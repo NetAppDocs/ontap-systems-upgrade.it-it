@@ -153,7 +153,7 @@ NOTE: Se nel sistema sono presenti dischi condivisi, aggregati ibridi o entrambi
 `_node2_sysid_ -d _node4_sysid_` 
 |===
 +
-Per `<node2_sysid>` utilizzare le informazioni acquisite in link:record_node2_information.html#man_node2_info_step10["Fase 10"] Della sezione _Record node2 information_. Per `_node4_sysid_`, utilizzare le informazioni acquisite in <<man_install4_step23,Fase 23>>.
+Per `<node2_sysid>` utilizzare le informazioni acquisite in link:record_node2_information.html#man_record_2_step10["Fase 10"] Della sezione _Record node2 information_. Per `_node4_sysid_`, utilizzare le informazioni acquisite in <<man_install4_step23,Fase 23>>.
 
 +
 

@@ -60,7 +60,7 @@ Node2 non prenderà il controllo, ma sta ancora fornendo dati da tutti gli aggre
 . Far salire il node1.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 +
-È possibile che vengano visualizzate alcune modifiche nell'output di `storage failover show` comando, ma questo è tipico e non influisce sulla procedura. Consultare la sezione relativa alla risoluzione dei problemi link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output["Il failover dello storage non previsto mostra l'output del comando"].
+È possibile che vengano visualizzate alcune modifiche nell'output di `storage failover show` comando, ma questo è tipico e non influisce sulla procedura. Consultare la sezione relativa alla risoluzione dei problemi link:issues_multiple_stages_of_procedure.html#storage-failover-command["Il failover dello storage non previsto mostra l'output del comando"].
 
 
 
@@ -205,7 +205,7 @@ Si verifica un'interruzione per il resto degli aggregati fino a quando il node3 
 
 .Fasi
 . Alzati il node3.
-. Riallocare gli aggregati rimanenti che appartenevano al node2 ripetendo link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Fase 1"] attraverso link:relocate_node2_non_root_aggr_node3_node4.html#step3["Fase 3"] Nella sezione _spostare gli aggregati non root di node2 da node3 a node4_.
+. Riallocare gli aggregati rimanenti che appartenevano al node2 ripetendo link:relocate_node2_non_root_aggr_node3_node4.html#man_relocate_3_4_Step1["Fase 1"] attraverso link:relocate_node2_non_root_aggr_node3_node4.html#step3["Fase 3"] Nella sezione _spostare gli aggregati non root di node2 da node3 a node4_.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 
 

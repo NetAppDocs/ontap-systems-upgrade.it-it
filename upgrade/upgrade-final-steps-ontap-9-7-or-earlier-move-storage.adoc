@@ -14,10 +14,10 @@ summary: 'Per completare la procedura di aggiornamento spostando lo storage, è 
 Per completare la procedura di aggiornamento spostando lo storage, è necessario eliminare le porte e i AutoSupport inutilizzati dai nuovi nodi, riattivare il failover dello storage o l'alta disponibilità, configurare il Service Processor (SP), installare nuove licenze e impostare i LIF. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o CNA.
 
 .Prima di iniziare
-Questa procedura si applica ai sistemi che eseguono ONTAP 9.7 o versioni precedenti. Se si utilizza ONTAP 9.8 o versione successiva, è necessario seguire la procedura descritta in xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva].
+Questa procedura si applica ai sistemi che eseguono ONTAP 9.7 o versioni precedenti. Se si utilizza ONTAP 9.8 o versione successiva, è necessario seguire la procedura descritta in link:upgrade-final-upgrade-steps-in-ontap-9-8.html["Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva"].
 
 .Fasi
-. Se sul sistema è in esecuzione ONTAP 9.8 o versione successiva, *STOP*. È necessario utilizzare la procedura descritta in xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva].
+. Se sul sistema è in esecuzione ONTAP 9.8 o versione successiva, *STOP*. È necessario utilizzare la procedura descritta in link:upgrade-final-upgrade-steps-in-ontap-9-8.html["Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva"].
 . Dal prompt del sistema storage, visualizzare le informazioni relative ai LIF:
 +
 `network interface show`

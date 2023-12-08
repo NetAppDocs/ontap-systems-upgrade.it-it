@@ -317,7 +317,7 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 `boot_ontap menu`
 
 +
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che il node4 possa riconoscere i dischi del node2.
+Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che node4 possa riconoscere i dischi di node2.
 
 . [[step29]]per una configurazione MetroCluster, sistemi V-Series e sistemi con software di virtualizzazione FlexArray collegati agli array di storage, è necessario impostare e configurare le porte FC o UTA/UTA2 sul nodo 3 per rilevare i dischi collegati al nodo. Per completare questa attività, passare alla sezione link:set_fc_or_uta_uta2_config_on_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"].
 

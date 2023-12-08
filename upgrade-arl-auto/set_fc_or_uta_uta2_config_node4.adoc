@@ -121,7 +121,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 
 | È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
 ** Passare a. link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"] Se node4 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate.
-** Saltare la sezione _controllare e configurare le porte UTA/UTA2 su node4_ se node4 non dispone di una scheda UTA/UTA2 o di porte integrate UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere da link:install_boot_node4.html#step23["Fase 23"].
+** Saltare la sezione _controllare e configurare le porte UTA/UTA2 su node4_ se node4 non dispone di una scheda UTA/UTA2 o di porte integrate UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere da link:install_boot_node4.html#auto_install4_step23["Fase 23"].
 
 
 |===
@@ -291,7 +291,7 @@ f-a   2b       fc             target       cna           -             online
 | Dispone di dischi di storage | Andare alla sezione link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"]. 
 
 
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare alla sezione _Installazione e boot node4_ e riprendere il lavoro dal link:install_boot_node4.html#step23["Fase 23"]. 
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare alla sezione _Installazione e boot node4_ e riprendere il lavoro dal link:install_boot_node4.html#auto_install4_step23["Fase 23"]. 
 |===
 . [[auto_check_4_step13]]Esci dalla modalità di manutenzione:
 +

@@ -23,7 +23,7 @@ Potrebbe essere necessario completare la sezione <<Configurare le porte FC sul n
 NOTE: I materiali di marketing NetApp potrebbero utilizzare il termine UTA2 per fare riferimento alle porte e agli adattatori CNA (Converged Network Adapter). Tuttavia, la CLI utilizza il termine CNA.
 
 * Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 e si sta eseguendo l'aggiornamento di un sistema con dischi di storage, passare alla sezione link:verify_node3_installation.html["Verificare l'installazione di node3"] sezione.
-* Tuttavia, se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray con storage array e node3 non dispone di porte FC integrate, porte UTA/UTA integrate o una scheda UTA/UTA2, tornare alla sezione _Installazione e boot node3_ e riprendere la sezione all'indirizzo link:install_boot_node3.html#step23["Fase 23"].
+* Tuttavia, se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray con storage array e node3 non dispone di porte FC integrate, porte UTA/UTA integrate o una scheda UTA/UTA2, tornare alla sezione _Installazione e boot node3_ e riprendere la sezione all'indirizzo link:install_boot_node3.html#auto_install3_step23["Fase 23"].
 
 
 .Scelte
@@ -123,7 +123,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 
 | È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
 ** Se node3 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate, passare alla sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>.
-** Se node3 non dispone di una scheda UTA/UTA2 o di porte UTA/UTA2 integrate, saltare la sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>> E tornare alla sezione _Installazione e boot node3_ e riprendere da link:install_boot_node3.html#step23["Fase 23"].
+** Se node3 non dispone di una scheda UTA/UTA2 o di porte UTA/UTA2 integrate, saltare la sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>> E tornare alla sezione _Installazione e boot node3_ e riprendere da link:install_boot_node3.html#auto_install3_step23["Fase 23"].
 
 
 |===
@@ -308,7 +308,7 @@ Adapter  Mode       Type        Mode     Type        Status
 | Dispone di dischi di storage | Passare a. link:verify_node3_installation.html["Verificare l'installazione di node3"]. 
 
 
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare alla sezione _Installazione e boot node3_ e riprendere il lavoro dal punto link:install_boot_node3.html#step23["Fase 23"]. 
+| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare alla sezione _Installazione e boot node3_ e riprendere il lavoro dal punto link:install_boot_node3.html#auto_install3_step23["Fase 23"]. 
 |===
 . [[auto_check3_step13]]Esci dalla modalità di manutenzione:
 +

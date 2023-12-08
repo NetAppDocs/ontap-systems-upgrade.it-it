@@ -29,7 +29,7 @@ node2
 ----
 +
 
-NOTE: Il sistema potrebbe non disporre di LIF intercluster. Si avrà una LIF di gestione del cluster solo su un nodo di una coppia di nodi. Nell'output di esempio di è stata visualizzata una LIF di gestione del cluster link:record_node1_information.html#step["Fase 1"] In _Record node1 port information_.
+NOTE: Il sistema potrebbe non disporre di LIF intercluster. Si avrà una LIF di gestione del cluster solo su un nodo di una coppia di nodi. Una LIF di gestione cluster viene visualizzata nell'output di esempio di link:record_node1_information.html#step1["Fase 1"] In _Record node1 port information_.
 
 . Acquisire le informazioni nell'output da utilizzare nella sezione link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].
 +

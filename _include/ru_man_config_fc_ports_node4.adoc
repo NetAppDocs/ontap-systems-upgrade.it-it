@@ -146,7 +146,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 
 | È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
 ** Passare a. <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>> Se node4 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate.
-** Saltare la sezione _controllare e configurare le porte UTA/UTA2 su node4_ se node4 non dispone di una scheda UTA/UTA2 o di porte integrate UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere la sezione su link:install_boot_node4.html#Step9["Fase 9"].
+** Saltare la sezione _controllare e configurare le porte UTA/UTA2 su node4_ se node4 non dispone di una scheda UTA/UTA2 o di porte integrate UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere la sezione su link:install_boot_node4.html#man_install4_Step9["Fase 9"].
 
 
 |===

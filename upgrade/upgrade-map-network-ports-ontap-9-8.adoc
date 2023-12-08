@@ -14,7 +14,7 @@ summary: 'Per consentire a node3 e node4 di comunicare tra loro nel cluster e co
 Per consentire a node3 e node4 di comunicare tra loro nel cluster e con la rete dopo l'aggiornamento, è necessario confermare che le porte fisiche sono configurate correttamente con le impostazioni per l'uso previsto, come cluster, dati e così via.
 
 .Prima di iniziare
-Questa procedura si applica ai sistemi che eseguono ONTAP 9.8 o versioni successive. Se si utilizza ONTAP 9.7 o versioni precedenti, è necessario seguire la procedura descritta in xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti].
+Questa procedura si applica ai sistemi che eseguono ONTAP 9.8 o versioni successive. Se si utilizza ONTAP 9.7 o versioni precedenti, è necessario seguire la procedura descritta in link:upgrade-map-network-ports-ontap-9-7-or-earlier.html["Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti"].
 
 .A proposito di questa attività
 È necessario eseguire questi passaggi su node3 e node4.
@@ -23,7 +23,7 @@ Questa procedura si applica ai sistemi che eseguono ONTAP 9.8 o versioni success
 NOTE: I seguenti esempi di comandi si riferiscono a "node1" perché in questa fase della procedura i nodi di sostituzione "node3" e "node4" sono in realtà denominati "node1" e "node2".
 
 .Fasi
-. Se sul sistema è in esecuzione ONTAP 9.7 o versione precedente, *STOP*. È necessario utilizzare la procedura descritta in xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti].
+. Se sul sistema è in esecuzione ONTAP 9.7 o versione precedente, *STOP*. È necessario utilizzare la procedura descritta in link:upgrade-map-network-ports-ontap-9-7-or-earlier.html["Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti"].
 . Individuare le informazioni di configurazione di porta e LIF per node1 e node2 registrate in _Prepare for upgrade when moving storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Fase 3"].
 . Individuare le informazioni relative a porte, domini di trasmissione e IPspaces registrate in _preparazione per l'aggiornamento durante lo spostamento dello storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Fase 3"].
 +
@@ -73,7 +73,7 @@ Una volta migrate tutte le LIF del cluster e stabilita la comunicazione del clus
 `::> network connections listening show -vserver Cluster` 
 
 
-| 9.12.1 o versione successiva | Saltare questo passaggio e passare a. <<map_9.8_5,Fase 5>>. 
+| 9.12.1 o versione successiva | Saltare questo passaggio e passare a. <<map_98_5,Fase 5>>. 
 |===
 +
 La porta 7700 in ascolto sulle porte del cluster è il risultato previsto, come mostrato nell'esempio seguente per un cluster a due nodi:
@@ -101,7 +101,7 @@ Ripetere il passaggio secondario (g) per verificare che la LIF del cluster sia i
 
 
 
-. [[map_9.8_5]]Modifica l'appartenenza al dominio di broadcast delle porte fisiche che ospitano le LIF dei dati. È possibile eseguire questa operazione manualmente, come illustrato nella link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_9.7_7["Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti, passaggio 7"]. L'approccio consigliato è quello di utilizzare la procedura avanzata di scansione e riparazione della raggiungibilità di rete introdotta in ONTAP 9.8, come illustrato nella seguente fase 5, sotto-fasi da (a) a (g).
+. [[map_98_5]]modificare l'appartenenza dei domini di broadcast alle porte fisiche che ospitano LIF dati. È possibile eseguire questa operazione manualmente, come illustrato nella link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_97_7["Mappare le porte di rete utilizzando ONTAP 9.7 o versioni precedenti, passaggio 7"]. NetApp consiglia di utilizzare la procedura di scansione e riparazione avanzata per la raggiungibilità della rete introdotta in ONTAP 9,8, come illustrato nella seguente fase 5, sottopagine da (a) a (g).
 +
 .. Elencare lo stato di raggiungibilità di tutte le porte:
 +
@@ -218,4 +218,4 @@ NOTE: Per le LIF iSCSI, la modifica della porta home richiede che la LIF sia amm
 
 
 
-Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva].
+Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo link:upgrade-final-upgrade-steps-in-ontap-9-8.html["Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva"].

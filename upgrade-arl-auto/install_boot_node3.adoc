@@ -314,7 +314,7 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 `boot_ontap menu`
 
 +
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che il node4 possa riconoscere i dischi del node2.
+Se non si dispone di una configurazione FC o UTA/UTA2, eseguire la procedura link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che il node4 possa riconoscere i dischi del node2.
 
 . [[auto9597_istall3_step29]]per una configurazione MetroCluster, sistemi V-Series e sistemi con software di virtualizzazione FlexArray collegati agli array di storage, visitare il sito link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 3, passaggio 15"].
 

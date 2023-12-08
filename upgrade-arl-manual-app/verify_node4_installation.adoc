@@ -44,7 +44,7 @@ Collegare l'interconnessione ha tra i nodi completando la seguente procedura:
 
 | Nello stesso chassis del node3 | Passare a. <<step5,Fase 5>>. Non è necessario collegare manualmente l'interconnessione ha tra i nodi; nelle configurazioni dello stesso chassis, l'interconnessione ha viene connessa automaticamente attraverso la scheda madre. 
 |===
-. [[fase 5]]eseguire una delle seguenti operazioni:
+. [[step5]]intraprendere una delle seguenti azioni:
 +
 |===
 | Se il cluster è... | Quindi... 
