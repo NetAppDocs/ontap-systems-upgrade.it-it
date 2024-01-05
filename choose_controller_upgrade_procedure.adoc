@@ -67,4 +67,4 @@ Il trasferimento degli aggregati è una procedura di sostituzione. Non devi espa
 ====
 Se si sta aggiornando una configurazione MetroCluster, consultare la sezione https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aggiornare, aggiornare o espandere la configurazione di MetroCluster"^].
 
-Se si sostituisce un singolo componente, vedere https://docs.netapp.com/us-en/ontap-systems/index.html["Documentazione sui sistemi AFF e FAS"^] E individuare il volantino FRU (Field-Replaceable Unit) relativo a quel componente.
+Se si sostituisce un singolo componente, vedere https://docs.netapp.com/us-en/ontap-systems/index.html["Documentazione dei sistemi hardware ONTAP"^] E individuare il volantino FRU (Field-Replaceable Unit) relativo a quel componente.

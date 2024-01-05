@@ -100,6 +100,22 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migrazione a un cl
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migrazione a un cluster con switch a due nodi con switch di cluster NetApp CN1610"^]
 
+. Se necessario, ricreare gli account utente non predefiniti per il controller BMC (Baseboard Management Controller) nel vecchio sistema:
++
+.. Modificare o reimpostare la password dell'account utente amministratore BMC.
++
+La password dell'account utente amministratore BMC è vuota (nessuna password) o uguale alla password dell'account utente amministratore di sistema.
+
+.. Creare nuovamente gli account utente BMC non predefiniti utilizzando `security login create` comando con `application` impostare su "service processor", come illustrato nell'esempio seguente:
++
+`security login create -user-or-group-name bmcuser -application service-processor -authentication-method password -role admin`
+
++
+
+NOTE: Per creare un account utente in BMC sono necessari i privilegi di amministratore.
+
+
+
 . Se necessario, decommissionare i sistemi originali attraverso il NetApp Support Site per informare NetApp che i sistemi non sono più in funzione e possono essere rimossi dai database di supporto:
 +
 .. Accedere a. https://mysupport.netapp.com/site/global/dashboard["Supporto NetApp"^] sito.

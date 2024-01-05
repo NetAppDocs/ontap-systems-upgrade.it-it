@@ -3952,7 +3952,6 @@
   <block id="56156496b19659e54135677ece56f2f7" category="list-text">Quando il server host è in linea, è possibile spostare un LUN SAN in una nuova coppia ha senza interrompere l'accesso del server host ai dati del LUN</block>
   <block id="2dd82882bae57f157f720bee2e0f1c24" category="inline-link">Movimento LIF SAN</block>
   <block id="f6e1595cdf693f15c733ea3348445b77" category="paragraph">Per ulteriori informazioni, consultare<block ref="52d99da56caea8d9bc5c4380abc20d71" category="inline-link-rx"></block> Procedura nella documentazione di _GESTIONE dello storage SAN_.</block>
-  <block id="6af6b76d592516d40ca101051c678be3" category="doc">Documentazione sull'upgrade dei sistemi AFF e FAS</block>
   <block id="0e472afa239c2cd65ab6d08bdaa80dff" category="summary">Riprendere i trasferimenti e le relazioni di SnapMirror durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.</block>
   <block id="27effd56423bec9ee27e09277564b6ed" category="summary">Se necessario, configurare la crittografia dello storage, installare i certificati SSL e configurare i server di gestione delle chiavi durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.</block>
   <block id="4cb6b559e491ceb7837bbe4029df8647" category="summary">Spostare gli aggregati non root di node2 da node3 a node4 durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti.</block>
@@ -4193,7 +4192,6 @@
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">Aggiornare i sistemi in una configurazione MetroCluster</block>
   <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">Selezionare la procedura di aggiornamento per la configurazione MetroCluster</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Più risorse</block>
-  <block id="aaf23d643347b5921ba9716fa4c13f83" category="sidebar">Documentazione sui sistemi ONTAP</block>
   <block id="743b2bde29eae11996923323c6b89672" category="sidebar">Documentazione sugli switch ONTAP</block>
   <block id="dd032435fa83549d8bf3928550409a3e" category="sidebar">Documentazione del software ONTAP</block>
   <block id="519131237f79eadb2dc6a1e003a087bc" category="sidebar">NetApp Active IQ Config Advisor</block>
@@ -4750,8 +4748,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="8b9b2634fd898f04166a765851aba8f2" category="list-text"><block ref="8b9b2634fd898f04166a765851aba8f2" category="inline-link-macro-rx"></block></block>
   <block id="441e5e19c045de8820e45a5b22e45056" category="paragraph">*Note2*: Un upgrade senza interruzioni richiede un nuovo sistema con storage e shelf dedicati per memorizzare i dati del sistema originale.</block>
   <block id="272d55e2adea123757d8811eaaaebd88" category="paragraph">*Note3*: Durante l'upgrade con lo spostamento dei volumi, unisci i nuovi nodi, sposta volumi e LIF nei nuovi nodi, quindi unisci i nodi che desideri rimuovere dal cluster. Se stai aggiornando un cluster senza switch a due nodi, prima di aggiungere nuovi nodi puoi convertirlo in un cluster con switch collegato utilizzando una coppia di switch del cluster.</block>
-  <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">Documentazione sui sistemi AFF e FAS</block>
-  <block id="c2238e72fe75968b1d2d41e7beba323b" category="paragraph">Se si sostituisce un singolo componente, vedere<block ref="9e966fb68ec771eec4870f18e1909b4f" category="inline-link-rx"></block> E individuare il volantino FRU (Field-Replaceable Unit) relativo a quel componente.</block>
   <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP 9,8 e versioni successive</block>
   <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP 9,7 e versioni precedenti</block>
   <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">Upgrade tramite spostamento di storage o volumi</block>
@@ -4900,5 +4896,15 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="ac5c825456c3417b5a4af98c4f3e915f" category="paragraph">^1^per ulteriori passaggi necessari per i sistemi AFF A800, passare alla fase che fa riferimento a A800 nella sezione <block ref="d7767766539bb5c2349ec33972e353b3" category="inline-link-macro-rx"></block>, o. <block ref="1ac9d612a445bb1be7d33490e7f7168c" category="inline-link-macro-rx"></block>.</block>
   <block id="e517f479718742d7735088b63cb4b0a6" category="list-text">[[step5]]intraprendere una delle seguenti azioni:</block>
   <block id="1f6c36e4c21adc6fcbbeb1628f0ce398" category="paragraph">Per altri metodi di aggiornamento dell'hardware del controller, fare riferimento a. <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per collegarsi a _Upgrade spostando volumi o storage_.</block>
-  <block id="a8337c93c769b636588431825fedbc33" category="sidebar">Questo sito fornisce le procedure di aggiornamento dei sistemi di storage AFF e FAS. Seleziona la procedura di aggiornamento appropriata per il tuo sistema storage.</block>
+  <block id="ce334042acf5cdb00aa6b0cacc91188d" category="list-text">Se necessario, ricreare gli account utente non predefiniti per il controller BMC (Baseboard Management Controller) nel vecchio sistema:</block>
+  <block id="7cd124c3569d4b8de1ffd3a55e5a0f72" category="list-text">Modificare o reimpostare la password dell'account utente amministratore BMC.</block>
+  <block id="f9c20a87fa881cd6931b55ff9caab40b" category="paragraph">La password dell'account utente amministratore BMC è vuota (nessuna password) o uguale alla password dell'account utente amministratore di sistema.</block>
+  <block id="98295c6ad28170a1a290ca42442cdb79" category="list-text">Creare nuovamente gli account utente BMC non predefiniti utilizzando<block ref="5d6b067bb8a979d6b47c787077dfae6f" prefix=" " category="inline-code"></block> comando con<block ref="3676d55f84497cbeadfc614c1b1b62fc" prefix=" " category="inline-code"></block> impostare su "service processor", come illustrato nell'esempio seguente:</block>
+  <block id="715d318a746fe248ce78ec5e2626f09e" category="paragraph"><block ref="95c8ee682558c9e9a0683d5d70ee2be7" prefix="" category="inline-code"></block></block>
+  <block id="b6025c8f8309b4b8106567e8e60f52ac" category="admonition">Per creare un account utente in BMC sono necessari i privilegi di amministratore.</block>
+  <block id="a64a5798382cc068c2d777ff826bccb5" category="doc">Documentazione di aggiornamento hardware ONTAP</block>
+  <block id="646d7d5f93b4a6d7bbbc65acf5ac1077" category="inline-link">Documentazione dei sistemi hardware ONTAP</block>
+  <block id="c2bb4d5f8818bc80f7aa15d94d57c6e3" category="paragraph">Se si sostituisce un singolo componente, vedere<block ref="e18a2433f1085adba8dc86307fee18d1" category="inline-link-rx"></block> E individuare il volantino FRU (Field-Replaceable Unit) relativo a quel componente.</block>
+  <block id="dec452d8e293e5516524ae8a86713211" category="sidebar">Questo sito fornisce le procedure di aggiornamento dei sistemi di storage AFF, FAS e ASA. Seleziona la procedura di aggiornamento appropriata per il tuo sistema storage.</block>
+  <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">Documentazione sui sistemi hardware ONTAP</block>
 </blocks>
