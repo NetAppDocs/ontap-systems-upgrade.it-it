@@ -17,7 +17,12 @@ summary: È necessario riassegnare i dischi appartenenti a node1 e node2 rispett
 Prima di passare alla fase successiva, eseguire le operazioni descritte in questa sezione su node3 e node4, quindi completare ciascuna fase su node3 e node4.
 
 .Fasi
-. Collegare i cavi dello shelf dal nodo 1/node2 al nodo 3/node4. Verificare l'alimentazione e la connettività fisica degli shelf.
+. Collegare i cavi dello shelf di archiviazione dagli scaffali precedentemente collegati a node1/node2 a node3/node4.
++
+
+CAUTION: Durante questa procedura di upgrade, non devi collegare i nuovi shelf a node3/node4. Puoi connettere senza interruzioni nuovi shelf al sistema dopo aver completato l'upgrade dei controller.
+
+. Verificare l'alimentazione e la connettività fisica degli shelf.
 . Dal prompt DEL CARICATORE node3, avviare in modalità manutenzione:
 +
 `boot_ontap maint`

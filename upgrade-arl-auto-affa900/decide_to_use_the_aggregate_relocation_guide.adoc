@@ -16,7 +16,7 @@ summary: Decidere se utilizzare la procedura ARL che aggiorna i modelli di contr
 [role="lead"]
 Questo contenuto descrive come aggiornare i controller di storage in una coppia ha mantenendo tutti i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
 
-Seguire questa procedura nei seguenti casi:
+È possibile utilizzare questa procedura nelle seguenti circostanze:
 
 * Si sta eseguendo uno dei seguenti aggiornamenti del controller:
 +
@@ -53,7 +53,7 @@ Seguire questa procedura nei seguenti casi:
 * Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
 
 
-Non utilizzare questa procedura nei seguenti casi:
+Non è possibile utilizzare questa procedura nelle seguenti circostanze:
 
 * Si utilizza il software di virtualizzazione FlexArray sui sistemi AFF A700 o FAS9000.
 * Si sta utilizzando uno switch condiviso per l'interconnessione cluster e lo storage collegato Ethernet.

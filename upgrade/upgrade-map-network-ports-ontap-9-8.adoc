@@ -218,4 +218,5 @@ NOTE: Per le LIF iSCSI, la modifica della porta home richiede che la LIF sia amm
 
 
 
+.Al termine
 Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo link:upgrade-final-upgrade-steps-in-ontap-9-8.html["Eseguire la procedura di aggiornamento finale in ONTAP 9.8 o versione successiva"].

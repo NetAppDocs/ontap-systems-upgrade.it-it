@@ -2869,10 +2869,8 @@
   <block id="c34ebe5a54f4ac62ebd2695c126240e9" category="paragraph"><block ref="8947d9f65c60c1c5735ca3712d35f61f" prefix="" category="inline-code"></block></block>
   <block id="2ed045fa4ee3544c7e5a632a26d55b9f" category="paragraph">A partire da ONTAP 9.10.1, è possibile utilizzare i server KMIP (Key Management Interoperability Protocol) per gestire le chiavi di autenticazione.</block>
   <block id="9fd31f02e13c9f75db388cfb74e0acc1" category="list-text"><block ref="9fd31f02e13c9f75db388cfb74e0acc1" category="inline-link-macro-rx"></block></block>
-  <block id="c08f0b6d71108219929095cbd90d111d" category="paragraph">Seguire questa procedura nei seguenti casi:</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.</block>
-  <block id="9cc6fc2f026195efe30da793b04e5bd0" category="paragraph">Non utilizzare questa procedura nei seguenti casi:</block>
   <block id="b0ce3e25b9ec3a13c13ca9a6fa5323b7" category="list-text">Si utilizza il software di virtualizzazione FlexArray sui sistemi AFF A700 o FAS9000.</block>
   <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">Si sta utilizzando uno switch condiviso per l'interconnessione cluster e lo storage collegato Ethernet.</block>
   <block id="35ab088951b060d49693e4d4c692e7a5" category="list-text"><block ref="35ab088951b060d49693e4d4c692e7a5" category="inline-link-macro-rx"></block></block>
@@ -3342,7 +3340,6 @@
   <block id="d845d17a5ef5b3ab80e9280a67c911e8" category="list-text">Verificare che il controller sostituito sia configurato correttamente per la configurazione MetroCluster, che la configurazione MetroCluster sia in buono stato e non in modalità di commutazione. Fare riferimento a. <block ref="14c0e32a98a31f9fd4a16b635b2f7ebd" category="inline-link-macro-rx"></block>.</block>
   <block id="5e972db272a05de06b0d6fdb800b7a08" category="paragraph">Se si utilizza NetApp aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione della crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina il gestore delle chiavi, quando si trasferiranno gli aggregati node1 da node2 a node3 utilizzando ARL, i volumi crittografati verranno portati offline.</block>
   <block id="e95bcc2b27fdb0dc0398231cab6f5973" category="summary">Risolvere i problemi che potrebbero verificarsi quando si aggiornano i controller con ONTAP 9.5 a 9.7 utilizzando<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> comandi.</block>
-  <block id="c83b4e572cf3ae5eb7bac42baed0ac9e" category="summary">In questo argomento è possibile collegarsi ad altri contenuti e siti Web di riferimento.</block>
   <block id="8fb4b518ce39a0704f920c9d4f2f7b77" category="summary">Utilizzare il trasferimento di aggregati per aggiornare l'hardware del controller</block>
   <block id="6e58652b4dc76659a9eeef1a0ccc6daf" category="paragraph">Questo contenuto descrive come aggiornare l'hardware del controller senza interruzioni utilizzando il trasferimento aggregato (ARL).</block>
   <block id="645b41b640376c487d825f5296fcae9d" category="paragraph">È possibile aggiornare senza interruzioni l'hardware del controller su una coppia di nodi che eseguono ONTAP eseguendo la migrazione degli aggregati non root dai nodi originali ai nuovi nodi nello stesso cluster. I dati ospitati sui nodi che vengono aggiornati sono accessibili durante l'aggiornamento.</block>
@@ -3441,7 +3438,6 @@
   <block id="e062efd67a70d34c188657c2ffafc80e" category="summary">È necessario riassegnare i dischi appartenenti a node1 e node2 rispettivamente a node3 e node4.</block>
   <block id="43b6e140cee78de5a68c093867c65596" category="doc">Collegare shelf di storage e riassegnare la proprietà del disco</block>
   <block id="507efb4e488acd48724d3f1c3d4b184d" category="paragraph">Prima di passare alla fase successiva, eseguire le operazioni descritte in questa sezione su node3 e node4, quindi completare ciascuna fase su node3 e node4.</block>
-  <block id="3a1ea4eb792e23021a7c1dcb702a9545" category="list-text">Collegare i cavi dello shelf dal nodo 1/node2 al nodo 3/node4. Verificare l'alimentazione e la connettività fisica degli shelf.</block>
   <block id="6617e295325d64b4136755492970fe4c" category="list-text">Dal prompt DEL CARICATORE node3, avviare in modalità manutenzione:</block>
   <block id="533823574e82f810ad592fb31173b543" category="list-text">Visualizza l'ID di sistema del nodo 3:</block>
   <block id="9d0e35f7d62f6d238b5cb5794b6d495c" category="paragraph"><block ref="0f27807a5721c642901147ef5c9a87ea" prefix="" category="inline-code"></block></block>
@@ -4895,7 +4891,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="756e1a7c05678e697a7ba0945d87ed6c" category="paragraph">Se non si dispone di una configurazione FC o UTA/UTA2, eseguire <block ref="cd67767b7b87c1efe6325584571ce48d" category="inline-link-macro-rx"></block> in modo che node4 possa riconoscere i dischi di node2.</block>
   <block id="ac5c825456c3417b5a4af98c4f3e915f" category="paragraph">^1^per ulteriori passaggi necessari per i sistemi AFF A800, passare alla fase che fa riferimento a A800 nella sezione <block ref="d7767766539bb5c2349ec33972e353b3" category="inline-link-macro-rx"></block>, o. <block ref="1ac9d612a445bb1be7d33490e7f7168c" category="inline-link-macro-rx"></block>.</block>
   <block id="e517f479718742d7735088b63cb4b0a6" category="list-text">[[step5]]intraprendere una delle seguenti azioni:</block>
-  <block id="1f6c36e4c21adc6fcbbeb1628f0ce398" category="paragraph">Per altri metodi di aggiornamento dell'hardware del controller, fare riferimento a. <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per collegarsi a _Upgrade spostando volumi o storage_.</block>
   <block id="ce334042acf5cdb00aa6b0cacc91188d" category="list-text">Se necessario, ricreare gli account utente non predefiniti per il controller BMC (Baseboard Management Controller) nel vecchio sistema:</block>
   <block id="7cd124c3569d4b8de1ffd3a55e5a0f72" category="list-text">Modificare o reimpostare la password dell'account utente amministratore BMC.</block>
   <block id="f9c20a87fa881cd6931b55ff9caab40b" category="paragraph">La password dell'account utente amministratore BMC è vuota (nessuna password) o uguale alla password dell'account utente amministratore di sistema.</block>
@@ -4907,4 +4902,10 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="c2bb4d5f8818bc80f7aa15d94d57c6e3" category="paragraph">Se si sostituisce un singolo componente, vedere<block ref="e18a2433f1085adba8dc86307fee18d1" category="inline-link-rx"></block> E individuare il volantino FRU (Field-Replaceable Unit) relativo a quel componente.</block>
   <block id="dec452d8e293e5516524ae8a86713211" category="sidebar">Questo sito fornisce le procedure di aggiornamento dei sistemi di storage AFF, FAS e ASA. Seleziona la procedura di aggiornamento appropriata per il tuo sistema storage.</block>
   <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">Documentazione sui sistemi hardware ONTAP</block>
+  <block id="1320db1e300a995e122ea5d434b23e9b" category="list-text">Collegare i cavi dello shelf di archiviazione dagli scaffali precedentemente collegati a node1/node2 a node3/node4.</block>
+  <block id="4e14960b0c5923b866b1398172c14f69" category="admonition">Durante questa procedura di upgrade, non devi collegare i nuovi shelf a node3/node4. Puoi connettere senza interruzioni nuovi shelf al sistema dopo aver completato l'upgrade dei controller.</block>
+  <block id="c1f694580637b3e597cbb094a01e4f0b" category="list-text">Verificare l'alimentazione e la connettività fisica degli shelf.</block>
+  <block id="ed55776ebd74bfbd9eb16e468efd309c" category="paragraph">È possibile utilizzare questa procedura nelle seguenti circostanze:</block>
+  <block id="3767c7624c68d0c29496b5a31369dec4" category="paragraph">Non è possibile utilizzare questa procedura nelle seguenti circostanze:</block>
+  <block id="30fe187542d0301b8cde168dff779374" category="paragraph">Per altri metodi per aggiornare l'hardware del controller, vedere <block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>.</block>
 </blocks>
