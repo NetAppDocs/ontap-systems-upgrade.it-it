@@ -60,7 +60,8 @@ NOTE: Se stai eseguendo l'upgrade di un cluster a 8 nodi con protocolli a blocch
 
 
 | Devo spostare lo storage interno o convertire il sistema in uno shelf di dischi?  a| 
-. https://hwu.netapp.com/["Verificare che le dimensioni dell'aggregato root e il numero di dischi supportati dal nuovo sistema siano uguali o superiori a quelli supportati dal sistema originale"^].
+. https://hwu.netapp.com/["Verificare che le dimensioni correnti dell'aggregato root e il numero di dischi nell'aggregato root soddisfino o superino le specifiche del nuovo sistema"^].
+. https://hwu.netapp.com/["Verificare che il numero di dischi di archiviazione supportati dal nuovo sistema sia uguale o superiore a quelli supportati dal sistema originale"^].
 . link:upgrade-by-moving-storage-parent.html["Eseguire l'upgrade spostando lo storage"] (una procedura distruttiva).
 
 
