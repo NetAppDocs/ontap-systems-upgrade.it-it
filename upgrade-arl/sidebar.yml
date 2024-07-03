@@ -1,11 +1,4 @@
 ---
 section: upgrade-arl
-title: Aggiornamento mediante trasferimento degli aggregati
-entries:
-- title: Panoramica
-  url: "/upgrade-arl/index.html"
-- section: upgrade-arl-auto-affa900
-- section: upgrade-arl-auto-app
-- section: upgrade-arl-manual-app
-- section: upgrade-arl-auto
-- section: upgrade-arl-manual
+title: Scegliere la procedura di aggiornamento ARL
+url: "/upgrade-arl/index.html"

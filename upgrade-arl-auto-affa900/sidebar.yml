@@ -36,13 +36,21 @@ entries:
   - title: Ritirare il node1
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: Sostituire i moduli di sistema node1
-    url: "/upgrade-arl-auto-affa900/replace_node1_system_modules.html"
+    entries:
+    - title: Sostituire AFF A800
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa800.html"
+    - title: Sostituire AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html"
+    - title: Sostituire AFF A700 o FAS9000
+      url: "/upgrade-arl-auto-affa900/replace-node1-aff700-fas900.html"
   - title: Node1 NetBoot
     url: "/upgrade-arl-auto-affa900/netboot_node1.html"
 - title: Fase 3. Fare il boot node1 con i moduli di sistema sostitutivi
   entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_3_index.html"
+  - title: Cavo node1 per storage ha-cluster condiviso (solo upgrade a AFF A800)
+    url: "/upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html"
   - title: Fare il boot node1 con i moduli di sistema sostitutivi
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
   - title: Verificare l'installazione di node1
@@ -66,7 +74,13 @@ entries:
   - title: Panoramica
     url: "/upgrade-arl-auto-affa900/stage_5_index.html"
   - title: Installare i moduli di sistema sostitutivi sul nodo 2
-    url: "/upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html"
+    entries:
+    - title: Installare AFF A90 o AFF A70
+      url: "/upgrade-arl-auto-affa900/install-affa90-affa70-on-node2.html"
+    - title: Installare ASA A150, AFF A150 o FAS2820
+      url: "/upgrade-arl-auto-affa900/install-asaa150-affa150-fas2820-on-node2.html"
+    - title: Installare ASA A900, AFF A900 o FAS9500
+      url: "/upgrade-arl-auto-affa900/install-asaa900-affa900-fas9500-on-node2.html"
   - title: Node2 NetBoot
     url: "/upgrade-arl-auto-affa900/netboot_node2.html"
 - title: Fase 6. Fare il boot node2 con i moduli di sistema sostitutivi

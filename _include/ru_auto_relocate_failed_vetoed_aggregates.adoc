@@ -15,8 +15,7 @@ L'operazione di riposizionamento sarà stata sospesa a causa dell'errore.
 
 . Quando richiesto, immettere `y`.
 . È possibile forzare il trasferimento utilizzando uno dei seguenti metodi:
-
-
++
 [cols="35,65"]
 |===
 | Opzione | Descrizione 
@@ -29,3 +28,4 @@ L'operazione di riposizionamento sarà stata sospesa a causa dell'errore.
 | Ignorare i controlli di destinazione | Utilizzare il seguente comando:
 `storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_ -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
+

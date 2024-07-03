@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/manage_storage_encryption_using_okm.html 
+keywords: ip, address, external, key, management, server, storage, encryption, upgrading, authentication 
+summary: 'Configurare e gestire la crittografia dello storage, gestire le chiavi di autenticazione e chiudere le relazioni di SnapMirror quando si aggiornano i controller che eseguono ONTAP 9.15.1 o versione successiva utilizzando il `system controller replace` comando.' 
+---
+= Gestire la crittografia dello storage utilizzando Onboard Key Manager
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È possibile utilizzare Onboard Key Manager (OKM) per gestire le chiavi di crittografia. Se si dispone di OKM configurato, è necessario registrare la passphrase e il materiale di backup prima di iniziare l'aggiornamento.
+
+.Fasi
+. Registrare la passphrase del cluster.
++
+Si tratta della passphrase immessa quando l'OKM è stato configurato o aggiornato utilizzando l'API CLI o REST.
+
+. Eseguire il backup delle informazioni del gestore delle chiavi eseguendo il `security key-manager onboard show-backup` comando.
+
+
+
+
+== Interrompere le relazioni di SnapMirror (facoltativo)
+
+Prima di continuare con la procedura, è necessario confermare che tutte le relazioni di SnapMirror siano interrotti. Quando una relazione SnapMirror viene ritirata, rimane irreparata in caso di riavvii e failover.
+
+.Fasi
+. Verificare lo stato della relazione SnapMirror sul cluster di destinazione:
++
+`snapmirror show`
+
++
+[NOTE]
+====
+Se lo stato è "trasferimento", è necessario interrompere questi trasferimenti:
+`snapmirror abort -destination-vserver _vserver_name_`
+
+====
++
+L'interruzione non riesce se la relazione SnapMirror non si trova nello stato di "trasferimento".
+
+. Interrompere tutte le relazioni tra il cluster:
++
+`snapmirror quiesce -destination-vserver *`
+
+

@@ -80,7 +80,7 @@ NOTE: Non è necessario spostare la scheda di interconnessione/scheda FC_VI o la
 
 | Uno chassis separato dal node3 | Passare a. <<man_install4_Step6,Fase 6>>. 
 |===
-. [[man_install4_Step6]]attivare l'alimentazione su node4, quindi interrompere l'avvio premendo `Ctrl-C` per accedere al prompt dell'ambiente di boot.
+. [[man_install4_Step6]]accendere l'alimentazione a node4, quindi interrompere l'avvio premendo Ctrl-C per accedere al prompt dell'ambiente di avvio.
 +
 
 NOTE: Quando si avvia node4, potrebbe essere visualizzato il seguente messaggio:
@@ -145,7 +145,7 @@ L'installazione di un nuovo modulo controller modifica i valori WWPN associati a
 +
 Il sistema visualizza tutti i LUN degli array visibili a ciascuna porta FC Initiator. Se le LUN dell'array non sono visibili, non è possibile riassegnare i dischi da node2 a node4 più avanti in questa sezione.
 
-. Premere `Ctrl-C` Per visualizzare il menu di avvio e selezionare la modalità di manutenzione.
+. Premere Ctrl-C per visualizzare il menu di avvio e selezionare la modalità di manutenzione.
 . [[man_install4_Step15]]al prompt della modalità di manutenzione, immettere il seguente comando:
 +
 `halt`

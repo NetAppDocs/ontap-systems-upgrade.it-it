@@ -16,4 +16,6 @@ summary: Per utilizzare ARL per aggiornare i modelli di controller nello stesso 
 [role="lead"]
 Per eseguire l'aggiornamento, è necessario disporre di una cintura di messa a terra e consultare altri documenti durante il processo di aggiornamento.
 
+Per un aggiornamento AFF A800 a un AFF A90 o AFF A70, verificare che i cavi 100GbE siano lunghi almeno un metro.
+
 Fare riferimento a. link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento e dei siti di riferimento necessari per questo aggiornamento.

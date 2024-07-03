@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/retire_node1.html 
+keywords: retiring, node 
+summary: 'Disattiva la coppia ha con node2 e disattiva node1 durante l"upgrade dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando i `system controller replace` comandi.' 
+---
+= Ritirare il node1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per dismettere il node1, riprendere l'operazione automatica per disattivare correttamente la coppia ha con node2 e chiudere node1. Più avanti nella procedura, rimuovere il nodo 1 dal rack o dallo chassis.
+
+.Fasi
+. Riprendere l'operazione:
++
+`system controller replace resume`
+
+. Verificare che il node1 sia stato arrestato:
++
+`system controller replace show-details`
+
+
+
+.Al termine
+Una volta completato l'aggiornamento, è possibile decommissionare il node1. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].

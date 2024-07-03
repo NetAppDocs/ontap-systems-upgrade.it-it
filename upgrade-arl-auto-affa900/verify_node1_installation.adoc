@@ -14,10 +14,14 @@ summary: 'Verificare l"installazione del nodo 1 con i moduli sostitutivi quando 
 
 
 [role="lead"]
-È necessario verificare l'installazione node1 con i moduli di sistema sostitutivi. Poiché non sono state apportate modifiche alle porte fisiche, non è necessario mappare le porte fisiche dal vecchio nodo 1 al nodo sostituo1.
+Dopo aver avviato node1 con il modulo controller sostitutivo, verificare che sia installato correttamente.
+
+Solo per gli aggiornamenti di AFF A800, è possibile mappare le porte fisiche dal node1 esistente al node1 sostitutivo perché le porte fisiche cambiano tra AFF A800 e il controller AFF A90 o AFF A70.
+
+Per tutti gli altri aggiornamenti, non è necessario modificare le porte fisiche, quindi non è necessario mappare le porte fisiche dal vecchio node1 al nuovo node1.
 
 .A proposito di questa attività
-Dopo aver avviato il nodo 1 con il modulo controller sostitutivo, verificare che sia installato correttamente. È necessario attendere che il nodo 1 si unisca al quorum, quindi riprendere l'operazione di sostituzione del controller.
+È necessario attendere che il nodo 1 si unisca al quorum, quindi riprendere l'operazione di sostituzione del controller.
 
 A questo punto della procedura, l'operazione di aggiornamento del controller dovrebbe essere stata sospesa poiché node1 tenta di unirsi automaticamente al quorum.
 
@@ -33,6 +37,14 @@ L'output di `health` il campo deve essere `true`.
 +
 `cluster show`
 
++
+[NOTE]
+====
+Se node1 non è entrato a far parte del quorum dopo l'avvio, attendere cinque minuti e controllare di nuovo. A seconda della connessione al cluster, la scansione della raggiungibilità delle porte potrebbe richiedere del tempo e spostare le LIF nelle rispettive porte home.
+
+Se node1 non è ancora al quorum dopo cinque minuti, modificare la porta del cluster del nuovo nodo collocandola in "Cluster ipspace" utilizzando il comando di privilegio diagnostico `network port modify <port_name> -ipspace Cluster`.
+
+====
 . Passare alla modalità avanzata dei privilegi:
 +
 `set advanced`
@@ -116,16 +128,14 @@ Node1
           a0a-822  Default:822                          ok
           a0a-823  Default:823                          ok
           e0M      Default:Mgmt                         ok
-          e11a     -                                    no-reachability
-          e11b     -                                    no-reachability
-          e11c     -                                    no-reachability
-          e11d     -                                    no-reachability
+          e1a      Cluster:Cluster                      ok
+          e1b      -                                    no-reachability
+          e2a      -                                    no-reachability
+          e2b      -                                    no-reachability
           e3a      -                                    no-reachability
           e3b      -                                    no-reachability
-          e4a      Cluster:Cluster                      ok
-          e4e      Cluster:Cluster                      ok
-          e5a      -                                    no-reachability
-          e7a      -                                    no-reachability
+          e7a      Cluster:Cluster                      ok
+          e7b      -                                    no-reachability
           e9a      Default:Default                      ok
           e9a-822  Default:822                          ok
           e9a-823  Default:823                          ok
@@ -134,10 +144,10 @@ Node1
           e9b-823  Default:823                          ok
           e9c      Default:Default                      ok
           e9d      Default:Default                      ok
-22 entries were displayed.
+20 entries were displayed.
 ----
 +
-Nell'esempio precedente, node1 si è avviato dopo la sostituzione del controller. Alcune porte non hanno la raggiungibilità perché non c'è connettività fisica. È necessario riparare le porte con uno stato di raggiungibilità diverso da `ok`.
+Negli esempi precedenti, node1 si è avviato dopo la sostituzione del controller. Le porte che visualizzano la "non raggiungibilità" non hanno connettività fisica. È necessario riparare tutte le porte con uno stato di raggiungibilità diverso da `ok`.
 
 +
 
@@ -160,12 +170,12 @@ L'output dovrebbe essere simile al seguente esempio:
 +
 [listing]
 ----
-Cluster ::> reachability repair -node node1 -port e11b
+Cluster ::> reachability repair -node node1 -port e1b
 ----
 +
 [listing]
 ----
-Warning: Repairing port "node1:e11b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+Warning: Repairing port "node1:e1b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
 ----
 +
 Un messaggio di avviso, come mostrato nell'esempio precedente, è previsto per le porte con uno stato di raggiungibilità che potrebbe essere diverso dallo stato di raggiungibilità del dominio di broadcast in cui si trova attualmente. Esaminare la connettività della porta e rispondere `y` oppure `n` a seconda dei casi.

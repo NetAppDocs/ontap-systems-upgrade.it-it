@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual/stage_3_index.html
 keywords: relocate, retire, node1, steps, stage 3 
 summary: Fase 3 sequenza di processo per un aggiornamento ARL manuale su controller con ONTAP 9.7 o versioni precedenti. 
 ---
-= Panoramica
+= Panoramica della fase 3
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

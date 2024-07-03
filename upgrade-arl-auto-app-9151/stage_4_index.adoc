@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/stage_4_index.html 
+keywords: relocate, retire, node2, LIF, node3, non-root aggregates, stage 4 
+summary: 'Fase 4 sequenza di processo per un aggiornamento ARL utilizzando i `system controller replace` comandi sui controller che eseguono ONTAP 9.15.1 o versione successiva.' 
+---
+= Panoramica della fase 4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 a node3. Inoltre, registrare le informazioni necessarie per il node2 da utilizzare più avanti nella procedura, quindi dismettere il node2.
+
+.Fasi
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Spostare aggregati non root e LIF dati NAS da node2 a node3"]
+. link:retire_node2.html["Andare in pensione node2"]
+

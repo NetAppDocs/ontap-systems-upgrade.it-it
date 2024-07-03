@@ -1,0 +1,203 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/prepare_nodes_for_upgrade.html 
+keywords: preparing, nodes, upgrade 
+summary: 'Preparare i nodi ed eseguire una serie di controlli preliminari per l"upgrade dei controller con ONTAP 9.15.1 o versione successiva utilizzando i `system controller replace` comandi.' 
+---
+= Preparare i nodi per l'aggiornamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il processo di sostituzione del controller inizia con una serie di controlli preliminari. Si raccolgono inoltre informazioni sui nodi originali da utilizzare più avanti nella procedura e, se necessario, si determina il tipo di unità con crittografia automatica in uso.
+
+.Fasi
+. Iniziare il processo di sostituzione del controller immettendo il seguente comando nella riga di comando ONTAP:
++
+`system controller replace start -nodes <node_names>`
+
++
+
+NOTE: È possibile eseguire il comando di avvio di sostituzione del controller di sistema solo al livello di privilegi avanzati: `set -privilege advanced`
+
++
+Viene visualizzato un output simile al seguente esempio. L'output mostra la versione di ONTAP in esecuzione sul cluster:
+
++
+....
+Warning: 1. Current ONTAP version is 9.15.1
+
+2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
+
+Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
+
+3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+4. Note: This is not a MetroCluster configuration. Controller replacement supports only ARL based procedure.
+Do you want to continue? {y|n}: y
+....
+. Premere `y`, viene visualizzato il seguente output:
++
+....
+Controller replacement operation: Prechecks in progress.
+Controller replacement operation has been paused for user intervention.
+....
++
+Il sistema esegue i seguenti controlli preliminari; registrare l'output di ogni controllo preliminare per l'utilizzo in seguito nella procedura:
+
++
+[cols="35,65"]
+|===
+| Eseguire un controllo preliminare | Descrizione 
+
+
+| Verifica dello stato del cluster | Controlla tutti i nodi del cluster per verificarne l'integrità. 
+
+
+| Verifica dello stato di trasferimento aggregato | Verifica se è già in corso un trasferimento di aggregati. Se è in corso un altro trasferimento di aggregati, il controllo non riesce. 
+
+
+| Controllo del nome del modello | Verifica se i modelli di controller sono supportati per questa procedura. Se i modelli non sono supportati, l'operazione non riesce. 
+
+
+| Verifica del quorum del cluster | Verifica che i nodi da sostituire siano in quorum. Se i nodi non sono in quorum, l'attività non riesce. 
+
+
+| Verifica della versione dell'immagine | Verifica che i nodi da sostituire eseguano la stessa versione di ONTAP. Se le versioni dell'immagine ONTAP sono diverse, l'operazione non riesce. Sui nuovi nodi deve essere installata la stessa versione di ONTAP 9.x installata sui nodi originali. Se nei nuovi nodi è installata una versione diversa di ONTAP, è necessario eseguire il netboot dei nuovi controller dopo averli installati. Per istruzioni su come aggiornare ONTAP, fare riferimento a. link:other_references.html["Riferimenti"] Collegamento a _Upgrade ONTAP_. 
+
+
+| Verifica dello stato HA | Controlla se entrambi i nodi da sostituire sono in una configurazione di coppia ad alta disponibilità (ha). Se il failover dello storage non è abilitato per i controller, l'operazione non riesce. 
+
+
+| Verifica dello stato dell'aggregato | Se i nodi che vengono sostituiti possiedono aggregati per i quali non sono proprietari di casa, l'attività non riesce. I nodi non devono possedere aggregati non locali. 
+
+
+| Verifica dello stato del disco | Se i nodi da sostituire presentano dischi mancanti o guasti, l'attività non riesce. In caso di dischi mancanti, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Disk and aggregate management con CLI_, _Logical storage management con CLI_ e _High Availability management_ per configurare lo storage per la coppia ha. 
+
+
+| Verifica dello stato LIF dei dati | Controlla se uno dei nodi da sostituire dispone di LIF di dati non locali. I nodi non devono contenere file di dati di cui non sono proprietari. Se uno dei nodi contiene LIF di dati non locali, l'attività non riesce. 
+
+
+| Stato LIF del cluster | Verifica se le LIF del cluster sono in funzione per entrambi i nodi. Se le LIF del cluster non sono attive, l'attività non riesce. 
+
+
+| Verifica dello stato ASUP | Se le notifiche ASUP non sono configurate, l'attività non riesce. È necessario attivare ASUP prima di iniziare la procedura di sostituzione del controller. 
+
+
+| Verifica dell'utilizzo della CPU | Controlla se l'utilizzo della CPU è superiore al 50% per uno dei nodi da sostituire. Se l'utilizzo della CPU è superiore al 50% per un periodo di tempo considerevole, il task non riesce. 
+
+
+| Controllo ricostruzione aggregata | Controlla se la ricostruzione avviene su qualsiasi aggregato di dati. Se la ricostruzione aggregata è in corso, l'operazione non riesce. 
+
+
+| Verifica del processo di affinità del nodo | Controlla se sono in esecuzione lavori di affinità del nodo. Se i lavori di affinità del nodo sono in esecuzione, il controllo non riesce. 
+|===
+. Una volta avviata l'operazione di sostituzione del controller e completate le verifiche preliminari, l'operazione viene interrotta e consente di raccogliere informazioni di output che potrebbero essere necessarie in seguito durante la configurazione del node3.
++
+[NOTE]
+====
+Prima di iniziare l'upgrade, dovrai migrare e ripristinare le LIF del cluster in due porte cluster per nodo, se disponi di un sistema come AFF 700, con la seguente configurazione:
+
+** Più di due porte cluster per nodo
+** Una scheda di interconnessione in cluster in slot4 in modalità breakout per creare porte e4a, e4b, e4c e E4D, e porte E4E, e4f, e4g e e4h
+
+
+L'aggiornamento del controller con più di due porte del cluster per nodo potrebbe causare la mancanza di LIF del cluster sul nuovo controller in seguito all'upgrade.
+
+Per ulteriori informazioni, vedere l'articolo della Knowledge base link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_delete_unwanted_or_unnecessary_cluster_LIFs["Come eliminare LIF del cluster indesiderate o non necessarie"^].
+
+====
+. Eseguire il seguente set di comandi come indicato dalla procedura di sostituzione del controller sulla console di sistema.
++
+Dalla porta seriale collegata a ciascun nodo, eseguire e salvare singolarmente l'output dei seguenti comandi:
+
++
+** `vserver services name-service dns show`
+** `network interface show -curr-node <local> -role <cluster,intercluster,node-mgmt,cluster-mgmt,data>`
+** `network port show -node <local> -type physical`
+** `service-processor show -node <local> -instance`
+** `network fcp adapter show -node <local>`
+** `network port ifgrp show -node <local>`
+** `system node show -instance -node <local>`
+** `run -node <local> sysconfig`
+** `storage aggregate show -r`
+** `storage aggregate show -node <local>`
+** `volume show -node <local>`
+** `system license show -owner <local>`
+** `storage encryption disk show`
+** `security key-manager onboard show-backup`
+** `security key-manager external show`
+** `security key-manager external show-status`
+** `network port reachability show -detail -node <local>`
+
+
++
+
+NOTE: Se la crittografia del volume NetApp (NVE) o la crittografia aggregata NetApp (NAE) utilizzando il gestore delle chiavi integrato (OKM) è in uso, tenere la passphrase del gestore delle chiavi pronta per completare la risincronizzazione del gestore delle chiavi in un secondo momento della procedura.
+
+. Se il sistema utilizza dischi con crittografia automatica, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] Per determinare il tipo di unità con crittografia automatica in uso sulla coppia ha che si sta aggiornando. Il software ONTAP supporta due tipi di dischi con crittografia automatica:
++
+--
+** Dischi SAS o NVMe NetApp Storage Encryption (NSE) certificati FIPS
+** Dischi NVMe con crittografia automatica non FIPS (SED)
+
+
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["Scopri di più sulle unità con crittografia automatica supportate"^].
+
+--
+
+
+
+
+== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+
+Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
+
+.Fasi
+. Restituire gli aggregati attualmente di proprietà del nodo partner al nodo home owner:
++
+`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
+
+. Verificare che né node1 né node2 possiedano ancora aggregati per i quali è il proprietario corrente (ma non il proprietario domestico):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+L'esempio seguente mostra l'output del comando quando un nodo è sia il proprietario corrente che il proprietario domestico degli aggregati:
+
++
+[listing]
+----
+cluster::> storage aggregate show -nodes node1 -is-home true -fields owner-name,home-name,state
+aggregate   home-name  owner-name  state
+---------   ---------  ----------  ------
+aggr1       node1      node1       online
+aggr2       node1      node1       online
+aggr3       node1      node1       online
+aggr4       node1      node1       online
+
+4 entries were displayed.
+----
+
+
+
+
+=== Al termine
+
+È necessario riavviare il processo di sostituzione del controller:
+
+`system controller replace start -nodes _node_names_`
+
+
+
+== Licenza
+
+Per informazioni dettagliate sulle licenze ONTAP, fare riferimento a https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Gestione delle licenze"^].
+
+
+NOTE: L'utilizzo di funzioni senza licenza sul controller potrebbe mettere fuori conformità con il contratto di licenza.

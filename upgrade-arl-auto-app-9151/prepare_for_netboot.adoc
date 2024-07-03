@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/prepare_for_netboot.html 
+keywords: preparing, netboot, ndac, ontap 
+summary: 'Preparare il nodo di netboot 3 e node4 quando si aggiornano i controller con ONTAP 9.8 o versione successiva utilizzando `system controller replace` comandi.' 
+---
+= Preparatevi per il netboot
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver inserito fisicamente il nodo 3 e il nodo 4 più avanti nella procedura, potrebbe essere necessario eseguire il netboot. Il termine "netboot" indica che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Quando ci si prepara per il netboot, si inserisce una copia dell'immagine di boot di ONTAP 9 su un server web a cui il sistema può accedere.
+
+È anche possibile utilizzare l'opzione di avvio USB per eseguire un netboot. Consultare l'articolo della Knowledge base link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["Come utilizzare il comando boot_recovery LOADER per installare ONTAP per la configurazione iniziale di un sistema"^].
+
+.Prima di iniziare
+* Verificare che sia possibile accedere a un server HTTP con il sistema.
+* Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e scaricare i file di sistema necessari per la piattaforma e la versione corretta di ONTAP.
+
+
+.A proposito di questa attività
+È necessario eseguire il netboot dei nuovi controller se non sono installati sulla stessa versione di ONTAP 9 installata sui controller originali. Dopo aver installato ciascun nuovo controller, avviare il sistema dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avvii del sistema.
+
+.Fasi
+. Accedere al NetApp Support Site per scaricare i file utilizzati per eseguire l'avvio da rete del sistema.
+. Scaricare il software ONTAP appropriato dalla sezione di download del software del sito di supporto NetApp e memorizzare il `<ontap_version>_image.tgz` file in una directory accessibile dal web.
+. Passare alla directory accessibile dal Web e verificare che i file necessari siano disponibili.
++
+L'elenco delle directory deve contenere il seguente file:
+`<ontap_version>_image.tgz`
+
++
+
+NOTE: Non è necessario estrarre il contenuto di `<ontap_version>_image.tgz` file.
+
++
+Verranno utilizzate le informazioni contenute nelle directory in link:install_boot_node3.html["Fase 3"].
+
+

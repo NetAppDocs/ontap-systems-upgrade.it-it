@@ -73,7 +73,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 +
 `halt`
 
-. Avviare il sistema dal prompt del caricatore:
+. Avviare il sistema dal prompt del CARICATORE:
 +
 `boot_ontap menu`
 

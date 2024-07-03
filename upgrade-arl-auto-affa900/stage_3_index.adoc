@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_3_index.html
 keywords: upgrade, boot, node1, verify, restore, overview, stage 3 
 summary: 'Fase 3 sequenza di processo per un aggiornamento ARL con `system controller replace` comandi per aggiornare i modelli di controller nello stesso chassis.' 
 ---
-= Panoramica
+= Panoramica della fase 3
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,10 @@ summary: 'Fase 3 sequenza di processo per un aggiornamento ARL con `system contr
 
 
 [role="lead"]
-Durante la fase 3, si avvia node1 con i moduli di sistema aggiornati e si verifica l'installazione aggiornata node1. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. È inoltre possibile spostare gli aggregati non root node1 e le LIF dei dati NAS da node2 al node1 aggiornato e verificare che le LIF SAN esistano sul node1.
+Durante la fase 3, colleghi il cluster condiviso-ha e le connessioni storage per gli shelf esterni, se presenti, avvii node1 con i moduli di sistema aggiornati, e verifica dell'installazione node1 aggiornata. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. È inoltre possibile spostare gli aggregati non root node1 e le LIF dei dati NAS da node2 al node1 aggiornato e verificare che le LIF SAN esistano sul node1.
 
 .Fasi
+. link:cable-node1-for-shared-cluster-HA-storage.html["Cavo node1 per storage ha-cluster condiviso (solo upgrade a AFF A800)"]
 . link:boot_node1_with_a900_controller_and_nvs.html["Fare il boot node1 con i moduli di sistema sostitutivi"]
 . link:verify_node1_installation.html["Verificare l'installazione di node1"]
 . link:restore_key_manager_config_upgraded_node1.html["Ripristinare la configurazione del gestore delle chiavi sul nodo aggiornato 1"]

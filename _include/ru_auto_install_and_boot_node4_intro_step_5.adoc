@@ -35,7 +35,7 @@ NOTE: Potrebbe non essere necessario spostare la connessione scheda di interconn
 
 
 
-. Accendere il dispositivo al nodo 4, quindi interrompere il processo di avvio premendo `Ctrl-C` sul terminale della console per accedere al prompt dell'ambiente di boot.
+. Accendere il dispositivo al nodo 4, quindi interrompere il processo di avvio premendo Ctrl-C sul terminale della console per accedere al prompt dell'ambiente di avvio.
 +
 
 NOTE: Quando si avvia node4, potrebbe essere visualizzato il seguente messaggio di avviso:

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_4_index.html
 keywords: upgrade, relocate, retire, overview, stage 4 
 summary: 'Fase 4 sequenza di processo per un aggiornamento ARL con `system controller replace` comandi per aggiornare i modelli di controller nello stesso chassis.' 
 ---
-= Panoramica
+= Panoramica della fase 4
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

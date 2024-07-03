@@ -11,7 +11,13 @@ summary: 'Se si esegue l"aggiornamento spostando i volumi, si preparano i nodi o
 
 
 [role="lead"]
-Se si sta aggiornando l'hardware del controller spostando i volumi, si preparano i nodi originali e si uniscono i nuovi nodi al cluster. È possibile spostare i volumi nei nuovi nodi, configurare le LIF e disunire i nodi originali dal cluster. L'aggiornamento mediante lo spostamento dei volumi è una procedura senza interruzioni.
+L'upgrade dell'hardware del controller tramite lo spostamento dei volumi è una procedura senza interruzioni. Prima di iniziare l'aggiornamento, esaminare gli scenari di aggiornamento generali e le considerazioni sull'aggiornamento:
+
+* link:upgrade-decide-to-use-this-guide.html["Decidere se eseguire l'upgrade spostando volumi o storage"]
+* link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]
+
+
+Per eseguire l'upgrade spostando i volumi, prepari i nodi originali e unisci i nuovi nodi al cluster. È possibile spostare i volumi nei nuovi nodi, configurare le LIF e disunire i nodi originali dal cluster.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-prepare-when-moving-volumes.html["Preparatevi per l'aggiornamento durante lo spostamento dei volumi"]
 [role="quick-margin-para"]

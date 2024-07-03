@@ -30,6 +30,9 @@ Verificare di disporre di una versione del firmware SP o BMC supportata:
 | Vecchio controller | SP o BMC | Versione minima del firmware 
 
 
+| AFF A800 | BMC | 10,9 
+
+
 | AFF A220 | BMC | 11,9P1 
 
 
@@ -52,18 +55,20 @@ Verificare di disporre di una versione del firmware SP o BMC supportata:
 `system controller replace start -nodes _node_names_`
 
 +
-Viene visualizzato un output simile a quanto segue:
+Viene visualizzato un output simile al seguente esempio. L'output mostra la versione di ONTAP in esecuzione sul cluster:
 
 +
 ....
 Warning:
-1. Current ONTAP version is 9.x
+1. Current ONTAP version is 9.15.1
 
 2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM  batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
 
 Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
 
 3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+4. Note: This is not a MetroCluster configuration. Controller replacement supports only ARL based procedures.
 
 Do you want to continue? {y|n}: y
 ....
@@ -126,7 +131,7 @@ Durante la fase di precheck, il sistema esegue il seguente elenco di controlli i
 . Una volta avviata l'operazione di sostituzione del controller e completate le verifiche preliminari, l'operazione viene interrotta, consentendo di raccogliere le informazioni di output necessarie in seguito nel processo di aggiornamento del controller.
 . Eseguire il seguente set di comandi come indicato dalla procedura di sostituzione del controller sulla console di sistema.
 +
-Dalla porta seriale collegata a ciascun nodo, eseguire e salvare singolarmente l'output dei seguenti comandi:
+Eseguire i comandi dalla porta seriale collegata a ciascun nodo, eseguire e salvare individualmente l'output dei comandi:
 
 +
 ** `vserver services name-service dns show`
@@ -137,6 +142,11 @@ Dalla porta seriale collegata a ciascun nodo, eseguire e salvare singolarmente l
 ** `network port ifgrp show -node _local_`
 ** `system node show -instance -node _local_`
 ** `run -node _local_ sysconfig`
+** `run -node local sysconfig -ac`
+** `run -node local aggr status -r`
+** `vol show -fields type`
+** `run local aggr options _data_aggregate_name_`
+** `vol show -fields type , space-guarantee`
 ** `storage aggregate show -node _local_`
 ** `volume show -node _local_`
 ** `storage array config show -switch _switch_name_`
@@ -146,11 +156,11 @@ Dalla porta seriale collegata a ciascun nodo, eseguire e salvare singolarmente l
 ** `security key-manager external show`
 ** `security key-manager external show-status`
 ** `network port reachability show -detail -node _local_`
-
-
 +
 
 NOTE: Se la crittografia del volume NetApp (NVE) o la crittografia aggregata NetApp (NAE) utilizzando Gestione chiavi integrata è in uso, tenere la passphrase del gestore delle chiavi pronta per completare la risincronizzazione del gestore delle chiavi in un secondo momento della procedura.
+
+
 
 . Se il sistema utilizza dischi con crittografia automatica, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] Per determinare il tipo di unità con crittografia automatica in uso sulla coppia ha che si sta aggiornando. Il software ONTAP supporta due tipi di dischi con crittografia automatica:
 +

@@ -52,5 +52,5 @@ Rebooting to finish wipeconfig request.
 +
 Il sistema avvia `wipeconfig` procedura e riavvio. Una volta completata la procedura, il sistema torna al menu di avvio.
 
-. Dal menu di boot, inserire 8 per riavviare il nodo e premere *Ctrl-C* durante l'avvio automatico per arrestare il nodo al prompt DEL CARICATORE.
+. Dal menu di avvio, immettere 8 per riavviare il nodo e premere Ctrl-C durante l'operazione DI AUTOBOOT per arrestare il nodo al prompt del CARICATORE.
 

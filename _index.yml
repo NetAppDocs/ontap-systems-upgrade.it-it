@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: Documentazione di aggiornamento hardware ONTAP
+  summary: Upgrade dell'hardware del controller ricollocando aggregati, spostando
+    volumi o spostando lo storage.
+  keywords: aggregate, relocation, moving, manual, upgrade, relocate
   lead: Questo sito fornisce le procedure di aggiornamento dei sistemi di storage
     AFF, FAS e ASA. Seleziona la procedura di aggiornamento appropriata per il tuo
     sistema storage.
@@ -13,21 +17,24 @@ indexpage:
   - title: Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP
       9,8 e versioni successive
     links:
+    - title: Utilizzare i comandi "sostituzione controller di sistema" per aggiornare
+        l'hardware del controller introdotto in ONTAP 9.15.1
+      url: "/upgrade-arl-auto-app-9151/index.html"
     - title: Utilizzare i comandi "System controller replace" per aggiornare i modelli
         di controller nello stesso chassis
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
+      url: "/upgrade-arl-auto-affa900/index.html"
     - title: Utilizzare i comandi "system controller replace" (sostituzione controller
         di sistema) (maggior parte dei sistemi)
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
+      url: "/upgrade-arl-auto-app/index.html"
     - title: Utilizzare i comandi manuali
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
+      url: "/upgrade-arl-manual-app/index.html"
   - title: Effettua l'upgrade spostando gli aggregati in sistemi che eseguono ONTAP
       9,7 e versioni precedenti
     links:
     - title: Utilizzare i comandi "sostituzione centralina di sistema"
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
+      url: "/upgrade-arl-auto/index.html"
     - title: Utilizzare i comandi manuali
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/
+      url: "/upgrade-arl-manual/index.html"
   - title: Upgrade tramite spostamento di storage o volumi
     links:
     - title: Aggiornare l'hardware del controller
@@ -42,7 +49,7 @@ indexpage:
     links:
     - title: Documentazione sui sistemi hardware ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
-    - title: Documentazione sugli switch ONTAP
+    - title: Documentazione degli switch per i sistemi hardware ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html
     - title: Documentazione del software ONTAP
       url: https://docs.netapp.com/us-en/ontap/index.html

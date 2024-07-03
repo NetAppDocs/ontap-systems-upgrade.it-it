@@ -17,7 +17,7 @@ summary: 'Configurare node4 porte FC integrate, porte UTA/UTA2 o scheda UTA/UTA2
 Se node4 dispone di porte FC integrate, porte UTA/UTA2 (onboard Unified target adapter) o una scheda UTA/UTA2, è necessario configurare le impostazioni prima di completare il resto della procedura.
 
 .A proposito di questa attività
-Potrebbe essere necessario completare il <<Configurare le porte FC sul nodo 4>> sezione, la <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>>, o entrambe le sezioni.
+Potrebbe essere necessario completare la <<Configurare le porte FC sul nodo 4>> sezione o o <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>> entrambe le sezioni.
 
 
 NOTE: Se node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 e si sta eseguendo l'aggiornamento di un sistema con dischi di storage, passare alla sezione link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"] sezione. Tuttavia, se si dispone di un sistema V-Series o di un software di virtualizzazione FlexArray e si è connessi agli array di storage e node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere da link:install_boot_node4.html#step22["Fase 22"]. Assicurarsi che il node4 disponga di spazio rack sufficiente. Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire il nodo 4 nella stessa posizione del nodo 3. Se node2 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.
@@ -98,7 +98,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 +
 `halt`
 
-. Avviare il sistema dal prompt del caricatore:
+. Avviare il sistema dal prompt del CARICATORE:
 +
 `boot_ontap menu`
 
@@ -386,8 +386,8 @@ Login: ...
 ----
 ====
 . Se il sistema entra in un loop di riavvio con il messaggio `no disks found`, perché ha ripristinato le porte alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Continuare con <<auto_check_4_step17,Fase 17>> attraverso <<auto_check_4_step22,Fase 22>> per risolvere questo problema.
-. [[auto_check_4_step17]]premere `Ctrl-C` durante l'autoboot per arrestare il nodo su `LOADER>` prompt.
-. Al prompt del caricatore, accedere alla modalità di manutenzione:
+. [[auto_check_4_STEP17]]premere Ctrl-C durante L'OPERAZIONE di AUTOBOOT per arrestare il nodo al prompt LOADER>.
+. Al prompt del CARICATORE, accedere alla modalità di manutenzione:
 +
 `boot_ontap maint`
 
@@ -417,7 +417,7 @@ Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sist
 Se si esegue l'aggiornamento da un sistema che utilizza dischi esterni a un sistema che supporta dischi interni ed esterni, ad esempio un sistema AFF A800, visitare il sito Web <<auto_check_4_step23,Fase 23>>.
 
 ====
-. [[auto_check_4_step22]]al prompt del caricatore, avviare:
+. [[auto_check_4_step22]]al prompt del CARICATORE, avviare:
 +
 `boot_ontap menu`
 
@@ -425,11 +425,13 @@ Se si esegue l'aggiornamento da un sistema che utilizza dischi esterni a un sist
 Ora, all'avvio, il nodo è in grado di rilevare tutti i dischi ad esso assegnati in precedenza e di avviarsi come previsto.
 
 +
-Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia del volume root, il software ONTAP non è in grado di leggere le informazioni del volume dai dischi. Ripristinare le chiavi del volume root:
+Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia dei volumi root, ONTAP non è in grado di leggere le informazioni sul volume dai dischi. Ripristinare le chiavi del volume root:
 
 +
 .. Tornare al menu di avvio speciale:
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----
@@ -463,8 +465,6 @@ NOTE: È necessario aver ottenuto la passphrase e i dati di backup in link:prepa
 +
 
 NOTE: In questa fase potrebbe verificarsi un errore. Se si verifica un errore, ripetere i passaggi secondari in <<auto_check_4_step22,Fase 22>> fino a quando il sistema non si avvia normalmente.
-
-
 
 
 

@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual-app/stage_5_index.html
 keywords: stage 5, install, boot, node3, node4, relocate, aggregates 
 summary: Fase 5 sequenza di processo per un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive. 
 ---
-= Panoramica
+= Panoramica della fase 5
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

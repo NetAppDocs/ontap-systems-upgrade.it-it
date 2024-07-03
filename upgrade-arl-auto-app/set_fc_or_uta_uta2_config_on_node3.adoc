@@ -100,7 +100,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 +
 `halt`
 
-. Avviare il sistema dal prompt del caricatore:
+. Avviare il sistema dal prompt del CARICATORE:
 +
 `boot_ontap menu`
 
@@ -317,7 +317,7 @@ Adapter  Mode       Type        Mode     Type        Status
 . [[step14]]avviare il nodo nel menu di boot eseguendo `boot_ontap menu`. Se si sta eseguendo l'aggiornamento a un sistema A800, visitare il sito Web all'indirizzo <<auto_check3_step23,Fase 23>>.
 
 
-. [[auto9597_check_node3_step15]]al nodo 3, accedere al menu di boot e selezionare l'opzione nascosta utilizzando 22/7 `boot_after_controller_replacement`. Al prompt, immettere node1 per riassegnare i dischi da node1 a node3, come nell'esempio seguente.
+. Su node3, andare al menu di avvio e utilizzando 22/7, selezionare l'opzione nascosta `boot_after_controller_replacement`. Al prompt, immettere node1 per riassegnare i dischi di node1 a node3, come nell'esempio seguente.
 +
 .Espandere l'esempio di output della console
 [%collapsible]
@@ -423,8 +423,8 @@ Login:
 NOTE: Nell'esempio di output della console precedente, ONTAP richiederà il nome del nodo partner se il sistema utilizza dischi di partizione avanzata dei dischi (ADP).
 
 . Se il sistema entra in un loop di riavvio con il messaggio `no disks found`, Indica che il sistema ha ripristinato le porte FC o UTA/UTA2 alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Per risolvere il problema, continuare con <<auto_check3_step17,Fase 17>> a. <<auto_check3_step22,Fase 22>>oppure passare alla sezione link:verify_node3_installation.html["Verificare l'installazione di node3"].
-. [[auto_check3_step17]]premere `Ctrl-C` durante l'autoboot per arrestare il nodo su `LOADER>` prompt.
-. [[step18]]al prompt del caricatore, accedere alla modalità di manutenzione:
+. [[auto_Check3_STEP17]]premere Ctrl-C durante L'OPERAZIONE di AUTOBOOT per arrestare il nodo al prompt LOADER>.
+. [[step18]]al prompt DEL CARICATORE, accedere alla modalità di manutenzione:
 +
 `boot_ontap maint`
 
@@ -454,7 +454,7 @@ Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sist
 Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sistema che supporta dischi interni ed esterni, ad esempio un sistema AFF A800, visitare il sito Web <<auto_check3_step23,Fase 23>>.
 
 ====
-. [[auto_check3_step22]]al prompt del caricatore, avviare:
+. [[auto_Check3_step22]]al prompt del CARICATORE, avviare:
 +
 `boot_ontap menu`
 
@@ -462,11 +462,17 @@ Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sist
 Ora, all'avvio, il nodo è in grado di rilevare tutti i dischi ad esso assegnati in precedenza e di avviarsi come previsto.
 
 +
-Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia del volume root, il software ONTAP non è in grado di leggere le informazioni del volume dai dischi. Ripristinare le chiavi del volume root:
+Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia dei volumi root, ONTAP non è in grado di leggere le informazioni sul volume dai dischi. Ripristinare le chiavi del volume root.
+
++
+
+NOTE: Ciò si applica solo quando il volume principale utilizza la crittografia dei volumi di NetApp.
 
 +
 .. Tornare al menu di avvio speciale:
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----

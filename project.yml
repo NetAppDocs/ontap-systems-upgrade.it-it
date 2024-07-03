@@ -13,7 +13,15 @@ sidebar:
     url: "/index.html"
   - title: Scegliere la procedura di aggiornamento dell'hardware del controller
     url: "/choose_controller_upgrade_procedure.html"
-  - section: upgrade-arl
+  - title: Aggiornare utilizzando ARL
+    entries:
+    - section: upgrade-arl
+    - section: upgrade-arl-auto-app-9151
+    - section: upgrade-arl-auto-affa900
+    - section: upgrade-arl-auto-app
+    - section: upgrade-arl-auto
+    - section: upgrade-arl-manual-app
+    - section: upgrade-arl-manual
   - section: upgrade
   - title: Note legali
     url: "/legal-notices.html"

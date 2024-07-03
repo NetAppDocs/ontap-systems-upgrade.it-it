@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/retire_node2.html 
+keywords: retire, node2 
+summary: 'Arrestare il sistema node2 e rimuoverlo dal rack o dallo chassis quando si aggiornano i controller con ONTAP 9.15.1 o versione successiva utilizzando i `system controller replace` comandi.' 
+---
+= Andare in pensione node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per dismettere il node2, chiudere il node2 correttamente e rimuoverlo dal rack o dallo chassis.
+
+.Fasi
+. Riprendere l'operazione:
++
+`system controller replace resume`
+
++
+Il nodo si arresta automaticamente.
+
+
+
+.Al termine
+È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].

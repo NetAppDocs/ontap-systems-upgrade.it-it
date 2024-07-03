@@ -25,6 +25,9 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 | Vecchio controller | Controller sostitutivo 
 
 
+| AFF A800 | AFF A70 e AFF A90 
+
+
 | AFF A220 configurato come ASA | ASA A150 
 
 
@@ -44,6 +47,7 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 |===
 * Hai verificato con il tuo commerciale NetApp di aver ricevuto l'hardware per l'upgrade del controller:
 +
+** Due controller AFF A90 o due AFF A70 e tutti i moduli i/o necessari per l'aggiornamento. La lunghezza richiesta di 100GbE cavi.
 ** Controller ASA A150, AFF A150 o FAS2820
 ** Controller ASA A900, AFF A900 o FAS9500 e moduli NVRAM e le parti necessarie per l'upgrade
 
@@ -55,11 +59,11 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 
 Non è possibile utilizzare questa procedura nelle seguenti circostanze:
 
-* Si utilizza il software di virtualizzazione FlexArray sui sistemi AFF A700 o FAS9000.
+* Si utilizza il software per la virtualizzazione FlexArray sui sistemi AFF A800, AFF A700 o FAS9000.
 * Si sta utilizzando uno switch condiviso per l'interconnessione cluster e lo storage collegato Ethernet.
 
 
-Per l'aggiornamento delle configurazioni Fabric MetroCluster o MetroCluster IP sui sistemi AFF A700 o FAS9000, vedere link:other_references.html["Riferimenti"] Per collegarsi al contenuto _aggiornamento ed espansione MetroCluster_.
+Per l'aggiornamento delle configurazioni IP di MetroCluster sui sistemi AFF A800, AFF A700 o FAS9000, vedere il link:other_references.html["Riferimenti"] collegamento al contenuto _MetroCluster Upgrade and Expansion_.
 
 
 NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).

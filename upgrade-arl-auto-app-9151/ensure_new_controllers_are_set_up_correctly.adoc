@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/ensure_new_controllers_are_set_up_correctly.html 
+keywords: confirm, controllers, set up, ha, node3, node4, node2, lif, cluster, high, availability 
+summary: 'Abilitare la coppia ha, verificare l"accesso allo storage node3 e node4 e confermare la proprietà dell"aggregato in seguito all"upgrade dei controller in esecuzione su ONTAP 9.15.1 o versioni successive utilizzando i `system controller replace` comandi.' 
+---
+= Verificare che i nuovi controller siano impostati correttamente
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per confermare la corretta configurazione, è necessario attivare la coppia ha. È inoltre necessario verificare che node3 e node4 possano accedere reciprocamente allo storage e che non siano in possesso di LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, devi confermare che node3 possiede gli aggregati di node1 e che node4 possiede gli aggregati di node2 e che i volumi per entrambi i nodi sono online.
+
+.Fasi
+. Dopo i controlli post-node2, vengono attivate la coppia di ha cluster e failover dello storage per il cluster node2. Al termine dell'operazione, entrambi i nodi vengono visualizzati come completati e il sistema esegue alcune operazioni di pulizia.
+. Verificare che il failover dello storage sia attivato:
++
+`storage failover show`
+
++
+L'esempio seguente mostra l'output del comando quando è attivato il failover dello storage:
+
++
+....
+cluster::> storage failover show
+                  Takeover
+Node     Partner  Possible   State Description
+-------- -----    -------    ------------------
+node3    node4    true       Connected to node4
+node4    node3    true       Connected to node3
+....
+. Verificare che node3 e node4 appartengano allo stesso cluster utilizzando il seguente comando ed esaminando l'output:
++
+`cluster show`
+
+. Verificare che node3 e node4 possano accedere reciprocamente allo storage utilizzando il seguente comando ed esaminando l'output:
++
+`storage failover show -fields local-missing-disks, partner-missing-disks`
+
+. Verificare che né node3 né node4 detengano le LIF dei dati di proprietà di altri nodi del cluster utilizzando il seguente comando ed esaminando l'output:
++
+`network interface show`
+
++
+Se nessuno dei nodi 3 o node4 possiede le LIF dei dati di proprietà di altri nodi del cluster, ripristinare le LIF dei dati al proprietario di casa:
+
++
+`network interface revert`
+
+. Verificare che node3 possieda gli aggregati dal node1 e che node4 possieda gli aggregati dal node2:
++
+`storage aggregate show -owner-name <node3>`
+
++
+`storage aggregate show -owner-name <node4>`
+
+. Determinare se i volumi sono offline:
++
+`volume show -node <node3> -state offline`
+
++
+`volume show -node <node4> -state offline`
+
+. Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea acquisito nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]e portare online uno qualsiasi dei volumi offline, come richiesto, utilizzando il seguente comando, una volta per ciascun volume:
++
+`volume online -vserver <vserver_name> -volume <volume_name>`
+
+. Installare nuove licenze per i nuovi nodi utilizzando il seguente comando per ciascun nodo:
++
+`system license add -license-code <license_code,license_code,license_code…>`
+
++
+Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, separando ciascuna chiave di licenza con una virgola.
+
+. Rimuovere tutte le vecchie licenze dai nodi originali utilizzando uno dei seguenti comandi:
++
+`system license clean-up -unused -expired`
+
++
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
+
++
+--
+** Eliminare tutte le licenze scadute:
++
+`system license clean-up -expired`
+
+** Eliminare tutte le licenze inutilizzate:
++
+`system license clean-up -unused`
+
+** Eliminare una licenza specifica da un cluster utilizzando i seguenti comandi sui nodi:
++
+`system license delete -serial-number <node1_serial_number> -package *`
+
++
+`system license delete -serial-number <node2_serial_number> -package *`
+
+
+
+--
++
+Viene visualizzato il seguente output:
+
++
+....
+Warning: The following licenses will be removed:
+<list of each installed package>
+Do you want to continue? {y|n}: y
+....
++
+Invio `y` per rimuovere tutti i pacchetti.
+
+. Verificare che le licenze siano installate correttamente utilizzando il seguente comando ed esaminando l'output:
++
+`system license show`
+
++
+È possibile confrontare l'output con quello acquisito nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"].
+
+. [[unset_maxwait_system_Commands]]se nella configurazione vengono utilizzati dischi con crittografia automatica e la variabile è stata impostata `kmip.init.maxwait` su `off` (ad esempio, in link:install_boot_node4.html#auto_install4_step24["Installazione e boot node4, passaggio 24"]), è necessario annullare l'impostazione della variabile:
++
+`set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
+
+. [[STEP13]]configurare gli SP utilizzando il seguente comando su entrambi i nodi:
++
+`system service-processor network modify -node <node_name>`
+
++
+Fare riferimento a. link:other_references.html["Riferimenti"] Per informazioni dettagliate sul sistema, consultare il documento _riferimento amministrazione sistema_ e i comandi di _ONTAP 9.8: Riferimento pagina manuale_ `service-processor network modify` comando.
+
+. Se si desidera configurare un cluster senza switch sui nuovi nodi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e seguire le istruzioni in _passaggio a un cluster senza switch a due nodi_.
+
+
+.Al termine
+Se Storage Encryption è attivato su node3 e node4, completare la sezione link:set_up_storage_encryption_new_module.html["Impostare Storage Encryption sul nuovo modulo controller"]. In caso contrario, completare la sezione link:decommission_old_system.html["Decommissionare il vecchio sistema"].

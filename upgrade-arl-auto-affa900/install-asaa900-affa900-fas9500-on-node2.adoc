@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/install-asaa900-affa900-fas9500-on-node2.html 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
+summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggiornamento ARL dei modelli di controller nello stesso chassis. 
+---
+= Installare la NVRAM ASA A900, AFF A900 o FAS9500 e i moduli controller su node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Installare la NVRAM ASA A900, AFF A900 o FAS9500 e i moduli controller ricevuti per l'aggiornamento su node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
+
+Quando si esegue l'installazione, tenere presente quanto segue:
+
+* Spostare tutti i moduli di riempimento vuoti negli slot 6-1 e 6-2 dal vecchio modulo NVRAM al nuovo modulo NVRAM.
+* NON spostare il dispositivo di scarico dal modulo NVRAM AFF A700 al modulo NVRAM ASA A900 o AFF A900.
+* Spostare tutti i moduli flash cache installati nel modulo NVRAM FAS9000 nel modulo NVRAM FAS9500.
+
+
+.Prima di iniziare
+Se non si è già collegati a terra, mettere a terra correttamente.
+
+
+
+== Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500
+
+Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500 nello slot 6 di node2.
+
+.Fasi
+. Allineare il modulo NVRAM ai bordi dell'apertura dello chassis nello slot 6.
+. Far scorrere delicatamente il modulo NVRAM nello slot fino a quando il dispositivo di chiusura della camma i/o con lettere e numeri inizia a innestarsi nel perno della camma i/o, quindi spingere il dispositivo di chiusura della camma i/o fino in fondo per bloccare il modulo NVRAM in posizione.
+
+
+
+
+== Installare il modulo controller ASA A900, AFF A900 o FAS9500 in node2
+
+Installare, collegare e collegare il modulo controller ASA A900, AFF A900 o FAS9500 in node2.
+
+.Fasi
+. Allineare l'estremità del modulo controller con l'alloggiamento B dello chassis, quindi spingere delicatamente il modulo controller a metà nel sistema.
++
+
+TIP: L'etichetta dell'alloggiamento si trova sul telaio direttamente sopra il modulo controller.
+
++
+
+NOTE: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo più avanti nella procedura.
+
+. Collegare le porte di gestione e console al modulo controller node2.
++
+
+NOTE: Poiché lo chassis è già acceso, node2 inizia l'avvio non appena è completamente inserito. Per evitare l'avvio node2, si consiglia di collegare la console e i cavi di gestione al modulo controller node2 prima di inserire completamente il modulo controller nello slot.
+
+. Spingere con decisione il modulo controller nello chassis fino a quando non raggiunge la scheda intermedia e non è completamente inserito.
++
+Il dispositivo di chiusura si solleva quando il modulo controller è completamente inserito.
+
++
+
+WARNING: Per evitare di danneggiare i connettori, non esercitare una forza eccessiva quando si fa scorrere il modulo controller nel telaio.
+
+. Collegare la console seriale non appena il modulo è inserito ed essere pronti per interrompere L'AUTOBOOT del node1.
+. Dopo aver interrotto L'AUTOBOOT, node2 si ferma al prompt DEL CARICATORE. Se non INTERROMPETE L'AUTOBOOT in tempo e node2 inizia l'avvio, attendete il prompt e premete Ctrl-C per entrare nel menu di avvio. Dopo che il nodo si è fermato al menu di avvio, utilizzare opzione `8` per riavviare il nodo e interrompere l'AUTOBOOT durante il riavvio.
+. Al prompt LOADER> di node2, impostare le variabili di ambiente predefinite:
++
+`set-defaults`
+
+. Salvare le impostazioni predefinite delle variabili di ambiente:
++
+`saveenv`
+
+

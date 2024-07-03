@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html 
+keywords:  
+summary:  
+---
+= Cavo node1 per cluster-ha e storage condivisi (solo upgrade a AFF A800)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Tutti i cluster, l'ha, lo storage e le connessioni dati che in precedenza erano connessi a AFF A800 node1 ora devono essere connessi a AFF A90 o AFF A70 node1 appena installati.
+
+La tabella seguente mostra l'utilizzo delle porte dello switch per le configurazioni cluster senza switch a due nodi.
+
+|===
+| Porta | Nodo AFF A800 | Nodo AFF A90 | Nodo AFF A70 
+
+
+| Cluster | e0a | e1a | e1a 
+
+
+| Cluster | e1a | e7a (utilizzare e1b se non è presente e7a) | e1b 
+
+
+| HA | e0b | Non collegare | Non collegare 
+
+
+| HA | e1b | Non collegare | Non collegare 
+
+
+| Porte di storage SAS (se presenti e utilizzate) | Qualsiasi porta disponibile | Qualsiasi porta disponibile | Qualsiasi porta disponibile 
+
+
+| Porte di storage Ethernet per NS224 shelf | Qualsiasi porta disponibile | Fare riferimento alla mappatura della connettività dello storage Ethernet | Fare riferimento alla mappatura della connettività dello storage Ethernet 
+|===
+Per un cluster collegato a uno switch, le porte identiche del cluster dei nodi AFF A90 o AFF A70 devono essere sullo stesso switch. Ad esempio, al termine dell'upgrade, collegare E1a su node1 e E1a su node2 a uno switch del cluster. Analogamente, la seconda porta cluster di entrambi i nodi deve essere collegata al secondo switch cluster. La connessione incrociata tra porte ha e cluster condiviso, in cui E1a di node1 è collegato allo switch e E1a di node2 è collegato allo switch B, impedisce errori di comunicazione ha.

@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/stage_1_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Fase 1 sequenza di processo per un aggiornamento ARL utilizzando i `system controller replace` comandi sui controller che eseguono ONTAP 9.15.1 o versione successiva.' 
+---
+= Panoramica della fase 1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È inoltre possibile registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando Onboard Key Manager e scegliere di interrompere le relazioni di SnapMirror.
+
+.Fasi
+. link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]
+. link:manage_storage_encryption_using_okm.html["Gestire la crittografia dello storage utilizzando Onboard Key Manager"]
+

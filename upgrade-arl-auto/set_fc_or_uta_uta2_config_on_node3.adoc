@@ -100,7 +100,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 +
 `halt`
 
-. Avviare il sistema dal prompt del caricatore:
+. Avviare il sistema dal prompt del CARICATORE:
 +
 `boot_ontap menu`
 
@@ -403,8 +403,8 @@ Login:
 ----
 ====
 . Se il sistema entra in un loop di riavvio con il messaggio `no disks found`, perché ha ripristinato le porte alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Continuare con <<auto_check3_step17,Fase 17>> a. <<auto_check3_step22,Fase 22>> per risolvere questo problema.
-. [[auto_check3_step17]]premere `Ctrl-C` durante l'autoboot per arrestare il nodo su `LOADER>` prompt.
-. [[step18]]al prompt del caricatore, accedere alla modalità di manutenzione:
+. [[auto_Check3_STEP17]]premere Ctrl-C durante L'OPERAZIONE di AUTOBOOT per arrestare il nodo al prompt LOADER>.
+. [[step18]]al prompt DEL CARICATORE, accedere alla modalità di manutenzione:
 +
 `boot_ontap maint`
 
@@ -434,7 +434,7 @@ Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sist
 Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sistema che supporta dischi interni ed esterni, ad esempio un sistema AFF A800, visitare il sito Web <<auto_check3_step23,Fase 23>>.
 
 ====
-. [[auto_check3_step22]]al prompt del caricatore, avviare:
+. [[auto_Check3_step22]]al prompt del CARICATORE, avviare:
 +
 `boot_ontap menu`
 
@@ -442,11 +442,13 @@ Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sist
 Ora, all'avvio, il nodo è in grado di rilevare tutti i dischi ad esso assegnati in precedenza e di avviarsi come previsto.
 
 +
-Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia del volume root, il software ONTAP non è in grado di leggere le informazioni del volume dai dischi. Ripristinare le chiavi del volume root:
+Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia dei volumi root, ONTAP non è in grado di leggere le informazioni sul volume dai dischi. Ripristinare le chiavi del volume root:
 
 +
 .. Tornare al menu di avvio speciale:
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----

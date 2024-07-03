@@ -21,6 +21,10 @@ Scegliere una procedura di aggiornamento per un sistema con unità interne, elen
 
 * FAS2620, FAS2650, FAS2720 E FAS2750
 * AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s, e AFF A800
++
+
+NOTE: È inoltre possibile aggiornare AFF A800 a AFF A70 o AFF A90 mediante il trasferimento degli aggregati. link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["Scopri di più"].
+
 * AFF C190, AFF C250 e AFF C800
 * ASA A150, ASA A250, ASA A800 e ASA AFF A220
 
@@ -50,10 +54,9 @@ Informazioni sulle procedure di aggiornamento dell'hardware del controller:
 
 * link:upgrade-arl/index.html["Aggiornamento mediante trasferimento degli aggregati"]
 +
-Il trasferimento degli aggregati è una procedura di sostituzione. Non devi espandere e ridurre il cluster con i nuovi nodi, benefici per i cluster a due nodi senza switch. Lo spostamento dei dati mediante la riallocazione degli aggregati è più rapido rispetto alla copia dei dati tra gli aggregati durante lo spostamento dei volumi.
+Il trasferimento degli aggregati è una procedura di sostituzione. Non occorre espandere e ridurre il cluster con i nuovi nodi, vantaggio per i cluster a due nodi senza switch. Lo spostamento dei dati mediante la riallocazione degli aggregati è più rapido rispetto alla copia dei dati tra gli aggregati durante lo spostamento dei volumi.
 
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando i volumi"]
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando lo storage"]
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando volumi o storage"]
 
 
 [NOTE]

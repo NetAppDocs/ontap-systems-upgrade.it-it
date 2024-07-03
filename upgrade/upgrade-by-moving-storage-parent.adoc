@@ -11,7 +11,13 @@ summary: 'Se si esegue l"aggiornamento spostando lo storage, si preparano i nodi
 
 
 [role="lead"]
-Se si sta aggiornando l'hardware del controller spostando lo storage, si preparano i nodi originali e si configurano i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete. L'aggiornamento tramite lo spostamento dello storage è una procedura di interruzione.
+L'upgrade dell'hardware del controller attraverso lo spostamento dello storage comporta interruzioni. Prima di iniziare l'aggiornamento, esaminare gli scenari di aggiornamento generali e le considerazioni sull'aggiornamento:
+
+* link:upgrade-decide-to-use-this-guide.html["Decidere se eseguire l'upgrade spostando volumi o storage"]
+* link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]
+
+
+Per eseguire l'aggiornamento spostando lo storage, devi preparare i nodi originali e configurare i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete.
 
 [NOTE]
 ====

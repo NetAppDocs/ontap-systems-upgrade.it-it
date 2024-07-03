@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrading, controllers, ARL 
+summary: 'Capire se è possibile aggiornare i controller in esecuzione su ONTAP 9.15.1 o versioni successive utilizzando `system controller replace` i comandi.' 
+---
+= Linee guida per l'aggiornamento dei controller con ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Per capire se è possibile utilizzare ARL per aggiornare una coppia di controller con ONTAP 9.15.1 o versioni successive, dipende dalla piattaforma e dalla configurazione dei controller originali e di quelli sostitutivi.
+
+
+
+== Aggiornamenti supportati per ARL
+
+Prima di aggiornare una coppia di nodi utilizzando questa procedura ARL, esaminare i seguenti requisiti per assicurarsi che la configurazione sia supportata:
+
+* Verificare che l'ARL possa essere eseguito sulle unità di controllo originali e sostitutive.
+* Verificare le dimensioni di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Quindi, occorre confrontare le dimensioni dell'aggregato e il numero di dischi supportati con le dimensioni dell'aggregato e il numero di dischi supportati dal nuovo sistema. Fare riferimento a link:other_references.html["Riferimenti"] per il collegamento a _Hardware Universe_ dove sono disponibili queste informazioni. La dimensione aggregata e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione aggregata e al numero di dischi supportati dal sistema originale.
+* Convalida nelle regole di miscelazione del cluster se i nuovi nodi possono diventare parte del cluster con i nodi esistenti quando viene sostituito il controller originale. Per ulteriori informazioni sulle regole di mescolamento dei cluster, fare riferimento al link:other_references.html["Riferimenti"] link al _Hardware Universe_.
+* Migra e sposta nuovamente le LIF del cluster in due porte del cluster per nodo, se disponi di un sistema, ad esempio AFF 700, con la seguente configurazione:
+* Più di due porte cluster per nodo
+* Una scheda di interconnessione in cluster in slot4 in modalità breakout per creare porte e4a, e4b, e4c e E4D, e porte E4E, e4f, e4g e e4h
++
+
+NOTE: L'aggiornamento del controller con più di due porte del cluster per nodo potrebbe causare la mancanza di LIF del cluster sul nuovo controller in seguito all'upgrade.
+
++
+Per ulteriori informazioni, vedere l'articolo della Knowledge base link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_delete_unwanted_or_unnecessary_cluster_LIFs["Come eliminare LIF del cluster indesiderate o non necessarie"^].
+
+
+
+L'upgrade del controller tramite ARL è supportato sui sistemi configurati con volumi di conformità SnapLock Enterprise e SnapLock.
+
+
+
+== Cluster senza switch a due nodi
+
+Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.
+
+
+
+== Aggiornamenti non supportati per ARL
+
+Non puoi aggiornare i controller sostitutivi che non supportano gli shelf di dischi collegati ai controller originali.
+
+Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento a _Hardware Universe_ per informazioni sul supporto dei dischi.
+
+Se desideri aggiornare i controller entry-level con dischi interni, fai riferimento link:other_references.html["Riferimenti"] al link _Upgrade spostando volumi o storage_ e accedi alla procedura _aggiornamento di una coppia di nodi in cui è in esecuzione Clustered Data ONTAP spostando volumi_.
+
+
+
+== Risolvere i problemi
+
+Se si verificano problemi durante l'aggiornamento dei controller, consultare link:troubleshoot_index.html["Risolvere i problemi"] per ulteriori informazioni e possibili soluzioni.
+
+Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.

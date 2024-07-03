@@ -97,7 +97,7 @@ Se si dispone di una configurazione MetroCluster, utilizzare i seguenti comandi 
 `halt`
 
 +
-Interrompere l'autoboot premendo Ctrl-C al prompt dell'ambiente di boot.
+Interrompere L'OPERAZIONE premendo Ctrl-C al prompt dell'ambiente di avvio.
 
 . [[auto_install4_step15]]al node3, controllare la data, l'ora e il fuso orario del sistema:
 +

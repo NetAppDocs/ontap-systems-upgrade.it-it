@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html 
+keywords: move, non-root, aggregates, nas, lif, node2, node3, node4 
+summary: 'Verifica che le interfacce LIF dati NAS di node2 su node3 siano ricollocate da node3 a node4 quando si esegue l"upgrade dei controller in esecuzione su ONTAP 9.15.1 o versioni successive utilizzando i `system controller replace` comandi.' 
+---
+= Spostare gli aggregati non root e le LIF di dati NAS di proprietà di node2 da node3 a node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver verificato la configurazione di rete sul nodo 4 e prima di spostare gli aggregati dal nodo 3 al nodo 4, è necessario verificare che i dati NAS LIF appartenenti al nodo 2 che sono attualmente sul nodo 3 vengano ricollocati dal nodo 3 al nodo 4. È inoltre necessario verificare che le LIF SAN esistano sul node4.
+
+.A proposito di questa attività
+Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 4 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
+
+.Fasi
+. Le LIF iSCSI trovano automaticamente le corrette porte home utilizzando la scansione della raggiungibilità. Le LIF SAN FC e NVMe/FC non si spostano automaticamente. Continuano a mostrare la porta home su cui si trovavano prima di eseguire l'aggiornamento.
++
+Verifica le LIF SAN su node4:
+
++
+.. Modifica di qualsiasi LIF SAN iSCSI che riporta uno stato operativo "inattivo" nelle nuove porte dati:
++
+`network interface modify -vserver <vserver> -lif <iscsi_san_lif> admin down`
+
++
+`network interface modify -vserver <vserver> -lif <iscsi_san_lif> port <new_port> node <node>`
+
++
+`network interface modify -vserver <vserver> -lif <iscsi_san_lif>`
+
+.. Modifica di qualsiasi LIF SAN FC e NVMe/FC che ospita il nuovo controller e segnala uno stato operativo "inattivo" alle porte FCP sul nuovo controller:
++
+`network interface modify -vserver <vserver> -lif <fc_san_lif> admin down`
+
++
+`network interface modify -vserver <vserver> -lif <fc_san_lif> port <new_port> node <node>`
+
++
+`network interface modify -vserver <vserver> -lif <fc_san_lif>`
+
+
+
+. Riprendere l'operazione di trasferimento:
++
+`system controller replace resume`
+
++
+Il sistema esegue le seguenti operazioni:
+
++
+** Verifica del quorum del cluster
+** Verifica dell'ID di sistema
+** Controllo della versione dell'immagine
+** Verifica della piattaforma di destinazione
+** Verifica della raggiungibilità della rete
+
+
++
+L'operazione viene interrotta in questa fase del controllo della raggiungibilità della rete.
+
+. Riprendere l'operazione di trasferimento:
++
+`system controller replace resume`
+
++
+Il sistema esegue i seguenti controlli:
+
++
+** Controllo dello stato del cluster
+** Controllo dello stato LIF del cluster
+
+
++
+Dopo aver eseguito questi controlli, il sistema ricolloca gli aggregati non root e le LIF dei dati NAS di proprietà di node2 nel nuovo controller, node4. L'operazione di sostituzione del controller viene interrotta al termine del trasferimento delle risorse.
+
+. Controllare lo stato delle operazioni di trasferimento aggregato e LIF dei dati NAS:
++
+`system controller replace show-details`
+
++
+Se la procedura di sostituzione del controller è in pausa, controllare e correggere l'errore, se presente, quindi il problema `resume` per continuare l'operazione.
+
+. Se necessario, ripristinare e ripristinare eventuali LIF spostate. Elencare eventuali LIF spostate:
++
+`cluster controller-replacement network displaced-interface show`
+
++
+Se i file LIF vengono spostati, ripristinare il nodo home al nodo node4:
+
++
+`cluster controller-replacement network displaced-interface restore-home-node`
+
+. Riprendere l'operazione per richiedere al sistema di eseguire i controlli successivi richiesti:
++
+`system controller replace resume`
+
++
+Il sistema esegue i seguenti post-controlli:
+
++
+** Verifica del quorum del cluster
+** Controllo dello stato del cluster
+** Controllo della ricostruzione degli aggregati
+** Controllo dello stato dell'aggregato
+** Controllo dello stato del disco
+** Controllo dello stato LIF del cluster
+** Controllo del volume
+
+
+

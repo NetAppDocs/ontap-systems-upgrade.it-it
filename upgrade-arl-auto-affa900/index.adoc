@@ -14,14 +14,17 @@ summary: 'È possibile aggiornare l"hardware del controller convertendo un vecch
 
 
 [role="lead"]
-Questa procedura descrive come aggiornare senza interruzioni l'hardware del controller su una coppia ha utilizzando il trasferimento aggregato (ARL) per le seguenti configurazioni di sistema. La procedura converte il vecchio sistema nel sistema sostitutivo, mantenendo il vecchio chassis e i dischi del sistema.
+Puoi eseguire l'upgrade dell'hardware dei controller senza interruzioni su una coppia ha utilizzando il trasferimento degli aggregati (ARL) e convertendo il sistema esistente in un sistema di ricambio, mantenendo gli chassis e i dischi del sistema esistenti.
 
 
-WARNING: Questa procedura si applica rigorosamente alle seguenti configurazioni di aggiornamento. Non utilizzare questa procedura per eseguire un aggiornamento tra altre combinazioni di sistema.
+WARNING: Questa procedura si applica rigorosamente alle seguenti configurazioni di aggiornamento. Non utilizzare questa procedura per eseguire un aggiornamento tra qualsiasi altra combinazione di sistema.
 
 [cols="20,20,40"]
 |===
-| Vecchio sistema | Sistema sostitutivo | Versioni di ONTAP supportate 
+| Sistema esistente | Sistema sostitutivo | Versioni di ONTAP supportate 
+
+
+| AFF A800 ^1^ | AFF A90 o AFF A70 | 9.15.1 
 
 
 | AFF A220 configurato come ASA (All SAN Array) | ASA A150 | 9.13.1P1 e successivi 
@@ -31,10 +34,7 @@ WARNING: Questa procedura si applica rigorosamente alle seguenti configurazioni 
 
 
 | AFF A200 | AFF A150  a| 
-9.10.1P15, 9.11.1P11 e successivi
-
-
-NOTE: AFF A200 non supporta le versioni di ONTAP successive alla 9.11.1.
+9.10.1P15, 9.11.1P11 e successivi ^2^
 
 
 
@@ -42,10 +42,7 @@ NOTE: AFF A200 non supporta le versioni di ONTAP successive alla 9.11.1.
 
 
 | FAS2620 | FAS2820  a| 
-9.11.1P7 (FAS2620)
-
-
-NOTE: FAS2620 non supporta le versioni di ONTAP successive alla 9.11.1.
+9.11.1P7 (FAS2620) ^2^
 
 9.13.1 e versioni successive (FAS2820)
 
@@ -62,6 +59,10 @@ NOTE: FAS2620 non supporta le versioni di ONTAP successive alla 9.11.1.
 
 | FAS9000 | FAS9500 | 9.10.1P10, 9.11.1P6 e versioni successive 
 |===
+^1^ quando si esegue l'upgrade a un sistema introdotto in ONTAP 9.15.1, ONTAP converte l'efficienza dello storage di tutti i volumi con thin provisioning esistenti, inclusi quelli che non utilizzano l'efficienza dello storage, e applica le nuove funzioni di efficienza dello storage che sfruttano la funzionalità di offload hardware. Si tratta di un processo in background automatico, senza alcun impatto visibile sulle prestazioni del sistema. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Scopri di più"^]
+
+^2^ i sistemi AFF A200 e FAS2620 non supportano le versioni ONTAP successive alla 9.11.1.
+
 [NOTE]
 ====
 NetApp consiglia, quando possibile, di disporre della stessa versione di ONTAP sul sistema precedente e sul sistema sostitutivo.
@@ -74,28 +75,36 @@ Durante la procedura, gli aggregati non root vengono migrati tra i vecchi nodi c
 .A proposito di questa attività
 Durante questa procedura di aggiornamento del controller, eseguire uno dei seguenti aggiornamenti:
 
-* Scambiare il modulo controller su ciascun nodo del vecchio controller con il nuovo modulo. Ciò si applica a un aggiornamento del sistema AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720.
-* Scambiare il controller e i moduli NVRAM su ciascun nodo del vecchio controller con i nuovi moduli. Ciò si applica a un aggiornamento del sistema AFF A700 o FAS9000.
+[cols="30,70"]
+|===
+| Sul... | Eseguire le seguenti operazioni... 
 
 
+| AFF A800 | Sostituire i due controller AFF A800, la NVRAM e tutti i moduli i/o con i nuovi controller e moduli i/O. 
 
-NOTE: Non è necessario spostare, scollegare o ricollegare le schede i/o, i cavi dati, gli shelf di dischi e i dischi.
 
-Questa procedura utilizza un metodo chiamato ARL (aggregate relocation), che sfrutta la configurazione ha per consentire di spostare la proprietà di aggregati non root da un nodo a un altro se condividono lo storage all'interno dello stesso cluster.
+| AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720 | Scambiare il modulo controller su ciascun nodo del vecchio controller con il nuovo modulo. ^1^ 
+
+
+| AFF A700 o FAS9000 | Scambiare il controller e i moduli NVRAM su ciascun nodo del vecchio controller con i nuovi moduli. ^1^ 
+|===
+^1^ non è necessario spostare, scollegare o ricollegare le schede i/o, i cavi dati, gli shelf di dischi e i dischi.
+
+Questa procedura utilizza un metodo chiamato trasferimento aggregato (ARL). ARL sfrutta la configurazione ha e la comunicazione di interconnessione del cluster, che consente di spostare la proprietà degli aggregati non root da un nodo all'altro, se condividono lo storage all'interno dello stesso cluster.
 
 Durante la procedura, l'hardware del controller originale viene aggiornato con l'hardware del controller sostitutivo, riallocando la proprietà degli aggregati non root. La migrazione degli aggregati viene eseguita più volte da un nodo all'altro per confermare che almeno un nodo fornisce i dati degli aggregati durante l'intera procedura di aggiornamento. Inoltre, è possibile migrare i dati LIF tra i nodi del cluster durante la migrazione.
 
 
-NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi dei nodi in questo documento. Quando si segue la procedura, è necessario sostituire i nomi reali dei nodi.
+NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi dei nodi in questo documento. Quando si segue la procedura, è necessario sostituire i nomi effettivi dei nodi.
 
 .Informazioni importanti
 * Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. È inoltre necessario leggere e comprendere link:guidelines_for_upgrading_controllers_with_arl.html["Linee guida per l'aggiornamento dei controller"] e a. link:overview_of_the_arl_upgrade.html["Panoramica dell'aggiornamento ARL"] prima di iniziare l'aggiornamento.
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato in un altro sistema. I passaggi necessari per preparare i controller usati con `wipeconfig` i comandi non sono inclusi in questa procedura. È necessario contattare il supporto tecnico se l'hardware del controller sostitutivo è stato utilizzato in precedenza come parte di un altro cluster ONTAP o come sistema standalone a nodo singolo.
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia ha nel cluster.
 * Se si dispone di uno switch non supportato dalla versione di ONTAP e dal sistema sostitutivo a cui si sta eseguendo l'aggiornamento, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
-* Questa procedura si applica solo ai sistemi AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, Sistemi AFF A700 e FAS9000. Per tutti gli altri modelli di controller che richiedono l'aggiornamento a un sistema AFF A150, FAS2820, AFF A900 o FAS9500, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi ai comandi di _sostituzione del controller di sistema" per aggiornare l'hardware del controller con ONTAP 9.8 o versione successiva_ e al contenuto _utilizzo del trasferimento aggregato per aggiornare manualmente l'hardware del controller con ONTAP 9.8 o versione successiva_.
+* Questa procedura si applica solo a AFF A800, AFF A200, AFF A220, AFF C190, FAS2620, sistemi FAS2720, AFF A700 e FAS9000. Per tutti gli altri modelli di controller che devono essere aggiornati a AFF A90, AFF A70, AFF A150, FAS2820, AFF A900, o il sistema FAS9500, fare riferimento al link:other_references.html["Riferimenti"] collegamento ai comandi _use "system controller replace" (utilizza sostituzione controller di sistema) per aggiornare l'hardware del controller che esegue ONTAP 9,8 o versione successiva_ e al _using aggregate Relocation (utilizza trasferimento aggregato) per aggiornare manualmente l'hardware del controller che esegue ONTAP 9,8 o versione successiva.
 * I sistemi ASA A900, AFF A900 e FAS9500 supportano solo l'alimentazione di linea alta (da 200V a 240V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l'alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.
-* Se si esegue l'aggiornamento da AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, Il sistema AFF A700 o FAS9000 con downtime consente di aggiornare l'hardware del controller spostando lo storage o di contattare il supporto tecnico. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+* Se si sta eseguendo l'aggiornamento da AFF A800, AFF A200, AFF A220, AFF C190, FAS2620, sistema FAS2720, AFF A700 o FAS9000 con downtime, puoi eseguire l'upgrade dell'hardware del controller spostando lo storage o contattare il supporto tecnico. Fare riferimento al link:other_references.html["Riferimenti"] collegamento a _Upgrade spostando volumi o storage_.
 
 
 

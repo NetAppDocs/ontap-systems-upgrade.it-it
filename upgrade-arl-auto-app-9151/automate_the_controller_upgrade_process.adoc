@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/automate_the_controller_upgrade_process.html 
+keywords: automating, controller, upgrade, process, network, port, ha 
+summary: Utilizza la procedura ARL parzialmente automatizzata per aggiornare i controller in cui è in esecuzione ONTAP 9.15.1 o versione successiva. 
+---
+= Automatizzare il processo di aggiornamento del controller
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Durante un aggiornamento del controller, il controller viene sostituito con un altro controller che esegue una piattaforma più recente o più potente. Questo contenuto fornisce i passaggi per la procedura parzialmente automatizzata, che utilizza i controlli automatici di raggiungibilità delle porte di rete per semplificare ulteriormente l'esperienza di aggiornamento dei controller.

@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual-app/stage_4_index.html
 keywords: stage 4, node2, retire, information 
 summary: Fase 4 sequenza di processo per un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive. 
 ---
-= Panoramica
+= Panoramica della fase 4
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
