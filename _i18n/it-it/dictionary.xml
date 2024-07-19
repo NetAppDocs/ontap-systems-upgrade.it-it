@@ -4879,7 +4879,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="2e1458abf9be810e3c1b32482a2fb654" category="cell">Controller node2 esistente</block>
   <block id="1a68d75a6401790bda4f04fcd5250d89" category="cell">AFF A90 o AFF A70</block>
   <block id="5f9fde3ed8fab53307d0d33e0b21555f" category="doc">Cavo node1 per cluster-ha e storage condivisi (solo upgrade a AFF A800)</block>
-  <block id="d7c50b232c0b6695dad67576c458f2b7" category="paragraph">Tutti i cluster, l'ha, lo storage e le connessioni dati che in precedenza erano connessi a AFF A800 node1 ora devono essere connessi a AFF A90 o AFF A70 node1 appena installati.</block>
   <block id="3f96763067b8ef1bea6f3b7936e59b10" category="paragraph">La tabella seguente mostra l'utilizzo delle porte dello switch per le configurazioni cluster senza switch a due nodi.</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">Porta</block>
   <block id="ed062d9f9c55cc3a6f727877095b3f8a" category="cell">Nodo AFF A800</block>
@@ -4897,7 +4896,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="c6d464573f83b68eae557ca5213c2dbe" category="cell">Qualsiasi porta disponibile</block>
   <block id="1106a2319bc9e3e60b2eb082fdf3e891" category="cell">Porte di storage Ethernet per NS224 shelf</block>
   <block id="bf88a79b7721bdcefd6f46ff3e6e823a" category="cell">Fare riferimento alla mappatura della connettività dello storage Ethernet</block>
-  <block id="98c565adb9d07742bd39f0d8f62a6a4a" category="paragraph">Per un cluster collegato a uno switch, le porte identiche del cluster dei nodi AFF A90 o AFF A70 devono essere sullo stesso switch. Ad esempio, al termine dell'upgrade, collegare E1a su node1 e E1a su node2 a uno switch del cluster. Analogamente, la seconda porta cluster di entrambi i nodi deve essere collegata al secondo switch cluster. La connessione incrociata tra porte ha e cluster condiviso, in cui E1a di node1 è collegato allo switch e E1a di node2 è collegato allo switch B, impedisce errori di comunicazione ha.</block>
   <block id="b6c0f97a30874aed966651e5abc3c11d" category="cell">AFF A70 e AFF A90</block>
   <block id="11c23a28b09e8dab4fd29659b5d908e1" category="list-text">Due controller AFF A90 o due AFF A70 e tutti i moduli i/o necessari per l'aggiornamento. La lunghezza richiesta di 100GbE cavi.</block>
   <block id="2c379faac9baae13e7fda4f15aafa273" category="list-text">Si utilizza il software per la virtualizzazione FlexArray sui sistemi AFF A800, AFF A700 o FAS9000.</block>
@@ -5196,4 +5194,18 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="fe9158ff831e80fc9361c4a06ba512f1" category="sidebar">Fase 6. Completare l'aggiornamento (aggiornamento con "sostituzione del controller di sistema" in ONTAP 9.15.1 o versione successiva)</block>
   <block id="1d2cec084b14c2bb8b27b81dee7eff45" category="sidebar">Risoluzione dei problemi (aggiornamento con "sostituzione controller di sistema" in ONTAP 9.15.1 o versioni successive)</block>
   <block id="f6450b8785035cd4f0854992330d2734" category="admonition">È inoltre possibile aggiornare AFF A800 a AFF A70 o AFF A90 mediante il trasferimento degli aggregati. <block ref="dd8a9320d133fc6bc4cebf159be26035" category="inline-link-macro-rx"></block>.</block>
+  <block id="d7548e4333d6055e4cfe02fb476e8bb3" category="summary">Connettere il cluster, l'ha, lo storage e le connessioni dati che erano state precedentemente connesse a AFF A800 node1 al AFF A90 o AFF A70 node1 appena installato</block>
+  <block id="0640a7d79562f0e5755e3f5b4337aaf0" category="paragraph">Connetti cluster, ha, storage, dati e connessioni di gestione che erano stati precedentemente connessi a AFF A800 node1 a AFF A90 o AFF A70 node1 appena installato.</block>
+  <block id="e41a57de6846f0486a2837efec0a7735" category="section-title">Collegare le porte e0M e BMC</block>
+  <block id="83f9eada4a675baaeaa258974d454974" category="paragraph">AFF A800 dispone di una porta di gestione (e0M) e di una porta BMC. Sui modelli AFF A90 e AFF A70, le porte e0M e BMC sono combinate e accessibili tramite la porta "chiave inglese". Prima di connettersi a AFF A90 o AFF A70, è necessario assicurarsi che le porte e0M e BMC siano collegate allo stesso switch e alla stessa subnet su AFF A800.</block>
+  <block id="71f7c95fc9a5b8a1a847fc0baf3f04a0" category="cell">Se...</block>
+  <block id="31a1d0c3f4eee8e89c1e85f3c2f53402" category="cell">Gli indirizzi IP e0M e BMC si trovano sulla stessa subnet IP</block>
+  <block id="9fded7c0f0530a23a9a859ba516478e5" category="cell">Collegare la porta e0M o BMC del AFF A800 alla porta "chiave" del AFF A90 o del AFF A70.</block>
+  <block id="6d317071220219966d4e9dcc83f3c48f" category="cell">Gli indirizzi IP e0M e BMC si trovano su sottoreti diverse</block>
+  <block id="06ae0bb86db3eff96d5e95f8377d0658" category="list-text">Unire gli indirizzi IP e0M e BMC in un'unica subnet IP.</block>
+  <block id="444178cd590abb095281389d276396fb" category="section-title">Connettersi a un cluster senza switch a due nodi</block>
+  <block id="17ff48b429522b181dd38c99ad361c90" category="section-title">Connettersi a un cluster collegato allo switch</block>
+  <block id="642bccb8ea8bf1d5af20ff2b734c1972" category="paragraph">Per un cluster collegato allo switch, verificare di soddisfare i seguenti requisiti:</block>
+  <block id="0bc65976ff133ee82e86f9a6d1241bd3" category="list-text">Le porte identiche del cluster sui nodi AFF A90 o AFF A70 si trovano sullo stesso switch. Ad esempio, al termine dell'upgrade, collegare E1a su node1 e E1a su node2 a uno switch del cluster. Analogamente, la seconda porta cluster di entrambi i nodi deve essere collegata al secondo switch cluster. La connessione incrociata tra porte ha e cluster condivisi, in cui E1a da node1 è connesso allo switch e E1a da node2 è connesso allo switch B, causerà errori di comunicazione ha.</block>
+  <block id="a8ddcf9ff72eca8d08263b606043e793" category="list-text">I nodi AFF A90 e AFF A70 utilizzano porte Ethernet ha-cluster condivise. Assicurarsi che gli switch del cluster siano installati con un file di configurazione di riferimento (RCF) che supporti le porte condivise cluster-ha.</block>
 </blocks>

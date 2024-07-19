@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html 
-keywords:  
-summary:  
+keywords: cluster, ha, aff, a800, shared, storage, data, management 
+summary: 'Connettere il cluster, l"ha, lo storage e le connessioni dati che erano state precedentemente connesse a AFF A800 node1 al AFF A90 o AFF A70 node1 appena installato' 
 ---
 = Cavo node1 per cluster-ha e storage condivisi (solo upgrade a AFF A800)
 :hardbreaks:
@@ -14,7 +14,31 @@ summary:
 
 
 [role="lead"]
-Tutti i cluster, l'ha, lo storage e le connessioni dati che in precedenza erano connessi a AFF A800 node1 ora devono essere connessi a AFF A90 o AFF A70 node1 appena installati.
+Connetti cluster, ha, storage, dati e connessioni di gestione che erano stati precedentemente connessi a AFF A800 node1 a AFF A90 o AFF A70 node1 appena installato.
+
+
+
+== Collegare le porte e0M e BMC
+
+AFF A800 dispone di una porta di gestione (e0M) e di una porta BMC. Sui modelli AFF A90 e AFF A70, le porte e0M e BMC sono combinate e accessibili tramite la porta "chiave inglese". Prima di connettersi a AFF A90 o AFF A70, è necessario assicurarsi che le porte e0M e BMC siano collegate allo stesso switch e alla stessa subnet su AFF A800.
+
+[cols="35,65"]
+|===
+| Se... | Quindi... 
+
+
+| Gli indirizzi IP e0M e BMC si trovano sulla stessa subnet IP | Collegare la porta e0M o BMC del AFF A800 alla porta "chiave" del AFF A90 o del AFF A70. 
+
+
+| Gli indirizzi IP e0M e BMC si trovano su sottoreti diverse  a| 
+. Unire gli indirizzi IP e0M e BMC in un'unica subnet IP.
+. Collegare la porta e0M o BMC del AFF A800 alla porta "chiave" del AFF A90 o del AFF A70.
+
+
+|===
+
+
+== Connettersi a un cluster senza switch a due nodi
 
 La tabella seguente mostra l'utilizzo delle porte dello switch per le configurazioni cluster senza switch a due nodi.
 
@@ -39,4 +63,12 @@ La tabella seguente mostra l'utilizzo delle porte dello switch per le configuraz
 
 | Porte di storage Ethernet per NS224 shelf | Qualsiasi porta disponibile | Fare riferimento alla mappatura della connettività dello storage Ethernet | Fare riferimento alla mappatura della connettività dello storage Ethernet 
 |===
-Per un cluster collegato a uno switch, le porte identiche del cluster dei nodi AFF A90 o AFF A70 devono essere sullo stesso switch. Ad esempio, al termine dell'upgrade, collegare E1a su node1 e E1a su node2 a uno switch del cluster. Analogamente, la seconda porta cluster di entrambi i nodi deve essere collegata al secondo switch cluster. La connessione incrociata tra porte ha e cluster condiviso, in cui E1a di node1 è collegato allo switch e E1a di node2 è collegato allo switch B, impedisce errori di comunicazione ha.
+
+
+== Connettersi a un cluster collegato allo switch
+
+Per un cluster collegato allo switch, verificare di soddisfare i seguenti requisiti:
+
+* Le porte identiche del cluster sui nodi AFF A90 o AFF A70 si trovano sullo stesso switch. Ad esempio, al termine dell'upgrade, collegare E1a su node1 e E1a su node2 a uno switch del cluster. Analogamente, la seconda porta cluster di entrambi i nodi deve essere collegata al secondo switch cluster. La connessione incrociata tra porte ha e cluster condivisi, in cui E1a da node1 è connesso allo switch e E1a da node2 è connesso allo switch B, causerà errori di comunicazione ha.
+* I nodi AFF A90 e AFF A70 utilizzano porte Ethernet ha-cluster condivise. Assicurarsi che gli switch del cluster siano installati con un file di configurazione di riferimento (RCF) che supporti le porte condivise cluster-ha.
+
