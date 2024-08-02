@@ -38,4 +38,16 @@ I termini "node1", "node2", "node3" e "node4" vengono utilizzati solo per distin
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato. I passaggi necessari per preparare i controller usati con il `wipeconfig` comando non sono inclusi in questa procedura. Se in precedenza è stato utilizzato l'hardware del controller sostitutivo, è necessario contattare il supporto tecnico.
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia di ha (High Availability) nel cluster.
 * Quando esegui l'upgrade a un sistema AFF A70, AFF A90 o AFF A1K introdotto in ONTAP 9.15.1, ONTAP converte l'efficienza dello storage di tutti i volumi con thin provisioning, inclusi quelli che non utilizzano l'efficienza dello storage e applica le nuove funzioni di efficienza dello storage che sfruttano la funzionalità di offload dell'hardware. Si tratta di un processo in background automatico, senza alcun impatto visibile sulle prestazioni del sistema. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Scopri di più"^]
+* I sistemi AFF A70, AFF A90 e AFF A1K condividono 100GbE porte di rete per le connessioni cluster e ha. Questi sistemi possono supportare connessioni cluster 10GbE o 25GbE a switch cluster legacy; tuttavia, NetApp consiglia di eseguire l'aggiornamento a velocità cluster 100GbE quando gli switch 10GbE e 25GbE non sono più necessari. Per ulteriori informazioni, vedere i seguenti articoli della Knowledge base:
++
+--
+** link:https://kb.netapp.com/?title=on-prem%2Fontap%2FOHW%2FOHW-KBs%2FHow_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_A1K%252C_AFF_A90_or_AFF_A70["Come configurare le porte cluster 10G o 25g in una nuova configurazione cluster su AFF A1K, AFF A90 o AFF A70"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_A1K_AFF_A90_or_AFF_A70["Come convertire un cluster esistente da 10G o 25g porte cluster in 40G o 100g porte cluster in AFF A1K, AFF A90 o AFF A70"^]
+
+
+--
++
+Se non è possibile collegare e0a o e0b porte cluster sul nodo esistente alle porte cluster sul nuovo nodo, vedere link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["ID bug online di NetApp CONTAP-166978"^].
+
+* Quando esegui l'upgrade a un sistema AFF A70, AFF A90 o AFF A1K, ONTAP converte l'efficienza dello storage di tutti i volumi con thin provisioning, compresi quelli che non utilizzano l'efficienza dello storage, e applica le nuove funzioni di efficienza dello storage che sfruttano la funzionalità di offload hardware. Si tratta di un processo in background automatico, senza alcun impatto visibile sulle prestazioni del sistema. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Scopri di più"^]
 
