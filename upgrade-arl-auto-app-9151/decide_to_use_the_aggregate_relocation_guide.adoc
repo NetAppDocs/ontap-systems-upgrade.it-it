@@ -36,23 +36,27 @@ Non è possibile utilizzare questa procedura nelle seguenti circostanze:
 [[sys_command_9151_supported_Systems]]la tabella seguente mostra la matrice di modelli supportata per l'aggiornamento del controller.
 
 |===
-| Controller esistente | Controller sostitutivo 
+| Controller esistente | Controller sostitutivo | Supportato a partire da ONTAP... 
 
 
-| AFF A300 | AFF A70, AFF A90 e AFF A1K 
+| FAS8200, FAS8300, FAS8700, FAS9000 | FAS70, FAS90 | 9.15.1P3 
 
 
-| AFF A400 | AFF A70, AFF A90 e AFF A1K 
+| FAS9500 | FAS90 | 9.15.1P3 
 
 
-| AFF A700 | AFF A70, AFF A90 e AFF A1K 
+| AFF A300, AFF A400, AFF A700 | AFF A70, AFF A90, AFF A1K | 9.15.1 
 
 
-| AFF A900 | AFF A90 e AFF A1K 
+| AFF A900 | AFF A90, AFF A1K | 9.15.1 
 |===
 [NOTE]
 ====
-AFF A70 e AFF A90 sono sistemi integrati con dischi integrati. I due controller e i dischi sono in un singolo chassis. Non è possibile aggiornare un sistema esistente se i nuovi controller dispongono di unità interne.
+AFF A70 e AFF A90 sono sistemi integrati con due dischi integrati e due controller in un singolo chassis.
+
+* Se si sta eseguendo l'aggiornamento a un AFF A70 o a un AFF A90 con unità interne, è necessario rimuovere la proprietà di queste unità prima di eseguire l'aggiornamento. Dopo aver completato l'upgrade, puoi assegnare i dischi interni ai nodi AFF A70 o AFF A90 e utilizzarli per creare aggregati di dati. Non è obbligatorio migrare aggregati root o dati su dischi interni.
+* Se si esegue l'aggiornamento a un AFF A70 o a un AFF A90 senza unità interne, non è necessario assegnare unità interne al termine dell'aggiornamento.
+
 
 Se la combinazione di modelli di upgrade del controller non è riportata nella tabella precedente, contattare il supporto tecnico.
 

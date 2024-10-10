@@ -105,8 +105,8 @@ NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi 
 * I sistemi AFF A70 e AFF A90 condividono 100GbE porte di rete per le connessioni cluster e ha. Questi sistemi possono supportare connessioni cluster 10GbE o 25GbE a switch cluster legacy; tuttavia, NetApp consiglia di eseguire l'aggiornamento a velocità cluster 100GbE quando gli switch 10GbE e 25GbE non sono più necessari. Per ulteriori informazioni, vedere i seguenti articoli della Knowledge base:
 +
 --
-** link:https://kb.netapp.com/?title=on-prem%2Fontap%2FOHW%2FOHW-KBs%2FHow_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_A1K%252C_AFF_A90_or_AFF_A70["Come configurare le porte cluster 10G o 25g in una nuova configurazione cluster su AFF A1K, AFF A90 o AFF A70"^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_A1K_AFF_A90_or_AFF_A70["Come convertire un cluster esistente da 10G o 25g porte cluster in 40G o 100g porte cluster in AFF A1K, AFF A90 o AFF A70"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Configurazione delle porte cluster 10G o 25g in un nuovo setup cluster su AFF/ASA A1K, A90, A70, FAS90, FAS70"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Come convertire un cluster esistente da 10G o 25g porte cluster a 40G o 100g porte cluster in un AFF/ASA A1K, FAS70, A70, FAS90, A90"^]
 
 
 --
