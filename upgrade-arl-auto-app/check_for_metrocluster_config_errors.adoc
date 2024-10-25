@@ -10,7 +10,7 @@ summary: 'Utilizzare lo strumento Config Advisor per verificare la presenza di e
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Capire se è possibile utilizzare la procedura di aggiornamento ARL man
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

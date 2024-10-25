@@ -10,7 +10,7 @@ summary: Installare i file RCF per riconfigurare gli switch Cisco e Brocade dura
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

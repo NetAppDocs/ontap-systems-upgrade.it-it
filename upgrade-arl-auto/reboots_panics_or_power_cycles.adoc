@@ -10,7 +10,7 @@ summary: 'Il sistema potrebbe bloccarsi (riavvio, panico o ciclo di alimentazion
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

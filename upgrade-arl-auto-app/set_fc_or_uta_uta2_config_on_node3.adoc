@@ -10,7 +10,7 @@ summary: 'Configurare node3 porte FC onboard, porte UTA/UTA2 o scheda UTA/UTA2 q
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

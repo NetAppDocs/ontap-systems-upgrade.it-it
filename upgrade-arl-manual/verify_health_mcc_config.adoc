@@ -10,7 +10,7 @@ summary: Verificare lo stato della configurazione MetroCluster e il corretto fun
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

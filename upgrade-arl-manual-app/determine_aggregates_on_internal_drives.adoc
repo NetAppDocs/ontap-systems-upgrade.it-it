@@ -10,7 +10,7 @@ summary: Verificare che i dischi interni non contengano aggregati di dati o root
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

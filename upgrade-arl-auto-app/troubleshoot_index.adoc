@@ -10,7 +10,7 @@ summary: 'Risolvere i problemi che potrebbero verificarsi quando si aggiornano i
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

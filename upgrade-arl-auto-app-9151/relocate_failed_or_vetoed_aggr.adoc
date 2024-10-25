@@ -10,7 +10,7 @@ summary: 'Sposta manualmente gli aggregati guasti o sottoposti a vetoing durante
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

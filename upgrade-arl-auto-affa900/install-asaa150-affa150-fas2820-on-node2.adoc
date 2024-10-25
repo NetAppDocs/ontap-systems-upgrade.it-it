@@ -10,7 +10,7 @@ summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggior
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

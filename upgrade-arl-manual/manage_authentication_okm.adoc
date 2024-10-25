@@ -10,7 +10,7 @@ summary: Utilizzare OKM per gestire le chiavi di autenticazione durante un aggio
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Risincronizzare le LIF che si trovano su porte non valide in una config
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

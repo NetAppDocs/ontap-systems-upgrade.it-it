@@ -10,7 +10,7 @@ summary: 'Comprendere come funziona la procedura per aggiornare i controller su 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

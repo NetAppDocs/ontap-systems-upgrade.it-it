@@ -122,7 +122,7 @@ WARNING: Quando le porte "e0a" e "e0b" vengono utilizzate come porte di intercon
 Nell'esempio seguente, le LIF di gestione e di intercluster sulle porte di rete "e0a" e "e0b" vengono riassegnate alle porte di rete "e1a" e "e1b". I nodi potrebbero utilizzare porte di rete diverse in quanto variano in base al sistema.
 
 +
-image::../upgrade/media/reassign_lifs.PNG[Riassegnazione di LIF alle porte di rete del sistema sostitutivo]
+image:reassign_lifs.PNG["Riassegnazione di LIF alle porte di rete del sistema sostitutivo"]
 
 
 

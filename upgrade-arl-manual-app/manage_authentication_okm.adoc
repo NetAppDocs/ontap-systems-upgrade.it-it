@@ -10,7 +10,7 @@ summary: Utilizzare Onboard Key Manager per gestire le chiavi di autenticazione 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

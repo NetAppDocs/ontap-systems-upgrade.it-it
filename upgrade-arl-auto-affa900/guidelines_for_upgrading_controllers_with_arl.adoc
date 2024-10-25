@@ -10,7 +10,7 @@ summary: Capire se è possibile utilizzare ARL, mantenendo i vecchi dischi e cha
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

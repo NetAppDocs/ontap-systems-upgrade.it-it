@@ -10,7 +10,7 @@ summary: Spostare gli aggregati guasti o vetoed quando si utilizza ARL per aggio
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

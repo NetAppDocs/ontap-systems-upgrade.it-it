@@ -10,7 +10,7 @@ summary: Abilitare costantemente gli switch Brocade e Cisco nel fabric durante u
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

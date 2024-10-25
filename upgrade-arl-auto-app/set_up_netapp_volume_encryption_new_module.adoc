@@ -10,7 +10,7 @@ summary: 'Se necessario, configurare il nuovo modulo controller per NVE o NAE qu
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Puoi aggiornare l"hardware dei controller che eseguono ONTAP 9.15.1 o 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -40,7 +40,7 @@ I termini "node1", "node2", "node3" e "node4" vengono utilizzati solo per distin
 * Quando esegui l'upgrade a un sistema introdotto in ONTAP 9.15,1, ONTAP converte l'efficienza dello storage dei volumi esistenti e applica le nuove funzioni di efficienza dello storage che sfruttano la funzionalità di offload hardware. Si tratta di un processo in background automatico, senza alcun impatto visibile sulle prestazioni del sistema.
 +
 ** Per un sistema AFF A70, AFF A90 o AFF A1K, ONTAP converte l'efficienza dello storage di tutti i volumi con thin provisioning esistenti, inclusi quelli che non utilizzano l'efficienza dello storage.
-** Per un sistema FAS70 e FAS90, ONTAP converte solo l'efficienza dello storage dei volumi con thin provisioning esistenti, che avevano già l'efficienza dello storage abilitata prima dell'upgrade.
+** Per un sistema FAS70 e FAS90, ONTAP converte solo l'efficienza dello storage dei volumi con thin provisioning esistenti che hanno ottenuto l'efficienza dello storage prima dell'upgrade.
 
 
 +

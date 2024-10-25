@@ -10,7 +10,7 @@ summary: Decidere se utilizzare la procedura ARL manuale per aggiornare i contro
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

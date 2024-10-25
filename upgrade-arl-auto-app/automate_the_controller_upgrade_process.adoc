@@ -10,7 +10,7 @@ summary: Utilizzare la procedura ARL parzialmente automatica per aggiornare i co
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

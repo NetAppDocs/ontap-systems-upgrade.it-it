@@ -10,7 +10,7 @@ summary: 'Ricreare le VLAN node1, i gruppi di interfacce e i domini di trasmissi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Abilitare la coppia ha, verificare l"accesso allo storage node3 e node
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

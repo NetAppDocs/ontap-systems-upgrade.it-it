@@ -10,7 +10,7 @@ summary: 'Comprendere la procedura per aggiornare i controller che eseguono ONTA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

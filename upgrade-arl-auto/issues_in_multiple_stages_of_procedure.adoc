@@ -10,7 +10,7 @@ summary: 'Informazioni sui problemi che potrebbero verificarsi quando si aggiorn
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

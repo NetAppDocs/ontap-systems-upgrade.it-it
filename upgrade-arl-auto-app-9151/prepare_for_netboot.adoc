@@ -10,7 +10,7 @@ summary: 'Preparare il nodo di netboot 3 e node4 quando si aggiornano i controll
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

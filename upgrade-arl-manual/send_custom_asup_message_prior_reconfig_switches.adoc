@@ -10,7 +10,7 @@ summary: Informare il supporto tecnico NetApp che la manutenzione è in corso du
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Registrare le informazioni di configurazione LIF dei dati NAS node2 dur
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

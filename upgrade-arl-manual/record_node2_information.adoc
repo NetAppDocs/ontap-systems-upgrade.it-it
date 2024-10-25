@@ -10,7 +10,7 @@ summary: 'Registrare le informazioni relative alla rete cluster node2, alla gest
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

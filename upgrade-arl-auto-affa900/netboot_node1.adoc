@@ -10,7 +10,7 @@ summary: Quando si utilizza ARL per aggiornare i modelli di controller nello ste
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

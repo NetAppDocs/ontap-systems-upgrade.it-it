@@ -10,7 +10,7 @@ summary: Riprendere i trasferimenti e le relazioni di SnapMirror durante un aggi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

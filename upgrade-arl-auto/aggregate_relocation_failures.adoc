@@ -10,7 +10,7 @@ summary: 'Risolvere i problemi di riposizionamento degli aggregati che potrebber
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

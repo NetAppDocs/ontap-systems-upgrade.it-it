@@ -10,7 +10,7 @@ summary: 'Ricreare le VLAN, i gruppi di interfacce e i domini di broadcast del n
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

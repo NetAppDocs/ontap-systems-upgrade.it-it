@@ -10,7 +10,7 @@ summary: 'Preparare i nodi ed eseguire una serie di controlli preliminari per l"
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Connettere il cluster, l"ha, lo storage e le connessioni dati che eran
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

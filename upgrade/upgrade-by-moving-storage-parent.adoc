@@ -23,7 +23,7 @@ Per eseguire l'aggiornamento spostando lo storage, devi preparare i nodi origina
 ====
 Nei passaggi per l'aggiornamento dell'hardware del controller mediante lo spostamento dello storage, i nodi originali sono chiamati node1 e node2, mentre i nuovi nodi sono chiamati node3 e node4. Durante la procedura descritta, il node1 viene sostituito dal node3, mentre il node2 viene sostituito dal node4.
 
-image::../upgrade/media/original_to_new_nodes.png[Sostituzione di node3 e node4 con node1 e node2]
+image:original_to_new_nodes.png["Sostituzione di node1 e node2 con node3 e node4"]
 
 I termini node1, node2, node3 e node4 vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituirli con i nomi reali dei nodi originali e nuovi. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
 

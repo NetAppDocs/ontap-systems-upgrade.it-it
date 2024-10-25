@@ -10,7 +10,7 @@ summary: 'Se necessario, configurare Storage Encryption, installare certificati 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

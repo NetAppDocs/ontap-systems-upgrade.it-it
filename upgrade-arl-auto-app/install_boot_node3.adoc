@@ -10,7 +10,7 @@ summary: 'Installare e avviare il node3 e installare il software ONTAP quando si
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

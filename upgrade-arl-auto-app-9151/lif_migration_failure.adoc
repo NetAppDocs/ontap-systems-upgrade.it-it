@@ -10,7 +10,7 @@ summary: 'Le LIF non sono online dopo la migrazione in Stage 2, Stage 3 o Stage 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

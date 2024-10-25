@@ -10,7 +10,7 @@ summary: Spostare le LIF dei dati NAS di node2 al node3 durante un aggiornamento
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

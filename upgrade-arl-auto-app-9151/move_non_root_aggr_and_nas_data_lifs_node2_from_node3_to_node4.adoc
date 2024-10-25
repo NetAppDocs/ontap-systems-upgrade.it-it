@@ -10,7 +10,7 @@ summary: 'Verifica che le interfacce LIF dati NAS di node2 su node3 siano ricoll
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

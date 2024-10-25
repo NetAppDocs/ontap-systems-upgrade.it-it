@@ -10,7 +10,7 @@ summary: Verificare le operazioni di switchover, riparazione e switchback durant
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

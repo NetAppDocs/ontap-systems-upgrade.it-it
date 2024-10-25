@@ -10,7 +10,7 @@ summary: Per eseguire un aggiornamento ARL manuale sui controller che eseguono O
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

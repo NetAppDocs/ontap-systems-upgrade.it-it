@@ -10,7 +10,7 @@ summary: Comprendere il funzionamento della procedura di aggiornamento ARL manua
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

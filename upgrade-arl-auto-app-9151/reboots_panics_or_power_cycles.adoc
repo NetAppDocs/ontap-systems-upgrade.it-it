@@ -10,7 +10,7 @@ summary: 'Il sistema potrebbe arrestarsi in modo anomalo, riavviarsi, fare un pa
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

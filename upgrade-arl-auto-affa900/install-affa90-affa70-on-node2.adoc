@@ -10,7 +10,7 @@ summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggior
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -23,7 +23,7 @@ Installare il modulo controller AFF A90 o AFF A70 ricevuto per l'aggiornamento s
 NOTE: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo più avanti nella procedura.
 
 +
-image::../media/drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG[Installare AFF A90 o AFF A70]
+image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installare AFF A90 o AFF A70"]
 
 . Collegare le porte di gestione e console al modulo controller node1.
 +

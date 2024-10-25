@@ -10,7 +10,7 @@ summary: Prima di avviare il sistema dalla rete, interrompere tutte le relazioni
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Fare il boot node1 con i moduli controller sostitutivi quando si utiliz
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

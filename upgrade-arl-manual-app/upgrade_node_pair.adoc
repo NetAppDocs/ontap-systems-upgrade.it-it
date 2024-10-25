@@ -10,7 +10,7 @@ summary: 'È possibile preparare manualmente il nodo originale per l"aggiornamen
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Capire se è possibile aggiornare i controller che eseguono ONTAP 9.5 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

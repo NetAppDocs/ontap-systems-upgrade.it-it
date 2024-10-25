@@ -10,7 +10,7 @@ summary: Le LIF non sono online dopo la migrazione nella fase 2, 3 o 5 quando si
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

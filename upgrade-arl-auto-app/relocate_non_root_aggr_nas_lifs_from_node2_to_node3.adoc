@@ -10,7 +10,7 @@ summary: 'Spostare gli aggregati non root di node2 in node3 quando si aggiornano
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Spostare manualmente gli aggregati non riusciti o vetoed quando si agg
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

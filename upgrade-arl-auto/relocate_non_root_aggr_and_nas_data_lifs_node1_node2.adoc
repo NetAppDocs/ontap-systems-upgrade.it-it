@@ -10,7 +10,7 @@ summary: 'Spostare gli aggregati non root e le LIF di dati NAS da node1 a node2 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

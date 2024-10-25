@@ -10,7 +10,7 @@ summary: 'Verificare che il nodo 4 si unisca al quorum, ricreare le VLAN del nod
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

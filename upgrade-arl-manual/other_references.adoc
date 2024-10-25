@@ -10,7 +10,7 @@ summary: Contenuti di riferimento e siti Web richiesti per supportare un aggiorn
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

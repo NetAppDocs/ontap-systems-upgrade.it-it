@@ -10,7 +10,7 @@ summary: Disattivare gli switch Brocade e Cisco nel fabric e modificare la confi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

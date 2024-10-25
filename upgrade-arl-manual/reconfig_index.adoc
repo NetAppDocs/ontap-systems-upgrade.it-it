@@ -10,7 +10,7 @@ summary: Per ONTAP 9.1 o versioni successive, riconfigurare il layout delle port
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -19,7 +19,7 @@ Convertire il nodo AFF A250 1 in uno shelf di dischi NS224 e collegarlo al nodo 
 . Inserire il modulo NVMe shelf (NSM) nell'alloggiamento del nodo 1.
 . Collegare l'NSM al nodo 3 collegando la porta node3 100GbE e0c alla porta NSM A e0a.
 +
-image::../upgrade/media/a400_with_ns224_shelf.PNG[AFF A400 con uno shelf NS224]
+image:a400_with_ns224_shelf.PNG["AFF A400 con uno shelf NS224"]
 
 . Spostare le connessioni del cluster temporanee al nodo 3 spostando il cablaggio 25GbE dalle porte node1 e0c e e0d a due porte integrate da 25 GbE (e0e, e0f, e0g o e0h) sul nodo 3.
 +

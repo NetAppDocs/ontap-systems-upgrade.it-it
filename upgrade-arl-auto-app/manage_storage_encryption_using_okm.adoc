@@ -10,7 +10,7 @@ summary: 'Configurare e gestire la crittografia dello storage, gestire le chiavi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

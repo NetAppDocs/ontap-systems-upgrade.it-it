@@ -10,7 +10,7 @@ summary: Spostare gli aggregati non root dal nodo 1 al nodo 2 e verificare il tr
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

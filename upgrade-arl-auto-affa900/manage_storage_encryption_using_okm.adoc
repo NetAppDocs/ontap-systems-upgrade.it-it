@@ -10,7 +10,7 @@ summary: Configurare e gestire Storage Encryption, gestire le chiavi di autentic
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

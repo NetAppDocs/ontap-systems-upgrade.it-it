@@ -10,7 +10,7 @@ summary: Utilizzare i server KMIP per gestire le chiavi di autenticazione durant
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

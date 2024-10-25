@@ -10,7 +10,7 @@ summary: Se necessario, configurare la crittografia dello storage, installare i 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

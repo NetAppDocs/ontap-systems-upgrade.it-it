@@ -10,7 +10,7 @@ summary: 'Far sapere a NetApp che il vecchio sistema non è più in funzione dop
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

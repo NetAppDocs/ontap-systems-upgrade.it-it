@@ -10,7 +10,7 @@ summary: Chiudere il node2 e rimuoverlo dal rack o dallo chassis quando si utili
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

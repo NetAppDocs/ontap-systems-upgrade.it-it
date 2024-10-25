@@ -10,7 +10,7 @@ summary: Spostare gli aggregati non root di node2 da node3 a node4 durante un ag
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

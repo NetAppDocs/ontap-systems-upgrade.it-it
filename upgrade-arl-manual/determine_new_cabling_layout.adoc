@@ -10,7 +10,7 @@ summary: Determinare il layout del cablaggio per i nuovi moduli controller e she
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

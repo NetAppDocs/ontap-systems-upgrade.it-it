@@ -10,7 +10,7 @@ summary: 'Verificare l"installazione del nodo 2 con i moduli sostitutivi quando 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

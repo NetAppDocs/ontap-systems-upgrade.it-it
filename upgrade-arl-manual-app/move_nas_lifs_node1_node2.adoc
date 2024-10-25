@@ -10,7 +10,7 @@ summary: Spostare le LIF dei dati node1 in node2 se si dispone di un cluster a d
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Preparare il nodo originale per l"aggiornamento eseguendo le attività
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

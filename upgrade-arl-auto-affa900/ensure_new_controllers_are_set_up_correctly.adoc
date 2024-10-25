@@ -10,7 +10,7 @@ summary: 'Verificare che la coppia ha sia attivata, verificare l"accesso allo st
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

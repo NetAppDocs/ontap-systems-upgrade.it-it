@@ -10,7 +10,7 @@ summary: 'Per aggiornare i controller in cui è in esecuzione ONTAP 9.15.1 o ver
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

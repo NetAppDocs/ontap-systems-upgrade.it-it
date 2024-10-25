@@ -10,7 +10,7 @@ summary: 'Se necessario, ripristinare la configurazione del gestore delle chiavi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

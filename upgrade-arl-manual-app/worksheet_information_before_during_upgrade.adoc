@@ -10,7 +10,7 @@ summary: Raccogliere determinate informazioni durante un aggiornamento ARL manua
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

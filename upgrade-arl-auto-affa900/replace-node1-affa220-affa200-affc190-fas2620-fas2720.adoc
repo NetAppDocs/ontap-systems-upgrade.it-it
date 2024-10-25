@@ -10,7 +10,7 @@ summary: Sostituire i node1 moduli di sistema AFF A220, AFF A200, AFF C190, FAS2
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -32,11 +32,11 @@ Lasciare i cavi nel dispositivo di gestione dei cavi in modo che quando si reins
 
 . Rimuovere e mettere da parte i dispositivi di gestione dei cavi dai lati sinistro e destro del modulo controller.
 +
-image::../media/drw_25xx_cable_management_arm.png[Rimozione del ARM di gestione dei cavi]
+image:drw_25xx_cable_management_arm.png["Rimozione del ARM di gestione dei cavi"]
 
 . Premere il dispositivo di chiusura sulla maniglia della camma fino al rilascio, aprire completamente la maniglia della camma per rilasciare il modulo controller dalla scheda intermedia, quindi estrarre il modulo controller dallo chassis con due mani.
 +
-image::../media/drw_2240_x_opening_cam_latch.png[Apertura della maniglia della camma]
+image:drw_2240_x_opening_cam_latch.png["Apertura della maniglia della camma"]
 
 . Capovolgere il modulo controller e posizionarlo su una superficie piana e stabile.
 

@@ -10,7 +10,7 @@ summary: Preparare i nodi, raccogliere informazioni e verificare che tutti i nod
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Verificare che i dati LIF NAS node1 sul node2 vengano ricollocati da no
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

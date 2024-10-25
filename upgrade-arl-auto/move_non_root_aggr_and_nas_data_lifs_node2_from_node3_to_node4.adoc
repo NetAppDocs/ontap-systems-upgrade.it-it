@@ -10,7 +10,7 @@ summary: 'Spostare le LIF dei dati NAS node2 sul node3 da node3 a node4 quando s
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

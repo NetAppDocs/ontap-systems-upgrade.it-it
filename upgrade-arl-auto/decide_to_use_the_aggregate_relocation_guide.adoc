@@ -10,7 +10,7 @@ summary: 'Decidere se utilizzare ARL per aggiornare i controller che eseguono ON
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

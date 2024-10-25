@@ -10,7 +10,7 @@ summary: Sostituire i moduli di sistema AFF A700 o FAS9000 node1 quando si utili
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -35,7 +35,7 @@ WARNING: Quando si lavora sul node1, rimuovere solo i cavi console e e0M dal nod
 +
 .. Far scorrere il pulsante arancione sulla maniglia della camma verso il basso fino a sbloccarla.
 +
-image::../media/drw_9500_remove_PCM.png[Rimuovere il modulo controller]
+image:drw_9500_remove_PCM.png["Rimuovere il modulo controller"]
 
 +
 [cols="20,80"]
@@ -43,12 +43,12 @@ image::../media/drw_9500_remove_PCM.png[Rimuovere il modulo controller]
 
 
  a| 
-image::../media/black_circle_one.png[Numero uno]
+image:black_circle_one.png["Numero uno"]
 | Pulsante di rilascio della maniglia della camma 
 
 
  a| 
-image::../media/black_circle_two.png[Numero due]
+image:black_circle_two.png["Numero due"]
 | Maniglia CAM 
 |===
 .. Ruotare la maniglia della camma in modo da disimpegnare completamente il modulo controller dal telaio, quindi estrarre il modulo controller dal telaio.
@@ -81,7 +81,7 @@ Il modulo NVRAM si disinnesta dal telaio e si sposta di alcuni centimetri.
 
 .. Rimuovere il modulo NVRAM dallo chassis tirando le linguette di estrazione sui lati del lato anteriore del modulo.
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[Rimuovere il modulo NVRAM]
+image:drw_a900_move-remove_NVRAM_module.png["Rimuovere il modulo NVRAM"]
 
 +
 [cols="20,80"]
@@ -89,12 +89,12 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[Rimuovere il modulo NVRAM]
 
 
  a| 
-image::../media/black_circle_one.png[Numero uno]
+image:black_circle_one.png["Numero uno"]
 | Latch i/o Cam intestato e numerato 
 
 
  a| 
-image::../media/black_circle_two.png[Numero due]
+image:black_circle_two.png["Numero due"]
 | Fermo i/o completamente sbloccato 
 |===
 
@@ -127,7 +127,7 @@ Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500 nello slot 6 di node1.
 . Allineare il modulo NVRAM ai bordi dell'apertura dello chassis nello slot 6.
 . Far scorrere delicatamente il modulo NVRAM nello slot fino a quando il dispositivo di chiusura della camma i/o con lettere e numeri inizia a innestarsi nel perno della camma i/o, quindi spingere il dispositivo di chiusura della camma i/o fino in fondo per bloccare il modulo NVRAM in posizione.
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[Installare il modulo NVRAM]
+image:drw_a900_move-remove_NVRAM_module.png["Installare il modulo NVRAM"]
 
 +
 [cols="20,80"]
@@ -135,12 +135,12 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[Installare il modulo NVRAM
 
 
  a| 
-image::../media/black_circle_one.png[Numero uno]
+image:black_circle_one.png["Numero uno"]
 | Latch i/o Cam intestato e numerato 
 
 
  a| 
-image::../media/black_circle_two.png[Numero due]
+image:black_circle_two.png["Numero due"]
 | Fermo i/o completamente sbloccato 
 |===
 
@@ -171,7 +171,7 @@ Il dispositivo di chiusura si solleva quando il modulo controller è completamen
 WARNING: Per evitare di danneggiare i connettori, non esercitare una forza eccessiva quando si fa scorrere il modulo controller nel telaio.
 
 +
-image::../media/drw_9500_remove_PCM.png[Installare il modulo controller]
+image:drw_9500_remove_PCM.png["Installare il modulo controller"]
 
 +
 [cols="20,80"]
@@ -179,12 +179,12 @@ image::../media/drw_9500_remove_PCM.png[Installare il modulo controller]
 
 
  a| 
-image::../media/black_circle_one.png[Numero uno]
+image:black_circle_one.png["Numero uno"]
 | Fermo di bloccaggio della maniglia della camma 
 
 
  a| 
-image::../media/black_circle_two.png[Numero due]
+image:black_circle_two.png["Numero due"]
 | Maniglia della camma in posizione sbloccata 
 |===
 . Collegare la console seriale non appena il modulo è inserito ed essere pronti per interrompere L'AUTOBOOT del node1.

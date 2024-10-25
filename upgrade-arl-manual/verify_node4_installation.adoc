@@ -10,7 +10,7 @@ summary: 'Verificare l"installazione e la comunicazione del nodo 4 con il nodo 3
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

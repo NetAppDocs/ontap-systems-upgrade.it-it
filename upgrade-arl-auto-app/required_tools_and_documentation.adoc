@@ -10,7 +10,7 @@ summary: 'Per aggiornare i controller con ONTAP 9.8 o versione successiva, è ne
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

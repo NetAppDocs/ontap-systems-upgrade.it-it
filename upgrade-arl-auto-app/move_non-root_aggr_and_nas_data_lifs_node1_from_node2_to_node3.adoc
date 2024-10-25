@@ -10,7 +10,7 @@ summary: 'Verificare che i file LIF dei dati NAS node1 sul node2 vengano ricollo
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

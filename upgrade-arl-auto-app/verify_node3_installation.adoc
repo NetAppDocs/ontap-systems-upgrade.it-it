@@ -10,7 +10,7 @@ summary: 'Verificare che le porte fisiche node1 siano mappate correttamente al n
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

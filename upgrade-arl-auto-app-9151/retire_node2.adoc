@@ -10,7 +10,7 @@ summary: 'Arrestare il sistema node2 e rimuoverlo dal rack o dallo chassis quand
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

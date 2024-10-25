@@ -10,7 +10,7 @@ summary: 'Verificare che le LIF dei dati NAS di node2 che si trovano sul node3 v
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

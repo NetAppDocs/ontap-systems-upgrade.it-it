@@ -10,7 +10,7 @@ summary: Disattivare la coppia ha con node2 e chiudere node1 quando si utilizza 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
