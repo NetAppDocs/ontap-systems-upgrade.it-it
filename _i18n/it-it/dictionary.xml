@@ -5194,7 +5194,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="f43de3716b79c8e43965aeacd1411a48" category="cell">AFF A300, AFF A400, AFF A700</block>
   <block id="5fa70989a3e04b27c407da750f3d94fe" category="cell">AFF A70, AFF A90, AFF A1K</block>
   <block id="ccf78fb30997636f483e58875cad308b" category="cell">AFF A90, AFF A1K</block>
-  <block id="fd63300d56f60b7a5ff6928593e24ff3" category="paragraph">AFF A70 e AFF A90 sono sistemi integrati con due dischi integrati e due controller in un singolo chassis.</block>
   <block id="e0acd4a9bc97511cc024bf1c07dc8536" category="list-text">Se si sta eseguendo l'aggiornamento a un AFF A70 o a un AFF A90 con unità interne, è necessario rimuovere la proprietà di queste unità prima di eseguire l'aggiornamento. Dopo aver completato l'upgrade, puoi assegnare i dischi interni ai nodi AFF A70 o AFF A90 e utilizzarli per creare aggregati di dati. Non è obbligatorio migrare aggregati root o dati su dischi interni.</block>
   <block id="9f63491a94b75b12a4f685455f82295c" category="list-text">Se si esegue l'aggiornamento a un AFF A70 o a un AFF A90 senza unità interne, non è necessario assegnare unità interne al termine dell'aggiornamento.</block>
   <block id="1c6b77da3506137a2164e23d95b49133" category="list-text">I sistemi AFF A70, AFF A90, AFF A1K, FAS70 e FAS90 condividono le porte di rete 100GbE per le connessioni cluster e ha. Questi sistemi possono supportare connessioni cluster 10GbE o 25GbE a switch cluster legacy; tuttavia, NetApp consiglia di eseguire l'aggiornamento a velocità cluster 100GbE quando gli switch 10GbE e 25GbE non sono più necessari. Per ulteriori informazioni, vedere i seguenti articoli della Knowledge base:</block>
@@ -5250,4 +5249,5 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="a8146cc42b0ac83dacd0c674c2e19baa" category="paragraph"><block ref="a8146cc42b0ac83dacd0c674c2e19baa" category="inline-image-macro-rx" type="image"></block></block>
   <block id="fd4a2232b0a4fad7f2f7a5207ee94001" category="sidebar">Scopri i sistemi e il software ONTAP</block>
   <block id="743b2bde29eae11996923323c6b89672" category="sidebar">Documentazione sugli switch ONTAP</block>
+  <block id="91c8d030b7d32b838af9bb14f227c952" category="paragraph">AFF A70 e AFF A90 sono sistemi integrati con due controller in una configurazione ha e dischi integrati in un singolo chassis.</block>
 </blocks>
