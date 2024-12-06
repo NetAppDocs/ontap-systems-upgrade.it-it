@@ -45,7 +45,7 @@ I seguenti riferimenti consentono di stabilire i collegamenti dei cavi corretti.
 +
 ** _Istruzioni per l'installazione e la configurazione_ o _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node3
 ** La procedura di shelf di dischi appropriata
-** La documentazione di _High Availability management_
+** La documentazione _ha Pair Management_
 
 
 +

@@ -38,10 +38,10 @@ NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso
 
 . [[auto_install3_step3]]cavo node3, spostamento delle connessioni da node1 a node3.
 +
-Collegare i seguenti collegamenti utilizzando le _istruzioni di installazione e configurazione_ o i _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node3, il documento relativo allo shelf di dischi e la _gestione dell'alta disponibilità_.
+Collegare i seguenti collegamenti utilizzando le _istruzioni di installazione e configurazione_ o i _requisiti di installazione e riferimento per la virtualizzazione FlexArray_ per la piattaforma node3, il documento relativo allo shelf di dischi appropriato e _gestione coppia ha_.
 
 +
-Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento ai _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ e alla _gestione dell'alta disponibilità_.
+Fare riferimento link:other_references.html["Riferimenti"]al collegamento ai _requisiti di installazione e di riferimento per la virtualizzazione FlexArray_ e _gestione coppia ha_.
 
 +
 ** Console (porta di gestione remota)

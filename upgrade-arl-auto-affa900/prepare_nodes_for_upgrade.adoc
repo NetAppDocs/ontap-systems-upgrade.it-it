@@ -108,7 +108,7 @@ Durante la fase di precheck, il sistema esegue il seguente elenco di controlli i
 | Verifica dello stato dell'aggregato | Se i nodi che vengono sostituiti possiedono aggregati per i quali non sono proprietari di casa, l'attività non riesce. I nodi non devono possedere aggregati non locali. 
 
 
-| Verifica dello stato del disco | Se i nodi da sostituire presentano dischi mancanti o guasti, l'attività non riesce. In caso di dischi mancanti, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Disk and aggregate management con CLI_, _Logical storage management con CLI_ e _High Availability management_ per configurare lo storage per la coppia ha. 
+| Verifica dello stato del disco | Se i nodi da sostituire presentano dischi mancanti o guasti, l'attività non riesce. Se mancano dei dischi, fare riferimento al link:other_references.html["Riferimenti"]collegamento alla gestione _disco e aggregato con la CLI_, alla gestione _logica dello storage con la CLI_ e alla gestione _coppia ha_ per configurare lo storage per la coppia ha. 
 
 
 | Verifica dello stato LIF dei dati | Controlla se uno dei nodi da sostituire dispone di LIF di dati non locali. I nodi non devono contenere file di dati di cui non sono proprietari. Se uno dei nodi contiene LIF di dati non locali, l'attività non riesce. 

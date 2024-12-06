@@ -27,6 +27,10 @@ NOTE: È inoltre possibile aggiornare AFF A800 a AFF A70 o AFF A90 mediante il t
 
 * AFF C190, AFF C250 e AFF C800
 * ASA A150, ASA A250, ASA A800 e ASA AFF A220
++
+
+NOTE: L'aggiornamento ASA a un sistema sostitutivo ASA R2 non è supportato. Per informazioni sulla migrazione dei dati da ASA a ASA R2, vedere link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Abilitare l'accesso ai dati dagli host SAN al sistema di storage ASA R2"^].
+
 
 
 Se il sistema non è presente nell'elenco, consultare la https://hwu.netapp.com["NetApp Hardware Universe"^] per verificare se dispone di dischi interni.
@@ -42,6 +46,10 @@ Scegliere una procedura di aggiornamento per un sistema con solo unità esterne,
 * AFF A300, AFF A320, AFF A400, AFF A700 e AFF A900
 * AFF C400
 * ASA A400, ASA A900 e ASA AFF A700
++
+
+NOTE: L'aggiornamento ASA a un sistema sostitutivo ASA R2 non è supportato. Per informazioni sulla migrazione dei dati da ASA a ASA R2, vedere link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Abilitare l'accesso ai dati dagli host SAN al sistema di storage ASA R2"^].
+
 
 
 Se il sistema non è presente nell'elenco, consultare la https://hwu.netapp.com["NetApp Hardware Universe"^] per verificare se dispone solo di unità esterne.

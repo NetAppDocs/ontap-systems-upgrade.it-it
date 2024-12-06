@@ -19,7 +19,7 @@ Prima di poter sostituire i nodi originali, è necessario verificare che si trov
 .Fasi
 . Verificare che ciascuno dei nodi originali disponga di risorse sufficienti per supportare adeguatamente il carico di lavoro di entrambi i nodi durante la modalità Takeover.
 +
-Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _High Availability management_ e seguire la sezione _Best practice per le coppie ha_. Nessuno dei nodi originali deve essere eseguito con un utilizzo superiore al 50%; se un nodo viene eseguito con un utilizzo inferiore al 50%, può gestire i carichi per entrambi i nodi durante l'aggiornamento del controller.
+Fai riferimento link:other_references.html["Riferimenti"]al link _gestione coppia ha_ e segui la sezione _Best practice per coppie ha_. Nessuno dei nodi originali deve essere eseguito con un utilizzo superiore al 50%; se un nodo viene eseguito con un utilizzo inferiore al 50%, può gestire i carichi per entrambi i nodi durante l'aggiornamento del controller.
 
 . Completare i seguenti passaggi secondari per creare una linea di base delle performance per i nodi originali:
 +
@@ -162,7 +162,7 @@ node1          node2          true     Connected to node2, Partial giveback
 node2          node1          true     Connected to node1
 ....
 +
-Se uno dei due nodi è in giveback parziale, utilizzare `storage failover giveback` per eseguire il giveback, quindi utilizzare `storage failover show-giveback` per assicurarsi che non sia ancora necessario restituire aggregati. Per informazioni dettagliate sui comandi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _High Availability management_.
+Se uno dei nodi è in un giveback parziale, utilizzare `storage failover giveback` il comando per eseguire il giveback e quindi utilizzare `storage failover show-giveback` il comando per assicurarsi che non venga restituito alcun aggregato. Per informazioni dettagliate sui comandi, fare riferimento al link:other_references.html["Riferimenti"]link a _ha Pair Management_.
 
 . [[man_prepare_nodes_step9]]Conferma che né node1 né node2 possiedono gli aggregati per i quali sono il proprietario corrente (ma non il proprietario domestico):
 +
@@ -251,7 +251,7 @@ node1    None                None
 node2    None                None
 ....
 +
-In caso di dischi mancanti, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Disk and aggregate management con CLI_, _Logical storage management con CLI_ e _High Availability management_ per configurare lo storage per la coppia ha.
+Se mancano dei dischi, fare riferimento al link:other_references.html["Riferimenti"]collegamento alla gestione _disco e aggregato con la CLI_, alla gestione _logica dello storage con la CLI_ e alla gestione _coppia ha_ per configurare lo storage per la coppia ha.
 
 . Verificare che node1 e node2 siano integri e idonei a partecipare al cluster:
 +
