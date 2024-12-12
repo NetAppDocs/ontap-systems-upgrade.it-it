@@ -2837,7 +2837,6 @@
   <block id="9fd31f02e13c9f75db388cfb74e0acc1" category="list-text"><block ref="9fd31f02e13c9f75db388cfb74e0acc1" category="inline-link-macro-rx"></block></block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.</block>
-  <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">Si sta utilizzando uno switch condiviso per l'interconnessione cluster e lo storage collegato Ethernet.</block>
   <block id="35ab088951b060d49693e4d4c692e7a5" category="list-text"><block ref="35ab088951b060d49693e4d4c692e7a5" category="inline-link-macro-rx"></block></block>
   <block id="0ac66da022e888300d8ec43f47b716d6" category="inline-link-macro">Ripristinare la configurazione del gestore delle chiavi sul nodo aggiornato 1</block>
   <block id="3fa5ba29343ba59361bba0ce2fdcdb9e" category="list-text"><block ref="3fa5ba29343ba59361bba0ce2fdcdb9e" category="inline-link-macro-rx"></block></block>
@@ -5258,4 +5257,5 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="04a7d3ed17290dfa8c947b7265180931" category="list-text">Dal sistema ASA al sistema ASA</block>
   <block id="6cc3f2b4a05b456b1f754eaf8cb03200" category="list-text">Dal sistema ASA A-Series al sistema ASA A-Series</block>
   <block id="af2a1a7e91ed894338bb4bd32c3e13d0" category="list-text">Da sistema ASA C-Series a sistema ASA C-Series</block>
+  <block id="bd78dcbf9a0f6c9dff2586a02d89b664" category="list-text">I sistemi eseguono ONTAP 9.15.1 o versione successiva e utilizzano switch Ethernet per la connessione allo storage Ethernet.</block>
 </blocks>

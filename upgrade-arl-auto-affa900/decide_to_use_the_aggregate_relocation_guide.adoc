@@ -55,12 +55,12 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 * Si sta utilizzando la versione minima di ONTAP per l'aggiornamento. Per ulteriori informazioni, vedere link:index.html["Panoramica"].
 * Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
 * Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
+* I sistemi eseguono ONTAP 9.15.1 o versione successiva e utilizzano switch Ethernet per la connessione allo storage Ethernet.
 
 
 Non è possibile utilizzare questa procedura nelle seguenti circostanze:
 
 * Si utilizza il software per la virtualizzazione FlexArray sui sistemi AFF A800, AFF A700 o FAS9000.
-* Si sta utilizzando uno switch condiviso per l'interconnessione cluster e lo storage collegato Ethernet.
 
 
 Per l'aggiornamento delle configurazioni IP di MetroCluster sui sistemi AFF A800, AFF A700 o FAS9000, vedere il link:other_references.html["Riferimenti"] collegamento al contenuto _MetroCluster Upgrade and Expansion_.
