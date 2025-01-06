@@ -14,30 +14,35 @@ summary: 'Prima di iniziare l"aggiornamento, verificare di disporre dell"hardwar
 
 
 [role="lead"]
-Prima di iniziare l'aggiornamento, verificare di disporre dell'hardware corretto per l'aggiornamento. In base all'upgrade, per ogni coppia ha che stai aggiornando, devi avere due moduli controller o due moduli controller e due moduli NVRAM per il sistema sostitutivo. In caso di componenti mancanti, contattare il supporto tecnico o il rappresentante commerciale NetApp per assistenza.
+Prima di avviare l'aggiornamento, verificare di disporre dei moduli corretti per il sistema sostitutivo. In caso di componenti mancanti, contattare il supporto tecnico o il rappresentante commerciale NetApp per assistenza.
 
 [cols="50,50"]
 |===
-| Se si sta eseguendo l'aggiornamento... | Il sistema di sostituzione deve avere ... 
+| Se si sta effettuando l'aggiornamento da ... | Il sistema di sostituzione deve avere ... 
 
 
-| AFF A800 | Due moduli controller, due NVRAM e nuovi moduli io 
+| AFF A250, AFF C250 | Due moduli controller e nuovi moduli io 
 
 
-| AFF A220 configurato come ASA per ASA A150 | Due moduli controller 
+| AFF A800, AFF C800 | Due moduli controller, due NVRAM e nuovi moduli io 
 
 
-| Da AFF A220, AFF A200 o AFF C190 a AFF A150 | Due moduli controller 
+ a| 
+* AFF A220 configurato come ASA
+* AFF A220, AFF A200, AFF C190
+* FAS2620, FAS2720
+
+ a| 
+Due moduli controller
+
+Se si sta convertendo il sistema esistente in uno shelf di storage in modo da poterlo collegare a un altro sistema, il sistema sostitutivo deve avere anche due moduli io.
 
 
-| FAS2620 o da FAS2720 a FAS2820 | Due moduli controller 
 
+ a| 
+* AFF A700 configurato come ASA
+* Da AFF A700 a AFF A900
+* Da FAS9000 a FAS9500
 
-| AFF A700 configurato come ASA per ASA A900 | Due controller e due moduli NVRAM 
-
-
-| Da AFF A700 a AFF A900 | Due controller e due moduli NVRAM 
-
-
-| Da FAS9000 a FAS9500 | Due controller e due moduli NVRAM 
+| Due controller e due moduli NVRAM 
 |===

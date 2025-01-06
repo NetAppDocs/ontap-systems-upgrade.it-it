@@ -1,7 +1,7 @@
 ---
 section: upgrade-arl-auto-app-9151
 title: Utilizzare i comandi "sostituzione controller di sistema" per aggiornare l'hardware
-  del controller introdotto in ONTAP 9.15.1
+  del controller introdotto in ONTAP 9.15.1 e versioni successive
 entries:
 - title: Panoramica
   url: "/upgrade-arl-auto-app-9151/index.html"

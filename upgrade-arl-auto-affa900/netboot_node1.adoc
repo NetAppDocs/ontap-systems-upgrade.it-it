@@ -72,6 +72,23 @@ NOTE: Potrebbero essere necessari altri parametri per l'interfaccia. Invio `help
 
 NOTE: Non interrompere l'avvio.
 
+. (Solo aggiornamenti AFF A250 e AFF C250) quando node1 per il modulo controller sostitutivo è in fase di avvio, viene visualizzato il seguente avviso:
++
+[listing]
+----
+*****************************************************
+* WARNING: Partner is not of the same family/model. *
+* Mixing is only allowed when upgrading the system. *
+* The system will shut down in 24 hours.            *
+*****************************************************
+Do you want to continue (y/n):
+----
++
+Risposta `y`.
+
++
+Questo avviso viene visualizzato perché la configurazione include node2 per il controller esistente. Viene visualizzato per ogni avvio del sistema fino a quando non si aggiorna node2. Questo è il comportamento previsto.
+
 . Attendere che il node1 in esecuzione sul modulo controller sostitutivo si avvii e visualizzi le opzioni del menu di avvio come mostrato di seguito:
 +
 [listing]

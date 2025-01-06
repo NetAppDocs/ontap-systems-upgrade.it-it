@@ -35,7 +35,7 @@ Questa procedura descrive come aggiornare l'hardware del controller utilizzando 
 
 * Dal sistema ASA al sistema ASA
 +
-L'aggiornamento ASA a un sistema sostitutivo ASA R2 non è supportato. Per informazioni sulla migrazione dei dati da ASA a ASA R2, vedere link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Abilitare l'accesso ai dati dagli host SAN al sistema di storage ASA R2"^].
+Gli aggiornamenti ASA a un sistema sostitutivo ASA R2 non sono supportati. Per informazioni sulla migrazione dei dati da ASA a ASA R2, vedere link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Abilitare l'accesso ai dati dagli host SAN al sistema di storage ASA R2"^].
 
 +
 È possibile eseguire l'aggiornamento a un sistema sostitutivo della stessa serie:

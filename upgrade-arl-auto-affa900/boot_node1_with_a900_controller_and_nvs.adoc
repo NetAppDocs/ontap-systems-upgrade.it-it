@@ -14,46 +14,22 @@ summary: Fare il boot node1 con i moduli controller sostitutivi quando si utiliz
 
 
 [role="lead"]
-Node1 con i moduli sostitutivi è ora pronto per l'avvio. Questa sezione fornisce i passaggi necessari per eseguire l'avvio del nodo 1 con i moduli sostitutivi per le seguenti configurazioni di aggiornamento:
+Node1 con i moduli sostitutivi è ora pronto per l'avvio. I moduli sostitutivi supportati sono elencati nella link:index.html#supported-systems,["matrice dei sistemi supportati"].
 
-[cols="35,65"]
-|===
-| Controller node1 esistente | Moduli di sistema node1 sostitutivi 
+[NOTE]
+====
+Quando si sostituiscono i moduli controller, spostare tutti i collegamenti dal vecchio al modulo controller sostitutivo.
 
+Quando si sostituiscono i moduli controller e NVRAM, spostare solo la console e le connessioni di gestione.
 
-| AFF A800 | AFF A90 o AFF A70 ^1^ 
-
-
-| AFF A220 configurato come ASA | Modulo controller AFF A150 ^1^ 
-
-
-| AFF A220
-AFF A200
-AFF C190 | Modulo controller AFF A150 ^1^ 
-
-
-| FAS2620
-FAS2720 | Modulo controller FAS2820 ^1^ 
-
-
-| AFF A700 configurato come ASA | Controller ASA A900 e moduli NVRAM ^2^ 
-
-
-| AFF A700 | Controller AFF A900 e moduli NVRAM ^2^ 
-
-
-| FAS9000 | Controller FAS9500 e moduli NVRAM ^2^ 
-|===
-^1^ quando si sostituiscono i moduli controller, si spostano tutte le connessioni dal vecchio al modulo controller sostitutivo.
-
-^2^ quando si sostituiscono il controller e i moduli NVRAM, vengono spostate solo le connessioni della console e di gestione.
-
+====
 .Fasi
-. (Solo aggiornamento AFF A800) al prompt del CARICATORE, accedere alla modalità di manutenzione:
+. (Solo aggiornamento AFF A250, AFF C250, AFF A800 o AFF C800) al prompt di Loader, accedere alla modalità di manutenzione:
 +
 `boot_ontap maint`
 
 +
+.. Anser `y` al prompt di conferma della piattaforma mista.
 .. Rispondere `yes` al prompt di conferma.
 .. Mostrare lo stato delle interfacce 100GbE:
 +

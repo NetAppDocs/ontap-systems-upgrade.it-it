@@ -29,7 +29,7 @@ TIP: L'alloggiamento B si trova sul telaio nella parte inferiore.
 
 +
 
-WARNING: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo più avanti nella procedura.
+WARNING: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo successivamente nella procedura.
 
 . Collegare le porte di gestione e console al modulo controller node2.
 +

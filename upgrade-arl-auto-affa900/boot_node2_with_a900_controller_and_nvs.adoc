@@ -14,36 +14,11 @@ summary: Fare il boot node2 con i moduli controller sostitutivi quando si utiliz
 
 
 [role="lead"]
-Node2 con i moduli sostitutivi è ora pronto per l'avvio. L'aggiornamento mediante lo scambio dei moduli di sistema comporta lo spostamento solo della console e delle connessioni di gestione. Questa sezione fornisce i passaggi necessari per eseguire l'avvio del nodo 2 con i moduli sostitutivi per le seguenti configurazioni di aggiornamento:
-
-[cols="35,65"]
-|===
-| Controller node2 esistente | Moduli di sistema di sostituzione node2 
+Node2 con i moduli sostitutivi è ora pronto per l'avvio. I moduli sostitutivi supportati sono elencati nella link:index.html#supported-systems,["matrice dei sistemi supportati"].
 
 
-| AFF A800 | AFF A90 o AFF A70 
+NOTE: È possibile spostare la console e le connessioni di gestione solo quando si esegue l'aggiornamento scambiando i moduli di sistema.
 
-
-| AFF A220 configurato come ASA | Modulo controller ASA A150 
-
-
-| AFF A220
-AFF A200
-AFF C190 | Modulo controller A150 AFF 
-
-
-| FAS2620
-FAS2720 | Modulo controller FAS2820 
-
-
-| AFF A700 configurato come ASA | Controller ASA A900 e moduli NVRAM 
-
-
-| AFF A700 | Controller AFF A900 e moduli NVRAM 
-
-
-| FAS9000 | Controller FAS9500 e moduli NVRAM 
-|===
 .Fasi
 . [[boot_node2_step1]]se sono installati dischi NetApp Storage Encryption (NSE), attenersi alla seguente procedura.
 +

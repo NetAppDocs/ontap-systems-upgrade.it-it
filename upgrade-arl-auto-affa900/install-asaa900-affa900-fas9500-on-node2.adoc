@@ -51,7 +51,7 @@ TIP: L'etichetta dell'alloggiamento si trova sul telaio direttamente sopra il mo
 
 +
 
-NOTE: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo più avanti nella procedura.
+NOTE: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo successivamente nella procedura.
 
 . Collegare le porte di gestione e console al modulo controller node2.
 +
