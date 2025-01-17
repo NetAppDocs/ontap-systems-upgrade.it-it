@@ -16,9 +16,7 @@ summary: 'Verificare l"installazione del nodo 1 con i moduli sostitutivi quando 
 [role="lead"]
 Dopo aver avviato node1 con il modulo controller sostitutivo, verificare che sia installato correttamente.
 
-Solo per gli upgrade di AFF A250, AFF C250, AFF A800 o AFF C800, eseguire la mappatura delle porte fisiche dal sistema node1 esistente al sistema node1 sostitutivo, in quanto le porte fisiche stanno cambiando tra i controller esistenti e quelli sostitutivi.
-
-Per tutti gli altri aggiornamenti, non è necessario mappare le porte fisiche dal node1 esistente al node1 sostitutivo.
+Solo per gli upgrade di AFF A250, AFF C250, AFF A800 o AFF C800, eseguire la mappatura delle porte fisiche dal sistema node1 esistente al sistema node1 sostitutivo, in quanto le porte fisiche stanno cambiando tra i controller esistenti e quelli sostitutivi. Le porte fisiche non cambiano per gli altri sistemi supportati da questa procedura di aggiornamento.
 
 .A proposito di questa attività
 È necessario attendere che il nodo 1 si unisca al quorum, quindi riprendere l'operazione di sostituzione del controller.

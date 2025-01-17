@@ -29,8 +29,8 @@ Durante la fase 7, confermi che i nuovi nodi sono impostati correttamente e, se 
 ====
 I sistemi AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K, AFF C30, AFF C60, AFF C80, FAS70 e FAS90 condividono 100GbE porte di rete per le connessioni cluster e ha. Questi sistemi possono supportare connessioni cluster 10GbE o 25GbE a switch cluster legacy; tuttavia, NetApp consiglia di eseguire l'aggiornamento a velocità cluster 100GbE quando gli switch 10GbE e 25GbE non sono più necessari. Per ulteriori informazioni, vedere i seguenti articoli della Knowledge base:
 
-* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Configurazione delle porte cluster 10G o 25g in un nuovo setup cluster su AFF/ASA A1K, A90, A70, FAS90, FAS70"^]
-* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Come convertire un cluster esistente da 10G o 25g porte cluster a 40G o 100g porte cluster in un AFF/ASA A1K, FAS70, A70, FAS90, A90"^]
+* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup["Come configurare porte cluster 10G o 25g in una nuova configurazione cluster"^]
+* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_existing_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports["Come convertire le porte del cluster 10G o 25g esistenti in porte del cluster 40G o 100g"^]
 
 
 Se non è possibile collegare e0a o e0b porte cluster sul nodo esistente alle porte cluster sul nuovo nodo, vedere link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["ID bug online di NetApp CONTAP-166978"^].

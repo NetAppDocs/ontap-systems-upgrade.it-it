@@ -25,17 +25,19 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 * L'aggiornamento del controller è elencato nella link:index.html#supported-systems,["matrice dei sistemi supportati"].
 * Con il rappresentante di vendita NetApp hai verificato di aver ricevuto l'hardware necessario per l'aggiornamento del controller:
 +
-** Due controller AFF A90, AFF A70 o AFF C80 e tutti i moduli di i/O. La lunghezza richiesta di 100GbE cavi.
-** Due controller e moduli di i/o AFF A50, AFF A30, AFF C30 o AFF C60. I cavi necessari.
+** Due controller AFF A90, AFF A70 o AFF C80 e tutti i moduli di i/O. Le lunghezze richieste di cavi 100GbE.
+** Due controller AFF A50, AFF A30, AFF C30 o AFF C60 e moduli i/o e i cavi richiesti
 ** Controller ASA A150, AFF A150 o FAS2820
-** Moduli ASA A900, AFF A900 o FAS9500 controller e NVRAM e le parti
+** Moduli e parti ASA A900, AFF A900 o FAS9500 controller e NVRAM
 
 
-* Si sta utilizzando la versione minima di ONTAP per l'aggiornamento. Per ulteriori informazioni, vedere link:index.html["Panoramica"].
-* Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
-* Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
+* È in esecuzione la versione ONTAP minima per l'aggiornamento. Per ulteriori informazioni, vedere link:index.html["Panoramica"].
+* Si è esperti nell'amministrazione di ONTAP e si è soddisfatti dei rischi di lavorare in modalità privilegi diagnostici.
 * I sistemi eseguono ONTAP 9.15.1 o versione successiva e utilizzano switch Ethernet per la connessione allo storage Ethernet.
 
+
+
+NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
 
 
 
@@ -43,15 +45,13 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 
 Non è possibile utilizzare questa procedura nelle seguenti circostanze:
 
+* Vuoi aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
 * Si sta utilizzando il software di virtualizzazione FlexArray sul sistema esistente che viene aggiornato.
 * Si sta aggiornando una configurazione IP di MetroCluster.
 +
 Per aggiornare una configurazione IP di MetroCluster, consultare link:other_references.html["Riferimenti"]il collegamento al contenuto _MetroCluster Upgrade and Expansion_.
 
 
-
-
-NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
 
 Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 

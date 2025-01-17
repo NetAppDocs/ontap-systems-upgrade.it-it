@@ -18,7 +18,7 @@ Prima di avviare l'aggiornamento, verificare di disporre dei moduli corretti per
 
 [cols="50,50"]
 |===
-| Se si sta effettuando l'aggiornamento da ... | Il sistema di sostituzione deve avere ... 
+| Se stai effettuando l'aggiornamento da ... | Il sistema di sostituzione deve avere ... 
 
 
 | AFF A250, AFF C250 | Due moduli controller e nuovi moduli io 
@@ -35,14 +35,14 @@ Prima di avviare l'aggiornamento, verificare di disporre dei moduli corretti per
  a| 
 Due moduli controller
 
-Se si sta convertendo il sistema esistente in uno shelf di storage in modo da poterlo collegare a un altro sistema, il sistema sostitutivo deve avere anche due moduli io.
+Se stai convertendo il sistema esistente in uno shelf di archiviazione in modo da poterlo collegare a un altro sistema, il sistema sostitutivo deve avere anche due moduli io.
 
 
 
  a| 
 * AFF A700 configurato come ASA
-* Da AFF A700 a AFF A900
-* Da FAS9000 a FAS9500
+* AFF A700
+* FAS9000
 
 | Due controller e due moduli NVRAM 
 |===

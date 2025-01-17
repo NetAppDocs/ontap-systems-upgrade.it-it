@@ -36,7 +36,7 @@ Se stai eseguendo uno dei seguenti upgrade, devi connettere il cluster, l'ha, lo
 
 == Collegare le porte e0M e BMC
 
-Se il sistema esistente dispone di una porta di gestione (e0M) e di una porta BMC. Sul sistema di sostituzione, le porte e0M e BMC sono combinate e accessibili attraverso la porta "chiave". Prima di eseguire la connessione al sistema sostitutivo, è necessario assicurarsi che le porte e0M e BMC siano connesse allo stesso switch e alla stessa subnet del sistema esistente.
+Se il sistema esistente dispone di una porta di gestione (e0M) e di una porta BMC, le porte e0M e BMC sono combinate e accessibili attraverso la porta "chiave inglese" sul sistema sostitutivo. Prima di eseguire la connessione al sistema sostitutivo, è necessario assicurarsi che le porte e0M e BMC siano connesse allo stesso switch e alla stessa subnet del sistema esistente.
 
 [cols="35,65"]
 |===

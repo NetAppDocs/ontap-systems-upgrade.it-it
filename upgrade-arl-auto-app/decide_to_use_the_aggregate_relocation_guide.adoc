@@ -18,12 +18,12 @@ Questo contenuto descrive come aggiornare i controller di storage in una coppia 
 
 È possibile utilizzare questo contenuto nei seguenti casi:
 
-* Si utilizza ONTAP 9.8 o versione successiva.
-* Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
-* Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
-* Se si sta aggiornando una configurazione MetroCluster, si tratta di una configurazione FC a quattro nodi o superiore e tutti i nodi eseguono ONTAP 9.8 o versione successiva.
+* Sul computer è in esecuzione ONTAP 9,8 o versione successiva.
+* Non vuoi aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
+* Si è esperti nell'amministrazione di ONTAP e si è soddisfatti dei rischi di lavorare in modalità privilegi diagnostici.
+* Durante l'upgrade di una configurazione MetroCluster, si tratta di una configurazione FC a quattro nodi o superiore che utilizza ONTAP 9,8 o versioni successive.
 +
-Per l'aggiornamento delle configurazioni MetroCluster IP, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto _aggiornamento ed espansione MetroCluster_.
+Per aggiornare le configurazioni IP di MetroCluster, fare riferimento al link:other_references.html["Riferimenti"]collegamento _aggiornamento ed espansione MetroCluster_.
 
 
 
@@ -63,11 +63,11 @@ NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NS
 | AFF A400, AFF A700 | AFF A900 
 |===
 
-NOTE: Se la combinazione di modelli di upgrade del controller non è riportata nella tabella precedente, contattare il supporto tecnico.
+NOTE: Se la combinazione del modello di aggiornamento del controller non è riportata nella tabella precedente, contattare il supporto tecnico.
 
 ^1^per ulteriori passaggi necessari per i sistemi AFF A800, passare alla fase che fa riferimento a A800 nella sezione link:set_fc_or_uta_uta2_config_on_node3.html#auto_check3_step23["Controllare e configurare le porte UTA/UTA2 sul nodo 3, passaggio 23"], o. link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step23["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 23"].
 
-^2^se si esegue l'aggiornamento da un sistema AFF A300 a un sistema AFF A400 o FAS8200 a un sistema FAS8300 in una configurazione cluster senza switch a due nodi, è necessario scegliere le porte cluster temporanee per l'aggiornamento del controller. I sistemi AFF A400 e FAS8300 sono disponibili in due configurazioni, come bundle Ethernet in cui le porte della scheda mezzanine sono di tipo Ethernet e come bundle FC in cui le porte mezzanine sono di tipo FC.
+^2^se stai eseguendo l'aggiornamento da un AFF A300 a un AFF A400 o da un FAS8200 a un sistema FAS8300 in una configurazione cluster senza switch a due nodi, devi scegliere le porte cluster temporanee per l'aggiornamento del controller. I sistemi AFF A400 e FAS8300 sono disponibili in due configurazioni, come bundle Ethernet in cui le porte della scheda mezzanine sono di tipo Ethernet e come bundle FC in cui le porte mezzanine sono di tipo FC.
 
 * Per un sistema AFF A400 o FAS8300 con configurazione di tipo Ethernet, è possibile utilizzare una qualsiasi delle due porte mezzanine come porte cluster temporanee.
 * Per un sistema AFF A400 o FAS8300 con configurazione di tipo FC, è necessario aggiungere una scheda di interfaccia di rete 10GbE a quattro porte (codice X1147A) per fornire porte cluster temporanee.
@@ -112,4 +112,5 @@ Per le combinazioni di upgrade illustrate nella tabella precedente:
 ====
 Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
+.Informazioni correlate
 Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.

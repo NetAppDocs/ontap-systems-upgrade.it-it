@@ -22,7 +22,7 @@ Per capire se è possibile utilizzare il trasferimento aggregato (ARL), mantenen
 
 Gli aggiornamenti dei controller sono supportati per alcune configurazioni di sistema. Per visualizzare l'elenco dei sistemi supportati e le versioni minime di ONTAP, vedere link:index.html["Panoramica"].
 
-Se è stato ricevuto un nuovo AFF A30, AFF A50, AFF A70, AFF A90, AFF A150, AFF A900, AFF C30, AFF C60, AFF C80, FAS2820 o FAS9500 come sistema completo, incluso un nuovo chassis, fare riferimento al link:other_references.html["Riferimenti"]collegamento ai comandi _use "system controller replace" (utilizza sostituzione controller di sistema) per aggiornare l'hardware del controller che esegue ONTAP 9,8 o versioni successive.
+Se è stato ricevuto un nuovo sistema AFF A30, AFF A50, AFF A70, AFF A90, AFF A150, AFF A900, AFF C30, AFF C60, AFF C80, FAS2820 o FAS9500 come sistema completo, incluso un nuovo chassis, fare riferimento al link:other_references.html["Riferimenti"]collegamento per i comandi _use "system controller replace" (utilizza sostituzione controller di sistema) per aggiornare l'hardware del controller che esegue ONTAP 9,8 o versioni successive.
 
 L'upgrade del controller tramite ARL è supportato sui sistemi configurati con volumi di conformità SnapLock Enterprise e SnapLock.
 

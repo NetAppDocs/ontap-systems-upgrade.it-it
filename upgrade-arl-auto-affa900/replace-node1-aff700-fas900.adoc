@@ -17,7 +17,7 @@ summary: Sostituire i moduli di sistema AFF A700 o FAS9000 node1 quando si utili
 In questa fase, il node1 è inattivo e tutti i dati sono serviti dal node2. Rimuovere solo il modulo controller node1 e il modulo NVRAM node1. In genere, il nodo 1 è il controller A, situato sul lato sinistro dello chassis quando si guardano i controller dal retro del sistema. L'etichetta del controller si trova sul telaio, direttamente sopra il modulo controller.
 
 
-CAUTION: Non spegnere lo chassis perché node1 e node2 si trovano nello stesso chassis e sono alimentati dagli stessi alimentatori.
+CAUTION: Non spegnere lo chassis perché node1 e node2 si trovano nello stesso chassis e sono collegati agli stessi alimentatori.
 
 .Prima di iniziare
 Se non si è già collegati a terra, mettere a terra correttamente.
