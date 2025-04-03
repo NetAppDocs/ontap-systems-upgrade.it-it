@@ -5313,4 +5313,8 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="ea168cafe9d6c1f639359b30e7152b3d" category="list-text">Si sta aggiornando un sistema V-Series o un sistema di storage di virtualizzazione FlexArray utilizzando un array esterno per lo storage backend. Contattare il supporto tecnico per opzioni di aggiornamento di un sistema V-series o FlexArray.</block>
   <block id="3f0336dfa0e5a25ff8e8c549a2b18cef" category="list-text">Si sta aggiornando una configurazione MetroCluster FC o IP. Per aggiornare una configurazione MetroCluster, consultare il <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> collegamento alla _documentazione di aggiornamento ed espansione MetroCluster_.</block>
   <block id="ebf1d57729bed03eb5fd256caca2fe3f" category="sidebar">Sostituire AFF A800 o AFF C800</block>
+  <block id="761e2863e356e8bb23f79549fde56e25" category="cell">FAS8200, FAS8300, FAS9000</block>
+  <block id="5631dfc64a5dfd9535518e48f79b6c93" category="cell">FAS70, FAS90, FAS50</block>
+  <block id="179f979e0b97fa0abce7d9de4a3dcf35" category="cell">9.15.1P3 per FAS70, FAS90 9.16.1P2 per FAS50</block>
+  <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="cell">FAS8700</block>
 </blocks>
