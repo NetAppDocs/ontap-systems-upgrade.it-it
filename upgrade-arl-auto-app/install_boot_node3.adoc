@@ -89,7 +89,7 @@ NOTE: Fare riferimento a. link:prepare_for_netboot.html["Preparatevi per il netb
 . [[step6]]configurare la connessione netboot scegliendo una delle seguenti operazioni.
 +
 
-NOTE: È necessario utilizzare la porta di gestione e l'IP come connessione di netboot. Non utilizzare un IP LIF dei dati, altrimenti potrebbe verificarsi un'interruzione dei dati durante l'aggiornamento.
+NOTE: È necessario utilizzare la porta di gestione e l'IP come connessione di netboot. Non utilizzare un IP della LIF dati o potrebbe verificarsi una mancanza di disponibilità dei dati durante l'aggiornamento.
 
 +
 [cols="30,70"]
@@ -255,7 +255,7 @@ Per il nodo 3, `partner-sysid` deve essere quello del node2.
 | Se il sistema... | Descrizione 
 
 
-| Dispone di dischi e non di storage back-end | Passare a. <<auto_install3_step23,Fase 23>> 
+| Dispone di dischi e non di storage back-end | Consultare <<auto_install3_step27,Passaggio 27>> 
 
 
 | È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
@@ -282,6 +282,7 @@ L'installazione di un nuovo modulo controller modifica i valori WWPN associati a
 . [[step26]]se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
 
 
+[[auto_install3_step27]]
 . Se si dispone di unità NetApp Storage Encryption (NSE) installate, attenersi alla seguente procedura.
 +
 
@@ -317,7 +318,7 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 `boot_ontap menu`
 
 +
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["Controllare e configurare le porte UTA/UTA2 sul nodo 4, passaggio 15"] in modo che node4 possa riconoscere i dischi di node2.
+Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:reassign-node2-disks-to-node4.html#reassign-node1-node3-app-step1["Riassegnare node1 dischi a node3, passaggio 1"] questa operazione in modo che node3 sia in grado di riconoscere i dischi di node1.
 
 . [[step29]]per una configurazione MetroCluster, sistemi V-Series e sistemi con software di virtualizzazione FlexArray collegati agli array di storage, è necessario impostare e configurare le porte FC o UTA/UTA2 sul nodo 3 per rilevare i dischi collegati al nodo. Per completare questa attività, passare alla sezione link:set_fc_or_uta_uta2_config_on_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"].
 

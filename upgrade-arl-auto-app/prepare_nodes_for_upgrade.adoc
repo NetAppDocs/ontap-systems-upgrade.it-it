@@ -28,7 +28,7 @@ Il processo di sostituzione del controller inizia con una serie di controlli pre
 +
 `system controller replace start -nodes _node_names_ -nso false`
 
-** Il `system controller replace start` il comando può essere eseguito solo a livello di privilegi avanzati:
+** È possibile eseguire il comando solo `system controller replace start` a livello di privilegi avanzati:
 +
 `set -privilege advanced`
 

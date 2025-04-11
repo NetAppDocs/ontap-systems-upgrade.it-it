@@ -88,7 +88,7 @@ L'esempio seguente mostra che gli aggregati non root su node2 sono online:
 +
 [listing]
 ----
-cluster::> storage aggregate show -node node2 state online -root false
+cluster::> storage aggregate show -node node2 -state online -root false
 Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
 --------- -------- --------- ----- ------- ------ ---------------- ------------
 aggr_1

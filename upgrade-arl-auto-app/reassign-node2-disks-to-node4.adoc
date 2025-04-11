@@ -1,0 +1,295 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/reassign-node2-disks-to-node4.html 
+keywords: setting, fc, uta, uta2 configuration, node 
+summary: 'È necessario riassegnare i dischi che appartenevano a node1 a node3 quando si aggiornano i controller con ONTAP 9,8 o versione successiva utilizzando `system controller replace` i comandi.' 
+---
+= Riassegnare dischi da node2 TB a node4 TB
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario riassegnare i dischi che appartenevano a node2 a node4 prima di verificare l'installazione di node4.
+
+.A proposito di questa attività
+Eseguire i passaggi descritti in questa sezione su node4.
+
+.Fasi
+. [[reasign-node2-node4-app-step1]]Vai al menu di avvio e usando 22/7, seleziona l'opzione nascosta `boot_after_controller_replacement` . Al prompt, immettere node2 per riassegnare i dischi di node2 a node4, come nell'esempio seguente.
++
+.Espandere l'esempio di output della console
+[%collapsible]
+====
+[listing]
+----
+LOADER-A> boot_ontap menu
+.
+.
+<output truncated>
+.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+.
+<output truncated>
+.
+Please choose one of the following:
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 22/7
+(22/7)                          Print this secret List
+(25/6)                          Force boot with multiple filesystem disks missing.
+(25/7)                          Boot w/ disk labels forced to clean.
+(29/7)                          Bypass media errors.
+(44/4a)                         Zero disks if needed and create new flexible root volume.
+(44/7)                          Assign all disks, Initialize all disks as SPARE, write DDR labels
+.
+.
+<output truncated>
+.
+.
+(wipeconfig)                        Clean all configuration on boot device
+(boot_after_controller_replacement) Boot after controller upgrade
+(boot_after_mcc_transition)         Boot after MCC transition
+(9a)                                Unpartition all disks and remove their ownership information.
+(9b)                                Clean configuration and initialize node with partitioned disks.
+(9c)                                Clean configuration and initialize node with whole disks.
+(9d)                                Reboot the node.
+(9e)                                Return to main boot menu.
+The boot device has changed. System configuration information could be lost. Use option (6) to
+restore the system configuration, or option (4) to initialize all disks and setup a new system.
+Normal Boot is prohibited.
+Please choose one of the following:
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? boot_after_controller_replacement
+This will replace all flash-based configuration with the last backup to disks. Are you sure
+you want to continue?: yes
+.
+.
+<output truncated>
+.
+.
+Controller Replacement: Provide name of the node you would like to replace:
+<nodename of the node being replaced>
+Changing sysid of node node2 disks.
+Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
+Partner sysid = 4294967295, owner sysid = 536940063
+.
+.
+<output truncated>
+.
+.
+varfs_backup_restore: restore using /mroot/etc/varfs.tgz
+varfs_backup_restore: attempting to restore /var/kmip to the boot device
+varfs_backup_restore: failed to restore /var/kmip to the boot device
+varfs_backup_restore: attempting to restore env file to the boot device
+varfs_backup_restore: successfully restored env file to the boot device wrote
+    key file "/tmp/rndc.key"
+varfs_backup_restore: timeout waiting for login
+varfs_backup_restore: Rebooting to load the new varfs
+Terminated
+<node reboots>
+System rebooting...
+.
+.
+Restoring env file from boot media...
+copy_env_file:scenario = head upgrade
+Successfully restored env file from boot media...
+Rebooting to load the restored env file...
+.
+System rebooting...
+.
+.
+.
+<output truncated>
+.
+.
+.
+.
+WARNING: System ID mismatch. This usually occurs when replacing a
+boot device or NVRAM cards!
+Override system ID? {y|n} y
+.
+.
+.
+.
+Login:
+----
+====
++
+
+NOTE: Nell'esempio di output della console precedente, ONTAP richiederà il nome del nodo partner se il sistema utilizza dischi di partizione avanzata dei dischi (ADP).
+
+. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found`, indica che il sistema ha reimpostato le porte FC o UTA/UTA2 alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Per risolvere il problema, continuare con il <<reassign-node2-node4-app-step3,Fase 3>>punto da a <<reassign-node2-node4-app-step8,Fase 8>> o passare alla sezione link:verify_node4_installation.html["Verificare l'installazione di node4"].
+. [[reasign-node2-node4-app-step3]]premere Ctrl-C durante l'OPERAZIONE per arrestare il nodo al prompt Loader>.
+. Al prompt del CARICATORE, accedere alla modalità di manutenzione:
++
+`boot_ontap maint`
+
+. In modalità di manutenzione, visualizzare tutte le porte iniziatore precedentemente impostate che si trovano ora in modalità di destinazione:
++
+`ucadmin show`
+
++
+Riportare le porte in modalità initiator:
+
++
+`ucadmin modify -m fc -t initiator -f _adapter name_`
+
+. Verificare che le porte siano state modificate in modalità initiator:
++
+`ucadmin show`
+
+. Uscire dalla modalità di manutenzione:
++
+`halt`
+
++
+[NOTE]
+====
+Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sistema che supporta anche dischi esterni, visitare il sito <<reassign-node2-node4-app-step8,Fase 8>>.
+
+Se si esegue l'aggiornamento da un sistema che utilizza dischi esterni a un sistema che supporta dischi interni ed esterni, ad esempio un sistema AFF A800, visitare il sito <<reassign-node2-node4-app-step9,Fase 9>>.
+
+====
+. [[reasign-node2-node4-app-step8]]]al prompt di Loader, avviare:
++
+`boot_ontap menu`
+
++
+Ora, all'avvio, il nodo è in grado di rilevare tutti i dischi ad esso assegnati in precedenza e di avviarsi come previsto.
+
++
+Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia dei volumi root, ONTAP non è in grado di leggere le informazioni sul volume dai dischi. Ripristinare le chiavi del volume root.
+
++
+
+NOTE: Ciò si applica solo quando il volume principale utilizza la crittografia dei volumi di NetApp.
+
++
+.. Tornare al menu di avvio speciale:
++
+`LOADER> boot_ontap menu`
+
++
+[listing]
+----
+Please choose one of the following:
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+
+Selection (1-11)? 10
+----
+.. Selezionare *(10) Imposta segreti di ripristino di Onboard Key Manager*
+.. Invio `y` al seguente prompt:
++
+`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
+
+.. Quando richiesto, inserire la passphrase del gestore delle chiavi.
+.. Inserire i dati di backup quando richiesto.
++
+
+NOTE: È necessario aver ottenuto la passphrase e i dati di backup in link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"] sezione di questa procedura.
+
+.. Dopo aver riavviato il sistema con lo speciale menu di boot, eseguire l'opzione *(1) Avvio normale*
++
+
+NOTE: In questa fase potrebbe verificarsi un errore. Se si verifica un errore, ripetere i passaggi secondari in <<reassign-node2-node4-app-step8,Fase 8>> fino a quando il sistema non si avvia normalmente.
+
+
+
+. [[reasign-node2-node4-app-step9]] se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio sistemi AFF A800), impostare l'aggregato node2 come aggregato root per garantire l'avvio di node4 dall'aggregato root di node2. Per impostare l'aggregato root, andare al menu di avvio e selezionare l'opzione `5` per accedere alla modalità di manutenzione.
++
+
+WARNING: *È necessario eseguire i seguenti passaggi secondari nell'ordine esatto indicato; in caso contrario, si potrebbe verificare un'interruzione o addirittura la perdita di dati.*
+
++
+La seguente procedura imposta node4 per l'avvio dall'aggregato root di node2:
+
++
+.. Accedere alla modalità di manutenzione:
++
+`boot_ontap maint`
+
+.. Controllare le informazioni su RAID, plex e checksum per l'aggregato node2:
++
+`aggr status -r`
+
+.. Controllare lo stato dell'aggregato node2:
++
+`aggr status`
+
+.. Se necessario, portare online l'aggregato node2:
++
+`aggr_online root_aggr_from___node2__`
+
+.. Impedire al node4 di avviarsi dal proprio aggregato root originale:
++
+`aggr offline _root_aggr_on_node4_`
+
+.. Impostare l'aggregato root node2 come nuovo aggregato root per node4:
++
+`aggr options aggr_from___node2__ root`
+
+.. Verificare che l'aggregato root di node4 sia offline e che l'aggregato root per i dischi portati da node2 sia online e impostato su root:
++
+`aggr status`
+
++
+
+NOTE: La mancata esecuzione del passaggio secondario precedente potrebbe causare l'avvio di node4 dall'aggregato root interno, oppure il sistema potrebbe assumere l'esistenza di una nuova configurazione del cluster o richiedere di identificarne una.
+
++
+Di seguito viene riportato un esempio dell'output del comando:
+
+
+
++
+....
+---------------------------------------------------------------------
+Aggr State                       Status               Options
+aggr 0_nst_fas8080_15 online     raid_dp, aggr        root, nosnap=on
+                                 fast zeroed
+                                 64-bit
+aggr0 offline                    raid_dp, aggr        diskroot
+                                 fast zeroed`
+                                 64-bit
+---------------------------------------------------------------------
+....
+

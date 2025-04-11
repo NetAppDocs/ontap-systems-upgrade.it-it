@@ -14,11 +14,12 @@ summary: 'Fase 3 sequenza di processo per un aggiornamento ARL con `system contr
 
 
 [role="lead"]
-Durante la fase 3, si installa e si avvia node3, si controlla che il cluster e le porte di gestione dei nodi da node1 siano online sul node3 e si verifica l'installazione node3. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
+Durante la fase 3, si installa e si avvia node3, si controlla che il cluster e le porte di gestione dei nodi di node1 siano online su node3, si riassegnano i dischi da node1 a node3 e si verifica l'installazione di node3. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
 
 .Fasi
 . link:install_boot_node3.html["Installazione e boot node3"]
 . link:set_fc_or_uta_uta2_config_on_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"]
+. link:reassign-node1-disks-to-node3.html["Riassegnare dischi da node1 TB a node3 TB"]
 . link:verify_node3_installation.html["Verificare l'installazione di node3"]
 . link:restore_key-manager_configuration_node3.html["Ripristinare la configurazione del gestore delle chiavi sul node3"]
 . link:move_non-root_aggr_and_nas_data_lifs_node1_from_node2_to_node3.html["Spostare gli aggregati non root e le LIF di dati NAS di proprietà del node1 da node2 a node3"]

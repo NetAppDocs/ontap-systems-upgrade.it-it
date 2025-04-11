@@ -23,7 +23,7 @@ Il processo di sostituzione del controller inizia con una serie di controlli pre
 
 +
 
-NOTE: Questo comando può essere eseguito solo a livello di privilegio avanzato:
+NOTE: È possibile eseguire questo comando solo a livello di privilegi avanzati:
 `set -privilege advanced`
 
 +

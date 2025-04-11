@@ -56,6 +56,8 @@ entries:
     url: "/upgrade-arl-auto-app/install_boot_node3.html"
   - title: Impostare la configurazione FC o UTA/UTA2 su node3
     url: "/upgrade-arl-auto-app/set_fc_or_uta_uta2_config_on_node3.html"
+  - title: Riassegnare dischi da node1 TB a node3 TB
+    url: "/upgrade-arl-auto-app/reassign-node1-disks-to-node3.html"
   - title: Verificare l'installazione di node3
     url: "/upgrade-arl-auto-app/verify_node3_installation.html"
   - title: Ripristinare la configurazione del gestore delle chiavi sul node3
@@ -83,6 +85,8 @@ entries:
     url: "/upgrade-arl-auto-app/install_boot_node4.html"
   - title: Impostare la configurazione FC o UTA/UTA2 su node4
     url: "/upgrade-arl-auto-app/set_fc_or_uta_uta2_config_node4.html"
+  - title: Riassegnare dischi da node2 TB a node4 TB
+    url: "/upgrade-arl-auto-app/reassign-node2-disks-to-node4.html"
   - title: Verificare l'installazione di node4
     url: "/upgrade-arl-auto-app/verify_node4_installation.html"
   - title: Ripristinare la configurazione del gestore delle chiavi sul nodo 4

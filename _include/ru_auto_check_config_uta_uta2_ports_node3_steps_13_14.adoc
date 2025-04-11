@@ -6,5 +6,5 @@
 +
 `halt`
 
-. [[step14]]avviare il nodo nel menu di boot eseguendo `boot_ontap menu`. Se si sta eseguendo l'aggiornamento a un sistema A800, visitare il sito Web all'indirizzo <<auto_check3_step23,Fase 23>>.
+. [[step14]]avviare il nodo nel menu di avvio eseguendo `boot_ontap menu`. Se si sta eseguendo l'aggiornamento a A800, andare a link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Riassegnare node1 dischi a node3, passaggio 9"].
 

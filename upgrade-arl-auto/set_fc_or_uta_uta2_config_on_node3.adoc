@@ -22,13 +22,8 @@ Potrebbe essere necessario completare la sezione <<Configurare le porte FC sul n
 
 NOTE: I materiali di marketing NetApp potrebbero utilizzare il termine UTA2 per fare riferimento alle porte e agli adattatori CNA (Converged Network Adapter). Tuttavia, la CLI utilizza il termine CNA.
 
-* Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 e si sta eseguendo l'aggiornamento di un sistema con dischi di storage, passare alla sezione link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"] sezione.
-* Tuttavia, se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray con array di storage e node3 non dispone di porte FC integrate, porte UTA/UTA integrate o una scheda UTA/UTA2, tornare alla sezione _Installazione e boot node3_ e riprendere a link:install_boot_node3.html#auto_install3_step23["Fase 23"].
-
-
-.Scelte
-* <<Configurare le porte FC sul nodo 3>>
-* <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>
+* Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 e si sta aggiornando un sistema con dischi di archiviazione, è possibile passare alla sezione link:reassign-node1-disks-to-node3.html["Riassegnare dischi da node1 TB a node3 TB"].
+* Tuttavia, se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray dotato di array di storage e node3 non dispone di porte FC integrate, porte UTA/UTA integrate o una scheda UTA/UTA2, tornare a _Install and boot node3_ e riprendere l'operazione all'indirizzo link:install_boot_node3.html#auto_install3_step23["Fase 23"].
 
 
 
@@ -108,22 +103,22 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 . Selezionare l'opzione `5` dal menu di avvio per la modalità di manutenzione.
 
 
-. [[auto_check3_step8]]eseguire una delle seguenti operazioni:
+. Eseguire una delle seguenti operazioni:
 +
 |===
 | Se il sistema che si sta aggiornando... | Quindi… 
 
 
 | Dispone di dischi di storage  a| 
-** Se node3 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate, passare alla sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>.
-** Se node3 non dispone di una scheda UTA/UTA2 o di porte UTA/UTA2 integrate, saltare la sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>. e andare alla sezione link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"].
+** Se node3 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate, passare a. <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>.
+** Se node3 non dispone di una scheda UTA/UTA2 o di porte onboard UTA/UTA2, ignorare <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>> e andare a link:reassign-node1-disks-to-node3.html["Riassegnare dischi da node1 TB a node3 TB"].
 
 
 
 
 | È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
-** Se node3 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate, passare alla sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>.
-** Se node3 non dispone di una scheda UTA/UTA2 o di porte UTA/UTA2 integrate, saltare la sezione <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>> E tornare alla sezione _Installazione e boot node3_ al resume all'indirizzo link:install_boot_node3.html#auto_install3_step23["Fase 23"].
+** Se node3 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate, passare a. <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>>.
+** Se node3 non dispone di una scheda UTA/UTA2 o di porte onboard UTA/UTA2, saltare <<Controllare e configurare le porte UTA/UTA2 sul nodo 3>> e tornare a _Install e avviare node3_ al momento del ripristino a link:install_boot_node3.html#auto_install3_step23["Fase 23"].
 
 
 |===
@@ -307,7 +302,7 @@ Adapter  Mode       Type        Mode     Type        Status
 | Se il sistema... | Quindi... 
 
 
-| Dispone di dischi di storage | Passare a. link:map_ports_node1_node3.html["Mappare le porte dal nodo 1 al nodo 3"] 
+| Dispone di dischi di storage | Andare a link:reassign-node1-disks-to-node3.html["Riassegnare dischi da node1 TB a node3 TB"]. 
 
 
 | È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare a _Installa e avvia node3_ e riprendere la sezione all'indirizzo link:install_boot_node3.html#auto_install3_step23["Fase 23"]. 
@@ -316,234 +311,5 @@ Adapter  Mode       Type        Mode     Type        Status
 +
 `halt`
 
-. [[step14]]avviare il nodo nel menu di boot eseguendo `boot_ontap menu`. Se si sta eseguendo l'aggiornamento a un sistema A800, visitare il sito Web all'indirizzo <<auto_check3_step23,Fase 23>>.
-
-
-. [[auto9597_check_node3_step15]]al nodo 3, andare al menu di boot e utilizzare 22/7 e selezionare l'opzione nascosta `boot_after_controller_replacement`. Al prompt, immettere node1 per riassegnare i dischi da node1 a node3, come nell'esempio seguente.
-+
-.Espandere l'esempio di output della console
-[%collapsible]
-====
-[listing]
-----
-LOADER-A> boot_ontap menu
-...
-*******************************
-*                             *
-* Press Ctrl-C for Boot Menu. *
-*                             *
-*******************************
-.
-.
-Please choose one of the following:
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-Selection (1-9)? 22/7
-.
-.
-(boot_after_controller_replacement)   Boot after controller upgrade
-(9a)                                  Unpartition all disks and remove their ownership information.
-(9b)                                  Clean configuration and initialize node with partitioned disks.
-(9c)                                  Clean configuration and initialize node with whole disks.
-(9d)                                  Reboot the node.
-(9e)                                  Return to main boot menu.
-
-Please choose one of the following:
-
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-Selection (1-9)? boot_after_controller_replacement
-.
-This will replace all flash-based configuration with the last backup to
-disks. Are you sure you want to continue?: yes
-.
-.
-Controller Replacement: Provide name of the node you would like to replace: <name of the node being replaced>
-.
-.
-Changing sysid of node <node being replaced> disks.
-Fetched sanown old_owner_sysid = 536953334 and calculated old sys id = 536953334
-Partner sysid = 4294967295, owner sysid = 536953334
-.
-.
-.
-Terminated
-<node reboots>
-.
-.
-System rebooting...
-.
-Restoring env file from boot media...
-copy_env_file:scenario = head upgrade
-Successfully restored env file from boot media...
-.
-.
-System rebooting...
-.
-.
-.
-WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
-Override system ID? {y|n} y
-Login:
-...
-----
-====
-. Se il sistema entra in un loop di riavvio con il messaggio `no disks found`, perché ha ripristinato le porte alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Continuare con <<auto_check3_step17,Fase 17>> a. <<auto_check3_step22,Fase 22>> per risolvere questo problema.
-. [[auto_Check3_STEP17]]premere Ctrl-C durante L'OPERAZIONE di AUTOBOOT per arrestare il nodo al prompt LOADER>.
-. [[step18]]al prompt DEL CARICATORE, accedere alla modalità di manutenzione:
-+
-`boot_ontap maint`
-
-. [[step19]]in modalità di manutenzione, visualizzare tutte le porte iniziatore precedentemente impostate che si trovano ora in modalità di destinazione:
-+
-`ucadmin show`
-
-+
-Riportare le porte in modalità initiator:
-
-+
-`ucadmin modify -m fc -t initiator -f _adapter name_`
-
-. [[step20]]verificare che le porte siano state modificate in modalità initiator:
-+
-`ucadmin show`
-
-. [[step21]]uscire dalla modalità di manutenzione:
-+
-`halt`
-
-+
-[NOTE]
-====
-Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sistema che supporta anche dischi esterni, visitare il sito Web <<auto_check3_step22,Fase 22>>.
-
-Se si esegue l'aggiornamento da un sistema che supporta dischi esterni a un sistema che supporta dischi interni ed esterni, ad esempio un sistema AFF A800, visitare il sito Web <<auto_check3_step23,Fase 23>>.
-
-====
-. [[auto_Check3_step22]]al prompt del CARICATORE, avviare:
-+
-`boot_ontap menu`
-
-+
-Ora, all'avvio, il nodo è in grado di rilevare tutti i dischi ad esso assegnati in precedenza e di avviarsi come previsto.
-
-+
-Quando i nodi del cluster che si stanno sostituendo utilizzano la crittografia dei volumi root, ONTAP non è in grado di leggere le informazioni sul volume dai dischi. Ripristinare le chiavi del volume root:
-
-+
-.. Tornare al menu di avvio speciale:
-+
-`LOADER> boot_ontap menu`
-
-+
-[listing]
-----
-Please choose one of the following:
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-
-Selection (1-11)? 10
-----
-.. Selezionare *(10) Imposta segreti di ripristino di Onboard Key Manager*
-.. Invio `y` al seguente prompt:
-+
-`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
-
-.. Quando richiesto, inserire la passphrase del gestore delle chiavi.
-.. Inserire i dati di backup quando richiesto.
-+
-
-NOTE: È necessario aver ottenuto la passphrase e i dati di backup in link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"] sezione di questa procedura.
-
-.. Dopo aver riavviato il sistema con lo speciale menu di boot, eseguire l'opzione *(1) Avvio normale*
-+
-
-NOTE: In questa fase potrebbe verificarsi un errore. Se si verifica un errore, ripetere i passaggi secondari in <<auto_check3_step22,Fase 22>> fino a quando il sistema non si avvia normalmente.
-
-
-
-. [[auto_check3_step23]]se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio, sistemi AFF A800), impostare l'aggregato node1 come aggregato root per confermare che node3 si avvia dall'aggregato root di node1. Per impostare l'aggregato root, accedere al menu di boot e selezionare l'opzione `5` per accedere alla modalità di manutenzione.
-+
-
-CAUTION: *È necessario eseguire i seguenti passaggi secondari nell'ordine esatto indicato; in caso contrario, si potrebbe verificare un'interruzione o addirittura la perdita di dati.*
-
-+
-La seguente procedura imposta node3 per l'avvio dall'aggregato root di node1:
-
-+
-.. Accedere alla modalità di manutenzione:
-+
-`boot_ontap maint`
-
-.. Controllare le informazioni su RAID, plex e checksum per l'aggregato node1:
-+
-`aggr status -r`
-
-.. Controllare lo stato dell'aggregato node1:
-+
-`aggr status`
-
-.. Se necessario, portare online l'aggregato node1:
-+
-`aggr_online root_aggr_from___node1__`
-
-.. Impedire al node3 di avviarsi dal proprio aggregato root originale:
-+
-`aggr offline _root_aggr_on_node3_`
-
-.. Impostare l'aggregato root node1 come nuovo aggregato root per node3:
-+
-`aggr options aggr_from___node1__ root`
-
-.. Verificare che l'aggregato root di node3 sia offline e che l'aggregato root per i dischi portati da node1 sia online e impostato su root:
-+
-`aggr status`
-
-+
-
-NOTE: La mancata esecuzione del passaggio secondario precedente potrebbe causare l'avvio di node3 dall'aggregato root interno, oppure il sistema potrebbe presumere l'esistenza di una nuova configurazione del cluster o richiedere di identificarne una.
-
-+
-Di seguito viene riportato un esempio dell'output del comando:
-
-+
-[listing]
-----
- -----------------------------------------------------------------
- Aggr                 State    Status             Options
-
- aggr0_nst_fas8080_15 online   raid_dp, aggr      root, nosnap=on
-                               fast zeroed
-                               64-bit
-
- aggr0                offline  raid_dp, aggr      diskroot
-                               fast zeroed
-                               64-bit
- -----------------------------------------------------------------
-----
-
-
+. [[step14]]avviare il nodo nel menu di avvio eseguendo `boot_ontap menu`. Se si sta eseguendo l'aggiornamento a A800, andare a link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Riassegnare node1 dischi a node3, passaggio 9"].
 

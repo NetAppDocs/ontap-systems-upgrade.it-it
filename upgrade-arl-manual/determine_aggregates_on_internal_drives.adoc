@@ -93,7 +93,7 @@ Nell'esempio del passaggio precedente, "aggr2" utilizza dischi interni, come ind
 
 . Immettere il seguente comando su entrambi i controller:
 +
-`aggr status -y`
+`aggr status -v`
 
 +
 Il sistema visualizza le informazioni sui volumi sull'aggregato, come mostrato nell'output parziale nell'esempio seguente:

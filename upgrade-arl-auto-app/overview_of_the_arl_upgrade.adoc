@@ -60,7 +60,7 @@ Proprietà aggregata alla fine della fase 2:
 
 
 | link:stage_3_index.html["Fase 3. Installazione e boot node3"]  a| 
-Durante la fase 3, si installa e si avvia node3, si controlla che il cluster e le porte di gestione dei nodi da node1 siano online sul node3 e si verifica l'installazione node3. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
+Durante la fase 3, si installa e si avvia node3, si controlla che il cluster e le porte di gestione dei nodi di node1 siano online su node3, si riassegnano i dischi da node1 a node3 e si verifica l'installazione di node3. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
 
 Proprietà aggregata alla fine della fase 3:
 
@@ -83,7 +83,7 @@ Proprietà aggregata alla fine della fase 4:
 
 
 | link:stage_5_index.html["Fase 5. Installazione e boot node4"]  a| 
-Durante la fase 5, si installa e si avvia node4, si controlla che il cluster e le porte di gestione dei nodi da node2 siano online sul node4 e si verifica l'installazione node4. Se si utilizza NVE, si ripristina la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node4. È inoltre possibile spostare le LIF dei dati NAS node2 e gli aggregati non root da node3 a node4 e verificare che le LIF SAN esistano sul node4.
+Durante la fase 5, si installa e si avvia node4, si controlla che il cluster e le porte di gestione dei nodi di node2 siano online su node4, si riassegnano i dischi da node2 a node4 e si verifica l'installazione di node4. Se si utilizza NVE, si ripristina la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node4. È inoltre possibile spostare le LIF dei dati NAS node2 e gli aggregati non root da node3 a node4 e verificare che le LIF SAN esistano sul node4.
 
 Proprietà aggregata alla fine della fase 5:
 
