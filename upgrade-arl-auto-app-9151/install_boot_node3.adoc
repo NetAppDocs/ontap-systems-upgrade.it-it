@@ -267,7 +267,7 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 
 
 
-. Nodo di boot nel menu di boot:
+. Avviare il nodo nel menu di avvio:
 +
 `boot_ontap menu`
 

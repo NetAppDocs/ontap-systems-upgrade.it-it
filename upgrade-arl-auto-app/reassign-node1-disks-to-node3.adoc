@@ -20,7 +20,7 @@ summary: 'È necessario riassegnare i dischi che appartenevano a node1 a node3 q
 Eseguire i passaggi descritti in questa sezione su node3.
 
 .Fasi
-. Andare al menu di avvio e utilizzando 22/7, selezionare l'opzione nascosta `boot_after_controller_replacement` . Al prompt, immettere node1 per riassegnare i dischi di node1 a node3, come nell'esempio seguente.
+. [[reasign-node1-node3-app-step1]]Vai al menu di avvio e usando 22/7, seleziona l'opzione nascosta `boot_after_controller_replacement` . Al prompt, immettere node1 per riassegnare i dischi di node1 a node3, come nell'esempio seguente.
 +
 .Espandere l'esempio di output della console
 [%collapsible]

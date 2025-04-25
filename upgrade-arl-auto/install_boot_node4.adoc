@@ -303,7 +303,7 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 .. Contattare il supporto NetApp per assistenza nel ripristino delle informazioni di gestione delle chiavi integrate.
 
 
-. Nodo di boot nel menu di boot:
+. Avviare il nodo nel menu di avvio:
 +
 `boot_ontap menu`
 

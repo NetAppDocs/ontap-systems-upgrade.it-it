@@ -16,41 +16,76 @@ summary: Inviare un messaggio AutoSupport per node2 e spostare gli aggregati non
 [role="lead"]
 Prima di sostituire node2 con node4, è necessario inviare un messaggio AutoSupport per node2 e spostare gli aggregati non root di proprietà di node2 a node3.
 
-[[sysconfig-a-command]]
+
+CAUTION: Durante questa procedura, non spostare gli aggregati da node3 a node2. In questo modo, gli aggregati vengono portati offline e si verifica una mancanza di servizio dei dati per gli aggregati che vengono ricollocati.
+
+[[verify-partner-sys-id]]
 .Fasi
-. Verificare che l'ID del sistema partner sia impostato correttamente su node2 e node3:
+. Verificare che l'ID del sistema partner sia impostato correttamente su node3 :
 +
-** `system node run -node _node2_ -command sysconfig -a`
-** `system node run -node _node3_ -command sysconfig -a`
+.. Immettere il livello di privilegio avanzato:
++
+`set -privilege advanced`
+
+.. Mostra l'ID del sistema del partner su node3:
++
+`ha interconnect config show -node <node3-node1>`
+
 +
 Il sistema visualizza un output simile al seguente esempio:
 
 +
-[listing, subs="+quotes"]
+.Mostra esempio
+[%collapsible]
+====
+[listing]
 ----
-NetApp Release 9.16.1: Mon Feb 10 07:55:45 EST 2025
-System ID: _system-ID_; *partner ID: _partner-system-ID_*
-System Serial Number: _system-serial-number_
-System Rev: A0
-System Storage Configuration: Mixed-Path HA
+cluster::*> ha interconnect config show -node <node>
+  (system ha interconnect config show)
+
+                       Node: node3-node1
+          Interconnect Type: RoCE
+            Local System ID: <node3-system-id>
+          Partner System ID: <node2-system-id>
+       Connection Initiator: local
+                  Interface: external
+
+Port   IP Address
+----   -----------------
+e4a-17   0.0.0.0
+e4b-18   0.0.0.0
 ----
+====
+
+
+. Se "ID sistema partner" non è corretto per node3:
 +
-Se "ID partner" non è corretto per node2 o node3:
-
+.. Arresto node3:
 +
-... Riavviare il nodo con il valore errato.
-... Eseguire nuovamente i comandi in <<sysconfig-a-command,Fase 1>>e verificare che l'"ID partner" sia stato modificato nel valore corretto.
+`halt`
 
+.. Al prompt di Loader, impostare il valore corretto "partner-sysid".
++
+Il node3 "partner-sysid" è l'ID di sistema di node2, che è possibile trovare nell' `ha interconnect config show`output in <<verify-partner-sys-id,Fase 1>>.
 
+.. Salvare le impostazioni:
++
+`saveenv`
+
+.. Al prompt di Loader, avviare node3 nel menu di avvio:
++
+`boot_ontap menu`
+
+.. Accedere a node3.
 
 
 . Manda un messaggio a "AutoSupport" a "NetApp for node2:
 +
-`system node autosupport invoke -node _node2_ -type all -message "Upgrading _node2_ from _platform_old_ to _platform_new_"`
+`system node autosupport invoke -node <node2> -type all -message "Upgrading <node2> from <platform_old> to <platform_new>"`
 
 . Verificare che il messaggio AutoSupport sia stato inviato:
 +
-`system node autosupport show -node _node2_ -instance`
+`system node autosupport show -node <node2> -instance`
 
 +
 I campi "ultimo oggetto inviato:" e "ultimo invio:" contengono il titolo dell'ultimo messaggio inviato e l'ora in cui il messaggio è stato inviato.
@@ -63,11 +98,11 @@ I campi "ultimo oggetto inviato:" e "ultimo invio:" contengono il titolo dell'ul
 
 .. Elencare gli aggregati di proprietà di node2:
 +
-`storage aggregate show -owner-name _node2_`
+`storage aggregate show -owner-name <node2>`
 
 .. Avviare il trasferimento degli aggregati:
 +
-`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controller-upgrade true`
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controller-upgrade true`
 
 +
 
@@ -85,7 +120,7 @@ Il trasferimento avviene in background. La riposizionamento di un aggregato può
 
 . Verificare lo stato di trasferimento del nodo 2:
 +
-`storage aggregate relocation show -node _node2_`
+`storage aggregate relocation show -node <node2>`
 
 +
 L'output visualizza "Done" (eseguito) per un aggregato dopo che è stato spostato.
@@ -101,7 +136,7 @@ NOTE: Prima di passare alla fase successiva, è necessario attendere che tutti g
 | In caso di trasferimento di... | Quindi... 
 
 
-| Tutti gli aggregati hanno avuto successo | Andare a <<man_relocate_2_3_step7,Fase 7>>. 
+| Tutti gli aggregati hanno avuto successo | Andare a <<man_relocate_2_3_step8,Fase 8>>. 
 
 
 | Qualsiasi aggregato ha avuto esito negativo o è stato vetoato  a| 
@@ -123,7 +158,7 @@ NOTE: Il `event log show` command elenca gli errori che si sono verificati.
 
 .. Spostare eventuali aggregati guasti o vetoed:
 +
-`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controllerupgrade true`
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controllerupgrade true`
 
 .. Quando richiesto, immettere `y`.
 .. Tornare al livello di privilegio admin:
@@ -147,29 +182,29 @@ Se necessario, è possibile forzare il trasferimento utilizzando uno dei seguent
 Per ulteriori informazioni sui comandi di trasferimento degli aggregati di storage, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi alla gestione di _dischi e aggregati con i comandi CLI_ e _ONTAP 9: Manuale riferimento pagina_.
 
 |===
-. [[man_relocate_2_3_step7]]verificare che tutti gli aggregati non root siano online su node3:
+. [[man_relocate_2_3_step8]]verificare che tutti gli aggregati non root siano online su node3:
 +
-`storage aggregate show -node _node3_ -state offline -root false`
+`storage aggregate show -node <node3> -state offline -root false`
 
 +
 Se alcuni aggregati sono andati offline o sono diventati estranei, è necessario portarli online una volta per ciascun aggregato:
 
 +
-`storage aggregate online -aggregate _aggr_name_`
+`storage aggregate online -aggregate <aggregate_name>`
 
 . Verificare che tutti i volumi siano online al nodo3:
 +
-`volume show -node _node3_ -state offline`
+`volume show -node <node3> -state offline`
 
 +
 Se alcuni volumi sono offline sul node3, è necessario portarli online, una volta per ciascun volume:
 
 +
-`volume online -vserver _Vserver-name_ -volume _volume-name_`
+`volume online -vserver <Vserver-name> -volume <volume-name>`
 
 . Verificare che node2 non disponga di aggregati non root online:
 +
-`storage aggregate show -owner-name _node2_ -ha-policy sfo -state online`
+`storage aggregate show -owner-name <node2> -ha-policy sfo -state online`
 
 +
 L'output del comando non dovrebbe visualizzare gli aggregati online non root perché tutti gli aggregati online non root sono già stati riallocati in node3.

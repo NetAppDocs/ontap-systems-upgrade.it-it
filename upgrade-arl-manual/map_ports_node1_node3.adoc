@@ -19,7 +19,7 @@ summary: Verificare che le porte fisiche sul nodo 1 siano mappate correttamente 
 .Prima di iniziare
 È necessario disporre già delle informazioni relative alle porte sui nuovi nodi di _Hardware Universe_. (Passare a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_). Le informazioni vengono utilizzate più avanti in questa sezione e in link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].
 
-La configurazione software del nodo 3 deve corrispondere alla connettività fisica del nodo 3 e la connettività IP deve essere ripristinata prima di continuare con l'aggiornamento.
+La configurazione software di node3 deve corrispondere alla connettività fisica di node3 e la connettività di rete deve essere ripristinata prima di continuare con l'aggiornamento.
 
 .A proposito di questa attività
 Le impostazioni delle porte possono variare a seconda del modello dei nodi.

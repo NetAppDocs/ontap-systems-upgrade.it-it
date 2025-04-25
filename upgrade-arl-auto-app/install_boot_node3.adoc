@@ -313,12 +313,12 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 
 
 
-. Nodo di boot nel menu di boot:
+. Avviare il nodo nel menu di avvio:
 +
 `boot_ontap menu`
 
 +
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:reassign-node2-disks-to-node4.html#reassign-node1-node3-app-step1["Riassegnare node1 dischi a node3, passaggio 1"] questa operazione in modo che node3 sia in grado di riconoscere i dischi di node1.
+Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step1["Riassegnare node1 dischi a node3, passaggio 1"] questa operazione in modo che node3 sia in grado di riconoscere i dischi di node1.
 
 . [[step29]]per una configurazione MetroCluster, sistemi V-Series e sistemi con software di virtualizzazione FlexArray collegati agli array di storage, è necessario impostare e configurare le porte FC o UTA/UTA2 sul nodo 3 per rilevare i dischi collegati al nodo. Per completare questa attività, passare alla sezione link:set_fc_or_uta_uta2_config_on_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"].
 
