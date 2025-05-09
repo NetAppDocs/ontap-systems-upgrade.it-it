@@ -36,7 +36,9 @@ Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possib
 
 == Switch Attached Clusters
 
-Se si stanno aggiornando i nodi in un cluster collegato a uno switch del cluster, è necessario verificare che la marca, il modello, la versione del firmware, l'RCF e la versione di ONTAP in esecuzione sullo switch siano uguali a quelle in esecuzione sul controller sostitutivo dopo l'aggiornamento. Se necessario, è necessario eseguire l'aggiornamento dello switch prima di aggiornare i controller utilizzando la procedura ARL descritta in questa documentazione.
+Se si stanno aggiornando i nodi in un cluster collegato a uno switch del cluster, è necessario verificare che la marca, il modello, la versione del firmware, l'RCF e la versione di ONTAP in esecuzione sullo switch siano uguali a quelle in esecuzione sul controller sostitutivo dopo l'aggiornamento. Se necessario, è necessario eseguire l'aggiornamento dello switch prima di aggiornare i controller utilizzando ARL.
+
+Per ulteriori informazioni, vedere link:upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Connettersi a un cluster collegato allo switch"].
 
 
 
