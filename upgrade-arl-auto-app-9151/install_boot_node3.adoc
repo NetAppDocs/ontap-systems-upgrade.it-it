@@ -376,7 +376,7 @@ Login:
 
 NOTE: Nell'esempio di output della console precedente, ONTAP richiederà il nome del nodo partner se il sistema utilizza dischi di partizione avanzata dei dischi (ADP).
 
-. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found`, indica che si è verificato un problema con la riassegnazione del disco. Consultare link:troubleshoot_index.html["Risolvere i problemi"] per risolvere il problema.
+. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found`, indica che si è verificato un problema con la riassegnazione del disco. Consultare link:aggregate_relocation_failures.html["Risolvere i problemi"] per risolvere il problema.
 . Premere `Ctrl-C` durante l'operazione di autoboot per arrestare il nodo al `LOADER>` prompt.
 . Al prompt del CARICATORE, accedere alla modalità di manutenzione:
 +

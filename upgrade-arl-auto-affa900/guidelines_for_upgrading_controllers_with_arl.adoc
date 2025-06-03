@@ -20,7 +20,7 @@ Per capire se è possibile utilizzare il trasferimento aggregato (ARL), mantenen
 
 == Aggiornamenti supportati per ARL
 
-Gli aggiornamenti dei controller sono supportati per alcune configurazioni di sistema. Per visualizzare l'elenco dei sistemi supportati e le versioni minime di ONTAP, vedere link:index.html["Panoramica"].
+Gli aggiornamenti dei controller sono supportati per alcune configurazioni di sistema. Fare riferimento al link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems["combinazioni di aggiornamento del sistema supportate"] per un elenco dei sistemi supportati e la versione minima di ONTAP.
 
 Se è stato ricevuto un nuovo sistema AFF A30, AFF A50, AFF A70, AFF A90, AFF A150, AFF A900, AFF C30, AFF C60, AFF C80, FAS2820 o FAS9500 come sistema completo, incluso un nuovo chassis, fare riferimento al link:other_references.html["Riferimenti"]collegamento per i comandi _use "system controller replace" (utilizza sostituzione controller di sistema) per aggiornare l'hardware del controller che esegue ONTAP 9,8 o versioni successive.
 
@@ -44,6 +44,8 @@ Per ulteriori informazioni, vedere link:cable-node1-for-shared-cluster-HA-storag
 
 == Risolvere i problemi
 
-Se si verificano problemi durante l'aggiornamento dei controller, consultare link:troubleshoot_index.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni.
+Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. Il nodo potrebbe bloccarsi, gli aggregati potrebbero non spostarsi o i LIF potrebbero non migrare. La causa dell'errore e la relativa soluzione dipendono dal momento in cui si è verificato l'errore durante la procedura di aggiornamento.
 
-Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.
+In caso di problemi, fare riferimento al link:aggregate_relocation_failures.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni. Le informazioni sui guasti che possono verificarsi sono elencate in base alla fase della procedura nella link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] .
+
+Se non trovi una soluzione al problema riscontrato, contatta l'assistenza tecnica.

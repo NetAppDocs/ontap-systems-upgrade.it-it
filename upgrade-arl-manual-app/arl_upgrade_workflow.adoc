@@ -41,7 +41,7 @@ La seguente tabella descrive le attività di alto livello eseguite durante ciasc
 | Fase | Fasi 
 
 
-| link:stage_1_index.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
+| link:determine_aggregates_on_internal_drives.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
 Durante la fase 1, se necessario, si conferma che i dischi interni non contengono aggregati root o aggregati di dati, si preparano i nodi per l'aggiornamento ed eseguono una serie di controlli preliminari. Se necessario, occorre reimmettere i dischi per Storage Encryption e prepararsi all'avvio in rete dei nuovi controller.
 
 Proprietà aggregata alla fine della fase 1:
@@ -52,7 +52,7 @@ Proprietà aggregata alla fine della fase 1:
 
 
 
-| link:stage_2_index.html["Fase 2: Ritiro del node1"]  a| 
+| link:relocate_non_root_aggr_node1_node2.html["Fase 2: Ritiro del node1"]  a| 
 Durante la fase 2, è possibile spostare aggregati non root da node1 a node2 e spostare le LIF di dati non SAN di proprietà di node1 a node2, inclusi gli aggregati non riusciti o vetoed. Inoltre, registrare le informazioni necessarie per il node1 da utilizzare in seguito nella procedura e dismettere il node1.
 
 Proprietà aggregata alla fine della fase 2:
@@ -64,7 +64,7 @@ Proprietà aggregata alla fine della fase 2:
 
 
 
-| link:stage_3_index.html["Fase 3: Installazione e boot node3"]  a| 
+| link:install_boot_node3.html["Fase 3: Installazione e boot node3"]  a| 
 Durante la fase 3, si installa e si avvia node3, si mappano le porte di gestione del cluster e dei nodi da node1 a node3 e si spostano le LIF dei dati e LE LIF SAN appartenenti al node1 da node2 a node3. Puoi anche spostare tutti gli aggregati da node2 a node3 e spostare i dati LIF e SAN di proprietà di node2 a node3.
 
 Proprietà aggregata alla fine della fase 3:
@@ -76,12 +76,12 @@ Proprietà aggregata alla fine della fase 3:
 
 
 
-| link:stage_4_index.html["Fase 4: Dismettere il node2"]  a| 
+| link:record_node2_information.html["Fase 4: Dismettere il node2"]  a| 
 Durante la fase 4, si registrano le informazioni necessarie per il node2 da utilizzare più avanti nella procedura, quindi si deve ritirare il node2. Non si verificano modifiche nella proprietà aggregata.
 
 
 
-| link:stage_5_index.html["Fase 5: Installazione e boot node4"]  a| 
+| link:install_boot_node4.html["Fase 5: Installazione e boot node4"]  a| 
 Durante la fase 5, si installa e si avvia node4, si mappano le porte di gestione del cluster e dei nodi da node2 a node4 e si spostano le LIF dei dati e LE LIF SAN appartenenti a node2 da node3 a node4. È inoltre possibile spostare gli aggregati node2 da node3 a node4 e spostare i LIF dei dati e LE LIF SAN di proprietà di node2 a node3.
 
 Proprietà aggregata alla fine della fase 5:
@@ -92,7 +92,7 @@ Proprietà aggregata alla fine della fase 5:
 
 
 
-| link:stage_6_index.html["Fase 6: Completare l'aggiornamento"]  a| 
+| link:manage_authentication_kmip.html["Fase 6: Completare l'aggiornamento"]  a| 
 Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e configuri Storage Encryption o NetApp Volume Encryption se i nuovi nodi sono abilitati alla crittografia. È inoltre necessario decommissionare i vecchi nodi per riprendere le operazioni di SnapMirror.
 
 

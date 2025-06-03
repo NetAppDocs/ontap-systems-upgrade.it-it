@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: plan, upgrade, consideration, contact, technical, support, recommendation, guidance, cluster, considerations for upgrading controller hardware 
 summary: 'Per pianificare l"aggiornamento, è necessario acquisire familiarità con le considerazioni generali sull"aggiornamento. Se necessario, contattare il supporto tecnico per consigli e indicazioni specifiche sulla configurazione del cluster.' 
 ---
-= Considerazioni per l'aggiornamento dell'hardware del controller
+= Considerazioni sull'aggiornamento dell'hardware del controller spostando volumi o storage
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -30,7 +30,7 @@ NOTE: Prima di iniziare la procedura di aggiornamento del controller, devi rived
 | Devo combinare diversi modelli di piattaforma di controller in un cluster?  a| 
 link:https://hwu.netapp.com["Verifica di aver seguito le regole per combinare le piattaforme storage"^].
 
-I controller in una coppia ha devono essere due modelli AFF, FAS o ASA.
+I controller in una coppia HA devono essere due modelli AFF, FAS o ASA.
 
 
 
@@ -67,7 +67,7 @@ NOTE: Se stai eseguendo l'upgrade di un cluster a 8 nodi con protocolli a blocch
 
 
 
-| Sto eseguendo l'upgrade di una coppia ha in un cluster con più coppie ha? | Sposta l'epsilon sul nodo di una coppia ha che non è sottoposta a upgrade del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed. 
+| Sto aggiornando una coppia HA in un cluster con più coppie HA? | Spostare epsilon sul nodo di una coppia HA che non è sottoposta a un aggiornamento del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed. 
 
 
 | È in esecuzione ONTAP 9.6P11, 9.7P8 o versioni successive? | NetApp consiglia di attivare il takeover di connettività, sopravvivenza e monitoraggio della disponibilità (CLAM) per riportare il cluster al quorum quando si verificano determinati guasti al nodo. Il `kernel-service` il comando richiede un accesso avanzato a livello di privilegio. Per ulteriori informazioni, vedere l'articolo della Knowledge base di NetApp https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["Configurazione predefinita del takeover della VAM modificata"^].

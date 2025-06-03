@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade 
 summary: 'Se si esegue l"aggiornamento spostando lo storage, si preparano i nodi originali e si configurano i nuovi nodi. Alcuni modelli di piattaforma supportano il trasferimento dello storage interno ai nuovi nodi. Riassegnare i dischi e ripristinare la configurazione del volume root nei nuovi nodi e configurare le porte di rete. L"aggiornamento tramite lo spostamento dello storage è una procedura di interruzione.' 
 ---
-= Workflow
+= Aggiornamento tramite spostamento del flusso di lavoro di archiviazione
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

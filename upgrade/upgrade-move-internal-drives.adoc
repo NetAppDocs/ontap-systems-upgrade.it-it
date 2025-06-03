@@ -13,6 +13,9 @@ summary: Se il nodo originale è uno dei modelli supportati, durante il processo
 [role="lead"]
 Se il nodo originale è uno dei modelli supportati, durante il processo di aggiornamento spostando lo storage è possibile spostare le unità SATA, SSD o SAS interne del nodo in uno shelf di dischi collegato al nuovo nodo dello stesso cluster.
 
+
+NOTE: link:upgrade-convert-node-to-shelf.html["Puoi anche scegliere di convertire il sistema in uno scaffale di unità e collegarlo ai nuovi nodi"].
+
 .Prima di iniziare
 * Devi aver controllato link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"] informazioni sullo spostamento dei dischi interni.
 +
@@ -22,6 +25,9 @@ Contattare il supporto tecnico se si necessita di indicazioni specifiche per la 
 * Al nuovo nodo deve essere già collegato uno shelf di dischi compatibile.
 * Lo shelf di dischi deve disporre di alloggiamenti liberi sufficienti per alloggiare i cassetti delle unità SATA, SSD o SAS del nodo originale.
 
+
+.A proposito di questa attività
+È possibile spostare le unità solo all'interno dello stesso cluster.
 
 .Fasi
 . Rimuovere delicatamente il pannello frontale dal sistema.

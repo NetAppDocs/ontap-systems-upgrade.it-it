@@ -14,7 +14,7 @@ summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggior
 
 
 [role="lead"]
-Installare il modulo controller sostitutivo ricevuto per l'aggiornamento su node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
+Installare il modulo controller sostitutivo ricevuto per l'aggiornamento su node2. Il Nodo 2 è il controller B, situato nella metà inferiore dello chassis se si guardano i controller dalla parte posteriore del sistema.
 
 .Fasi
 . Posizionare il sistema di stoccaggio sulle guide al centro del cabinet o del rack per telecomunicazioni, quindi sostenere il sistema di archiviazione dal basso e farlo scorrere in posizione.
@@ -42,4 +42,5 @@ NOTE: Per evitare di danneggiare i connettori, non esercitare una forza eccessiv
 +
 `saveenv`
 
+. Per configurazioni switchless a due nodi, verificare di avere una scheda X60132A a 4 porte 10/25 GbE nello slot 1 del nodo 2. La scheda X60132A è necessaria per l'interconnessione del cluster durante l'aggiornamento.
 

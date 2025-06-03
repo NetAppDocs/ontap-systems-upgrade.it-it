@@ -29,7 +29,36 @@ A questo punto della procedura, l'operazione viene messa in pausa mentre il nodo
 +
 L'output di `health` il campo deve essere `true`.
 
-. Verificare che node2 faccia parte dello stesso cluster di node1 e che sia integro:
+. Questo passaggio si applica alle seguenti configurazioni di aggiornamento. Per tutti gli altri aggiornamenti di sistema, saltare questo passaggio e andare a <<verify-node2-step3,Fase 3>> :
++
+** Cluster switchless a due nodi
+** Passare dai sistemi AFF A250 o AFF C250 collegati a un sistema AFF A50, AFF A30, AFF C30 o AFF C60.
+
+
++
+--
+Se node2 non si unisce automaticamente al quorum:
+
+.. Controllare lo spazio IP delle porte e1a ed e1b:
++
+`network port show`
+
+.. Se lo spazio IP non è "Cluster", modifica lo spazio IP in "Cluster" su e1a ed e1b:
++
+`network port modify -node <node_name> -port <port> -ipspace Cluster`
+
+.. Verificare che lo spazio IP delle porte e1a ed e1b sia "Cluster":
++
+`network port show`
+
+.. Migrare i LIF del cluster node2 a e1a ed e1b:
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node2_name> -destination-port <port_name`
+
+
+
+--
+. [[verify-node2-step3]]Verifica che node2 e node1 facciano parte dello stesso cluster e che il cluster sia integro:
 +
 `cluster show`
 
@@ -37,7 +66,46 @@ L'output di `health` il campo deve essere `true`.
 +
 `set advanced`
 
-. Controllare lo stato dell'operazione di sostituzione del controller e verificare che sia in stato di pausa e nello stesso stato in cui si trovava prima dell'arresto del node2 per eseguire le attività fisiche di installazione di nuovi controller e cavi in movimento:
+. Questo passaggio si applica solo agli aggiornamenti di configurazione switchless a due nodi da un AFF A250 o AFF C250 a un AFF A50, AFF A30, AFF C60 o AFF C30. Per tutti gli altri aggiornamenti di sistema, saltare questo passaggio e andare a <<verify-node2-step6,Fase 6>> :
++
+Verificare che le porte e4a, e2a, e1a, e1b oppure le porte e4a, e4b, e1a, e1b siano le porte del cluster nel dominio di broadcast "Cluster".
+
++
+I sistemi AFF A50, AFF A30, AFF C30 e AFF C60 condividono porte cluster e HA. È possibile migrare in sicurezza tutti i LIF del cluster a e4a, e4b o e4a, e2a su node1 e node2:
+
++
+.. Elenca le porte domestiche e le porte correnti per tutti i LIF del cluster:
++
+`network interface show -role Cluster -fields home-port,curr-port`
+
+.. [[migrate-cluster-lif-step-4b]]Su node1 e node2, migrare i LIF del cluster che utilizzano e1a come porta home su e4a:
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node> -destination-port e4a`
+
+.. Su node1 e node2, modificare i cluster LIF migrati in <<migrate-cluster-lif-step-4b,sottofase b>> per utilizzare e4a come porta di casa:
++
+`network  interface modify -vserver Cluster -lif <cluster_lif> -home-port e4a`
+
+.. Verificare che il cluster sia in quorum:
++
+`cluster show`
+
+.. Ripetere <<migrate-cluster-lif-step-4b,sottofase b e sottofase c>> per migrare e modificare il secondo cluster LIF su ciascun nodo in e2a o e4b:
++
+Se e2a è presente ed è una porta di rete 100GbE, questa è la seconda porta predefinita del cluster. Se e2a non è una porta di rete 100GbE, ONTAP utilizza e4b come seconda porta del cluster e HA.
+
+.. Rimuovere e1a ed e1b dal dominio di broadcast "Cluster":
++
+`broadcast-domain remove-ports -broadcast-domain Cluster -ipspace Cluster -ports <node_name>:e1a`
+
+.. Verificare che solo le porte del cluster e4a, e2a o e4a, e4b siano nel dominio di broadcast "Cluster"
++
+`broadcast domain show`
+
+.. Rimuovere i collegamenti via cavo tra e1a node1 ed e1a node2 e tra e1b node1 ed e1b node2 per garantire che vengano utilizzate solo connessioni cluster-HA valide e che non vi sia alcuna connettività ridondante.
+
+
+. [[verify-node2-step6]]Controllare lo stato dell'operazione di sostituzione del controller e verificare che sia in pausa e nello stesso stato in cui si trovava prima che node2 venisse arrestato per eseguire le attività fisiche di installazione di nuovi controller e spostamento dei cavi:
 +
 `system controller replace show`
 

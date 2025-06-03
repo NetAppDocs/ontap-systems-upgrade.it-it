@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/decide_to_use_arl_guide.html 
 keywords: decision, decision, what to use, upgrade, HA pair, metrocluster, storage encryption, volume encryption, NSE, NVE 
-summary: Decidere se utilizzare la procedura ARL manuale per aggiornare i controller storage in una coppia ha con nuovi controller che eseguono ONTAP 9.7 o versioni precedenti. 
+summary: Decidere se utilizzare la procedura ARL manuale per aggiornare i controller di storage in una coppia HA con nuovi controller che eseguono ONTAP 9.7 o versioni precedenti. 
 ---
-= Decidere se utilizzare la procedura di trasferimento degli aggregati
+= Decidere se utilizzare questa procedura di ricollocazione aggregata
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,18 +14,37 @@ summary: Decidere se utilizzare la procedura ARL manuale per aggiornare i contro
 
 
 [role="lead"]
-Questo contenuto descrive come aggiornare i controller di storage in una coppia ha con nuovi controller mantenendo tutti i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
+Questa procedura descrive come aggiornare l'hardware del controller utilizzando la rilocazione manuale degli aggregati (ARL) su sistemi che eseguono ONTAP 9.7 o versioni precedenti. Questa complessa procedura dovrebbe essere utilizzata solo da amministratori ONTAP esperti.
 
 Utilizzare questo contenuto nelle seguenti circostanze:
 
-* Non si desidera aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
+* Non vuoi aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
 * Si è esperti nell'amministrazione di ONTAP e si è a proprio agio con i rischi di lavorare in modalità diagnostica con privilegi.
+* I controller utilizzano ONTAP 9.7 o una versione precedente.
 * Si dispone di un sistema che utilizza le configurazioni Fabric MetroCluster a 4 e 8 nodi con ONTAP 9.5 o versione precedente.
 
 
+[NOTE]
+====
+* . Questa procedura ARL include i passaggi che garantiscono che i dischi interni rimangano saldamente nello chassis quando si rimuovono e si installano i controller durante la procedura di aggiornamento
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Scopri le combinazioni di aggiornamento del sistema supportate utilizzando ARL, mantenendo lo chassis e i dischi del sistema esistenti"].
 
-NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
+* Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
 
+
+====
 Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
 Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.
+
+
+
+== Scegli una procedura di aggiornamento hardware diversa
+
+* link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].
+* Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+
+
+.Informazioni correlate
+Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.

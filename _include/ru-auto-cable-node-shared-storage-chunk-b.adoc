@@ -1,0 +1,47 @@
+= Connettersi a un cluster collegato allo switch
+:allow-uri-read: 
+
+
+
+
+== Connettersi a un cluster collegato allo switch
+
+Per un cluster con collegamento a switch, verificare di soddisfare i seguenti requisiti per il nodo (sostitutivo) AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 o AFF C80:
+
+* Le porte cluster identiche sul nodo di sostituzione si trovano sullo stesso switch. Ad esempio, al termine dell'upgrade, collegare E1a su node1 e E1a su node2 a uno switch del cluster. Analogamente, la seconda porta cluster di entrambi i nodi deve essere collegata al secondo switch cluster. La connessione incrociata tra porte ha e cluster condivisi, in cui E1a di node1 è connesso allo switch e E1a di node2 è connesso allo switch, causa errori di comunicazione ha.
+* Il nodo sostitutivo utilizza porte Ethernet ha-cluster condivise.
+* Verificare che gli switch del cluster siano installati con un file di configurazione di riferimento (RCF) che supporti le porte condivise cluster-ha:
++
+.. Rimuovere la configurazione esistente sullo switch:
++
+[cols="30,70"]
+|===
+| Se il modello dello switch in uso è... | Vai a... 
+
+
+| Cisco Nexus | Articolo della Knowledge base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch Cisco Interconnect mantenendo la connettività remota"^] 
+
+
+| Broadcom BES-53248 | Articolo della Knowledge base link:https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Come cancellare la configurazione su uno switch di interconnessione Broadcom mantenendo la connettività remota"^] 
+|===
+.. Configurare e verificare l'impostazione dello switch:
++
+[cols="30,70"]
+|===
+| Se il modello dello switch in uso è... | Vai a... 
+
+
+| Cisco Nexus 9336C-FX2 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html["Aggiornamento del file di configurazione di riferimento (RCF)"^] 
+
+
+| Broadcom BES-53248 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/upgrade-rcf.html["Aggiornamento del file di configurazione di riferimento (RCF)"^] 
+
+
+| NVIDIA SN2100 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html["Installare o aggiornare lo script RCF (Reference Configuration file)"^] 
+|===
+
+
+
+
+
+NOTE: Se lo switch del cluster supporta solo velocità 10/25 GbE, è necessario utilizzare una scheda X60130A a 4 porte 10/25 GbE nello slot 1 o nello slot 2 del sistema sostitutivo per l'interconnessione del cluster.

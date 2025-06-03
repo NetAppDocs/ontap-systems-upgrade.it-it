@@ -79,6 +79,9 @@ Assicurarsi di sostenere il peso del modulo controller mentre lo si estrae dallo
 
 Installare, cablare e collegare il modulo sostitutivo in node1.
 
+.Prima di iniziare
+Verificare di avere una scheda X60132A a 4 porte 10/25 GbE nello slot 1 del nodo 1. La scheda X60132A è necessaria per l'interconnessione dei cluster nelle configurazioni di cluster switchless a due nodi durante l'aggiornamento.
+
 .Fasi
 . Allineare l'estremità del modulo controller con l'apertura dello chassis, quindi spingere delicatamente il modulo controller a metà nel sistema.
 +

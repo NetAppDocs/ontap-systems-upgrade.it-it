@@ -2,9 +2,9 @@
 section: upgrade-arl-manual
 title: Aggiornare manualmente l'hardware del controller con ONTAP 9.7 o versione precedente
 entries:
-- title: Panoramica
+- title: Scopri di più su questa procedura ARL
   url: "/upgrade-arl-manual/index.html"
-- title: Decidere se utilizzare il contenuto di trasferimento aggregato
+- title: Decidere se utilizzare questa procedura ARL
   url: "/upgrade-arl-manual/decide_to_use_arl_guide.html"
 - title: Workflow di upgrade ARL
   url: "/upgrade-arl-manual/arl_upgrade_workflow.html"
@@ -17,7 +17,7 @@ entries:
   url: "/upgrade-arl-manual/worksheet_information_before_during_upgrade.html"
 - title: Riconfigurare il layout dello switch FC per ONTAP 9.1 o versione successiva
   entries:
-  - title: Panoramica
+  - title: Prepararsi a riconfigurare il layout dello switch
     url: "/upgrade-arl-manual/reconfig_index.html"
   - title: Inviare un messaggio AutoSupport personalizzato prima di riconfigurare
       gli switch
@@ -40,8 +40,6 @@ entries:
   pdf-filename: Fase 1. Preparazione per l'aggiornamento (aggiornamento manuale in
     ONTAP 9.7 o versioni precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/stage_1_index.html"
   - title: Determinare se il controller dispone di aggregati su dischi interni
     url: "/upgrade-arl-manual/determine_aggregates_on_internal_drives.html"
   - title: Preparare i nodi per l'aggiornamento
@@ -56,8 +54,6 @@ entries:
   pdf-filename: Fase 2. Spostare e dismettere il node1 (aggiornamento manuale in ONTAP
     9.7 o versioni precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/stage_2_index.html"
   - title: Spostare gli aggregati non root dal nodo 1 al nodo 2
     url: "/upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html"
   - title: Spostare le LIF dei dati NAS di proprietà del node1 in node2
@@ -70,8 +66,6 @@ entries:
   pdf-filename: Fase 3. Installazione e boot node3 (aggiornamento manuale in ONTAP
     9.7 o versioni precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/stage_3_index.html"
   - title: Installazione e boot node3
     url: "/upgrade-arl-manual/install_boot_node3.html"
   - title: Impostare la configurazione FC o UTA/UTA2 su node3
@@ -94,8 +88,6 @@ entries:
   pdf-filename: Fase 4. Registrare le informazioni e dismettere il node2 (aggiornamento
     manuale in ONTAP 9.7 o versioni precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/stage_4_index.html"
   - title: Registrare le informazioni del nodo 2
     url: "/upgrade-arl-manual/record_node2_information.html"
   - title: Andare in pensione node2
@@ -104,8 +96,6 @@ entries:
   pdf-filename: Fase 5. Installazione e boot node4 (aggiornamento manuale in ONTAP
     9.7 o versioni precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/stage_5_index.html"
   - title: Installazione e boot node4
     url: "/upgrade-arl-manual/install_boot_node4.html"
   - title: Impostare la configurazione FC o UTA/UTA2 su node4
@@ -126,8 +116,6 @@ entries:
   pdf-filename: Fase 6. Completare l'aggiornamento (aggiornamento manuale in ONTAP
     9.7 o versioni precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/stage_6_index.html"
   - title: Gestire l'autenticazione utilizzando i server KMIP
     url: "/upgrade-arl-manual/manage_authentication_kmip.html"
   - title: Verificare che i nuovi controller siano impostati correttamente
@@ -144,8 +132,6 @@ entries:
   pdf-filename: Risoluzione dei problemi (aggiornamento manuale in ONTAP 9.7 o versioni
     precedenti)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-manual/troubleshoot_index.html"
   - title: Errori di trasferimento aggregati
     url: "/upgrade-arl-manual/aggregate_relocation_failures.html"
   - title: Riavvio, panic o cicli di alimentazione

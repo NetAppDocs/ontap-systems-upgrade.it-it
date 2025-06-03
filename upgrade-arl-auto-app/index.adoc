@@ -4,20 +4,18 @@ permalink: upgrade-arl-auto-app/index.html
 keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
 summary: 'È possibile aggiornare l"hardware del controller con ONTAP 9.8 o versione successiva utilizzando `system controller replace` , riallocando la proprietà di aggregati non root.' 
 ---
-= Panoramica
+= Scopri di più sulla procedura di aggiornamento ARL
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
-Questa procedura descrive come aggiornare l'hardware del controller utilizzando ARL (aggregate relocation) per le seguenti configurazioni di sistema:
+Esistono diversi metodi di ricollocazione aggregata (ARL) per aggiornare l'hardware del controller. Questa procedura descrive come aggiornare l'hardware del controller utilizzando la ricollocazione aggregata (ARL) con "comandi di sostituzione del controller di sistema" su sistemi che eseguono ONTAP 9.8 o versioni successive.
 
-[cols="40,20,40"]
-|===
-| Metodo | Versione di ONTAP | Sistemi supportati 
-
-
-| Utilizzo di `system controller replace` comandi | 9.8 o versione successiva | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_98_supported_systems["Link alla matrice dei sistemi supportati"] 
-|===
 Durante la procedura, l'hardware del controller originale viene aggiornato con l'hardware del controller sostitutivo, riallocando la proprietà degli aggregati non root. La migrazione degli aggregati viene eseguita più volte da un nodo all'altro per confermare che almeno un nodo fornisce i dati degli aggregati durante l'intera procedura di aggiornamento. Inoltre, è possibile migrare le interfacce logiche dei dati (LIF) e assegnare le porte di rete sul nuovo controller ai gruppi di interfacce durante la procedura.
 
 .Terminologia utilizzata in queste informazioni
@@ -26,7 +24,7 @@ In queste informazioni, i nodi originali sono chiamati "node1" e "node2", mentre
 In queste informazioni, il termine "sistemi con software di virtualizzazione FlexArray" si riferisce ai sistemi che appartengono a queste nuove piattaforme. Il termine "sistema V-Series" si riferisce ai sistemi hardware separati che possono essere collegati agli array di storage.
 
 .Informazioni importanti:
-* Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. È inoltre necessario leggere e comprendere link:guidelines_for_upgrading_controllers_with_arl.html["Linee guida per l'aggiornamento dei controller con ARL"] e a. link:overview_of_the_arl_upgrade.html["Panoramica dell'aggiornamento ARL"] prima di iniziare l'aggiornamento.
+* Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. Devi anche leggere e comprendere il link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller con ARL"] e il link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato. I passaggi necessari per preparare i controller usati con `wipeconfig` i comandi non sono inclusi in questa procedura. È necessario contattare il supporto tecnico se l'hardware del controller sostitutivo è stato utilizzato in precedenza, soprattutto se i controller eseguivano Data ONTAP in modalità 7.
 * È possibile utilizzare ARL per eseguire un aggiornamento semplificato senza interruzioni del controller a un nuovo controller che esegue una versione ONTAP successiva rispetto alla versione in esecuzione sul cluster che si sta aggiornando. Le combinazioni della versione ONTAP per i controller vecchi e nuovi sono determinate dal modello di cadenza NDU della release software ONTAP. Ad esempio, se si dispone di un controller che esegue ONTAP 9.8 e si tratta dell'ultima versione supportata per tale controller, è possibile eseguire l'aggiornamento a un nuovo controller che esegue una versione di ONTAP successiva a ONTAP 9.8.
 +

@@ -90,7 +90,7 @@ L'esempio seguente mostra l'output di `storage failover show` comando quando il 
 `network interface show -role data -curr-node _node2_ -home-node _node1_`
 
 +
-Controllare nella colonna *Status Admin/Oper* (Amministrazione stato/Oper*) se le LIF non sono attive. Se i LIF non sono attivi, consultare link:troubleshoot_index.html["Troublehoot"] sezione.
+Controllare nella colonna *Status Admin/Oper* (Amministrazione stato/Oper*) se le LIF non sono attive. Se uno qualsiasi dei LIF è inattivo, consultare il link:aggregate_relocation_failures.html["Troublehoot"] sezione.
 
 . Eseguire una delle seguenti operazioni:
 +
@@ -135,7 +135,7 @@ Poiché esiste la possibilità di un legame in un cluster con un numero pari di 
 ====
 Se si dispone di un cluster a quattro nodi, epsilon potrebbe trovarsi su un nodo di una coppia ha diversa nel cluster.
 
-Se si sta aggiornando una coppia ha in un cluster con più coppie ha, è necessario spostare epsilon nel nodo di una coppia ha non sottoposta a un aggiornamento del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed.
+Se si sta aggiornando una coppia HA in un cluster con più coppie HA, è necessario spostare epsilon sul nodo di una coppia HA che non è in fase di aggiornamento del controller. Ad esempio, se si sta aggiornando NodeA/NodeB in un cluster con la configurazione della coppia ha NodeA/NodeB e NODEC/NODed, è necessario spostare epsilon in NODEC o NODed.
 
 ====
 +

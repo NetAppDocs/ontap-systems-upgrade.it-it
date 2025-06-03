@@ -134,10 +134,10 @@ Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possib
 
 
 
-== Risoluzione dei problemi
+== Risolvere i problemi
 
-Questa procedura include suggerimenti per la risoluzione dei problemi.
+Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. Il nodo potrebbe bloccarsi, gli aggregati potrebbero non spostarsi o i LIF potrebbero non migrare. La causa dell'errore e la relativa soluzione dipendono dal momento in cui si è verificato l'errore durante la procedura di aggiornamento.
 
-In caso di problemi durante l'aggiornamento dei controller, consultare la sezione link:troubleshoot_index.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni.
+Se si verificano problemi durante l'aggiornamento dei controller, fare riferimento a link:aggregate_relocation_failures.html["Risolvere i problemi"] sezione. Le informazioni sui guasti che possono verificarsi sono elencate in base alla fase della procedura nella link:arl_upgrade_workflow.html["Sequenza di aggiornamento ARL"] .
 
 Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.

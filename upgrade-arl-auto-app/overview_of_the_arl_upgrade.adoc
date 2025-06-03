@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/overview_of_the_arl_upgrade.html
 keywords: overview, arl, upgrade, owner, controller, hardware 
 summary: 'Comprendere la procedura per aggiornare i controller con ONTAP 9.8 o versioni successive utilizzando `system controller replace` i comandi funzionano.' 
 ---
-= Panoramica dell'aggiornamento ARL
+= Scopri la sequenza di aggiornamento ARL
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -37,7 +37,7 @@ La seguente tabella descrive le attività di alto livello eseguite durante ciasc
 | Fase | Descrizione 
 
 
-| link:stage_1_index.html["Fase 1. Preparatevi per l'aggiornamento"]  a| 
+| link:prepare_nodes_for_upgrade.html["Fase 1. Preparatevi per l'aggiornamento"]  a| 
 Durante la fase 1, vengono eseguiti controlli preliminari e, se necessario, vengono corretti i diritti di proprietà degli aggregati. È necessario registrare alcune informazioni se si gestisce la crittografia dello storage utilizzando OKM e si può scegliere di interrompere le relazioni di SnapMirror.
 
 Proprietà aggregata alla fine della fase 1:
@@ -48,7 +48,7 @@ Proprietà aggregata alla fine della fase 1:
 
 
 
-| link:stage_2_index.html["Fase 2. Spostare e dismettere il node1"]  a| 
+| link:relocate_non_root_aggr_nas_data_lifs_node1_node2.html["Fase 2. Spostare e dismettere il node1"]  a| 
 Durante la fase 2, è possibile spostare gli aggregati non root node1 e le LIF dei dati NAS in node2. Questo processo è in gran parte automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione. Se necessario, spostare gli aggregati non riusciti o vetoed. Prima di ritirare il node1, si registrano le informazioni node1 da utilizzare in seguito nella procedura. Puoi anche prepararti a netboot node3 e node4 più avanti nella procedura.
 
 Proprietà aggregata alla fine della fase 2:
@@ -59,7 +59,7 @@ Proprietà aggregata alla fine della fase 2:
 
 
 
-| link:stage_3_index.html["Fase 3. Installazione e boot node3"]  a| 
+| link:install_boot_node3.html["Fase 3. Installazione e boot node3"]  a| 
 Durante la fase 3, si installa e si avvia node3, si controlla che il cluster e le porte di gestione dei nodi di node1 siano online su node3, si riassegnano i dischi da node1 a node3 e si verifica l'installazione di node3. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node3. È inoltre possibile spostare le LIF dei dati NAS node1 e gli aggregati non root da node2 a node3 e verificare che le LIF SAN esistano sul node3.
 
 Proprietà aggregata alla fine della fase 3:
@@ -70,7 +70,7 @@ Proprietà aggregata alla fine della fase 3:
 
 
 
-| link:stage_4_index.html["Fase 4. Spostare e dismettere il node2"]  a| 
+| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Fase 4. Spostare e dismettere il node2"]  a| 
 Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 a node3. Inoltre, prima di ritirarlo, è possibile registrare le informazioni relative al nodo 2 da utilizzare in seguito nella procedura.
 
 Proprietà aggregata alla fine della fase 4:
@@ -82,7 +82,7 @@ Proprietà aggregata alla fine della fase 4:
 
 
 
-| link:stage_5_index.html["Fase 5. Installazione e boot node4"]  a| 
+| link:install_boot_node4.html["Fase 5. Installazione e boot node4"]  a| 
 Durante la fase 5, si installa e si avvia node4, si controlla che il cluster e le porte di gestione dei nodi di node2 siano online su node4, si riassegnano i dischi da node2 a node4 e si verifica l'installazione di node4. Se si utilizza NVE, si ripristina la configurazione del gestore delle chiavi. Se necessario, impostare la configurazione FC o UTA/UTA2 su node4. È inoltre possibile spostare le LIF dei dati NAS node2 e gli aggregati non root da node3 a node4 e verificare che le LIF SAN esistano sul node4.
 
 Proprietà aggregata alla fine della fase 5:
@@ -93,7 +93,7 @@ Proprietà aggregata alla fine della fase 5:
 
 
 
-| link:stage_6_index.html["Fase 6. Completare l'aggiornamento"]  a| 
+| link:manage-authentication-using-kmip-servers.html["Fase 6. Completare l'aggiornamento"]  a| 
 Durante la fase 6, si conferma che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, si configura e imposta Storage Encryption o NVE. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
 
 |===

@@ -2,9 +2,16 @@
 :allow-uri-read: 
 
 
+[NOTE]
+====
+* . Questa procedura ARL include i passaggi che garantiscono che i dischi interni rimangano saldamente nello chassis quando si rimuovono e si installano i controller durante la procedura di aggiornamento
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Scopri le combinazioni di aggiornamento del sistema supportate utilizzando ARL, mantenendo lo chassis e i dischi del sistema esistenti"].
 
-NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
+* Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
 
+
+====
 Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
 Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.

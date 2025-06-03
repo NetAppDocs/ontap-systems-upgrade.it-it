@@ -21,7 +21,11 @@ Prima di avviare l'aggiornamento, verificare di disporre dei moduli corretti per
 | Se stai effettuando l'aggiornamento da ... | Il sistema di sostituzione deve avere ... 
 
 
-| AFF A250, AFF C250 | Due moduli controller e nuovi moduli io 
+| AFF A250, AFF C250  a| 
+* Due moduli controller e nuovi moduli io
+* Una scheda X60132A a 4 porte 10/25GbE per configurazioni di aggiornamento senza switch a due nodi
+
+
 
 
 | AFF A800, AFF C800 | Due moduli controller, due NVRAM e nuovi moduli io 

@@ -5,16 +5,18 @@
 È necessario installare node4 nel rack, trasferire node2 connessioni al node4 e fare il boot node4. È inoltre necessario riassegnare eventuali spare node2, dischi appartenenti a root e aggregati non root che non sono stati riallocati in precedenza in node3.
 
 .A proposito di questa attività
-È necessario netboot node4 se non dispone della stessa versione di ONTAP 9 installata sul node2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avviamenti del sistema seguendo le istruzioni riportate in link:prepare_for_netboot.html["Preparatevi per il netboot"]
+È necessario eseguire l'avvio di rete del nodo 4 se non dispone della stessa versione di ONTAP 9 installata sul nodo 2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul supporto di avvio per i successivi avvii del sistema seguendo le istruzioni in link:prepare_for_netboot.html["Preparatevi per il netboot"] .
 
-Tuttavia, non è necessario eseguire il netboot node4 se sul nodo è installata la stessa versione o successiva di ONTAP 9.
+Tuttavia, non è necessario eseguire l'avvio di rete del nodo 4 se è installata la stessa versione o una versione successiva di ONTAP 9 sul nodo 2.
 
-*Informazioni importanti:*
+[IMPORTANT]
+====
+* Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node2. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
+* Se si sta aggiornando un sistema V-Series o un sistema con software di virtualizzazione FlexArray connesso a array di storage, è necessario completare <<man_install4_Step1,Fase 1>> Attraverso <<man_install4_Step7,Fase 7>> , lascia questa sezione a <<man_install4_Step8,Fase 8>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] secondo necessità, immettendo i comandi in modalità Manutenzione. È quindi necessario tornare a questa sezione e riprendere la procedura a <<man_install4_Step9,Fase 9>> .
+* Se si sta aggiornando un sistema con dischi di archiviazione, è necessario completare l'intera sezione e quindi procedere alla sezione link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] , immettendo comandi al prompt del cluster.
 
-* Se si sta aggiornando un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage, è necessario completare la procedura <<man_install4_Step1,Fase 1>> attraverso <<man_install4_Step7,Fase 7>>, lasciare questa sezione all'indirizzo <<man_install4_Step8,Fase 8>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] Se necessario, immettere i comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere la procedura in <<man_install4_Step9,Fase 9>>.
-* Tuttavia, se si sta aggiornando un sistema con dischi di storage, è necessario completare l'intera sezione e passare alla sezione link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"], immettendo i comandi al prompt del cluster.
 
-
+====
 .Fasi
 . [[man_install4_Step1]]eseguire una delle seguenti operazioni:
 +

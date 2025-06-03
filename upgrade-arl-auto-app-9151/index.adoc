@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app-9151/index.html
 keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
 summary: 'Puoi aggiornare l"hardware dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando `system controller replace` i comandi e ricollocando la proprietà degli aggregati non root.' 
 ---
-= Panoramica
+= Scopri di più sulla procedura di aggiornamento ARL
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,8 @@ summary: 'Puoi aggiornare l"hardware dei controller che eseguono ONTAP 9.15.1 o 
 
 
 [role="lead"]
-Questa procedura descrive come aggiornare l'hardware del controller utilizzando ARL (aggregate relocation) per le seguenti configurazioni di sistema:
+Esistono diversi metodi di rilocazione aggregata (ARL) per aggiornare l'hardware del controller. Questa procedura ARL descrive come aggiornare una coppia di controller HA nei sistemi di storage AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive con nuovi controller, mantenendo i dati e i dischi esistenti.
 
-[cols="40,20,40"]
-|===
-| Metodo | Versione di ONTAP | Sistemi supportati 
-
-
-| Utilizzo di `system controller replace` comandi | 9.15.1 o versione successiva | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_9151_supported_systems["Link alla matrice dei sistemi supportati"] 
-|===
 
 NOTE: Non è possibile utilizzare questa procedura per aggiornare una configurazione MetroCluster FC o IP. Per aggiornare una configurazione MetroCluster, consultare il link:other_references.html["Riferimenti"] collegamento alla _documentazione di aggiornamento ed espansione MetroCluster_.
 
@@ -34,7 +27,7 @@ In queste informazioni, i nodi originali sono chiamati "node1" e "node2", mentre
 I termini "node1", "node2", "node3" e "node4" vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituire i nomi reali dei nodi originale e nuovo. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
 
 .Informazioni importanti:
-* Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. È inoltre necessario leggere e comprendere link:guidelines_for_upgrading_controllers_with_arl.html["Linee guida per l'aggiornamento dei controller con ARL"] e a. link:overview_of_the_arl_upgrade.html["Panoramica dell'aggiornamento ARL"] prima di iniziare l'aggiornamento.
+* Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. Devi anche leggere e comprendere il link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller con ARL"] e il link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato. I passaggi necessari per preparare i controller usati con il `wipeconfig` comando non sono inclusi in questa procedura. Se in precedenza è stato utilizzato l'hardware del controller sostitutivo, è necessario contattare il supporto tecnico.
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia di ha (High Availability) nel cluster.
 * Quando esegui l'upgrade a un sistema introdotto in ONTAP 9.15.1 o versioni successive, ONTAP converte l'efficienza dello storage dei volumi esistenti e applica le nuove funzioni di efficienza dello storage che sfruttano la funzionalità di offload dell'hardware. Si tratta di un processo in background automatico, senza alcun impatto visibile sulle prestazioni del sistema.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
 summary: 'Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e configurare AutoSupport. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o NCA.' 
 ---
-= Completare l'aggiornamento
+= Completa l'aggiornamento dei volumi di spostamento
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -38,7 +38,7 @@ Utilizzare una delle seguenti procedure, a seconda che si utilizzi la gestione d
 ** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi esterne`"
 
 
-. Se i nuovi nodi dispongono di porte FC (onboard or on FC adapter), porte CNA integrate o una scheda CNA, configurare le porte FC o CNA, immettere il seguente comando dal prompt del sistema di storage:
+. Se i nuovi nodi dispongono di porte FC (integrate o su adattatori FC), porte CNA integrate o una scheda CNA, configurare le porte FC o CNA immettendo il seguente comando dal prompt del sistema di archiviazione:
 +
 `system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
 

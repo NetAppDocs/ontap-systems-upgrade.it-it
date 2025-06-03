@@ -41,6 +41,6 @@ L'elenco delle directory deve contenere una cartella netboot con un file kernel:
 | Tutti gli altri sistemi | L'elenco delle directory deve contenere il seguente file: `<ontap_version>_image.tgz`NOTA: Non è necessario estrarre il contenuto di `<ontap_version>_image.tgz` file. 
 |===
 +
-Verranno utilizzate le informazioni nelle directory in link:stage_3_index.html["Fase 3"].
+Utilizzerai le informazioni nelle directory in link:install_boot_node3.html["Fase 3"] .
 
 

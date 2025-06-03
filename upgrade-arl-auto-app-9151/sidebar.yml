@@ -3,24 +3,22 @@ section: upgrade-arl-auto-app-9151
 title: Utilizzare i comandi "sostituzione controller di sistema" per aggiornare l'hardware
   del controller introdotto in ONTAP 9.15.1 e versioni successive
 entries:
-- title: Panoramica
+- title: Scopri di più su questa procedura ARL
   url: "/upgrade-arl-auto-app-9151/index.html"
 - title: Automatizzare il processo di aggiornamento del controller
   url: "/upgrade-arl-auto-app-9151/automate_the_controller_upgrade_process.html"
-- title: Decidere se utilizzare il contenuto di trasferimento aggregato
+- title: Decidere se utilizzare questa procedura ARL
   url: "/upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guide.html"
 - title: Strumenti e documentazione richiesti
   url: "/upgrade-arl-auto-app-9151/required_tools_and_documentation.html"
 - title: Linee guida per l'aggiornamento dei controller con ARL
   url: "/upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html"
-- title: Panoramica dell'aggiornamento ARL
+- title: Scopri la sequenza di aggiornamento ARL
   url: "/upgrade-arl-auto-app-9151/overview_of_the_arl_upgrade.html"
 - title: Fase 1. Preparatevi per l'aggiornamento
   pdf-filename: Fase 1. Preparazione per l'aggiornamento (aggiornamento con "sostituzione
     del controller di sistema" in ONTAP 9.15.1 o versioni successive)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/stage_1_index.html"
   - title: Preparare i nodi per l'aggiornamento
     url: "/upgrade-arl-auto-app-9151/prepare_nodes_for_upgrade.html"
   - title: Gestire la crittografia dello storage utilizzando Onboard Key Manager
@@ -29,8 +27,6 @@ entries:
   pdf-filename: Fase 2. Rilocare e ritirare node1 (aggiornare con "system controller
     replace" in ONTAP 9.15.1 o versioni successive)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/stage_2_index.html"
   - title: Spostare gli aggregati non root e le LIF dei dati NAS di proprietà del
       node1 al node2
     url: "/upgrade-arl-auto-app-9151/relocate_non_root_aggr_nas_data_lifs_node1_node2.html"
@@ -44,8 +40,6 @@ entries:
   pdf-filename: Fase 3. Installare e avviare node3 (aggiornare con "sostituzione controller
     di sistema" in ONTAP 9.15.1 o versioni successive)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/stage_3_index.html"
   - title: Installazione e boot node3
     url: "/upgrade-arl-auto-app-9151/install_boot_node3.html"
   - title: Verificare l'installazione di node3
@@ -59,8 +53,6 @@ entries:
   pdf-filename: Fase 4. Rilocare e ritirare node2 (aggiornare con "system controller
     replace" in ONTAP 9.15.1 o versioni successive)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/stage_4_index.html"
   - title: Spostare aggregati non root e LIF dati NAS da node2 a node3
     url: "/upgrade-arl-auto-app-9151/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html"
   - title: Andare in pensione node2
@@ -69,8 +61,6 @@ entries:
   pdf-filename: Fase 5. Installare e avviare node4 (aggiornare con "sostituzione controller
     di sistema" in ONTAP 9.15.1 o versioni successive)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/stage_5_index.html"
   - title: Installazione e boot node4
     url: "/upgrade-arl-auto-app-9151/install_boot_node4.html"
   - title: Verificare l'installazione di node4
@@ -84,8 +74,6 @@ entries:
   pdf-filename: Fase 6. Completare l'aggiornamento (aggiornamento con "sostituzione
     del controller di sistema" in ONTAP 9.15.1 o versione successiva)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/stage_6_index.html"
   - title: Gestire l'autenticazione utilizzando i server KMIP
     url: "/upgrade-arl-auto-app-9151/manage-authentication-using-kmip-servers.html"
   - title: Verificare che i nuovi controller siano impostati correttamente
@@ -102,8 +90,6 @@ entries:
   pdf-filename: Risoluzione dei problemi (aggiornamento con "sostituzione controller
     di sistema" in ONTAP 9.15.1 o versioni successive)
   entries:
-  - title: Panoramica
-    url: "/upgrade-arl-auto-app-9151/troubleshoot_index.html"
   - title: Errori di trasferimento aggregati
     url: "/upgrade-arl-auto-app-9151/aggregate_relocation_failures.html"
   - title: Riavvio, panic o cicli di alimentazione

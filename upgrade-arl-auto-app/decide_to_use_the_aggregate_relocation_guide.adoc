@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.htm
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
 summary: 'Decidere se utilizzare ARL per aggiornare i controller con ONTAP 9.8 o versioni successive utilizzando `system controller replace` comandi.' 
 ---
-= Decidere se utilizzare la procedura di trasferimento degli aggregati
+= Decidere se utilizzare questa procedura di ricollocazione aggregata
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: 'Decidere se utilizzare ARL per aggiornare i controller con ONTAP 9.8 o
 
 
 [role="lead"]
-Questo contenuto descrive come aggiornare i controller di storage in una coppia ha con nuovi controller mantenendo i dati e i dischi esistenti. Si tratta di una procedura complessa che deve essere utilizzata solo da amministratori esperti.
+Esistono diversi metodi di ricollocazione aggregata (ARL) per aggiornare l'hardware del controller. Questa procedura descrive come aggiornare l'hardware del controller utilizzando la ricollocazione aggregata (ARL) con "comandi di sostituzione del controller di sistema" su sistemi che eseguono ONTAP 9.8 o versioni successive. Questa complessa procedura dovrebbe essere utilizzata solo da amministratori ONTAP esperti.
 
-È possibile utilizzare questo contenuto nei seguenti casi:
+Per aiutarti a decidere se questa procedura ARL è adatta all'aggiornamento hardware del tuo controller, dovresti esaminare tutte le seguenti circostanze per gli aggiornamenti supportati:
 
 * Sul computer è in esecuzione ONTAP 9,8 o versione successiva.
 * Non vuoi aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
@@ -27,10 +27,21 @@ Per aggiornare le configurazioni IP di MetroCluster, fare riferimento al link:ot
 
 
 
+[NOTE]
+====
+* . Questa procedura ARL include i passaggi che garantiscono che i dischi interni rimangano saldamente nello chassis quando si rimuovono e si installano i controller durante la procedura di aggiornamento
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Scopri le combinazioni di aggiornamento del sistema supportate utilizzando ARL, mantenendo lo chassis e i dischi del sistema esistenti"].
 
-NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
+* Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
 
-[[sys_comands_98_supported_Systems]]la seguente tabella mostra la matrice del modello supportata per l'aggiornamento del controller.
+
+====
+
+
+== Combinazioni di aggiornamento del sistema supportate
+
+Nella tabella seguente viene mostrata la matrice dei sistemi supportati per eseguire un aggiornamento del controller utilizzando questa procedura ARL.
 
 |===
 | Vecchio controller | Controller sostitutivo 
@@ -110,7 +121,13 @@ Per le combinazioni di upgrade illustrate nella tabella precedente:
 
 
 ====
-Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+
+
+== Scegli una procedura di aggiornamento hardware diversa
+
+* link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].
+* Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+
 
 .Informazioni correlate
-Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.
+Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.

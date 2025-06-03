@@ -16,7 +16,7 @@ summary: 'Dopo aver scambiato i corrispondenti moduli di sistema node2 sostituti
 [role="lead"]
 Dopo aver scambiato i corrispondenti moduli di sistema node2 sostitutivi, potrebbe essere necessario eseguire il netboot. Il termine netboot significa che si sta eseguendo l'avvio da un'immagine ONTAP memorizzata su un server remoto. Quando ci si prepara per il netboot, si inserisce una copia dell'immagine di boot di ONTAP 9 su un server web a cui il sistema può accedere.
 
-Non è possibile controllare la versione di ONTAP installata sul supporto di avvio del modulo controller sostitutivo, a meno che non sia installata in uno chassis e accesa. La versione di ONTAP sul supporto di avvio del sistema sostitutivo deve essere la stessa della versione di ONTAP in esecuzione sul vecchio sistema che si sta aggiornando e le immagini di avvio primaria e di backup devono corrispondere. È possibile configurare le immagini eseguendo un netboot seguito da `wipeconfig` dal menu di boot. Se il modulo controller è stato utilizzato in precedenza in un altro cluster, il `wipeconfig` il comando cancella qualsiasi configurazione residua sul supporto di avvio.
+Non è possibile verificare la versione di ONTAP installata sul supporto di avvio del modulo controller sostitutivo, a meno che non sia installato in uno chassis e acceso. La versione di ONTAP sul supporto di avvio del sistema sostitutivo deve essere la stessa della versione di ONTAP in esecuzione sul vecchio sistema che si sta aggiornando e le immagini di avvio primaria e di backup devono corrispondere. È possibile configurare le immagini eseguendo un netboot seguito da  `wipeconfig` comando dal menu di avvio. Se il modulo controller è stato precedentemente utilizzato in un altro cluster,  `wipeconfig` comando cancella ogni configurazione residua sul supporto di avvio.
 
 Per eseguire l'avvio da rete, è possibile utilizzare anche l'opzione di avvio USB. Consultare l'articolo della Knowledge base link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["Come utilizzare il comando boot_recovery LOADER per installare ONTAP per la configurazione iniziale di un sistema"^].
 
@@ -130,8 +130,27 @@ Il modulo controller si riavvia ma si arresta al menu di avvio perché il dispos
 
 
 
-. Quando richiesto, eseguire `wipeconfig` per cancellare qualsiasi configurazione precedente sul supporto di avvio.
+. Cancellare qualsiasi configurazione precedente sul supporto di avvio.
 +
+.. Al prompt seguente, eseguire il comando  `wipeconfig` comando e premere il tasto Invio:
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? wipeconfig
+----
 .. Quando viene visualizzato il messaggio riportato di seguito, rispondere `yes`:
 +
 [listing]
@@ -141,6 +160,10 @@ Warning: do not run this option on a HA node that has been taken over.
 Are you sure you want to continue?:
 ----
 .. Il nodo viene riavviato per terminare `wipeconfig` e poi si ferma al menu di boot.
++
+
+NOTE: Attendi che il nodo si arresti nel menu di avvio dopo aver completato l'operazione  `wipeconfig` operazione.
+
 
 
 . Selezionare la modalità di manutenzione `5` dal menu di boot e premere `y` quando viene richiesto di continuare con l'avvio.

@@ -63,7 +63,7 @@ Verificare che tutte le porte connesse, inclusi il gruppo di interfacce e le por
 | AFF A800 | AFF A70, AFF A90 
 
 
-| AFF C800 | C80 
+| AFF C800 | AFF C80 
 |===
 +
 Per tutti gli altri aggiornamenti del sistema, passare alla <<resume_relocation_step4,Fase 4>>.

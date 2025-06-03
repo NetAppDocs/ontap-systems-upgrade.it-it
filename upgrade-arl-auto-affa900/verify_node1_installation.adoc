@@ -31,7 +31,36 @@ A questo punto della procedura, l'operazione di aggiornamento del controller dov
 +
 L'output di `health` il campo deve essere `true`.
 
-. Verificare che node1 faccia parte dello stesso cluster di node2 e che sia integro:
+. Questo passaggio si applica alle seguenti configurazioni di aggiornamento. Per tutti gli altri aggiornamenti di sistema, saltare questo passaggio e andare a <<verify-node1-step3,Fase 3>> :
++
+** Cluster switchless a due nodi
+** Passare dai sistemi AFF A250 o AFF C250 collegati a un sistema AFF A50, AFF A30, AFF C30 o AFF C60
+
+
++
+--
+Se node1 non si unisce automaticamente al quorum:
+
+.. Controllare lo spazio IP delle porte e1a ed e1b:
++
+`network port show`
+
+.. Se lo spazio IP non è "Cluster", modifica lo spazio IP in "Cluster" su e1a ed e1b:
++
+`network port modify -node <node_name> -port <port> -ipspace Cluster`
+
+.. Verificare che lo spazio IP delle porte e1a ed e1b sia "Cluster":
++
+`network port show`
+
+.. Migrare i LIF del cluster node1 a e1a ed e1b:
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node1_name> -destination-port <port_name>`
+
+
+
+--
+. [[verify-node1-step3]]Verifica che node1 e node2 facciano parte dello stesso cluster e che il cluster sia integro:
 +
 `cluster show`
 

@@ -9,11 +9,14 @@ L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Qu
 
 È necessario eseguire il netboot node3 se non dispone della stessa versione di ONTAP 9 installata sul node1. Dopo aver installato node3, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avviamenti del sistema, seguendo le istruzioni riportate in link:prepare_for_netboot.html["Preparatevi per il netboot"].
 
-.Importante:
+[IMPORTANT]
+====
+* Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node1. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
 * Se stai aggiornando un sistema V-Series connesso a storage array o un sistema con software di virtualizzazione FlexArray connesso a storage array, devi completare la procedura <<auto_install3_step1,Fase 1>> attraverso <<auto_install3_step21,Fase 21>>, quindi uscire da questa sezione e seguire le istruzioni in link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] Sezioni secondo necessità, immissione dei comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere con <<auto_install3_step23,Fase 23>>.
 * Se si sta eseguendo l'aggiornamento di un sistema con dischi di storage, completare l'intera sezione e passare alla link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] sezioni, immissione dei comandi al prompt del cluster.
 
 
+====
 .Fasi
 . [[auto_install3_step1]]assicurarsi di disporre di spazio rack per node3.
 +
@@ -22,7 +25,7 @@ Se node1 e node2 si trovano in uno chassis separato, è possibile inserire node3
 . [[auto_install3_step2]]installare node3 nel rack, seguendo le _istruzioni di installazione e configurazione_ per il modello di nodo in uso.
 +
 
-NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso chassis, installare node4 nello chassis e node3. In caso contrario, quando si avvia node3, il nodo si comporta come se fosse in una configurazione a doppio chassis e quando si avvia node4, l'interconnessione tra i nodi non si verificherà.
+NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso chassis, installare node4 nello chassis e node3. In caso contrario, quando si avvia node3, il nodo si comporterà come se fosse in una configurazione a doppio chassis e quando si avvia node4, l'interconnessione tra i nodi non verrà attivata.
 
 . [[auto_install3_step3]]cavo node3, spostamento delle connessioni da node1 a node3.
 +
