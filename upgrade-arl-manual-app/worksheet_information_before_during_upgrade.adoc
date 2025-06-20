@@ -46,7 +46,7 @@ summary: Raccogliere determinate informazioni durante un aggiornamento ARL manua
 | Chiavi di licenza | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 6: _Verificare che i nuovi controller siano impostati correttamente_ |  
 
 
-| Indirizzo IP del server di gestione delle chiavi esterno | Fase 1: _Rekey disks for Storage Encryption_ | Fase 6: _Impostare Storage Encryption sui nuovi nodi_ |  
+| Indirizzo IP per il server di gestione delle chiavi esterne | Fase 1: _Rekey disks for Storage Encryption_ | Fase 6: _Impostare Storage Encryption sui nuovi nodi_ |  
 
 
 | Nome e percorso della directory accessibile dal web in cui si scaricano i file per avviare i nodi | Fase 1: _Prepararsi al netboot_ | Fase 3: _Installare e avviare node3_ fase 5: _Installare e avviare node4_ |  

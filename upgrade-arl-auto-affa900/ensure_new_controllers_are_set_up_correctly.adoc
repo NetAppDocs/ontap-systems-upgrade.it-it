@@ -55,25 +55,25 @@ Se nessuno dei nodi 1 o node2 possiede le LIF dei dati di proprietà di altri no
 
 . Verificare che gli aggregati siano di proprietà dei rispettivi nodi principali.
 +
-`storage aggregate show -owner-name _node1_`
+`storage aggregate show -owner-name <node1>`
 
 +
-`storage aggregate show -owner-name _node2_`
+`storage aggregate show -owner-name <node2>`
 
 . Determinare se i volumi sono offline:
 +
-`volume show -node _node1_ -state offline`
+`volume show -node <node1> -state offline`
 
 +
-`volume show -node _node2_ -state offline`
+`volume show -node <node2> -state offline`
 
 . Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea acquisito nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]e portare online uno qualsiasi dei volumi offline, come richiesto, utilizzando il seguente comando, una volta per ciascun volume:
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . Installare nuove licenze per i nuovi nodi utilizzando il seguente comando per ciascun nodo:
 +
-`system license add -license-code _license_code,license_code,license_code..._`
+`system license add -license-code <license_code,license_code,license_code...>`
 
 +
 Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, separando ciascuna chiave di licenza con una virgola.
@@ -83,7 +83,7 @@ Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. 
 `system license clean-up -unused -expired`
 
 +
-`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 --
@@ -97,8 +97,8 @@ Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. 
 
 ** Eliminare una licenza specifica da un cluster utilizzando i seguenti comandi sui nodi:
 +
-`system license delete -serial-number _node1_serial_number_ -package *`
-`system license delete -serial-number _node2_serial_number_ -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 
 
@@ -125,11 +125,11 @@ Invio `y` per rimuovere tutti i pacchetti.
 
 . [[unset_maxwait]] se nella configurazione vengono utilizzate unità con crittografia automatica ed è stato impostato `kmip.init.maxwait` variabile a. `off` (Ad esempio, in _Boot node2 with the replacement system modules_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Fase 1"]), è necessario annullare l'impostazione della variabile:
 +
-`set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
+`set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 
 . Configurare gli SP utilizzando il seguente comando su entrambi i nodi:
 +
-`system service-processor network modify -node _node_name_`
+`system service-processor network modify -node <node_name>`
 
 +
 Fare riferimento a. link:other_references.html["Riferimenti"] Per informazioni dettagliate sul sistema, consultare il documento _riferimento amministrazione sistema_ e i comandi di _ONTAP 9: Riferimento pagina manuale_ `service-processor network modify` comando.

@@ -42,25 +42,25 @@ Se nessuno dei nodi 3 o node4 possiede le LIF dei dati di proprietà di altri no
 
 . Verificare che node3 possieda gli aggregati dal node1 e che node4 possieda gli aggregati dal node2:
 +
-`storage aggregate show -owner-name _node3_`
+`storage aggregate show -owner-name <node3>`
 
 +
-`storage aggregate show -owner-name _node4_`
+`storage aggregate show -owner-name <node4>`
 
 . Determinare se i volumi sono offline:
 +
-`volume show -node _node3_ -state offline`
+`volume show -node <node3> -state offline`
 
 +
-`volume show -node _node4_ -state offline`
+`volume show -node <node4> -state offline`
 
 . Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea acquisito nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"]e portare online uno qualsiasi dei volumi offline, come richiesto, utilizzando il seguente comando, una volta per ciascun volume:
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . Installare nuove licenze per i nuovi nodi utilizzando il seguente comando per ciascun nodo:
 +
-`system license add -license-code _license_code,license_code,license_code…_`
+`system license add -license-code <license_code,license_code,license_code…>`
 
 +
 Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, separando ciascuna chiave di licenza con una virgola.
@@ -70,7 +70,7 @@ Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. 
 `system license clean-up -unused -expired`
 
 +
-`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 --
@@ -84,10 +84,10 @@ Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. 
 
 ** Eliminare una licenza specifica da un cluster utilizzando i seguenti comandi sui nodi:
 +
-`system license delete -serial-number _node1_serial_number_ -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
 
 +
-`system license delete -serial-number _node2_serial_number_ -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 
 

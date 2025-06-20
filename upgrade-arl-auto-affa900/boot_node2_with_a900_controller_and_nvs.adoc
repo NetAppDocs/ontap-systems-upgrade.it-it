@@ -20,7 +20,7 @@ Node2 con i moduli sostitutivi è ora pronto per l'avvio. I moduli sostitutivi s
 NOTE: È possibile spostare la console e le connessioni di gestione solo quando si esegue l'aggiornamento scambiando i moduli di sistema.
 
 .Fasi
-. [[boot_node2_step1]]se sono installati dischi NetApp Storage Encryption (NSE), attenersi alla seguente procedura.
+. [[boot_node2_step1]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:
 +
 
 NOTE: Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] per determinare il tipo di unità con crittografia automatica in uso.

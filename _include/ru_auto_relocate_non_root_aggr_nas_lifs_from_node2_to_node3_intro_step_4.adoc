@@ -18,7 +18,7 @@ NOTE: Il proprietario dell'abitazione per gli aggregati e le LIF non viene modif
 .Fasi
 . Verificare che tutti gli aggregati non root siano online e che il loro stato sia su node3:
 +
-`storage aggregate show -node _node3_ -state online -root false`
+`storage aggregate show -node <node3> -state online -root false`
 
 +
 L'esempio seguente mostra che gli aggregati non root su node2 sono online:
@@ -37,24 +37,21 @@ aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  n
 Se gli aggregati sono andati offline o diventano estranei sul node3, portarli online utilizzando il seguente comando sul node3, una volta per ogni aggregato:
 
 +
-`storage aggregate online -aggregate _aggr_name_`
+`storage aggregate online -aggregate <aggregate_name>`
 
 . Verificare che tutti i volumi siano online sul nodo 3 utilizzando il seguente comando sul nodo 3 ed esaminando l'output:
 +
-`volume show -node _node3_ -state offline`
+`volume show -node <node3> -state offline`
 
 +
 Se alcuni volumi sono offline sul node3, portarli online utilizzando il seguente comando sul node3, una volta per ogni volume:
 
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
-
-+
-Il `_vserver_name_` da utilizzare con questo comando si trova nell'output del precedente `volume show` comando.
+`volume online -vserver <vserver_name> -volume <volume_name>` < Il  `vserver_name` da utilizzare con questo comando si trova nell'output del precedente  `volume show` comando.
 
 . Verificare che le LIF siano state spostate nelle porte corrette e che lo stato sia `up`. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
 +
-`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-node <node_name> -status-admin up`
 
 . Se le porte che attualmente ospitano i file LIF dei dati non esistono sul nuovo hardware, rimuoverle dal dominio di trasmissione:
 +

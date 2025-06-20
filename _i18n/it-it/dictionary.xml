@@ -119,7 +119,6 @@
   <block id="72a91a015e8c747a5a63794308310840" category="cell">Indirizzo IP degli SP</block>
   <block id="c685ef92ee54cacdd0c225fa2bb12fbe" category="cell">Fase 6: _Verificare che i nuovi controller siano impostati correttamente_</block>
   <block id="e3d8433cfe5569460492707086339074" category="cell">Chiavi di licenza</block>
-  <block id="bb2a59fbd20fec79ac114c7a9f22ead2" category="cell">Indirizzo IP del server di gestione delle chiavi esterno</block>
   <block id="234cfc2e3636ba2a3e5d47da84d5bd32" category="cell">Fase 1: _Rekey disks for Storage Encryption_</block>
   <block id="a6bab46fa807f06174c4873c5331a9b2" category="cell">Fase 6: _Impostare Storage Encryption sui nuovi nodi_</block>
   <block id="09c90f884edd2efc00874f9fc863daeb" category="cell">Nome e percorso della directory accessibile dal web in cui si scaricano i file per avviare i nodi</block>
@@ -297,7 +296,6 @@
   <block id="1cf6b38ccce07c615f777e8d49040349" category="inline-link">Come ripristinare la configurazione del server di gestione delle chiavi esterne dal menu di avvio di ONTAP</block>
   <block id="a9021e1b94f8e36032c1a900148d17bf" category="paragraph">Per ulteriori informazioni, consultare l'articolo della Knowledge base<block ref="d55f681383ef8cdbd5ac64000ea6e309" category="inline-link-rx"></block>.</block>
   <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">Al termine</block>
-  <block id="3e735cdc84f6fab485c4ddb66b026489" category="paragraph">Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere server di gestione delle chiavi esterni. Ripristinare i volumi online utilizzando<block ref="fcc46ad208d53e4021ecddc4ee333dc3" prefix=" " category="inline-code"></block> comando.</block>
   <block id="42ee6b32597aab87a0d5dd8e08490bfd" category="summary">Disattivare la coppia ha con node2 e chiudere node1 correttamente durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive.</block>
   <block id="93d6a78ca650a17d67b6a45ca81b7f3f" category="doc">Ritirare il node1</block>
   <block id="0ec2ad7eda30b3cde303c205b91073e8" category="paragraph">Per dismettere il node1, è necessario disattivare la coppia ha con node2, chiudere il node1 correttamente e rimuoverlo dal rack o dallo chassis.</block>
@@ -799,7 +797,6 @@
   <block id="e0fe97fee5d48e893c74670b61264c13" category="summary">Abilitare la coppia ha, verificare l'accesso allo storage node3 e node4 e confermare la proprietà aggregata dopo un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive.</block>
   <block id="90b3509f7da0bd37fd6636cace1d2404" category="paragraph">Per confermare la corretta configurazione, è necessario attivare la coppia ha. È inoltre necessario verificare che node3 e node4 possano accedere reciprocamente allo storage e che non siano in possesso di LIF dei dati appartenenti ad altri nodi del cluster. Inoltre, devi confermare che node3 possiede gli aggregati di node1 e che node4 possiede gli aggregati di node2 e che i volumi per entrambi i nodi sono online.</block>
   <block id="9049f1bbc92896381d7b5ffdc386e3b2" category="list-text">Abilitare il failover dello storage immettendo il seguente comando su uno dei nodi:</block>
-  <block id="7ad7509ea03580dbba4ac42f8a0e9061" category="paragraph"><block ref="b898635d799dd6a81c6b745b154e6961" prefix="" category="inline-code"></block></block>
   <block id="9d070d121ee26abdb5d314d6fff4c15c" category="list-text">Verificare che il failover dello storage sia attivato:</block>
   <block id="715940e961cf53af2ba53d695b5bdb37" category="paragraph">L'esempio seguente mostra l'output del comando quando è attivato il failover dello storage:</block>
   <block id="44b65ecdfbcd9fda48c21d17aae6347e" category="cell">Se il cluster è un...</block>
@@ -815,24 +812,18 @@
   <block id="6485b14c0e329aebda0c4dcd7d09dbd0" category="paragraph"><block ref="16fdd92def5a71313d6535c74ef67b81" prefix="" category="inline-code"></block></block>
   <block id="2a6d96821a4ce6866da866e48a1ece2a" category="paragraph">Se il nodo 3 o il nodo 4 possiede le LIF dei dati di proprietà di altri nodi del cluster, utilizzare il<block ref="d1e4afa40f7e9718bdad64b4f5db9abb" prefix=" " category="inline-code"></block> Comando per ripristinare le LIF dei dati al proprietario di casa.</block>
   <block id="f67d0a54b752ca4f669625b9f2eba648" category="list-text">Verificare che node3 possieda gli aggregati dal node1 e che node4 possieda gli aggregati dal node2:</block>
-  <block id="f95d062b8f3dd313f851677720fd47c0" category="paragraph"><block ref="2e0f160afbc7b4f9eb65f066ae05be09" prefix="" category="inline-code"></block><block ref="c036fbb1757e7375750eb9108a1ef69a" prefix=" " category="inline-code"></block></block>
   <block id="862da4c0b3b19ba62c050373943cd909" category="list-text">Determinare se i volumi sono offline:</block>
-  <block id="68c05b65b923848aa186ea69ee9487d7" category="paragraph"><block ref="e3a438e4ea5a16cab1f093e0d1ef458f" prefix="" category="inline-code"></block><block ref="ef010c4877b307761f92dfee774f7025" prefix=" " category="inline-code"></block></block>
   <block id="183048ad5f29710efbac355627777865" category="inline-link-macro">Fase 19 (d)</block>
-  <block id="113d7e75ab71ebd9bcdd1155228482fc" category="paragraph"><block ref="c0158aac7761d0859a618e28877616c4" prefix="" category="inline-code"></block></block>
   <block id="5d41e09cfbf05ac79dc026cd1e32857c" category="list-text">Installare nuove licenze per i nuovi nodi immettendo il seguente comando per ciascun nodo:</block>
-  <block id="d5538e0d48b9561003d2506ab100c330" category="paragraph"><block ref="18a5bd82f1a3af65ac694296ca5e36f9" prefix="" category="inline-code"></block></block>
   <block id="65d93c0f2eae68c69877f67ce3781996" category="paragraph">Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, ciascuna chiave di licenza separata da una virgola.</block>
   <block id="1f6c8829a415beddc4ce10181f20094a" category="inline-link-macro">Fase 16</block>
   <block id="0a06fcfc5f0fe34a7f9397c4cfc05b2a" category="paragraph"><block ref="4bf839100b99b94f01ac9d1bb99f0f1c" prefix="" category="inline-code"></block></block>
   <block id="c13dda3e4975b286bfb62f3d9aa8cfa5" category="list-text">Per rimuovere tutte le vecchie licenze dai nodi originali, immettere uno dei seguenti comandi:</block>
-  <block id="f8bb98c031da24e788f5f02332ac5bb8" category="paragraph"><block ref="2599180db5e07a38b13f33bacd678ed0" prefix="" category="inline-code"></block><block ref="5f8d40fbb728439b62ece506540b12e9" prefix=" " category="inline-code"></block></block>
   <block id="f1645d1878d86f7024812da747846642" category="list-text">Per eliminare tutte le licenze scadute, immettere:</block>
   <block id="df1e7bcee84d26ba3ee0e0f129bf90c0" category="paragraph"><block ref="6ecc7d4a6049e214abb4813df2a0fb97" prefix="" category="inline-code"></block></block>
   <block id="fd6db757e3a6fb12f04139c8f48aab93" category="list-text">Per eliminare tutte le licenze inutilizzate, immettere:</block>
   <block id="32be9f537283877b6e62fd279a4f5513" category="paragraph"><block ref="e56b897971c1862f9a06367a997d01fb" prefix="" category="inline-code"></block></block>
   <block id="0fae8f5a8ab68238375deb31e474111d" category="list-text">Per eliminare una licenza specifica da un cluster, immettere i seguenti comandi sui nodi:</block>
-  <block id="e4c31b5f2905d746c57c1b1f1e038eac" category="paragraph"><block ref="1be8f02cdba9bf5598de6a762fffb848" prefix="" category="inline-code"></block><block ref="ba201afcea187bc27dccd739c1239ccc" prefix=" " category="inline-code"></block></block>
   <block id="9a940b51cdd2b2d508cffc6eecff9e32" category="paragraph">Viene visualizzato il seguente output:</block>
   <block id="0b0ab53ca7ce0880a8c5c074d260f0ab" category="paragraph">Invio<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> per rimuovere tutti i pacchetti.</block>
   <block id="4883a9a9fced202f6b61720c6c0446a2" category="list-text">Verificare che le licenze siano installate correttamente immettendo il seguente comando ed esaminandone l'output:</block>
@@ -1130,7 +1121,6 @@
   <block id="a70d58ca96ede2bc6122de5eaba9afaf" category="list-text">Riportare il cavo della console dal nodo 4 al nodo 3.</block>
   <block id="7c0d2cf152b2cde561a140a996176952" category="list-text">[[man_install3_step15]]Configura node3 per ONTAP:</block>
   <block id="70dbb49a6cbad96a6befa2a87cf2c5ce" category="paragraph"><block ref="b33e24759706adbdd475faecf8fa12dd" prefix="" category="inline-code"></block></block>
-  <block id="215bdc272bd2e7402000e545b699610b" category="list-text">[[man_install3_step16]]se si dispone di unità NetApp Storage Encryption (NSE) installate, attenersi alla seguente procedura.</block>
   <block id="28fabaf13c83a39f567169d484c2bdb7" category="admonition">Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base<block ref="99bc6507ac71bae6bc6755b2bf68f73a" category="inline-link-rx"></block> per determinare il tipo di unità con crittografia automatica in uso.</block>
   <block id="c31ef72d8e3bd3a09ff6ce8b371d8d63" category="list-text">Impostare<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> a.<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> oppure<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>:</block>
   <block id="e05e5b3ebbe0e2f7ee773e008e2cd7bd" category="cell">Se i seguenti dischi sono in uso…</block>
@@ -1353,7 +1343,6 @@
   <block id="fb876532a1278ecbe2a9e2aa30ef59c2" category="list-text">Verificare che il messaggio AutoSupport sia stato inviato:</block>
   <block id="632ce4fa5102cfac495b3c1490de0513" category="paragraph">I campi "ultimo oggetto inviato:" e "ultimo invio:" contengono il titolo dell'ultimo messaggio inviato e l'ora in cui il messaggio è stato inviato.</block>
   <block id="33cfec7231d81810ac482a09c5b69c00" category="list-text">Elencare gli aggregati di proprietà di node2:</block>
-  <block id="9fb768ad6510fe46b2016783cac8eadb" category="paragraph"><block ref="c08c30e4082dbfc350c98d8e8dbf2fe0" prefix="" category="inline-code"></block></block>
   <block id="e5d22039d8dff591d18701d62fb4083d" category="list-text">Avviare il trasferimento degli aggregati:</block>
   <block id="cba3015195e189328dd15ef19c0cdcff" category="admonition">Il comando individua solo gli aggregati non root.</block>
   <block id="00bfced11707df12b7beabc9cb1854c6" category="list-text">Tornare al livello di privilegio admin:</block>
@@ -1372,7 +1361,6 @@
   <block id="2c075b61ab1e5a7bc43a337e5b594a77" category="paragraph">Per ulteriori informazioni sui comandi di trasferimento degli aggregati di storage, visitare il sito Web all'indirizzo <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per collegarsi alla gestione di _dischi e aggregati con i comandi CLI_ e _ONTAP 9: Manuale riferimento pagina_.</block>
   <block id="ecc3f3e0b2ef3c70a30fe8be1af81d75" category="paragraph">Se alcuni aggregati sono andati offline o sono diventati estranei, è necessario portarli online una volta per ciascun aggregato:</block>
   <block id="1dc7145853b865022c2423c0562bf7ed" category="list-text">Verificare che tutti i volumi siano online al nodo3:</block>
-  <block id="9768bc676d49dbda7bf856a2930c4b52" category="paragraph"><block ref="e3a438e4ea5a16cab1f093e0d1ef458f" prefix="" category="inline-code"></block></block>
   <block id="8526a5587200c78144bc2d1fabd13d3a" category="paragraph">Se alcuni volumi sono offline sul node3, è necessario portarli online, una volta per ciascun volume:</block>
   <block id="232cf0d45bdcae298c19689d1bf05bea" category="paragraph">L'output del comando non dovrebbe visualizzare gli aggregati online non root perché tutti gli aggregati online non root sono già stati riallocati in node3.</block>
   <block id="a96ea627b3d5d65e112aacf5d7b2c1e1" category="inline-link-macro">Spostare le LIF dei dati NAS di proprietà di node2 da node3 a node4 e verificare le LIF SAN sul node4</block>
@@ -1884,13 +1872,10 @@
   <block id="93847b1108029ddbe22a512a569d1038" category="paragraph">Una volta migrati gli aggregati e i LIF, l'operazione viene sospesa per scopi di verifica. In questa fase, è necessario verificare se tutti gli aggregati non root e le LIF di dati non SAN vengono migrati in node3.</block>
   <block id="0569dcac35411678d2e9cbd8034fea69" category="admonition">Il proprietario dell'abitazione per gli aggregati e le LIF non viene modificato; solo il proprietario corrente viene modificato.</block>
   <block id="03c6c2c179dec70c786bc644e02b16df" category="list-text">Verificare che tutti gli aggregati non root siano online e che il loro stato sia su node3:</block>
-  <block id="b552b2e6a2a24270da2f85599d5289a0" category="paragraph"><block ref="b6ac94bf4a2cff0d2edd415ae82af346" prefix="" category="inline-code"></block></block>
   <block id="6702bf0268c295c6d30a4dc2db82d427" category="paragraph">Se gli aggregati sono andati offline o diventano estranei sul node3, portarli online utilizzando il seguente comando sul node3, una volta per ogni aggregato:</block>
   <block id="809bea68dee4e68249aea4396bafacd3" category="list-text">Verificare che tutti i volumi siano online sul nodo 3 utilizzando il seguente comando sul nodo 3 ed esaminando l'output:</block>
   <block id="b830851aa263bbc0b84c68604beef993" category="paragraph">Se alcuni volumi sono offline sul node3, portarli online utilizzando il seguente comando sul node3, una volta per ogni volume:</block>
-  <block id="592033840c276a690ab8f96c3c733525" category="paragraph">Il<block ref="09548cfd61d58408d5f9cae24ffcb217" prefix=" " category="inline-code"></block> da utilizzare con questo comando si trova nell'output del precedente<block ref="0c5606ed319753bb2d86a485f23c8f6d" prefix=" " category="inline-code"></block> comando.</block>
   <block id="b8520ff69f6b8ffe5e588c1f7ce8e9be" category="list-text">Verificare che le LIF siano state spostate nelle porte corrette e che lo stato sia<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Immettendo il seguente comando, una volta per ogni LIF:</block>
-  <block id="5ae519d56c0326f582652e283c3ea809" category="paragraph"><block ref="bb38227bc42eeb48dc64d95c860db409" prefix="" category="inline-code"></block></block>
   <block id="e2172c82191a506ba37c37e48f854d2a" category="list-text">Se le porte che attualmente ospitano i file LIF dei dati non esistono sul nuovo hardware, rimuoverle dal dominio di trasmissione:</block>
   <block id="ee210a0730802d9c055ca601e95c499c" category="paragraph"><block ref="0a00983c93a43364f8ece0dd4878a2d5" prefix="" category="inline-code"></block></block>
   <block id="99988efb9efcf982f67af1157e609379" category="list-text">[[Step5]]verificare che non vi siano dati LIF rimasti sul node2 immettendo il seguente comando ed esaminando l'output:</block>
@@ -2201,20 +2186,14 @@
   <block id="ed63866964a059112ba504e1f09aa077" category="list-text">Verificare che né node3 né node4 detengano le LIF dei dati di proprietà di altri nodi del cluster utilizzando il seguente comando ed esaminando l'output:</block>
   <block id="dc85e26538718b459bdf2a353367f497" category="paragraph">Se nessuno dei nodi 3 o node4 possiede le LIF dei dati di proprietà di altri nodi del cluster, ripristinare le LIF dei dati al proprietario di casa:</block>
   <block id="98ab56275ed98fed50530abdb3a97ee7" category="paragraph"><block ref="d1e4afa40f7e9718bdad64b4f5db9abb" prefix="" category="inline-code"></block></block>
-  <block id="0d12a6e9cec4647b5d9b5253b4073e2b" category="paragraph"><block ref="2e0f160afbc7b4f9eb65f066ae05be09" prefix="" category="inline-code"></block></block>
-  <block id="0e71c4af1c9d433ba1aca904b40b449e" category="paragraph"><block ref="c036fbb1757e7375750eb9108a1ef69a" prefix="" category="inline-code"></block></block>
   <block id="b2ec89d698c3bc26ab79d7bad283a953" category="list-text">Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea acquisito nella sezione <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block>e portare online uno qualsiasi dei volumi offline, come richiesto, utilizzando il seguente comando, una volta per ciascun volume:</block>
   <block id="8b2ba35c1767c4b484add2236c0ffa6c" category="list-text">Installare nuove licenze per i nuovi nodi utilizzando il seguente comando per ciascun nodo:</block>
-  <block id="6041278c5d25ed9c37ecc9a4ba73306b" category="paragraph"><block ref="4084c061074fa6fd9b5bf2d140424605" prefix="" category="inline-code"></block></block>
   <block id="539b1b58f1be38076506f35eb15e4340" category="paragraph">Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, separando ciascuna chiave di licenza con una virgola.</block>
   <block id="8fb49e1f692fe82fa4072e7f3b3adc5d" category="list-text">Rimuovere tutte le vecchie licenze dai nodi originali utilizzando uno dei seguenti comandi:</block>
   <block id="3ce96f90e07aec61f73d0c41634c6aa1" category="paragraph"><block ref="2599180db5e07a38b13f33bacd678ed0" prefix="" category="inline-code"></block></block>
-  <block id="ee58b8665fc7b6cbed254e1253d5deb9" category="paragraph"><block ref="5f8d40fbb728439b62ece506540b12e9" prefix="" category="inline-code"></block></block>
   <block id="b71fdf79c90ac84b34d2470620eeaa18" category="list-text">Eliminare tutte le licenze scadute:</block>
   <block id="b162df50db538c8339d7ad30f407e32f" category="list-text">Eliminare tutte le licenze inutilizzate:</block>
   <block id="9501cf64d3b2dae298a8bc24331bd5f4" category="list-text">Eliminare una licenza specifica da un cluster utilizzando i seguenti comandi sui nodi:</block>
-  <block id="bcacb0089032ec901277a70c73c0ec1b" category="paragraph"><block ref="1be8f02cdba9bf5598de6a762fffb848" prefix="" category="inline-code"></block></block>
-  <block id="4a472f5ad7101a303b004c96117957a1" category="paragraph"><block ref="ba201afcea187bc27dccd739c1239ccc" prefix="" category="inline-code"></block></block>
   <block id="bfacc8eef0b077fb7822880dd6814cc1" category="list-text">Verificare che le licenze siano installate correttamente utilizzando il seguente comando ed esaminando l'output:</block>
   <block id="20d8c464d7ec22352c6b329b84051301" category="paragraph">È possibile confrontare l'output con quello acquisito nella sezione <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block>.</block>
   <block id="9dabc4c6addd92ab1be1dd1cd49038f7" category="inline-link-macro">Installazione e boot node4, passaggio 27</block>
@@ -2527,7 +2506,6 @@
   <block id="bc594bc91cd11d472f20e22d31df3f8a" category="list-text">Il node2 aggiornato è il proprietario della casa e l'attuale proprietario di aggregati che originariamente appartenevano al node2.</block>
   <block id="52a370bfb3df9d6787958443a448c014" category="inline-link-macro">Fase 7: Completare l'aggiornamento</block>
   <block id="fb13f8b167e25a81b898b43d42165d58" category="paragraph">Durante la fase 7, si conferma che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, si configura e imposta Storage Encryption o NVE. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.</block>
-  <block id="73d106cd4da3fdbd0b8a8317db146c37" category="list-text">[[boot_node2_step1]]se sono installati dischi NetApp Storage Encryption (NSE), attenersi alla seguente procedura.</block>
   <block id="b20fa92767a639ebf6c7b69aac21e88f" category="list-text">Avviare il nodo nel menu di boot:</block>
   <block id="c1ff3d9c3e793a92f67d6a17048a954d" category="paragraph">Dopo un breve intervallo di tempo, viene richiesto di inserire il nome del nodo da sostituire. Se sono presenti dischi condivisi (chiamati anche Advanced Disk Partitioning (ADP) o dischi partizionati), viene richiesto di inserire il nome del nodo del partner ha.</block>
   <block id="01b22e2b8dff1191395f34f0d45cdd7e" category="paragraph">Questi prompt potrebbero essere interrati nei messaggi della console. Se non si immette un nome di nodo o non si immette un nome corretto, viene richiesto di inserire nuovamente il nome.</block>
@@ -2587,7 +2565,6 @@
   <block id="941f1a1f76f1ea9874688b46955c3e10" category="list-text">Al prompt LOADER&gt; di node1, impostare le variabili di ambiente predefinite:</block>
   <block id="ab8666705fb8255d0f27c0919160c1e4" category="inline-link-macro">Verificare l'installazione di node2</block>
   <block id="da2b45cbcbfabc951a211d4aed4ae9d5" category="inline-link-macro">Ripristinare la configurazione del gestore delle chiavi sul nodo 2</block>
-  <block id="f52de228b93a6f965c1879aa97b007d6" category="paragraph">Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere i server di gestione delle chiavi esterne. Riportare i volumi online utilizzando<block ref="fcc46ad208d53e4021ecddc4ee333dc3" prefix=" " category="inline-code"></block> comando.</block>
   <block id="8fec9698e48614a1961275dcbf888442" category="doc">Node1 NetBoot</block>
   <block id="cf43271b9b370c0f4bddf73ec78aa59f" category="inline-link-macro">Come utilizzare il comando boot_recovery LOADER per installare ONTAP per la configurazione iniziale di un sistema</block>
   <block id="4afbf28a131dcdda5d774d5742ccdf1e" category="admonition">Per eseguire l'avvio da rete, è possibile utilizzare anche l'opzione di avvio USB. Consultare l'articolo della Knowledge base <block ref="184f8f7294797efad8be0da4fb907563" category="inline-link-macro-rx"></block>.</block>
@@ -2661,8 +2638,6 @@
   <block id="0fe6701c2bd4920c5d453b5ee906eed1" category="list-text">Verificare che né node1 né node2 detengano le LIF dei dati di proprietà di altri nodi del cluster utilizzando il seguente comando ed esaminando l'output:</block>
   <block id="6a4e3b384743506a60b9d8b065cd9569" category="paragraph">Se nessuno dei nodi 1 o node2 possiede le LIF dei dati di proprietà di altri nodi del cluster, ripristinare le LIF dei dati al proprietario di casa:</block>
   <block id="539dfd2d954ae3879b62b16e5593152b" category="list-text">Verificare che gli aggregati siano di proprietà dei rispettivi nodi principali.</block>
-  <block id="c2acdfddae4bd8e19301f3c9da97795f" category="paragraph"><block ref="1ed8c6113a55c562cd993e5ff15a5bd5" prefix="" category="inline-code"></block></block>
-  <block id="782650bc65c7f77fc89c4076c7b6450d" category="paragraph"><block ref="324c5af6f18284f9492a99bc1b6d033c" prefix="" category="inline-code"></block></block>
   <block id="8f3c31fbc98a55b30d3c8c6b6ba60ad1" category="list-text">Verificare che le licenze siano installate correttamente utilizzando il seguente comando ed esaminandone l'output:</block>
   <block id="6e7e19ae8357eafafb5df9d5e403d692" category="paragraph">È possibile confrontare l'output con quello acquisito in <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block> sezione.</block>
   <block id="83384f48b367d39b20d627f5230807a9" category="list-text">Configurare gli SP utilizzando il seguente comando su entrambi i nodi:</block>
@@ -3123,11 +3098,6 @@
   <block id="844ad6e55c95a4328e37b5e065b5ff4a" category="paragraph"><block ref="30d261248bcb99132d9386622293364b" prefix="" category="inline-code"></block></block>
   <block id="e31a23cd4ecc24fce8358862c8b9bae7" category="list-text">Da ogni nuovo nodo, inviare un messaggio AutoSupport post-aggiornamento al supporto tecnico:</block>
   <block id="39f6fe42807470e793eabaa7b4decf63" category="paragraph"><block ref="b156a5575b0b51dcb791844063a3ede1" prefix="" category="inline-code"></block></block>
-  <block id="579f7a458ea3f243e9743154fab94bfb" category="inline-link">Gestire la crittografia con la CLI</block>
-  <block id="fb466db54f62bed3a97d8ba7d3ed2c8e" category="list-text">Ripristinare la funzionalità Storage o Volume Encryption utilizzando la procedura appropriata in<block ref="9dcdd70dc160b50ece72ebdfa01ae45b" category="inline-link-rx"></block> contenuto.</block>
-  <block id="e68c8836280fba147b04a2b14b196600" category="paragraph">Utilizzare una delle seguenti procedure, a seconda che si utilizzi la gestione delle chiavi integrata o esterna:</block>
-  <block id="0ba3cc03b09a456d5100379e45dfaaba" category="list-text">"`Ripristino delle chiavi di crittografia per la gestione delle chiavi integrate`"</block>
-  <block id="a96d0d7d353c649cc2f1612f3100f861" category="list-text">"`Ripristino delle chiavi di crittografia per la gestione delle chiavi esterne`"</block>
   <block id="ef613ca6be844d20a9465aad12778acf" category="list-text">Se i nuovi nodi dispongono di porte FC (onboard or on FC adapter), porte CNA integrate o una scheda CNA, configurare le porte FC o CNA immettendo il seguente comando al prompt del sistema di storage:</block>
   <block id="7334dc04c7292582343d824254e622ce" category="paragraph"><block ref="14786d25360b0dd4ae80425c9d5ef6bd" prefix="" category="inline-code"></block></block>
   <block id="b50a05f2d30350b2ea8e112696c796d0" category="paragraph">È possibile modificare la configurazione CNA solo quando gli adattatori CNA sono offline.</block>
@@ -3502,7 +3472,6 @@
   <block id="c9b87fd8826330d02eb0f7e03c49023c" category="summary">Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e configurare AutoSupport. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o NCA.</block>
   <block id="758ed2ce94a0d48e369a05e9792df5bf" category="paragraph">Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e impostare AutoSupport. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o NCA.</block>
   <block id="d01decedde31fd5fc9aee34a816e3a84" category="paragraph"><block ref="6ee9e615e9449987b2b09472dc1b4d86" prefix="" category="inline-code"></block></block>
-  <block id="6aee45ea83745bd29b2b86870d2afe83" category="list-text">Ripristinare la funzionalità Storage o Volume Encryption utilizzando la procedura appropriata in<block ref="713156fa56254a04d458a101e174aa50" category="inline-link-rx"></block> contenuto.</block>
   <block id="533d1f26c154725c9c91afdd1b89aaa4" category="list-text">Nella pagina *sistemi installati*, inserire il numero di serie del vecchio sistema nel modulo, quindi fare clic su *Vai!*</block>
   <block id="86f8743a1b5fe2af67d144308957dbfc" category="summary">Per confermare che le informazioni di configurazione sul supporto di avvio non interferiscano con l'aggiornamento del controller, è necessario ripristinare le configurazioni di node3 e node4 alle impostazioni di configurazione predefinite.</block>
   <block id="e4b60fefa0013671f6066bd9990def84" category="paragraph">Per confermare che le informazioni di configurazione sul supporto di avvio non interferiscano con l'aggiornamento del controller, è necessario ripristinare le configurazioni di node3 e node4 alle impostazioni di configurazione predefinite.</block>
@@ -4321,11 +4290,9 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="5dac5a25730948f28ff49739852d7be9" category="list-text">Quando possibile, NetApp consiglia di utilizzare la stessa versione di ONTAP sui nodi originale e sui nodi nuovi. Se ciò non è possibile, <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> Sui nodi originali alla versione massima supportata in modo che la differenza di versione tra i nodi originale e quelli nuovi NON sia superiore a quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.</block>
   <block id="d9bec0f0ae398cfc3abbf7091d735c22" category="paragraph">*Note1*: La versione di ONTAP in esecuzione sui nodi originali deve essere supportata dai nuovi nodi. Se necessario, <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> sui nodi originali fino alla versione massima supportata. La differenza di versione tra il nodo originale e quello nuovo non può essere maggiore di quattro. Ad esempio, ONTAP 9,8 e 9.12.1 sono supportati; tuttavia, ONTAP 9,8 e 9.13.1 non sono supportati.<block ref="ce537934e178c1610dae82a1b82553bf" category="inline-link-rx"></block>.</block>
   <block id="ebf27722a719cbdcb3983568ea50ef42" category="cell">Tornare a _Installa e avvia node3_ e riprendere la sezione all'indirizzo <block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>.</block>
-  <block id="06497c4478fee55f8a0ff3319fb722a8" category="list-text">[[auto_install4_step27]]se sono installate unità di crittografia archiviazione NetApp (NSE), procedere come segue.</block>
   <block id="1e4625a567102c02db411f8ac4403956" category="list-text">[[unset_maxwait_system_comands]]se nella configurazione vengono utilizzati dischi con crittografia automatica ed è stato impostato<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> variabile a.<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (ad esempio, in <block ref="e646557bd849df21a23243b7031e90bc" category="inline-link-macro-rx"></block>), è necessario annullare l'impostazione della variabile:</block>
   <block id="b0da566a6b16767a9a4f6a9815cc8a8c" category="image-alt">Rimozione del ARM di gestione dei cavi</block>
   <block id="df4c49d6d7d92d1a3dd7d374cec6fe02" category="image-alt">Apertura della maniglia della camma</block>
-  <block id="ab8dc73b82108799ac3b6894e5efe57e" category="list-text">[[A900_boot_node1]]se sono installate unità di crittografia storage NetApp (NSE), procedere come segue.</block>
   <block id="401ec6649ed8fe314eef631a190858b3" category="list-text">Controllare e ripristinare i bootargs di crittografia dello storage indicati nella <block ref="d1353daad078803f11ba1627582281b9" category="inline-xref-macro-rx"></block>.</block>
   <block id="e807a193ac5d601655295b7da3f1b093" category="paragraph">Tuttavia, se si dispone di un sistema V-Series o di un software di virtualizzazione FlexArray e si è connessi agli array di storage e node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere a <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>. Assicurarsi che il node4 disponga di spazio rack sufficiente. Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire il nodo 4 nella stessa posizione del nodo 3. Se node2 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.</block>
   <block id="1e46f02c6c16752b68ae9ed5650557a7" category="list-text">Saltare la sezione _controllare e configurare le porte UTA/UTA2 su node4_ se node4 non dispone di una scheda UTA/UTA2 o di porte integrate UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere la sezione su <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>.</block>
@@ -5297,4 +5264,30 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="8f7d8cd660c3a1288b48778ea72e58a5" category="sidebar">Decidere se utilizzare questa procedura ARL</block>
   <block id="8f921903953b3b6717329ab7de1391c1" category="sidebar">Cavo node2 per storage ha-cluster condiviso</block>
   <block id="76751896989d28875a4eeddf2995da8d" category="sidebar">Prepararsi a riconfigurare il layout dello switch</block>
+  <block id="9c328071e0321bfbe1d164cac2c22ebd" category="paragraph"><block ref="e6b811afaa94951aac008a53e383ff23" prefix="" category="inline-code"></block></block>
+  <block id="b3b5d42abc670ac795f4b90cfc221655" category="paragraph"><block ref="cb38fc2887221a0ca6581f1d73b29ec5" prefix="" category="inline-code"></block></block>
+  <block id="028c6aaad70991eeba5c4bb66ea88329" category="paragraph">IL <block ref="d6d2e75e827fff3babc66bc7cd4d2c4b" prefix=" " category="inline-code"></block> da utilizzare con questo comando si trova nell'output del precedente <block ref="0c5606ed319753bb2d86a485f23c8f6d" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="7edece7677f8bef06093b6be08879c67" category="paragraph"><block ref="b79a4da2e325c3015ed2f7afe206a96b" prefix="" category="inline-code"></block></block>
+  <block id="a29df3ccd4c80ed70466ab7e616060db" category="paragraph"><block ref="c1415a35d798d0e1bc89dfc239e96300" prefix="" category="inline-code"></block> &lt; Il <block ref="d6d2e75e827fff3babc66bc7cd4d2c4b" prefix=" " category="inline-code"></block> da utilizzare con questo comando si trova nell'output del precedente <block ref="0c5606ed319753bb2d86a485f23c8f6d" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="316bb78c78d8c5d743c44432528cc2c4" category="paragraph"><block ref="4221e144bb878e9d4c97a49eaf2eb814" prefix="" category="inline-code"></block></block>
+  <block id="4d090b6b4178c6d326829a98b05a4cd7" category="paragraph"><block ref="534a01a4ca515955efe8376e84615e84" prefix="" category="inline-code"></block></block>
+  <block id="b7836a7a1972d5f8803e2f44bd3cb658" category="paragraph"><block ref="49166cc15e848fc049881c3de5e1d1f8" prefix="" category="inline-code"></block><block ref="6d203e2c19155492a108b65377909131" prefix=" " category="inline-code"></block></block>
+  <block id="4655a1857691d25ac0c12a710dad5454" category="paragraph"><block ref="365695b1d723adf070447422d9e8d907" prefix="" category="inline-code"></block><block ref="5db9f9801ff1015f8f0ec287f1a37e08" prefix=" " category="inline-code"></block></block>
+  <block id="8502756d136a7fbd63f0576ce096751b" category="paragraph"><block ref="e0dd455af4d681c74ccfc9dc72ac81da" prefix="" category="inline-code"></block></block>
+  <block id="a0cc12382dcdc36e42046d83b6c7e109" category="paragraph"><block ref="2599180db5e07a38b13f33bacd678ed0" prefix="" category="inline-code"></block><block ref="cad104e67eebc6460f05ee5386343340" prefix=" " category="inline-code"></block></block>
+  <block id="29d22afc321b012279dd6e65d63787dd" category="paragraph"><block ref="c1691ae4960273f7d983ed570ccc250a" prefix="" category="inline-code"></block><block ref="66730ced80aced888a1e584b32aac885" prefix=" " category="inline-code"></block></block>
+  <block id="dce88c7c89a608000baa31d7f41aafe5" category="cell">Indirizzo IP per il server di gestione delle chiavi esterne</block>
+  <block id="f861760a9e4b91d9c15f4ed6899c8a67" category="list-text">Ripristinare la funzionalità di archiviazione o crittografia del volume utilizzando una delle seguenti procedure, a seconda che si utilizzi la gestione delle chiavi integrata o esterna:</block>
+  <block id="7b5b637cc082477a9dd4c129c225152e" category="inline-link-macro">Ripristinare le chiavi di crittografia integrate per la gestione delle chiavi</block>
+  <block id="43a39f2ab9e3339214d6fda05936d597" category="list-text"><block ref="43a39f2ab9e3339214d6fda05936d597" category="inline-link-macro-rx"></block></block>
+  <block id="1ee623098df2f7856a034824be882999" category="inline-link-macro">Ripristinare le chiavi di crittografia esterne per la gestione delle chiavi</block>
+  <block id="116698f9b98f4e456ff27e95e38fccf3" category="list-text"><block ref="116698f9b98f4e456ff27e95e38fccf3" category="inline-link-macro-rx"></block></block>
+  <block id="18b86b85ac7e74bdaf460ba1e2f65f0e" category="list-text">[[auto_install4_step27]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:</block>
+  <block id="bdac4e49f25f09fd22688c1a0aaf704a" category="paragraph">Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere i server di gestione delle chiavi esterne. Riportare online quei volumi utilizzando <block ref="fcc46ad208d53e4021ecddc4ee333dc3" prefix=" " category="inline-code"></block> comando.</block>
+  <block id="0095109d5b66e24afe910457a637e763" category="list-text">[[A900_boot_node1]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:</block>
+  <block id="c79e58170822a59a6dd931336ca868ed" category="list-text">[[boot_node2_step1]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:</block>
+  <block id="78afe52f3d782a64e711de589b4df3d3" category="paragraph"><block ref="346db28706192c9274da330f004e695a" prefix="" category="inline-code"></block></block>
+  <block id="ee003f27b169d76d97322f42ff3b1684" category="paragraph"><block ref="fa9973ef8cb7c81f6e65cb1c4e0c12f2" prefix="" category="inline-code"></block></block>
+  <block id="4dfbd3112f049daa92b3b9620a0a23b4" category="list-text">Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:</block>
+  <block id="780d3ce82c06a7096f3d7b6381f35cf4" category="list-text">[[man_install3_step16]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:</block>
 </blocks>

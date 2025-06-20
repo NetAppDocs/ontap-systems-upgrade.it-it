@@ -139,4 +139,4 @@ Per ulteriori informazioni, consultare l'articolo della Knowledge base https://k
 --
 ====
 .Al termine
-Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere i server di gestione delle chiavi esterne. Riportare i volumi online utilizzando `volume online` comando.
+Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere i server di gestione delle chiavi esterne. Riportare online quei volumi utilizzando  `volume online` comando.

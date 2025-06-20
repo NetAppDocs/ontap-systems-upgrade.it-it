@@ -74,13 +74,10 @@ Riattivare il failover dello storage: `storage failover modify -node node_name -
 +
 `system node autosupport invoke -node node_name -type all -message "MAINT=END node_name successfully upgraded from platform_old to platform_new"`
 
-. Ripristinare la funzionalità Storage o Volume Encryption utilizzando la procedura appropriata in https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Gestire la crittografia con la CLI"^] contenuto.
+. Ripristinare la funzionalità di archiviazione o crittografia del volume utilizzando una delle seguenti procedure, a seconda che si utilizzi la gestione delle chiavi integrata o esterna:
 +
-Utilizzare una delle seguenti procedure, a seconda che si utilizzi la gestione delle chiavi integrata o esterna:
-
-+
-** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi integrate`"
-** "`Ripristino delle chiavi di crittografia per la gestione delle chiavi esterne`"
+** link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Ripristinare le chiavi di crittografia integrate per la gestione delle chiavi"^]
+** link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Ripristinare le chiavi di crittografia esterne per la gestione delle chiavi"^]
 
 
 . Se i nuovi nodi dispongono di porte FC (onboard or on FC adapter), porte CNA integrate o una scheda CNA, configurare le porte FC o CNA immettendo il seguente comando al prompt del sistema di storage:

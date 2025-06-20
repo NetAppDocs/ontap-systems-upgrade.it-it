@@ -19,7 +19,7 @@ Per confermare la corretta configurazione, attivare la coppia ha. Inoltre, è po
 .Fasi
 . Abilitare il failover dello storage immettendo il seguente comando su uno dei nodi:
 +
-`storage failover modify -enabled true -node _node3_`
+`storage failover modify -enabled true -node <node3>`
 
 . Verificare che il failover dello storage sia attivato:
 +
@@ -67,21 +67,21 @@ Se il nodo 3 o il nodo 4 possiede le LIF dei dati di proprietà di altri nodi de
 
 . Verificare che node3 possieda gli aggregati dal node1 e che node4 possieda gli aggregati dal node2:
 +
-`storage aggregate show -owner-name _node3_`
-`storage aggregate show -owner-name _node4_`
+`storage aggregate show -owner-name <node3>`
+`storage aggregate show -owner-name <node4>`
 
 . Determinare se i volumi sono offline:
 +
-`volume show -node _node3_ -state offline`
-`volume show -node _node4_ -state offline`
+`volume show -node <node3> -state offline`
+`volume show -node <node4> -state offline`
 
 . Se alcuni volumi non sono in linea, confrontarli con l'elenco dei volumi non in linea in cui sono stati acquisiti  link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step19["Fase 19 (d)"] In _preparare i nodi per l'aggiornamento_ e portare online qualsiasi volume offline, come richiesto, immettendo il seguente comando, una volta per ogni volume:
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . Installare nuove licenze per i nuovi nodi immettendo il seguente comando per ciascun nodo:
 +
-`system license add -license-code _license_code,license_code,license_code..._`
+`system license add -license-code <license_code,license_code,license_code...>`
 
 +
 Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. È possibile aggiungere una licenza alla volta oppure più licenze contemporaneamente, ciascuna chiave di licenza separata da una virgola.
@@ -93,7 +93,7 @@ Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. 
 . Per rimuovere tutte le vecchie licenze dai nodi originali, immettere uno dei seguenti comandi:
 +
 `system license clean-up -unused -expired`
-`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 ** Per eliminare tutte le licenze scadute, immettere:
@@ -106,8 +106,8 @@ Il parametro License-code accetta un elenco di 28 chiavi alfabetiche maiuscole. 
 
 ** Per eliminare una licenza specifica da un cluster, immettere i seguenti comandi sui nodi:
 +
-`system license delete -serial-number _node1_serial_number_ -package *`
-`system license delete -serial-number _node2_serial_number_ -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 +
 Viene visualizzato il seguente output:
@@ -133,7 +133,7 @@ Invio `y` per rimuovere tutti i pacchetti.
 
 . Configurare gli SP eseguendo il seguente comando su entrambi i nodi:
 +
-`system service-processor network modify -node _node_name_`
+`system service-processor network modify -node <node_name>`
 
 +
 Passare a. link:other_references.html["Riferimenti"] Per informazioni dettagliate su, fare riferimento alla sezione _Guida all'amministrazione del sistema_ e ai _comandi di ONTAP 9: Guida di riferimento alla pagina_ `system service- processor network modify` comando.
