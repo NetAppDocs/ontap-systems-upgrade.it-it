@@ -93,7 +93,7 @@ Proprietà aggregata alla fine della fase 5:
 
 
 | link:boot_node2_with_a900_controller_and_nvs.html["Fase 6: Punto di avvio2 con i moduli di sistema sostitutivi"]  a| 
-Durante la fase 6, si avvia node2 con i moduli di sistema aggiornati e si verifica l'installazione node2 aggiornata. Se si utilizza NVE, si ripristina la configurazione del gestore delle chiavi. È inoltre possibile spostare gli aggregati non root node1 e le LIF dei dati NAS dal node1 al node2 aggiornato e verificare che le LIF SAN esistano sul node2.
+Durante la Fase 6, si avvia node2 con i moduli di sistema aggiornati e si verifica l'installazione di node2 aggiornata.  Se si utilizza NVE, ripristinare la configurazione del gestore delle chiavi.  Se si sta aggiornando una configurazione con cluster collegati allo switch, è necessario convalidare la configurazione dello switch per i nuovi controller.  Si spostano inoltre gli aggregati non root del nodo 1 e i LIF dei dati NAS dal nodo 1 al nodo 2 aggiornato e si verifica che i LIF SAN siano presenti sul nodo 2.
 
 
 

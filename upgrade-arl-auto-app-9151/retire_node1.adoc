@@ -14,7 +14,7 @@ summary: 'Disattiva la coppia ha con node2 e disattiva node1 durante l"upgrade d
 
 
 [role="lead"]
-Per dismettere il node1, riprendere l'operazione automatica per disattivare correttamente la coppia ha con node2 e chiudere node1. Più avanti nella procedura, rimuovere il nodo 1 dal rack o dallo chassis.
+Per ritirare node1, è necessario riprendere l'operazione automatizzata per disabilitare la coppia HA con node2 e arrestare correttamente node1.  Più avanti nella procedura, si rimuove il nodo 1 dal rack o dallo chassis.
 
 .Fasi
 . Riprendere l'operazione:
@@ -28,4 +28,4 @@ Per dismettere il node1, riprendere l'operazione automatica per disattivare corr
 
 
 .Al termine
-Una volta completato l'aggiornamento, è possibile decommissionare il node1. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+Dopo aver ritirato node1, verificare che sia spento e non connesso alla rete.  Lasciare il vecchio hardware del nodo 1 in questo stato finché non si completa l'aggiornamento sia del nodo 1 che del nodo 2.  È quindi possibile disattivare il nodo 1 durantelink:manage-authentication-using-kmip-servers.html["Fase 6. Completare l'aggiornamento"] .

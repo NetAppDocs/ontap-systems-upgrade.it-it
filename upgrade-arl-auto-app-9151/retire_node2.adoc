@@ -14,7 +14,7 @@ summary: 'Arrestare il sistema node2 e rimuoverlo dal rack o dallo chassis quand
 
 
 [role="lead"]
-Per dismettere il node2, chiudere il node2 correttamente e rimuoverlo dal rack o dallo chassis.
+Per dismettere node2, è necessario arrestare node2 correttamente e quindi rimuoverlo dal rack o dallo chassis.
 
 .Fasi
 . Riprendere l'operazione:
@@ -27,4 +27,4 @@ Il nodo si arresta automaticamente.
 
 
 .Al termine
-È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+Dopo aver ritirato node2, verificare che sia spento e non connesso alla rete.  Lasciare il vecchio hardware del nodo 2 in questo stato finché non si completa l'aggiornamento sia del nodo 1 che del nodo 2.  È quindi possibile disattivare node2 durantelink:manage-authentication-using-kmip-servers.html["Fase 6. Completare l'aggiornamento"] .
