@@ -44,6 +44,6 @@ Il dispositivo di chiusura si solleva quando il modulo controller è completamen
 
 NOTE: Per evitare di danneggiare i connettori, non esercitare una forza eccessiva quando si fa scorrere il modulo controller nel telaio.
 
-. Collegare la console seriale non appena il modulo è inserito ed essere pronti per interrompere L'AUTOBOOT del node1.
+. Collegare la console seriale non appena il modulo è inserito e prepararsi a interrompere l'AUTOBOOT del nodo 2.
 . Dopo aver interrotto L'AUTOBOOT, node2 si ferma al prompt DEL CARICATORE. Se non INTERROMPETE L'AUTOBOOT in tempo e node2 inizia l'avvio, attendete il prompt e premete Ctrl-C per entrare nel menu di avvio. Dopo che il nodo si è fermato al menu di avvio, utilizzare opzione `8` per riavviare il nodo e interrompere l'AUTOBOOT durante il riavvio.
 

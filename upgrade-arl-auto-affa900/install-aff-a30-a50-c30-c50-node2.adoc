@@ -22,19 +22,19 @@ Installare il modulo controller sostitutivo ricevuto per l'aggiornamento su node
 
 NOTE: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo più avanti nella procedura.
 
-. Collegare le porte di gestione e console al modulo controller node1.
+. Collegare le porte di gestione e console al modulo controller node2.
 +
 
-NOTE: Poiché lo chassis è già ACCESO, node1 avvia l'inizializzazione del BIOS seguita da un'operazione di AUTOBOOT non appena è completamente inserito. Per interrompere l'avvio node1, prima di inserire completamente il modulo controller nello slot, si consiglia di collegare la console seriale e i cavi di gestione al modulo controller node1.
+NOTE: Poiché lo chassis è già acceso, node2 avvia l'inizializzazione del BIOS seguita da AUTOBOOT non appena è completamente inserito.  Per interrompere l'avvio del nodo 2, prima di inserire completamente il modulo controller nello slot, si consiglia di collegare i cavi della console seriale e di gestione al modulo controller del nodo 2.
 
 . Con la maniglia della camma in posizione aperta, spingere con decisione il modulo controller fino a quando non raggiunge la scheda intermedia e non è completamente inserito. Il dispositivo di chiusura si solleva quando il modulo controller è completamente inserito. Chiudere la maniglia della camma in posizione di blocco.
 +
 
 NOTE: Per evitare di danneggiare i connettori, non esercitare una forza eccessiva quando si fa scorrere il modulo controller nel telaio.
 
-. Collegare la console seriale non appena il modulo è inserito ed essere pronti per interrompere L'AUTOBOOT del node1.
-. Dopo aver interrotto L'AUTOBOOT, node1 si ferma al prompt DEL CARICATORE. Se non INTERROMPETE L'AUTOBOOT in tempo e node1 inizia l'avvio, attendete il prompt e premete Ctrl-C per entrare nel menu di avvio. Dopo che il nodo si è fermato al menu di avvio, utilizzare opzione `8` per riavviare il nodo e interrompere l'AUTOBOOT durante il riavvio.
-. Al prompt LOADER> di node1, impostare le variabili di ambiente predefinite:
+. Collegare la console seriale non appena il modulo è inserito e prepararsi a interrompere l'AUTOBOOT del nodo 2.
+. Dopo aver interrotto L'AUTOBOOT, node2 si ferma al prompt DEL CARICATORE. Se non INTERROMPETE L'AUTOBOOT in tempo e node2 inizia l'avvio, attendete il prompt e premete Ctrl-C per entrare nel menu di avvio. Dopo che il nodo si è fermato al menu di avvio, utilizzare opzione `8` per riavviare il nodo e interrompere l'AUTOBOOT durante il riavvio.
+. Al prompt LOADER> di node2, impostare le variabili di ambiente predefinite:
 +
 `set-defaults`
 

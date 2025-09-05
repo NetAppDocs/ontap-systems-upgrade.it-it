@@ -31,7 +31,7 @@ Rimuovere il dispositivo di gestione dei cavi dal modulo esistente e spostare le
 .Fasi
 . Preparazione per la rimozione del modulo controller:
 +
-.. Nella parte anteriore dello chassis, premere con decisione ciascun disco fino a quando non si avverte un arresto positivo. In questo modo, i dischi sono posizionati saldamente sulla scheda intermedia dello chassis.
+.. Sulla parte anteriore del telaio, utilizzare i pollici per spingere con decisione ogni unità negli alloggiamenti superiore e inferiore finché non si avverte un arresto sicuro.  In questo modo si garantisce che le unità siano saldamente fissate al piano intermedio del telaio.
 +
 image:drw_a800_drive_seated_IEOPS-960.png["Spingere l'unità per posizionarla saldamente contro la superficie interna del telaio"]
 
@@ -87,6 +87,14 @@ image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installare AFF A90 o AFF A70
 +
 
 NOTE: Poiché lo chassis è già ACCESO, node1 avvia l'inizializzazione del BIOS seguita da un'OPERAZIONE di AUTOBOOT non appena si inserisce il nuovo modulo controller. Per evitare questo problema, NetApp consiglia di collegare i cavi seriali e console prima di inserire il modulo controller.
+
+. Sulla parte anteriore del telaio, utilizzare i pollici per spingere con decisione ogni unità negli alloggiamenti superiore e inferiore finché non si avverte un arresto sicuro.  In questo modo si garantisce che le unità siano saldamente fissate al piano intermedio del telaio.
++
+image:drw_a800_drive_seated_IEOPS-960.png["Spingere l'unità per posizionarla saldamente contro la superficie interna del telaio"]
+
++
+.. Andare sul retro del telaio.
+
 
 . Con la maniglia della camma in posizione aperta, spingere con decisione il modulo controller fino a quando non raggiunge la scheda intermedia e non è completamente inserito. Il dispositivo di chiusura si solleva quando il modulo controller è completamente inserito. Chiudere la maniglia della camma in posizione di blocco.
 +
