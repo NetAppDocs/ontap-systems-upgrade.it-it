@@ -17,7 +17,7 @@ summary: 'Spostare manualmente gli aggregati non riusciti o vetoed durante l"agg
 Se gli aggregati non riescono a spostare o sono vetoed, è necessario spostare manualmente gli aggregati o eseguire l'override dei veti o dei controlli di destinazione, se necessario.
 
 .A proposito di questa attività
-L'operazione di riposizionamento sarà stata sospesa a causa dell'errore.
+Il sistema interrompe l'operazione di ricollocazione a causa dell'errore.
 
 .Fasi
 . Controllare i registri EMS per determinare il motivo per cui l'aggregato non è riuscito a spostare o è stato vetoato.

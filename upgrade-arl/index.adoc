@@ -194,8 +194,53 @@ Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi s
 
 Se lo scenario di aggiornamento non è supportato utilizzando "comandi di sistema", è possibile eseguire un aggiornamento ARL utilizzando i comandi manuali.
 
-Scegliere la procedura per la versione di ONTAP in uso per avviare l'aggiornamento:
+.Mostra i sistemi supportati
+[%collapsible]
+====
+[role="tabbed-block"]
+=====
+.ONTAP 9.8 o successivo
+--
+Gli aggiornamenti manuali ARL sono supportati per i seguenti sistemi che eseguono ONTAP 9.8 e versioni successive:
 
-* link:../upgrade-arl-manual-app/index.html["Aggiornare manualmente l'hardware del controller con ONTAP 9.8 o versione successiva"]
-* link:../upgrade-arl-manual/index.html["Aggiornare manualmente l'hardware del controller con ONTAP 9.7 o versione precedente"]
+* Dal sistema FAS al sistema FAS
+* Dal sistema AFF al sistema AFF
++
+È possibile eseguire l'aggiornamento a un sistema sostitutivo della stessa serie:
 
++
+** Dal sistema AFF A-Series al sistema AFF A-Series
+** Da sistema AFF C-Series a sistema AFF C-Series
+
+
+* Dal sistema ASA al sistema ASA
++
+
+NOTE: Gli aggiornamenti ASA a un sistema sostitutivo ASA R2 non sono supportati. Per informazioni sulla migrazione dei dati da ASA a ASA R2, vedere link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Abilitare l'accesso ai dati dagli host SAN al sistema di storage ASA R2"^].
+
++
+È possibile eseguire l'aggiornamento a un sistema sostitutivo della stessa serie:
+
++
+** Dal sistema ASA A-Series al sistema ASA A-Series
+** Da sistema ASA C-Series a sistema ASA C-Series
+
+
+
+
+link:../upgrade-arl-manual-app/index.html["Aggiornare manualmente l'hardware del controller con ONTAP 9.8 o versione successiva"]
+
+--
+.ONTAP 9.7 o precedente
+--
+Gli aggiornamenti manuali ARL sono supportati per i seguenti sistemi che eseguono ONTAP 9.7 e versioni precedenti:
+
+* Dal sistema FAS al sistema FAS
+* Dal sistema AFF al sistema AFF
+
+
+link:../upgrade-arl-manual/index.html["Aggiornare manualmente l'hardware del controller con ONTAP 9.7 o versione precedente"]
+
+--
+=====
+====

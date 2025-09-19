@@ -28,7 +28,7 @@ entries:
       node1 al node2
     url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html"
   - title: Spostare gli aggregati non riusciti o vetoed
-    url: "/upgrade-arl-auto-affa900/relocate_failed_or_vetoed_aggr.html"
+    url: "/upgrade-arl-auto-affa900/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Ritirare il node1
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: Sostituire i moduli di sistema node1
@@ -60,6 +60,8 @@ entries:
   entries:
   - title: Spostare aggregati non root e LIF dati NAS da node2 a node1
     url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html"
+  - title: Spostare gli aggregati non riusciti o vetoed
+    url: "/upgrade-arl-auto-affa900/relocate-failed-or-vetoed-aggr-node1.html"
   - title: Andare in pensione node2
     url: "/upgrade-arl-auto-affa900/retire_node2.html"
 - title: Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2

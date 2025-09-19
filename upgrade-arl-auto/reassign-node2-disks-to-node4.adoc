@@ -16,11 +16,17 @@ summary: 'Configurare node4 porte FC integrate, porte UTA/UTA2 o scheda UTA/UTA2
 [role="lead"]
 È necessario riassegnare i dischi che appartenevano a node2 a node4 prima di verificare l'installazione di node4.
 
-.A proposito di questa attività
-Eseguire i passaggi descritti in questa sezione su node4.
-
 .Fasi
-. [[reasign-node2-node4-step1]]andare al menu di avvio, e usando 22/7, selezionare l'opzione nascosta `boot_after_controller_replacement` . Al prompt, immettere node2 per riassegnare i dischi di node2 a node4, come nell'esempio seguente.
+. [[reassign-node2-node4-step1]]Verificare che node2 si sia fermato al menu di avvio e riassegnare i dischi di node2 a node4:
++
+`boot_after_controller_replacement`
+
++
+Dopo un breve intervallo di tempo, viene richiesto di inserire il nome del nodo da sostituire. Se sono presenti dischi condivisi (chiamati anche Advanced Disk Partitioning (ADP) o dischi partizionati), viene richiesto di inserire il nome del nodo del partner ha.
+
++
+Questi prompt potrebbero essere interrati nei messaggi della console. Se non si immette un nome di nodo o non si immette un nome corretto, viene richiesto di inserire nuovamente il nome.
+
 +
 .Espandere l'esempio di output della console
 [%collapsible]
@@ -73,8 +79,7 @@ This will replace all flash-based configuration with the last backup to disks. A
 .
 .
 Controller Replacement: Provide name of the node you would like to replace: <name of the node being replaced>
-.
-.
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node <node being replaced> disks.
 Fetched sanown old_owner_sysid = 536953334 and calculated old sys id = 536953334
 Partner sysid = 4294967295, owner sysid = 536953334
@@ -101,7 +106,7 @@ Override system ID? {y|n} y
 Login: ...
 ----
 ====
-. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found`, ciò è dovuto al fatto che ha reimpostato le porte alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Per risolvere il problema, continuare con i passi <<auto_check_4_step3,Fase 3>> da <<auto_check_4_step8,Fase 8>>a.
+. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found` , questo perché ha reimpostato le porte sulla modalità di destinazione e quindi non è in grado di vedere alcun disco.  Eseguire<<auto_check_4_step3,Fase 3>> Attraverso<<auto_check_4_step8,Fase 8>> su node4 per risolvere questo problema.
 . [[auto_check_4_step3]]premere Ctrl-C durante L'OPERAZIONE per arrestare il nodo al prompt Loader>.
 . Al prompt del CARICATORE, accedere alla modalità di manutenzione:
 +
@@ -184,7 +189,7 @@ NOTE: In questa fase potrebbe verificarsi un errore. Se si verifica un errore, r
 
 
 
-. [[auto_check_4_step9]]se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio, sistemi AFF A800), impostare l'aggregato node2 come aggregato root per confermare che node4 si avvia dall'aggregato root di node2. Per impostare l'aggregato root, andare al menu di avvio e selezionare l'opzione `5` per accedere alla modalità di manutenzione.
+. [[auto_check_4_step9]]Se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio, sistemi AFF A800 ), impostare l'aggregato node2 come aggregato radice per confermare che node4 si avvii dall'aggregato radice di node2.  Per impostare l'aggregato radice, vai al menu di avvio su node4 e seleziona l'opzione `5` per entrare in modalità manutenzione.
 +
 
 WARNING: *È necessario eseguire i seguenti passaggi secondari nell'ordine esatto indicato; in caso contrario, si potrebbe verificare un'interruzione o addirittura la perdita di dati.*

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/relocate-failed-or-vetoed-aggr-node3.html 
+keywords: relocating, failed, vetoed, aggregates, relocation, operation 
+summary: 'Spostare manualmente gli aggregati non riusciti o sottoposti a veto su node3 durante l"aggiornamento dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando `system controller replace` comandi.' 
+---
+= Sposta gli aggregati falliti o sottoposti a veto sul nodo 3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se uno qualsiasi degli aggregati non riesce a essere riposizionato o viene sottoposto a veto, è necessario riposizionarlo manualmente sul nodo 3 oppure, se necessario, ignorare i veti o i controlli di destinazione.
+
+.A proposito di questa attività
+Il sistema interrompe l'operazione di ricollocazione a causa dell'errore.
+
+.Fasi
+. Controllare i registri del sistema di gestione degli eventi (EMS) per determinare il motivo per cui l'aggregato non è stato riallocato o è stato vetoed.
+. Spostare eventuali aggregati guasti o vetoed:
++
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list <aggregate_name> -ndo-controller-upgrade true`
+
+. Quando richiesto, immettere `y`.
+. È possibile forzare il trasferimento utilizzando uno dei seguenti metodi:
++
+[cols="35,65"]
+|===
+| Opzione | Descrizione 
+
+
+| Ignorare i controlli di veto | Utilizzare il seguente comando:
+`storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true` 
+
+
+| Ignorare i controlli di destinazione | Utilizzare il seguente comando:
+`storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+|===
+

@@ -29,7 +29,7 @@ Quando si sostituiscono i moduli controller e NVRAM, spostare solo la console e 
 `boot_ontap maint`
 
 +
-.. Anser `y` al prompt di conferma della piattaforma mista.
+.. Risposta `y` alla richiesta di conferma della piattaforma mista.
 .. Rispondere `yes` al prompt di conferma.
 .. Mostrare lo stato delle interfacce 100GbE:
 +
@@ -89,7 +89,10 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 +
 `boot_ontap menu`
 
-. Riassegnare i vecchi dischi node1 al nodo sostituzione1 immettendo "22/7" e selezionando l'opzione nascosta `boot_after_controller_replacement` quando il nodo si arresta nel menu di boot.
+. Quando il nodo si ferma al menu di avvio, riassegnare i vecchi dischi node1 al node1 sostitutivo eseguendo il seguente comando su node1:
++
+`boot_after_controller_replacement`
+
 +
 Dopo un breve intervallo di tempo, viene richiesto di inserire il nome del nodo da sostituire. Se sono presenti dischi condivisi (chiamati anche Advanced Disk Partitioning (ADP) o dischi partizionati), viene richiesto di inserire il nome del nodo del partner ha.
 
@@ -196,6 +199,7 @@ This will replace all flash-based configuration with the last backup to disks. A
 .
 .
 Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node node1 disks.
 Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
 Partner sysid = 4294967295, owner sysid = 536940063

@@ -37,7 +37,7 @@ entries:
       node1 al node2
     url: "/upgrade-arl-auto-app/relocate_non_root_aggr_nas_data_lifs_node1_node2.html"
   - title: Spostare gli aggregati non riusciti o vetoed
-    url: "/upgrade-arl-auto-app/relocate_failed_or_vetoed_aggr.html"
+    url: "/upgrade-arl-auto-app/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Ritirare il node1
     url: "/upgrade-arl-auto-app/retire_node1.html"
   - title: Preparatevi per il netboot
@@ -65,6 +65,8 @@ entries:
   entries:
   - title: Spostare aggregati non root e LIF dati NAS da node2 a node3
     url: "/upgrade-arl-auto-app/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html"
+  - title: Spostare gli aggregati non riusciti o vetoed
+    url: "/upgrade-arl-auto-app/relocate-failed-or-vetoed-aggr-node3.html"
   - title: Andare in pensione node2
     url: "/upgrade-arl-auto-app/retire_node2.html"
 - title: Fase 5. Installazione e boot node4

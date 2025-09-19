@@ -1,7 +1,19 @@
-= 
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/relocate-failed-or-vetoed-aggr-node2.html 
+keywords: relocating, failed, vetoed, aggregates, relocation, operation 
+summary: 'Spostare manualmente gli aggregati non riusciti o sottoposti a veto sul nodo 2 durante l"aggiornamento dei controller che eseguono ONTAP 9.8 o versioni successive utilizzando `system controller replace` comandi.' 
+---
+= Sposta gli aggregati falliti o sottoposti a veto sul nodo 2
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
+[role="lead"]
 Se uno qualsiasi degli aggregati non riesce a essere riposizionato o viene sottoposto a veto, è necessario riposizionarlo manualmente sul nodo 2 oppure, se necessario, ignorare i veti o i controlli di destinazione.
 
 .A proposito di questa attività

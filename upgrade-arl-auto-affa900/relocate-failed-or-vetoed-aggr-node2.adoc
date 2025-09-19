@@ -1,7 +1,19 @@
-= 
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/relocate-failed-or-vetoed-aggr-node2.html 
+keywords: relocate, failed, vetoed, aggregates, relocation, operation 
+summary: Spostare gli aggregati non riusciti o sottoposti a veto sul nodo 2 quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
+---
+= Sposta gli aggregati falliti o sottoposti a veto sul nodo 2
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
+[role="lead"]
 Se uno qualsiasi degli aggregati non riesce a essere riposizionato o viene sottoposto a veto, è necessario riposizionarlo manualmente sul nodo 2 oppure, se necessario, ignorare i veti o i controlli di destinazione.
 
 .A proposito di questa attività

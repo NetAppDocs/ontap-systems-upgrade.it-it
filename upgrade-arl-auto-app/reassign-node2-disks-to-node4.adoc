@@ -16,11 +16,17 @@ summary: 'È necessario riassegnare i dischi che appartenevano a node1 a node3 q
 [role="lead"]
 È necessario riassegnare i dischi che appartenevano a node2 a node4 prima di verificare l'installazione di node4.
 
-.A proposito di questa attività
-Eseguire i passaggi descritti in questa sezione su node4.
-
 .Fasi
-. [[reasign-node2-node4-app-step1]]Vai al menu di avvio e usando 22/7, seleziona l'opzione nascosta `boot_after_controller_replacement` . Al prompt, immettere node2 per riassegnare i dischi di node2 a node4, come nell'esempio seguente.
+. [[reassign-node2-node4-app-step1]]Verificare che node2 si sia fermato al menu di avvio e riassegnare i dischi di node2 a node4:
++
+`boot_after_controller_replacement`
+
++
+Dopo un breve intervallo di tempo, viene richiesto di inserire il nome del nodo da sostituire. Se sono presenti dischi condivisi (chiamati anche Advanced Disk Partitioning (ADP) o dischi partizionati), viene richiesto di inserire il nome del nodo del partner ha.
+
++
+Questi prompt potrebbero essere interrati nei messaggi della console. Se non si immette un nome di nodo o non si immette un nome corretto, viene richiesto di inserire nuovamente il nome.
+
 +
 .Espandere l'esempio di output della console
 [%collapsible]
@@ -98,6 +104,7 @@ you want to continue?: yes
 .
 Controller Replacement: Provide name of the node you would like to replace:
 <nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node node2 disks.
 Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
 Partner sysid = 4294967295, owner sysid = 536940063
@@ -147,7 +154,12 @@ Login:
 
 NOTE: Nell'esempio di output della console precedente, ONTAP richiederà il nome del nodo partner se il sistema utilizza dischi di partizione avanzata dei dischi (ADP).
 
-. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found`, indica che il sistema ha reimpostato le porte FC o UTA/UTA2 alla modalità di destinazione e quindi non è in grado di vedere alcun disco. Per risolvere il problema, continuare con il <<reassign-node2-node4-app-step3,Fase 3>>punto da a <<reassign-node2-node4-app-step8,Fase 8>> o passare alla sezione link:verify_node4_installation.html["Verificare l'installazione di node4"].
+. Se il sistema entra in un ciclo di riavvio con il messaggio `no disks found` indica che il sistema ha reimpostato le porte FC o UTA/UTA2 sulla modalità di destinazione e pertanto non è in grado di vedere alcun disco.  Selezionare una delle seguenti attività per risolvere questo problema:
++
+** Eseguire<<reassign-node2-node4-app-step3,Fase 3>> A<<reassign-node2-node4-app-step8,Fase 8>> sul nodo 4
+** Vai alla sezionelink:verify_node4_installation.html["Verificare l'installazione di node4"]
+
+
 . [[reasign-node2-node4-app-step3]]premere Ctrl-C durante l'OPERAZIONE per arrestare il nodo al prompt Loader>.
 . Al prompt del CARICATORE, accedere alla modalità di manutenzione:
 +
@@ -234,7 +246,7 @@ NOTE: In questa fase potrebbe verificarsi un errore. Se si verifica un errore, r
 
 
 
-. [[reasign-node2-node4-app-step9]] se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio sistemi AFF A800), impostare l'aggregato node2 come aggregato root per garantire l'avvio di node4 dall'aggregato root di node2. Per impostare l'aggregato root, andare al menu di avvio e selezionare l'opzione `5` per accedere alla modalità di manutenzione.
+. [[reassign-node2-node4-app-step9]] Se si esegue l'aggiornamento da un sistema con dischi esterni a un sistema che supporta dischi interni ed esterni (ad esempio, sistemi AFF A800 ), impostare l'aggregato node2 come aggregato radice per garantire che node4 si avvii dall'aggregato radice di node2.  Per impostare l'aggregato radice, vai al menu di avvio su node4 e seleziona l'opzione `5` per entrare in modalità manutenzione.
 +
 
 WARNING: *È necessario eseguire i seguenti passaggi secondari nell'ordine esatto indicato; in caso contrario, si potrebbe verificare un'interruzione o addirittura la perdita di dati.*

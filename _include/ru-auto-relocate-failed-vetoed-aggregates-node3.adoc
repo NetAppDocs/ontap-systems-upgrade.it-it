@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+Se uno qualsiasi degli aggregati non riesce a essere riposizionato o viene sottoposto a veto, è necessario riposizionarlo manualmente sul nodo 3 oppure, se necessario, ignorare i veti o i controlli di destinazione.
+
+.A proposito di questa attività
+Il sistema interrompe l'operazione di ricollocazione a causa dell'errore.
+
+.Fasi
+. Controllare i registri del sistema di gestione degli eventi (EMS) per determinare il motivo per cui l'aggregato non è stato riallocato o è stato vetoed.
+. Spostare eventuali aggregati guasti o vetoed:
++
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list <aggregate_name> -ndo-controller-upgrade true`
+
+. Quando richiesto, immettere `y`.
+. È possibile forzare il trasferimento utilizzando uno dei seguenti metodi:
++
+[cols="35,65"]
+|===
+| Opzione | Descrizione 
+
+
+| Ignorare i controlli di veto | Utilizzare il seguente comando:
+`storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true` 
+
+
+| Ignorare i controlli di destinazione | Utilizzare il seguente comando:
+`storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+|===
+
