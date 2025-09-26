@@ -1,0 +1,45 @@
+---
+permalink: upgrade/convert-fas2820-to-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820,  ndu, nondisruptive, upgrade, FAS, systems, entry, level 
+summary: Eseguire un aggiornamento non distruttivo a un FAS2820 convertendo ciascun nodo in uno shelf di unità DS212C e quindi collegandolo ai nodi sostitutivi. 
+---
+= Aggiornamento da FAS2820 tramite conversione allo scaffale di unità DS212C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile eseguire un aggiornamento non distruttivo di un NetApp FAS2820 convertendo ciascun nodo in uno shelf di unità DS212C e quindi collegandolo ai nodi sostitutivi.
+
+.A proposito di questa attività
+In questa procedura, i controller di coppia ad alta disponibilità (HA) FAS2820 sono denominati node1 e node2, mentre i controller di coppia HA sostitutivi sono denominati node3 e node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]xref:migrate-fas2820-node2-lifs-aggregates.adoc[Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1]
+[role="quick-margin-para"]
+Prima di convertire il nodo 2 FAS2820 in uno scaffale di unità, è necessario migrare le interfacce logiche (LIF) e gli aggregati di dati dal nodo 2 al nodo 1.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]xref:convert-fas2820-node2-drive-shelf.adoc[Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4]
+[role="quick-margin-para"]
+Convertire il nodo 2 FAS8280 in uno scaffale unità DS212C e quindi connettersi al nodo 4 prima di riassegnare le unità dal nodo 2 al nodo 4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]xref:reassign-fas2820-node2-drives.adoc[Riassegnare i dischi dal nodo 2 al nodo 4]
+[role="quick-margin-para"]
+Dopo aver convertito il nodo 2 FAS2820 in uno scaffale di unità DS212C e aver effettuato la connessione al nodo 4, è possibile riassegnare le unità che in precedenza appartenevano al nodo 2 al nodo 4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]xref:migrate-fas2820-aggregates-epsilon-lifs.adoc[Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4]
+[role="quick-margin-para"]
+Prima di convertire il nodo 1 FAS2820 in uno shelf di unità, è necessario migrare gli aggregati di dati, epsilon e LIF dal nodo 1 al nodo 4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]xref:convert-fas2820-node1-drive-shelf.html[Converti il node1 in uno shelf di dischi e connettiti al node3]
+[role="quick-margin-para"]
+Convertire il nodo 1 FAS2820 in uno scaffale unità DS212C e connettersi al nodo 3 prima di riassegnare le unità dal nodo 1 al nodo 3.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]xref:reassign-fas2820-node1-drives.adoc[Riassegnare i dischi dal nodo 1 al nodo 3]
+[role="quick-margin-para"]
+Dopo aver convertito il nodo 1 FAS2820 in un'unità DS212C e aver effettuato la connessione al nodo 3, è possibile riassegnare le unità che in precedenza appartenevano al nodo 1 al nodo 3.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]xref:migrate-fas2820-node4-lIfs-aggregates.adoc[Migrazione di LIF e aggregati di dati dal nodo 4 al node3]
+[role="quick-margin-para"]
+Per completare l'upgrade, connetti node3 a node4 TB, quindi migra i dati LIF e gli aggregati di dati su node4 a node3.

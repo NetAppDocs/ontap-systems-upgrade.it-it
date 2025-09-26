@@ -1,0 +1,78 @@
+---
+permalink: upgrade/reassign-fas2820-node1-drives.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: 'Dopo aver convertito il nodo 1 FAS2820 in un"unità DS212C e aver effettuato la connessione al nodo 3, è possibile riassegnare le unità che in precedenza appartenevano al nodo 1 al nodo 3.' 
+---
+= Riassegnare le unità dal nodo FAS2820 1 al nodo 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Riassegnare le unità precedentemente assegnate al nodo 1 di FAS2820 al nodo 3.
+
+.A proposito di questa attività
+Eseguire i seguenti passaggi sul nodo 3.
+
+.Fasi
+. Al prompt DEL CARICATORE, fare il boot node3 in Maintenance Mode (modalità di manutenzione):
++
+[source, cli]
+----
+boot_ontap maint
+----
++
+Viene visualizzato il prompt Modalità di manutenzione.
+
+. Visualizza tutti i dischi collegati:
++
+[source, cli]
+----
+disk show -v
+----
+. Registrare il valore dell'ID del sistema locale; questo è l'ID del sistema di node3.  Registrare anche gli ID di sistema di node1 e node4 dalla colonna "OWNER".
+. Riassegnare tutti i dischi da node1 a node3:
++
+[role="tabbed-block"]
+====
+.Se stai utilizzando dischi interi
+--
+Esegui il seguente comando:
+
+[source, cli]
+----
+disk reassign -s <node1_system_ID> -d <node3_system_ID>
+----
+--
+.Se stai utilizzando dischi partizionati
+--
+Esegui il seguente comando:
+
+[source, cli]
+----
+disk reassign -s <node1_system_ID> -d <node3_system_ID> -p <node4_system_ID>
+----
+--
+====
+. Verificare che tutte le unità riassegnate siano visualizzabili con il nuovo ID di sistema:
++
+[source, cli]
+----
+disk show -s <node3_system_ID>
+----
++
+
+CAUTION: Se le unità non sono visibili, *interrompere* e contattare l'assistenza tecnica per ricevere assistenza.
+
+. Uscire dalla modalità di manutenzione:
++
+[source, cli]
+----
+halt
+----
+
+
+.Quali sono le prossime novità?
+link:migrate-fas2820-node4-lIfs-aggregates.html["Migrazione di LIF e aggregati di dati dal nodo 4 al node3"]

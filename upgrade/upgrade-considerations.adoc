@@ -110,7 +110,6 @@ Il trasferimento dello storage interno è un'attività opzionale del workflow pe
 
 == Situazioni in cui potrebbero essere necessarie ulteriori operazioni
 
-* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Si sta eseguendo l'aggiornamento da AFF A250 a AFF A400"] (procedura senza interruzioni).
 * Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Vedere https://hwu.netapp.com["NetApp Hardware Universe"^].
 * Se i nodi originali o i nuovi nodi utilizzano il software per la virtualizzazione FlexArray, consultare l'articolo della Knowledge base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["Quali sono i passaggi specifici per gli upgrade e le sostituzioni dei controller FlexArray per NetApp"^].
 * Se il cluster dispone di host SAN, potrebbe essere necessario adottare le misure necessarie per risolvere i problemi relativi alle modifiche del numero di serie del LUN. Consultare l'articolo della Knowledge base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["Come risolvere i problemi durante la sostituzione della scheda madre del controller di storage e gli aggiornamenti della testina con iSCSI e FCP"^].
@@ -118,6 +117,8 @@ Il trasferimento dello storage interno è un'attività opzionale del workflow pe
 
 
 .Informazioni correlate
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Convertire AFF A250 in drive shelf e aggiornare ad AFF A400"](procedura non distruttiva)
+* link:convert-fas2820-to-drive-shelf.html["Aggiornamento da FAS2820 convertendolo in un ripiano di unità"](procedura non distruttiva)
 * link:../choose_controller_upgrade_procedure.html["Scegliere i metodi per aggiornare l'hardware del controller"]
 * link:upgrade-by-moving-storage-parent.html["Aggiornare l'hardware del controller spostando lo storage"]
 * link:upgrade-by-moving-volumes-parent.html["Aggiornare l'hardware del controller spostando i volumi"]

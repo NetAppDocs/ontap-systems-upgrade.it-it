@@ -48,6 +48,8 @@ L'aggiornamento mediante lo spostamento dei volumi non comporta interruzioni.
 Se si sta aggiornando una configurazione MetroCluster, consultare la sezione https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aggiornare, aggiornare o espandere la configurazione di MetroCluster"^].
 
 .Informazioni correlate
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Convertire AFF A250 in drive shelf e aggiornare ad AFF A400"](procedura non distruttiva)
+* link:convert-fas2820-to-drive-shelf.html["Aggiornamento da FAS2820 convertendolo in un ripiano di unità"](procedura non distruttiva)
 * link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]
 * link:../choose_controller_upgrade_procedure.html["Scegliere i metodi per aggiornare l'hardware del controller"]
 * https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Dove trovare le procedure per le attività di manutenzione di MetroCluster"^]

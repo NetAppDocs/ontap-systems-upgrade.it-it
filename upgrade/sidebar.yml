@@ -68,9 +68,9 @@ entries:
     url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
   - title: Aggiornamento completo
     url: "/upgrade/upgrade-complete-move-volumes.html"
-- title: Aggiorna AFF A250 a AFF A400 convertendo in uno shelf di dischi
+- title: Aggiorna AFF A250 ad AFF A400
   entries:
-  - title: Workflow
+  - title: Scopri come aggiornare AFF A250 ad AFF A400
     url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1
     url: "/upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html"
@@ -86,3 +86,21 @@ entries:
     url: "/upgrade/upgrade_reassign_drives_node1_to_node3.html"
   - title: Migrazione di LIF e aggregati di dati dal nodo 4 al node3
     url: "/upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html"
+- title: Aggiornamento da FAS2820
+  entries:
+  - title: Scopri di più sull'aggiornamento da FAS2820
+    url: "/upgrade/convert-fas2820-to-drive-shelf.html"
+  - title: Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1
+    url: "/upgrade/migrate-fas2820-node2-lifs-aggregates.html"
+  - title: Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4
+    url: "/upgrade/convert-fas2820-node2-drive-shelf.html"
+  - title: Riassegnare i dischi dal nodo 2 al nodo 4
+    url: "/upgrade/reassign-fas2820-node2-drives.html"
+  - title: Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4
+    url: "/upgrade/migrate-fas2820-aggregates-epsilon-lifs.html"
+  - title: Converti il node1 in uno shelf di dischi e connettiti al node3
+    url: "/upgrade/convert-fas2820-node1-drive-shelf.html"
+  - title: Riassegnare i dischi dal nodo 1 al nodo 3
+    url: "/upgrade/reassign-fas2820-node1-drives.html"
+  - title: Migrazione di LIF e aggregati di dati dal nodo 4 al node3
+    url: "/upgrade/migrate-fas2820-node4-lIfs-aggregates.html"

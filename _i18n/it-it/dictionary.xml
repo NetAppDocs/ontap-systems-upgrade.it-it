@@ -4221,7 +4221,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="9ae5a6f4cdea37ce0343ce6fe870ca8d" category="list-text">Se si dispone di un sistema con storage interno, è possibile convertire il sistema in uno shelf di dischi e collegarlo a un nuovo nodo dello stesso cluster.</block>
   <block id="caaabddaf0ae26915d0c67052254e13f" category="admonition">Non è possibile convertire i sistemi AFF A700s, AFF A800, AFF C800 o ASA A800 in uno shelf di dischi.</block>
   <block id="e83ec3e9b2b468e112627883187c2fd0" category="section-title">Situazioni in cui potrebbero essere necessarie ulteriori operazioni</block>
-  <block id="d79f8da307382ba028e64d108c30f593" category="inline-xref-macro">Si sta eseguendo l'aggiornamento da AFF A250 a AFF A400</block>
   <block id="e6dd5543cbcf668267e622e1c4af270f" category="list-text">Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Vedere<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block>.</block>
   <block id="cb1a8b9d3abd4e33bdd8ea771ae95f90" category="inline-link">Quali sono i passaggi specifici per gli upgrade e le sostituzioni dei controller FlexArray per NetApp</block>
   <block id="719139d3840fec9d3f2eb2a98eeabf46" category="list-text">Se i nodi originali o i nuovi nodi utilizzano il software per la virtualizzazione FlexArray, consultare l'articolo della Knowledge base<block ref="aa5f5c779b9d140822ad13dbd4dfcaef" category="inline-link-rx"></block>.</block>
@@ -4346,7 +4345,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="24c234c0d0c43e69b12af6b120695505" category="list-text">[[map_98_5]]modificare l'appartenenza dei domini di broadcast alle porte fisiche che ospitano LIF dati. È possibile eseguire questa operazione manualmente, come illustrato nella <block ref="2d50e52fa53ee066c1e23dfcd4b5dae8" category="inline-link-macro-rx"></block>. NetApp consiglia di utilizzare la procedura di scansione e riparazione avanzata per la raggiungibilità della rete introdotta in ONTAP 9,8, come illustrato nella seguente fase 5, sottopagine da (a) a (g).</block>
   <block id="3a2b68bdec4a67d63868881c41adfd33" category="paragraph">Il mapping delle porte fisiche è stato completato. Per completare l'aggiornamento, visitare il sito Web all'indirizzo <block ref="479694184a7596b8d654b4519a939fb4" category="inline-link-macro-rx"></block>.</block>
   <block id="3548781d8fe3c65e8421c7698ed973f9" category="list-text"><block ref="3548781d8fe3c65e8421c7698ed973f9" category="inline-link-macro-rx"></block></block>
-  <block id="3f22ff9f0de0ae158372929690ccd37d" category="list-text"><block ref="7a22ca21c86b9e16042b418efc302d00" category="inline-link-macro-rx"></block> (procedura senza interruzioni).</block>
   <block id="50ae6167d8a0516c8e8cb720a6888cf9" category="list-text"><block ref="50ae6167d8a0516c8e8cb720a6888cf9" category="inline-link-macro-rx"></block></block>
   <block id="54e45682922af9929fbc5d361d7c0b49" category="list-text"><block ref="54e45682922af9929fbc5d361d7c0b49" category="inline-link-macro-rx"></block></block>
   <block id="3ca57071250bef466a089a9c6c848bd5" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="964fb2d7d8e53060676c08185881a5ae" category="inline-link-macro-rx"></block></block>
@@ -4368,7 +4366,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="d1d6580288f1472dbd1db17b372d51d7" category="paragraph">Le informazioni di configurazione vengono ripristinate dal volume root ai dispositivi di avvio.</block>
   <block id="a185c3c138dca5ef46afc33288a67d1f" category="inline-image-macro">Dieci</block>
   <block id="7cdc9e64dfc551099556d0123c5bb981" category="paragraph-title"><block ref="6097494f0af631df68e3dcb7a6da8d2a" category="inline-image-macro-rx" type="image"></block><block ref="d38ccbe9c555caadedf9e9523ed99b16" category="inline-link-macro-rx"></block></block>
-  <block id="c9dc32dde68fdd77f0e2c8f513e472f8" category="list-text"><block ref="1aa042908822fc17e30db57dc8f3c350" category="inline-link-macro-rx"></block> (procedura senza interruzioni).</block>
   <block id="d0820066ba6f14dca2420f2960ea8c42" category="paragraph">Questa procedura si applica ai sistemi che eseguono ONTAP 9.8 o versioni successive. Se si utilizza ONTAP 9.7 o versioni precedenti, è necessario seguire la procedura descritta in <block ref="05d6674d1c6e0d48e8203d8e927e45b4" category="inline-link-macro-rx"></block>.</block>
   <block id="5e79c247ab4077723eed9dcb39fcfe47" category="list-text">Se sul sistema è in esecuzione ONTAP 9.7 o versione precedente, *STOP*. È necessario utilizzare la procedura descritta in <block ref="05d6674d1c6e0d48e8203d8e927e45b4" category="inline-link-macro-rx"></block>.</block>
   <block id="31f3762a2a2ed806ac8dc72ae0dc1eb5" category="admonition">Se si esegue un upgrade del controller in-place a un sistema che utilizza le porte "e0a" e "e0b" come porte di interconnessione ad alta disponibilità (ha), ad esempio FAS8300, AFF A400 o FAS8700, verificare di disporre di <block ref="7c3698c6a5737cb69d525ebacf49b908" category="inline-link-macro-rx"></block> configurato sulle porte "e0a" e "e0b" del sistema originale prima di avviare la procedura di aggiornamento.</block>
@@ -5087,7 +5084,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="8babcf5a4f3ceb219fe532ed80e3feb0" category="inline-link-macro">Puoi anche scegliere di convertire il sistema in uno scaffale di unità e collegarlo ai nuovi nodi</block>
   <block id="e41a07bd97897d75f6b22fcde3750258" category="admonition"><block ref="eb314f9c9756831ec72feb5f63dc05b9" category="inline-link-macro-rx"></block>.</block>
   <block id="158d9483f2a61460306dea524e285d17" category="paragraph">È possibile spostare le unità solo all'interno dello stesso cluster.</block>
-  <block id="627b519764bbfa6f3e4d2ae785e58059" category="doc">Aggiorna AFF A250 ad AFF A400 convertendolo in un flusso di lavoro con scaffale di unità</block>
   <block id="2f8d5ddddff80d2511453ce886eee1eb" category="doc">Spostare, eliminare o creare SAN LIF</block>
   <block id="ff4f01f0da7a9c33d69bb129757afc29" category="section-title">Elimina i LIF SAN non più necessari</block>
   <block id="58b02b1a4790c291e537964eb5ec39dd" category="doc">Decidere se utilizzare questa procedura di ricollocazione aggregata</block>
@@ -5332,4 +5328,106 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="41982d264a2a2a5af9a67f777e02916a" category="list-text">[[auto_check_4_step11]]Quando node4 si ferma al menu di avvio, riassegnare i dischi di node2 a node4 eseguendo il seguente comando su node4:</block>
   <block id="1e1ddf24bfeddc76d571c4800f2d82ad" category="summary">Spostare manualmente gli aggregati non riusciti o sottoposti a veto sul nodo 2 durante l'aggiornamento dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> comandi.</block>
   <block id="3129d56ef5cc88b17f6e15c1da3476f1" category="summary">Spostare manualmente gli aggregati non riusciti o sottoposti a veto su node3 durante l'aggiornamento dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> comandi.</block>
+  <block id="39bb0497bdbb1e04586599bcfb4c0318" category="summary">Convertire il nodo 1 FAS2820 in uno scaffale unità DS212C e quindi connettersi al nodo 3 prima di riassegnare le unità dal nodo 1 al nodo 3.</block>
+  <block id="6d8572f1d7fdac9c27f62e363921947c" category="doc">Convertire il nodo FAS2820 1 in uno scaffale di unità e connettersi al nodo 3</block>
+  <block id="663fdf50ecba63371090c62811c866ac" category="paragraph">Convertire il nodo 1 FAS2820 in uno shelf di unità DS212C.  Connettersi al nodo 3 prima di riassegnare le unità dal nodo 1 al nodo 3.</block>
+  <block id="8fe56965007c8482ebfb12c197c02d7e" category="list-text">Rimuovere node1 dallo chassis FAS2820 .</block>
+  <block id="a315276c33006971edc828b2d5f48c91" category="list-text">Inserire il modulo IOM12 o IOM12B nell'alloggiamento del nodo 1.</block>
+  <block id="fcef638e0d5cb441f69abe1851a71025" category="list-text">Collegare la porta SAS del nodo 3 a una porta disponibile sul modulo IOM12 o IOM12B.  Vedi il<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> per verificare le porte SAS del tuo sistema.  Vedi il<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> per verificare le porte SAS del tuo sistema.</block>
+  <block id="9aa378ddd116d4c0628d0af695d9cc17" category="list-text">Creare connessioni cluster temporanee collegando le porte del cluster node4 a qualsiasi porta del cluster su node3.</block>
+  <block id="3936d65ca4d32956127070b6e56b2e64" category="admonition">Se node3 supporta solo connessioni cluster 10GbE, è necessario disporre di cavi 10GbE per creare connessioni cluster temporanee.</block>
+  <block id="a369db1a615acf5202411aa57b6b0a3d" category="paragraph"><block ref="a369db1a615acf5202411aa57b6b0a3d" category="inline-link-macro-rx"></block></block>
+  <block id="2ad020d481d0a25e01559a9e966da553" category="summary">Convertire il nodo 2 (FAS2820) in uno shelf di unità DS212C e quindi connettersi al nodo 4.</block>
+  <block id="d1257ec65502e0686c1e2a24a928f8f4" category="doc">Convertire il nodo FAS2820 2 in uno scaffale di unità e connettersi al nodo 4</block>
+  <block id="e5478c453b4e355829aeee75f0775944" category="paragraph">Convertire il nodo 2 FAS2820 in uno shelf di unità DS212C.  Connettersi al nodo 4 prima di riassegnare le unità dal nodo 2 al nodo 4.  Node1 e node2 sono i controller all'interno dello scaffale DS212C.</block>
+  <block id="64f46bf8cb3f756ca2a4b5e8380b0b81" category="list-text">Rimuovere node2 dallo chassis FAS2820 .</block>
+  <block id="ea390a7342e757edb35e4cfe75d8ecdb" category="list-text">Inserire il modulo IOM12 o IOM12B nell'alloggiamento del nodo 2.</block>
+  <block id="1a7776196607803ade98b6e8e9df8344" category="list-text">Collegare la porta SCSI (SAS) seriale del nodo 4 a una porta disponibile sul modulo IOM12 o IOM12B.  Vedi il<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> per verificare le porte SAS del tuo sistema.</block>
+  <block id="725e2ebaa93fe8f09185c00e43898f5f" category="list-text">Crea connessioni cluster temporanee collegando le porte e0a ed e0b del nodo 1 a due porte 25GbE qualsiasi sul nodo 4.</block>
+  <block id="86f6785d45d16c2b0ff31a1179934c9f" category="admonition">Se node4 supporta solo connessioni cluster 10GbE, è necessario disporre di cavi 10GbE per creare connessioni cluster temporanee.</block>
+  <block id="bb7601ffb9123f9786cdac8af94211f0" category="paragraph"><block ref="bb7601ffb9123f9786cdac8af94211f0" category="inline-link-macro-rx"></block></block>
+  <block id="1e74494f5772c735812d575a898596c1" category="summary">Eseguire un aggiornamento non distruttivo a un FAS2820 convertendo ciascun nodo in uno shelf di unità DS212C e quindi collegandolo ai nodi sostitutivi.</block>
+  <block id="ab73d8c2e94481a6ff48a7c91868d2c2" category="doc">Aggiornamento da FAS2820 tramite conversione allo scaffale di unità DS212C</block>
+  <block id="b013bc2ad201f8e021040fd0a4c8d714" category="paragraph">È possibile eseguire un aggiornamento non distruttivo di un NetApp FAS2820 convertendo ciascun nodo in uno shelf di unità DS212C e quindi collegandolo ai nodi sostitutivi.</block>
+  <block id="9b4eafb4e3bcfaad97fc5e7af7aa1955" category="paragraph">In questa procedura, i controller di coppia ad alta disponibilità (HA) FAS2820 sono denominati node1 e node2, mentre i controller di coppia HA sostitutivi sono denominati node3 e node4.</block>
+  <block id="d1d868e382ab4b08e3be5f07e03e038d" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="91744e9af34171046ee51e4df1cdf2ab" category="inline-xref-macro-rx"></block></block>
+  <block id="8313cf9b12eae77b602124631070e7c4" category="paragraph">Prima di convertire il nodo 2 FAS2820 in uno scaffale di unità, è necessario migrare le interfacce logiche (LIF) e gli aggregati di dati dal nodo 2 al nodo 1.</block>
+  <block id="58169b6641f5811fe5a42525bb985f58" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="9ad99f16aefbb0da0c8192358055567b" category="inline-xref-macro-rx"></block></block>
+  <block id="34e12f96079e8f2641f0bc5f76a14f3b" category="paragraph">Convertire il nodo 2 FAS8280 in uno scaffale unità DS212C e quindi connettersi al nodo 4 prima di riassegnare le unità dal nodo 2 al nodo 4.</block>
+  <block id="0054cc808f512bbb3f118ca4abd076c2" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d3f3d357ab78b548fc1601824fb28e41" category="inline-xref-macro-rx"></block></block>
+  <block id="5a6af6abdd490940dc1f9df9cde04966" category="paragraph">Dopo aver convertito il nodo 2 FAS2820 in uno scaffale di unità DS212C e aver effettuato la connessione al nodo 4, è possibile riassegnare le unità che in precedenza appartenevano al nodo 2 al nodo 4.</block>
+  <block id="48f978643e148ed2cc94db905b383041" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="02b623c9dbb2d160132ae446a4c7a0c7" category="inline-xref-macro-rx"></block></block>
+  <block id="009ec9a2eb4000ba1aeab38e275d3dd4" category="paragraph">Prima di convertire il nodo 1 FAS2820 in uno shelf di unità, è necessario migrare gli aggregati di dati, epsilon e LIF dal nodo 1 al nodo 4.</block>
+  <block id="26def2138cc961c62254cd174c55a771" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="9c43bd8b004df1da7b21ce814f6eafc2" category="inline-xref-macro-rx"></block></block>
+  <block id="fc0b4fd01b008060b7a81ca3f154ea4b" category="paragraph">Convertire il nodo 1 FAS2820 in uno scaffale unità DS212C e connettersi al nodo 3 prima di riassegnare le unità dal nodo 1 al nodo 3.</block>
+  <block id="a382921dc03bfcb77c9d970e45fe1495" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="9773b7b5ae1a3a9b51916da2f5695c60" category="inline-xref-macro-rx"></block></block>
+  <block id="d794a00a08edf3e003b5895b03494ddf" category="paragraph">Dopo aver convertito il nodo 1 FAS2820 in un'unità DS212C e aver effettuato la connessione al nodo 3, è possibile riassegnare le unità che in precedenza appartenevano al nodo 1 al nodo 3.</block>
+  <block id="850e71b118b51db23f5fa234e21d6eef" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="c1ca954fc21d09fcd7cbc3b5808e040e" category="inline-xref-macro-rx"></block></block>
+  <block id="3ac3cdc91bfaa2a43c0fca9946253b03" category="summary">Migrare gli aggregati di dati, gli epsilon e le interfacce logiche (LIF) dal nodo 1 al nodo 4.</block>
+  <block id="39e528beab0388f2308ca06481682fe6" category="doc">Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al nodo 4 FAS2820</block>
+  <block id="ec407094615b8064b7141eebdc4faf0a" category="paragraph">Migrare gli aggregati di dati, gli epsilon e le interfacce logiche (LIF) dal nodo 1 al nodo 4 FAS2820 .</block>
+  <block id="70431d2a3b3171dc183ad62c2cdf164e" category="paragraph">Eseguire i seguenti passaggi sul nodo 4.</block>
+  <block id="29ef9d409bfc5bf6a0af1a52e7e295a9" category="list-text">Al prompt LOADER per node4, impostare l'ID del sistema partner:</block>
+  <block id="9732d4a7f425483bed6ea088b429c321" category="list-text">Controllare l'ID del sistema partner:</block>
+  <block id="48aa8461c43c6d434c042a1f7cd26163" category="list-text">Salva le modifiche:</block>
+  <block id="58ce42757edc7d65f7aa335facfe4c55" category="list-text">Nel menu di avvio, seleziona l'opzione<block ref="1fbad292f1d0674d5769c555d41b2d77" prefix=" " category="inline-code"></block> per ripristinare il file system /var su node4.</block>
+  <block id="877e27c2d322a599ffdd08c891c17100" category="paragraph">Se le porte del cluster di sistema non sono simili quando si aggiorna un FAS2820 a un controller sostitutivo, potrebbe essere necessario modificare temporaneamente le interfacce sul nodo 4 in porte del cluster:</block>
+  <block id="5d7325b4306827947502da22033698f9" category="list-text">Attendi che il cluster raggiunga il quorum, quindi verifica che i nodi del cluster siano integri:</block>
+  <block id="fce12fccf3a26cbb691acedd9868fc28" category="list-text">Completare questo passaggio solo se sul cluster FAS2820 che si sta aggiornando vengono utilizzati gruppi di interfaccia e VLAN dati. Altrimenti vai a<block ref="5a1eec99d6beb6e9faa992f0e22335e5" category="inline-xref-macro-rx"></block> .</block>
+  <block id="16a9d0a644dc77426403978271fa8238" category="paragraph">I nomi delle porte di rete fisiche sul controller sostitutivo sono diversi da quelli sul FAS2820.  Ciò potrebbe causare lo spostamento delle VLAN e la configurazione errata dei gruppi di interfacce sul nodo 4.</block>
+  <block id="c3e7a5e32bd2e11679ed6235b2adbd21" category="list-text">Mostra le VLAN spostate:</block>
+  <block id="577eb353d2dda6749c18595dad185a0e" category="list-text">Ripristinare le VLAN spostate:</block>
+  <block id="04b8389fdd361eb809430c42f4624631" category="list-text">Correggere i gruppi di interfacce configurati in modo errato.  I nomi delle porte tra FAS2820 e i controller che si stanno aggiornando potrebbero essere diversi.  Aggiornare i gruppi di interfaccia con le porte membro corrette:</block>
+  <block id="5c884dd6b97d69df3e1af4a24ee863bc" category="list-text">Mostra lo stato di aggregazione dei dati:</block>
+  <block id="01392697d52d1d375332f041d834fead" category="list-text">Migrare l'epsilon rimuovendolo dal nodo 1 e spostandolo nel nodo 4.</block>
+  <block id="118cd161d4f37abbb3a8c4baec04ed48" category="list-text">Mostra lo stato del cluster per verificare la modifica epsilon:</block>
+  <block id="9ad3f03c93e9dcbdf6be7194a18902d9" category="list-text">Se qualche LIF è inattivo, imposta il suo stato amministrativo su<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> immettendo il seguente comando una volta per ogni LIF:</block>
+  <block id="df891edbd6b0f00d98d3d2376a067122" category="paragraph"><block ref="df891edbd6b0f00d98d3d2376a067122" category="inline-link-macro-rx"></block></block>
+  <block id="e0a957b08ecb5a9fd1e825f68f0e64dc" category="summary">Migrare le interfacce logiche (LIF) e gli aggregati di dati sul nodo 2 FAS2820 al nodo 1 prima di convertire il nodo 2 in uno scaffale di unità.</block>
+  <block id="601722b4c9c69820b9d720c8c940f724" category="doc">Migrare LIF e aggregati di dati dal nodo 2 al nodo 1 FAS2820</block>
+  <block id="7d37ff2d3a9b0f3b21eda882f20eaae5" category="list-text">Quando possibile, i controller FAS2820 e sostitutivi hanno la stessa versione di rilascio e patch ONTAP .  Fare riferimento al<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> per le versioni ONTAP supportate.</block>
+  <block id="80cd304d38e2aed4d842aa1630bc0dad" category="list-text">È necessario eseguire l'avvio di rete e installare la versione ONTAP su node3 e node4 in modo che corrisponda alla versione ONTAP sui sistemi FAS2820 .  Node3 e node4 sono i controller sostitutivi.</block>
+  <block id="80c7e88957d9462b8f6fac12ec261b8d" category="list-text">Sia l'immagine di avvio primaria che quella di backup dei controller node3 e node4 devono avere la stessa versione ONTAP .</block>
+  <block id="adc2a6d6f08e30b20353435634048f79" category="list-text">È necessario cancellare qualsiasi configurazione residua del cluster su node3 e node4 eseguendo un<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> dal menu di avvio.</block>
+  <block id="da1ea0ee367c83a05341c10eb92921b5" category="list-text">Entrambi i controller sostitutivi sono in standby al prompt LOADER.</block>
+  <block id="9cdda3ac4f8a5af7408c9611f78f7bf9" category="list-text">Sono disponibili tutti i cavi necessari.</block>
+  <block id="4465c00fc828473105f269a899d79c21" category="paragraph">I seguenti passaggi vengono eseguiti sul nodo 1 di FAS2820 .</block>
+  <block id="5965c3c2057d5bfeb9e7cd6aa1da843d" category="list-text">Disabilita cluster ha:</block>
+  <block id="2e82d870a2b26cff3089793672f0342d" category="paragraph"><block ref="2e82d870a2b26cff3089793672f0342d" category="inline-link-macro-rx"></block></block>
+  <block id="70213ce8df6f326c8c858906eda1740c" category="summary">Per completare l'aggiornamento, collegare FAS2820node3 a node4, quindi migrare le interfacce logiche dati (LIF) e gli aggregati dati da node4 a node3.</block>
+  <block id="ac03f0a9aed6d7cc8cc2f9aa06ab5c2f" category="doc">Migrare LIF e aggregati di dati dal nodo 4 al nodo 3 FAS2820</block>
+  <block id="798b92db311a432e12d579940612d93b" category="paragraph">Per completare l'aggiornamento, collegare il nodo 3 FAS2820 al nodo 4, quindi migrare le interfacce logiche dati (LIF) e gli aggregati dati dal nodo 4 al nodo 3.</block>
+  <block id="546ad9f8a047416e6263ed28b1b6a61c" category="paragraph">Eseguire i seguenti passaggi sul nodo 3.</block>
+  <block id="a76e7f8c364a7e27930ee7ff49df6e37" category="list-text">Verificare che le porte del cluster e HA siano connesse tra il nodo 3 e il nodo 4.</block>
+  <block id="6052d7b32607b02e8d7092b4374824ed" category="list-text">Visualizza le porte cluster e HA su node3 e node4:</block>
+  <block id="32710cda7c5dad348e2b2e03cf81d971" category="list-text">Migrare tutti i LIF della rete cluster su entrambi i nodi alle rispettive porte home pianificate:</block>
+  <block id="6ac170d19dd75b39a772cfb2159effe2" category="list-text">Configurare le porte home per i LIF della rete cluster:</block>
+  <block id="8bd5f2b46faa7afe1f8b5fde87fe58a7" category="list-text">Migrare tutti i dati LIF destinati a node3 nuovamente su node3:</block>
+  <block id="d4ea258ab4e2dcf20e7e9f102a6ce502" category="list-text">Configurare il nodo home e la porta home per tutti i LIF dati.  Se qualche LIF è inattivo, imposta il suo stato amministrativo su<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> immettendo il seguente comando una volta per ogni LIF:</block>
+  <block id="ab72b255e3349ae141f76089ccc6a9bd" category="list-text">Abilitare l'alta disponibilità del cluster nel cluster a due nodi:</block>
+  <block id="98ec39406efb767f83dc79971d983c15" category="list-text">Abilita e verifica il failover di archiviazione per node3 e node4:</block>
+  <block id="a04136bb695577e89cb64bd8d566305d" category="list-text">Migrare gli aggregati di dati di proprietà di node4 che dovrebbero essere di proprietà di node3:</block>
+  <block id="7ff9c5727fd29deb9cd8032b2551cd2b" category="admonition">Nell'output del report del cluster, un nodo potrebbe possedere erroneamente aggregati che appartengono a un altro nodo.  In tal caso, eseguire un'acquisizione e una restituzione da entrambe le parti del cluster.</block>
+  <block id="b7ed6d2578c289a342dff3870c0458e4" category="doc">Riassegnare le unità dal nodo FAS2820 1 al nodo 3</block>
+  <block id="67242858a5a960ad59c4112deff89a57" category="paragraph">Riassegnare le unità precedentemente assegnate al nodo 1 di FAS2820 al nodo 3.</block>
+  <block id="2cc2671439ba3e907dc353e6fa9e2f82" category="paragraph">Viene visualizzato il prompt Modalità di manutenzione.</block>
+  <block id="50ef837b20ef82f8d6c3ad3818c7e3b9" category="list-text">Registrare il valore dell'ID del sistema locale; questo è l'ID del sistema di node3.  Registrare anche gli ID di sistema di node1 e node4 dalla colonna "OWNER".</block>
+  <block id="fc626981b1ece2c6c05c047f46bbfcbf" category="open-title">Se stai utilizzando dischi interi</block>
+  <block id="337d79852891a37d41285c9101c3fff4" category="paragraph">Esegui il seguente comando:</block>
+  <block id="17c26bafe75c18b3bcd768f9147f1213" category="open-title">Se stai utilizzando dischi partizionati</block>
+  <block id="7a276578eb1d5f5ba51a40f9a3c06c94" category="admonition">Se le unità non sono visibili, *interrompere* e contattare l'assistenza tecnica per ricevere assistenza.</block>
+  <block id="f2301c41e07cf933742b943a7d3ecb4e" category="paragraph"><block ref="f2301c41e07cf933742b943a7d3ecb4e" category="inline-link-macro-rx"></block></block>
+  <block id="c76f454b1b8b44e22cf7a34d06691591" category="doc">Riassegnare le unità dal nodo FAS2820 2 al nodo 4</block>
+  <block id="52ce99ed56c027ff91b3e909018de81d" category="paragraph">Riassegnare le unità che in precedenza appartenevano al nodo 2 di FAS2820 al nodo 4.</block>
+  <block id="e5549cfce8a8e0264f304166398e83fb" category="list-text">Riassegnare tutte le unità dal nodo 2 al nodo 4.</block>
+  <block id="08ca03a8874a1a38c5541456cb7a250f" category="paragraph"><block ref="08ca03a8874a1a38c5541456cb7a250f" category="inline-link-macro-rx"></block></block>
+  <block id="c2dd662463f4b0b3f6efeb80332e50d6" category="list-text"><block ref="1aa042908822fc17e30db57dc8f3c350" category="inline-link-macro-rx"></block>(procedura non distruttiva)</block>
+  <block id="d81919377c1c1774d8ca7b45cc02103c" category="inline-link-macro">Aggiornamento da FAS2820 convertendolo in un ripiano di unità</block>
+  <block id="8b2e9677889c0f0b26cd5e5a2e524532" category="list-text"><block ref="f9bfe9dff8f74d561bd9015eaa95aca7" category="inline-link-macro-rx"></block>(procedura non distruttiva)</block>
+  <block id="ed58851cec153c1db74f982f7968d38c" category="inline-link-macro">Convertire AFF A250 in drive shelf e aggiornare ad AFF A400</block>
+  <block id="a0d4e0637e12b87691937ec2f86fe18e" category="list-text"><block ref="182a6b47297b5fcc5de9721f7f6d6e2c" category="inline-link-macro-rx"></block>(procedura non distruttiva)</block>
+  <block id="af72e67cdd4847ff8df836082e1ecd28" category="sidebar">Aggiorna AFF A250 ad AFF A400</block>
+  <block id="6a6bad6107988979a4c7bb4f9b6e3f47" category="sidebar">Scopri come aggiornare AFF A250 ad AFF A400</block>
+  <block id="1c89ca7629177ffaec440b31de61e887" category="sidebar">Aggiornamento da FAS2820</block>
+  <block id="10952bb20745dcf0f30d5dd264d03924" category="sidebar">Scopri di più sull'aggiornamento da FAS2820</block>
 </blocks>
