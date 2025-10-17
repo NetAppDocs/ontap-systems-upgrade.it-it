@@ -24,7 +24,6 @@ Tuttavia, non è necessario eseguire l'avvio di rete del nodo 4 se è installata
 [IMPORTANT]
 ====
 * Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node2. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
-* Se si sta aggiornando un sistema V-Series o un sistema con software di virtualizzazione FlexArray connesso a array di storage, è necessario completare <<man_install4_Step1,Fase 1>> Attraverso <<man_install4_Step7,Fase 7>> , lascia questa sezione a <<man_install4_Step8,Fase 8>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] secondo necessità, immettendo i comandi in modalità Manutenzione. È quindi necessario tornare a questa sezione e riprendere la procedura a <<man_install4_Step9,Fase 9>> .
 * Se si sta aggiornando un sistema con dischi di archiviazione, è necessario completare l'intera sezione e quindi procedere alla sezione link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] , immettendo comandi al prompt del cluster.
 
 
@@ -52,7 +51,7 @@ Se il nodo 4 si trova in uno chassis separato dal nodo 3, è possibile inserire 
 I seguenti riferimenti consentono di stabilire i collegamenti dei cavi corretti. Passare a. link:other_references.html["Riferimenti"] per collegarli.
 
 +
-** _Istruzioni per l'installazione e la configurazione_ o _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node4
+** _Istruzioni di installazione e configurazione_ per la piattaforma node4
 ** La procedura di shelf di dischi appropriata
 ** La documentazione _ha Pair Management_
 +
@@ -104,51 +103,11 @@ WARNING: The battery is unfit to retain data during a power
 .. Attendere che la batteria si ricarichi e che il processo di avvio sia terminato.
 +
 
-WARNING: *Attenzione: Non ignorare il ritardo. Il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+WARNING: *Non ignorare il ritardo.  Se la batteria non viene caricata, si potrebbe verificare una perdita di dati.*
 
 
 
-. [[man_install4_Step8]]eseguire una delle seguenti operazioni:
-+
-[cols="35,65"]
-|===
-| Se il sistema... | Quindi... 
-
-
-| Dispone di dischi e non di storage back-end | Saltare i passaggi da 9 a 14 e passare a. <<man_install4_Step15,Fase 15>>. 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
-.. Andare alla sezione _set the FC or UTA/UTA2 Configuration on node4_ e completare le sezioni link:set_fc_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"] e. link:set_fc_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"], in base al sistema in uso.
-.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<man_install4_Step9,Fase 9>>.
-
-
-
-IMPORTANT: Prima di avviare ONTAP sul sistema V-Series, è necessario riconfigurare le porte integrate FC, le porte integrate UTA/UTA2 e le schede UTA/UTA2.
-
-|===
-. [[man_install4_Step9]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
-+
-Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. Aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
-+
-Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. Modificare i valori WWPN (World Wide Port Name) nei gruppi di host o volumi associati alle LUN degli array di storage.
-+
-L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
-
-. Se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
-. Verificare che i LUN degli array siano ora visibili al nodo 4 immettendo il seguente comando ed esaminandone l'output:
-+
-`sysconfig -v`
-
-+
-Il sistema visualizza tutti i LUN degli array visibili a ciascuna porta FC Initiator. Se le LUN dell'array non sono visibili, non è possibile riassegnare i dischi da node2 a node4 più avanti in questa sezione.
-
-. Premere Ctrl-C per visualizzare il menu di avvio e selezionare la modalità di manutenzione.
-. [[man_install4_Step15]]al prompt della modalità di manutenzione, immettere il seguente comando:
+. [[man_install4_Step8]]Al prompt della modalità di manutenzione, immettere il seguente comando:
 +
 `halt`
 
@@ -202,12 +161,12 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 | Se il sistema che si sta aggiornando... | Quindi... 
 
 
-| Non dispone della versione ONTAP corretta o corrente sul nodo 4 | Passare a. <<man_install4_Step20,Fase 20>>. 
+| Non dispone della versione ONTAP corretta o corrente sul nodo 4 | Vai a<<man_install4_Step13,Fase 13>> . 
 
 
-| Ha la versione corretta o attuale di ONTAP al nodo 4 | Passare a. <<man_install4_Step25,Fase 25>>. 
+| Ha la versione corretta o attuale di ONTAP al nodo 4 | Vai a<<man_install4_Step18,Fase 18>> . 
 |===
-. [[man_install4_Step20]]configurare la connessione di netboot scegliendo una delle seguenti operazioni.
+. [[man_install4_Step13]]Configurare la connessione netboot scegliendo una delle seguenti azioni.
 +
 
 NOTE: Come connessione di netboot, è necessario utilizzare la porta di gestione e l'indirizzo IP. Non utilizzare un indirizzo IP LIF dei dati, altrimenti potrebbe verificarsi un'interruzione dei dati durante l'aggiornamento.
@@ -298,8 +257,8 @@ Il modulo controller si riavvia ma si arresta al menu di avvio perché il dispos
 
 
 
-. [[man_install4_Step25]]selezionare la modalità di manutenzione `5` dal menu di boot e premere `y` quando viene richiesto di continuare con l'avvio.
-. [[man_install4_Step26]]prima di continuare, visitare il sito link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] Apportare le modifiche necessarie alle porte FC o UTA/UTA2 del nodo. Apportare le modifiche consigliate in queste sezioni, riavviare il nodo e passare alla modalità di manutenzione.
+. [[man_install4_Step18]]Seleziona la modalità di manutenzione `5` dal menu di avvio e inserisci `y` quando ti viene chiesto di continuare con l'avvio.
+. [[man_install4_Step19]]Prima di continuare, vai alink:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] per apportare le modifiche necessarie alle porte FC o UTA/UTA2 sul nodo.  Apportare le modifiche consigliate in quelle sezioni, riavviare il nodo e passare alla modalità di manutenzione.
 . Immettere il seguente comando ed esaminare l'output per trovare l'ID di sistema di node4:
 +
 `disk show -a`
@@ -485,7 +444,7 @@ Il sistema si arresta al prompt dell'ambiente di avvio.
 +
 `set time _hh:mm:ss_`
 
-. Verificare che l'ID del sistema partner sia impostato correttamente, come indicato nella <<man_install4_Step26,Fase 26>> in opzione.
+. Verificare che l'ID del sistema partner sia impostato correttamente come indicato in<<man_install4_Step19,Fase 19>> in opzione.
 +
 `printenv partner-sysid`
 

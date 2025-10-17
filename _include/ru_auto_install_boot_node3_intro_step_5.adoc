@@ -12,7 +12,6 @@ L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Qu
 [IMPORTANT]
 ====
 * Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node1. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
-* Se stai aggiornando un sistema V-Series connesso a storage array o un sistema con software di virtualizzazione FlexArray connesso a storage array, devi completare la procedura <<auto_install3_step1,Fase 1>> attraverso <<auto_install3_step21,Fase 21>>, quindi uscire da questa sezione e seguire le istruzioni in link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] Sezioni secondo necessità, immissione dei comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere con <<auto_install3_step23,Fase 23>>.
 * Se si sta eseguendo l'aggiornamento di un sistema con dischi di storage, completare l'intera sezione e passare alla link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] sezioni, immissione dei comandi al prompt del cluster.
 
 
@@ -29,10 +28,10 @@ NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso
 
 . [[auto_install3_step3]]cavo node3, spostamento delle connessioni da node1 a node3.
 +
-Collegare i seguenti collegamenti utilizzando le _istruzioni di installazione e configurazione_ o i _requisiti di installazione e riferimento per la virtualizzazione FlexArray_ per la piattaforma node3, il documento relativo allo shelf di dischi appropriato e _gestione coppia ha_.
+Cablare le seguenti connessioni utilizzando le _Istruzioni di installazione e configurazione_ per la piattaforma node3, il documento appropriato sullo scaffale dei dischi e la documentazione sulla _gestione delle coppie HA_.
 
 +
-Fare riferimento link:other_references.html["Riferimenti"]al collegamento ai _requisiti di installazione e di riferimento per la virtualizzazione FlexArray_ e _gestione coppia ha_.
+Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi alla _gestione delle coppie HA_.
 
 +
 ** Console (porta di gestione remota)
@@ -67,7 +66,7 @@ To override this delay, press 'c' followed by 'Enter'
 .. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
 +
 
-WARNING: *Attenzione: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+WARNING: *Non ignorare il ritardo; se non si lascia caricare la batteria, si potrebbe verificare una perdita di dati.*
 
 +
 

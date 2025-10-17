@@ -16,7 +16,7 @@ NOTE: Le informazioni verranno utilizzate per riassegnare i dischi e decommissio
 
 +
 
-NOTE: È possibile utilizzare le informazioni per identificare i componenti o gli accessori che si desidera trasferire al nodo 3 o al nodo 4. Se non si sa se i nodi sono sistemi V-Series o se si dispone di software di virtualizzazione FlexArray, si può imparare anche dall'output.
+NOTE: È possibile utilizzare le informazioni per identificare parti o accessori che si desidera trasferire su node3 o node4.
 
 . Immettere il seguente comando sia su node1 che su node2 e registrare gli aggregati che sono online su entrambi i nodi:
 +
@@ -246,32 +246,7 @@ node2   0d      fc      initiator -       -         online
 +
 È possibile utilizzare le informazioni dopo l'aggiornamento per impostare la configurazione delle porte FC sui nuovi nodi.
 
-.. Se si sta aggiornando un sistema V-Series o un sistema con software di virtualizzazione FlexArray, acquisire informazioni sulla topologia dei nodi originali immettendo il seguente comando e registrando l'output:
-+
-`storage array config show -switch`
-
-+
-Il sistema visualizza le informazioni sulla topologia, come mostrato nell'esempio seguente:
-
-+
-....
-cluster::> storage array config show -switch
-
-      LUN LUN                                  Target Side Initiator Side Initi-
-Node  Grp Cnt Array Name    Array Target Port  Switch Port Switch Port    ator
------ --- --- ------------- ------------------ ----------- -------------- ------
-node1 0   50  I_1818FAStT_1
-                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:3  0d
-                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:4  2b
-                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:1  0c
-node2 0   50  I_1818FAStT_1
-                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:1  0d
-                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:2  2b
-                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:3  0c
-                            208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
-7 entries were displayed.
-....
-.. [[man_Prepare_Nodes_step29]]completare i seguenti passaggi secondari:
+.. [[man_prepare_nodes_step28]]Completare i seguenti sotto-passaggi:
 
 
 . Immettere il seguente comando su uno dei nodi originali e registrare l'output:
@@ -288,7 +263,7 @@ Il sistema visualizza informazioni dettagliate sull'SP su entrambi i nodi.
 È possibile riutilizzare i parametri di rete dei dispositivi di gestione remota, in questo caso gli SP, dal sistema originale per gli SP sui nuovi nodi. Per informazioni dettagliate sull'SP, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _riferimento per l'amministrazione del sistema_ e ai comandi di _ONTAP 9: Riferimento pagina manuale_.
 
 +
-.. [[man_Prepare_Nodes_step30]]se si desidera che i nuovi nodi abbiano la stessa funzionalità concessa in licenza dei nodi originali, immettere il seguente comando per visualizzare le licenze del cluster sul sistema originale:
+.. [[man_prepare_nodes_step29]]Se si desidera che i nuovi nodi abbiano le stesse funzionalità con licenza dei nodi originali, immettere il seguente comando per visualizzare le licenze del cluster sul sistema originale:
 +
 `system license show -owner *`
 

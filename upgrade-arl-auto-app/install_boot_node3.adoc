@@ -24,7 +24,6 @@ L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Qu
 [IMPORTANT]
 ====
 * Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node1. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
-* Se stai aggiornando un sistema V-Series connesso a storage array o un sistema con software di virtualizzazione FlexArray connesso a storage array, devi completare la procedura <<auto_install3_step1,Fase 1>> attraverso <<auto_install3_step21,Fase 21>>, quindi uscire da questa sezione e seguire le istruzioni in link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] Sezioni secondo necessità, immissione dei comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere con <<auto_install3_step23,Fase 23>>.
 * Se si sta eseguendo l'aggiornamento di un sistema con dischi di storage, completare l'intera sezione e passare alla link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] sezioni, immissione dei comandi al prompt del cluster.
 
 
@@ -41,10 +40,10 @@ NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso
 
 . [[auto_install3_step3]]cavo node3, spostamento delle connessioni da node1 a node3.
 +
-Collegare i seguenti collegamenti utilizzando le _istruzioni di installazione e configurazione_ o i _requisiti di installazione e riferimento per la virtualizzazione FlexArray_ per la piattaforma node3, il documento relativo allo shelf di dischi appropriato e _gestione coppia ha_.
+Cablare le seguenti connessioni utilizzando le _Istruzioni di installazione e configurazione_ per la piattaforma node3, il documento appropriato sullo scaffale dei dischi e la documentazione sulla _gestione delle coppie HA_.
 
 +
-Fare riferimento link:other_references.html["Riferimenti"]al collegamento ai _requisiti di installazione e di riferimento per la virtualizzazione FlexArray_ e _gestione coppia ha_.
+Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi alla _gestione delle coppie HA_.
 
 +
 ** Console (porta di gestione remota)
@@ -79,7 +78,7 @@ To override this delay, press 'c' followed by 'Enter'
 .. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
 +
 
-WARNING: *Attenzione: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+WARNING: *Non ignorare il ritardo; se non si lascia caricare la batteria, si potrebbe verificare una perdita di dati.*
 
 +
 
@@ -251,41 +250,9 @@ Per il nodo 3, `partner-sysid` deve essere quello del node2.
 +
 `printenv partner-sysid`
 
-. [[step22]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se il sistema... | Descrizione 
 
 
-| Dispone di dischi e non di storage back-end | Consultare <<auto_install3_step27,Passaggio 27>> 
-
-
-| È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
-.. Vai alla sezione link:set_fc_or_uta_uta2_config_on_node3.html["Impostazione della configurazione FC o UTA/UTA2 su node3"] e completare le sottosezioni di questa sezione.
-.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<auto_install3_step23,Fase 23>>.
-
-
-
-IMPORTANT: È necessario riconfigurare le porte FC onboard, le porte CNA onboard e le schede CNA prima di avviare ONTAP su V-Series o sul sistema con il software di virtualizzazione FlexArray.
-
-|===
-. [[auto_install3_step23]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
-+
-Se il sistema dispone di UNA SAN a nastro, è necessario eseguire lo zoning per gli iniziatori. Se necessario, modificare le porte integrate in Initiator facendo riferimento a. link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurazione delle porte FC sul nodo 3"]. Per ulteriori informazioni sullo zoning, consultare la documentazione relativa allo storage array e allo zoning.
-
-. [[step24]]aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
-+
-Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. [[step25]]modificare i valori WWPN (Worldwide port name) nei gruppi di host o di volumi associati alle LUN degli array sullo storage array.
-+
-L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
-
-. [[step26]]se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
-
-
-[[auto_install3_step27]]
+[[auto_install3_step22]]
 . Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:
 +
 
@@ -320,8 +287,10 @@ Inserire la passphrase e le informazioni di backup registrate in precedenza. Ved
 +
 `boot_ontap menu`
 
-+
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step1["Riassegnare node1 dischi a node3, passaggio 1"] questa operazione in modo che node3 sia in grado di riconoscere i dischi di node1.
 
-. [[step29]]per una configurazione MetroCluster, sistemi V-Series e sistemi con software di virtualizzazione FlexArray collegati agli array di storage, è necessario impostare e configurare le porte FC o UTA/UTA2 sul nodo 3 per rilevare i dischi collegati al nodo. Per completare questa attività, passare alla sezione link:set_fc_or_uta_uta2_config_on_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"].
+
+.Quali sono le prossime novità?
+* Se si dispone di un sistema con una configurazione FC o UTA/UTA2,link:set_fc_or_uta_uta2_config_on_node3.html["imposta e configura le porte FC o UTA/UTA2 sul nodo 3"] .
+* Se non si dispone di una configurazione FC o UTA/UTA2,link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step1["riassegnare i dischi del nodo 1 al nodo 3, passaggio 1"] in modo che node3 possa riconoscere i dischi di node1.
+* Se si dispone di una configurazione MetroCluster ,link:set_fc_or_uta_uta2_config_on_node3.html["imposta e configura le porte FC o UTA/UTA2 sul nodo 3"] per rilevare i dischi collegati al nodo.
 

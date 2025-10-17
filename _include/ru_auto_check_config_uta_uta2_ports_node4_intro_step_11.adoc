@@ -27,21 +27,13 @@ Le porte UTA/UTA2 potrebbero essere su un adattatore o sul controller con le seg
 Tuttavia, è necessario controllare la configurazione delle porte UTA/UTA2 sul nodo 4 e modificarla, se necessario.
 
 
-WARNING: *Attenzione*: Se il sistema dispone di dischi di storage, immettere i comandi in questa sezione al prompt del cluster, a meno che non venga richiesto di accedere alla modalità di manutenzione. Se si dispone di un sistema MetroCluster FC, V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage, è necessario essere in modalità di manutenzione per configurare le porte UTA/UTA2.
+WARNING: Immettere i comandi in questa sezione al prompt della shell in modalità Manutenzione.
 
 .Fasi
-. Verificare la configurazione delle porte utilizzando uno dei seguenti comandi sul nodo 4:
+. Controlla come sono attualmente configurate le porte sul nodo 4:
 +
-[cols="30,70"]
-|===
-| Se il sistema... | Quindi… 
+`system node hardware unified-connect show`
 
-
-| Dispone di dischi di storage | `system node hardware unified-connect show` 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
-|===
 +
 Il sistema visualizza un output simile al seguente esempio:
 
@@ -65,67 +57,13 @@ f-a    0h       cna      target     -          -        online
 +
 Contattare il rappresentante NetApp per ottenere il modulo SFP+ corretto.
 
-. Esaminare l'output di `ucadmin show` Controllare e determinare se le porte UTA/UTA2 hanno la personalità desiderata.
-. Eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se la porta CNA... | Quindi… 
-
-
-| Non avere la personalità che si desidera | Passare a. <<auto_check_4_step5,Fase 5>>. 
-
-
-| Avere la personalità che si desidera | Saltare i passaggi da 5 a 12 e passare a. <<auto_check_4_step13,Fase 13>>. 
-|===
-. [[auto_check_4_step5]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se si sta configurando... | Quindi… 
-
-
-| Porte su una scheda UTA/UTA2 | Passare a. <<auto_check_4_step7,Fase 7>> 
-
-
-| Porte UTA/UTA2 integrate | Saltare la fase 7 e passare a. <<auto_check_4_step8,Fase 8>>. 
-|===
-. Se l'adattatore è in modalità Initiator e la porta UTA/UTA2 è in linea, portare la porta UTA/UTA2 offline:
-+
-`storage disable adapter _adapter_name_`
-
-+
-Gli adattatori in modalità di destinazione sono automaticamente offline in modalità di manutenzione.
-
-. [[auto_check_4_step7]]se la configurazione corrente non corrisponde all'utilizzo desiderato, modificare la configurazione in base alle necessità:
-+
-`ucadmin modify -m fc|cna -t initiator|target _adapter_name_`
-
-+
-** `-m` È la modalità Personality, FC o 10GbE UTA.
-** `-t` È di tipo FC4, `target` oppure `initiator`.
-+
-
-NOTE: È necessario utilizzare FC Initiator per unità nastro, sistemi di virtualizzazione FlexArray e configurazioni MetroCluster. È necessario utilizzare la destinazione FC per i client SAN.
-
-
-
-. [[auto_check_4_step8]]verificare le impostazioni utilizzando il seguente comando ed esaminandone l'output:
+. Verificare le impostazioni:
 +
 `ucadmin show`
 
-. Verificare le impostazioni:
 +
-[cols="40,60"]
-|===
-| Se il sistema... | Quindi… 
+Esaminare l'output di `ucadmin show` Controllare e determinare se le porte UTA/UTA2 hanno la personalità desiderata.
 
-
-| Dispone di dischi di storage | `ucadmin show` 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
-|===
 +
 L'output degli esempi seguenti mostra che il tipo di adattatore FC4 "1b" sta cambiando in `initiator` e che la modalità degli adattatori "2a" e "2b" stia cambiando in `cna`:
 
@@ -141,17 +79,53 @@ f-a   2b       fc             target       cna           -             online
 4 entries were displayed.
 *>
 ....
-. Inserire le porte di destinazione in linea immettendo uno dei seguenti comandi, una volta per ciascuna porta:
+. Eseguire una delle seguenti operazioni:
 +
 [cols="30,70"]
 |===
-| Se il sistema... | Quindi… 
+| Se la porta CNA... | Quindi… 
 
 
-| Dispone di dischi di storage | `network fcp adapter modify -node _node_name_ -adapter _adapter_name_ -state up` 
+| Non avere la personalità che si desidera | Passare a. <<auto_check_4_step5,Fase 5>>. 
 
 
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `fcp config _adapter_name_ up` 
+| Avere la personalità che si desidera | Salta il passaggio 5 al passaggio 9 e vai a<<auto_check_4_step10,Fase 10>> . 
 |===
+. [[auto_check_4_step5]]eseguire una delle seguenti operazioni:
++
+[cols="30,70"]
+|===
+| Se si sta configurando... | Quindi… 
+
+
+| Porte su una scheda UTA/UTA2 | Vai a<<auto_check_4_step6,Fase 6>> 
+
+
+| Porte UTA/UTA2 integrate | Salta il passaggio 6 e vai a<<auto_check_4_step7,Fase 7>> . 
+|===
+. [[auto_check_4_step6]]Se l'adattatore è in modalità iniziatore e la porta UTA/UTA2 è online, metti offline la porta UTA/UTA2:
++
+`storage disable adapter _adapter_name_`
+
++
+Gli adattatori in modalità di destinazione sono automaticamente offline in modalità di manutenzione.
+
+. [[auto_check_4_step7]]se la configurazione corrente non corrisponde all'utilizzo desiderato, modificare la configurazione in base alle necessità:
++
+`ucadmin modify -m fc|cna -t initiator|target <adapter_name>`
+
++
+** `-m` È la modalità Personality, FC o 10GbE UTA.
+** `-t` È di tipo FC4, `target` oppure `initiator`.
++
+
+NOTE: È necessario utilizzare l'iniziatore FC per le unità nastro e le configurazioni MetroCluster .  Per i client SAN è necessario utilizzare la destinazione FC.
+
+
+
+. Mettere online tutte le porte di destinazione immettendo il seguente comando, una volta per ogni porta:
++
+`storage enable adapter <adapter_name>`
+
 . Collegare la porta.
 

@@ -12,7 +12,6 @@ Tuttavia, non è necessario eseguire l'avvio di rete di node3 se è installata l
 [IMPORTANT]
 ====
 * Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node1. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
-* Se si sta eseguendo l'upgrade di un sistema V-Series collegato a storage array o a un sistema con software di virtualizzazione FlexArray collegato a storage array, è necessario completare la procedura <<man_install3_step1,Fase 1>> attraverso <<man_install3_step5,Fase 5>>, lasciare questa sezione all'indirizzo <<man_install3_step6,Fase 6>> e seguire le istruzioni in link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] se necessario, immettere i comandi in modalità di manutenzione. Quindi, tornare a questa sezione e riprendere con <<man_install3_step7,Fase 7>>.
 * Se si sta aggiornando un sistema con dischi di archiviazione, è necessario completare l'intera sezione e quindi andare a link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] E link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] , immettendo comandi al prompt del cluster.
 
 
@@ -32,7 +31,7 @@ NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso
 I seguenti riferimenti consentono di stabilire i collegamenti dei cavi corretti. Passare a. link:other_references.html["Riferimenti"] per collegarli.
 
 +
-** _Istruzioni per l'installazione e la configurazione_ o _requisiti e riferimenti per l'installazione della virtualizzazione FlexArray_ per la piattaforma node3
+** _Istruzioni di installazione e configurazione_ per la piattaforma node3
 ** La procedura di shelf di dischi appropriata
 ** La documentazione _ha Pair Management_
 
@@ -74,65 +73,25 @@ To override this delay, press 'c' followed by 'Enter'
 .. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
 +
 
-NOTE: *Attenzione*: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.
+WARNING: *Non ignorare il ritardo; se non si lascia caricare la batteria, si potrebbe verificare una perdita di dati.*
 
 
 
-. [[man_install3_step6]]eseguire una delle seguenti operazioni:
-+
-[cols="35,65"]
-|===
-| Se il sistema... | Quindi... 
-
-
-| Dispone di dischi e non di storage back-end | Saltare i passaggi da 7 a 12 e passare a. <<man_install3_step13,Fase 13>>. 
-
-
-| È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
-.. Passare a. link:set_fc_uta_uta2_config_node3.html["Impostare la configurazione FC o UTA/UTA2 su node3"] e completare le sottosezioni link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"], in base al sistema in uso.
-.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<man_install3_step7,Fase 7>>.
-
-
-
-IMPORTANT: È necessario riconfigurare le porte FC onboard, le porte CNA onboard e le schede CNA prima di avviare ONTAP su V-Series o sul sistema con il software di virtualizzazione FlexArray.
-
-|===
-. [[man_install3_step7]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
-+
-Se il sistema dispone di UNA SAN a nastro, è necessario eseguire lo zoning per gli iniziatori. Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. [[man_install3_step8]]aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
-+
-Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. [[man_install3_step9]] Modifica i valori WWPN (World Wide Port Name) nei gruppi di host o volumi associati alle LUN degli array sullo storage array.
-+
-L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
-
-. [[man_install3_step10]]se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
-. [[man_install3_step11]]verificare che le LUN degli array siano ora visibili al nodo 3:
-+
-`sysconfig -v`
-
-+
-Il sistema visualizza tutte le LUN degli array visibili a ciascuna porta FC Initiator. Se le LUN degli array non sono visibili, non sarà possibile riassegnare i dischi da node1 a node3 più avanti in questa sezione.
-
-. [[man_install3_step12]]premere Ctrl-C per visualizzare il menu di avvio e selezionare la modalità di manutenzione.
-. [[man_install3_step13]]al prompt della modalità di manutenzione, immettere il seguente comando:
+. Al prompt della modalità di manutenzione, immettere il seguente comando:
 +
 `halt`
 
 +
 Il sistema si arresta al prompt dell'ambiente di avvio.
 
-. [[man_install3_step14]]eseguire una delle seguenti operazioni:
+. Eseguire una delle seguenti operazioni:
 +
 [cols="35,65"]
 |===
 | Se il sistema a cui si esegue l'aggiornamento si trova in una... | Quindi... 
 
 
-| Configurazione a doppio chassis (con controller in chassis diversi) | Passare a. <<man_install3_step15,Fase 15>>. 
+| Configurazione a doppio chassis (con controller in chassis diversi) | Vai a<<man_install3_step8,Fase 8>> . 
 
 
 | Configurazione a unico chassis (con controller nello stesso chassis)  a| 
@@ -147,11 +106,11 @@ NOTE: Lasciare node4 al prompt dell'ambiente di boot; si tornerà a node4 in lin
 
 .. Se viene visualizzato il messaggio di avviso nella <<man_install3_step4,Fase 4>>, seguire le istruzioni in <<man_install3_step5,Fase 5>>
 .. Riportare il cavo della console dal nodo 4 al nodo 3.
-.. Passare a. <<man_install3_step15,Fase 15>>.
+.. Vai a<<man_install3_step8,Fase 8>> .
 
 
 |===
-. [[man_install3_step15]]Configura node3 per ONTAP:
+. [[man_install3_step8]]Configura node3 per ONTAP:
 +
 `set-defaults`
 

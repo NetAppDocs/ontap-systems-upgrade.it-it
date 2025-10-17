@@ -48,7 +48,6 @@ NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NS
 Non è possibile utilizzare questa procedura ARL nelle seguenti circostanze:
 
 * Vuoi aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
-* Si sta utilizzando il software di virtualizzazione FlexArray sul sistema esistente che viene aggiornato.
 * Si sta aggiornando una configurazione IP di MetroCluster.
 +
 Per aggiornare una configurazione IP di MetroCluster, consultare link:other_references.html["Riferimenti"]il collegamento al contenuto _MetroCluster Upgrade and Expansion_.

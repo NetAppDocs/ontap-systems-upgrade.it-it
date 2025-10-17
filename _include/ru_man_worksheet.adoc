@@ -25,9 +25,6 @@
 | (Solo ambienti SAN) Configurazione predefinita delle porte FC | Fase 1: _Preparare i nodi per l'aggiornamento_ | Durante la configurazione delle porte FC sui nuovi nodi |  
 
 
-| (Solo sistemi V-Series o sistemi con software di virtualizzazione FlexArray) topologia per sistemi V-Series o sistemi con software di virtualizzazione FlexArray | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 3: _Installare e avviare node3_ fase 5: _Installare e avviare node4_ |  
-
-
 | Indirizzo IP degli SP | Fase 1: _Preparare i nodi per l'aggiornamento_ | Fase 6: _Verificare che i nuovi controller siano impostati correttamente_ |  
 
 

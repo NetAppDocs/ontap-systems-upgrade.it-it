@@ -13,12 +13,12 @@
 | Se il sistema che si sta aggiornando... | Quindi... 
 
 
-| Non dispone della versione ONTAP corretta o corrente sul nodo 4 | Passare a. <<man_install4_Step20,Fase 20>>. 
+| Non dispone della versione ONTAP corretta o corrente sul nodo 4 | Vai a<<man_install4_Step13,Fase 13>> . 
 
 
-| Ha la versione corretta o attuale di ONTAP al nodo 4 | Passare a. <<man_install4_Step25,Fase 25>>. 
+| Ha la versione corretta o attuale di ONTAP al nodo 4 | Vai a<<man_install4_Step18,Fase 18>> . 
 |===
-. [[man_install4_Step20]]configurare la connessione di netboot scegliendo una delle seguenti operazioni.
+. [[man_install4_Step13]]Configurare la connessione netboot scegliendo una delle seguenti azioni.
 +
 
 NOTE: Come connessione di netboot, è necessario utilizzare la porta di gestione e l'indirizzo IP. Non utilizzare un indirizzo IP LIF dei dati, altrimenti potrebbe verificarsi un'interruzione dei dati durante l'aggiornamento.
@@ -109,8 +109,8 @@ Il modulo controller si riavvia ma si arresta al menu di avvio perché il dispos
 
 
 
-. [[man_install4_Step25]]selezionare la modalità di manutenzione `5` dal menu di boot e premere `y` quando viene richiesto di continuare con l'avvio.
-. [[man_install4_Step26]]prima di continuare, visitare il sito link:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] Apportare le modifiche necessarie alle porte FC o UTA/UTA2 del nodo. Apportare le modifiche consigliate in queste sezioni, riavviare il nodo e passare alla modalità di manutenzione.
+. [[man_install4_Step18]]Seleziona la modalità di manutenzione `5` dal menu di avvio e inserisci `y` quando ti viene chiesto di continuare con l'avvio.
+. [[man_install4_Step19]]Prima di continuare, vai alink:set_fc_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] per apportare le modifiche necessarie alle porte FC o UTA/UTA2 sul nodo.  Apportare le modifiche consigliate in quelle sezioni, riavviare il nodo e passare alla modalità di manutenzione.
 . Immettere il seguente comando ed esaminare l'output per trovare l'ID di sistema di node4:
 +
 `disk show -a`
@@ -296,7 +296,7 @@ Il sistema si arresta al prompt dell'ambiente di avvio.
 +
 `set time _hh:mm:ss_`
 
-. Verificare che l'ID del sistema partner sia impostato correttamente, come indicato nella <<man_install4_Step26,Fase 26>> in opzione.
+. Verificare che l'ID del sistema partner sia impostato correttamente come indicato in<<man_install4_Step19,Fase 19>> in opzione.
 +
 `printenv partner-sysid`
 

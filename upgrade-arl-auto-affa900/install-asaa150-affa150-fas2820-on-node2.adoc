@@ -25,7 +25,7 @@ Installare il modulo controller ASA A150, AFF A150 o FAS2820 ricevuto per l'aggi
 . Allineare l'estremità del modulo controller con l'alloggiamento B dello chassis, quindi spingere delicatamente il modulo controller a metà nel sistema.
 +
 
-TIP: L'alloggiamento B si trova sul telaio nella parte inferiore.
+TIP: Il vano B si trova sul lato destro del telaio.
 
 +
 
@@ -34,7 +34,7 @@ WARNING: Non inserire completamente il modulo controller nel telaio fino a quand
 . Collegare le porte di gestione e console al modulo controller node2.
 +
 
-NOTE: Poiché lo chassis è già acceso, node2 inizia l'avvio non appena è completamente inserito. Per evitare l'avvio node2, NetApp consiglia di collegare la console e i cavi di gestione al modulo controller node2 prima di inserire completamente il modulo controller nello slot.
+NOTE: Poiché lo chassis è già acceso, node2 inizia l'avvio non appena è completamente inserito. Per impedire l'avvio di node2, collegare i cavi della console e di gestione prima di inserire completamente il modulo controller.
 
 . Spingere con decisione il modulo controller nello chassis fino a quando non raggiunge la scheda intermedia e non è completamente inserito.
 +

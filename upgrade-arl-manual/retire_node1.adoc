@@ -199,7 +199,7 @@ Il valore di questo comando deve corrispondere allo stato fisico del sistema.
 
 +
 
-WARNING: *Attenzione*: Se il node1 si trova nello stesso chassis del node2, non spegnere lo chassis utilizzando l'interruttore di alimentazione o tirando il cavo di alimentazione. In tal caso, il nodo 2, che sta servendo i dati, si spegnerà.
+WARNING: Se il nodo 1 si trova nello stesso chassis del nodo 2, non spegnere lo chassis utilizzando l'interruttore di alimentazione o tirando il cavo di alimentazione.  In tal caso, il nodo 2, che fornisce i dati, non funzionerà.
 
 . Quando il sistema richiede di confermare che si desidera arrestare il sistema, immettere `y`.
 +

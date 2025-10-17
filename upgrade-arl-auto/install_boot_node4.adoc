@@ -24,7 +24,6 @@ L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Qu
 [IMPORTANT]
 ====
 * Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node2. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
-* Se si sta eseguendo l'upgrade di un sistema V-Series collegato a storage array o a un sistema con software di virtualizzazione FlexArray collegato a storage array, è necessario completare la procedura <<auto_install4_step1,Fase 1>> attraverso <<auto_install4_step21,Fase 21>>, quindi uscire da questa sezione e seguire le istruzioni a. link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"] e a. link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"], Immissione di comandi in modalità manutenzione. Quindi, tornare a questa sezione e riprendere con <<auto_install4_step23,Fase 23>>.
 * Se si sta aggiornando un sistema con dischi di archiviazione, è necessario completare l'intera sezione e quindi procedere a link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] , immettendo comandi al prompt del cluster.
 
 
@@ -37,10 +36,10 @@ Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire 
 . Installare il nodo 4 nel rack seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ relative al modello di nodo.
 . Nodo del cablo4, spostamento delle connessioni dal nodo 2 al nodo 4.
 +
-Collegare i seguenti collegamenti, seguendo le istruzioni riportate nelle _istruzioni per l'installazione e l'installazione_ o nella _Guida ai requisiti e al riferimento per l'installazione di virtualizzazione FlexArray_ per la piattaforma node4, il documento relativo agli shelf di dischi e _gestione coppia ha_.
+Cablare le seguenti connessioni, utilizzando le _Istruzioni di installazione e configurazione_ per la piattaforma node4, il documento appropriato sullo scaffale dei dischi e la documentazione sulla _gestione delle coppie HA_.
 
 +
-Fare riferimento link:other_references.html["Riferimenti"]al collegamento ai _requisiti di installazione e di riferimento per la virtualizzazione FlexArray_ e _gestione coppia ha_.
+Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi alla _gestione delle coppie HA_.
 
 +
 ** Console (porta di gestione remota)
@@ -75,7 +74,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 .. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
 +
 
-WARNING: *Attenzione: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+WARNING: *Non ignorare il ritardo; se non si lascia caricare la batteria, si potrebbe verificare una perdita di dati.*
 
 +
 
@@ -243,43 +242,9 @@ Salvare le impostazioni:
 +
 `printenv partner-sysid`
 
-. [[step22]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se il sistema... | Quindi... 
 
 
-| Dispone di dischi e non di storage back-end | Andare a <<auto_install4_step27,Passaggio 27>>. 
-
-
-| È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
-.. Vai alla sezione link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] e completare le sottosezioni di questa sezione.
-.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<auto_install4_step23,Fase 23>>.
-
-
-
-IMPORTANT: È necessario riconfigurare le porte FC onboard, le porte CNA onboard e le schede CNA prima di avviare ONTAP su V-Series o sul sistema con il software di virtualizzazione FlexArray.
-
-|===
-
-
-. [[auto_install4_step23]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
-+
-Se necessario, modificare le porte integrate in Initiator facendo riferimento a. link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Configurare le porte FC sul nodo 4"]. Per ulteriori informazioni sullo zoning, consultare la documentazione relativa allo storage array e allo zoning.
-
-. Aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
-+
-Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. Modificare i valori WWPN (Worldwide port name) nei gruppi di host o volumi associati alle LUN degli array sullo storage array.
-+
-L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
-
-. Se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
-
-
-. [[auto_install4_step27]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:
+. [[auto_install4_step22]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:
 +
 
 NOTE: Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] per determinare il tipo di unità con crittografia automatica in uso.
@@ -310,8 +275,10 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 +
 `boot_ontap menu`
 
-+
-Se non si dispone di una configurazione FC o UTA/UTA2, eseguire link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["Riassegnare node2 dischi a node4, passaggio 1"] questa operazione in modo che node4 sia in grado di riconoscere i dischi di node2.
 
-. [[step29]] per le configurazioni MetroCluster, i sistemi V-Series e i sistemi con il software di virtualizzazione FlexArray collegato agli array di storage, visitare il sito link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["Riassegnare node2 dischi a node4, passaggio 1"].
+
+.Quali sono le prossime novità?
+* Se si dispone di un sistema con una configurazione FC o UTA/UTA2,link:set_fc_or_uta_uta2_config_node4.html["imposta la configurazione FC o UTA/UTA2 sul nodo 4"] .
+* Se non si dispone di una configurazione FC o UTA/UTA2,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["riassegnare i dischi del nodo 2 al nodo 4, passaggio 1"] in modo che node4 possa riconoscere i dischi di node2.
+* Se si dispone di una configurazione MetroCluster ,link:reassign-node1-disks-to-node3.html#reassign-node1-node3-step1["riassegnare i dischi del nodo 1 al nodo 3"] .
 

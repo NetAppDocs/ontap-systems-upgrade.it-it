@@ -136,23 +136,4 @@ Salvare le impostazioni:
 +
 `printenv partner-sysid`
 
-. [[step22]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se il sistema... | Quindi... 
-
-
-| Dispone di dischi e non di storage back-end | Andare a <<auto_install4_step27,Passaggio 27>>. 
-
-
-| È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
-.. Vai alla sezione link:set_fc_or_uta_uta2_config_node4.html["Impostare la configurazione FC o UTA/UTA2 su node4"] e completare le sottosezioni di questa sezione.
-.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<auto_install4_step23,Fase 23>>.
-
-
-
-IMPORTANT: È necessario riconfigurare le porte FC onboard, le porte CNA onboard e le schede CNA prima di avviare ONTAP su V-Series o sul sistema con il software di virtualizzazione FlexArray.
-
-|===
 

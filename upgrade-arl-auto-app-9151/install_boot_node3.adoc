@@ -65,7 +65,7 @@ To override this delay, press 'c' followed by 'Enter'
 .. Attendere che la batteria si ricarichi e che il processo di avvio venga completato.
 +
 
-WARNING: *Attenzione: Non ignorare il ritardo; il mancato caricamento della batteria potrebbe causare la perdita di dati.*
+WARNING: *Non ignorare il ritardo; se non si lascia caricare la batteria, si potrebbe verificare una perdita di dati.*
 
 +
 

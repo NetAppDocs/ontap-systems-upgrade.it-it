@@ -59,7 +59,6 @@ Non è possibile utilizzare questa procedura ARL per aggiornare una coppia di no
 +
 Per eseguire l'aggiornamento di un aggiornamento elencato nella tabella precedente, vedere il link:other_references.html["Riferimenti"]collegamento ai comandi _Use "System controller replace" (utilizza comandi di sostituzione del controller di sistema) per aggiornare i modelli di controller nello stesso chassis_.
 
-* Si sta aggiornando un sistema V-Series o un sistema di storage di virtualizzazione FlexArray utilizzando un array esterno per lo storage backend. Contattare il supporto tecnico per opzioni di aggiornamento di un sistema V-series o FlexArray.
 * Si sta aggiornando una configurazione MetroCluster FC o IP. Per aggiornare una configurazione MetroCluster, consultare il link:other_references.html["Riferimenti"] collegamento alla _documentazione di aggiornamento ed espansione MetroCluster_.
 
 

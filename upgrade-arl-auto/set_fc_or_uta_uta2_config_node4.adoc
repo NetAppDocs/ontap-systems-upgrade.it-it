@@ -17,13 +17,11 @@ summary: 'Configurare node4 porte FC integrate, porte UTA/UTA2 o scheda UTA/UTA2
 Se node4 dispone di porte FC integrate, porte UTA/UTA2 (onboard Unified target adapter) o una scheda UTA/UTA2, è necessario configurare le impostazioni prima di completare il resto della procedura.
 
 .A proposito di questa attività
-Potrebbe essere necessario completare la <<Configurare le porte FC sul nodo 4>> sezione o o <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>> entrambe le sezioni.
+Potrebbe essere necessario completare<<Configurare le porte FC sul nodo 4>> O<<Controllare e configurare le porte UTA/UTA2 sul nodo 4>> o entrambe le sezioni.
 
 [NOTE]
 ====
 Se node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 e si sta aggiornando un sistema con dischi di archiviazione, è possibile passare alla sezione link:reassign-node2-disks-to-node4.html["Riassegnare dischi da node2 TB a node4 TB"].
-
-Tuttavia, se si dispone di un sistema V-Series o di un software per la virtualizzazione FlexArray e si è connessi agli array di storage e node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2, è necessario tornare a _installare e avviare node4_ e riprendere l'operazione all'indirizzo link:install_boot_node4.html#step22["Fase 22"].
 
 Assicurarsi che il node4 disponga di spazio rack sufficiente. Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire il nodo 4 nella stessa posizione del nodo 3. Se node2 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.
 
@@ -32,7 +30,7 @@ Assicurarsi che il node4 disponga di spazio rack sufficiente. Se il nodo 4 si tr
 
 == Configurare le porte FC sul nodo 4
 
-Se node4 dispone di porte FC, integrate o su un adattatore FC, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, perché le porte non sono preconfigurate. Se le porte non sono configurate, si potrebbe verificare un'interruzione del servizio.
+Se il nodo 4 dispone di porte FC, integrate o su un adattatore FC aggiuntivo, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, poiché le porte non sono preconfigurate al momento della spedizione dei sistemi.  Se non si configurano le porte come richiesto, si potrebbe verificare un'interruzione del servizio.
 
 .Prima di iniziare
 È necessario disporre dei valori delle impostazioni della porta FC del nodo 2 salvati nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"].
@@ -41,61 +39,36 @@ Se node4 dispone di porte FC, integrate o su un adattatore FC, è necessario imp
 È possibile saltare questa sezione se il sistema non dispone di configurazioni FC. Se il sistema dispone di porte UTA/UTA2 integrate o di un adattatore UTA/UTA2, configurarle in <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>>.
 
 
-IMPORTANT: Se il sistema dispone di dischi di storage, è necessario immettere i comandi in questa sezione al prompt del cluster. Se si dispone di un sistema V-Series o di un sistema con software di virtualizzazione FlexArray collegato agli array di storage, immettere i comandi in questa sezione in modalità manutenzione.
+IMPORTANT: Immettere i comandi in questa sezione al prompt della shell in modalità Manutenzione.
 
 .Fasi
-. Eseguire una delle seguenti operazioni:
+. Visualizza informazioni su tutti gli adattatori di rete FC e convergenti sul sistema:
 +
-[cols="30,70"]
-|===
-| Se il sistema che si sta aggiornando... | Quindi… 
-
-
-| Dispone di dischi di storage | `system node hardware unified-connect show` 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
-|===
-+
-Il sistema visualizza informazioni su tutti gli adattatori di rete FC e convergenti del sistema.
+`system node hardware unified-connect show`
 
 . Confrontare le impostazioni FC sul nodo 4 con quelle acquisite in precedenza dal nodo 1.
-. Eseguire una delle seguenti operazioni:
+. Modificare le porte FC sul nodo 4 in base alle necessità:
 +
-[cols="30,70"]
-|===
-| Se il sistema che si sta aggiornando... | Quindi… 
-
-
-| Dispone di dischi di storage  a| 
-Modificare le porte FC sul nodo 4 in base alle necessità:
-
-** Per programmare le porte di destinazione:
+** Per programmare come porte di destinazione:
 +
 `ucadmin modify -m fc -t target _adapter_`
+
++
+Per esempio: `ucadmin modify -m fc -t target 2a`
 
 ** Per programmare le porte initiator:
 +
 `ucadmin modify -m fc -t initiator _adapter_`
 
-
-
++
 `-t` È il tipo FC4: Destinazione o iniziatore.
 
++
+Per esempio: `ucadmin modify -m fc -t initator 2b`
 
 
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
-Modificare le porte FC sul nodo 4 in base alle necessità:
 
-`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
-
-`-t` È il tipo, la destinazione o l'iniziatore FC4.
-
-
-NOTE: Le porte FC devono essere programmate come iniziatori.
-
-|===
-. Uscire dalla modalità di manutenzione:
+. Arrestare il nodo:
 +
 `halt`
 
@@ -107,25 +80,7 @@ NOTE: Le porte FC devono essere programmate come iniziatori.
 . Selezionare l'opzione `5` dal menu di avvio per la modalità di manutenzione.
 
 
-. [[step8]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se il sistema che si sta aggiornando... | Quindi... 
-
-
-| Dispone di dischi di storage  a| 
-** Saltare questa sezione e andare a link:reassign-node2-disks-to-node4.html["Riassegnare dischi da node2 TB a node4 TB"] se node4 non ha una scheda UTA/UTA2 o porte onboard UTA/UTA2.
-
-
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage  a| 
-** Passare a. link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["Controllare e configurare le porte UTA/UTA2 sul nodo 4"] Se node4 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate.
-** Salta _Controlla e configura le porte UTA/UTA2 su node4_ se node4 non dispone di una scheda UTA/UTA2 o di porte onboard UTA/UTA2, torna a _Installa e avvia node4_, e riprendi a link:install_boot_node4.html#auto_install4_step23["Fase 23"].
-
-
-|===
+. [[step8]]Salta questa sezione e vai alink:reassign-node2-disks-to-node4.html["Riassegnare dischi da node2 TB a node4 TB"] se node4 non ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate.
 
 
 
@@ -153,21 +108,13 @@ Le porte UTA/UTA2 potrebbero essere su un adattatore o sul controller con le seg
 Tuttavia, è necessario controllare la configurazione delle porte UTA/UTA2 sul nodo 4 e modificarla, se necessario.
 
 
-WARNING: *Attenzione*: Se il sistema dispone di dischi di storage, immettere i comandi in questa sezione al prompt del cluster, a meno che non venga richiesto di accedere alla modalità di manutenzione. Se si dispone di un sistema MetroCluster FC, V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage, è necessario essere in modalità di manutenzione per configurare le porte UTA/UTA2.
+WARNING: Immettere i comandi in questa sezione al prompt della shell in modalità Manutenzione.
 
 .Fasi
-. Verificare la configurazione delle porte utilizzando uno dei seguenti comandi sul nodo 4:
+. Controlla come sono attualmente configurate le porte sul nodo 4:
 +
-[cols="30,70"]
-|===
-| Se il sistema... | Quindi… 
+`system node hardware unified-connect show`
 
-
-| Dispone di dischi di storage | `system node hardware unified-connect show` 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
-|===
 +
 Il sistema visualizza un output simile al seguente esempio:
 
@@ -191,67 +138,13 @@ f-a    0h       cna      target     -          -        online
 +
 Contattare il rappresentante NetApp per ottenere il modulo SFP+ corretto.
 
-. Esaminare l'output di `ucadmin show` Controllare e determinare se le porte UTA/UTA2 hanno la personalità desiderata.
-. Eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se la porta CNA... | Quindi… 
-
-
-| Non avere la personalità che si desidera | Passare a. <<auto_check_4_step5,Fase 5>>. 
-
-
-| Avere la personalità che si desidera | Saltare i passaggi da 5 a 12 e passare a. <<auto_check_4_step13,Fase 13>>. 
-|===
-. [[auto_check_4_step5]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se si sta configurando... | Quindi… 
-
-
-| Porte su una scheda UTA/UTA2 | Passare a. <<auto_check_4_step7,Fase 7>> 
-
-
-| Porte UTA/UTA2 integrate | Saltare la fase 7 e passare a. <<auto_check_4_step8,Fase 8>>. 
-|===
-. Se l'adattatore è in modalità Initiator e la porta UTA/UTA2 è in linea, portare la porta UTA/UTA2 offline:
-+
-`storage disable adapter _adapter_name_`
-
-+
-Gli adattatori in modalità di destinazione sono automaticamente offline in modalità di manutenzione.
-
-. [[auto_check_4_step7]]se la configurazione corrente non corrisponde all'utilizzo desiderato, modificare la configurazione in base alle necessità:
-+
-`ucadmin modify -m fc|cna -t initiator|target _adapter_name_`
-
-+
-** `-m` È la modalità Personality, FC o 10GbE UTA.
-** `-t` È di tipo FC4, `target` oppure `initiator`.
-+
-
-NOTE: È necessario utilizzare FC Initiator per unità nastro, sistemi di virtualizzazione FlexArray e configurazioni MetroCluster. È necessario utilizzare la destinazione FC per i client SAN.
-
-
-
-. [[auto_check_4_step8]]verificare le impostazioni utilizzando il seguente comando ed esaminandone l'output:
+. Verificare le impostazioni:
 +
 `ucadmin show`
 
-. Verificare le impostazioni:
 +
-[cols="40,60"]
-|===
-| Se il sistema... | Quindi… 
+Esaminare l'output di `ucadmin show` Controllare e determinare se le porte UTA/UTA2 hanno la personalità desiderata.
 
-
-| Dispone di dischi di storage | `ucadmin show` 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `ucadmin show` 
-|===
 +
 L'output degli esempi seguenti mostra che il tipo di adattatore FC4 "1b" sta cambiando in `initiator` e che la modalità degli adattatori "2a" e "2b" stia cambiando in `cna`:
 
@@ -267,42 +160,68 @@ f-a   2b       fc             target       cna           -             online
 4 entries were displayed.
 *>
 ....
-. Inserire le porte di destinazione in linea immettendo uno dei seguenti comandi, una volta per ciascuna porta:
+. Eseguire una delle seguenti operazioni:
 +
 [cols="30,70"]
 |===
-| Se il sistema... | Quindi… 
+| Se la porta CNA... | Quindi… 
 
 
-| Dispone di dischi di storage | `network fcp adapter modify -node _node_name_ -adapter _adapter_name_ -state up` 
+| Non avere la personalità che si desidera | Passare a. <<auto_check_4_step5,Fase 5>>. 
 
 
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | `fcp config _adapter_name_ up` 
+| Avere la personalità che si desidera | Salta il passaggio 5 al passaggio 9 e vai a<<auto_check_4_step10,Fase 10>> . 
 |===
+. [[auto_check_4_step5]]eseguire una delle seguenti operazioni:
++
+[cols="30,70"]
+|===
+| Se si sta configurando... | Quindi… 
+
+
+| Porte su una scheda UTA/UTA2 | Vai a<<auto_check_4_step6,Fase 6>> 
+
+
+| Porte UTA/UTA2 integrate | Salta il passaggio 6 e vai a<<auto_check_4_step7,Fase 7>> . 
+|===
+. [[auto_check_4_step6]]Se l'adattatore è in modalità iniziatore e la porta UTA/UTA2 è online, metti offline la porta UTA/UTA2:
++
+`storage disable adapter _adapter_name_`
+
++
+Gli adattatori in modalità di destinazione sono automaticamente offline in modalità di manutenzione.
+
+. [[auto_check_4_step7]]se la configurazione corrente non corrisponde all'utilizzo desiderato, modificare la configurazione in base alle necessità:
++
+`ucadmin modify -m fc|cna -t initiator|target <adapter_name>`
+
++
+** `-m` È la modalità Personality, FC o 10GbE UTA.
+** `-t` È di tipo FC4, `target` oppure `initiator`.
++
+
+NOTE: È necessario utilizzare l'iniziatore FC per le unità nastro e le configurazioni MetroCluster .  Per i client SAN è necessario utilizzare la destinazione FC.
+
+
+
+. Mettere online tutte le porte di destinazione immettendo il seguente comando, una volta per ogni porta:
++
+`storage enable adapter <adapter_name>`
+
 . Collegare la porta.
 
 
-. [[step12]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se il sistema... | Quindi... 
-
-
-| Dispone di dischi di storage | Andare a link:reassign-node2-disks-to-node4.html["Riassegnare dischi da node2 TB a node4 TB"]. 
-
-
-| È un sistema V-Series o dispone di software di virtualizzazione FlexArray ed è collegato agli array di storage | Tornare a _Install e avviare node4_, e riprendere da link:install_boot_node4.html#auto_install4_step23["Fase 23"]. 
-|===
-. [[auto_check_4_step13]]Esci dalla modalità di manutenzione:
+. [[auto_check_4_step10]]Esci dalla modalità di manutenzione:
 +
 `halt`
 
-. [[step14]]avviare il nodo nel menu di avvio:
+. Avviare il nodo nel menu di avvio:
 +
 `boot_ontap menu`
 
-+
-Se si sta eseguendo l'aggiornamento a un sistema AFF A800, visitare il sito link:reassign-node2-disks-to-node4.html#auto_check_4_step9["Riassegnare node2 dischi a node4, passaggio 9"].
 
+
+.Quali sono le prossime novità?
+* Se si sta eseguendo l'aggiornamento a un sistema AFF A800, visitare il sito link:reassign-node2-disks-to-node4.html#auto_check_4_step9["Riassegnare node2 dischi a node4, passaggio 9"].
+* Per tutti gli altri aggiornamenti di sistema, vai alink:reassign-node2-disks-to-node4.html["Riassegnare node2 dischi a node4, passaggio 1"] .
 

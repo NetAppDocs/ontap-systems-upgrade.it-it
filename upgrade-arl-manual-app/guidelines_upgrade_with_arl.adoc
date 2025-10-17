@@ -27,10 +27,7 @@ Per capire se è possibile utilizzare il trasferimento aggregato (ARL) per aggio
 * È possibile aggiornare i seguenti tipi di sistemi:
 +
 ** Da un sistema FAS a un sistema FAS.
-** Da un sistema FAS a un sistema con software di virtualizzazione FlexArray o un sistema V-Series.
 ** Da un sistema AFF a un sistema AFF.
-** Un sistema con software di virtualizzazione FlexArray o un sistema V-Series su un sistema FAS, a condizione che il sistema con software di virtualizzazione FlexArray o il sistema V-Series non disponga di LUN array.
-** Da un sistema V-Series a un sistema con software di virtualizzazione FlexArray o un sistema V-Series.
 
 
 * Per alcuni aggiornamenti del controller ARL è possibile utilizzare porte cluster temporanee sul controller sostitutivo per l'aggiornamento. Ad esempio, se si esegue l'aggiornamento da un sistema AFF A300 a un sistema AFF A400, a seconda della configurazione di AFF A400, è possibile utilizzare una delle due porte mezzanine o aggiungere una scheda di interfaccia di rete 10GbE a quattro porte per fornire porte cluster temporanee. Dopo aver completato un aggiornamento del controller utilizzando porte del cluster temporanee, è possibile migrare senza interruzioni i cluster alle porte 100 GbE del controller sostitutivo.
@@ -79,12 +76,12 @@ Il presente documento si basa sui seguenti presupposti:
 * L'hardware del controller sostitutivo è nuovo e non è stato utilizzato.
 +
 
-WARNING: *Attenzione*: Poiché questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato, le fasi necessarie per preparare i controller usati con `wipeconfig` i comandi non sono inclusi in questa procedura. Se in precedenza è stato utilizzato l'hardware del controller sostitutivo, è necessario contattare il supporto tecnico, in particolare se i controller eseguivano Data ONTAP in 7-Mode.
+WARNING: Poiché questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato, i passaggi necessari per preparare i controller usati con il `wipeconfig` comando non sono inclusi in questa procedura.  È necessario contattare l'assistenza tecnica se l'hardware del controller sostitutivo è stato utilizzato in precedenza, soprattutto se i controller eseguivano Data ONTAP in modalità 7.
 
 * Hai letto e compreso le linee guida per l'aggiornamento della coppia di nodi.
 +
 
-WARNING: *Attenzione*: Non tentare di cancellare il contenuto della NVRAM. Se è necessario eliminare il contenuto della NVRAM, contattare il supporto tecnico di NetApp.
+WARNING: Non tentare di cancellare il contenuto NVRAM .  Se è necessario cancellare il contenuto della NVRAM, contattare l'assistenza tecnica NetApp .
 
 * Si sta eseguendo il comando appropriato prima e dopo `modify` e confrontando l'output di entrambi `show` comandi per verificare che il `modify` comando riuscito.
 * Se si dispone di una configurazione SAN, si dispone di LIF locali e partner per ciascuna macchina virtuale di storage (SVM), sulla coppia ha. Se non si dispone di LIF locali e partner per ogni SVM, è necessario aggiungere LA LIF dei dati SAN sul nodo remoto e locale per tale SVM prima di iniziare l'aggiornamento.

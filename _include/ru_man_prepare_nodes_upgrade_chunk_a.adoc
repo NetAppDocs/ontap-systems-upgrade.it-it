@@ -37,7 +37,7 @@ Controllare fisicamente il n. 3 e il n. 4 per verificare se le batterie NVMEM o 
 
 +
 
-WARNING: *Attenzione* non tentare di cancellare il contenuto della NVRAM. Se è necessario eliminare il contenuto della NVRAM, contattare il supporto tecnico di NetApp.
+WARNING: Non tentare di cancellare il contenuto NVRAM .  Se è necessario cancellare il contenuto della NVRAM, contattare l'assistenza tecnica NetApp .
 
 . Controllare la versione di ONTAP su node3 e node4.
 +

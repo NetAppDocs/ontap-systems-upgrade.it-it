@@ -135,36 +135,4 @@ Per il nodo 3, `partner-sysid` deve essere quello del node2.
 +
 `printenv partner-sysid`
 
-. [[step22]]eseguire una delle seguenti operazioni:
-+
-[cols="30,70"]
-|===
-| Se il sistema... | Descrizione 
-
-
-| Dispone di dischi e non di storage back-end | Consultare <<auto_install3_step27,Passaggio 27>> 
-
-
-| È un sistema V-Series o un sistema con software di virtualizzazione FlexArray collegato agli array di storage  a| 
-.. Vai alla sezione link:set_fc_or_uta_uta2_config_on_node3.html["Impostazione della configurazione FC o UTA/UTA2 su node3"] e completare le sottosezioni di questa sezione.
-.. Tornare a questa sezione e completare i passaggi rimanenti, iniziando da <<auto_install3_step23,Fase 23>>.
-
-
-
-IMPORTANT: È necessario riconfigurare le porte FC onboard, le porte CNA onboard e le schede CNA prima di avviare ONTAP su V-Series o sul sistema con il software di virtualizzazione FlexArray.
-
-|===
-. [[auto_install3_step23]]aggiungere le porte FC Initiator del nuovo nodo alle zone di switch.
-+
-Se il sistema dispone di UNA SAN a nastro, è necessario eseguire lo zoning per gli iniziatori. Se necessario, modificare le porte integrate in Initiator facendo riferimento a. link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurazione delle porte FC sul nodo 3"]. Per ulteriori informazioni sullo zoning, consultare la documentazione relativa allo storage array e allo zoning.
-
-. [[step24]]aggiungere le porte FC Initiator all'array di storage come nuovi host, mappando le LUN dell'array ai nuovi host.
-+
-Per istruzioni, consultare la documentazione relativa allo storage array e allo zoning.
-
-. [[step25]]modificare i valori WWPN (Worldwide port name) nei gruppi di host o di volumi associati alle LUN degli array sullo storage array.
-+
-L'installazione di un nuovo modulo controller modifica i valori WWPN associati a ciascuna porta FC integrata.
-
-. [[step26]]se la configurazione utilizza lo zoning basato su switch, regolare lo zoning in modo che rifletta i nuovi valori WWPN.
 
