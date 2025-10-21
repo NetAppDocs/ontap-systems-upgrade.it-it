@@ -1,0 +1,256 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/boot-node1-with-a900-controller-and-nvs.html 
+keywords: boot, NVRAM, controller, module, node1, replacement 
+summary: Fare il boot node1 con i moduli controller sostitutivi quando si utilizza ARL per aggiornare i modelli di controller nello stesso chassis. 
+---
+= Fare il boot node1 con i moduli di sistema sostitutivi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Node1 con i moduli sostitutivi è ora pronto per l'avvio. I moduli sostitutivi supportati sono elencati nella link:index.html#supported-systems,["matrice dei sistemi supportati"].
+
+[NOTE]
+====
+Quando si sostituiscono i moduli controller, spostare tutti i collegamenti dal vecchio al modulo controller sostitutivo.
+
+Quando si sostituiscono i moduli controller e NVRAM, spostare solo la console e le connessioni di gestione.
+
+====
+.Fasi
+. (Solo aggiornamento AFF A250, AFF C250, AFF A800 o AFF C800) al prompt di Loader, accedere alla modalità di manutenzione:
++
+`boot_ontap maint`
+
++
+.. Risposta `y` alla richiesta di conferma della piattaforma mista.
+.. Rispondere `yes` al prompt di conferma.
+.. Mostrare lo stato delle interfacce 100GbE:
++
+`storage port show`.
+
++
+Tutte le porte 100GbE collegate agli shelf NS224 o agli switch di storage devono riportare il rapporto come `storage` porte, come mostrato nell'output di esempio riportato di seguito.
+
++
+[listing]
+----
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e8a  ENET storage 100 Gb/s    enabled  online  30
+e8b  ENET storage 100 Gb/s    enabled  online  30
+e11a ENET storage 100 Gb/s    enabled  online  30
+e11b ENET storage 100 Gb/s    enabled  online  30
+----
+.. Uscire dalla modalità di manutenzione:
++
+`halt`
+
+
+
+. [[A900_boot_node1]]Se sono installate unità NetApp Storage Encryption (NSE), procedere come segue:
++
+
+NOTE: Se la procedura non è stata ancora eseguita, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] per determinare il tipo di unità con crittografia automatica in uso.
+
++
+.. Impostare `bootarg.storageencryption.support` a. `true` oppure `false`:
++
+[cols="35,65"]
+|===
+| Se i seguenti dischi sono in uso… | Quindi… 
+
+
+| Unità NSE conformi ai requisiti di crittografia automatica FIPS 140-2 livello 2 | `setenv bootarg.storageencryption.support *true*` 
+
+
+| SED non FIPS di NetApp | `setenv bootarg.storageencryption.support *false*` 
+|===
++
+[NOTE]
+====
+Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nodo o coppia ha. È possibile combinare SED con dischi non crittografanti sullo stesso nodo o coppia ha.
+
+====
+.. Accedere al menu di avvio speciale e selezionare l'opzione `(10) Set Onboard Key Manager recovery secrets`.
++
+Inserire la passphrase e le informazioni di backup registrate in precedenza. Vedere link:manage_storage_encryption_using_okm.html["Gestire la crittografia dello storage utilizzando Onboard Key Manager"].
+
+
+
+. Avviare il nodo nel menu di boot:
++
+`boot_ontap menu`
+
+. Quando il nodo si ferma al menu di avvio, riassegnare i vecchi dischi node1 al node1 sostitutivo eseguendo il seguente comando su node1:
++
+`boot_after_controller_replacement`
+
++
+Dopo un breve intervallo di tempo, viene richiesto di inserire il nome del nodo da sostituire. Se sono presenti dischi condivisi (chiamati anche Advanced Disk Partitioning (ADP) o dischi partizionati), viene richiesto di inserire il nome del nodo del partner ha.
+
++
+Questi prompt potrebbero essere interrati nei messaggi della console. Se non si immette un nome di nodo o non si immette un nome corretto, viene richiesto di inserire nuovamente il nome.
+
++
+[NOTE]
+====
+Se `[localhost:disk.encryptNoSupport:ALERT]: Detected FIPS-certified encrypting drive` e, oppure `[localhost:diskown.errorDuringIO:error]: error 3 (disk failed) on disk` in caso di errori, attenersi alla seguente procedura:
+
+.. Arrestare il nodo al prompt DEL CARICATORE.
+.. Controllare e ripristinare i bootargs di codifica di archiviazione menzionati in <<A900_boot_node1,Fase 2>>.
+.. Al prompt del CARICATORE, avviare:
++
+`boot_ontap`
+
+
+
+====
++
+È possibile utilizzare il seguente esempio come riferimento:
+
++
+.Espandere l'esempio di output della console
+[%collapsible]
+====
+[listing]
+----
+LOADER-A> boot_ontap menu
+.
+.
+<output truncated>
+.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+.
+<output truncated>
+.
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 22/7
+
+(22/7)                          Print this secret List
+(25/6)                          Force boot with multiple filesystem disks missing.
+(25/7)                          Boot w/ disk labels forced to clean.
+(29/7)                          Bypass media errors.
+(44/4a)                         Zero disks if needed and create new flexible root volume.
+(44/7)                          Assign all disks, Initialize all disks as SPARE, write DDR labels
+.
+.
+<output truncated>
+.
+.
+(wipeconfig)                        Clean all configuration on boot device
+(boot_after_controller_replacement) Boot after controller upgrade
+(boot_after_mcc_transition)         Boot after MCC transition
+(9a)                                Unpartition all disks and remove their ownership information.
+(9b)                                Clean configuration and initialize node with partitioned disks.
+(9c)                                Clean configuration and initialize node with whole disks.
+(9d)                                Reboot the node.
+(9e)                                Return to main boot menu.
+
+
+
+The boot device has changed. System configuration information could be lost. Use option (6) to restore the system configuration, or option (4) to initialize all disks and setup a new system.
+Normal Boot is prohibited.
+
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? boot_after_controller_replacement
+
+This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
+
+.
+.
+<output truncated>
+.
+.
+Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
+Changing sysid of node node1 disks.
+Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
+Partner sysid = 4294967295, owner sysid = 536940063
+.
+.
+<output truncated>
+.
+.
+varfs_backup_restore: restore using /mroot/etc/varfs.tgz
+varfs_backup_restore: attempting to restore /var/kmip to the boot device
+varfs_backup_restore: failed to restore /var/kmip to the boot device
+varfs_backup_restore: attempting to restore env file to the boot device
+varfs_backup_restore: successfully restored env file to the boot device wrote key file "/tmp/rndc.key"
+varfs_backup_restore: timeout waiting for login
+varfs_backup_restore: Rebooting to load the new varfs
+Terminated
+<node reboots>
+
+System rebooting...
+
+.
+.
+Restoring env file from boot media...
+copy_env_file:scenario = head upgrade
+Successfully restored env file from boot media...
+Rebooting to load the restored env file...
+.
+System rebooting...
+.
+.
+.
+<output truncated>
+.
+.
+.
+.
+WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
+Override system ID? {y|n} y
+.
+.
+.
+.
+Login:
+----
+====
++
+[NOTE]
+====
+Gli ID di sistema mostrati nell'esempio precedente sono ID di esempio. Gli ID di sistema effettivi dei nodi che si stanno aggiornando saranno diversi.
+
+Tra l'immissione dei nomi dei nodi al prompt e il prompt di accesso, il nodo viene riavviato alcune volte per ripristinare le variabili di ambiente, aggiornare il firmware sulle schede del sistema e per altri aggiornamenti del ONTAP.
+
+====
+

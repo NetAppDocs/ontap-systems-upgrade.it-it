@@ -1,0 +1,103 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/overview-of-the-arl-upgrade.html 
+keywords: overview, arl, upgrade, owner, controller, hardware, old, system, chassis, disk, disks 
+summary: Comprendere il funzionamento della procedura ARL per aggiornare i modelli di controller nello stesso chassis. 
+---
+= Scopri la sequenza di aggiornamento ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di aggiornare i nodi utilizzando ARL, è necessario comprendere il funzionamento della procedura. In questo contenuto, la procedura viene suddivisa in diverse fasi.
+
+
+
+== Aggiornare la coppia di nodi
+
+Per aggiornare la coppia di nodi, è necessario preparare i nodi originali ed eseguire una serie di passaggi sia sul nodo originale che su quello nuovo. È quindi possibile decommissionare i nodi originali.
+
+
+
+== Panoramica della sequenza di aggiornamento ARL
+
+Durante la procedura, si aggiorna l'hardware del controller originale con l'hardware del controller sostitutivo, un controller alla volta, sfruttando la configurazione della coppia ha per trasferire la proprietà degli aggregati non root. Tutti gli aggregati non root devono essere sottoposti a due rilocazioni per raggiungere la destinazione finale, che è il nodo aggiornato corretto.
+
+Ogni aggregato ha un proprietario di casa e un proprietario corrente. Il proprietario della casa è il proprietario effettivo dell'aggregato e il proprietario attuale è il proprietario temporaneo.
+
+La seguente tabella descrive le attività di alto livello eseguite durante ciascuna fase e lo stato di proprietà aggregata alla fine della fase. Le fasi dettagliate vengono fornite più avanti nella procedura:
+
+[cols="35,65"]
+|===
+| Fase | Fasi 
+
+
+| link:verify_upgrade_hardware.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
+Durante la fase 1, verificare di disporre dell'hardware corretto per l'aggiornamento, eseguire i controlli preliminari e, se necessario, correggere la proprietà aggregata. Se si gestisce Storage Encryption utilizzando Onboard Key Manager, è necessario registrare alcune informazioni ed è possibile scegliere di interrompere le relazioni di SnapMirror.
+
+Proprietà aggregata alla fine della fase 1:
+
+* Node1 è il proprietario della casa e l'attuale proprietario degli aggregati node1
+* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2
+
+
+
+
+| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Fase 2: Trasferire le risorse e dismettere il node1"]  a| 
+Durante la fase 2, è possibile spostare gli aggregati non root node1 e le LIF dei dati NAS da node1 a node2. Questo processo è in gran parte automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione. Se necessario, spostare gli aggregati non riusciti o vetoed. Prima di ritirare il node1, si registrano le informazioni node1 da utilizzare in seguito nella procedura. È inoltre possibile preparare il netboot node1 più avanti nella procedura.
+
+Proprietà aggregata alla fine della fase 2:
+
+* Node2 è l'attuale proprietario degli aggregati node1
+* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2
+
+
+
+
+| link:cable-node1-for-shared-cluster-HA-storage.html["Fase 3: Nodo di boot 1 con i moduli di sistema sostitutivi"]  a| 
+Durante la fase 3, si avvia node1 con i moduli di sistema aggiornati e si verifica l'installazione aggiornata node1. Se si utilizza NetApp Volume Encryption (NVE), viene ripristinata la configurazione del gestore delle chiavi. È inoltre possibile spostare gli aggregati non root node1 e le LIF dei dati NAS da node2 al node1 aggiornato e verificare che le LIF SAN esistano sul node1.
+
+Proprietà aggregata alla fine della fase 3:
+
+* Upgrade node1 è il proprietario di casa e l'attuale proprietario di node1 aggregati
+* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2
+
+
+
+
+| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["Fase 4: Trasferire le risorse e dismettere il node2"]  a| 
+Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 al node1 aggiornato e dismettere node2.
+
+Proprietà aggregata alla fine della fase 4:
+
+* Il node1 aggiornato è il proprietario della casa e l'attuale proprietario di aggregati che originariamente appartenevano al node1
+* Upgrade node1 è l'attuale proprietario degli aggregati node2
+
+
+
+
+| link:install-aff-a30-a50-c30-c50-node2.html["Fase 5: Installare i moduli di sistema sostitutivi sul nodo 2"]  a| 
+Durante la fase 5, si installano i nuovi moduli di sistema ricevuti per il node2 aggiornato e quindi il node2 di netboot.
+
+Proprietà aggregata alla fine della fase 5:
+
+* Il node1 aggiornato è il proprietario di casa e l'attuale proprietario degli aggregati che originariamente appartenevano al node1.
+* Il node2 aggiornato è il proprietario della casa e l'attuale proprietario di aggregati che originariamente appartenevano al node2.
+
+
+
+
+| link:boot_node2_with_a900_controller_and_nvs.html["Fase 6: Punto di avvio2 con i moduli di sistema sostitutivi"]  a| 
+Durante la Fase 6, si avvia node2 con i moduli di sistema aggiornati e si verifica l'installazione di node2 aggiornata. Se si utilizza NVE, ripristinare la configurazione del gestore delle chiavi. Per gli aggiornamenti dei cluster collegati allo switch, è necessario verificare che il file di configurazione di riferimento dello switch del cluster (RCF) supporti le porte cluster/HA condivise. Si spostano inoltre gli aggregati non root del nodo 1 e i LIF dei dati NAS dal nodo 1 al nodo 2 aggiornato e si verifica che i LIF SAN siano presenti sul nodo 2.
+
+
+
+| link:manage-authentication-using-kmip-servers.html["Fase 7: Completare l'aggiornamento"]  a| 
+Durante la fase 7, si conferma che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, si configura e imposta Storage Encryption o NVE. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
+
+|===

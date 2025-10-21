@@ -63,7 +63,7 @@ Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi s
 
 == Aggiornare i modelli di controller nello stesso chassis
 
-Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi supportati, andare a link:../upgrade-arl-auto-affa900/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"] per avviare la procedura di aggiornamento.
+Se lo scenario di aggiornamento è elencato nella seguente matrice dei sistemi supportati, andare alink:../upgrade-arl-auto-in-chassis/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"] per avviare la procedura di aggiornamento.
 
 .Mostra i sistemi supportati
 [%collapsible]

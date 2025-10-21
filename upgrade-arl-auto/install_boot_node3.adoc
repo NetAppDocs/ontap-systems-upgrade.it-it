@@ -23,7 +23,7 @@ L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Qu
 
 [IMPORTANT]
 ====
-* Per aggiornare il controller AFF A800 o AFF C800, è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate sul midplane prima di rimuovere node1. Per ulteriori informazioni, vedere link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
+* Per un aggiornamento del controller AFF A800 o AFF C800 , è necessario assicurarsi che tutte le unità nello chassis siano saldamente posizionate contro il midplane prima di rimuovere node1. Per maggiori informazioni, vedere link:../upgrade-arl-auto-in-chassis/replace-node1-affa800.html["Sostituire i moduli controller AFF A800 o AFF C800"].
 * Se si sta eseguendo l'aggiornamento di un sistema con dischi di storage, completare l'intera sezione e passare alla link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Configurare le porte FC sul nodo 3"] e. link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["Controllare e configurare le porte UTA/UTA2 sul nodo 3"] sezioni, immissione dei comandi al prompt del cluster.
 
 

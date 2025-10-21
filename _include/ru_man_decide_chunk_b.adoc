@@ -4,9 +4,9 @@
 
 [NOTE]
 ====
-* . Questa procedura ARL include i passaggi che garantiscono che i dischi interni rimangano saldamente nello chassis quando si rimuovono e si installano i controller durante la procedura di aggiornamento
+* Se si sta aggiornando un sistema scambiando i moduli del controller nello stesso chassis, come AFF A800 o AFF C800, NetApp consiglia vivamente di utilizzare la procedura di aggiornamento chelink:../upgrade-arl-auto-in-chassis/index.html["aggiorna i modelli di controller utilizzando ARL, mantenendo lo chassis e i dischi del sistema esistenti"] .  Questa procedura ARL include i passaggi che garantiscono che i dischi interni rimangano saldamente nello chassis quando si rimuovono e si installano i controller durante la procedura di aggiornamento.
 +
-link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Scopri le combinazioni di aggiornamento del sistema supportate utilizzando ARL, mantenendo lo chassis e i dischi del sistema esistenti"].
+link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["Scopri le combinazioni di aggiornamento del sistema supportate utilizzando ARL, mantenendo lo chassis e i dischi del sistema esistenti"].
 
 * Con questa procedura è possibile utilizzare NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) e NetApp aggregate Encryption (NAE).
 
