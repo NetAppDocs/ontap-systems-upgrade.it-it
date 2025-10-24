@@ -60,6 +60,8 @@ entries:
   entries:
   - title: Spostare aggregati non root e LIF dati NAS da node2 a node1
     url: "/upgrade-arl-auto-in-chassis/relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html"
+  - title: Spostare gli aggregati non riusciti o vetoed
+    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Andare in pensione node2
     url: "/upgrade-arl-auto-in-chassis/retire-node2.html"
 - title: Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2
@@ -95,7 +97,7 @@ entries:
   - title: Gestire l'autenticazione utilizzando i server KMIP
     url: "/upgrade-arl-auto-in-chassis/manage-authentication-using-kmip-servers.html"
   - title: Verificare che i nuovi controller siano impostati correttamente
-    url: "/upgrade-arl-auto-in-chassis/ensure-new-controllers-are-set-up-correctly.html"
+    url: "/upgrade-arl-auto-in-chassis/confirm-new-controllers-are-set-up-correctly.html"
   - title: Impostare Storage Encryption sul nuovo modulo controller
     url: "/upgrade-arl-auto-in-chassis/set-up-storage-encryption-new-module.html"
   - title: Impostare NetApp Volume o aggregate Encryption sul nuovo modulo controller
