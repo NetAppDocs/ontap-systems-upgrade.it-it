@@ -72,7 +72,7 @@ Se non puoi collegare e0a o e0b porte cluster sul nodo esistente alle porte clus
 
 
 * I sistemi ASA A900, AFF A900 e FAS9500 supportano solo l'alimentazione di linea alta (da 200V a 240V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l'alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.
-* Se si sta eseguendo l'aggiornamento da un sistema esistente con tempi di inattività inclusi in <<supported-systems-in-chassis,matrice dei sistemi supportati>>, è possibile aggiornare l'hardware del controller spostando lo spazio di archiviazione o contattare il supporto tecnico. Fare riferimento al link:other_references.html["Riferimenti"] collegamento a _Upgrade spostando volumi o storage_.
+* Se si esegue l'aggiornamento da un sistema esistente con tempi di inattività inclusi nellink:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["matrice dei sistemi supportati"] , è possibile aggiornare l'hardware del controller spostando lo storage o contattando l'assistenza tecnica.  Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi a _Aggiorna spostando volumi o storage_.
 
 
 

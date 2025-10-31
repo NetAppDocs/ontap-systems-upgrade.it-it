@@ -34,7 +34,7 @@ WARNING: Non inserire completamente il modulo controller nel telaio fino a quand
 . Collegare le porte di gestione e console al modulo controller node2.
 +
 
-NOTE: Poiché lo chassis è già acceso, node2 inizia l'avvio non appena è completamente inserito. Per impedire l'avvio di node2, collegare i cavi della console e di gestione prima di inserire completamente il modulo controller.
+NOTE: Poiché lo chassis è già acceso, node2 inizia l'avvio non appena è completamente inserito.  Per impedire l'avvio di node2, collegare i cavi della console e di gestione prima di inserire completamente il modulo controller.
 
 . Spingere con decisione il modulo controller nello chassis fino a quando non raggiunge la scheda intermedia e non è completamente inserito.
 +

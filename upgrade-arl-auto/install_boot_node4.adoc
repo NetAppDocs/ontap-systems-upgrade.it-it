@@ -280,5 +280,5 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 .Quali sono le prossime novità?
 * Se si dispone di un sistema con una configurazione FC o UTA/UTA2,link:set_fc_or_uta_uta2_config_node4.html["imposta la configurazione FC o UTA/UTA2 sul nodo 4"] .
 * Se non si dispone di una configurazione FC o UTA/UTA2,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["riassegnare i dischi del nodo 2 al nodo 4, passaggio 1"] in modo che node4 possa riconoscere i dischi di node2.
-* Se si dispone di una configurazione MetroCluster ,link:reassign-node1-disks-to-node3.html#reassign-node1-node3-step1["riassegnare i dischi del nodo 1 al nodo 3"] .
+* Se si dispone di una configurazione MetroCluster ,link:set_fc_or_uta_uta2_config_node4.html["imposta la configurazione FC o UTA/UTA2 sul nodo 4"] per rilevare i dischi collegati al nodo.
 

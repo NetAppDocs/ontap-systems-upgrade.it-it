@@ -21,8 +21,6 @@ Potrebbe essere necessario completare<<Configurare le porte FC sul nodo 4>> O<<C
 
 Se node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 (ad esempio, sistemi AFF e FAS introdotti a partire da ONTAP 9.15.1) e si sta aggiornando un sistema con dischi di archiviazione, è possibile passare alink:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"] .
 
-Tuttavia, se si dispone di un sistema V-Series o di un software di virtualizzazione FlexArray e si è connessi agli array di storage e node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2, tornare alla sezione _Installazione e boot node4_ e riprendere a link:install_boot_node4.html#man_install4_Step9["Fase 9"]. Assicurarsi che il node4 disponga di spazio rack sufficiente. Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire il nodo 4 nella stessa posizione del nodo 3. Se node2 e node4 si trovano nello stesso chassis, node4 si trova già nella posizione rack appropriata.
-
 
 
 == Configurare le porte FC sul nodo 4

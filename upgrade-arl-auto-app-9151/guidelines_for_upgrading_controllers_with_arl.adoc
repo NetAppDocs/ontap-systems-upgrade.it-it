@@ -59,6 +59,6 @@ Se desideri aggiornare i controller entry-level con dischi interni, fai riferime
 
 == Risolvere i problemi
 
-Se si verificano problemi durante l'aggiornamento dei controller, consultare link:aggregate_relocation_failures.htmll["Risolvere i problemi"] per ulteriori informazioni e possibili soluzioni.
+Se si verificano problemi durante l'aggiornamento dei controller, vederelink:aggregate_relocation_failures.html["Risolvere i problemi"] per maggiori informazioni e possibili soluzioni.
 
 Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.

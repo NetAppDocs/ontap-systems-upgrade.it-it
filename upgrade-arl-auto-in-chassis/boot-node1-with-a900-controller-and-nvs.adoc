@@ -14,7 +14,7 @@ summary: Fare il boot node1 con i moduli controller sostitutivi quando si utiliz
 
 
 [role="lead"]
-Node1 con i moduli sostitutivi è ora pronto per l'avvio. I moduli sostitutivi supportati sono elencati nella link:index.html#supported-systems,["matrice dei sistemi supportati"].
+Il Nodo 1 con i moduli sostitutivi è ora pronto per l'avvio.  I moduli sostitutivi supportati sono elencati inlink:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["matrice dei sistemi supportati"] .
 
 [NOTE]
 ====

@@ -117,7 +117,7 @@ Invio `y` per rimuovere tutti i pacchetti.
 `system license show`
 
 +
-È possibile confrontare l'output con quello acquisito link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step30["Fase 30"] Di _preparare i nodi per l'aggiornamento_.
+Puoi confrontare l'output con l'output che hai catturato inlink:prepare_nodes_for_upgrade.html#man_prepare_nodes_step29["Fase 29"] di _Preparare i nodi per l'aggiornamento_.
 
 . Configurare gli SP eseguendo il seguente comando su entrambi i nodi:
 +

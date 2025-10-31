@@ -28,7 +28,7 @@ entries:
       node1 al node2
     url: "/upgrade-arl-auto-in-chassis/relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html"
   - title: Spostare gli aggregati non riusciti o vetoed
-    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node1.html"
+    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Ritirare il node1
     url: "/upgrade-arl-auto-in-chassis/retire-node1.html"
   - title: Sostituire i moduli di sistema node1
@@ -61,7 +61,7 @@ entries:
   - title: Spostare aggregati non root e LIF dati NAS da node2 a node1
     url: "/upgrade-arl-auto-in-chassis/relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html"
   - title: Spostare gli aggregati non riusciti o vetoed
-    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node2.html"
+    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node1.html"
   - title: Andare in pensione node2
     url: "/upgrade-arl-auto-in-chassis/retire-node2.html"
 - title: Fase 5. Installare i moduli di sistema sostitutivi sul nodo 2

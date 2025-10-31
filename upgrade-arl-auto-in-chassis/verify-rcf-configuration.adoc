@@ -41,7 +41,7 @@ Nell'output, la "Connessione IC RDMA" dovrebbe avere lo stato `Up` .
 
 | `Down` | Vai a<<verify-rcf-step3,Fase 3>> . 
 |===
-. Controllare le porte del cluster e commutare RCF.
+. [[verify-rcf-step3]]Controllare le porte del cluster e commutare RCF.
 +
 Per ulteriori informazioni, vedere link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Connettersi a un cluster collegato allo switch"].
 

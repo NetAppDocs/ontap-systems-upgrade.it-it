@@ -76,7 +76,7 @@ Il presente documento si basa sui seguenti presupposti:
 * L'hardware del controller sostitutivo è nuovo e non è stato utilizzato.
 +
 
-WARNING: Poiché questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato, i passaggi necessari per preparare i controller usati con il `wipeconfig` comando non sono inclusi in questa procedura.  È necessario contattare l'assistenza tecnica se l'hardware del controller sostitutivo è stato utilizzato in precedenza, soprattutto se i controller eseguivano Data ONTAP in modalità 7.
+WARNING: I passaggi necessari per preparare i controller usati con il `wipeconfig` I comandi non sono inclusi in questa procedura perché questa presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato. È necessario contattare l'assistenza tecnica se l'hardware del controller sostitutivo è stato utilizzato in precedenza, soprattutto se i controller eseguivano Data ONTAP in modalità 7.
 
 * Hai letto e compreso le linee guida per l'aggiornamento della coppia di nodi.
 +

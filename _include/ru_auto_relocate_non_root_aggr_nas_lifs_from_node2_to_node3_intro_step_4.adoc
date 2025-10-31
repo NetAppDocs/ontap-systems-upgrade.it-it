@@ -47,7 +47,10 @@ Se gli aggregati sono andati offline o diventano estranei sul node3, portarli on
 Se alcuni volumi sono offline sul node3, portarli online utilizzando il seguente comando sul node3, una volta per ogni volume:
 
 +
-`volume online -vserver <vserver_name> -volume <volume_name>` < Il  `vserver_name` da utilizzare con questo comando si trova nell'output del precedente  `volume show` comando.
+`volume online -vserver <vserver_name> -volume <volume_name>`
+
++
+IL  `vserver_name` da utilizzare con questo comando si trova nell'output del precedente  `volume show` comando.
 
 . Verificare che le LIF siano state spostate nelle porte corrette e che lo stato sia `up`. Se le LIF non sono attive, impostare lo stato amministrativo delle LIF su `up` Immettendo il seguente comando, una volta per ogni LIF:
 +

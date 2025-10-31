@@ -80,7 +80,12 @@ Per esempio: `ucadmin modify -m fc -t initator 2b`
 . Selezionare l'opzione `5` dal menu di avvio per la modalità di manutenzione.
 
 
-. [[step8]]Salta questa sezione e vai alink:reassign-node2-disks-to-node4.html["Riassegnare dischi da node2 TB a node4 TB"] se node4 non ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate.
+. [[step8]]eseguire una delle seguenti operazioni:
++
+** Passare a. <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>> Se node4 ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate.
+** Se node4 non ha una scheda UTA/UTA2 o porte UTA/UTA2 integrate, saltare _Controllare e configurare le porte UTA/UTA2 su node4_ e andare alink:reassign-node2-disks-to-node4.html["Riassegnare dischi da node2 TB a node4 TB"] .
+
+
 
 
 

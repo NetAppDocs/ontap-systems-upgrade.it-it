@@ -185,7 +185,7 @@ NOTE: È necessario aver ottenuto la passphrase e i dati di backup in link:prepa
 .. Dopo aver riavviato il sistema con lo speciale menu di boot, eseguire l'opzione *(1) Avvio normale*
 +
 
-NOTE: In questa fase potrebbe verificarsi un errore. Se si verifica un errore, ripetere i passaggi secondari in <<auto_check_4_step22,Fase 22>> fino a quando il sistema non si avvia normalmente.
+NOTE: In questa fase potresti riscontrare un errore.  Se si verifica un errore, ripetere i sottopassaggi in<<auto_check_4_step8,Fase 8>> finché il sistema non si avvia normalmente.
 
 
 

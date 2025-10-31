@@ -16,10 +16,6 @@ summary: 'Contenuti di riferimento e siti Web necessari per supportare l"utilizz
 [role="lead"]
 Quando si eseguono le procedure di questo contenuto, potrebbe essere necessario consultare il contenuto di riferimento o visitare i siti Web di riferimento.
 
-* <<Contenuto di riferimento>>
-* <<Siti di riferimento>>
-
-
 
 
 == Contenuto di riferimento

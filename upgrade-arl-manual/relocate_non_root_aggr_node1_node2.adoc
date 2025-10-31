@@ -17,7 +17,7 @@ summary: Spostare gli aggregati non root dal nodo 1 al nodo 2 e verificare il tr
 Prima di poter sostituire il nodo 1 con il nodo 3, è necessario spostare gli aggregati non root da node1 a node2 utilizzando il comando di trasferimento degli aggregati di storage e verificando quindi il trasferimento.
 
 .Fasi
-. [[step1]]spostare gli aggregati non root completando le seguenti fasi secondarie:
+. [[relocate-step1]]Riposizionare gli aggregati non radice completando i seguenti sottopassaggi:
 +
 .. Impostare il livello di privilegio su Advanced (avanzato):
 +

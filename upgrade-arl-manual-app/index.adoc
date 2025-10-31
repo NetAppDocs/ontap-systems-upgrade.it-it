@@ -13,6 +13,7 @@ summary: 'Utilizzando la procedura di aggiornamento ARL manuale per aggiornare l
 :imagesdir: ../media/
 
 
+[role="lead"]
 Questa procedura descrive come aggiornare l'hardware del controller utilizzando la ricollocazione manuale degli aggregati (ARL) sui sistemi che eseguono ONTAP 9.8 o versioni successive.
 
 È possibile utilizzare questa procedura ARL se si sta eseguendo uno dei seguenti aggiornamenti:

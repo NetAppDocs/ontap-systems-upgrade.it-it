@@ -46,7 +46,7 @@ Alcuni o tutti gli aggregati sono stati riallocati da node1 a node2 e ha è anco
 La proprietà degli aggregati che sono stati ricollocati è uguale alla proprietà degli aggregati non root che sono stati presi in consegna perché il proprietario di casa non è cambiato. Quando nod1 entra in `waiting for giveback state`, node2 restituirà tutti gli aggregati non root node1.
 
 .Fasi
-. Completo link:relocate_non_root_aggr_node1_node2.html#step1["Fase 1"] Nella sezione _spostare nuovamente gli aggregati non root da node1 a node2_.
+. Completarelink:relocate_non_root_aggr_node1_node2.html#relocate-step1["Fase 1"] nella sezione _Spostare gli aggregati non radice dal nodo 1 al nodo 2_ di nuovo.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 
 
@@ -74,7 +74,7 @@ Node1 ha trasferito alcuni o tutti i suoi aggregati al node2. HA è attivato.
 Node1 prenderà il controllo di tutti gli aggregati del node2 e di tutti i suoi aggregati che aveva trasferito al node2. Quando noda2 entra in `Waiting for Giveback` state, node1 restituisce tutti gli aggregati del node2.
 
 .Fasi
-. Completo link:relocate_non_root_aggr_node1_node2.html#step1["Fase 1"] Nella sezione _spostare nuovamente gli aggregati non root da node1 a node2_.
+. Completarelink:relocate_non_root_aggr_node1_node2.html#relocate-step1["Fase 1"] nella sezione _Spostare gli aggregati non radice dal nodo 1 al nodo 2_ di nuovo.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 
 
@@ -123,7 +123,7 @@ Si verificherà un'interruzione del client per gli aggregati che non sono stati 
 
 .Fasi
 . Alzati il node2.
-. Spostare gli aggregati rimanenti completando link:relocate_non_root_aggr_node2_node3.html#step1["Fase 1"] attraverso link:relocate_non_root_aggr_node2_node3.html#step3["Fase 3"] Nella sezione _spostare gli aggregati non root da node2 a node3_.
+. Riposizionare gli aggregati rimanenti completandolink:relocate_non_root_aggr_node2_node3.html#verify-partner-sys-id["Fase 1"] Attraversolink:relocate_non_root_aggr_node2_node3.html#relocate-step5["Fase 5"] nella sezione _Spostare gli aggregati non radice dal nodo 2 al nodo 3_.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 
 
@@ -149,7 +149,7 @@ Node2 continua a servire gli aggregati rimanenti, ma gli aggregati che erano gi�
 
 .Fasi
 . Alzati il node3.
-. Completo link:relocate_non_root_aggr_node2_node3.html#step3["Fase 3"] Sempre nella sezione _spostare gli aggregati non root da node2 a node3_.
+. Completarelink:relocate_non_root_aggr_node2_node3.html#relocate-step5["Fase 5"] di nuovo nella sezione _Spostare gli aggregati non radice dal nodo 2 al nodo 3_.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 
 
@@ -220,6 +220,6 @@ Esiste un'interruzione per gli aggregati non root che sono stati già ricollocat
 
 .Fasi
 . Far salire il node4.
-. Riallocare gli aggregati rimanenti che appartenevano al node2 completando di nuovo link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Fase 1"] attraverso link:relocate_node2_non_root_aggr_node3_node4.html#step3["Fase 3"] In _spostare gli aggregati non root di node2 da node3 a node4_.
+. Riposizionare gli aggregati rimanenti che appartenevano al nodo 2 completando nuovamentelink:relocate_node2_non_root_aggr_node3_node4.html#man_relocate_3_4_Step1["Fase 1"] Attraversolink:relocate_node2_non_root_aggr_node3_node4.html#step3["Fase 3"] in _Sposta gli aggregati non radice del nodo2 dal nodo3 al nodo4_.
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 

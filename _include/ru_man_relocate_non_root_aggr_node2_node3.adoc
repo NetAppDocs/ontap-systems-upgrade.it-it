@@ -9,7 +9,7 @@ CAUTION: Durante questa procedura, non spostare gli aggregati da node3 a node2. 
 
 [[verify-partner-sys-id]]
 .Fasi
-. Verificare che l'ID del sistema partner sia impostato correttamente su node3 :
+. Verificare che l'ID del sistema partner sia impostato correttamente sul nodo 3:
 +
 .. Immettere il livello di privilegio avanzato:
 +
@@ -78,7 +78,7 @@ Il node3 "partner-sysid" è l'ID di sistema di node2, che è possibile trovare n
 +
 I campi "ultimo oggetto inviato:" e "ultimo invio:" contengono il titolo dell'ultimo messaggio inviato e l'ora in cui il messaggio è stato inviato.
 
-. Spostare gli aggregati non root:
+. [[relocate-step5]]Riposiziona gli aggregati non radice:
 +
 .. Impostare il livello di privilegio su Advanced (avanzato):
 +
