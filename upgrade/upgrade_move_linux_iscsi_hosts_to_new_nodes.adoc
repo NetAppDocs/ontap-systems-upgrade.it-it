@@ -493,3 +493,6 @@ sanlun lun show -p
 multipath -ll -d
 ----
 
+
+.Quali sono le prossime novità?
+link:upgrade-create-aggregate-move-volumes.html["Creare un aggregato e spostare i volumi nei nuovi nodi"]

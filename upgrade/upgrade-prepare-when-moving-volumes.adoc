@@ -49,3 +49,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migrazione a un cl
 `system node autosupport invoke -node _node_name_ -type all -message "Upgrading node_name from _platform_original_ to _platform_new_"`
 
 
+
+.Quali sono le prossime novità?
+link:upgrade-install-and-join-new-nodes-move-vols.html["Installare i nuovi nodi e unirli al cluster"]

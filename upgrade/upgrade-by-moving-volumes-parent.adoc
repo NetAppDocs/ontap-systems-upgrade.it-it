@@ -17,7 +17,7 @@ L'upgrade dell'hardware del controller tramite lo spostamento dei volumi è una 
 * link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]
 
 
-Per eseguire l'upgrade spostando i volumi, prepari i nodi originali e unisci i nuovi nodi al cluster. È possibile spostare i volumi nei nuovi nodi, configurare le LIF e disunire i nodi originali dal cluster.
+Per eseguire l'aggiornamento spostando i volumi, è necessario preparare i nodi originali e unire i nuovi nodi al cluster. Si spostano i volumi sui nuovi nodi, si configurano i LIF e si rimuovono i nodi originali dal cluster.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade-prepare-when-moving-volumes.html["Preparatevi per l'aggiornamento durante lo spostamento dei volumi"]
 [role="quick-margin-para"]
@@ -43,9 +43,9 @@ Dopo aver spostato i volumi dai nodi originali, è possibile migrare le LIF dati
 [role="quick-margin-para"]
 In base ai contenuti del cluster e all'ambiente del cluster, puoi spostare, eliminare o creare LIF SAN o ricreare LIF SAN eliminate.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:upgrade-unjoin-original-nodes-move-volumes.html["Disunire i nodi originali dal cluster"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:upgrade-remove-original-nodes.html["Rimuovere i nodi originali dal cluster"]
 [role="quick-margin-para"]
-Una volta spostati i volumi nei nuovi nodi, si disuniscono i nodi originali dal cluster. Quando si disunisce un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati.
+Dopo aver spostato i volumi nei nuovi nodi, è necessario rimuovere i nodi originali dal cluster. Quando si rimuove un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Otto"]link:upgrade-complete-move-volumes.html["Completare l'aggiornamento"]
 [role="quick-margin-para"]

@@ -64,8 +64,8 @@ entries:
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
   - title: Spostare, eliminare o creare LIFS SAN
     url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
-  - title: Disunire i nodi originali
-    url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
+  - title: Rimuovi i nodi originali
+    url: "/upgrade/upgrade-remove-original-nodes.html"
   - title: Aggiornamento completo
     url: "/upgrade/upgrade-complete-move-volumes.html"
 - title: Aggiorna AFF A250 ad AFF A400

@@ -38,7 +38,7 @@ Effettua l'aggiornamento utilizzando uno dei seguenti metodi:
 
 * link:upgrade/upgrade-decide-to-use-this-guide.html["Spostare i volumi"]
 +
-Per farlo è necessario unire i nuovi nodi, spostare i volumi e i LIF nei nuovi nodi e disunire i nodi che si desidera rimuovere dal cluster.  Se si sta aggiornando un cluster switchless a due nodi, convertirlo in un cluster switching-attached utilizzando una coppia di switch del cluster prima di aggiungere nuovi nodi.
+Per farlo è necessario unire i nuovi nodi, spostare i volumi e i LIF nei nuovi nodi e disunire i nodi che si desidera rimuovere dal cluster. Se si sta aggiornando un cluster switchless a due nodi, convertirlo in un cluster switching-attached utilizzando una coppia di switch del cluster prima di aggiungere nuovi nodi.
 
 * link:upgrade-arl/index.html["Utilizzare la rilocazione aggregata"]
 +

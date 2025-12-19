@@ -1,0 +1,143 @@
+---
+permalink: upgrade/upgrade-remove-original-nodes.html 
+sidebar: sidebar 
+keywords: volume, move, node, remove, original, cluster, configuration, disk, initialize, remove the original nodes from the cluster 
+summary: Dopo aver spostato i volumi nei nuovi nodi, è necessario rimuovere i nodi originali dal cluster. Quando si rimuove un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati. 
+---
+= Rimuovere i nodi originali dal cluster
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver spostato i volumi dai nodi originali ai nuovi nodi e aver spostato o eliminato i LIF dei dati, è possibile rimuovere i nodi originali dal cluster. Quando si rimuove un nodo, la configurazione del nodo viene cancellata e tutti i dischi vengono inizializzati.
+
+.Fasi
+. [[disable-ha]]Disabilita la configurazione ad alta disponibilità (HA) sui nodi originali:
++
+`storage failover modify -node <original_node_name> -enabled false`
+
+. Accedere al livello di privilegio avanzato:
++
+`set -privilege advanced`
+
+. Identificare il nodo che ha epsilon:
++
+`cluster show`
+
++
+Nell'esempio seguente, "node0" attualmente contiene epsilon:
+
++
+[listing]
+----
+cluster::*>
+Node                 Health  Eligibility  Epsilon
+-------------------- ------- ------------ ------------
+node0                true    true         true
+node1                true    true         false
+node2                true    true         false
+node3                true    true         false
+----
+. [[epsilon-true]]Se uno dei nodi originali contiene epsilon, sposta epsilon su un nodo che non stai rimuovendo dal cluster:
++
+.. Rimuovi epsilon dal nodo originale:
++
+`cluster modify -node <original_node_name> -epsilon false`
+
+.. Assegna epsilon a un nodo diverso:
++
+`cluster modify -node <new_node_name> -epsilon true`
+
+
+
+. Identificare il nodo master corrente:
++
+`cluster ring show`
+
++
+Il nodo master è il nodo che contiene processi come `mgmt`, `vldb`, `vifmgr`, `bcomd`, E `crs`.
+
+. Se un nodo che si sta rimuovendo è il nodo master corrente, abilitare un nodo rimanente nel cluster affinché venga eletto come nodo master:
++
+.. Rendere il nodo master corrente non idoneo a partecipare al cluster:
++
+`cluster modify -node <original_node_name> -eligibility false`
+
++
+Il nodo viene contrassegnato come non funzionante finché non viene ripristinata l'idoneità. Quando il nodo master non è più idoneo, uno dei nodi rimanenti viene eletto dal quorum del cluster come nuovo master.
+
++
+[NOTE]
+====
+Se si esegue questo passaggio sul primo nodo di una coppia HA, è necessario contrassegnare solo quel nodo come non idoneo. Non modificare lo stato del partner HA.
+
+Se il nodo partner viene selezionato come nuovo master, è necessario verificare se contiene epsilon. Se il nodo partner contiene epsilon, è necessario spostare epsilon su un nodo diverso che rimane nel cluster prima di renderlo non idoneo. Lo fai quando ripeti questi passaggi per rimuovere il nodo partner.
+
+====
+.. Rendere nuovamente idoneo il nodo master precedente a partecipare al cluster:
++
+`cluster modify -node <node_name> -eligibility true`
+
+
+
+. Accedere al LIF di gestione del nodo remoto o al LIF di gestione del cluster su un nodo rimasto nel cluster e rimuovere ciascun nodo originale dal cluster (livello di privilegio avanzato):
++
+Con nome nodo:
+
++
+[source, cli]
+----
+cluster remove-node -node <original_node_name>
+----
++
+Con IP del nodo:
+
++
+[source, cli]
+----
+cluster remove-node -cluster_ip <original_node_ip>
+----
++
+Se si dispone di un cluster di versione mista e si sta rimuovendo l'ultimo nodo di versione inferiore, utilizzare `-skip-last-low-version-node-check` parametro con questi comandi.
+
++
+Il sistema ti informa di quanto segue:
+
++
+** È inoltre necessario rimuovere dal cluster il partner di failover del nodo.
+** Dopo aver rimosso il nodo e prima che possa essere ricollegato a un cluster, è necessario utilizzare l'opzione del menu di avvio *(4) Pulisci configurazione e inizializza tutti i dischi* o l'opzione *(9) Configura partizionamento unità avanzato* per cancellare la configurazione del nodo e inizializzare tutti i dischi.
++
+Se si verificano delle condizioni che è necessario risolvere prima di rimuovere il nodo, viene generato un messaggio di errore. Ad esempio, il messaggio potrebbe indicare che il nodo ha risorse condivise che è necessario rimuovere o che il nodo si trova in una configurazione HA del cluster o in una configurazione di failover dell'archiviazione che è necessario disabilitare.
+
++
+Se il nodo è il quorum master, il cluster perde brevemente e poi torna al quorum. Questa perdita del quorum è temporanea e non influisce sulle operazioni sui dati.
+
+
+
+. Se un messaggio di errore indica condizioni di errore, risolvere tali condizioni e rieseguire l'operazione `cluster remove-node` O `cluster unjoin` comando.
++
+Dopo che un nodo è stato rimosso correttamente dal cluster, si riavvia automaticamente.
+
+. Se si sta riutilizzando il nodo, cancellare la configurazione del nodo e inizializzare tutti i dischi:
++
+.. Durante il processo di avvio, premere Ctrl-C per visualizzare il menu di avvio quando richiesto.
+.. Selezionare l'opzione del menu di avvio *(4) Pulisci la configurazione e inizializza tutti i dischi*.
+
+
+. [[return-admin]]Ritorna al livello di privilegio di amministratore su uno dei nuovi nodi nel cluster:
++
+[source, cli]
+----
+set -privilege admin
+----
+. Ripeti i passaggi <<disable-ha,1>> A <<return-admin,10>> per rimuovere il partner di failover dal cluster.
+. Se il cluster ha solo due nodi rimanenti, configurare la disponibilità elevata per il cluster a due nodi:
++
+`cluster ha modify -configured true`
+
+
+
+.Quali sono le prossime novità?
+link:upgrade-complete-move-volumes.html["Completa l'aggiornamento dei volumi di spostamento"]

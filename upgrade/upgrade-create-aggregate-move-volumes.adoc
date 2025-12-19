@@ -112,3 +112,6 @@ Il completamento dell'operazione di spostamento del volume può interrompere l'a
 `volume show -vserver _svm_name_`
 
 
+
+.Quali sono le prossime novità?
+link:upgrade-move-lifs-to-new-nodes.html["Spostamento delle LIF dati non SAN e delle LIF di gestione cluster nei nuovi nodi"]
