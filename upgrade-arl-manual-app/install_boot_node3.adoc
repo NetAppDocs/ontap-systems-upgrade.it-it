@@ -36,7 +36,7 @@ Se node1 e node2 si trovano in uno chassis separato, è possibile inserire node3
 . [[fase 2]]installare il nodo 3 nel rack seguendo le _istruzioni di installazione e configurazione_ relative al modello di nodo in uso.
 +
 
-NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso chassis, installare node4 nello chassis e node3. In caso contrario, quando si avvia node3, il nodo si comporta come se fosse in una configurazione a doppio chassis e quando si avvia node4, l'interconnessione tra i nodi non si verificherà.
+NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso chassis, installare node4 e node3 nello chassis. Se non si installano entrambi i nodi nello stesso chassis, quando si avvia node3, questo si comporta come se fosse in una configurazione a doppio chassis, mentre quando si avvia node4, l'interconnessione tra i nodi non si attiva.
 
 . [[step3]]cavo node3, spostamento delle connessioni da node1 a node3.
 +

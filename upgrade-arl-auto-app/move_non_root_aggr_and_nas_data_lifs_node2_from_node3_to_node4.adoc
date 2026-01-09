@@ -14,10 +14,12 @@ summary: 'Verificare che le LIF dei dati NAS di node2 che si trovano sul node3 v
 
 
 [role="lead"]
-Dopo aver verificato la configurazione di rete sul nodo 4 e prima di spostare gli aggregati dal nodo 3 al nodo 4, è necessario verificare che i dati NAS LIF appartenenti al nodo 2 che sono attualmente sul nodo 3 vengano ricollocati dal nodo 3 al nodo 4. È inoltre necessario verificare che le LIF SAN esistano sul node4.
+Dopo aver verificato la configurazione di rete sul nodo 4, è necessario spostare i LIF dei dati NAS di proprietà del nodo 2 dal nodo 3 al nodo 4 e confermare che i LIF SAN siano presenti sul nodo 4.
 
 .A proposito di questa attività
-Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 4 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
+I LIF remoti gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento dei SAN LIF non è necessario per l'integrità del cluster o del servizio durante l'aggiornamento. I LIF SAN non vengono spostati a meno che non sia necessario mapparli su nuove porte.
+
+Dopo aver portato online node4, è necessario verificare che i LIF siano integri e posizionati sulle porte corrette.
 
 
 NOTE: Se si modifica la velocità delle porte delle schede di interfaccia di rete Ethernet basate su T6 o delle porte della scheda madre, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug online di NetApp ID 1570339"^] e l'articolo della knowledge base https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE"^] come guida.
@@ -25,8 +27,10 @@ NOTE: Se si modifica la velocità delle porte delle schede di interfaccia di ret
 .Fasi
 . Riprendere l'operazione di trasferimento:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Il sistema esegue le seguenti operazioni:
 
@@ -39,12 +43,14 @@ Il sistema esegue le seguenti operazioni:
 
 
 +
-L'operazione viene interrotta in questa fase del controllo della raggiungibilità della rete.
+In questa fase del controllo di raggiungibilità della rete, il sistema sospende l'operazione.
 
 . Riprendere l'operazione di trasferimento:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Il sistema esegue i seguenti controlli:
 
@@ -58,25 +64,58 @@ Dopo aver eseguito questi controlli, il sistema ricolloca gli aggregati non root
 
 . Controllare lo stato delle operazioni di trasferimento aggregato e LIF dei dati NAS:
 +
-`system controller replace show-details`
-
+[source, cli]
+----
+system controller replace show-details
+----
 +
 Se la procedura di sostituzione del controller è in pausa, controllare e correggere l'errore, se presente, quindi il problema `resume` per continuare l'operazione.
 
-. Se necessario, ripristinare e ripristinare eventuali LIF spostate. Elencare eventuali LIF spostate:
+. Se necessario, ripristinare e ripristinare i LIF spostati oppure migrare e modificare manualmente i LIF del nodo 2 che non sono riusciti a trasferirsi automaticamente nel nodo 4.
 +
-`cluster controller-replacement network displaced-interface show`
-
+[role="tabbed-block"]
+====
+.Ripristinare e ripristinare i LIF spostati
+--
+.. Elencare eventuali LIF spostati:
 +
-Se i file LIF vengono spostati, ripristinare il nodo home al nodo node4:
-
+[source, cli]
+----
+cluster controller-replacement network displaced-interface show
+----
+.. Se i file LIF vengono spostati, ripristinare il nodo home al nodo node4:
 +
-`cluster controller-replacement network displaced-interface restore-home-node`
+[source, cli]
+----
+cluster controller-replacement network displaced-interface restore-home-node -node <node4_nodename> -vserver <vserver name> -lif-name <lif_name>
+----
 
+
+--
+.Migrare e modificare manualmente i LIF
+--
+.. Migrare i LIF che non sono riusciti a trasferirsi automaticamente al nodo 4:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver name> -lif <lif_name> -destination-node <node4_nodename> -destination-port <port_on_node4>
+----
+.. Modificare il nodo home e la porta home per i LIF migrati:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <data_lif_name> -home-node <node4_nodename> -home-port <home_port>
+----
+
+
+--
+====
 . Riprendere l'operazione per richiedere al sistema di eseguire i controlli successivi richiesti:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Il sistema esegue i seguenti post-controlli:
 

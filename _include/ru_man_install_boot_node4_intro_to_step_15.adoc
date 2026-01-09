@@ -5,9 +5,9 @@
 È necessario installare node4 nel rack, trasferire node2 connessioni al node4 e fare il boot node4. È inoltre necessario riassegnare eventuali spare node2, dischi appartenenti a root e aggregati non root che non sono stati riallocati in precedenza in node3.
 
 .A proposito di questa attività
-È necessario eseguire l'avvio di rete del nodo 4 se non dispone della stessa versione di ONTAP 9 installata sul nodo 2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul supporto di avvio per i successivi avvii del sistema seguendo le istruzioni in link:prepare_for_netboot.html["Preparatevi per il netboot"] .
+È necessario eseguire l'avvio di rete del nodo 4 se la versione ONTAP sul nodo 4 è diversa dalla versione ONTAP sul nodo 2. Dopo aver installato node4, avviarlo dall'immagine ONTAP 9 memorizzata sul server web. È quindi possibile scaricare i file corretti sul dispositivo di supporto di avvio per i successivi avvii del sistema seguendo le istruzioni in link:prepare_for_netboot.html["Preparatevi per il netboot"]
 
-Tuttavia, non è necessario eseguire l'avvio di rete del nodo 4 se è installata la stessa versione o una versione successiva di ONTAP 9 sul nodo 2.
+Tuttavia, non è necessario eseguire l'avvio di rete del nodo 4 se la versione ONTAP sul nodo 4 è uguale o successiva alla versione ONTAP sul nodo 2.
 
 [IMPORTANT]
 ====

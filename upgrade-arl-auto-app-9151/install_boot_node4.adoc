@@ -19,7 +19,7 @@ Si installa node4 nel rack, si trasferiscono le connessioni node2 a node4, si av
 .A proposito di questa attività
 L'operazione di trasferimento viene messa in pausa all'inizio di questa fase. Questo processo è per lo più automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione.
 
-È necessario eseguire il netboot node4 se non dispone della stessa versione di ONTAP 9 installata sul node2. Dopo aver installato node4, avviarlo dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avviamenti del sistema, seguendo le istruzioni riportate in link:prepare_for_netboot.html["Preparatevi per il netboot"].
+È necessario eseguire l'avvio di rete del nodo 4 se la versione ONTAP sul nodo 4 è diversa dalla versione ONTAP sul nodo 2. Dopo aver installato node4, avviarlo dall'immagine ONTAP 9 memorizzata sul server web. È quindi possibile scaricare i file corretti sul dispositivo di supporto di avvio per i successivi avvii del sistema seguendo le istruzioni in link:prepare_for_netboot.html["Preparatevi per il netboot"].
 
 .Fasi
 . [[auto_install4_step1]]assicurarsi che node4 disponga di spazio rack sufficiente.
