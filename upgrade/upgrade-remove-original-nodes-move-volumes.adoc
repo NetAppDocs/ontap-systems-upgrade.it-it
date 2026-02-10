@@ -16,16 +16,24 @@ Dopo aver spostato i volumi dai nodi originali ai nuovi nodi e aver spostato o e
 .Fasi
 . [[disable-ha]]Disabilita la configurazione ad alta disponibilità (HA) sui nodi originali:
 +
-`storage failover modify -node <original_node_name> -enabled false`
+[source, cli]
+----
+storage failover modify -node <original_node_name> -enabled false
+----
 
-. Accedere al livello di privilegio avanzato:
+
+. Cambia il livello di privilegio su avanzato:
 +
-`set -privilege advanced`
-
-. Identificare il nodo che ha epsilon:
+[source, cli]
+----
+set -privilege advanced
+----
+. Identifica il nodo nel cluster che ha epsilon:
 +
-`cluster show`
-
+[source, cli]
+----
+cluster show
+----
 +
 Nell'esempio seguente, "node0" attualmente contiene epsilon:
 
@@ -40,65 +48,90 @@ node1                true    true         false
 node2                true    true         false
 node3                true    true         false
 ----
-. [[epsilon-true]]Se uno dei nodi originali contiene epsilon, sposta epsilon su un nodo che non stai rimuovendo dal cluster:
+. [[epsilon-true]]Se il nodo che stai rimuovendo detiene epsilon:
 +
-.. Rimuovi epsilon dal nodo originale:
+.. Sposta epsilon dal nodo che stai rimuovendo:
 +
-`cluster modify -node <original_node_name> -epsilon false`
-
-.. Assegna epsilon a un nodo diverso:
+[source, cli]
+----
+cluster modify -node <name_of_node_to_be_removed> -epsilon false
+----
+.. Sposta epsilon su un nodo che non stai rimuovendo:
 +
-`cluster modify -node <new_node_name> -epsilon true`
-
+[source, cli]
+----
+cluster modify -node <node_name> -epsilon true
+----
 
 
 . Identificare il nodo master corrente:
 +
-`cluster ring show`
-
+[source, cli]
+----
+cluster ring show
+----
 +
 Il nodo master è il nodo che contiene processi come `mgmt`, `vldb`, `vifmgr`, `bcomd`, E `crs`.
 
-. Se un nodo che si sta rimuovendo è il nodo master corrente, abilitare un nodo rimanente nel cluster affinché venga eletto come nodo master:
+. Se il nodo che stai rimuovendo è il nodo master corrente, abilita un altro nodo nel cluster affinché venga eletto come nodo master:
 +
 .. Rendere il nodo master corrente non idoneo a partecipare al cluster:
 +
-`cluster modify -node <original_node_name> -eligibility false`
-
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility false
+----
 +
-Il nodo viene contrassegnato come non funzionante finché non viene ripristinata l'idoneità. Quando il nodo master non è più idoneo, uno dei nodi rimanenti viene eletto dal quorum del cluster come nuovo master.
+Il nodo viene contrassegnato come non funzionante finché non ne viene ripristinata l'idoneità. Quando il nodo master diventa non idoneo, uno dei nodi rimanenti viene eletto dal quorum del cluster come nuovo master.
 
 +
 [NOTE]
 ====
 Se si esegue questo passaggio sul primo nodo di una coppia HA, è necessario contrassegnare solo quel nodo come non idoneo. Non modificare lo stato del partner HA.
 
-Se il nodo partner viene selezionato come nuovo master, è necessario verificare se contiene epsilon. Se il nodo partner contiene epsilon, è necessario spostare epsilon su un nodo diverso che rimane nel cluster prima di renderlo non idoneo. Lo fai quando ripeti questi passaggi per rimuovere il nodo partner.
+Se il nodo partner viene selezionato come nuovo master, è necessario verificare se detiene epsilon prima di renderlo non idoneo. Se il nodo partner detiene epsilon, è necessario spostare epsilon su un nodo diverso che rimane nel cluster prima di renderlo non idoneo. Si esegue questa operazione quando si ripetono questi passaggi per rimuovere il nodo partner.
 
 ====
 .. Rendere nuovamente idoneo il nodo master precedente a partecipare al cluster:
 +
-`cluster modify -node <node_name> -eligibility true`
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility true
+----
 
 
-
-. Accedere al LIF di gestione del nodo remoto o al LIF di gestione del cluster su un nodo rimasto nel cluster e rimuovere ciascun nodo originale dal cluster (livello di privilegio avanzato):
+. Accedere al LIF di gestione del nodo remoto o al LIF di gestione del cluster su un nodo che non si sta rimuovendo dal cluster.
+. Rimuovi i nodi dal cluster:
 +
+|===
+| Per questa versione di ONTAP... | Utilizzare questo comando... 
+
+
+ a| 
+ONTAP 9.3
+ a| 
+[source, cli]
+----
+cluster unjoin
+----
+
+
+ a| 
+ONTAP 9.4 e versioni successive
+ a| 
 Con nome nodo:
 
-+
 [source, cli]
 ----
-cluster remove-node -node <original_node_name>
+cluster remove-node -node <node_name>
 ----
-+
 Con IP del nodo:
 
-+
 [source, cli]
 ----
-cluster remove-node -cluster_ip <original_node_ip>
+cluster remove-node -cluster_ip <node_ip>
 ----
+|===
 +
 Se si dispone di un cluster di versione mista e si sta rimuovendo l'ultimo nodo di versione inferiore, utilizzare `-skip-last-low-version-node-check` parametro con questi comandi.
 
@@ -112,13 +145,13 @@ Il sistema ti informa di quanto segue:
 Se si verificano delle condizioni che è necessario risolvere prima di rimuovere il nodo, viene generato un messaggio di errore. Ad esempio, il messaggio potrebbe indicare che il nodo ha risorse condivise che è necessario rimuovere o che il nodo si trova in una configurazione HA del cluster o in una configurazione di failover dell'archiviazione che è necessario disabilitare.
 
 +
-Se il nodo è il quorum master, il cluster perde brevemente e poi torna al quorum. Questa perdita del quorum è temporanea e non influisce sulle operazioni sui dati.
+Se il nodo è il quorum master, il cluster perderà brevemente il quorum e poi lo ripristinerà. Questa perdita del quorum è temporanea e non influisce su alcuna operazione sui dati.
 
 
 
 . Se un messaggio di errore indica condizioni di errore, risolvere tali condizioni e rieseguire l'operazione `cluster remove-node` O `cluster unjoin` comando.
 +
-Dopo che un nodo è stato rimosso correttamente dal cluster, si riavvia automaticamente.
+Il nodo si riavvia automaticamente dopo essere stato rimosso correttamente dal cluster.
 
 . Se si sta riutilizzando il nodo, cancellare la configurazione del nodo e inizializzare tutti i dischi:
 +
@@ -126,17 +159,21 @@ Dopo che un nodo è stato rimosso correttamente dal cluster, si riavvia automati
 .. Selezionare l'opzione del menu di avvio *(4) Pulisci la configurazione e inizializza tutti i dischi*.
 
 
-. [[return-admin]]Ritorna al livello di privilegio di amministratore su uno dei nuovi nodi nel cluster:
+. [[return-admin]]Torna al livello di privilegio admin:
 +
 [source, cli]
 ----
 set -privilege admin
 ----
+
+
 . Ripeti i passaggi <<disable-ha,1>> A <<return-admin,10>> per rimuovere il partner di failover dal cluster.
 . Se il cluster ha solo due nodi rimanenti, configurare la disponibilità elevata per il cluster a due nodi:
 +
-`cluster ha modify -configured true`
-
+[source, cli]
+----
+cluster ha modify -configured true
+----
 
 
 .Quali sono le prossime novità?

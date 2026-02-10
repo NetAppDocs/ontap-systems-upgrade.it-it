@@ -27,10 +27,10 @@ Per selezionare la procedura di aggiornamento appropriata, rivedere tutte le dom
 | Chiediti… | Se la tua risposta è sì, puoi fare questo... 
 
 
-| Sto utilizzando una versione software diversa sui nodi originali e su quelli nuovi? | Aggiornare la versione ONTAP sui nodi originali alla versione più elevata supportata.  Se possibile, i nuovi nodi devono supportare la versione ONTAP in esecuzione sui nodi originali.  Se ciò non è possibile,link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aggiornare la versione ONTAP"^] sui nodi originali alla versione più elevata supportata.  La differenza di versione tra i nodi originali e quelli nuovi non può essere maggiore di quattro.  Ad esempio, sono supportati ONTAP 9.8 e 9.12.1; tuttavia, ONTAP 9.8 e 9.13.1 non sono supportati. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Scopri di più sui cluster ONTAP con versioni miste"^]. 
+| Sto utilizzando una versione software diversa sui nodi originali e su quelli nuovi? | Aggiornare la versione di ONTAP sui nodi originali alla versione più recente supportata. Quando possibile, i nuovi nodi devono supportare la versione di ONTAP in esecuzione sui nodi originali. Se ciò non è possibile, link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aggiornare la versione ONTAP"^] sui nodi originali alla versione più recente supportata. Non è possibile avere una differenza di versione superiore a quattro tra i nodi originali e quelli nuovi. Ad esempio, ONTAP 9.8 e 9.12.1 sono supportati; tuttavia, ONTAP 9.8 e 9.13.1 non sono supportati. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Scopri di più sui cluster ONTAP con versioni miste"^]. 
 
 
-| Voglio effettuare un aggiornamento dirompente? | link:upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando lo storage"]. Ciò richiede un nuovo sistema dotato di un proprio spazio di archiviazione e di ripiani in cui archiviare i dati del sistema originale.  Per alcuni aggiornamenti è possibile la conversione da un ripiano per controller. 
+| Voglio effettuare un aggiornamento dirompente? | link:upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando lo storage"]. Ciò richiede un nuovo sistema con un proprio storage e ripiani per archiviare i dati del sistema originale. È possibile convertire un ripiano del controller per determinati aggiornamenti. 
 
 
 | Voglio eseguire un aggiornamento non distruttivo?  a| 
@@ -44,11 +44,15 @@ Per farlo è necessario unire i nuovi nodi, spostare i volumi e i LIF nei nuovi 
 +
 L'ARL è una procedura sostitutiva.  Non è necessario espandere e ridurre il cluster con i nuovi nodi, il che è vantaggioso per i cluster switchless a due nodi.  Spostare i dati riposizionando gli aggregati è più veloce che copiare i dati tra gli aggregati quando si spostano i volumi.
 
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Sposta storage"]
++
+È possibile effettuare l'aggiornamento senza interruzioni da un AFF A250 a un AFF A400 o da un FAS2820 a un sistema sostitutivo convertendo i nodi originali in ripiani unità, quindi collegando i ripiani unità ai nodi sostitutivi per spostare l'archiviazione integrata.
 
 
 
 
-| Ho un sistema modulare?  *Nota*: in un sistema modulare, il controller non ha dischi interni e tutto lo spazio di archiviazione è in ripiani collegati esternamente. | link:upgrade-arl/index.html["Aggiornamento mediante trasferimento degli aggregati"]. 
+
+| Ho un sistema modulare? *Nota*: in un sistema modulare, il controller non ha dischi interni; tutto lo storage è in shelf collegati esternamente. | link:upgrade-arl/index.html["Aggiornamento mediante trasferimento degli aggregati"]. 
 
 
 | Ho un sistema integrato e voglio aggiornarlo spostando i volumi?  *Nota*: in un sistema integrato, il controller ha dischi interni e la memoria è contenuta nello chassis del controller e in ripiani fissati esternamente.  I ripiani esterni servono per ampliare lo spazio di archiviazione e potrebbero non essere inclusi in tutte le configurazioni del sistema.  a| 
@@ -73,7 +77,7 @@ L'ARL è una procedura sostitutiva.  Non è necessario espandere e ridurre il cl
 
 == Esempio: aggiornamento da FAS9500 a FAS90
 
-Questo esempio mostra le possibili risposte per un aggiornamento del controller FAS9500 a FAS90.
+Questo esempio fornisce possibili risposte per un aggiornamento del controller FAS9500 a FAS90.
 
 [cols="30,70"]
 |===

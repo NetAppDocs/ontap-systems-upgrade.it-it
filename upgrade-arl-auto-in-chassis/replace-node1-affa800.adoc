@@ -32,11 +32,11 @@ Rimuovere il dispositivo di gestione dei cavi dal modulo esistente e spostare le
 . Preparazione per la rimozione del modulo controller:
 +
 .. Sulla parte anteriore del telaio, utilizzare i pollici per spingere con decisione ogni unità negli alloggiamenti superiore e inferiore finché non si avverte un arresto sicuro.  In questo modo si garantisce che le unità siano saldamente fissate al piano intermedio del telaio.
-+
+
+
+
+
 image:drw_a800_drive_seated_IEOPS-960.png["Spingere l'unità per posizionarla saldamente contro la superficie interna del telaio"]
-
-.. Andare sul retro del telaio.
-
 
 . Scollegare gli alimentatori del modulo controller node1 dalla fonte di alimentazione.
 . Rilasciare i fermi dei cavi di alimentazione, quindi scollegare i cavi dagli alimentatori.
@@ -68,11 +68,7 @@ image:black_circle_two.png["Numero due"]
 |===
 
 
-
-
-== Installare il modulo controller AFF A90, AFF A70 o AFF C80
-
-Installare, collegare e collegare il modulo controller AFF A90, AFF A70 o AFF C80 in node1.
+Installare il modulo controller AFF A90, AFF A70 o AFF C80. Installare, cablare e collegare il modulo controller AFF A90, AFF A70 o AFF C80 in node1.
 
 .Fasi
 . Allineare l'estremità del modulo controller con l'apertura dello chassis, quindi spingere delicatamente il modulo controller a metà nel sistema.
