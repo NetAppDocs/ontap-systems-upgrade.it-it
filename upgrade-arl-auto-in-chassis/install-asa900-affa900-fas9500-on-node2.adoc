@@ -16,19 +16,20 @@ summary: Installare i moduli di sistema sostitutivi sul nodo 2 durante un aggior
 [role="lead"]
 Installare la NVRAM ASA A900, AFF A900 o FAS9500 e i moduli controller ricevuti per l'aggiornamento su node2. Il nodo 2 è il controller B situato sul lato destro dello chassis guardando i controller dal retro del sistema.
 
-Quando si esegue l'installazione, tenere presente quanto segue:
-
+[NOTE]
+====
 * Spostare tutti i moduli di riempimento vuoti negli slot 6-1 e 6-2 dal vecchio modulo NVRAM al nuovo modulo NVRAM.
 * NON spostare il dispositivo di scarico dal modulo NVRAM AFF A700 al modulo NVRAM ASA A900 o AFF A900.
 * Spostare tutti i moduli flash cache installati nel modulo NVRAM FAS9000 nel modulo NVRAM FAS9500.
 
 
+====
 .Prima di iniziare
 Se non si è già collegati a terra, mettere a terra correttamente.
 
 
 
-== Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500
+== Passaggio 1: installa il modulo NVRAM ASA A900, AFF A900 o FAS9500
 
 Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500 nello slot 6 di node2.
 
@@ -39,7 +40,7 @@ Installare il modulo NVRAM ASA A900, AFF A900 o FAS9500 nello slot 6 di node2.
 
 
 
-== Installare il modulo controller ASA A900, AFF A900 o FAS9500 in node2
+== Passaggio 2: installare il modulo controller ASA A900, AFF A900 o FAS9500
 
 Installare, collegare e collegare il modulo controller ASA A900, AFF A900 o FAS9500 in node2.
 
@@ -70,10 +71,14 @@ WARNING: Per evitare di danneggiare i connettori, non esercitare una forza ecces
 . Dopo aver interrotto L'AUTOBOOT, node2 si ferma al prompt DEL CARICATORE. Se non INTERROMPETE L'AUTOBOOT in tempo e node2 inizia l'avvio, attendete il prompt e premete Ctrl-C per entrare nel menu di avvio. Dopo che il nodo si è fermato al menu di avvio, utilizzare opzione `8` per riavviare il nodo e interrompere l'AUTOBOOT durante il riavvio.
 . Al prompt LOADER> di node2, impostare le variabili di ambiente predefinite:
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . Salvare le impostazioni predefinite delle variabili di ambiente:
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 
