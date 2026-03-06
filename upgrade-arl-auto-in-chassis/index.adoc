@@ -14,7 +14,7 @@ summary: 'È possibile aggiornare l"hardware del controller convertendo un vecch
 
 
 [role="lead"]
-Esistono diversi metodi di rilocazione aggregata (ARL) per aggiornare l'hardware del controller. Questa procedura descrive come aggiornare i controller di storage in una coppia HA convertendo il sistema esistente nel sistema sostitutivo, mantenendo lo chassis e i dischi del sistema esistenti.
+Esistono diversi metodi di rilocazione aggregata (ARL) per aggiornare l'hardware del controller. Questa procedura descrive come aggiornare i controller di storage in una coppia HA convertendo il sistema esistente nel sistema sostitutivo, mantenendo lo chassis, i dischi esistenti e i dati memorizzati sui dischi.
 
 ARL sfrutta la configurazione ha e la comunicazione di interconnessione del cluster. In questo modo, è possibile spostare la proprietà di aggregati non root da un nodo a un altro, se condividono lo storage all'interno dello stesso cluster.
 
@@ -39,18 +39,18 @@ L'hardware del controller che si sostituisce dipende dal tipo di modello di sist
 | AFF A700 o FAS9000 | Scambiare il controller e i moduli NVRAM su ciascun nodo del vecchio controller con i nuovi moduli. *Nota*: Non è necessario spostare, scollegare o ricollegare le schede i/o, i cavi dati, gli shelf di dischi e i dischi. 
 |===
 
-NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi dei nodi in questo documento. Quando si segue la procedura, è necessario sostituire i nomi effettivi dei nodi.
+NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi dei nodi in questo documento. Quando si segue la procedura, è necessario utilizzare i nomi effettivi dei propri nodi.
 
 
 
 == Requisiti e limitazioni
 
-Prima di iniziare la procedura di aggiornamento, è necessario considerare fattori importanti.
+È necessario considerare fattori importanti prima di iniziare l'aggiornamento.
 
 
-NOTE: Prima di avviare la procedura di aggiornamento, è necessario leggere attentamente tutte le seguenti informazioni importanti.
+NOTE: È necessario esaminare tutte le seguenti informazioni importanti.
 
-* Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. Dovresti anche leggere e comprendere il link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller"] E link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
+* Questa procedura è complessa e presuppone che tu abbia competenze avanzate di amministrazione ONTAP. Dovresti leggere e comprendere le link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller"] e link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato in un altro sistema. I passaggi necessari per preparare i controller usati con `wipeconfig` i comandi non sono inclusi in questa procedura. È necessario contattare il supporto tecnico se l'hardware del controller sostitutivo è stato utilizzato in precedenza come parte di un altro cluster ONTAP o come sistema standalone a nodo singolo.
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia ha nel cluster.
 * Se si dispone di uno switch non supportato dalla versione di ONTAP e dal sistema sostitutivo a cui si sta eseguendo l'aggiornamento, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
@@ -72,7 +72,7 @@ Se non puoi collegare e0a o e0b porte cluster sul nodo esistente alle porte clus
 
 
 * I sistemi ASA A900, AFF A900 e FAS9500 supportano solo l'alimentazione di linea alta (da 200V a 240V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l'alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.
-* Se si esegue l'aggiornamento da un sistema esistente con tempi di inattività inclusi nellink:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["matrice dei sistemi supportati"] , è possibile aggiornare l'hardware del controller spostando lo storage o contattando l'assistenza tecnica.  Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi a _Aggiorna spostando volumi o storage_.
+* Se si esegue l'aggiornamento da un sistema esistente con tempi di inattività inclusi nel link:decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["matrice dei sistemi supportati"], è possibile aggiornare l'hardware del controller spostando lo storage o contattando il supporto tecnico. Fare riferimento a link:other_references.html["Riferimenti"] per il collegamento a _Aggiornamento tramite spostamento di volumi o storage_.
 
 
 

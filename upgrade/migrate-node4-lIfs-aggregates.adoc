@@ -1,22 +1,21 @@
 ---
-permalink: upgrade/migrate-fas2820-node4-lIfs-aggregates.html 
+permalink: upgrade/migrate-node4-lifs-aggregates.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
-summary: 'Per completare l"aggiornamento, collegare FAS2820node3 a node4, quindi migrare le interfacce logiche dati (LIF) e gli aggregati dati da node4 a node3.' 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
+summary: 'Per completare l"aggiornamento, collegare node3 a node4 e quindi migrare le interfacce logiche dati (LIF) e gli aggregati dati su node4 a node3.' 
 ---
-= Migrare LIF e aggregati di dati dal nodo 4 al nodo 3 FAS2820
+= Migrazione di LIF e aggregati di dati dal nodo 4 al node3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Per completare l'aggiornamento, collegare il nodo 3 FAS2820 al nodo 4, quindi migrare le interfacce logiche dati (LIF) e gli aggregati dati dal nodo 4 al nodo 3.
-
-.A proposito di questa attività
-Eseguire i seguenti passaggi sul nodo 3.
+Per completare l'aggiornamento, collegare node3 a node4 e quindi migrare le interfacce logiche dati (LIF) e gli aggregati dati su node4 a node3.
 
 .Fasi
+Eseguire questi passaggi su node3.
+
 . Al prompt DEL CARICATORE per node3, avviare il nodo nel menu di boot:
 +
 [source, cli]

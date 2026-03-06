@@ -1,22 +1,22 @@
 ---
-permalink: upgrade/migrate-fas2820-node2-lifs-aggregates.html 
+permalink: upgrade/migrate-node2-lifs-aggregates.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
-summary: 'Migrare le interfacce logiche (LIF) e gli aggregati di dati sul nodo 2 FAS2820 al nodo 1 prima di convertire il nodo 2 in uno scaffale di unità.' 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
+summary: 'Migra le interfacce logiche (LIF) e gli aggregati di dati su node2 verso node1 prima di convertire node2 in uno shelf di dischi.' 
 ---
-= Migrare LIF e aggregati di dati dal nodo 2 al nodo 1 FAS2820
+= Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Migrare le interfacce logiche (LIF) e gli aggregati di dati sul nodo 2 FAS2820 al nodo 1 prima di convertire il nodo 2 in uno scaffale di unità.
+Migra le interfacce logiche (LIF) e gli aggregati di dati su node2 verso node1 prima di convertire node2 in uno shelf di dischi.
 
 .Prima di iniziare
 Verificare di soddisfare i seguenti requisiti:
 
-* Quando possibile, i controller FAS2820 e sostitutivi hanno la stessa versione di rilascio e patch ONTAP .  Fare riferimento al https://hwu.netapp.com["NetApp Hardware Universe"^] per le versioni ONTAP supportate.
+* I controller originali e sostitutivi hanno la stessa versione e patch di ONTAP, quando possibile. Fare riferimento a https://hwu.netapp.com["NetApp Hardware Universe"^] per le versioni di ONTAP supportate.
 
 
 [NOTE]
@@ -31,10 +31,9 @@ Verificare di soddisfare i seguenti requisiti:
 * Sono disponibili tutti i cavi necessari.
 
 
-.A proposito di questa attività
-I seguenti passaggi vengono eseguiti sul nodo 1 di FAS2820 .
-
 .Fasi
+Eseguire questi passaggi su node1.
+
 . Accedere al livello di privilegio avanzato:
 +
 [source, cli]
@@ -144,4 +143,4 @@ halt -node <node2> -inhibit-takeover true -ignore-quorum-warnings true
 
 
 .Quali sono le prossime novità?
-link:convert-fas2820-node2-drive-shelf.html["Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4"]
+link:convert-node2-to-drive-shelf.html["Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4"]

@@ -14,7 +14,7 @@ summary: 'Decidi se utilizzare ARL per aggiornare i controller che eseguono ONTA
 
 
 [role="lead"]
-Esistono diversi metodi di rilocazione aggregata (ARL) per l'aggiornamento dell'hardware dei controller. Questa procedura ARL descrive come aggiornare una coppia di controller HA nei sistemi di storage AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive con nuovi controller, mantenendo i dati e i dischi esistenti. Si tratta di una procedura complessa che dovrebbe essere utilizzata solo da amministratori ONTAP esperti.
+Esistono diversi metodi di rilocazione aggregata (ARL) per l'aggiornamento dell'hardware del controller. Questa procedura ARL descrive come aggiornare una coppia HA di controller nei sistemi di storage AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive con nuovi controller, mantenendo i dischi e i dati archiviati esistenti. Si tratta di una procedura complessa che dovrebbe essere utilizzata solo da amministratori ONTAP esperti.
 
 Per aiutarti a decidere se questa procedura ARL è adatta all'aggiornamento hardware del tuo controller, dovresti esaminare tutte le seguenti circostanze per gli aggiornamenti supportati e non supportati.
 

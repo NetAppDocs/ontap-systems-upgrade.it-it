@@ -25,7 +25,7 @@ CAUTION: Non spegnere lo chassis perché node1 e node2 si trovano nello stesso c
 
 == Passaggio 1: rimuovere il modulo controller AFF A250 o AFF C250
 
-Per rimuovere il modulo controller node1, rimuovere il dispositivo di gestione dei cavi e sbloccare i fermi di bloccaggio. Quindi rimuovere il modulo controller dallo chassis.
+Per rimuovere il modulo controller node1, rimuovere il dispositivo di gestione dei cavi e sbloccare i fermi di bloccaggio. Quindi, rimuovere il modulo controller dallo chassis.
 
 .Prima di iniziare
 Se non si è già collegati a terra, mettere a terra correttamente.
@@ -77,7 +77,7 @@ Assicurarsi di sostenere il peso del modulo controller mentre lo si estrae dallo
 
 
 
-== Installare il modulo controller AFF A30, AFF A50, AFF C30 o AFF C60
+== Fase 2: installare il modulo controller AFF A30, AFF A50, AFF C30 o AFF C60
 
 Installare, cablare e collegare il modulo sostitutivo in node1.
 

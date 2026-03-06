@@ -20,8 +20,6 @@ Dopo aver spostato i volumi dai nodi originali ai nuovi nodi e aver spostato o e
 ----
 storage failover modify -node <original_node_name> -enabled false
 ----
-
-
 . Cambia il livello di privilegio su avanzato:
 +
 [source, cli]
@@ -167,7 +165,7 @@ set -privilege admin
 ----
 
 
-. Ripeti i passaggi <<disable-ha,1>> A <<return-admin,10>> per rimuovere il partner di failover dal cluster.
+. Ripetere i passaggi <<disable-ha,2>> a <<return-admin,11>> per rimuovere il partner di failover dal cluster.
 . Se il cluster ha solo due nodi rimanenti, configurare la disponibilità elevata per il cluster a due nodi:
 +
 [source, cli]

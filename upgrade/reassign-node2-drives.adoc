@@ -1,25 +1,24 @@
 ---
-permalink: upgrade/reassign-fas2820-node2-drives.html 
+permalink: upgrade/reassign-node2-drives.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
-summary: Dopo aver convertito il nodo 2 FAS2820 in uno scaffale di unità DS212C e aver effettuato la connessione al nodo 4, è possibile riassegnare le unità che in precedenza appartenevano al nodo 2 al nodo 4. 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: Dopo aver convertito node2 in uno shelf di dischi e averlo collegato a node4, si riassegnano i dischi che in precedenza appartenevano a node2 a node4. 
 ---
-= Riassegnare le unità dal nodo FAS2820 2 al nodo 4
+= Riassegnare i dischi dal nodo 2 al nodo 4
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Riassegnare le unità che in precedenza appartenevano al nodo 2 di FAS2820 al nodo 4.
+Riassegna le unità che in precedenza appartenevano a node2 a node4.
 
 .Prima di iniziare
 Verificare che il nodo 3 e il nodo 4 siano entrambi in standby al prompt DEL CARICATORE.
 
-.A proposito di questa attività
-Eseguire i seguenti passaggi sul nodo 4.
-
 .Fasi
+Eseguire questi passaggi su node4.
+
 . Al prompt DEL CARICATORE, fare il boot node4 in Maintenance Mode (modalità di manutenzione):
 +
 [source, cli]
@@ -84,4 +83,4 @@ halt
 
 
 .Quali sono le prossime novità?
-link:migrate-fas2820-aggregates-epsilon-lifs.html["Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4"]
+link:migrate-aggregates-epsilon-lifs.html["Migrazione di aggregati di dati, epsilon e LIF dal nodo 1 al node4"]

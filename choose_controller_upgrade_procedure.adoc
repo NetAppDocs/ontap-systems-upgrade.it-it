@@ -44,9 +44,11 @@ Per farlo è necessario unire i nuovi nodi, spostare i volumi e i LIF nei nuovi 
 +
 L'ARL è una procedura sostitutiva.  Non è necessario espandere e ridurre il cluster con i nuovi nodi, il che è vantaggioso per i cluster switchless a due nodi.  Spostare i dati riposizionando gli aggregati è più veloce che copiare i dati tra gli aggregati quando si spostano i volumi.
 
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Sposta storage"]
+* Convertire il sistema originale in uno shelf di dischi e spostare lo storage:
 +
-È possibile effettuare l'aggiornamento senza interruzioni da un AFF A250 a un AFF A400 o da un FAS2820 a un sistema sostitutivo convertendo i nodi originali in ripiani unità, quindi collegando i ripiani unità ai nodi sostitutivi per spostare l'archiviazione integrata.
+** link:upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Convertire AFF A250 in uno shelf di dischi e spostare lo storage su AFF A400"]
+** link:upgrade/convert-to-drive-shelf.html["Convertire AFF A150, AFF A220 o FAS2820 in uno shelf di dischi e spostare lo storage su un sistema sostitutivo supportato"]
+
 
 
 
@@ -62,7 +64,7 @@ L'ARL è una procedura sostitutiva.  Non è necessario espandere e ridurre il cl
 
 
 
-| Ho un sistema integrato e voglio aggiornarlo sostituendo solo il modulo controller, mantenendo lo chassis e i dischi esistenti? | link:upgrade-arl-auto-affa900/index.html["Aggiorna utilizzando ARL, mantenendo lo stesso chassis e gli stessi dischi"]. 
+| Ho un sistema integrato e voglio aggiornarlo sostituendo solo il modulo controller, mantenendo lo chassis e i dischi esistenti? | link:upgrade-arl-auto-in-chassis/index.html["Aggiorna utilizzando ARL, mantenendo lo stesso chassis e gli stessi dischi"]. 
 
 
 | Sto trasferendo un SVM? | Fare riferimento alink:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html#svm-migration-workflow["Panoramica sulla mobilità dei dati SVM"^] . 

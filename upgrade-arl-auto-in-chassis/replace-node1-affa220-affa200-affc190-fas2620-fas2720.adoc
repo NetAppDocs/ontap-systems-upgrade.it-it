@@ -48,7 +48,7 @@ image:drw_2240_x_opening_cam_latch.png["Apertura della maniglia della camma"]
 
 
 
-== Installare il modulo controller ASA A150, AFF A150 o FAS2820
+== Passaggio 2: installare il modulo controller ASA A150, AFF A150 o FAS2820
 
 Installare, collegare e collegare il modulo controller ASA A150, AFF A150 o FAS2820 in node1.
 

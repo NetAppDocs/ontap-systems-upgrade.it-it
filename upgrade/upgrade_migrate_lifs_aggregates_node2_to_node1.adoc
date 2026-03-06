@@ -30,10 +30,9 @@ Verificare di soddisfare i seguenti requisiti:
 * Hai a disposizione tutti i cavi appropriati.
 
 
-.A proposito di questa attività
-I seguenti passaggi vengono eseguiti su AFF A250 node1.
-
 .Fasi
+Eseguire questi passaggi su AFF A250 node1.
+
 . Accedere al livello di privilegio avanzato:
 +
 `set -privilege advanced`

@@ -4,14 +4,17 @@ sidebar: sidebar
 keywords: ndu, nondisruptive, upgrade, AFF, FAS, systems, entry, level 
 summary: Eseguire un NDU per i sistemi NetApp AFF e FAS entry-level senza dover acquistare ulteriori switch di cluster e storage. 
 ---
-= Convertire AFF A250 in drive shelf e aggiornare ad AFF A400
+= Scopri la conversione di AFF A250 in uno shelf di dischi e lo spostamento dello storage su AFF A400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Eseguire un aggiornamento non disruptive da un sistema AFF A250 a un sistema AFF A400 convertendo i nodi AFF A250 in shelf di dischi NS224. Quindi, collegarli ai nodi sostitutivi AFF A400. In questo modo, lo storage integrato AFF A250 verrà trasferito al sistema sostitutivo AFF A400.
+Eseguire un aggiornamento non disruptive da un sistema AFF A250 a un sistema AFF A400. Innanzitutto, convertire i nodi AFF A250 in shelf di dischi NS224. Quindi, collegarli ai nodi sostitutivi AFF A400. In questo modo, lo storage integrato AFF A250 viene spostato sul sistema sostitutivo AFF A400.
+
+.A proposito di questa attività
+I controller di coppia HA AFF A250 sono node1 e node2 e i controller di coppia HA AFF A400 sostitutivi sono node3 e node4.
 
 .Prima di iniziare
 Esaminare gli scenari generali di aggiornamento e le considerazioni sull'aggiornamento tramite spostamento di volumi o storage:
@@ -20,16 +23,13 @@ Esaminare gli scenari generali di aggiornamento e le considerazioni sull'aggiorn
 * link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]
 
 
-.A proposito di questa attività
-I controller di coppia HA AFF A250 sono node1 e node2 e i controller di coppia HA AFF A400 sostitutivi sono node3 e node4.
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:upgrade_migrate_lifs_aggregates_node2_to_node1.html["Migrazione di LIF e aggregati di dati dal nodo 2 al nodo 1"]
 [role="quick-margin-para"]
 Prima di convertire AFF A250 node2 in uno shelf di dischi, migrare le interfacce logiche (LIF) e gli aggregati di dati da node2 a node1.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:upgrade_convert_node2_drive_shelf_connect_node4.html["Convertire il nodo 2 in uno shelf di dischi e connettersi al nodo 4"]
 [role="quick-margin-para"]
-Convertire il nodo AFF A250 2 in uno shelf di dischi NS224 e collegarlo al nodo AFF A400 4 prima di riassegnare i dischi dal nodo 2 al nodo 4.
+Converti AFF A250 node2 in uno shelf di dischi NS224, quindi collega ad AFF A400 node4 prima di riassegnare i dischi da node2 a node4.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:upgrade_reassign_drives_node2_to_node4.html["Riassegnare i dischi dal nodo 2 al nodo 4"]
 [role="quick-margin-para"]
@@ -41,7 +41,7 @@ Prima di convertire AFF A250 node1 in uno shelf di dischi, migra gli aggregati d
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:upgrade_convert_node1_drive_shelf_connect_node3.html["Converti il node1 in uno shelf di dischi e connettiti al node3"]
 [role="quick-margin-para"]
-Convertire il nodo AFF A250 1 in uno shelf di dischi NS224 e collegarlo al nodo AFF A400 3 prima di riassegnare i dischi dal nodo 1 al nodo 3.
+Convertire AFF A250 node1 in uno shelf di dischi NS224, quindi collegare ad AFF A400 node3 prima di riassegnare i dischi da node1 a node3.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:upgrade_reassign_drives_node1_to_node3.html["Riassegnare i dischi dal nodo 1 al nodo 3"]
 [role="quick-margin-para"]
@@ -49,4 +49,4 @@ Dopo aver convertito AFF A250 node1 in uno shelf di dischi NS224 e averlo colleg
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]link:upgrade_migrate_lIFs_aggregates_node4_node3.html["Migrazione di LIF e aggregati di dati dal nodo 4 al node3"]
 [role="quick-margin-para"]
-Per completare l'aggiornamento, collegare node3 a node4 e quindi migrare i LIF dei dati e gli aggregati di dati da node4 a node3.
+Per completare l'aggiornamento, collegare node3 a node4 ed eseguire la migrazione delle LIF dei dati e degli aggregati di dati da node4 a node3.

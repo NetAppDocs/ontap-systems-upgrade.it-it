@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade by moving volumes 
 summary: 'Se si esegue l"aggiornamento tramite spostamento di volumi, si preparano i nodi originali e si uniscono i nuovi nodi al cluster. Si spostano i volumi nei nuovi nodi, si configurano i LIF e si rimuovono i nodi originali dal cluster. L"aggiornamento tramite spostamento di volumi è una procedura non distruttiva.' 
 ---
-= Aggiornamento tramite flusso di lavoro di spostamento dei volumi
+= Scopri come eseguire l'aggiornamento spostando i volumi
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

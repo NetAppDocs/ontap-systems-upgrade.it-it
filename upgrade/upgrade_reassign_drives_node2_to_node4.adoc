@@ -16,10 +16,9 @@ Dopo aver convertito il nodo AFF A250 2 in uno shelf di dischi NS224 e aver effe
 .Prima di iniziare
 Verificare che il nodo 3 e il nodo 4 siano entrambi in standby al prompt DEL CARICATORE.
 
-.A proposito di questa attività
-Eseguire le seguenti operazioni al nodo 4.
-
 .Fasi
+Eseguire questi passaggi sul nodo AFF A400.
+
 . Al prompt DEL CARICATORE, fare il boot node4 in Maintenance Mode (modalità di manutenzione):
 +
 `boot_ontap maint`
