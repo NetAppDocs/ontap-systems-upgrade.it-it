@@ -11,7 +11,7 @@ summary: 'Migra le interfacce logiche (LIF) e gli aggregati di dati su node2 ver
 
 
 [role="lead"]
-Migra le interfacce logiche (LIF) e gli aggregati di dati su node2 verso node1 prima di convertire node2 in uno shelf di dischi.
+Migrare le interfacce logiche (LIF) e gli aggregati di dati su AFF A150, AFF A220 o FAS2820 nodo2 al nodo1 prima di convertire il nodo2 in uno shelf di dischi.
 
 .Prima di iniziare
 Verificare di soddisfare i seguenti requisiti:

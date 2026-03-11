@@ -64,7 +64,7 @@ L'ARL è una procedura sostitutiva.  Non è necessario espandere e ridurre il cl
 
 
 
-| Ho un sistema integrato e voglio aggiornarlo sostituendo solo il modulo controller, mantenendo lo chassis e i dischi esistenti? | link:upgrade-arl-auto-in-chassis/index.html["Aggiorna utilizzando ARL, mantenendo lo stesso chassis e gli stessi dischi"]. 
+| Ho un sistema integrato e voglio aggiornarlo sostituendo solo il modulo controller, mantenendo lo chassis e i dischi esistenti? | link:upgrade-arl-auto-in-chassis/index.html["Aggiorna utilizzando ARL, mantenendo lo stesso chassis, gli stessi dischi e i dati memorizzati sui dischi"]. 
 
 
 | Sto trasferendo un SVM? | Fare riferimento alink:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html#svm-migration-workflow["Panoramica sulla mobilità dei dati SVM"^] . 

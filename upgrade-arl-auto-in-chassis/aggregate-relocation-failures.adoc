@@ -38,7 +38,7 @@ Il `storage aggregate relocation show` il comando mostra quali aggregati sono st
 
 
 +
-Per informazioni dettagliate su `storage aggregate relocation start`, `override-vetoes`, e. `override-destination-checks` opzioni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi ai comandi di _ONTAP 9: Manuale riferimento pagina_.
+Per informazioni dettagliate sulle  `storage aggregate relocation start`, `override-vetoes` e  `override-destination-checks` opzioni, fare riferimento a link:other-references.html["Riferimenti"] per il collegamento al _ONTAP 9 Command reference_.
 
 
 
@@ -69,9 +69,9 @@ Quando node2 viene sostituito, aggr_node_1 verrà online con node1 come nodo hom
 `storage aggregate show -nodes _node2_ -is-home true`
 
 +
-Per identificare gli aggregati che non sono stati correttamente ricollocati, fare riferimento all'elenco degli aggregati con il proprietario di casa del node1 ottenuto nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"] e confrontarlo con l'output del comando precedente.
+Per identificare gli aggregati che non sono stati riposizionati correttamente, fare riferimento all'elenco degli aggregati con il proprietario di node1 che hai ottenuto nella sezione link:prepare-nodes-for-upgrade.html["Preparare i nodi per l'aggiornamento"] e confrontarlo con l'output del comando precedente.
 
-. Confrontare l'output del passaggio 1 con l'output acquisito per il nodo 1 nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"] e annotare eventuali aggregati che non sono stati correttamente ricollocati.
+. Confronta l'output del passaggio 1 con l'output che hai catturato per node1 nella sezione link:prepare-nodes-for-upgrade.html["Preparare i nodi per l'aggiornamento"] e prendi nota di eventuali aggregati che non sono stati riposizionati correttamente.
 . Spostare gli aggregati rimasti sul nodo 2:
 +
 `storage aggregate relocation start -node _node2_ -aggr _aggr_node_1_ -destination _node1_`

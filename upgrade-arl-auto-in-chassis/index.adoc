@@ -50,10 +50,10 @@ NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi 
 
 NOTE: È necessario esaminare tutte le seguenti informazioni importanti.
 
-* Questa procedura è complessa e presuppone che tu abbia competenze avanzate di amministrazione ONTAP. Dovresti leggere e comprendere le link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller"] e link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
+* Questa procedura è complessa e presuppone che tu abbia competenze avanzate di amministrazione ONTAP. Dovresti leggere e comprendere le link:guidelines-for-upgrading-controllers-with-arl.html["linee guida per l'aggiornamento dei controller"] e link:overview-of-the-arl-upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato in un altro sistema. I passaggi necessari per preparare i controller usati con `wipeconfig` i comandi non sono inclusi in questa procedura. È necessario contattare il supporto tecnico se l'hardware del controller sostitutivo è stato utilizzato in precedenza come parte di un altro cluster ONTAP o come sistema standalone a nodo singolo.
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia ha nel cluster.
-* Se si dispone di uno switch non supportato dalla versione di ONTAP e dal sistema sostitutivo a cui si sta eseguendo l'aggiornamento, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+* Se si dispone di uno switch non supportato dalla versione di ONTAP e dal sistema sostitutivo a cui si sta effettuando l'aggiornamento, fare riferimento a link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_.
 * I sistemi AFF A250 e AFF C250 utilizzano porte 10/25 GbE integrate per l'interconnessione dei cluster. Per aggiornare i cluster switchless a due nodi di un sistema AFF A250 o AFF C250 a un sistema AFF A50, AFF A30, AFF C60 o AFF C30, è necessario utilizzare una scheda X60132A a 4 porte 10/25 GbE nello slot 1 su entrambi i nodi. Ciò fornisce l'interconnessione dei cluster per i LIF del cluster a una porta temporanea sulla piattaforma di destinazione.
 * I sistemi AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K, AFF C30, AFF C60, AFF C80, FAS70 e FAS90 condividono 100GbE porte di rete per le connessioni cluster e ha. Questi sistemi possono supportare connessioni cluster 10GbE o 25GbE a switch cluster legacy; tuttavia, NetApp consiglia di eseguire l'aggiornamento a velocità cluster 100GbE quando gli switch 10GbE e 25GbE non sono più necessari. Per ulteriori informazioni, vedere i seguenti articoli della Knowledge base:
 +
@@ -72,7 +72,7 @@ Se non puoi collegare e0a o e0b porte cluster sul nodo esistente alle porte clus
 
 
 * I sistemi ASA A900, AFF A900 e FAS9500 supportano solo l'alimentazione di linea alta (da 200V a 240V). Se il sistema AFF A700 o FAS9000 è alimentato a bassa tensione (da 100 V a 120 V), è necessario convertire l'alimentazione in ingresso del sistema AFF A700 o FAS9000 prima di utilizzare questa procedura.
-* Se si esegue l'aggiornamento da un sistema esistente con tempi di inattività inclusi nel link:decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["matrice dei sistemi supportati"], è possibile aggiornare l'hardware del controller spostando lo storage o contattando il supporto tecnico. Fare riferimento a link:other_references.html["Riferimenti"] per il collegamento a _Aggiornamento tramite spostamento di volumi o storage_.
+* Se si esegue l'aggiornamento da un sistema esistente con tempi di inattività inclusi nel link:decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["matrice dei sistemi supportati"], è possibile aggiornare l'hardware del controller spostando lo storage o contattando il supporto tecnico. Fare riferimento a link:other-references.html["Riferimenti"] per il collegamento a _Aggiornamento tramite spostamento di volumi o storage_.
 
 
 

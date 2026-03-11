@@ -16,14 +16,19 @@ Eseguire un aggiornamento non disruptive di un sistema AFF A150, AFF A220 o FAS2
 .A proposito di questa attività
 Questa procedura supporta le seguenti conversioni di sistema:
 
-* Conversione di un AFF A150 o AFF A220 in uno shelf di dischi DS224C
-* Conversione di un FAS2820 in uno shelf di dischi DS212C
+|===
+| Converti questo sistema... | A questo shelf di dischi... 
 
 
+| AFF A150 o AFF A220 | DS224C 
+
+
+| FAS2820 | DS212C 
+|===
 I controller della coppia ad alta disponibilità (HA) sono node1 e node2 e i controller della coppia HA sostitutivi sono node3 e node4.
 
 .Prima di iniziare
-Esaminare gli scenari generali di aggiornamento e le considerazioni sull'aggiornamento tramite spostamento di volumi o storage:
+Esaminare tutte le considerazioni per l'aggiornamento tramite spostamento di volumi o storage:
 
 * link:upgrade-decide-to-use-this-guide.html["Decidere se eseguire l'upgrade spostando volumi o storage"]
 * link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]

@@ -239,7 +239,7 @@ Nell'esempio seguente viene impostato il criterio di failover su "broadcast-doma
 network interface modify -vserver node3 -lif data1 failover-policy broadcast-domainwide -failover-group fg1
 ----
 +
-Passare a. link:other_references.html["Riferimenti"] Per ulteriori informazioni, fare riferimento a _Gestione di rete_ o ai comandi di _ONTAP 9: Manuale di riferimento pagina_.
+Vai a link:other_references.html["Riferimenti"] per collegarti a _Network Management_ o al _ONTAP 9 Command reference_ per ulteriori informazioni.
 
 . Verificare le modifiche al nodo 3:
 +

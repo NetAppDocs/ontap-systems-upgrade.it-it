@@ -51,37 +51,7 @@ I contenuti specifici di questo aggiornamento sono elencati nella tabella seguen
 | link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Gestione della rete"^] | Descrive come configurare e gestire le porte di rete fisiche e virtuali (VLAN e gruppi di interfacce), i LIF, il routing e i servizi di risoluzione degli host nei cluster; ottimizza il traffico di rete mediante il bilanciamento del carico; monitora il cluster utilizzando SNMP. 
 
 
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-900%2Fhome.html["Comandi di ONTAP 9.0: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.0 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-910%2Fhome.html["Comandi di ONTAP 9.1: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.1 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-920%2Fhome.html["Comandi di ONTAP 9.2: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.2 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-930%2Fhome.html["Comandi di ONTAP 9.3: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.3 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-940%2Fhome.html["Comandi di ONTAP 9.4: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.4 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-950%2Fhome.html["Comandi di ONTAP 9.5: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.5 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-960%2Fhome.html["Comandi di ONTAP 9.6: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.6 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-970%2Fhome.html["Comandi di ONTAP 9.7: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.7 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html["Comandi di ONTAP 9.8: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.8 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-991/home.html["Comandi di ONTAP 9.9.1: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.9.1 supportati. 
-
-
-| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html["Comandi di ONTAP 9.10.1: Guida alla pagina"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP 9.10.1 supportati. 
+| link:https://docs.netapp.com/us-en/ontap-cli/index.html["Riferimento ai comandi ONTAP 9"^] | Descrive la sintassi e l'utilizzo dei comandi ONTAP supportati. 
 
 
 | link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["Gestione SAN con CLI"^] | Descrive come configurare e gestire LUN, igroups e destinazioni utilizzando i protocolli iSCSI e FC, nonché spazi dei nomi e sottosistemi utilizzando il protocollo NVMe/FC. 

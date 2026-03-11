@@ -151,7 +151,7 @@ NOTE: In questa procedura, la sezione _creazione di VLAN, ifgrps e domini di tra
 Dopo aver confermato che node2 è in quorum e può comunicare con node1, verificare che le VLAN, i gruppi di interfacce e i domini di broadcast di node1 siano visibili sul node2. Inoltre, verificare che tutte le porte di rete node2 siano configurate nei domini di trasmissione corretti.
 
 .A proposito di questa attività
-Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _Network Management_.
+Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfaccia e domini di broadcast, fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al contenuto _Network Management_.
 
 .Fasi
 . Elencare tutte le porte fisiche sul nodo aggiorno2:

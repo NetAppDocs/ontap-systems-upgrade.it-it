@@ -124,7 +124,7 @@ Puoi confrontare l'output con l'output che hai catturato inlink:prepare_nodes_fo
 `system service-processor network modify -node <node_name>`
 
 +
-Passare a. link:other_references.html["Riferimenti"] Per informazioni dettagliate su, fare riferimento alla sezione _Guida all'amministrazione del sistema_ e ai _comandi di ONTAP 9: Guida di riferimento alla pagina_ `system service- processor network modify` comando.
+Vai a link:other_references.html["Riferimenti"] per collegarti al _System Administration Reference_ per informazioni sugli SP e all'_ONTAP 9 Command reference_ per informazioni dettagliate sul comando  `system service- processor network modify`.
 
 . Se si desidera configurare un cluster senza switch sui nuovi nodi, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto di rete_ e seguire le istruzioni in _passaggio a un cluster senza switch a due nodi_.
 

@@ -154,7 +154,7 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 ====
 .. Accedere al menu di avvio speciale e selezionare l'opzione `(10) Set Onboard Key Manager recovery secrets`.
 +
-Inserire la passphrase e le informazioni di backup registrate in precedenza. Vedere link:manage_authentication_okm.html["Gestire le chiavi di autenticazione utilizzando Onboard Key Manager"].
+Inserisci la passphrase e le informazioni di backup che hai annotato in precedenza nella procedura. Vedi link:manage_authentication_okm.html["Gestire le chiavi di autenticazione utilizzando Onboard Key Manager"].
 
 
 

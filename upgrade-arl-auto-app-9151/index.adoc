@@ -14,7 +14,7 @@ summary: 'Puoi aggiornare l"hardware dei controller che eseguono ONTAP 9.15.1 o 
 
 
 [role="lead"]
-Esistono diversi metodi di rilocazione aggregata (ARL) per l'aggiornamento dell'hardware del controller. Questa procedura ARL descrive come aggiornare una coppia HA di controller nei sistemi di storage AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive con nuovi controller, mantenendo i dischi e i dati archiviati esistenti.
+Esistono diversi metodi di rilocazione aggregata (ARL) per l'aggiornamento dell'hardware del controller. Questa procedura ARL descrive come aggiornare una coppia HA di controller nei sistemi di storage AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive con nuovi controller, mantenendo i dischi esistenti e i dati memorizzati su di essi.
 
 
 NOTE: Non è possibile utilizzare questa procedura per aggiornare una configurazione MetroCluster FC o IP. Per aggiornare una configurazione MetroCluster, consultare il link:other_references.html["Riferimenti"] collegamento alla _documentazione di aggiornamento ed espansione MetroCluster_.

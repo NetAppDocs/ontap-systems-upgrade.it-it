@@ -11,7 +11,7 @@ summary: 'Migrare gli aggregati di dati, gli epsilon e le interfacce logiche (LI
 
 
 [role="lead"]
-Migrare gli aggregati di dati, gli epsilon e le interfacce logiche (LIF) dal nodo 1 al nodo 4.
+Migrare gli aggregati di dati, epsilon e le interfacce logiche (LIF) su AFF A150, AFF A220 o FAS2820 node1 a node4.
 
 .Fasi
 Eseguire questi passaggi su node4.

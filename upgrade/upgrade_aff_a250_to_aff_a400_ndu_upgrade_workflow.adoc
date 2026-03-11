@@ -17,7 +17,7 @@ Eseguire un aggiornamento non disruptive da un sistema AFF A250 a un sistema AFF
 I controller di coppia HA AFF A250 sono node1 e node2 e i controller di coppia HA AFF A400 sostitutivi sono node3 e node4.
 
 .Prima di iniziare
-Esaminare gli scenari generali di aggiornamento e le considerazioni sull'aggiornamento tramite spostamento di volumi o storage:
+Esaminare tutte le considerazioni per l'aggiornamento tramite spostamento di volumi o storage:
 
 * link:upgrade-decide-to-use-this-guide.html["Decidere se eseguire l'upgrade spostando volumi o storage"]
 * link:upgrade-considerations.html["Considerazioni per l'aggiornamento dell'hardware del controller"]

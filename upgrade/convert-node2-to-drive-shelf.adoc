@@ -11,7 +11,7 @@ summary: Convertire node2 in uno shelf di dischi e collegarlo a node4 prima di r
 
 
 [role="lead"]
-Converti node2 in uno shelf di dischi e connettilo a node4 prima di riassegnare i dischi da node2 a node4. Node1 e node2 sono i controller all'interno dello shelf di dischi.
+Convertire AFF A150, AFF A220 o FAS2820 node2 in uno shelf di dischi e collegarlo a node4 prima di riassegnare i dischi da node2 a node4. Node1 e node2 sono i controller all'interno dello shelf di dischi.
 
 .Fasi
 . Scollegare tutti i cavi di rete dal nodo 2.

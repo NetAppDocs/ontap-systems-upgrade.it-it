@@ -99,7 +99,7 @@ Durante la fase di precheck, il sistema esegue il seguente elenco di controlli i
 | Verifica del quorum del cluster | Verifica che i nodi da sostituire siano in quorum. Se i nodi non sono in quorum, l'attività non riesce. 
 
 
-| Verifica della versione dell'immagine | Verifica che i nodi da sostituire eseguano la stessa versione di ONTAP. Se le versioni dell'immagine ONTAP sono diverse, l'operazione non riesce. Sui nuovi nodi deve essere installata la stessa versione di ONTAP 9.x installata sui nodi originali. Se nei nuovi nodi è installata una versione diversa di ONTAP, è necessario eseguire il netboot dei nuovi controller dopo averli installati. Per istruzioni su come aggiornare ONTAP, fare riferimento a. link:other_references.html["Riferimenti"] Collegamento a _Upgrade ONTAP_. 
+| Verifica della versione dell'immagine | Verifica che i nodi sostituiti eseguano la stessa versione di ONTAP. Se le versioni dell'immagine ONTAP sono diverse, l'attività fallisce. I nuovi nodi devono avere la stessa versione di ONTAP 9.x installata che è installata sui nodi originali. Se i nuovi nodi hanno una versione diversa di ONTAP installata, è necessario eseguire il netboot dei nuovi controller dopo averli installati. Per istruzioni su come aggiornare ONTAP, fare riferimento a link:other-references.html["Riferimenti"] per collegarsi a _Upgrade ONTAP_. 
 
 
 | Verifica dello stato HA | Controlla se entrambi i nodi da sostituire sono in una configurazione di coppia ad alta disponibilità (ha). Se il failover dello storage non è abilitato per i controller, l'operazione non riesce. 
@@ -108,7 +108,7 @@ Durante la fase di precheck, il sistema esegue il seguente elenco di controlli i
 | Verifica dello stato dell'aggregato | Se i nodi che vengono sostituiti possiedono aggregati per i quali non sono proprietari di casa, l'attività non riesce. I nodi non devono possedere aggregati non locali. 
 
 
-| Verifica dello stato del disco | Se i nodi da sostituire presentano dischi mancanti o guasti, l'attività non riesce. Se mancano dei dischi, fare riferimento al link:other_references.html["Riferimenti"]collegamento alla gestione _disco e aggregato con la CLI_, alla gestione _logica dello storage con la CLI_ e alla gestione _coppia ha_ per configurare lo storage per la coppia ha. 
+| Verifica dello stato del disco | Se uno dei nodi da sostituire presenta dischi mancanti o guasti, l'attività fallisce. Se mancano dei dischi, fare riferimento a link:other-references.html["Riferimenti"] _Gestione di dischi e aggregati con la CLI_, _Gestione dello storage logico con la CLI_ e _Gestione delle coppie HA_ per configurare lo storage per la coppia HA. 
 
 
 | Verifica dello stato LIF dei dati | Controlla se uno dei nodi da sostituire dispone di LIF di dati non locali. I nodi non devono contenere file di dati di cui non sono proprietari. Se uno dei nodi contiene LIF di dati non locali, l'attività non riesce. 
@@ -230,6 +230,6 @@ Ogni nodo del cluster deve disporre di un proprio file di licenza NetApp (NLF).
 
 Se non si dispone di un NLF, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare l'NLF per il nuovo controller al termine dell'aggiornamento.
 
-Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_ dove è possibile ottenere il proprio NLF. Gli NLFs sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle risorse di rete non disponibili, contattare il rappresentante commerciale NetApp.
+Fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _NetApp Support Site_ dove è possibile ottenere il proprio NLF. I NLF sono disponibili nella sezione _My Support_ sotto _Software licenses_. Se il sito non dispone dei NLF necessari, contattare il proprio rappresentante commerciale NetApp.
 
-Per informazioni dettagliate sulle licenze, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.
+Per informazioni dettagliate sulle licenze, fare riferimento a link:other-references.html["Riferimenti"] _System Administration Reference_.

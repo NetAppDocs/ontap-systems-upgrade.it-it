@@ -50,7 +50,7 @@ Non è possibile utilizzare questa procedura ARL nelle seguenti circostanze:
 * Vuoi aggiungere i nuovi controller come nuova coppia ha al cluster e migrare i dati utilizzando gli spostamenti dei volumi.
 * Si sta aggiornando una configurazione IP di MetroCluster.
 +
-Per aggiornare una configurazione IP di MetroCluster, consultare link:other_references.html["Riferimenti"]il collegamento al contenuto _MetroCluster Upgrade and Expansion_.
+Per aggiornare una configurazione IP MetroCluster, vedere link:other-references.html["Riferimenti"] per il collegamento al contenuto _MetroCluster Upgrade and Expansion_.
 
 
 
@@ -61,7 +61,7 @@ Per aggiornare una configurazione IP di MetroCluster, consultare link:other_refe
 La tabella seguente mostra la matrice dei sistemi supportati per eseguire un aggiornamento del controller convertendo il sistema esistente nel sistema sostitutivo, mantenendo lo chassis, i dischi esistenti e i dati in essi memorizzati.
 
 
-CAUTION: Questa procedura si applica rigorosamente alle seguenti configurazioni di aggiornamento. Non utilizzare questa procedura per eseguire un aggiornamento tra qualsiasi altra combinazione di sistema. Per tutti gli altri modelli di controller, fare riferimento al link:other_references.html["Riferimenti"]collegamento ai comandi _utilizzo dei comandi "sostituzione dei controller di sistema" per aggiornare l'hardware dei controller che eseguono ONTAP 9,8 o versioni successive_ e _utilizzo del trasferimento degli aggregati per aggiornare manualmente l'hardware dei controller che esegue ONTAP 9,8 o versioni successive_.
+CAUTION: Questa procedura si applica esclusivamente alle seguenti configurazioni di aggiornamento. Non utilizzare questa procedura per eseguire un aggiornamento tra altre combinazioni di sistema. Per tutti gli altri modelli di controller, fare riferimento a link:other-references.html["Riferimenti"] _Usa i comandi "system controller replace" per aggiornare l'hardware del controller che esegue ONTAP 9.8 o versioni successive_ e _Utilizzo della rilocazione aggregata per aggiornare manualmente l'hardware del controller che esegue ONTAP 9.8 o versioni successive_.
 
 [cols="20,20,40"]
 |===

@@ -63,7 +63,7 @@ NOTE: Attendere che tutti gli aggregati non root di proprietà di node1 siano st
 
 
 
-Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi alla gestione di _dischi e aggregati con il contenuto CLI_ e i comandi di _ONTAP 9: Manuale di riferimento pagina_ per ulteriori informazioni sui comandi di spostamento degli aggregati di storage.
+Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi al contenuto _Gestione dischi e aggregati con la CLI_ e al _Riferimento ai comandi ONTAP 9_ per ulteriori informazioni sui comandi di rilocazione degli aggregati di archiviazione.
 
 |===
 . [[man_delocate_1_2_step4]]] verifica che tutti gli aggregati non root siano online e che il loro stato sia su node2:

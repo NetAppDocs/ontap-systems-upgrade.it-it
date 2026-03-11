@@ -16,7 +16,7 @@ summary: Verificare che lo switch RCF del cluster supporti le porte cluster/HA c
 [role="lead"]
 In questa fase della procedura di aggiornamento, tutti gli aggregati di dati dovrebbero trovarsi sul nodo 1.  Se si sta aggiornando una configurazione con cluster collegati allo switch, è necessario verificare che il file di configurazione di riferimento dello switch del cluster (RCF) supporti le porte cluster/HA condivise per i nuovi controller.
 
-Se si sta eseguendo l'aggiornamento a una configurazione cluster switchless a due nodi, è possibile saltare questa sezione e passare alink:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"] .
+Se si sta eseguendo l'aggiornamento a una configurazione di cluster senza switch a due nodi, è possibile saltare questa sezione e passare a link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"].
 
 .Fasi
 . Passare alla modalità avanzata dei privilegi:
@@ -36,7 +36,7 @@ Nell'output, la "Connessione IC RDMA" dovrebbe avere lo stato `Up` .
 | Se lo stato "IC RDMA Connection" è ... | Quindi… 
 
 
-| `Up` | Vai alink:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"] . 
+| `Up` | Vai a link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"]. 
 
 
 | `Down` | Vai a<<verify-rcf-step3,Fase 3>> . 
@@ -52,4 +52,4 @@ Per ulteriori informazioni, vedere link:cable-node1-for-shared-cluster-HA-storag
 
 
 .Cosa c'è dopo?
-link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"]
+link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"]

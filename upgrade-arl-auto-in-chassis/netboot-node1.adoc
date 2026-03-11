@@ -24,14 +24,14 @@ Per eseguire l'avvio da rete, è possibile utilizzare anche l'opzione di avvio U
 
 .Prima di iniziare
 * Verificare che sia possibile accedere a un server HTTP con il sistema.
-* Scaricare i file di sistema necessari per il sistema e la versione corretta di ONTAP dal _sito di supporto NetApp_. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_.
+* Scarica i file di sistema necessari per il tuo sistema e la versione corretta di ONTAP dal _NetApp Support Site_. Fai riferimento a link:other-references.html["Riferimenti"] per collegarti al _NetApp Support Site_.
 
 
 .A proposito di questa attività
 È necessario eseguire il netboot dei nuovi controller se non sono installati sulla stessa versione di ONTAP 9 installata sui controller originali. Dopo aver installato ciascun nuovo controller, avviare il sistema dall'immagine di ONTAP 9 memorizzata sul server Web. È quindi possibile scaricare i file corretti sul dispositivo di avvio per i successivi avvii del sistema.
 
 .Fasi
-. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e scaricare i file utilizzati per eseguire il netboot del sistema.
+. Fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _NetApp Support Site_ e scaricare i file utilizzati per eseguire il netboot del sistema.
 . [[netboot_node1_step2]]Scarica il software ONTAP appropriato dalla sezione di download del software del _sito di supporto NetApp_ e memorizza il `<ontap_version>_image.tgz` file in una directory accessibile dal web.
 . Passare alla directory accessibile dal Web e verificare che i file necessari siano disponibili.
 . L'elenco delle directory deve contenere `<ontap_version>_image.tgz`.

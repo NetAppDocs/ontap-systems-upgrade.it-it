@@ -11,7 +11,7 @@ summary: Convertire node1 in uno shelf di dischi e collegarlo a node3 prima di r
 
 
 [role="lead"]
-Convertire node1 in uno shelf di dischi e collegarlo a node3 prima di riassegnare i dischi da node1 a node3.
+Convertire AFF A150, AFF A220 o FAS2820 node1 in uno shelf di dischi e collegarlo a node3 prima di riassegnare i dischi da node1 a node3.
 
 .Fasi
 . Scollegare tutti i cavi di rete dal nodo 1.

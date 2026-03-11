@@ -260,7 +260,7 @@ Il sistema visualizza informazioni dettagliate sull'SP su entrambi i nodi.
 . Verificare che la rete SP sia configurata.
 . Registrare l'indirizzo IP e altre informazioni sull'SP.
 +
-È possibile riutilizzare i parametri di rete dei dispositivi di gestione remota, in questo caso gli SP, dal sistema originale per gli SP sui nuovi nodi. Per informazioni dettagliate sull'SP, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _riferimento per l'amministrazione del sistema_ e ai comandi di _ONTAP 9: Riferimento pagina manuale_.
+Potresti voler riutilizzare i parametri di rete dei dispositivi di gestione remota, in questo caso gli SP, dal sistema originale per gli SP sui nuovi nodi. Per informazioni dettagliate sugli SP, fare riferimento a link:other_references.html["Riferimenti"] _System Administration Reference_ e _ONTAP 9 Command reference_.
 
 +
 .. [[man_prepare_nodes_step29]]Se si desidera che i nuovi nodi abbiano le stesse funzionalità con licenza dei nodi originali, immettere il seguente comando per visualizzare le licenze del cluster sul sistema originale:
@@ -331,7 +331,7 @@ Abilitare AutoSupport seguendo le istruzioni contenute nella sezione _riferiment
 `system node autosupport show -node node_name -instance`
 
 +
-Per informazioni dettagliate su AutoSupport, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _riferimento per l'amministrazione del sistema_ e ai comandi di _ONTAP 9: Riferimento pagina manuale_.
+Per informazioni dettagliate su AutoSupport, fare riferimento a link:other_references.html["Riferimenti"] per collegarsi al _System Administration Reference_ e al _ONTAP 9 Command reference_.
 
 .. [[man_Prepare_Nodes_step35,fase 35]] Invia un messaggio AutoSupport a NetApp per node1 immettendo il seguente comando:
 +

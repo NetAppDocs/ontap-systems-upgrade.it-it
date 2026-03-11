@@ -37,7 +37,7 @@ La seguente tabella descrive le attività di alto livello eseguite durante ciasc
 | Fase | Fasi 
 
 
-| link:verify_upgrade_hardware.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
+| link:verify-upgrade-hardware.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
 Durante la fase 1, verificare di disporre dell'hardware corretto per l'aggiornamento, eseguire i controlli preliminari e, se necessario, correggere la proprietà aggregata. Se si gestisce Storage Encryption utilizzando Onboard Key Manager, è necessario registrare alcune informazioni ed è possibile scegliere di interrompere le relazioni di SnapMirror.
 
 Proprietà aggregata alla fine della fase 1:
@@ -48,7 +48,7 @@ Proprietà aggregata alla fine della fase 1:
 
 
 
-| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Fase 2: Trasferire le risorse e dismettere il node1"]  a| 
+| link:relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html["Fase 2: Trasferire le risorse e dismettere il node1"]  a| 
 Durante la fase 2, è possibile spostare gli aggregati non root node1 e le LIF dei dati NAS da node1 a node2. Questo processo è in gran parte automatizzato; l'operazione viene interrotta per consentirti di controllarne lo stato. È necessario riprendere manualmente l'operazione. Se necessario, spostare gli aggregati non riusciti o vetoed. Prima di ritirare il node1, si registrano le informazioni node1 da utilizzare in seguito nella procedura. È inoltre possibile preparare il netboot node1 più avanti nella procedura.
 
 Proprietà aggregata alla fine della fase 2:
@@ -70,7 +70,7 @@ Proprietà aggregata alla fine della fase 3:
 
 
 
-| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["Fase 4: Trasferire le risorse e dismettere il node2"]  a| 
+| link:relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html["Fase 4: Trasferire le risorse e dismettere il node2"]  a| 
 Durante la fase 4, è possibile spostare aggregati non root e LIF dati NAS da node2 al node1 aggiornato e dismettere node2.
 
 Proprietà aggregata alla fine della fase 4:
@@ -92,7 +92,7 @@ Proprietà aggregata alla fine della fase 5:
 
 
 
-| link:boot_node2_with_a900_controller_and_nvs.html["Fase 6: Punto di avvio2 con i moduli di sistema sostitutivi"]  a| 
+| link:boot-node2-with-a900-controller-and-nvs.html["Fase 6: Punto di avvio2 con i moduli di sistema sostitutivi"]  a| 
 Durante la Fase 6, si avvia node2 con i moduli di sistema aggiornati e si verifica l'installazione di node2 aggiornata. Se si utilizza NVE, ripristinare la configurazione del gestore delle chiavi. Per gli aggiornamenti dei cluster collegati allo switch, è necessario verificare che il file di configurazione di riferimento dello switch del cluster (RCF) supporti le porte cluster/HA condivise. Si spostano inoltre gli aggregati non root del nodo 1 e i LIF dei dati NAS dal nodo 1 al nodo 2 aggiornato e si verifica che i LIF SAN siano presenti sul nodo 2.
 
 

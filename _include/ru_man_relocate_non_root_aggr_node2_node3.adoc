@@ -167,7 +167,7 @@ Se necessario, è possibile forzare il trasferimento utilizzando uno dei seguent
 
 
 
-Per ulteriori informazioni sui comandi di trasferimento degli aggregati di storage, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi alla gestione di _dischi e aggregati con i comandi CLI_ e _ONTAP 9: Manuale riferimento pagina_.
+Per ulteriori informazioni sui comandi di rilocazione degli aggregati di archiviazione, vai a link:other_references.html["Riferimenti"] per collegarti a _Gestione di dischi e aggregati con la CLI_ e al _ONTAP 9 Command reference_.
 
 |===
 . [[man_relocate_2_3_step8]]verificare che tutti gli aggregati non root siano online su node3:

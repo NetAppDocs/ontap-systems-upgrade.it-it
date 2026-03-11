@@ -63,4 +63,4 @@ Il modulo controller si sposta leggermente fuori dallo chassis.
 
 
 .Al termine
-È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+È possibile decommissionare node2 una volta completato l'aggiornamento. Vedere link:decommission-old-system.html["Decommissionare il vecchio sistema"].
