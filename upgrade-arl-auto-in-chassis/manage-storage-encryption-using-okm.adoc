@@ -21,7 +21,21 @@ summary: Configurare e gestire Storage Encryption, gestire le chiavi di autentic
 +
 Si tratta della passphrase immessa quando l'OKM è stato configurato o aggiornato utilizzando l'API CLI o REST.
 
-. Eseguire il backup delle informazioni del gestore delle chiavi eseguendo il `security key-manager onboard show-backup` comando.
+. Verifica la passphrase e il funzionamento del key-manager:
++
+`security key-manager onboard sync`
+
++
+Quando richiesto, inserisci la passphrase OKM a livello di cluster che hai registrato nel passaggio precedente.
+
+. Verifica che cc-mode sia abilitato controllando l'output del seguente comando:
++
+`security key-manager config show`
+
+. Eseguire il backup delle informazioni del key-manager:
++
+`security key-manager onboard show-backup`
+
 
 
 

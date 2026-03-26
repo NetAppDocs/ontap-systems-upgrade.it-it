@@ -504,7 +504,6 @@
   <block id="7de07b30845475194f5305d135dd504b" category="paragraph">È possibile utilizzare Onboard Key Manager (OKM) per gestire le chiavi di autenticazione. Se si dispone di OKM configurato, è necessario registrare la passphrase e il materiale di backup prima di iniziare l'aggiornamento.</block>
   <block id="b57235dcd9249f0e9bf6001eecd99ce5" category="list-text">Registrare la passphrase del cluster.</block>
   <block id="f97bf876165b297d6e8425acab009019" category="paragraph">Si tratta della passphrase immessa quando l'OKM è stato configurato o aggiornato utilizzando l'API CLI o REST.</block>
-  <block id="8cada82213a4eb50c1f0cba46389bd44" category="list-text">Eseguire il backup delle informazioni del gestore delle chiavi eseguendo il<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block> comando.</block>
   <block id="b85552635e2dd14cc0f1841daf296ac6" category="summary">Le LIF non sono online dopo la migrazione nella fase 2, 3 o 5 durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive.</block>
   <block id="8c0489611df3c9267665a7d99d204fa2" category="paragraph">Dopo la migrazione, i file LIF potrebbero non essere disponibili online dopo la migrazione in fase 2, fase 3 o fase 5.</block>
   <block id="8fc5e587b615f796c0e6e519e500f09c" category="list-text">Verificare che la dimensione MTU della porta sia uguale a quella del nodo di origine.</block>
@@ -5360,4 +5359,9 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="49e4f8e3ed6f9b425b3302443b88af26" category="paragraph">Vai a <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> per collegarti a _Network Management_ o al _ONTAP 9 Command reference_ per ulteriori informazioni.</block>
   <block id="79ed614e57a84cb3ea78a7ec6a71e230" category="paragraph">Per ulteriori informazioni, fare riferimento a <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> per collegarsi a _Network Management_ o al _ONTAP 9 Command reference_, e andare a _Configuring failover settings on a LIF_.</block>
   <block id="bf4898b462ec44974d0fd35d857406f4" category="paragraph">Inserisci la passphrase e le informazioni di backup che hai annotato in precedenza nella procedura. Vedi <block ref="67f80d13cf548292184bc05f4b74227a" category="inline-link-macro-rx"></block>.</block>
+  <block id="160d9607adcb68efced47d6deb7493eb" category="list-text">Verifica la passphrase e il funzionamento del key-manager:</block>
+  <block id="35e13cf28e19f82138f24d5704edb686" category="paragraph">Quando richiesto, inserisci la passphrase OKM a livello di cluster che hai registrato nel passaggio precedente.</block>
+  <block id="86e557f58bf6d6ffc84353711ad398d6" category="list-text">Verifica che cc-mode sia abilitato controllando l'output del seguente comando:</block>
+  <block id="c1c5360be7e00706ec4adf74606262d2" category="paragraph"><block ref="8bb1a67a3cdda2dcc6e451017bb9da4d" prefix="" category="inline-code"></block></block>
+  <block id="66a6e497892fb616eb108dd90d697bfb" category="list-text">Eseguire il backup delle informazioni del key-manager:</block>
 </blocks>
