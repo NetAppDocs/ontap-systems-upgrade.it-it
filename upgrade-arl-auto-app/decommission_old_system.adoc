@@ -34,3 +34,6 @@ Una tabella visualizza le informazioni sul cluster, inclusi i numeri di serie.
 
 . Individuare il cluster nella tabella e selezionare *Decommissionare questo sistema* dal menu a discesa Product Tool Set (Set strumenti prodotto).
 
+
+.Quali sono le prossime novità?
+Dopo la dismissione del vecchio sistema, link:resume_snapmirror_operations.html["riprendere le operazioni di SnapMirror"].

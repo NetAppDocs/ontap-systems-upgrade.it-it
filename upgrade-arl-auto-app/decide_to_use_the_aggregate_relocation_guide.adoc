@@ -140,3 +140,6 @@ Per le combinazioni di upgrade illustrate nella tabella precedente:
 
 .Informazioni correlate
 Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.
+
+.Quali sono le prossime novità?
+Dopo aver deciso se utilizzare questa procedura ARL, informati su link:required_tools_and_documentation.html["strumenti e documentazione necessari"].

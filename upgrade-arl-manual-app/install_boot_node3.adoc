@@ -166,7 +166,7 @@ Inserisci la passphrase e le informazioni di backup che hai annotato in preceden
 
 WARNING: Se questo nuovo nodo è stato utilizzato in qualsiasi altro cluster o coppia ha, è necessario eseguire `wipeconfig` prima di procedere. In caso contrario, potrebbero verificarsi interruzioni del servizio o perdita di dati. Contattare il supporto tecnico se il controller sostitutivo è stato utilizzato in precedenza, in particolare se i controller eseguivano ONTAP in 7-Mode.
 
-. Premere CTRL-C per visualizzare il menu di avvio.
+. Premi CTRL-C per visualizzare il menu di boot.
 . [[man_install3_step19]]eseguire una delle seguenti operazioni:
 +
 [cols="35,65"]
@@ -534,3 +534,6 @@ Il nodo potrebbe essere sottoposto a un ciclo di riavvio prima dell'avvio normal
 
 . [[man_install3_step48]]Accedi a node3.
 
+
+.Quali sono le prossime novità?
+Dopo aver installato e avviato node3, link:set_fc_uta_uta2_config_node3.html["imposta la configurazione FC o UTA/UTA2 sul nodo 3"].

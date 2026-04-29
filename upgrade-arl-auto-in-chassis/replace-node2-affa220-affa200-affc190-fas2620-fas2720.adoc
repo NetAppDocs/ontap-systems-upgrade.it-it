@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/replace-node2-affa220-affa200-affc190-fas2620-fas2720.html 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
+summary: Sostituire il modulo controller node2 AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720 durante un aggiornamento ARL dei modelli di controller nello stesso chassis. 
+---
+= Sostituire il modulo controller node2 AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sostituire il modulo controller node2 AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720 con un modulo controller ASA A150, AFF A150 o FAS2820.
+
+In questa fase, node2 è spento e tutti i dati vengono forniti da node1. È necessario prestare attenzione a rimuovere solo il modulo controller di node2. In genere, node2 è il controller B situato sul lato destro dello chassis, guardando i controller dal retro del sistema. L'etichetta del controller si trova sullo chassis direttamente sopra il modulo controller.
+
+
+CAUTION: Non spegnere lo chassis perché node1 e node2 si trovano nello stesso chassis e sono collegati agli stessi alimentatori.
+
+.Prima di iniziare
+Se non si è già collegati a terra, mettere a terra correttamente.
+
+
+
+== Passaggio 1: rimuovere il modulo controller AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720
+
+Per accedere ai componenti all'interno del controller node2, rimuovere il modulo controller dal sistema e quindi rimuovere il coperchio sul modulo controller.
+
+.Fasi
+. Allentare il gancio e la fascetta che fissano i cavi al dispositivo di gestione dei cavi, quindi scollegare i cavi di sistema e gli SFP (se necessario) dal modulo controller, tenendo traccia del punto in cui sono stati collegati i cavi.
++
+Lasciare i cavi nel dispositivo di gestione dei cavi in modo che quando si reinstalla il dispositivo di gestione dei cavi, i cavi siano organizzati.
+
+. Rimuovere e mettere da parte i dispositivi di gestione dei cavi dai lati sinistro e destro del modulo controller.
++
+image:drw_25xx_cable_management_arm.png["Rimozione del ARM di gestione dei cavi"]
+
+. Premere il dispositivo di chiusura sulla maniglia della camma fino al rilascio, aprire completamente la maniglia della camma per rilasciare il modulo controller dalla scheda intermedia, quindi estrarre il modulo controller dallo chassis con due mani.
++
+image:drw_2240_x_opening_cam_latch.png["Apertura della maniglia della camma"]
+
+. Capovolgere il modulo controller e posizionarlo su una superficie piana e stabile.
+
+
+
+
+== Passaggio 2: installare il modulo controller ASA A150, AFF A150 o FAS2820
+
+Installare il modulo controller ASA A150, AFF A150 o FAS2820 ricevuto per l'aggiornamento in node2.
+
+.Prima di iniziare
+* Se non si è già collegati a terra, mettere a terra correttamente.
+* Scollegare tutti i cavi, inclusi console, gestione, storage SAS e rete dati, dal controller da rimuovere.
+
+
+.Fasi
+. Allineare l'estremità del modulo controller con l'alloggiamento B dello chassis, quindi spingere delicatamente il modulo controller a metà nel sistema.
++
+
+TIP: Il vano B si trova sul lato destro del telaio.
+
++
+
+WARNING: Non inserire completamente il modulo controller nel telaio fino a quando non viene richiesto di farlo successivamente nella procedura.
+
+. Collegare le porte di gestione e console al modulo controller node2.
++
+
+NOTE: Poiché lo chassis è già acceso, node2 inizia l'avvio non appena è completamente inserito.  Per impedire l'avvio di node2, collegare i cavi della console e di gestione prima di inserire completamente il modulo controller.
+
+. Spingere con decisione il modulo controller nello chassis fino a quando non raggiunge la scheda intermedia e non è completamente inserito.
++
+Il dispositivo di chiusura si solleva quando il modulo controller è completamente inserito.
+
++
+
+NOTE: Per evitare di danneggiare i connettori, non esercitare una forza eccessiva quando si fa scorrere il modulo controller nel telaio.
+
+. Collegare la console seriale non appena il modulo è inserito e prepararsi a interrompere l'AUTOBOOT del nodo 2.
+. Dopo aver interrotto AUTOBOOT, il nodo2 si ferma al prompt LOADER. Se non si interrompe AUTOBOOT in tempo e il nodo2 inizia l'avvio, attendere il prompt e premere Ctrl-C per accedere al menu di boot. Dopo che il nodo si è fermato al menu di boot, utilizzare l'opzione  `8` per riavviare il nodo e interrompere AUTOBOOT durante il riavvio.
+
+
+.Quali sono le prossime novità?
+Dopo aver installato il modulo controller ASA A150, AFF A150 o FAS2820, link:netboot-node2.html["netboot node2"].

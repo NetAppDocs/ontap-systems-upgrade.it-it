@@ -77,6 +77,9 @@ Se non puoi collegare e0a o e0b porte cluster sul nodo esistente alle porte clus
 
 
 
-== Automatizzare il processo di aggiornamento del controller
+== Processo automatizzato di aggiornamento del controller
 
 Questa procedura fornisce i passaggi per la procedura automatica, che utilizza l'assegnazione automatica del disco e i controlli di raggiungibilità delle porte di rete per semplificare l'esperienza di aggiornamento del controller.
+
+.Quali sono le prossime novità?
+Dopo aver appreso di questa procedura di aggiornamento ARL, link:decide-to-use-the-aggregate-relocation-guide.html["decidere se utilizzare questa procedura"].

@@ -1,10 +1,10 @@
-= Configurare le porte FC sul nodo 4
+= Passaggio 1: Configurare le porte FC sul nodo4
 :allow-uri-read: 
 
 
 
 
-== Configurare le porte FC sul nodo 4
+== Passaggio 1: Configurare le porte FC sul nodo4
 
 Se il nodo 4 dispone di porte FC, integrate o su un adattatore FC aggiuntivo, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, poiché le porte non sono preconfigurate al momento della spedizione dei sistemi.  Se non si configurano le porte come richiesto, si potrebbe verificare un'interruzione del servizio.
 
@@ -12,7 +12,7 @@ Se il nodo 4 dispone di porte FC, integrate o su un adattatore FC aggiuntivo, è
 È necessario disporre dei valori delle impostazioni della porta FC del nodo 2 salvati nella sezione link:prepare_nodes_for_upgrade.html["Preparare i nodi per l'aggiornamento"].
 
 .A proposito di questa attività
-È possibile saltare questa sezione se il sistema non dispone di configurazioni FC. Se il sistema dispone di porte UTA/UTA2 integrate o di un adattatore UTA/UTA2, configurarle in <<Controllare e configurare le porte UTA/UTA2 sul nodo 4>>.
+Puoi saltare questa sezione se il tuo sistema non ha configurazioni FC. Se il tuo sistema ha porte UTA/UTA2 integrate o un adattatore UTA/UTA2, le configuri in <<check-config-uta-uta2-node4,Controllare e configurare le porte UTA/UTA2 sul nodo 4>>.
 
 
 IMPORTANT: Immettere i comandi in questa sezione al prompt della shell in modalità Manutenzione.

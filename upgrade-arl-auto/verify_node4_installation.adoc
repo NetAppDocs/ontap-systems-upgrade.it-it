@@ -17,7 +17,7 @@ summary: 'Verificare che il nodo 4 si unisca al quorum, ricreare le VLAN del nod
 Dopo aver installato e avviato il nodo 4, è necessario verificare che sia installato correttamente, che faccia parte del cluster e che sia in grado di comunicare con il nodo 3.
 
 .A proposito di questa attività
-A questo punto della procedura, l'operazione verrà messa in pausa quando node4 si unisce al quorum.
+A questo punto della procedura, l'operazione si interrompe poiché node4 si unisce al quorum.
 
 .Fasi
 . Verificare che node4 si sia Unito al quorum:
@@ -38,7 +38,7 @@ Se la configurazione è diversa per node4, potrebbe verificarsi un'interruzione 
 . Verificare che il controller sostituito sia configurato correttamente per la configurazione MetroCluster e non in modalità di switch-over.
 +
 
-CAUTION: In questa fase la configurazione MetroCluster non sarà in uno stato normale e potrebbero esserci degli errori da risolvere. Vederelink:verify_health_of_metrocluster_config.html["Verificare lo stato della configurazione MetroCluster"] .
+CAUTION: In questa fase, la configurazione MetroCluster non è in uno stato normale e potrebbero esserci errori da risolvere. Vedi link:verify_health_of_metrocluster_config.html["Verificare lo stato della configurazione MetroCluster"].
 
 
 
@@ -74,7 +74,7 @@ Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di i
 
 == Ripristinare la configurazione del gestore delle chiavi sul nodo 4
 
-Se si utilizza NetApp aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione della crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina il gestore delle chiavi, quando si trasferiranno gli aggregati node2 da node3 a node4 utilizzando ARL, i volumi crittografati verranno portati offline.
+Se si utilizza NetApp Aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione di crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina key-manager, quando si spostano gli aggregati di node2 da node3 a node4 tramite ARL, i volumi crittografati vengono messi offline.
 
 .Fasi
 . Per sincronizzare la configurazione della crittografia per Onboard Key Manager, eseguire il seguente comando al prompt del cluster:

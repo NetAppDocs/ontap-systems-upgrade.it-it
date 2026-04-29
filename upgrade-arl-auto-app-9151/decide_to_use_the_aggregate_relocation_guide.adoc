@@ -116,3 +116,6 @@ La tabella seguente mostra le combinazioni di aggiornamento del controller suppo
 
 .Informazioni correlate
 Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.
+
+.Quali sono le prossime novità?
+Dopo aver deciso di utilizzare questa procedura ARL, link:required_tools_and_documentation.html["Scopri gli strumenti e la documentazione necessari"].

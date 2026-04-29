@@ -151,7 +151,7 @@ Il modulo controller si riavvia ma si arresta al menu di avvio perché il dispos
 
 . Cancellare qualsiasi configurazione precedente sul supporto di avvio.
 +
-.. Al prompt seguente, eseguire il comando  `wipeconfig` comando e premere il tasto Invio:
+.. Al prompt successivo, eseguire il  `wipeconfig` comando. Quindi selezionare Invio:
 +
 [listing]
 ----
@@ -270,3 +270,6 @@ Per il node1, il `partner-sysid` deve essere quello del node2. È possibile otte
 `printenv partner-sysid`
 
 
+
+.Quali sono le prossime novità?
+Dopo l'avvio di rete del nodo1, link:cable-node1-for-shared-cluster-HA-storage.html["cavo nodo1 per cluster-HA condiviso e storage"].

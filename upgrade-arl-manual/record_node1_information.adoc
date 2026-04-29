@@ -123,7 +123,7 @@ Il sistema visualizza le porte fisiche sul nodo, come mostrato nell'esempio segu
 ----
 . Registrare le porte e i relativi domini di trasmissione.
 +
-I domini di broadcast dovranno essere mappati alle nuove porte sul nuovo controller più avanti nella procedura.
+In una fase successiva della procedura, i domini di broadcast dovranno essere mappati sulle nuove porte del nuovo controller.
 
 . Immettere il seguente comando su node1:
 +

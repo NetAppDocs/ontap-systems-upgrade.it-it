@@ -123,7 +123,7 @@ Il sistema visualizza le porte fisiche sul nodo, come mostrato nell'esempio segu
 ----
 . Registrare le porte e i relativi domini di trasmissione.
 +
-I domini di broadcast dovranno essere mappati alle nuove porte sul nuovo controller più avanti nella procedura.
+In una fase successiva della procedura, i domini di broadcast dovranno essere mappati sulle nuove porte del nuovo controller.
 
 . Immettere il seguente comando su node1:
 +
@@ -201,3 +201,6 @@ Il sistema visualizza le informazioni relative al nodo 1 come mostrato nell'esem
 ----
 . [[man_record_node1_step12]]registrare il numero di ID del sistema NVRAM da utilizzare nella sezione link:install_boot_node3.html["Installazione e boot node3"].
 
+
+.Quali sono le prossime novità?
+Dopo aver registrato le informazioni del nodo1, link:retire_node1.html["ritirare node1"].

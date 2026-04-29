@@ -51,8 +51,8 @@ Al termine della procedura di aggiornamento, node3 deve essere il nuovo nodo hom
 .A proposito di questa attività
 Gli aggregati potrebbero non riuscire a riallocare correttamente, avendo node1 come nodo principale invece di node3 nelle seguenti circostanze:
 
-* Durante la fase 3, quando gli aggregati vengono ricollocati dal nodo 2 al nodo 3. Alcuni degli aggregati che vengono ricollocati hanno node1 come nodo principale. Ad esempio, un tale aggregato potrebbe essere chiamato aggr_node_1. Se il trasferimento di aggr_node_1 non riesce durante la fase 3 e non è possibile forzare il trasferimento, l'aggregato verrà lasciato indietro al nodo 2.
-* Dopo la fase 4, quando il node2 viene sostituito con il node4. Quando node2 viene sostituito, aggr_node_1 verrà online con node4 come nodo home invece di node3.
+* Durante la Fase 3, gli aggregati vengono spostati dal nodo2 al nodo3. Alcuni degli aggregati spostati hanno node1 come nodo home. Ad esempio, un aggregato di questo tipo potrebbe essere chiamato aggr_node_1. Se la rilocazione di aggr_node_1 fallisce durante la Fase 3 e la rilocazione non può essere forzata, allora l'aggregato rimane su node2.
+* Dopo la fase 4, quando il nodo2 viene sostituito con il nodo4. Quando il nodo2 viene sostituito, aggr_node_1 va online con il nodo4 come porta home invece del nodo3.
 
 
 Una volta attivato il failover dello storage, è possibile risolvere il problema di proprietà non corretto dopo la fase 6, attenendosi alla seguente procedura:

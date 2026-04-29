@@ -17,7 +17,7 @@ summary: 'Verificare che il nodo 3 si unisca al quorum, ricreare le VLAN del nod
 Dopo aver installato e avviato il nodo 3, è necessario verificare che sia installato correttamente. È necessario attendere che il nodo 3 si unisca al quorum e riprendere l'operazione di trasferimento.
 
 .A proposito di questa attività
-A questo punto della procedura, l'operazione verrà messa in pausa quando node3 si unisce al quorum.
+A questo punto della procedura, l'operazione si interrompe poiché node3 si unisce al quorum.
 
 .Fasi
 . Verificare che node3 si sia Unito al quorum:
@@ -70,7 +70,7 @@ Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di i
 
 == Ripristinare la configurazione del gestore delle chiavi sul node3
 
-Se si utilizza NetApp aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione della crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina il gestore delle chiavi, quando si trasferiranno gli aggregati node1 da node2 a node3 utilizzando ARL, i volumi crittografati verranno portati offline.
+Se si utilizza NetApp Aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione di crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina key-manager, quando si spostano gli aggregati di node1 da node2 a node3 tramite ARL, i volumi crittografati vengono messi offline.
 
 .Fasi
 . Per sincronizzare la configurazione della crittografia per Onboard Key Manager, eseguire il seguente comando al prompt del cluster:

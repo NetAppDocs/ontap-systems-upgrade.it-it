@@ -49,7 +49,7 @@ Il trasferimento avviene in background. La riposizionamento di un aggregato potr
 `storage aggregate relocation show -node _node3_`
 
 +
-Viene visualizzato l'output `Done` per un aggregato dopo che è stato trasferito.
+L'output visualizza  `Done` per un aggregato dopo che è stato riposizionato.
 
 +
 
@@ -125,3 +125,6 @@ Gli aggregati node2 sono stati elencati nell'output del comando in <<man_relocat
 `system node autosupport invoke -node _node4_ -type all -message "_node2_ successfully upgraded from _platform_old_ to _platform_new_"`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root del nodo2 dal nodo3 al nodo4, link:manage_authentication_kmip.html["Gestire l'autenticazione tramite server KMIP"].

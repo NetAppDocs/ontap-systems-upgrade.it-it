@@ -49,7 +49,7 @@ Il trasferimento avviene in background. La riposizionamento di un aggregato potr
 `storage aggregate relocation show -node _node3_`
 
 +
-Viene visualizzato l'output `Done` per un aggregato dopo che è stato trasferito.
+L'output visualizza  `Done` per un aggregato dopo che è stato riposizionato.
 
 +
 

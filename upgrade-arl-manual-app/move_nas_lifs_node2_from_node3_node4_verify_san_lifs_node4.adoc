@@ -314,3 +314,6 @@ NOTE: È necessario spostare I file LIF SAN su una porta con la stessa velocità
 `network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato i LIF dei dati NAS di proprietà del nodo2 dal nodo3 al nodo4 e aver verificato i LIF SAN sul nodo4, .

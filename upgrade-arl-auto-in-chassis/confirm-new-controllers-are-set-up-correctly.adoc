@@ -139,3 +139,6 @@ Fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _
 
 .Al termine
 Se la crittografia di archiviazione è abilitata su node1 e node2, completare la sezione link:set-up-storage-encryption-new-module.html["Impostare Storage Encryption sul nuovo modulo controller"]. Altrimenti, completare la sezione link:decommission-old-system.html["Decommissionare il vecchio sistema"].
+
+.Quali sono le prossime novità?
+Dopo aver verificato che i nuovi controller siano configurati correttamente, link:set-up-storage-encryption-new-module.html["Configurare la crittografia dell'archiviazione sul nuovo modulo controller"].

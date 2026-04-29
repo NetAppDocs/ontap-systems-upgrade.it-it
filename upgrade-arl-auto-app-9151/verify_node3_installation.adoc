@@ -14,18 +14,24 @@ summary: 'Verificare che le node1 porte fisiche mappino correttamente a node3 e 
 
 
 [role="lead"]
-È necessario verificare che le porte fisiche dal nodo 1 siano mappate correttamente alle porte fisiche sul nodo 3. In questo modo, il nodo 3 potrà comunicare con altri nodi del cluster e con la rete dopo l'aggiornamento.
+È necessario verificare che le porte fisiche di node1 siano mappate correttamente sulle porte fisiche di node3. Ciò consente a node3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .A proposito di questa attività
 Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_ per acquisire informazioni sulle porte sui nuovi nodi. Le informazioni verranno utilizzate più avanti in questa sezione.
 
-Il layout fisico delle porte potrebbe variare a seconda del modello dei nodi. All'avvio del nuovo nodo, ONTAP tenterà di determinare quali porte dovrebbero ospitare le LIF del cluster per entrare automaticamente nel quorum.
+La configurazione fisica delle porte può variare a seconda del modello dei nodi. All'avvio del nuovo nodo, ONTAP tenta di determinare quali porte devono ospitare le LIF del cluster per entrare automaticamente in quorum.
 
-Se le porte fisiche sul nodo 1 non vengono mappate direttamente alle porte fisiche sul nodo 3, consultare la sezione successiva <<Ripristinare la configurazione di rete sul nodo 3>> deve essere utilizzato per riparare la connettività di rete.
+Se le porte fisiche sul nodo1 non corrispondono direttamente alle porte fisiche sul nodo3, la sezione successiva <<restore_network_configuration_on_node3_9151,Ripristinare la configurazione di rete sul nodo 3>> deve essere utilizzata per ripristinare la connettività di rete.
 
 Dopo aver installato e avviato il nodo 3, è necessario verificare che sia installato correttamente. È necessario attendere che il nodo 3 si unisca al quorum e riprendere l'operazione di trasferimento.
 
-A questo punto della procedura, l'operazione verrà messa in pausa quando node3 si unisce al quorum.
+A questo punto della procedura, l'operazione si interrompe poiché node3 si unisce al quorum.
+
+
+
+== Passaggio 1: Verificare che node3 sia in quorum
+
+Verificare che il nodo3 sia in quorum. Quindi, riprendere l'operazione di sostituzione del controller.
 
 .Fasi
 . Verificare che node3 si sia Unito al quorum:
@@ -54,7 +60,7 @@ L'output di `health` il campo deve essere `true`.
 +
 `system controller replace resume`
 
-. La sostituzione del controller viene interrotta per l'intervento con il seguente messaggio:
+. La sostituzione del controller si interrompe per consentire l'intervento e visualizza il seguente messaggio:
 +
 ....
 Cluster::*> system controller replace show
@@ -83,11 +89,10 @@ NOTE: In questa procedura, la sezione _creazione di VLAN, ifgrps e domini di tra
 
 
 
-== Ripristinare la configurazione di rete sul nodo 3
+== Passaggio 2: Ripristinare la configurazione di rete sul nodo3
 
 Dopo aver confermato che node3 è in quorum e può comunicare con node2, verificare che le VLAN, i gruppi di interfacce e i domini di broadcast di node1 siano visibili sul node3. Inoltre, verificare che tutte le porte di rete node3 siano configurate nei rispettivi domini di trasmissione corretti.
 
-.A proposito di questa attività
 Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Network Management_.
 
 .Fasi
@@ -165,7 +170,7 @@ Verificare che tutte le porte fisiche abbiano la raggiungibilità prevista:
 `network port reachability show`
 
 +
-Quando viene eseguita la riparazione della raggiungibilità, ONTAP tenta di posizionare le porte nei domini di trasmissione corretti. Tuttavia, se non è possibile determinare la raggiungibilità di una porta e non appartiene a nessuno dei domini di broadcast esistenti, ONTAP creerà nuovi domini di broadcast per queste porte.
+Durante la procedura di ripristino della raggiungibilità, ONTAP tenta di assegnare le porte ai domini di broadcast corretti. Tuttavia, se ONTAP non riesce a determinare la raggiungibilità di una porta e la porta non appartiene a nessuno dei domini di broadcast esistenti, ONTAP crea nuovi domini di broadcast per queste porte.
 
 . Se la configurazione del gruppo di interfacce non corrisponde al layout della porta fisica del nuovo controller, modificarla seguendo la procedura riportata di seguito.
 +
@@ -304,3 +309,6 @@ Quando tutte le porte sono configurate correttamente e aggiunte ai domini di tra
 `network interface show -fields home-port, status-admin`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver verificato l'installazione di node3, link:restore_key-manager_configuration_node3.html["ripristinare la configurazione del key-manager sul nodo3"].

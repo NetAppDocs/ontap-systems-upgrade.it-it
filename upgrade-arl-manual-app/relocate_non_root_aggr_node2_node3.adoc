@@ -210,3 +210,6 @@ Se alcuni volumi sono offline sul node3, è necessario portarli online, una volt
 L'output del comando non dovrebbe visualizzare gli aggregati online non root perché tutti gli aggregati online non root sono già stati riallocati in node3.
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root dal nodo2 al nodo3, link:move_nas_lifs_node2_node3.html["spostare i LIF dei dati NAS di proprietà del nodo2 sul nodo3"].

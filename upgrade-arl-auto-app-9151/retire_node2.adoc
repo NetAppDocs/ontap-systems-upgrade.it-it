@@ -28,3 +28,6 @@ Il nodo si arresta automaticamente.
 
 .Al termine
 Dopo aver ritirato node2, verificare che sia spento e non connesso alla rete.  Lasciare il vecchio hardware del nodo 2 in questo stato finché non si completa l'aggiornamento sia del nodo 1 che del nodo 2.  È quindi possibile disattivare node2 durantelink:manage-authentication-using-kmip-servers.html["Fase 6. Completare l'aggiornamento"] .
+
+.Quali sono le prossime novità?
+Dopo aver disattivato il nodo2, link:install_boot_node4.html["installare e avviare node4"].

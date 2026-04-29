@@ -157,3 +157,6 @@ NOTE: Prima di continuare, è necessario spostare i volumi su uno shelf di disch
 | Contengono volumi non root sui dischi interni e non è possibile spostare i volumi su uno storage esterno | Non continuare con questa procedura. È possibile aggiornare i controller utilizzando la procedura _aggiornamento dell'hardware del controller su una coppia di nodi che eseguono Clustered Data ONTAP spostando i volumi_. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_, dove è possibile accedere a questa procedura. 
 |===
 
+
+.Quali sono le prossime novità?
+Dopo aver determinato se il controller dispone di aggregati su unità disco interne, link:prepare_nodes_for_upgrade.html["preparare i nodi per l'aggiornamento"].

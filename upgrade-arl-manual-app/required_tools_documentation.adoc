@@ -23,3 +23,6 @@ Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
 
 
 Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento richiesti per questo aggiornamento.
+
+.Quali sono le prossime novità?
+Dopo aver esaminato gli strumenti e la documentazione necessari, link:worksheet_information_before_during_upgrade.html["registrare le informazioni originali del nodo da utilizzare durante l'aggiornamento"].

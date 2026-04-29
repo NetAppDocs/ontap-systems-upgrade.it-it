@@ -79,7 +79,7 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 `network port vlan show -node _node_name_`
 
 +
-Le VLAN sono configurate su porte fisiche. Se le porte fisiche cambiano, sarà necessario ricreare le VLAN in un secondo momento della procedura.
+Le VLAN vengono configurate sulle porte fisiche. Se le porte fisiche cambiano, le VLAN dovranno essere ricreate in un secondo momento.
 
 +
 Il sistema visualizza le VLAN configurate sul nodo, come illustrato nell'esempio seguente:
@@ -112,7 +112,7 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 `network interface show -vserver _vserver_name_ -data-protocol iscsi|fcp`
 
 +
-Se non sono configurati né iSCSI né FC per SVM, il comando visualizza un messaggio simile all'esempio seguente:
+Se né iSCSI né FC sono configurati per l'SVM, il comando visualizza un messaggio simile al seguente esempio:
 
 +
 ....
@@ -123,7 +123,7 @@ There are no entries matching your query.
 È possibile verificare che il nodo si trovi in un ambiente NAS utilizzando `network interface show` con il `-data-protocol nfs|cifs` parametri.
 
 +
-Se iSCSI o FC sono configurati per SVM, il comando visualizza un messaggio simile all'esempio seguente:
+Se iSCSI o FC sono configurati per l'SVM, il comando visualizza un messaggio simile al seguente esempio:
 
 +
 ....

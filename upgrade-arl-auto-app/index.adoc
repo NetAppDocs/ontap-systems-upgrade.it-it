@@ -36,3 +36,11 @@ Questa procedura di aggiornamento si applica principalmente agli scenari di aggi
 * Per i sistemi non MetroCluster, come i cluster ha, l'upgrade ARL è l'unica procedura supportata.
 * Se si sta eseguendo l'aggiornamento da un sistema AFF A320, è possibile utilizzare i movimenti dei volumi per aggiornare l'hardware del controller o contattare il supporto tecnico. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
+
+.Automatizzare il processo di aggiornamento del controller
+Durante un aggiornamento del controller, il controller viene sostituito con un altro controller che esegue una piattaforma più recente o più potente. Le versioni precedenti di questo contenuto contenevano istruzioni per un processo di aggiornamento del controller senza interruzioni, che comprendeva passaggi interamente manuali. Questo contenuto fornisce i passaggi per la nuova procedura automatica che utilizza i controlli automatici di raggiungibilità delle porte di rete per semplificare ulteriormente l'esperienza di upgrade del controller.
+
+Il processo manuale è stato lungo e complesso, ma in questa procedura semplificata è possibile implementare un aggiornamento del controller utilizzando il trasferimento degli aggregati, consentendo aggiornamenti più efficienti e senza interruzioni per le coppie ha. Le procedure manuali sono notevolmente inferiori, in particolare per quanto riguarda la convalida, la raccolta di informazioni e i controlli successivi.
+
+.Quali sono le prossime novità?
+Dopo aver appreso di questa procedura ARL, link:decide_to_use_the_aggregate_relocation_guide.html["decidere se utilizzare questa procedura ARL"].

@@ -140,3 +140,6 @@ Per un cluster con collegamento a switch, verificare di soddisfare i seguenti re
 
 
 NOTE: Se lo switch del cluster supporta solo velocità 10/25 GbE, è necessario utilizzare una scheda X60130A a 4 porte 10/25 GbE nello slot 1 o nello slot 2 del sistema sostitutivo per l'interconnessione del cluster.
+
+.Quali sono le prossime novità?
+Dopo aver cablato il nodo1 per il cluster-HA condiviso e lo storage, link:boot-node1-with-a900-controller-and-nvs.html["Avviare il nodo1 con i moduli di sistema sostitutivi"].

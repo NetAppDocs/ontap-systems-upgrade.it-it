@@ -1,10 +1,10 @@
-= Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+= Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 :allow-uri-read: 
 
 
 
 
-== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+== Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
 
@@ -33,12 +33,7 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Riavviare la procedura di sostituzione del controller:
 
-
-
-
-=== Al termine
-
-È necessario riavviare il processo di sostituzione del controller:
 
 `system controller replace start -nodes _node_names_`

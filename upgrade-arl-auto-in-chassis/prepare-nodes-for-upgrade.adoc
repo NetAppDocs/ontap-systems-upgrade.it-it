@@ -16,6 +16,12 @@ summary: Preparare i nodi ed eseguire una serie di controlli preliminari quando 
 [role="lead"]
 Il processo di sostituzione del controller inizia con una serie di controlli preliminari. Si raccolgono inoltre informazioni sui nodi originali da utilizzare più avanti nella procedura e, se necessario, si determina il tipo di unità con crittografia automatica in uso.
 
+
+
+== Passaggio 1: Preparare i nodi
+
+Avviare la procedura di sostituzione del controller ed eseguire i controlli preliminari. Se necessario, determinare il tipo di unità a crittografia automatica in uso.
+
 .Fasi
 . Elencare la versione del firmware del Service Processor (SP) o del Baseboard Management Controller (BMC) in esecuzione sul vecchio controller:
 +
@@ -55,7 +61,7 @@ Verificare di disporre di una versione del firmware SP o BMC supportata:
 `system controller replace start -nodes _node_names_`
 
 +
-Viene visualizzato un output simile al seguente esempio. L'output mostra la versione di ONTAP in esecuzione sul cluster:
+L'output visualizzato è simile all'esempio seguente. L'output mostra la versione di ONTAP in esecuzione sul cluster:
 
 +
 ....
@@ -72,7 +78,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. Selezionare `y`. Viene visualizzato il seguente output:
+. Seleziona `y`. Vedrai il seguente output:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -183,7 +189,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+== Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
 
@@ -212,24 +218,10 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Riavviare la procedura di sostituzione del controller:
 
-
-
-
-=== Al termine
-
-È necessario riavviare il processo di sostituzione del controller:
 
 `system controller replace start -nodes _node_names_`
 
-
-
-== Licenza
-
-Ogni nodo del cluster deve disporre di un proprio file di licenza NetApp (NLF).
-
-Se non si dispone di un NLF, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare l'NLF per il nuovo controller al termine dell'aggiornamento.
-
-Fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _NetApp Support Site_ dove è possibile ottenere il proprio NLF. I NLF sono disponibili nella sezione _My Support_ sotto _Software licenses_. Se il sito non dispone dei NLF necessari, contattare il proprio rappresentante commerciale NetApp.
-
-Per informazioni dettagliate sulle licenze, fare riferimento a link:other-references.html["Riferimenti"] _System Administration Reference_.
+.Quali sono le prossime novità?
+Dopo aver preparato i nodi, link:complete-preparation-for-upgrade.html["completare la preparazione per l'aggiornamento"].

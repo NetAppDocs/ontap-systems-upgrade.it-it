@@ -41,3 +41,6 @@ Il sistema interrompe l'operazione di ricollocazione a causa dell'errore.
 `storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non riusciti o bloccati sul nodo3, link:retire_node2.html["ritirare node2"].

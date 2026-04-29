@@ -219,3 +219,6 @@ f-a    2b      fc       target    cna      -          online
 
 . [[MAN_check_4_STEP13]]collegare la porta via cavo.
 
+
+.Quali sono le prossime novità?
+Dopo aver impostato la configurazione FC o UTA/UTA2 sul nodo4, link:map_ports_node2_node4.html["mappa le porte dal nodo2 al nodo4"].

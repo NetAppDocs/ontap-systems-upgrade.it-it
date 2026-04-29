@@ -143,3 +143,6 @@ Vai a link:other_references.html["Riferimenti"] per collegarti al _System Admini
 
 .Al termine
 Se Storage Encryption è attivato su node3 e node4, completare la procedura descritta in link:set_up_storage_encryption_new_controller.html["Impostare Storage Encryption sul nuovo modulo controller"]. In caso contrario, completare la procedura descritta in link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+
+.Quali sono le prossime novità?
+Dopo aver verificato che i nuovi controller siano configurati correttamente, link:set_up_storage_encryption_new_controller.html["Configurare la crittografia dell'archiviazione sul nuovo modulo controller"].

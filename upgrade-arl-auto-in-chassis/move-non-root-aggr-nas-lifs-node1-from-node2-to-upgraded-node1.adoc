@@ -203,3 +203,6 @@ Il sistema esegue i seguenti post-controlli:
 
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root del nodo1 e le LIF dei dati NAS dal nodo2 al nodo1 aggiornato, link:relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html["spostare gli aggregati non root e i LIF dei dati NAS dal node2 al node1"].

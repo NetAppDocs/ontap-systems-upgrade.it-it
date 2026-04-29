@@ -17,7 +17,7 @@ summary: 'Verificare che i file LIF dei dati NAS node1 sul node2 vengano ricollo
 Dopo aver verificato la configurazione di rete su node3 e prima di spostare gli aggregati da node2 a node3, è necessario verificare che i dati NAS LIF appartenenti al node1 che sono attualmente su node2 siano ricollocati da node2 a node3. È inoltre necessario verificare che le LIF SAN esistano sul node3.
 
 .A proposito di questa attività
-Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 3 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
+Durante la procedura di aggiornamento, i LIF remoti gestiscono il traffico verso le LUN SAN. Lo spostamento dei LIF SAN non è necessario per l'integrità del cluster o dei servizi durante l'aggiornamento. I LIF SAN non vengono spostati a meno che non sia necessario mapparli su nuove porte. Verificare che i LIF siano integri e posizionati sulle porte appropriate dopo aver portato online node3.
 
 
 NOTE: Se si modifica la velocità delle porte delle schede di interfaccia di rete Ethernet basate su T6 o delle porte della scheda madre, è possibile che vengano ricevuti pacchetti non validi dopo la conversione della velocità. Vedere https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug online di NetApp ID 1570339"^] e l'articolo della knowledge base https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Errori CRC sulle porte T6 dopo la conversione da 40GbE a 100GbE"^] come guida.
@@ -128,3 +128,6 @@ Il sistema esegue i seguenti post-controlli:
 
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root e i LIF di dati NAS di proprietà del nodo1 dal nodo2 al nodo3, link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["spostare gli aggregati non root e le LIF dei dati NAS dal nodo2 al nodo3"].

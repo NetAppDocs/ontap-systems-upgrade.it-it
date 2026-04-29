@@ -96,8 +96,10 @@ Proprietà aggregata alla fine della fase 5:
 Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e configuri Storage Encryption o NetApp Volume Encryption se i nuovi nodi sono abilitati alla crittografia. È inoltre necessario decommissionare i vecchi nodi per riprendere le operazioni di SnapMirror.
 
 
-NOTE: Gli aggiornamenti per il disaster recovery della macchina virtuale per lo storage (SVM) non verranno interrotti in base alle pianificazioni assegnate.
+NOTE: Gli aggiornamenti di ripristino di emergenza della macchina virtuale di archiviazione (SVM) non vengono interrotti secondo le pianificazioni assegnate.
 
 Non si verificano modifiche nella proprietà aggregata.
 
 |===
+.Quali sono le prossime novità?
+Dopo aver esaminato il flusso di lavoro di aggiornamento ARL, link:guidelines_upgrade_with_arl.html["rivedere le linee guida per l'aggiornamento dei controller con ARL"].

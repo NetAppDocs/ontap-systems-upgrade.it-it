@@ -25,7 +25,5 @@ Per dismettere il node1, riprendere l'operazione automatica per disattivare corr
 +
 `system controller replace show-details`
 
+. Facoltativamente, decommissionare node1 al termine dell'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
 
-
-.Al termine
-Una volta completato l'aggiornamento, è possibile decommissionare il node1. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].

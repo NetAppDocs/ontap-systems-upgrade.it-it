@@ -138,7 +138,7 @@ vsa_1 iscsi_lf__n4_p1_ 1 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02
 .Risultato
 Al termine di questa attività, l'host è in grado di visualizzare tutte le interfacce iSCSI (sui nodi vecchi e nuovi) ed è connesso a tutte queste interfacce.
 
-I LUN e i volumi sono ancora fisicamente ospitati nei vecchi nodi. Poiché i LUN sono riportati solo sulle vecchie interfacce di nodo, l'host mostrerà solo i percorsi sui vecchi nodi. Per vedere questo, eseguire `sanlun lun show -p` e. `multipath -ll -d` comandi sull'host ed esaminare gli output dei comandi.
+Le LUN e i volumi sono ancora fisicamente ospitati sui vecchi nodi. Poiché le LUN vengono segnalate solo sulle interfacce dei vecchi nodi, l'host mostra solo i percorsi sui vecchi nodi. Per verificarlo, eseguire i comandi  `sanlun lun show -p` e  `multipath -ll -d` sull'host ed esaminare gli output dei comandi.
 
 [listing]
 ----

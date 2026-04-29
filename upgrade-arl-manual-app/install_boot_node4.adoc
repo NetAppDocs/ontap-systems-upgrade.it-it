@@ -308,7 +308,7 @@ Per `<node2_sysid>` utilizzare le informazioni acquisite in link:record_node2_in
 NOTE: Il `-p` l'opzione è richiesta solo in modalità di manutenzione quando sono presenti dischi condivisi.
 
 +
-Il `disk reassign` command riassegna solo i dischi per i quali `_node2_sysid_` è il proprietario corrente.
+Il  `disk reassign` comando riassegna solo i dischi di cui  `_node2_sysid_` è il proprietario corrente.
 
 +
 Il sistema visualizza il seguente messaggio:
@@ -483,3 +483,6 @@ NOTE: Il sistema potrebbe riavviarsi due volte prima di visualizzare l'avviso di
 . Confermare la mancata corrispondenza. Il nodo potrebbe completare un ciclo di riavvio prima di avviarsi normalmente.
 . Accedere a node4.
 
+
+.Quali sono le prossime novità?
+Dopo aver installato e avviato node4, link:set_fc_uta_uta2_config_node4.html["imposta la configurazione FC o UTA/UTA2 sul nodo 4"].

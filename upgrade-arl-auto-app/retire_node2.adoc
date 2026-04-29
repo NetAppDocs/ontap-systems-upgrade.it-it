@@ -24,7 +24,11 @@ Per dismettere node2, è necessario arrestare node2 correttamente e quindi rimuo
 +
 Il nodo si arresta automaticamente.
 
++
+.. Facoltativamente, decommissionare il nodo2 al termine dell'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
 
 
-.Al termine
-È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+
+
+.Quali sono le prossime novità?
+Dopo aver disattivato il nodo2, link:install_boot_node4.html["installare e avviare node4"].

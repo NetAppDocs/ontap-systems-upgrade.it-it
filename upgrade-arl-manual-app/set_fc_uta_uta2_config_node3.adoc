@@ -259,3 +259,6 @@ L'output degli esempi seguenti mostra che il tipo di adattatore FC4 "1b" sta cam
 
 . [[man_check_3_step14]]Cablare la porta.
 
+
+.Quali sono le prossime novità?
+Dopo aver impostato la configurazione FC o UTA/UTA2 sul nodo3, link:map_ports_node1_node3.html["mappa le porte dal nodo1 al nodo3"].

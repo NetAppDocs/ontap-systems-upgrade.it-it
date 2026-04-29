@@ -157,7 +157,7 @@ Se uno dei nodi è in un giveback parziale, utilizzare `storage failover givebac
 `storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
 
 +
-Se né node1 né node2 possiedono aggregati per i quali è il proprietario corrente (ma non il proprietario domestico), il sistema restituirà un messaggio simile al seguente esempio:
+Se né il nodo1 né il nodo2 possiedono aggregati di cui sono il proprietario corrente (ma non il proprietario principale), il sistema restituisce un messaggio simile al seguente esempio:
 
 +
 ....

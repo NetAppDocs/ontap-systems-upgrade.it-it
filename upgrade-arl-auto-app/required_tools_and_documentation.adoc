@@ -23,3 +23,6 @@ Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
 
 
 Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento e dei siti di riferimento necessari per questo aggiornamento
+
+.Quali sono le prossime novità?
+Dopo aver esaminato gli strumenti e la documentazione necessari, scopri di più su link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller con ARL"].

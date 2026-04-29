@@ -97,5 +97,6 @@ Il valore di questo comando deve corrispondere allo stato fisico del sistema.
 
 . Arrestare il node2 immettendo il seguente comando su uno dei controller:
 `system node halt -node _node2_`
-. Dopo lo spegnimento completo del node2, rimuoverlo dallo chassis o dal rack. È possibile decommissionare il node2 una volta completato l'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
+. Dopo lo spegnimento completo di node2, rimuoverlo dallo chassis o dal rack.
+. Facoltativamente, decommissionare il nodo2 al termine dell'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
 

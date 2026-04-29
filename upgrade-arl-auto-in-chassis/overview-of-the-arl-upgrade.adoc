@@ -81,7 +81,7 @@ Proprietà aggregata alla fine della fase 4:
 
 
 
-| link:install-aff-a30-a50-c30-c50-node2.html["Fase 5: Installare i moduli di sistema sostitutivi sul nodo 2"]  a| 
+| link:install-aff-a30-a50-c30-c50-node2.html["Fase 5: Installare i moduli di sistema sostitutivi del nodo2"]  a| 
 Durante la fase 5, si installano i nuovi moduli di sistema ricevuti per il node2 aggiornato e quindi il node2 di netboot.
 
 Proprietà aggregata alla fine della fase 5:
@@ -92,7 +92,7 @@ Proprietà aggregata alla fine della fase 5:
 
 
 
-| link:boot-node2-with-a900-controller-and-nvs.html["Fase 6: Punto di avvio2 con i moduli di sistema sostitutivi"]  a| 
+| link:cable-node2-for-shared-cluster-HA-storage.html["Fase 6: Punto di avvio2 con i moduli di sistema sostitutivi"]  a| 
 Durante la Fase 6, si avvia node2 con i moduli di sistema aggiornati e si verifica l'installazione di node2 aggiornata. Se si utilizza NVE, ripristinare la configurazione del gestore delle chiavi. Per gli aggiornamenti dei cluster collegati allo switch, è necessario verificare che il file di configurazione di riferimento dello switch del cluster (RCF) supporti le porte cluster/HA condivise. Si spostano inoltre gli aggregati non root del nodo 1 e i LIF dei dati NAS dal nodo 1 al nodo 2 aggiornato e si verifica che i LIF SAN siano presenti sul nodo 2.
 
 
@@ -101,3 +101,5 @@ Durante la Fase 6, si avvia node2 con i moduli di sistema aggiornati e si verifi
 Durante la fase 7, si conferma che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, si configura e imposta Storage Encryption o NVE. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
 
 |===
+.Quali sono le prossime novità?
+Dopo aver appreso la sequenza di aggiornamento ARL, link:verify-upgrade-hardware.html["verificare l'aggiornamento hardware"].

@@ -68,3 +68,6 @@ Per ulteriori informazioni, consultare l'articolo della Knowledge base https://k
 
 .Al termine
 Controllare se i volumi sono stati portati offline perché le chiavi di autenticazione non erano disponibili o non è stato possibile raggiungere i server di gestione delle chiavi esterne. Riportare online quei volumi utilizzando  `volume online` comando.
+
+.Quali sono le prossime novità?
+Dopo aver configurato la crittografia del volume o dell'aggregato NetApp sul nuovo modulo controller, link:decommission_old_system.html["decommissionare il vecchio sistema"].

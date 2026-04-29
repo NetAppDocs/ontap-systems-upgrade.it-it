@@ -14,16 +14,16 @@ summary: 'Verificare che le porte fisiche sul nodo 2 siano mappate correttamente
 
 
 [role="lead"]
-È necessario verificare che le porte fisiche sul nodo 2 siano mappate correttamente alle porte fisiche sul nodo 4, consentendo al nodo 4 di comunicare con altri nodi del cluster e con la rete dopo l'aggiornamento.
+È necessario verificare che le porte fisiche del nodo2 corrispondano correttamente alle porte fisiche del nodo4. Ciò consente al nodo4 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .A proposito di questa attività
 Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_ per acquisire informazioni sulle porte sui nuovi nodi. Le informazioni verranno utilizzate più avanti in questa sezione.
 
 La configurazione software del nodo 4 deve corrispondere alla connettività fisica del nodo 4 e la connettività IP deve essere ripristinata prima di continuare con l'aggiornamento.
 
-Le impostazioni delle porte possono variare a seconda del modello dei nodi. È necessario rendere la porta e la configurazione LIF del nodo originale compatibili con la configurazione del nuovo nodo. Questo perché il nuovo nodo riproduce la stessa configurazione all'avvio, il che significa che quando si avvia node4 Data ONTAP tenterà di ospitare le LIF sulle stesse porte utilizzate sul node2.
+Le impostazioni delle porte possono variare a seconda del modello dei nodi. È necessario rendere compatibili la configurazione delle porte e dei LIF del nodo originale con quella che si intende utilizzare per il nuovo nodo. Questo perché il nuovo nodo riproduce la stessa configurazione all'avvio, ovvero, all'avvio del nodo4, Data ONTAP tenta di ospitare i LIF sulle stesse porte utilizzate sul nodo2.
 
-Pertanto, se le porte fisiche sul nodo 2 non vengono mappate direttamente alle porte fisiche sul nodo 4, saranno necessarie modifiche alla configurazione del software per ripristinare la connettività di cluster, gestione e rete dopo l'avvio. Inoltre, se le porte del cluster sul nodo 2 non vengono mappate direttamente alle porte del cluster sul nodo 4, il nodo 4 potrebbe non ricongiungersi automaticamente al quorum quando viene riavviato fino a quando non viene apportata una modifica alla configurazione software per ospitare le LIF del cluster sulle porte fisiche corrette.
+Pertanto, se le porte fisiche su node2 non corrispondono direttamente alle porte fisiche su node4, sono necessarie modifiche alla configurazione software per ripristinare la connettività del cluster, della gestione e della rete dopo il boot. Inoltre, se le porte del cluster su node2 non corrispondono direttamente alle porte del cluster su node4, node4 potrebbe non rientrare automaticamente nel quorum al riavvio finché non viene apportata una modifica alla configurazione software per ospitare le LIF del cluster sulle porte fisiche corrette.
 
 .Fasi
 . Annotare nella tabella tutte le informazioni di cablaggio node2 per il nodo 2, le porte, i domini di trasmissione e gli spazi IP,

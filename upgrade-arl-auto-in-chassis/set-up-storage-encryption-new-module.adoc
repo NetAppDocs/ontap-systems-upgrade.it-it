@@ -57,3 +57,6 @@ Questa procedura include i passaggi che vengono eseguiti sul nuovo modulo contro
 `security key-manager external restore -node _new_controller_name_`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver configurato la crittografia dell'archiviazione sul nuovo modulo controller, link:set-up-netapp-volum-encryption-new-module.html["Configurare la crittografia del volume o dell'aggregato NetApp sul nuovo modulo controller"].

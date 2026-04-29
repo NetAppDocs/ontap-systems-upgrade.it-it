@@ -43,7 +43,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. Premere `y`, viene visualizzato il seguente output:
+. Seleziona  `y`, visualizzi il seguente output:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -150,7 +150,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+== Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
 
@@ -179,19 +179,14 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Riavviare la procedura di sostituzione del controller:
 
-
-
-
-=== Al termine
-
-È necessario riavviare il processo di sostituzione del controller:
 
 `system controller replace start -nodes _node_names_`
 
 
 
-== Licenza
+== Scopri le licenze ONTAP
 
 Alcune funzionalità richiedono licenze, emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
 
@@ -199,4 +194,4 @@ Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente conce
 
 Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_, dove è possibile ottenere nuove chiavi di licenza di 28 caratteri per ONTAP. Le chiavi sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
 
-Per informazioni dettagliate sulle licenze, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.
+Per informazioni dettagliate sulle licenze ONTAP, fare riferimento a link:other_references.html["Riferimenti"] per collegarsi al _System Administration Reference_.

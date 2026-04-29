@@ -163,7 +163,7 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 
 WARNING: Se questo nuovo nodo è stato utilizzato in qualsiasi altro cluster o coppia ha, è necessario eseguire `wipeconfig` prima di procedere. In caso contrario, potrebbero verificarsi interruzioni del servizio o perdita di dati. Contattare il supporto tecnico se il controller sostitutivo è stato utilizzato in precedenza, in particolare se i controller eseguivano ONTAP in 7-Mode.
 
-. Premere CTRL-C per visualizzare il menu di avvio.
+. Premi CTRL-C per visualizzare il menu di boot.
 . [[man_install3_step19]]eseguire una delle seguenti operazioni:
 +
 [cols="35,65"]

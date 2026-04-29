@@ -14,7 +14,13 @@ summary: 'Preparare i nodi ed eseguire una serie di controlli preliminari per l"
 
 
 [role="lead"]
-Il processo di sostituzione del controller inizia con una serie di controlli preliminari. Si raccolgono inoltre informazioni sui nodi originali da utilizzare più avanti nella procedura e, se necessario, si determina il tipo di unità con crittografia automatica in uso.
+Il processo di sostituzione del controller inizia con una serie di controlli preliminari. Vengono inoltre raccolte informazioni sui nodi originali che saranno utilizzate in seguito nella procedura. Se uno qualsiasi dei controlli preliminari fallisce, è necessario correggere la proprietà dell'aggregato prima di poter procedere con l'upgrade.
+
+
+
+== Passaggio 1: Preparare i nodi
+
+Avviare la procedura di sostituzione del controller ed eseguire i controlli preliminari. Se necessario, determinare il tipo di unità a crittografia automatica in uso.
 
 .Fasi
 . Iniziare il processo di sostituzione del controller immettendo il seguente comando nella riga di comando ONTAP:
@@ -26,7 +32,7 @@ Il processo di sostituzione del controller inizia con una serie di controlli pre
 NOTE: È possibile eseguire il comando di avvio di sostituzione del controller di sistema solo al livello di privilegi avanzati: `set -privilege advanced`
 
 +
-Viene visualizzato un output simile al seguente esempio. L'output mostra la versione di ONTAP in esecuzione sul cluster:
+L'output visualizzato è simile all'esempio seguente. L'output mostra la versione di ONTAP in esecuzione sul cluster:
 
 +
 ....
@@ -41,7 +47,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 4. Note: This is not a MetroCluster configuration. Controller replacement supports only ARL based procedure.
 Do you want to continue? {y|n}: y
 ....
-. Premere `y`, viene visualizzato il seguente output:
+. Seleziona  `y`, visualizzi il seguente output:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -154,7 +160,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+== Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
 
@@ -183,21 +189,10 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Riavviare la procedura di sostituzione del controller:
 
-
-
-
-=== Al termine
-
-È necessario riavviare il processo di sostituzione del controller:
 
 `system controller replace start -nodes _node_names_`
 
-
-
-== Licenza
-
-Per informazioni dettagliate sulle licenze ONTAP, fare riferimento a https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Gestione delle licenze"^].
-
-
-NOTE: L'utilizzo di funzioni senza licenza sul controller potrebbe mettere fuori conformità con il contratto di licenza.
+.Quali sono le prossime novità?
+Dopo aver preparato i nodi, link:complete-preparation-for-upgrade.html["completare la preparazione per l'aggiornamento"].

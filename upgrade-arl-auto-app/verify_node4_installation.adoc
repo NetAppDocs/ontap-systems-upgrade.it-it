@@ -14,18 +14,24 @@ summary: 'Verificare che le porte fisiche del node2 siano mappate correttamente 
 
 
 [role="lead"]
-È necessario verificare che le porte fisiche dal nodo 2 siano mappate correttamente alle porte fisiche sul nodo 4. In questo modo, il nodo 4 potrà comunicare con altri nodi del cluster e con la rete dopo l'aggiornamento.
+È necessario verificare che le porte fisiche del nodo2 siano mappate correttamente sulle porte fisiche del nodo4. Ciò consente al nodo4 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .A proposito di questa attività
 Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_ per acquisire informazioni sulle porte sui nuovi nodi. Le informazioni verranno utilizzate più avanti in questa sezione.
 
-Il layout fisico delle porte potrebbe variare a seconda del modello dei nodi. All'avvio del nuovo nodo, ONTAP tenterà di determinare quali porte dovrebbero ospitare le LIF del cluster per entrare automaticamente nel quorum.
+La configurazione fisica delle porte può variare a seconda del modello dei nodi. All'avvio del nuovo nodo, ONTAP tenta di determinare quali porte devono ospitare le LIF del cluster per entrare automaticamente in quorum.
 
-Se le porte fisiche sul nodo 2 non vengono mappate direttamente alle porte fisiche sul nodo 4, consultare la sezione successiva <<Ripristinare la configurazione di rete sul nodo 4>> deve essere utilizzato per riparare la connettività di rete.
+Se le porte fisiche sul nodo2 non corrispondono direttamente alle porte fisiche sul nodo4, la sezione successiva <<restore_network_configuration_on_node4,Ripristinare la configurazione di rete sul nodo 4>> deve essere utilizzata per riparare la connettività di rete.
 
 Dopo aver installato e avviato il nodo 4, è necessario verificare che sia installato correttamente. È necessario attendere che il nodo 4 si unisca al quorum, quindi riprendere l'operazione di trasferimento.
 
-A questo punto della procedura, l'operazione verrà messa in pausa quando node4 si unisce al quorum.
+A questo punto della procedura, l'operazione si interrompe poiché node4 si unisce al quorum.
+
+
+
+== Passaggio 1: Verificare che node4 sia in quorum
+
+Verificare che il nodo4 sia in quorum. Quindi, riprendere l'operazione di sostituzione del controller
 
 .Fasi
 . Verificare che node4 si sia Unito al quorum:
@@ -102,7 +108,7 @@ Controllare lo stato del nodo MetroCluster:
 +
 `system controller replace resume`
 
-. La sostituzione del controller viene interrotta per l'intervento con il seguente messaggio:
+. La sostituzione del controller si interrompe per consentire l'intervento e visualizza il seguente messaggio:
 +
 ....
 Cluster::*> system controller replace show
@@ -137,7 +143,7 @@ NOTE: In questa procedura, la sezione _Ricomposizione di VLAN, ifgrps e domini d
 
 
 
-== Ripristinare la configurazione di rete sul nodo 4
+== Passaggio 2: Ripristinare la configurazione di rete sul nodo4
 
 Dopo aver confermato che il nodo 4 è in quorum e può comunicare con il nodo 3, verificare che le VLAN, i gruppi di interfacce e i domini di broadcast di node2 siano visibili sul nodo 4. Inoltre, verificare che tutte le porte di rete node4 siano configurate nei rispettivi domini di trasmissione corretti.
 
@@ -224,7 +230,7 @@ Verificare che tutte le porte fisiche abbiano la raggiungibilità prevista:
 `network port reachability show`
 
 +
-Quando viene eseguita la riparazione della raggiungibilità, ONTAP tenta di posizionare le porte nei domini di trasmissione corretti. Tuttavia, se non è possibile determinare la raggiungibilità di una porta e non appartiene a nessuno dei domini di broadcast esistenti, ONTAP creerà nuovi domini di broadcast per queste porte.
+Durante la procedura di ripristino della raggiungibilità, ONTAP tenta di assegnare le porte ai domini di broadcast corretti. Tuttavia, se ONTAP non riesce a determinare la raggiungibilità di una porta e questa non appartiene a nessuno dei domini di broadcast esistenti, ONTAP crea nuovi domini di broadcast per tali porte.
 
 . Se la configurazione del gruppo di interfacce non corrisponde al layout della porta fisica del nuovo controller, modificarla seguendo la procedura riportata di seguito.
 +
@@ -359,3 +365,6 @@ Quando tutte le porte sono configurate correttamente e aggiunte ai domini di tra
 `network interface show -fields home-port, status-admin`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver verificato l'installazione di node4, link:restore_key-manager_config_node4.html["ripristinare la configurazione del key-manager sul nodo4"].

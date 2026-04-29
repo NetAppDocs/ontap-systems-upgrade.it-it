@@ -14,7 +14,7 @@ summary: Verificare che le porte fisiche sul nodo 1 siano mappate correttamente 
 
 
 [role="lead"]
-È necessario assicurarsi che le porte fisiche sul nodo 1 siano mappate correttamente alle porte fisiche sul nodo 3, che consentirà al nodo 3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
+È necessario assicurarsi che le porte fisiche su node1 corrispondano correttamente alle porte fisiche su node3. Ciò consente a node3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .Prima di iniziare
 È necessario disporre già delle informazioni relative alle porte sui nuovi nodi di _Hardware Universe_. (Passare a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_). Le informazioni vengono utilizzate più avanti in questa sezione e in link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].
@@ -149,7 +149,7 @@ WARNING: Repairing port "node_name:port" might cause it to move into a different
 +
 `network port broadcast-domain show`
 
-.. Quando viene eseguita la riparazione della raggiungibilità, ONTAP tenta di posizionare le porte nei domini di trasmissione corretti. Tuttavia, se non è possibile determinare la raggiungibilità di una porta e non corrisponde a nessuno dei domini di broadcast esistenti, ONTAP creerà nuovi domini di broadcast per queste porte. Se necessario, è possibile eliminare i domini di broadcast appena creati se tutte le porte membri diventeranno porte membri dei gruppi di interfacce. Elimina domini di broadcast:
+.. Durante la procedura di ripristino della raggiungibilità, ONTAP tenta di inserire le porte nei domini di broadcast corretti. Tuttavia, se ONTAP non riesce a determinare la raggiungibilità di una porta e la porta non corrisponde a nessuno dei domini di broadcast esistenti, ONTAP tenta di creare nuovi domini di broadcast per queste porte. Se necessario, è possibile eliminare i domini di broadcast appena creati se tutte le porte che li compongono diventano porte membri dei gruppi di interfaccia. Eliminare i domini di broadcast:
 +
 `broadcast-domain delete -broadcast-domain _broadcast_domain_`
 
@@ -202,7 +202,7 @@ NOTE: A seconda della complessità della configurazione di rete del sistema da a
 
 
 
-. [[man_map_1_step5]]a partire da ONTAP 9.8, ONTAP modificherà automaticamente le porte home delle LIF se le porte vengono spostate tra domini di broadcast durante la procedura di riparazione della raggiungibilità delle porte di rete. Se la porta home di una LIF è stata spostata in un altro nodo o non è assegnata, tale LIF viene presentata come LIF spostato. Ripristinare le porte home dei file LIF spostati le cui porte home non esistono più o sono state spostate in un altro nodo.
+. [[man_map_1_step5]]A partire da ONTAP 9.8, ONTAP modifica automaticamente le porte home dei LIF se queste vengono spostate tra domini di broadcast durante la procedura di ripristino della raggiungibilità delle porte di rete. Se la porta home di un LIF è stata spostata su un altro nodo o non è assegnata, tale LIF viene visualizzato come LIF spostato. Ripristinare le porte home dei LIF spostati le cui porte home non esistono più o sono state ricollocate su un altro nodo.
 +
 .. Visualizzare le LIF le cui porte home potrebbero essere state spostate in un altro nodo o non esistere più:
 +
@@ -246,3 +246,6 @@ NOTE: Per le LIF iSCSI, la modifica della porta home richiede che la LIF sia amm
 
 
 
+
+.Quali sono le prossime novità?
+Dopo aver mappato le porte dal nodo1 al nodo3, link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Spostare i LIF dei dati NAS di proprietà del node1 dal node2 al node3 e verificare i LIF SAN sul node3"].

@@ -17,7 +17,7 @@ summary: 'Spostare le LIF dei dati NAS node2 sul node3 da node3 a node4 quando s
 Dopo aver verificato l'installazione di node4 e prima di spostare gli aggregati da node3 a node4, è necessario spostare le LIF dei dati NAS appartenenti a node2 che sono attualmente sul node3 da node3 a node4. È inoltre necessario verificare che le LIF SAN esistano sul nodo 4.
 
 .A proposito di questa attività
-Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 4 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
+Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Verifica che i file LIF siano integri e posizionati sulle porte appropriate dopo aver portato il node4 online.
 
 .Fasi
 . Riprendere l'operazione di trasferimento:

@@ -34,3 +34,6 @@ A partire da ONTAP 9.10.1, è possibile utilizzare i server KMIP (Key Management
 `security key-manager external restore -node _new_controller_name_`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver gestito l'autenticazione tramite server KMIP, link:confirm-new-controllers-are-set-up-correctly.html["confermare che i nuovi controller siano configurati correttamente"].

@@ -21,8 +21,8 @@ entries:
   entries:
   - title: Preparare i nodi per l'aggiornamento
     url: "/upgrade-arl-auto-app-9151/prepare_nodes_for_upgrade.html"
-  - title: Gestire la crittografia dello storage utilizzando Onboard Key Manager
-    url: "/upgrade-arl-auto-app-9151/manage_storage_encryption_using_okm.html"
+  - title: Completare i preparativi per l'aggiornamento
+    url: "/upgrade-arl-auto-app-9151/complete-preparation-for-upgrade.html"
 - title: Fase 2. Spostare e dismettere il node1
   pdf-filename: Fase 2. Rilocare e ritirare node1 (aggiornare con "system controller
     replace" in ONTAP 9.15.1 o versioni successive)

@@ -50,3 +50,5 @@ Se stai convertendo il sistema esistente in uno shelf di archiviazione in modo d
 
 | Due controller e due moduli NVRAM 
 |===
+.Quali sono le prossime novità?
+Dopo aver verificato l'hardware di aggiornamento, link:prepare-nodes-for-upgrade.html["preparare i nodi per l'aggiornamento"].

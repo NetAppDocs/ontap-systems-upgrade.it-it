@@ -51,5 +51,5 @@ Per ulteriori informazioni, vedere link:cable-node1-for-shared-cluster-HA-storag
 
 
 
-.Cosa c'è dopo?
-link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Riportare al nodo gli aggregati non root e le LIF dei dati NAS 2"]
+.Quali sono le prossime novità?
+Dopo aver verificato la configurazione RCF link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["spostare gli aggregati non root e i LIF dei dati NAS di nuovo nel nodo2"].

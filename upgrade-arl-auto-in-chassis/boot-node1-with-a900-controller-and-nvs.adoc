@@ -81,7 +81,7 @@ Non è possibile combinare dischi FIPS con altri tipi di dischi sullo stesso nod
 ====
 .. Accedere al menu di avvio speciale e selezionare l'opzione `(10) Set Onboard Key Manager recovery secrets`.
 +
-Inserisci la passphrase e le informazioni di backup che hai annotato in precedenza nella procedura. Vedi link:manage-storage-encryption-using-okm.html["Gestire la crittografia dello storage utilizzando Onboard Key Manager"].
+Inserisci la passphrase e le informazioni di backup che hai annotato in precedenza nella procedura. Vedi link:complete-preparation-for-upgrade.html#manage-storage-encryption-using-okm["Gestire la crittografia dello storage utilizzando Onboard Key Manager"].
 
 
 
@@ -254,3 +254,6 @@ Tra l'immissione dei nomi dei nodi al prompt e il prompt di accesso, il nodo vie
 
 ====
 
+
+.Quali sono le prossime novità?
+Dopo aver avviato node1 con i moduli di sistema sostitutivi, link:verify-node1-installation.html["verificare l'installazione del nodo1"].

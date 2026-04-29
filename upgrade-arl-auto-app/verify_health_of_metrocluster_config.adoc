@@ -60,3 +60,6 @@ volumes              ok
 `system health alert show`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver verificato lo stato della configurazione MetroCluster, link:check_for_metrocluster_config_errors.html["verificare la presenza di errori di configurazione MetroCluster"].

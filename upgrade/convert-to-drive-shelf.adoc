@@ -58,6 +58,6 @@ Convertire node1 in uno shelf di dischi e collegarlo a node3 prima di riassegnar
 [role="quick-margin-para"]
 Dopo aver convertito node1 in uno shelf di dischi e averlo collegato a node3, riassegna i dischi che in precedenza appartenevano a node1 a node3.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]xref:migrate-node4-lIfs-aggregates.adoc[Migrazione di LIF e aggregati di dati dal nodo 4 al node3]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sette"]xref:migrate-node4-lifs-aggregates.adoc[Migrazione di LIF e aggregati di dati dal nodo 4 al node3]
 [role="quick-margin-para"]
 Per completare l'aggiornamento, collegare node3 a node4 ed eseguire la migrazione delle LIF dei dati e degli aggregati di dati da node4 a node3.

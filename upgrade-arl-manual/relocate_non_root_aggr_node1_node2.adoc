@@ -29,7 +29,7 @@ Prima di poter sostituire il nodo 1 con il nodo 3, è necessario spostare gli ag
 
 .. Quando richiesto, immettere `y`.
 +
-Il trasferimento avverrà in background. La riposizionamento di un aggregato potrebbe richiedere da pochi secondi a un paio di minuti. Il tempo include sia le parti di fuori servizio del client che quelle di non fuori servizio. Il comando non ricolloca nessun aggregato offline o limitato.
+Il trasferimento avviene in background. La riposizionamento di un aggregato potrebbe richiedere da pochi secondi a un paio di minuti. Il tempo include sia le parti di fuori servizio del client che quelle di non fuori servizio. Il comando non ricolloca nessun aggregato offline o limitato.
 
 .. Tornare al livello admin immettendo il seguente comando:
 +
@@ -42,7 +42,7 @@ Il trasferimento avverrà in background. La riposizionamento di un aggregato pot
 `storage aggregate relocation show -node _node1_`
 
 +
-Viene visualizzato l'output `Done` per un aggregato dopo che è stato trasferito.
+L'output visualizza  `Done` per un aggregato dopo che è stato riposizionato.
 
 +
 

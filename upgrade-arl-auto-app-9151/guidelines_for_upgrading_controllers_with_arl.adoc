@@ -62,3 +62,6 @@ Se desideri aggiornare i controller entry-level con dischi interni, fai riferime
 Se si verificano problemi durante l'aggiornamento dei controller, vederelink:aggregate_relocation_failures.html["Risolvere i problemi"] per maggiori informazioni e possibili soluzioni.
 
 Se non si riesce a trovare una soluzione al problema riscontrato, contattare il supporto tecnico.
+
+.Quali sono le prossime novità?
+Dopo aver esaminato le linee guida per l'aggiornamento dei controller con ARL, link:overview_of_the_arl_upgrade.html["Scopri la sequenza di aggiornamento ARL"].

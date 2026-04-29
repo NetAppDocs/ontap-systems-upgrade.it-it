@@ -78,3 +78,5 @@ summary: Raccogliere determinate informazioni durante un aggiornamento ARL manua
 
 | Certificati SSL pubblici e privati per il sistema di storage e certificati SSL privati per ciascun server di gestione delle chiavi | Fase 6: _Impostare Storage Encryption sui nuovi nodi_ | Più avanti nella sezione |  
 |===
+.Quali sono le prossime novità?
+Dopo aver registrato le informazioni originali del nodo, link:determine_aggregates_on_internal_drives.html["determinare se il controller dispone di aggregati su unità disco interne"].

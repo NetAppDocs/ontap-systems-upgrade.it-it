@@ -60,3 +60,6 @@ NOTE: In questo documento, i nodi originali sono chiamati _node1_ e _node2_, men
 
 
 
+
+.Quali sono le prossime novità?
+Dopo aver appreso di questa procedura ARL, link:decide_to_use_arl_guide.html["decidere se utilizzare questa procedura ARL"].

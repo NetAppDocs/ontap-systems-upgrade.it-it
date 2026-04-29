@@ -20,9 +20,9 @@ Eseguire i seguenti passaggi su node3 e node4. È possibile eseguire le operazio
 +
 `boot_ontap menu`
 
-. Al prompt del menu di avvio, digitare `wipeconfig` Quindi premere Invio.
+. Al prompt del menu di boot, digita  `wipeconfig` e poi premi Invio.
 +
-La seguente schermata mostra il prompt del menu di avvio
+Viene visualizzato il seguente output:
 
 +
 [listing]
@@ -50,7 +50,7 @@ Are you sure you want to continue?: yes
 Rebooting to finish wipeconfig request.
 ----
 +
-Il sistema avvia `wipeconfig` procedura e riavvio. Una volta completata la procedura, il sistema torna al menu di avvio.
+Il sistema avvia la `wipeconfig` procedura e si riavvia. Al termine della procedura, il sistema ritorna al menu di boot.
 
-. Dal menu di avvio, immettere 8 per riavviare il nodo e premere Ctrl-C durante l'operazione DI AUTOBOOT per arrestare il nodo al prompt del CARICATORE.
+. Dal menu di boot, digita 8 per riavviare il nodo e digita Ctrl-C durante AUTOBOOT per arrestare il nodo al prompt LOADER.
 

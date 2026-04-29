@@ -29,3 +29,6 @@ Per ritirare node1, è necessario riprendere l'operazione automatizzata per disa
 
 .Al termine
 Dopo aver ritirato node1, verificare che sia spento e non connesso alla rete.  Lasciare il vecchio hardware del nodo 1 in questo stato finché non si completa l'aggiornamento sia del nodo 1 che del nodo 2.  È quindi possibile disattivare il nodo 1 durantelink:manage-authentication-using-kmip-servers.html["Fase 6. Completare l'aggiornamento"] .
+
+.Quali sono le prossime novità?
+Dopo aver disattivato il nodo1, link:prepare_for_netboot.html["preparare per netboot"].

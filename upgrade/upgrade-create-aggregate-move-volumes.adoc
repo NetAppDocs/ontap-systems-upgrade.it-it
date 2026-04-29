@@ -34,7 +34,7 @@ NOTE: Per ciascuna macchina virtuale di storage (SVM), NetApp consiglia di spost
 `vserver add-aggregates`
 
 +
-Sia il nuovo aggregato che il vecchio aggregato da cui verrà spostato il volume devono trovarsi nella stessa SVM.
+Sia il nuovo aggregato che il vecchio aggregato da cui viene spostato il volume devono trovarsi nello stesso SVM.
 
 . Verificare che il nuovo aggregato sia ora assegnato alla stessa SVM dell'aggregato sul nodo originale:
 +

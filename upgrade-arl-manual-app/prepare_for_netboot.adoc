@@ -56,3 +56,6 @@ L'elenco delle directory deve contenere una cartella netboot con un file kernel:
 Utilizzerai le informazioni nelle directory in link:install_boot_node3.html["Fase 3"] .
 
 
+
+.Quali sono le prossime novità?
+Dopo aver preparato l'avvio di rete, link:relocate_non_root_aggr_node1_node2.html["spostare gli aggregati non root dal node1 al node2"].

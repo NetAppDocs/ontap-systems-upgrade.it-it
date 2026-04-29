@@ -134,3 +134,6 @@ Il sistema esegue i seguenti post-controlli:
 
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root e i LIF dei dati NAS di nuovo sul nodo2, link:manage-authentication-using-kmip-servers.html["Gestire l'autenticazione tramite server KMIP"].

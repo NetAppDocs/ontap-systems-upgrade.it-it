@@ -160,7 +160,7 @@ Per `<node2_sysid>` utilizzare le informazioni acquisite in link:record_node2_in
 NOTE: Il `-p` l'opzione è richiesta solo in modalità di manutenzione quando sono presenti dischi condivisi.
 
 +
-Il `disk reassign` command riassegna solo i dischi per i quali `_node2_sysid_` è il proprietario corrente.
+Il  `disk reassign` comando riassegna solo i dischi di cui  `_node2_sysid_` è il proprietario corrente.
 
 +
 Il sistema visualizza il seguente messaggio:

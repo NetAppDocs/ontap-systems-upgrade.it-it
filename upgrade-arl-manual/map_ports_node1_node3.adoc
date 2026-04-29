@@ -14,7 +14,7 @@ summary: Verificare che le porte fisiche sul nodo 1 siano mappate correttamente 
 
 
 [role="lead"]
-È necessario assicurarsi che le porte fisiche sul nodo 1 siano mappate correttamente alle porte fisiche sul nodo 3, che consentirà al nodo 3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
+È necessario assicurarsi che le porte fisiche su node1 corrispondano correttamente alle porte fisiche su node3. Ciò consente a node3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .Prima di iniziare
 È necessario disporre già delle informazioni relative alle porte sui nuovi nodi di _Hardware Universe_. (Passare a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_). Le informazioni vengono utilizzate più avanti in questa sezione e in link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].
@@ -24,9 +24,9 @@ La configurazione software di node3 deve corrispondere alla connettività fisica
 .A proposito di questa attività
 Le impostazioni delle porte possono variare a seconda del modello dei nodi.
 
-È necessario rendere la porta e la configurazione LIF del nodo originale compatibili con la configurazione del nuovo nodo. Questo perché il nuovo nodo riproduce la stessa configurazione all'avvio, il che significa che quando si avvia node3, ONTAP tenterà di ospitare le LIF sulle stesse porte utilizzate sul node1.
+È necessario rendere compatibili la porta e la configurazione LIF del nodo originale con la configurazione che si intende utilizzare per il nuovo nodo. Questo perché il nuovo nodo riproduce la stessa configurazione all'avvio, il che significa che quando si avvia node3, ONTAP tenta di ospitare le LIF sulle stesse porte utilizzate su node1.
 
-Pertanto, se le porte fisiche sul nodo 1 non vengono mappate direttamente alle porte fisiche sul nodo 3, saranno necessarie modifiche alla configurazione del software per ripristinare la connettività di cluster, gestione e rete dopo l'avvio. Inoltre, se le porte del cluster sul nodo 1 non vengono mappate direttamente alle porte del cluster sul nodo 3, il nodo 3 potrebbe non ricongiungersi automaticamente al quorum quando viene riavviato fino a quando non viene apportata una modifica alla configurazione software per ospitare le LIF del cluster sulle porte fisiche corrette.
+Pertanto, se le porte fisiche su node1 non corrispondono direttamente alle porte fisiche su node3, sono necessarie modifiche alla configurazione software per ripristinare la connettività del cluster, della gestione e della rete dopo il boot. Inoltre, se le porte del cluster su node1 non corrispondono direttamente alle porte del cluster su node3, node3 potrebbe non rientrare automaticamente nel quorum al riavvio finché non viene apportata una modifica alla configurazione software per ospitare le LIF del cluster sulle porte fisiche corrette.
 
 .Fasi
 . [[step1]]Registra tutte le informazioni di cablaggio node1 per node1, le porte, i domini di trasmissione e gli spazi IPnella seguente tabella:
@@ -78,7 +78,7 @@ Pertanto, se le porte fisiche sul nodo 1 non vengono mappate direttamente alle p
 | Porta intercluster |  |  |  |  |  |  
 |===
 +
-Fare riferimento a. link:record_node1_information.html["Registrare le informazioni del nodo 1"] per ottenere queste informazioni.
+Consultare link:record_node1_information.html["Registrare le informazioni del nodo 1"] per i passaggi per ottenere queste informazioni.
 
 . [[step2]]registrare tutte le informazioni di cablaggio per node3, le porte, i domini di trasmissione e gli spazi IPnella tabella precedente utilizzando la stessa procedura descritta in link:record_node1_information.html["Registrare le informazioni del nodo 1"].
 . [[fase 3]]seguire questi passaggi per verificare se l'installazione è un cluster senza switch a due nodi:

@@ -57,7 +57,7 @@ Alcuni degli aggregati che vengono ricollocati hanno node1 come nodo principale.
 
 * Dopo la fase 4, quando il node2 viene sostituito con i nuovi moduli di sistema.
 +
-Quando node2 viene sostituito, aggr_node_1 verrà online con node1 come nodo home invece di node2.
+Quando il nodo2 viene sostituito, aggr_node_1 si attiva con il nodo1 come nodo principale al posto del nodo2.
 
 
 

@@ -42,3 +42,6 @@ NOTE: Non è necessario estrarre il contenuto di `<ontap_version>_image.tgz` fil
 Verranno utilizzate le informazioni contenute nelle directory in link:install_boot_node3.html["Fase 3"].
 
 
+
+.Quali sono le prossime novità?
+Dopo aver preparato l'avvio di rete, link:install_boot_node3.html["installare e avviare node3"].

@@ -34,3 +34,6 @@ L'interruzione non riesce se la relazione SnapMirror non si trova in `Transferri
 `snapmirror quiesce -destination-vserver *`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver messo a tacere le relazioni SnapMirror, link:prepare_for_netboot.html["preparare per netboot"].

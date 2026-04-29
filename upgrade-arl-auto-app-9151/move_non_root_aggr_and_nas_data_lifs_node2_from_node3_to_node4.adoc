@@ -17,7 +17,7 @@ summary: 'Verifica che le interfacce LIF dati NAS di node2 su node3 siano ricoll
 Dopo aver verificato la configurazione di rete sul nodo 4 e prima di spostare gli aggregati dal nodo 3 al nodo 4, è necessario verificare che i dati NAS LIF appartenenti al nodo 2 che sono attualmente sul nodo 3 vengano ricollocati dal nodo 3 al nodo 4. È inoltre necessario verificare che le LIF SAN esistano sul node4.
 
 .A proposito di questa attività
-Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Dopo aver portato il nodo 4 online, verrete a verificare che i file LIF siano integri e posizionati sulle porte appropriate.
+Le LIF remote gestiscono il traffico verso le LUN SAN durante la procedura di aggiornamento. Lo spostamento delle LIF SAN non è necessario per lo stato del cluster o del servizio durante l'aggiornamento. LE LIF SAN non vengono spostate a meno che non sia necessario mapparle su nuove porte. Verifica che i file LIF siano integri e posizionati sulle porte appropriate dopo aver portato il node4 online.
 
 .Fasi
 . Le LIF iSCSI trovano automaticamente le corrette porte home utilizzando la scansione della raggiungibilità. Le LIF SAN FC e NVMe/FC non si spostano automaticamente. Continuano a mostrare la porta home su cui si trovavano prima di eseguire l'aggiornamento.
@@ -164,3 +164,6 @@ Il sistema esegue i seguenti post-controlli:
 
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root e i LIF dei dati NAS di proprietà del nodo2 dal nodo3 al nodo4, link:manage-authentication-using-kmip-servers.html["Gestire l'autenticazione tramite server KMIP"].

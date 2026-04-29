@@ -49,3 +49,6 @@ Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. 
 In caso di problemi, consultare la link:aggregate-relocation-failures.html["Risolvere i problemi"] sezione alla fine della procedura per ulteriori informazioni e possibili soluzioni. Le informazioni sui guasti che possono verificarsi sono elencate in base alla fase della procedura nella link:overview-of-the-arl-upgrade.html["Sequenza di aggiornamento ARL"].
 
 Se non trovi una soluzione al problema riscontrato, contatta l'assistenza tecnica.
+
+.Quali sono le prossime novità?
+Dopo aver esaminato le linee guida per l'aggiornamento dei controller, link:overview-of-the-arl-upgrade.html["Scopri la sequenza di aggiornamento ARL"].

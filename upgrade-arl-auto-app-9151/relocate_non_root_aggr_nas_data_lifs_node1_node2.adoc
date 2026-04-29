@@ -84,3 +84,6 @@ IL  `vserver_name` da utilizzare con questo comando si trova nell'output del pre
 `network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _nodename_ -status-admin up`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root e i LIF dei dati NAS di proprietà del node1 al node2, link:relocate-failed-or-vetoed-aggr-node2.html["spostare gli aggregati non riusciti o rifiutati al node2"].

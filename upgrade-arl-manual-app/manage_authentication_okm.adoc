@@ -37,3 +37,6 @@ Quando richiesto, inserisci la passphrase OKM a livello di cluster che hai regis
 `security key-manager onboard show-backup`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver gestito le chiavi di autenticazione utilizzando Onboard Key Manager, link:quiesce_snapmirror_relationships.html["quiesce le relazioni SnapMirror"].

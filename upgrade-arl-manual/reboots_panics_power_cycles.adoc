@@ -40,10 +40,10 @@ Il takeover e il giveback possono procedere normalmente.
 
 === Node1 si blocca durante o subito dopo la fase 2 con ha ancora attivato
 
-Alcuni o tutti gli aggregati sono stati riallocati da node1 a node2 e ha è ancora abilitato. Node2 prenderà il controllo del volume root di node1 e di qualsiasi aggregato non root che non sia stato trasferito.
+Alcuni o tutti gli aggregati sono stati spostati da node1 a node2 e HA è ancora abilitata. Node2 assume il controllo del volume root di node1 e di tutti gli aggregati non root che non sono stati spostati.
 
 .A proposito di questa attività
-La proprietà degli aggregati che sono stati ricollocati è uguale alla proprietà degli aggregati non root che sono stati presi in consegna perché il proprietario di casa non è cambiato. Quando nod1 entra in `waiting for giveback state`, node2 restituirà tutti gli aggregati non root node1.
+La proprietà degli aggregati che sono stati ricollocati appare uguale alla proprietà degli aggregati non root che sono stati acquisiti perché il proprietario home non è cambiato. Quando node1 entra nel  `waiting for giveback state`, node2 restituisce tutti gli aggregati non root di node1.
 
 .Fasi
 . Completarelink:relocate_non_root_aggr_node1_node2.html#relocate-step1["Fase 1"] nella sezione _Spostare gli aggregati non radice dal nodo 1 al nodo 2_ di nuovo.
@@ -54,7 +54,7 @@ La proprietà degli aggregati che sono stati ricollocati è uguale alla propriet
 
 === Node1 si blocca dopo la fase 2 mentre ha è disattivato
 
-Node2 non prenderà il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
+Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
 
 .Fasi
 . Far salire il node1.
@@ -71,7 +71,7 @@ Node2 non prenderà il controllo, ma sta ancora fornendo dati da tutti gli aggre
 Node1 ha trasferito alcuni o tutti i suoi aggregati al node2. HA è attivato.
 
 .A proposito di questa attività
-Node1 prenderà il controllo di tutti gli aggregati del node2 e di tutti i suoi aggregati che aveva trasferito al node2. Quando noda2 entra in `Waiting for Giveback` state, node1 restituisce tutti gli aggregati del node2.
+Node1 assume il controllo di tutti gli aggregati di Node2, nonché di tutti i propri aggregati che aveva trasferito a Node2. Quando Node2 entra nello  `Waiting for Giveback` stato, Node1 restituisce tutti gli aggregati di Node2.
 
 .Fasi
 . Completarelink:relocate_non_root_aggr_node1_node2.html#relocate-step1["Fase 1"] nella sezione _Spostare gli aggregati non radice dal nodo 1 al nodo 2_ di nuovo.
@@ -82,12 +82,12 @@ Node1 prenderà il controllo di tutti gli aggregati del node2 e di tutti i suoi 
 
 === Node2 si blocca dopo la fase 2 e dopo la disattivazione di ha
 
-Node1 non prenderà il posto.
+Node1 non prende il posto.
 
 .Fasi
 . Alzati il node2.
 +
-Durante l'avvio di node2 si verifica un'interruzione del client per tutti gli aggregati.
+Si verifica un'interruzione del servizio per tutti gli aggregati durante l'avvio di node2.
 
 . Continuare con il resto della procedura di aggiornamento della coppia di nodi.
 
@@ -102,12 +102,12 @@ Gli errori possono verificarsi durante o subito dopo la fase 3, durante la quale
 
 === Node2 si blocca durante la fase 3 con ha disattivato e prima di spostare qualsiasi aggregato
 
-Node3 non si prenderà il controllo in seguito a un crash node2, in quanto ha è già disattivato.
+Il nodo3 non subentra dopo un arresto anomalo del nodo2 poiché l'HA è già disabilitato.
 
 .Fasi
 . Alzati il node2.
 +
-Durante l'avvio di node2 si verifica un'interruzione del client per tutti gli aggregati.
+Si verifica un'interruzione del servizio per tutti gli aggregati durante l'avvio di node2.
 
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 
@@ -116,10 +116,10 @@ Durante l'avvio di node2 si verifica un'interruzione del client per tutti gli ag
 
 === Node2 si blocca durante la fase 3 dopo aver riallocato alcuni o tutti gli aggregati
 
-Node2 ha trasferito alcuni o tutti i suoi aggregati al node3, che servirà i dati degli aggregati che sono stati ricollocati. HA disattivato.
+Il nodo2 ha spostato alcuni o tutti i suoi aggregati su nodo3, che serve dati dagli aggregati che sono stati rilocati. HA è disabilitato.
 
 .A proposito di questa attività
-Si verificherà un'interruzione del client per gli aggregati che non sono stati ricollocati.
+Si è verificato un disservizio per gli aggregati che non sono stati ricollocati.
 
 .Fasi
 . Alzati il node2.
@@ -142,7 +142,7 @@ Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregat
 
 === Node3 si blocca durante la fase 3 durante il trasferimento dell'aggregato
 
-Se il nodo 3 si blocca mentre il nodo 2 sta spostando gli aggregati al nodo 3, il nodo 2 interrompe il trasferimento degli aggregati rimanenti.
+Se il nodo3 si arresta in modo anomalo mentre il nodo2 sta spostando gli aggregati sul nodo3, il nodo2 interrompe lo spostamento di tutti gli aggregati rimanenti.
 
 .A proposito di questa attività
 Node2 continua a servire gli aggregati rimanenti, ma gli aggregati che erano già stati ricollocati in node3 incontrano un'interruzione del client durante l'avvio di node3.
@@ -183,7 +183,7 @@ Node3 si blocca dopo la fase 3 ma prima della fase 5. La coppia ha è disattivat
 .Fasi
 . Alzati il node3.
 +
-Si verificherà un'interruzione del servizio client per tutti gli aggregati.
+Si è verificato un'interruzione del servizio client per tutti gli aggregati.
 
 . Continuare con la procedura di aggiornamento della coppia di nodi.
 

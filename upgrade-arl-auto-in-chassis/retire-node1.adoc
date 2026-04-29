@@ -29,3 +29,12 @@ Per dismettere il node1, riprendere l'operazione automatica per disattivare la c
 Dopo che il node1 si è arrestato completamente, node1 dovrebbe essere al prompt LOADER>. Per visualizzare il prompt LOADER>, connettersi alla console seriale di node1.
 
 
+
+.Quali sono le prossime novità?
+Dopo aver disattivato node1, scegliere una delle seguenti procedure di sostituzione del controller in base alla configurazione di upgrade:
+
+* link:replace-node1-affa250-affc250.html["Sostituire il modulo controller node1 AFF A250 o AFF C250"]
+* link:replace-node1-affa800.html["Sostituire il modulo controller node1 AFF A800 o AFF C800"]
+* link:replace-node1-affa220-affa200-affc190-fas2620-fas2720.html["Sostituire il modulo controller node1 AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720"]
+* link:replace-node1-aff700-fas900.html["Sostituire i moduli controller e NVRAM AFF A700 o FAS9000 del nodo1"]
+

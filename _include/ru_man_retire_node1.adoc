@@ -194,7 +194,5 @@ WARNING: Se il nodo 1 si trova nello stesso chassis del nodo 2, non spegnere lo 
 Il nodo si arresta al prompt dell'ambiente di boot.
 
 . Quando node1 visualizza il prompt dell'ambiente di avvio, rimuoverlo dallo chassis o dal rack.
-+
-Una volta completato l'aggiornamento, è possibile decommissionare il node1. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
-
+. Facoltativamente, decommissionare node1 al termine dell'aggiornamento. Vedere link:decommission_old_system.html["Decommissionare il vecchio sistema"].
 

@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-È necessario assicurarsi che le porte fisiche sul nodo 1 siano mappate correttamente alle porte fisiche sul nodo 3, che consentirà al nodo 3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
+È necessario assicurarsi che le porte fisiche su node1 corrispondano correttamente alle porte fisiche su node3. Ciò consente a node3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .Prima di iniziare
 È necessario disporre già delle informazioni relative alle porte sui nuovi nodi di _Hardware Universe_. (Passare a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_). Le informazioni vengono utilizzate più avanti in questa sezione e in link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].

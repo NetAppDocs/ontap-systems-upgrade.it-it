@@ -42,3 +42,6 @@ node4    svm1      ""           00000000000000000200000000000a008a81976 true
                                 2190178f9350e071fbb90f00000000000000000
 ----
 
+
+.Quali sono le prossime novità?
+Dopo aver ripristinato la configurazione del key-manager sul nodo4, link:move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html["Spostare gli aggregati non root e i LIF di dati NAS di proprietà del node2 dal node3 al node4"].

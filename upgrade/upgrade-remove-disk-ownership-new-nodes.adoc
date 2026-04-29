@@ -41,9 +41,9 @@ Se il sistema in uso non è elencato sopra, consultare la https://hwu.netapp.com
 +
 `boot_ontap menu`
 
-. Al prompt del menu di avvio, digitare `9a` Quindi premere Invio.
+. Al prompt del menu di boot, immettere  `9a` e quindi selezionare Invio.
 +
-La seguente schermata mostra il prompt del menu di avvio.
+Viene visualizzato il seguente output:
 
 +
 [listing]

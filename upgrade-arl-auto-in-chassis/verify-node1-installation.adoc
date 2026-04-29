@@ -23,6 +23,12 @@ Solo per gli upgrade di AFF A250, AFF C250, AFF A800 o AFF C800, eseguire la map
 
 A questo punto della procedura, l'operazione di aggiornamento del controller dovrebbe essere stata sospesa poiché node1 tenta di unirsi automaticamente al quorum.
 
+
+
+== Passaggio 1: Verificare che node1 sia in quorum
+
+Verificare che node1 sia in quorum. Quindi, riprendere l'operazione di sostituzione del controller.
+
 .Fasi
 . Verificare che node1 si sia Unito al quorum:
 +
@@ -112,12 +118,12 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 
 NOTE: In questa procedura, la sezione _creazione di VLAN, ifgrps e domini di trasmissione_ è stata rinominata _Ripristino configurazione di rete su node1_.
 
-. Con la sostituzione del controller in stato di pausa, passare a. <<Ripristinare la configurazione di rete sul nodo 1>>.
+. Con la sostituzione del controller in pausa, procedere a <<restore_network_configuration_on_node1,Ripristinare la configurazione di rete sul nodo 1>>.
 
 
 
 
-== Ripristinare la configurazione di rete sul nodo 1
+== Passaggio 2: Ripristinare la configurazione di rete su node1
 
 Dopo aver confermato che node1 è in quorum e può comunicare con node2, verificare che le VLAN, i gruppi di interfacce e i domini di broadcast di node1 siano visibili sul node1. Inoltre, verificare che tutte le porte di rete node1 siano configurate nei domini di trasmissione corretti.
 
@@ -214,7 +220,7 @@ Verificare che tutte le porte fisiche abbiano la raggiungibilità prevista:
 `network port reachability show`
 
 +
-Quando viene eseguita la riparazione della raggiungibilità, ONTAP tenta di posizionare le porte nei domini di trasmissione corretti. Tuttavia, se non è possibile determinare la raggiungibilità di una porta e non appartiene a nessuno dei domini di broadcast esistenti, ONTAP creerà nuovi domini di broadcast per queste porte.
+Durante la procedura di ripristino della raggiungibilità, ONTAP tenta di assegnare le porte ai domini di broadcast corretti. Tuttavia, se ONTAP non riesce a determinare la raggiungibilità di una porta e la porta non appartiene a nessuno dei domini di broadcast esistenti, ONTAP crea nuovi domini di broadcast per queste porte.
 
 . Verificare la raggiungibilità delle porte:
 +
@@ -248,3 +254,6 @@ Quando tutte le porte sono configurate correttamente e aggiunte ai domini di tra
 `network interface show -fields home-port,status-admin`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver verificato l'installazione del nodo1, link:restore-key-manager-config-upgraded-node1.html["ripristinare la configurazione di key-manager sul nodo1 aggiornato"].

@@ -49,3 +49,6 @@ Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _C
 
 .Informazioni correlate
 Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.
+
+.Quali sono le prossime novità?
+Dopo aver deciso se utilizzare questa procedura ARL, link:arl_upgrade_workflow.html["esaminare il flusso di lavoro di aggiornamento ARL"].

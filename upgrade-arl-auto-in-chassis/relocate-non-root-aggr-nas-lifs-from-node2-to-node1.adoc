@@ -71,3 +71,6 @@ Il `_vserver-name_` da utilizzare con questo comando si trova nell'output del pr
 `network interface show -curr-node _node2_ -role data`
 
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato gli aggregati non root e i LIF dei dati NAS dal nodo2 al nodo1, link:relocate-failed-or-vetoed-aggr-node1.html["spostare gli aggregati non riusciti o rifiutati al node1"].

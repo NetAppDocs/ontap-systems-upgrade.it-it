@@ -26,7 +26,7 @@ In queste informazioni, i nodi originali sono chiamati "node1" e "node2", mentre
 
 I termini "node1", "node2", "node3" e "node4" vengono utilizzati solo per distinguere tra i nodi originali e quelli nuovi. Quando si segue la procedura, è necessario sostituire i nomi reali dei nodi originale e nuovo. Tuttavia, in realtà, i nomi dei nodi non cambiano: Node3 ha il nome node1 e node4 ha il nome node2 dopo l'aggiornamento dell'hardware del controller.
 
-.Informazioni importanti:
+.Informazioni importanti
 * Questa procedura è complessa e presuppone che si disponga di competenze di amministrazione avanzate di ONTAP. Devi anche leggere e comprendere il link:guidelines_for_upgrading_controllers_with_arl.html["linee guida per l'aggiornamento dei controller con ARL"] e il link:overview_of_the_arl_upgrade.html["Sequenza di aggiornamento ARL"] prima di iniziare l'aggiornamento.
 * Questa procedura presuppone che l'hardware del controller sostitutivo sia nuovo e non sia stato utilizzato. I passaggi necessari per preparare i controller usati con il `wipeconfig` comando non sono inclusi in questa procedura. Se in precedenza è stato utilizzato l'hardware del controller sostitutivo, è necessario contattare il supporto tecnico.
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia di ha (High Availability) nel cluster.
@@ -54,3 +54,9 @@ Il sistema AFF A20 condivide le porte di rete 10GbE GbE e 25GbE GbE per le conne
 Se non è possibile collegare e0a o e0b porte cluster sul nodo esistente alle porte cluster sul nuovo nodo, vedere link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["ID bug online di NetApp CONTAP-166978"^].
 
 
+
+.Processo automatizzato di aggiornamento del controller
+Durante un aggiornamento del controller, il controller esistente viene sostituito con un altro controller che utilizza una piattaforma più recente o più potente. Questo contenuto fornisce i passaggi per la procedura parzialmente automatizzata, che utilizza controlli automatici di raggiungibilità delle porte di rete per semplificare ulteriormente l'esperienza di aggiornamento del controller.
+
+.Quali sono le prossime novità?
+Dopo aver appreso di questa procedura di aggiornamento ARL, link:decide_to_use_the_aggregate_relocation_guide.html["decidere se utilizzare questa procedura"].

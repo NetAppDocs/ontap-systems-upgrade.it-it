@@ -16,6 +16,12 @@ summary: 'Preparare i nodi ed eseguire una serie di controlli preliminari quando
 [role="lead"]
 Il processo di sostituzione del controller inizia con una serie di controlli preliminari. Si raccolgono inoltre informazioni sui nodi originali da utilizzare più avanti nella procedura e, se necessario, si determina il tipo di unità con crittografia automatica in uso.
 
+
+
+== Passaggio 1: Preparare i nodi
+
+Avviare la procedura di sostituzione del controller ed eseguire i controlli preliminari. Se necessario, determinare il tipo di unità a crittografia automatica in uso.
+
 .Fasi
 . Iniziare il processo di sostituzione del controller immettendo il seguente comando nella riga di comando ONTAP:
 +
@@ -52,7 +58,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. Premere `y`, viene visualizzato il seguente output:
+. Seleziona  `y`, visualizzi il seguente output:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -165,7 +171,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Correggere la proprietà dell'aggregato se un controllo preliminare ARL non riesce
+== Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
 
@@ -194,24 +200,10 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Riavviare la procedura di sostituzione del controller:
 
-
-
-
-=== Al termine
-
-È necessario riavviare il processo di sostituzione del controller:
 
 `system controller replace start -nodes _node_names_`
 
-
-
-== Licenza
-
-Alcune funzionalità richiedono licenze, emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
-
-Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare la nuova chiave di licenza o le nuove chiavi per il nuovo controller al termine dell'aggiornamento.
-
-Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_, dove è possibile ottenere nuove chiavi di licenza di 28 caratteri per ONTAP. Le chiavi sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
-
-Per informazioni dettagliate sulle licenze, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.
+.Quali sono le prossime novità?
+Dopo aver preparato i nodi, link:complete-preparation-for-upgrade.html["completare la preparazione per l'aggiornamento"].

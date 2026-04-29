@@ -97,3 +97,5 @@ Proprietà aggregata alla fine della fase 5:
 Durante la fase 6, si conferma che i nuovi nodi sono impostati correttamente e, se i nuovi nodi sono abilitati per la crittografia, si configura e imposta Storage Encryption o NVE. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
 
 |===
+.Quali sono le prossime novità?
+Dopo aver appreso la sequenza di aggiornamento ARL, link:prepare_nodes_for_upgrade.html["preparare i nodi per l'aggiornamento"].

@@ -69,3 +69,5 @@ Dopo aver completato la migrazione al nodo 4, registrare il LIF `adapter` e. `sw
 
 |  |  |  |  |  |  
 |===
+.Quali sono le prossime novità?
+Dopo aver registrato le  `adapter` e  `switch-port` informazioni per ogni LIF, link:relocate_node2_non_root_aggr_node3_node4.html["spostare gli aggregati non root del node2 dal node3 al node4"].
