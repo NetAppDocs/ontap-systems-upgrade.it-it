@@ -283,11 +283,10 @@ Inserisci la passphrase e le informazioni di backup che hai annotato in preceden
 +
 `boot_ontap menu`
 
-+
+
+
 .Quali sono le prossime novità?
-** Se si dispone di una configurazione FC o UTA/UTA2,link:set_fc_or_uta_uta2_config_node4.html["imposta e configura le porte FC o UTA/UTA2 sul nodo 4"] .
-** Se non si dispone di una configurazione FC o UTA/UTA2,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["riassegnare i dischi del nodo 2 al nodo 4, passaggio 1"] in modo che node4 possa riconoscere i dischi di node2.
-** Se si dispone di una configurazione MetroCluster ,link:set_fc_or_uta_uta2_config_node4.html["imposta e configura le porte FC o UTA/UTA2 sul nodo 4"] per rilevare i dischi collegati al nodo.
-
-
+* Se si dispone di una configurazione FC o UTA/UTA2,link:set_fc_or_uta_uta2_config_node4.html["imposta e configura le porte FC o UTA/UTA2 sul nodo 4"] .
+* Se non si dispone di una configurazione FC o UTA/UTA2,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["riassegnare i dischi del nodo 2 al nodo 4, passaggio 1"] in modo che node4 possa riconoscere i dischi di node2.
+* Se si dispone di una configurazione MetroCluster ,link:set_fc_or_uta_uta2_config_node4.html["imposta e configura le porte FC o UTA/UTA2 sul nodo 4"] per rilevare i dischi collegati al nodo.
 

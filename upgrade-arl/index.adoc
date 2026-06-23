@@ -76,6 +76,21 @@ Se lo scenario di aggiornamento è elencato nella seguente matrice dei sistemi s
 | Vecchio sistema | Sistema sostitutivo | Versioni di ONTAP supportate 
 
 
+| AFF A70 | AFF A90 | 9.18.1 e versioni successive 
+
+
+| AFF A30 | AFF A50 | 9.18.1 e versioni successive 
+
+
+| AFF A20 | AFF A30, AFF A50 | 9.18.1 e versioni successive 
+
+
+| AFF C30 | AFF C60 | 9.18.1 e versioni successive 
+
+
+| FAS70 | FAS90 | 9.18.1 e versioni successive 
+
+
 | AFF C250 | AFF C30, AFF C60 | 9.16.1 e versioni successive 
 
 

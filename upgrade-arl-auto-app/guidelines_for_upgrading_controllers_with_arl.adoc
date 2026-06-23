@@ -49,7 +49,7 @@ Non è possibile eseguire i seguenti aggiornamenti:
 +
 Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento a _Hardware Universe_ per informazioni sul supporto dei dischi.
 
-* Ai controller entry-level con dischi interni, ad esempio FAS 2500.
+* A controllori entry level con dischi interni, ad esempio: un FAS2750.
 +
 Se si desidera aggiornare i controller entry-level con dischi interni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_ e passare alla procedura _aggiornamento di una coppia di nodi che eseguono Clustered Data ONTAP spostando volumi_.
 

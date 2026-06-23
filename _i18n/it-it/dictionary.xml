@@ -83,17 +83,11 @@
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="doc">Risolvere i problemi</block>
   <block id="9fd68cc494a9f57cae67ac737ab1370f" category="paragraph">Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. Il nodo potrebbe bloccarsi, gli aggregati potrebbero non spostarsi o i LIF potrebbero non migrare. La causa dell'errore e la relativa soluzione dipendono dal momento in cui si è verificato l'errore durante la procedura di aggiornamento.</block>
   <block id="530a7a6682d1262288d095a4aa2ae42b" category="inline-link-macro">Workflow di upgrade ARL</block>
-  <block id="71c5d3d7f0857c67830fb002783fd24e" category="paragraph">Fare riferimento alla tabella che descrive le diverse fasi della procedura nella sezione <block ref="25c64b56e1634b7195570b2ce4c1228b" category="inline-link-macro-rx"></block>. Le informazioni sugli errori che possono verificarsi vengono elencate in base alla fase della procedura.</block>
   <block id="b02aac451baf6d7b36d981f898537961" category="inline-link-macro">Errori di trasferimento aggregati</block>
-  <block id="96518cf6fc4836f38d5963152c3b52fc" category="list-text"><block ref="96518cf6fc4836f38d5963152c3b52fc" category="inline-link-macro-rx"></block></block>
   <block id="d75bd21e9af20a5036c0fbf461bc4e2d" category="inline-link-macro">Riavvio, panic o cicli di alimentazione</block>
-  <block id="b41eca4a9e61478c5412544da1b31c9f" category="list-text"><block ref="b41eca4a9e61478c5412544da1b31c9f" category="inline-link-macro-rx"></block></block>
   <block id="e33c48b52ab7d302b4af41aca3bbe858" category="inline-link-macro">Problemi che possono verificarsi in più fasi della procedura</block>
-  <block id="03f183bce69c6c170ce7d98b73a0da9b" category="list-text"><block ref="03f183bce69c6c170ce7d98b73a0da9b" category="inline-link-macro-rx"></block></block>
   <block id="06d473a91334306e0ea337d0cf403b02" category="inline-link-macro">Errore di migrazione LIF</block>
-  <block id="bffc8177304b2cba0a93e9425c22a1b7" category="list-text"><block ref="bffc8177304b2cba0a93e9425c22a1b7" category="inline-link-macro-rx"></block></block>
   <block id="5558cf6a71b5cb1c7c5c61639dd48b9f" category="inline-link-macro">Le LIF si trovano su porte non valide dopo l'aggiornamento</block>
-  <block id="e74451404fb8d41f6db27c4f815f8cf3" category="list-text"><block ref="e74451404fb8d41f6db27c4f815f8cf3" category="inline-link-macro-rx"></block></block>
   <block id="000ffb8f7270dfe4b3ee36da16c47b89" category="summary">Raccogliere determinate informazioni durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive.</block>
   <block id="5980c068f7f0508562e337b63f7ad8d1" category="doc">Foglio di lavoro: Informazioni da raccogliere prima e durante l'aggiornamento del controller</block>
   <block id="9d5a474aaa552210ff0298949aeb6c0a" category="cell">Informazioni necessarie</block>
@@ -1897,7 +1891,6 @@
   <block id="69ceb2d36918ef5eab686101ab353f0d" category="paragraph">Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.</block>
   <block id="70a3b031f6a4e388e4285d647440ec82" category="list-text">Ai controller sostitutivi che non supportano gli shelf di dischi collegati ai controller originali</block>
   <block id="23498de552873202eefb3139773f663c" category="paragraph">Fare riferimento a. <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per il collegamento a _Hardware Universe_ per informazioni sul supporto dei dischi.</block>
-  <block id="d5457a285ea7fce244bde8387644b062" category="list-text">Ai controller entry-level con dischi interni, ad esempio FAS 2500.</block>
   <block id="14fc1fec490b9f5ad23d58c3c55d4441" category="paragraph">Se si desidera aggiornare i controller entry-level con dischi interni, fare riferimento a. <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Per collegarsi a _Upgrade spostando volumi o storage_ e passare alla procedura _aggiornamento di una coppia di nodi che eseguono Clustered Data ONTAP spostando volumi_.</block>
   <block id="ed5e166424b6971ce3ff91d956aed8c8" category="summary">Verificare che i file LIF dei dati NAS node1 sul node2 vengano ricollocati da node2 a node3 quando si aggiornano i controller con ONTAP 9.8 o versioni successive utilizzando<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> comandi.</block>
   <block id="338e1133e592584bd1dc26b643cbe02f" category="paragraph">Dopo aver verificato la configurazione di rete su node3 e prima di spostare gli aggregati da node2 a node3, è necessario verificare che i dati NAS LIF appartenenti al node1 che sono attualmente su node2 siano ricollocati da node2 a node3. È inoltre necessario verificare che le LIF SAN esistano sul node3.</block>
@@ -5425,9 +5418,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="4ff3a20772d8d7adf38ea1a25699b898" category="paragraph">Per informazioni dettagliate sulle licenze ONTAP, fare riferimento a <block ref="9cc9f7a6e6a82728cff1f7183d2d4d15" category="inline-link-macro-rx"></block> per collegarsi al _System Administration Reference_.</block>
   <block id="9de6a6f6ea48099b1305eeb9301f7679" category="paragraph">Dopo aver preparato l'aggiornamento, <block ref="0d08e260c4bde2d13bb947f0a9e09267" category="inline-link-macro-rx"></block>.</block>
   <block id="8f77a5ae2857206a750f5c0ad3144dba" category="paragraph">Dopo aver verificato che i nuovi controller siano configurati correttamente, <block ref="3971d535deb9d86527af888c19f530a0" category="inline-link-macro-rx"></block>.</block>
-  <block id="8d20c5aabf9dd75444b513dba9105128" category="list-text">Se preferisci un metodo diverso per aggiornare l'hardware del controller e sei disposto a spostare i volumi, fai riferimento a <block ref="9cc9f7a6e6a82728cff1f7183d2d4d15" category="inline-link-macro-rx"></block>_Aggiornamento tramite spostamento di volumi o storage_.</block>
-  <block id="e7832b913f3afc75dba2c326b1f78e53" category="paragraph">Consultare <block ref="9cc9f7a6e6a82728cff1f7183d2d4d15" category="inline-link-macro-rx"></block> per collegarsi alla _ONTAP 9 Documentation_.</block>
-  <block id="a2bbeda24395d719b706b64dfe948579" category="paragraph">Dopo aver deciso di utilizzare questa procedura ARL, <block ref="91151593e881bd87765e26c1297041b3" category="inline-link-macro-rx"></block>.</block>
   <block id="507d933d47a6537d92195e190c11484a" category="list-text">Consultare <block ref="9cc9f7a6e6a82728cff1f7183d2d4d15" category="inline-link-macro-rx"></block> per collegarsi al _NetApp Support Site_ ed effettuare il login.</block>
   <block id="9f92af96b5d3b869fcf7eab42bd5cc08" category="paragraph">Dopo la dismissione del vecchio sistema, <block ref="f4079db79b5429ce771ea3a34eb1e8f9" category="inline-link-macro-rx"></block>.</block>
   <block id="e7b8e0fba9c9b33b762bd4e7d2cb39c1" category="paragraph">Dopo aver esaminato le linee guida per l'aggiornamento dei controller, <block ref="7eb250b820c3db26ee334554a9610b65" category="inline-link-macro-rx"></block>.</block>
@@ -5605,4 +5595,23 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="8695aaca9524014699a6d443a2a534fa" category="paragraph">Dopo aver registrato le <block ref="8a7a38cfa57d4ac98cced700b804556a" prefix=" " category="inline-code"></block> e <block ref="3139ea911ab60226789083923e2852c9" prefix=" " category="inline-code"></block> informazioni per ogni LIF, <block ref="0e10c1b69c827b2c86d2f4757a767a1f" category="inline-link-macro-rx"></block>.</block>
   <block id="2e7f5b6308a3207b532f2eb213ce3976" category="sidebar">Fase 5. Installare i moduli di sistema sostitutivi del nodo2</block>
   <block id="5a71019ad7fb5de4924f41950c599ee0" category="sidebar">Sostituire i moduli di sistema del node2</block>
+  <block id="c61e96543ff55077f64d8dd03940c2c6" category="cell">AFF A70</block>
+  <block id="6733c91021834f836a56aa42deec9ed1" category="cell">9.18.1 e versioni successive</block>
+  <block id="f8f6ba2d572ef729148f2d89d8ff810a" category="cell">AFF A30</block>
+  <block id="bab1b59b0a2ad746796448276777fdbd" category="cell">AFF C30</block>
+  <block id="7a1f08f539146079eaeae8f4a563cce2" category="cell">AFF C60</block>
+  <block id="017db3debbf4b1ed577798b78fd96b66" category="cell">FAS70</block>
+  <block id="ae53f9b6c37e8ea6aae42847aa6b0621" category="list-text">A controllori entry level con dischi interni, ad esempio: un FAS2750.</block>
+  <block id="d3444d99e26820a0501e10f63ff02ce8" category="cell">AFF A70 ^1^</block>
+  <block id="21e93d495fc43df48584edd71b0d597d" category="cell">AFF A30 ^1^</block>
+  <block id="224aecc1813d58390c83fb8decc63b6b" category="cell">AFF A20 ^1^</block>
+  <block id="9c72db8ed6f22f44a2b4fa3a8e594dff" category="cell">AFF A30 ^3^, AFF A50</block>
+  <block id="358489a49dc54c3e41e29084805d95cb" category="cell">AFF C30 ^1^</block>
+  <block id="9194367b74a77f509bf82a9c405501e3" category="cell">FAS70 ^1^</block>
+  <block id="eb5f65df42e892b67421158d46262d5b" category="paragraph">^3^ Ci sono determinati requisiti di connessione delle porte per un aggiornamento da AFF A20 ad AFF A30 in una configurazione di cluster senza switch a due nodi:</block>
+  <block id="b9defe65cc630cb29fcf83583ad21bf6" category="list-text">AFF A20 supporta X60132A (4-port 10/25GbE CX7) e X60131A (2-port 10/25GbE CX6-LX) per l'interconnessione del cluster.</block>
+  <block id="d8c33c1b9cb7049a65e4a3bb2c51cb30" category="list-text">AFF A30 supporta solo X60130A (2-port 100GbE CX6-DX) per l'interconnessione del cluster.</block>
+  <block id="eb0245b89d287738a56a5047aeb3152b" category="list-text">Usa una scheda 10/25GbE temporanea per collegare temporaneamente l'AFF A20 all'AFF A30. Una scheda 10/25GbE a 4 o 2 porte supporta il clustering sull'AFF A20. Si consiglia di usare la stessa scheda sia nell'AFF A20 che nell'AFF A30. Se non hai una nuova scheda, puoi usare la scheda dell'AFF A20 come interconnessione cluster temporanea.</block>
+  <block id="f3cccb510b48124791f68ef8a99fca3a" category="list-text">Quando AFF A30 node3 entra in funzione, imposta le porte HA IC su 100GbE e tenta di posizionare le LIF del cluster sulle porte 10/25GbE. ONTAP rileva queste porte come connesse ad AFF A20. Se ONTAP non rileva automaticamente queste porte, puoi modificare manualmente le porte temporanee del cluster. Poi, se necessario, puoi spostare le LIF del cluster sulle porte temporanee del cluster.</block>
+  <block id="9aa79fb991cdc044a96dc2dbd05e3bd6" category="list-text">Dopo aver aggiornato AFF A20 node1 e AFF A20 node2 va giù in preparazione per l'upgrade, devi rimuovere le connessioni dalle porte cluster temporanee 10/25GbE e usare solo le porte cluster condivise 100GbE. Quando AFF A30 node3 e node4 sono collegati tramite porte 100GbE, le connessioni si attivano e puoi completare l'upgrade.</block>
 </blocks>

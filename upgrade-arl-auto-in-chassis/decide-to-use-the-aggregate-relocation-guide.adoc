@@ -68,6 +68,21 @@ CAUTION: Questa procedura si applica esclusivamente alle seguenti configurazioni
 | Sistema esistente | Sistema sostitutivo | Versioni di ONTAP supportate 
 
 
+| AFF A70 ^1^ | AFF A90 | 9.18.1 e versioni successive 
+
+
+| AFF A30 ^1^ | AFF A50 | 9.18.1 e versioni successive 
+
+
+| AFF A20 ^1^ | AFF A30 ^3^, AFF A50 | 9.18.1 e versioni successive 
+
+
+| AFF C30 ^1^ | AFF C60 | 9.18.1 e versioni successive 
+
+
+| FAS70 ^1^ | FAS90 | 9.18.1 e versioni successive 
+
+
 | AFF C250 ^1^ | AFF C30, AFF C60 | 9.16.1 
 
 
@@ -123,16 +138,22 @@ NetApp consiglia vivamente, quando possibile, di disporre della stessa versione 
 Le versioni minime di ONTAP riportate nella tabella precedente sono obbligatorie. Queste versioni di ONTAP dispongono della versione del firmware del processore di servizio o del BMC (Baseboard Management Controller) necessaria per supportare la combinazione di tipi di controller all'interno di uno chassis durante un aggiornamento.
 
 ====
+^3^ Ci sono determinati requisiti di connessione delle porte per un aggiornamento da AFF A20 ad AFF A30 in una configurazione di cluster senza switch a due nodi:
+
+* AFF A20 supporta X60132A (4-port 10/25GbE CX7) e X60131A (2-port 10/25GbE CX6-LX) per l'interconnessione del cluster.
+* AFF A30 supporta solo X60130A (2-port 100GbE CX6-DX) per l'interconnessione del cluster.
+* Usa una scheda 10/25GbE temporanea per collegare temporaneamente l'AFF A20 all'AFF A30. Una scheda 10/25GbE a 4 o 2 porte supporta il clustering sull'AFF A20. Si consiglia di usare la stessa scheda sia nell'AFF A20 che nell'AFF A30. Se non hai una nuova scheda, puoi usare la scheda dell'AFF A20 come interconnessione cluster temporanea.
+* Quando AFF A30 node3 entra in funzione, imposta le porte HA IC su 100GbE e tenta di posizionare le LIF del cluster sulle porte 10/25GbE. ONTAP rileva queste porte come connesse ad AFF A20. Se ONTAP non rileva automaticamente queste porte, puoi modificare manualmente le porte temporanee del cluster. Poi, se necessario, puoi spostare le LIF del cluster sulle porte temporanee del cluster.
+* Dopo aver aggiornato AFF A20 node1 e AFF A20 node2 va giù in preparazione per l'upgrade, devi rimuovere le connessioni dalle porte cluster temporanee 10/25GbE e usare solo le porte cluster condivise 100GbE. Quando AFF A30 node3 e node4 sono collegati tramite porte 100GbE, le connessioni si attivano e puoi completare l'upgrade.
+
+
 
 
 == Scegli una procedura di aggiornamento hardware diversa
 
 * link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].
-* Se preferisci un metodo diverso per aggiornare l'hardware del controller e sei disposto a spostare i volumi, fai riferimento a link:other-references.html["Riferimenti"]_Aggiornamento tramite spostamento di volumi o storage_.
+* Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
 
 
 .Informazioni correlate
-Consultare link:other-references.html["Riferimenti"] per collegarsi alla _ONTAP 9 Documentation_.
-
-.Quali sono le prossime novità?
-Dopo aver deciso di utilizzare questa procedura ARL, link:required-tools-and-documentation.html["Scopri gli strumenti e la documentazione necessari"].
+Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.
