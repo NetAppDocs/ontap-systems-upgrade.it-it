@@ -4,6 +4,7 @@
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
@@ -11,12 +12,16 @@ Se il controllo dello stato aggregato non riesce, è necessario restituire gli a
 .Fasi
 . Restituire gli aggregati attualmente di proprietà del nodo partner al nodo home owner:
 +
-`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . Verificare che né node1 né node2 possiedano ancora aggregati per i quali è il proprietario corrente (ma non il proprietario domestico):
 +
-`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 L'esempio seguente mostra l'output del comando quando un nodo è sia il proprietario corrente che il proprietario domestico degli aggregati:
 
@@ -34,6 +39,9 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . Riavviare la procedura di sostituzione del controller:
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
-
-`system controller replace start -nodes _node_names_`

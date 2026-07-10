@@ -18,6 +18,8 @@ Alcuni problemi possono verificarsi durante diverse fasi della procedura.
 
 
 
+[[unexpected-storage-failover-show-command-output]]
+[[storage-failover-command]]
 == Output imprevisto del comando "show di failover dello storage"
 
 Durante la procedura, se il nodo che ospita tutti gli aggregati di dati viene avviato accidentalmente o viene riavviato, potrebbe essere visualizzato un output imprevisto per `storage failover show` comando prima e dopo il riavvio, il panico o il ciclo di alimentazione.

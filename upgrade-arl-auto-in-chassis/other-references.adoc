@@ -18,6 +18,7 @@ Quando si eseguono le procedure di questo contenuto, potrebbe essere necessario 
 
 
 
+[[reference-content]]
 == Contenuto di riferimento
 
 I contenuti specifici di questo aggiornamento sono elencati nella tabella seguente.
@@ -66,7 +67,7 @@ I contenuti specifici di questo aggiornamento sono elencati nella tabella seguen
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aggiornare ONTAP"^] | Contiene le istruzioni per scaricare e aggiornare ONTAP. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["Utilizzare i comandi "sostituzione controller di sistema" per aggiornare l'hardware del controller introdotto in ONTAP 9.15.1 e versioni successive"^] | Descrive le procedure di trasferimento degli aggregati necessarie per aggiornare senza interruzioni i controller introdotti in ONTAP 9.15.1 e versioni successive utilizzando i comandi "system controller replace". 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["Usa i comandi "system controller replace" per eseguire l'aggiornamento all'hardware del controller introdotto in ONTAP 9.15.1 e versioni successive"^] | Descrive le procedure di ricollocazione aggregate necessarie per eseguire l'aggiornamento senza interruzioni ai controller introdotti in ONTAP 9.15.1 e versioni successive utilizzando i comandi "system controller replace". 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-in-chassis/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"^] | Descrive le procedure di trasferimento degli aggregati necessarie per aggiornare un sistema senza interruzioni, mantenendo il vecchio chassis e i dischi del sistema. 
@@ -85,6 +86,7 @@ I contenuti specifici di questo aggiornamento sono elencati nella tabella seguen
 |===
 
 
+[[reference-sites]]
 == Siti di riferimento
 
 Il link:https://mysupport.netapp.com["Sito di supporto NetApp"^] Contiene inoltre documentazione sulle schede di interfaccia di rete (NIC) e su altri componenti hardware che potrebbero essere utilizzati con il sistema. Contiene anche link:https://hwu.netapp.com["Hardware Universe"^], che fornisce informazioni sull'hardware supportato dal nuovo sistema.

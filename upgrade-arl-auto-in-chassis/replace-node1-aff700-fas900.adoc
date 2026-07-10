@@ -26,6 +26,7 @@ Se non si è già collegati a terra, mettere a terra correttamente.
 
 
 
+[[step-1-remove-the-aff-a700-or-fas9000-controller-module]]
 == Passaggio 1: rimuovere il modulo controller AFF A700 o FAS9000
 
 Staccare e rimuovere il modulo controller node1 AFF A700 o FAS9000.
@@ -66,6 +67,7 @@ Assicurarsi di sostenere la parte inferiore del modulo controller mentre lo si s
 
 
 
+[[step-2-remove-the-aff-a700-or-fas9000-nvram-module]]
 == Passaggio 2: rimuovere il modulo NVRAM AFF A700 o FAS9000
 
 Sblocca e rimuovi il modulo NVRAM AFF A700 o FAS9000 del nodo1.
@@ -108,6 +110,7 @@ image:black_circle_two.png["Numero due"]
 
 
 
+[[step-3-install-the-asa-a900-aff-a900-or-fas9500-nvram-module]]
 == Passaggio 3: installare il modulo NVRAM ASA A900, AFF A900 o FAS9500
 
 Installare, cablare e collegare il modulo NVRAM ASA A900, AFF A900 o FAS9500 nel nodo1.
@@ -144,6 +147,7 @@ image:black_circle_two.png["Numero due"]
 
 
 
+[[step-4-install-the-asa-a900-aff-a900-or-fas9500-controller-module-in-node1]]
 == Passaggio 4: installa il modulo controller ASA A900, AFF A900 o FAS9500 in node1
 
 Installare, cablare e collegare il modulo controller ASA A900, AFF A900 o FAS9500 in node1.

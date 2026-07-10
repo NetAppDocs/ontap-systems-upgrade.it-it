@@ -16,7 +16,7 @@ Per confermare che le informazioni di configurazione sul supporto di avvio non i
 .A proposito di questa attività
 Eseguire i seguenti passaggi su node3 e node4. È possibile eseguire le operazioni su ciascun nodo in parallelo.
 
-. Avviare il nodo dal menu di boot:
+. Avviare il nodo nel menu di boot:
 +
 `boot_ontap menu`
 

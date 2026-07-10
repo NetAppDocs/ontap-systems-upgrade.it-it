@@ -20,10 +20,12 @@ La soluzione a questi problemi dipende da quando si verificano.
 
 
 
+[[reboots-panics-or-power-cycles-during-the-pre-check-phase]]
 == Si riavvia, esegue il panic o si accende durante la fase di pre-controllo
 
 
 
+[[node1-or-node2-crashes-before-the-pre-check-phase-with-ha-pair-still-enabled]]
 === Node1 o node2 si blocca prima della fase di pre-check con la coppia ha ancora attivata
 
 Se il nodo 1 o il nodo 2 si bloccano prima della fase di pre-controllo, non è stato ancora trasferito alcun aggregato e la configurazione della coppia ha è ancora abilitata.
@@ -38,10 +40,12 @@ Il takeover e il giveback possono procedere normalmente.
 
 
 
+[[reboots-panics-or-power-cycles-during-first-resource-release-phase]]
 == Riavvio, panic o cicli di alimentazione durante la prima fase di rilascio delle risorse
 
 
 
+[[node1-crashes-during-the-first-resource-release-phase-with-ha-pair-still-enabled]]
 === Node1 si blocca durante la prima fase di resource-release con la coppia ha ancora attivata
 
 Alcuni o tutti gli aggregati sono stati ricollocati da node1 a node2 e la coppia ha è ancora abilitata. Node2 prende il controllo del volume root del node1 e di qualsiasi aggregato non root che non sia stato trasferito.
@@ -59,6 +63,7 @@ Quando nod1 entra in `waiting for giveback` state, node2 restituisce tutti gli a
 
 
 
+[[node1-crashes-during-the-first-resource-release-phase-while-ha-pair-is-disabled]]
 === Node1 si blocca durante la prima fase di resource-release mentre la coppia ha è disattivata
 
 Node2 non prende il controllo, ma serve ancora dati da tutti gli aggregati non root.
@@ -70,6 +75,7 @@ Node2 non prende il controllo, ma serve ancora dati da tutti gli aggregati non r
 
 
 
+[[node2-fails-during-the-first-resource-release-phase-with-ha-pair-still-enabled]]
 === Node2 si guasta durante la prima fase di resource-release con la coppia ha ancora attivata
 
 Node1 ha trasferito alcuni o tutti i suoi aggregati al node2. La coppia ha è attivata.
@@ -84,6 +90,7 @@ Node1 prende il controllo di tutti gli aggregati del node2 e di qualsiasi aggreg
 
 
 
+[[node2-crashes-during-the-first-resource-release-phase-and-after-ha-pair-is-disabled]]
 === Node2 si blocca durante la prima fase di resource-release e dopo la disattivazione della coppia ha
 
 Node1 non prende il posto.
@@ -98,10 +105,12 @@ Un'interruzione del client si verifica per tutti gli aggregati mentre node2 è i
 
 
 
+[[reboots-panics-or-power-cycles-during-the-first-verification-phase]]
 == Riavvio, panic o cicli di alimentazione durante la prima fase di verifica
 
 
 
+[[node2-crashes-during-the-first-verification-phase-with-ha-pair-disabled]]
 === Node2 si blocca durante la prima fase di verifica con la coppia ha disattivata
 
 Node1 non prende il controllo in seguito a un crash node2 in quanto la coppia ha è già disattivata.
@@ -116,6 +125,7 @@ Un'interruzione del client si verifica per tutti gli aggregati mentre node2 è i
 
 
 
+[[node1-crashes-during-the-first-verification-phase-with-ha-pair-disabled]]
 === Node1 si blocca durante la prima fase di verifica con la coppia ha disattivata
 
 Node2 non prende il controllo, ma serve ancora dati da tutti gli aggregati non root.
@@ -127,10 +137,12 @@ Node2 non prende il controllo, ma serve ancora dati da tutti gli aggregati non r
 
 
 
+[[reboots-panics-or-power-cycles-during-first-resource-regain-phase]]
 == Riavvio, panic o cicli di alimentazione durante la prima fase di recupero delle risorse
 
 
 
+[[node2-crashes-during-the-first-resource-regain-phase-during-aggregate-relocation]]
 === Node2 si blocca durante la prima fase di recupero delle risorse durante il trasferimento degli aggregati
 
 Node2 ha riallocato alcuni o tutti i suoi aggregati dal node1 al node1. Node1 serve i dati degli aggregati che sono stati ricollocati. La coppia ha è disattivata e quindi non c'è alcun Takeover.
@@ -145,6 +157,7 @@ Esiste un'interruzione del client per gli aggregati che non sono stati ricolloca
 
 
 
+[[node1-crashes-during-the-first-resource-regain-phase-during-aggregate-relocation]]
 === Node1 si blocca durante la prima fase di recupero delle risorse durante il trasferimento degli aggregati
 
 Se node1 si blocca mentre node2 sta spostando gli aggregati in node1, l'attività continua dopo l'avvio di node1.
@@ -159,10 +172,12 @@ Node2 continua a servire gli aggregati rimanenti, ma gli aggregati che erano gi�
 
 
 
+[[reboots-panics-or-power-cycles-during-post-check-phase]]
 == Riavvio, panic o cicli di alimentazione durante la fase di post-controllo
 
 
 
+[[node1-or-node2-crashes-during-the-post-check-phase]]
 === Node1 o node2 si bloccano durante la fase post-check
 
 La coppia ha è disattivata, quindi non si tratta di un Takeover. Si verifica un'interruzione del client per gli aggregati appartenenti al nodo che ha riavviato il sistema.
@@ -174,10 +189,12 @@ La coppia ha è disattivata, quindi non si tratta di un Takeover. Si verifica un
 
 
 
+[[reboots-panics-or-power-cycles-during-second-resource-release-phase]]
 == Riavvio, panic o cicli di alimentazione durante la seconda fase di rilascio delle risorse
 
 
 
+[[node1-crashes-during-the-second-resource-release-phase]]
 === Node1 si blocca durante la seconda fase di rilascio delle risorse
 
 Se node1 si blocca mentre node2 sta spostando gli aggregati, l'attività continua dopo l'avvio di node1.
@@ -192,6 +209,7 @@ Node2 continua a servire gli aggregati rimanenti, ma gli aggregati già ricolloc
 
 
 
+[[node2-crashes-during-the-second-resource-release-phase]]
 === Node2 si blocca durante la seconda fase di rilascio delle risorse
 
 Se il nodo 2 si blocca durante il trasferimento dell'aggregato, il nodo 2 non viene sostituito.
@@ -206,10 +224,12 @@ Node1 continua a servire gli aggregati che sono stati ricollocati, ma gli aggreg
 
 
 
+[[reboots-panics-or-power-cycles-during-the-second-verification-phase]]
 == Riavvio, panic o cicli di alimentazione durante la seconda fase di verifica
 
 
 
+[[node1-crashes-during-the-second-verification-phase]]
 === Node1 si blocca durante la seconda fase di verifica
 
 Se node1 si blocca durante questa fase, il takeover non avviene perché la coppia ha è già disattivata.
@@ -224,6 +244,7 @@ Si verifica un'interruzione del client per tutti gli aggregati fino al riavvio d
 
 
 
+[[node2-crashes-during-the-second-verification-phase]]
 === Node2 si blocca durante la seconda fase di verifica
 
 Se node2 si blocca durante questa fase, il takeover non si verifica. Node1 serve i dati degli aggregati.

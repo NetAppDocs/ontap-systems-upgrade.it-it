@@ -4,6 +4,8 @@
 
 
 
+[[step-2-check-and-configure-utauta2-ports-on-node4]]
+[[check-config-uta-uta2-node4]]
 == Passaggio 2: Verificare e configurare le porte UTA/UTA2 sul nodo4
 
 Se node4 dispone di porte UTA/UTA2 integrate o di una scheda UTA/UTA2A, è necessario controllare la configurazione delle porte e configurarle, a seconda di come si desidera utilizzare il sistema aggiornato.

@@ -4,6 +4,7 @@
 
 
 
+[[check-for-aggregate-relocation-failure]]
 == Verificare la presenza di errori di trasferimento degli aggregati
 
 Durante la procedura, l'ARL potrebbe non funzionare nella fase 2, 3 o 5.

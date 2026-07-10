@@ -22,10 +22,12 @@ Potrebbe essere necessario completare <<configure-fc-ports-on-node3,Configurare 
 
 NOTE: I materiali di marketing NetApp potrebbero utilizzare il termine UTA2 per fare riferimento alle porte e agli adattatori CNA (Converged Network Adapter). Tuttavia, la CLI utilizza il termine CNA.
 
-Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una scheda UTA/UTA2 (ad esempio, sistemi AFF e FAS introdotti a partire da ONTAP 9.15.1) e si sta aggiornando un sistema con dischi di archiviazione, è possibile passare alink:reassign-node1-disks-to-node3.html["Riassegnare dischi da node1 TB a node3 TB"] .
+Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o di una scheda UTA/UTA2 (ad esempio, sistemi AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive), e stai aggiornando un sistema con dischi di storage, puoi passare a link:reassign-node1-disks-to-node3.html["Riassegnare dischi da node1 TB a node3 TB"].
 
 
 
+[[step-1-configure-fc-ports-on-node3]]
+[[configure-fc-ports-on-node3]]
 == Passaggio 1: Configurare le porte FC su node3
 
 Se il nodo 3 dispone di porte FC, integrate o su un adattatore FC aggiuntivo, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, poiché le porte non sono preconfigurate al momento della spedizione dei sistemi.  Se non si configurano le porte, si potrebbe verificare un'interruzione del servizio.
@@ -94,6 +96,8 @@ Per esempio: `ucadmin modify -m fc -t initator 2b`
 
 
 
+[[step-2-check-and-configure-utauta2-ports-on-node3]]
+[[check-config-uta-uta2-node3]]
 == Passaggio 2: Verificare e configurare le porte UTA/UTA2 sul nodo3
 
 Se node3 dispone di porte UTA/UTA2 integrate o di una scheda UTA/UTA2, è necessario controllare la configurazione delle porte ed eventualmente riconfigurarle, a seconda di come si desidera utilizzare il sistema aggiornato.

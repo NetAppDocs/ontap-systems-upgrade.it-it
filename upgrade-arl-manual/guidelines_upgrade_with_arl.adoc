@@ -18,6 +18,7 @@ Per capire se è possibile utilizzare il trasferimento aggregato (ARL) per aggio
 
 
 
+[[supported-upgrades-for-arl]]
 == Aggiornamenti supportati per ARL
 
 È possibile aggiornare una coppia di nodi utilizzando ARL nei seguenti casi:
@@ -52,6 +53,7 @@ NOTE: Se il nuovo sistema dispone di meno slot rispetto al sistema originale o s
 
 
 
+[[upgrades-not-supported-for-arl]]
 == Aggiornamenti non supportati per ARL
 
 Non è possibile eseguire i seguenti aggiornamenti:
@@ -76,6 +78,7 @@ NOTE: Se si desidera aggiornare ONTAP sui nodi di un cluster, fare riferimento a
 
 
 
+[[assumptions-and-terminology]]
 == Presupposti e terminologia
 
 Il presente documento si basa sui seguenti presupposti:
@@ -105,6 +108,7 @@ LOADER>
 ----
 
 
+[[licensing-in-ontap-9-7-or-earlier]]
 == Licensing in ONTAP 9.7 o versioni precedenti
 
 Alcune funzionalità richiedono licenze, emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
@@ -117,6 +121,7 @@ Per informazioni dettagliate sulle licenze, visitare il sito Web all'indirizzo l
 
 
 
+[[storage-encryption]]
 == Crittografia dello storage
 
 I nodi originali o i nuovi nodi potrebbero essere abilitati per Storage Encryption. In tal caso, è necessario eseguire ulteriori operazioni in questa procedura per verificare che Storage Encryption sia impostato correttamente.
@@ -125,12 +130,14 @@ Se si desidera utilizzare Storage Encryption, tutti i dischi associati ai nodi d
 
 
 
+[[two-node-switchless-clusters]]
 == Cluster senza switch a due nodi
 
 Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.
 
 
 
+[[troubleshoot]]
 == Risolvere i problemi
 
 Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. Il nodo potrebbe bloccarsi, gli aggregati potrebbero non spostarsi o i LIF potrebbero non migrare. La causa dell'errore e la relativa soluzione dipendono dal momento in cui si è verificato l'errore durante la procedura di aggiornamento.

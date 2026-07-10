@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/relocate-failed-or-vetoed-aggr-node3.html 
 keywords: relocating, failed, vetoed, aggregates, relocation, operation 
-summary: 'Spostare manualmente gli aggregati non riusciti o sottoposti a veto su node3 durante l"aggiornamento dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando `system controller replace` comandi.' 
+summary: 'Sposta manualmente gli aggregati non riusciti o bloccati sul nodo3 quando aggiorni ai controller introdotti in ONTAP 9.15.1 o versioni successive usando i comandi  `system controller replace`.' 
 ---
 = Sposta gli aggregati falliti o sottoposti a veto sul nodo 3
 :hardbreaks:

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html 
+permalink: upgrade-arl-manual/send_custom_autosupport_message_prior_reconfig_switches.html 
 keywords: autosupport, reconfigure, send message, maintenance, netapp support 
 summary: Informare il supporto tecnico NetApp che la manutenzione è in corso durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.7 o versioni precedenti. 
 ---

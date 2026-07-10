@@ -4,6 +4,7 @@
 
 
 
+[[learn-about-ontap-licensing]]
 == Scopri le licenze ONTAP
 
 Alcune funzionalità richiedono licenze, emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.

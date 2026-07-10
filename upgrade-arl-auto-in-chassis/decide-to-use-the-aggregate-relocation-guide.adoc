@@ -20,6 +20,7 @@ Per aiutarti a decidere se questa procedura ARL è adatta all'aggiornamento hard
 
 
 
+[[supported-for-this-arl-upgrade]]
 == Supportato per questo aggiornamento ARL
 
 È possibile utilizzare questa procedura ARL nelle seguenti circostanze:
@@ -43,6 +44,7 @@ NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NS
 
 
 
+[[not-supported-for-this-arl-upgrade]]
 == Non supportato per questo aggiornamento ARL
 
 Non è possibile utilizzare questa procedura ARL nelle seguenti circostanze:
@@ -56,6 +58,8 @@ Per aggiornare una configurazione IP MetroCluster, vedere link:other-references.
 
 
 
+[[supported-system-upgrade-combinations]]
+[[supported-systems]]
 == Combinazioni di aggiornamento del sistema supportate
 
 La tabella seguente mostra la matrice dei sistemi supportati per eseguire un aggiornamento del controller convertendo il sistema esistente nel sistema sostitutivo, mantenendo lo chassis, i dischi esistenti e i dati in essi memorizzati.
@@ -63,6 +67,7 @@ La tabella seguente mostra la matrice dei sistemi supportati per eseguire un agg
 
 CAUTION: Questa procedura si applica esclusivamente alle seguenti configurazioni di aggiornamento. Non utilizzare questa procedura per eseguire un aggiornamento tra altre combinazioni di sistema. Per tutti gli altri modelli di controller, fare riferimento a link:other-references.html["Riferimenti"] _Usa i comandi "system controller replace" per aggiornare l'hardware del controller che esegue ONTAP 9.8 o versioni successive_ e _Utilizzo della rilocazione aggregata per aggiornare manualmente l'hardware del controller che esegue ONTAP 9.8 o versioni successive_.
 
+[[supported-systems-in-chassis]]
 [cols="20,20,40"]
 |===
 | Sistema esistente | Sistema sostitutivo | Versioni di ONTAP supportate 
@@ -149,6 +154,7 @@ Le versioni minime di ONTAP riportate nella tabella precedente sono obbligatorie
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Scegli una procedura di aggiornamento hardware diversa
 
 * link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].

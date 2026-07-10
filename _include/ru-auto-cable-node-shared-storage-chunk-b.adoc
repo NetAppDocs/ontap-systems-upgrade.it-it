@@ -4,6 +4,7 @@
 
 
 
+[[connect-to-a-switch-attached-cluster]]
 == Connettersi a un cluster collegato allo switch
 
 Per un cluster con collegamento a switch, verificare di soddisfare i seguenti requisiti per il nodo (sostitutivo) AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 o AFF C80:

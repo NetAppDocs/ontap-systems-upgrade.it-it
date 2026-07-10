@@ -29,6 +29,7 @@ A questo punto della procedura, l'operazione si interrompe poiché node3 si unis
 
 
 
+[[step-1-verify-that-node3-is-in-quorum]]
 == Passaggio 1: Verificare che node3 sia in quorum
 
 Verificare che il nodo3 sia in quorum. Quindi, riprendere l'operazione di sostituzione del controller.
@@ -137,6 +138,8 @@ NOTE: In questa procedura, la sezione _creazione di VLAN, ifgrps e domini di tra
 
 
 
+[[step-2-restore-network-configuration-on-node3]]
+[[restore_network_configuration_on_node3]]
 == Passaggio 2: Ripristinare la configurazione di rete sul nodo3
 
 Dopo aver confermato che node3 è in quorum e può comunicare con node2, verificare che le VLAN, i gruppi di interfacce e i domini di broadcast di node1 siano visibili sul node3. Inoltre, verificare che tutte le porte di rete node3 siano configurate nei rispettivi domini di trasmissione corretti.

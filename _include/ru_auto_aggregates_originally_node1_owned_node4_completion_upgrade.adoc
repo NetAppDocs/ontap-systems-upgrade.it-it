@@ -4,6 +4,7 @@
 
 
 
+[[aggregates-originally-on-node1-are-owned-by-node4-after-completion-of-the-upgrade]]
 == Gli aggregati originalmente sul node1 sono di proprietà del node4 dopo il completamento dell'upgrade
 
 Al termine della procedura di aggiornamento, node3 dovrebbe essere il nuovo nodo home degli aggregati che in origine aveva node1 come nodo home. È possibile trasferirli dopo l'aggiornamento.

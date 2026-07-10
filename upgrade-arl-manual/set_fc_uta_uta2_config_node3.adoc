@@ -26,6 +26,7 @@ Se node3 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una sched
 
 
 
+[[configure-fc-ports-on-node3]]
 == Configurare le porte FC sul nodo 3
 
 Se il nodo 3 dispone di porte FC, integrate o su un adattatore FC aggiuntivo, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, poiché le porte non sono preconfigurate al momento della spedizione dei sistemi.  Se non si configurano le porte, si potrebbe verificare un'interruzione del servizio.
@@ -95,6 +96,8 @@ IMPORTANT: Immettere i comandi in questa sezione al prompt del cluster.
 
 
 
+[[check-and-configure-utauta2-ports-on-node3]]
+[[uta-ports-node3]]
 == Controllare e configurare le porte UTA/UTA2 sul nodo 3
 
 Se node3 dispone di porte UTA/UTA2 integrate o di una scheda UTA/UTA2, è necessario controllare la configurazione delle porte ed eventualmente riconfigurarle, a seconda di come si desidera utilizzare il sistema aggiornato.

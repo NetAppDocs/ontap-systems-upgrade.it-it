@@ -15,6 +15,7 @@ Per pianificare l'aggiornamento, è necessario acquisire familiarità con le con
 
 
 
+[[requirements-and-limitations]]
 == Requisiti e limitazioni
 
 A seconda dell'ambiente in uso, è necessario prendere in considerazione alcuni fattori prima di iniziare l'aggiornamento. Per iniziare, consultate la tabella seguente per vedere i requisiti e le limitazioni da prendere in considerazione.
@@ -79,6 +80,7 @@ NOTE: Puoi aggiornare un sistema integrato spostando i dati in un nuovo storage 
 
 
 
+[[systems-with-internal-storage]]
 == Sistemi con storage interno
 
 I seguenti sistemi dispongono di storage interno:
@@ -108,6 +110,7 @@ Il trasferimento dello storage interno è un'attività opzionale del workflow pe
 
 
 
+[[situations-where-you-might-need-additional-steps]]
 == Situazioni in cui potrebbero essere necessarie ulteriori operazioni
 
 * Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di tipi diversi di porte, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Vedere https://hwu.netapp.com["NetApp Hardware Universe"^].

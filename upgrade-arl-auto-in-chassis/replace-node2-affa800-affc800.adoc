@@ -26,6 +26,7 @@ Se non si è già collegati a terra, mettere a terra correttamente.
 
 
 
+[[step-1-remove-the-aff-a800-or-aff-c800-controller-module]]
 == Passaggio 1: rimuovere il modulo controller AFF A800 o AFF C800
 
 Rimuovere il dispositivo di gestione dei cavi dal modulo node2 esistente e spostare leggermente il controller fuori dallo chassis.
@@ -107,6 +108,7 @@ image:black_circle_two.png["Numero due"]
 
 
 
+[[step-2-install-the-aff-a90-aff-a70-or-aff-c80-controller-module]]
 == Passaggio 2: installare il modulo controller AFF A90, AFF A70 o AFF C80
 
 Installare il modulo controller AFF A90 o AFF A70 ricevuto per l'aggiornamento in node2.

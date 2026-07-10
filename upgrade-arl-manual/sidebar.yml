@@ -21,7 +21,7 @@ entries:
     url: "/upgrade-arl-manual/reconfig_index.html"
   - title: Inviare un messaggio AutoSupport personalizzato prima di riconfigurare
       gli switch
-    url: "/upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html"
+    url: "/upgrade-arl-manual/send_custom_autosupport_message_prior_reconfig_switches.html"
   - title: Verificare lo stato della configurazione MetroCluster
     url: "/upgrade-arl-manual/verify_health_mcc_config.html"
   - title: Verificare la presenza di errori di configurazione MetroCluster

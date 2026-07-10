@@ -4,6 +4,8 @@
 
 
 
+[[step-1-configure-fc-ports-on-node3]]
+[[configure-fc-ports-on-node3]]
 == Passaggio 1: Configurare le porte FC su node3
 
 Se il nodo 3 dispone di porte FC, integrate o su un adattatore FC aggiuntivo, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, poiché le porte non sono preconfigurate al momento della spedizione dei sistemi.  Se non si configurano le porte, si potrebbe verificare un'interruzione del servizio.

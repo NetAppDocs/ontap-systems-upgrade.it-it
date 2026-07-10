@@ -4,6 +4,7 @@
 
 
 
+[[optionally-quiesce-the-snapmirror-relationships]]
 == Facoltativamente, mettere in quiescenza le relazioni SnapMirror
 
 Prima di continuare con la procedura, è necessario confermare che tutte le relazioni di SnapMirror siano interrotti. Quando una relazione SnapMirror viene ritirata, rimane irreparata in caso di riavvii e failover.

@@ -43,6 +43,7 @@ NOTE: I termini *node1* e *node2* sono utilizzati solo come riferimento ai nomi 
 
 
 
+[[requirements-and-limitations]]
 == Requisiti e limitazioni
 
 È necessario considerare fattori importanti prima di iniziare l'aggiornamento.
@@ -77,6 +78,7 @@ Se non puoi collegare e0a o e0b porte cluster sul nodo esistente alle porte clus
 
 
 
+[[automated-controller-upgrade-process]]
 == Processo automatizzato di aggiornamento del controller
 
 Questa procedura fornisce i passaggi per la procedura automatica, che utilizza l'assegnazione automatica del disco e i controlli di raggiungibilità delle porte di rete per semplificare l'esperienza di aggiornamento del controller.

@@ -23,6 +23,7 @@ Se node4 non dispone di porte FC integrate, porte UTA/UTA2 integrate o una sched
 
 
 
+[[configure-fc-ports-on-node4]]
 == Configurare le porte FC sul nodo 4
 
 Se node4 dispone di porte FC, integrate o su un adattatore FC, è necessario impostare le configurazioni delle porte sul nodo prima di metterlo in servizio, perché le porte non sono preconfigurate. Se le porte non sono configurate, si potrebbe verificare un'interruzione del servizio.
@@ -92,6 +93,7 @@ IMPORTANT: Immettere i comandi in questa sezione al prompt del cluster.
 
 
 
+[[check-and-configure-utauta2-ports-on-node4]]
 == Controllare e configurare le porte UTA/UTA2 sul nodo 4
 
 Se node4 dispone di porte UTA/UTA2 integrate o di una scheda UTA/UTA2A, è necessario controllare la configurazione delle porte e configurarle, a seconda di come si desidera utilizzare il sistema aggiornato.

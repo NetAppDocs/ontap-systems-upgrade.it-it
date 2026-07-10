@@ -18,6 +18,7 @@ Quando si eseguono le procedure di questo contenuto, potrebbe essere necessario 
 
 
 
+[[reference-content]]
 == Contenuto di riferimento
 
 I contenuti specifici di questo aggiornamento sono elencati nella tabella seguente.
@@ -73,6 +74,7 @@ I contenuti specifici di questo aggiornamento sono elencati nella tabella seguen
 |===
 
 
+[[reference-sites]]
 == Siti di riferimento
 
 Il link:https://mysupport.netapp.com["Sito di supporto NetApp"^] Contiene inoltre documentazione sulle schede di interfaccia di rete (NIC) e su altri componenti hardware che potrebbero essere utilizzati con il sistema. Contiene anche link:https://hwu.netapp.com["Hardware Universe"^], che fornisce informazioni sull'hardware supportato dal nuovo sistema.

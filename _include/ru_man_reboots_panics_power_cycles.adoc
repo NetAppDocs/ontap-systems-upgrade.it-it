@@ -6,12 +6,14 @@ Il sistema potrebbe bloccarsi (riavvio, panico o ciclo di alimentazione) durante
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-2]]
 == Riavvio, panic o cicli di alimentazione durante la fase 2
 
 Gli arresti anomali possono verificarsi prima, durante o subito dopo la fase 2, durante la quale si spostano gli aggregati da node1 a node2, si spostano le LIF dei dati e LE LIF SAN di proprietà di node1 in node2, si registrano le informazioni node1 e si ritirano node1.
 
 
 
+[[node1-or-node2-crashes-before-stage-2-with-ha-still-enabled]]
 === Node1 o node2 si blocca prima della fase 2 con ha ancora attivato
 
 Se node1 o node2 si bloccano prima della fase 2, nessun aggregato è stato ancora trasferito e la configurazione ha è ancora attivata.
@@ -26,6 +28,7 @@ Il takeover e il giveback possono procedere normalmente.
 
 
 
+[[node1-crashes-during-or-just-after-stage-2-with-ha-still-enabled]]
 === Node1 si blocca durante o subito dopo la fase 2 con ha ancora attivato
 
 Alcuni o tutti gli aggregati sono stati spostati da node1 a node2 e HA è ancora abilitata. Node2 assume il controllo del volume root di node1 e di tutti gli aggregati non root che non sono stati spostati.
@@ -40,6 +43,7 @@ La proprietà degli aggregati che sono stati ricollocati appare uguale alla prop
 
 
 
+[[node1-crashes-after-stage-2-while-ha-is-disabled]]
 === Node1 si blocca dopo la fase 2 mentre ha è disattivato
 
 Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
@@ -54,6 +58,7 @@ Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregat
 
 
 
+[[node2-fails-during-or-after-stage-2-with-ha-still-enabled]]
 === Node2 non funziona durante o dopo la fase 2 con ha ancora attivato
 
 Node1 ha trasferito alcuni o tutti i suoi aggregati al node2. HA è attivato.
@@ -68,6 +73,7 @@ Node1 assume il controllo di tutti gli aggregati di Node2, nonché di tutti i pr
 
 
 
+[[node2-crashes-after-stage-2-and-after-ha-is-disabled]]
 === Node2 si blocca dopo la fase 2 e dopo la disattivazione di ha
 
 Node1 non prende il posto.
@@ -82,12 +88,14 @@ Si verifica un'interruzione del servizio per tutti gli aggregati durante l'avvio
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-3]]
 == Riavvio, panic o cicli di alimentazione durante la fase 3
 
 Gli errori possono verificarsi durante o subito dopo la fase 3, durante la quale si installa e si avvia node3, si mappano le porte da node1 a node3, si spostano le LIF dei dati e LE LIF SAN appartenenti a node1 e node2 in node3 e si spostano tutti gli aggregati da node2 a node3.
 
 
 
+[[node2-crash-during-stage-3-with-ha-disabled-and-before-relocating-any-aggregates]]
 === Node2 si blocca durante la fase 3 con ha disattivato e prima di spostare qualsiasi aggregato
 
 Il nodo3 non subentra dopo un arresto anomalo del nodo2 poiché l'HA è già disabilitato.
@@ -102,6 +110,7 @@ Si verifica un'interruzione del servizio per tutti gli aggregati durante l'avvio
 
 
 
+[[node2-crashes-during-stage-3-after-relocating-some-or-all-aggregates]]
 === Node2 si blocca durante la fase 3 dopo aver riallocato alcuni o tutti gli aggregati
 
 Il nodo2 ha spostato alcuni o tutti i suoi aggregati su nodo3, che serve dati dagli aggregati che sono stati rilocati. HA è disabilitato.
@@ -117,6 +126,7 @@ Si è verificato un disservizio per gli aggregati che non sono stati ricollocati
 
 
 
+[[node3-crashes-during-stage-3-and-before-node2-has-relocated-any-aggregates]]
 === Node3 si blocca durante la fase 3 e prima che node2 abbia riallocato gli aggregati
 
 Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregati non root.
@@ -128,6 +138,7 @@ Node2 non prende il controllo, ma sta ancora fornendo dati da tutti gli aggregat
 
 
 
+[[node3-crashes-during-stage-3-during-aggregate-relocation]]
 === Node3 si blocca durante la fase 3 durante il trasferimento dell'aggregato
 
 Se il nodo3 si arresta in modo anomalo mentre il nodo2 sta spostando gli aggregati sul nodo3, il nodo2 interrompe lo spostamento di tutti gli aggregati rimanenti.
@@ -143,6 +154,7 @@ Node2 continua a servire gli aggregati rimanenti, ma gli aggregati che erano gi�
 
 
 
+[[node3-fails-to-boot-after-crashing-in-stage-3]]
 === Node3 non riesce ad avviarsi dopo il blocco nella fase 3
 
 A causa di un guasto catastrofico, il node3 non può essere avviato in seguito a un crash durante la fase 3.
@@ -153,6 +165,7 @@ A causa di un guasto catastrofico, il node3 non può essere avviato in seguito a
 
 
 
+[[node2-crashes-after-stage-3-but-before-stage-5]]
 === Node2 si blocca dopo la fase 3 ma prima della fase 5
 
 Node3 continua a fornire dati per tutti gli aggregati. La coppia ha è disattivata.
@@ -164,6 +177,7 @@ Node3 continua a fornire dati per tutti gli aggregati. La coppia ha è disattiva
 
 
 
+[[node3-crashes-after-stage-3-but-before-stage-5]]
 === Node3 si blocca dopo la fase 3 ma prima della fase 5
 
 Node3 si blocca dopo la fase 3 ma prima della fase 5. La coppia ha è disattivata.
@@ -178,12 +192,14 @@ Si è verificato un'interruzione del servizio client per tutti gli aggregati.
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-5]]
 == Riavvio, panic o cicli di alimentazione durante la fase 5
 
 I crash possono verificarsi durante la fase 5, in cui si installa e si avvia node4, si mappano le porte da node2 a node4, si spostano le LIF dei dati e LE LIF SAN appartenenti a node2 da node3 a node4 e si spostano tutti gli aggregati di node2 da node3 a node4.
 
 
 
+[[node3-crashes-during-stage-5]]
 === Node3 si blocca durante la fase 5
 
 Node3 ha trasferito alcuni o tutti gli aggregati del node2 al node4. Node4 non prende il controllo, ma continua a servire aggregati non root che node3 ha già trasferito. La coppia ha è disattivata.
@@ -199,6 +215,7 @@ Si verifica un'interruzione per il resto degli aggregati fino a quando il node3 
 
 
 
+[[node4-crashes-during-stage-5]]
 === Node4 si blocca durante la fase 5
 
 Node3 ha trasferito alcuni o tutti gli aggregati del node2 al node4. Node3 non prende il controllo, ma continua a servire aggregati non root che node3 possiede e quelli che non sono stati ricollocati. HA disattivato.

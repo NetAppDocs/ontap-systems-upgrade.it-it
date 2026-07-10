@@ -4,20 +4,21 @@ sidebar: sidebar
 keywords:  
 summary: 'In generale, il modo in cui si aggiorna l"hardware del controller dipende dai modelli di piattaforma dei nodi originali. Puoi eseguire l"upgrade spostando aggregati o volumi storage (procedure senza interruzioni) o spostando lo storage (procedura che provoca interruzioni).' 
 ---
-= Scegliere la procedura di aggiornamento dell'hardware del controller
+= Scegli una procedura di aggiornamento per l'hardware del controller AFF, ASA o FAS
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-In generale, il modo in cui si aggiorna l'hardware del controller dipende dai modelli di piattaforma dei nodi originali. Puoi eseguire l'upgrade ricollocando gli aggregati o spostando i volumi (entrambe le procedure senza interruzioni) o spostando lo storage (una procedura che provoca interruzioni). Se si dispone di diverse versioni di ONTAP in esecuzione sui nodi originale e nuovo, potrebbe essere necessario eseguire un aggiornamento software prima di iniziare l'aggiornamento hardware.
+In generale, il modo in cui aggiorni l'hardware del controller NetApp AFF, ASA o controller del FAS dipende dai modelli di piattaforma dei nodi originali. Puoi aggiornare spostando gli aggregati o i volumi (entrambe procedure non interruttive), oppure spostando lo storage (una procedura interruttiva). Se hai versioni diverse di ONTAP in esecuzione sui nodi originali e su quelli nuovi, potresti dover eseguire un aggiornamento software prima di iniziare l'aggiornamento hardware.
 
 
 NOTE: Gli aggiornamenti ASA a un sistema sostitutivo ASA R2 non sono supportati. Per informazioni sulla migrazione dei dati da un sistema ASA a un sistema ASA R2, vedere link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Abilitare l'accesso ai dati dagli host SAN al sistema di storage ASA R2"^].
 
 
 
+[[which-upgrade-procedure-should-i-use]]
 == Quale procedura di aggiornamento dovrei usare?
 
 Per selezionare la procedura di aggiornamento appropriata, rivedere tutte le domande elencate nella tabella seguente.
@@ -77,6 +78,7 @@ L'ARL è una procedura sostitutiva.  Non è necessario espandere e ridurre il cl
 |===
 
 
+[[example-fas9500-to-fas90-upgrade]]
 == Esempio: aggiornamento da FAS9500 a FAS90
 
 Questo esempio fornisce possibili risposte per un aggiornamento del controller FAS9500 a FAS90.

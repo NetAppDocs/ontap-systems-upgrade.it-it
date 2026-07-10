@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl/index.html 
 keywords: aggregate, relocation, moving, manual, upgrade, relocate, hardware 
-summary: 'Utilizzare il trasferimento di aggregati per aggiornare l"hardware del controller' 
+summary: 'Scopri come utilizzare la riallocazione degli aggregati per aggiornare l"hardware dei controller AFF, ASA o FAS.' 
 ---
-= Inizia da qui: Scegli la tua procedura di aggiornamento ARL
+= Inizia da qui: scegli una procedura di aggiornamento ARL per l'hardware del controller AFF, ASA o FAS
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 'Utilizzare il trasferimento di aggregati per aggiornare l"hardware del
 
 
 [role="lead"]
-Puoi aggiornare l'hardware dei controller senza interruzioni utilizzando il trasferimento degli aggregati (ARL). Per altri metodi per aggiornare l'hardware del controller, vedere link:../upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando volumi o storage"].
+Puoi aggiornare l'hardware del controller AFF, ASA o FAS senza interruzioni utilizzando la riallocazione aggregata (ARL). Per altri metodi di aggiornamento dell'hardware del controller, vedi link:../upgrade/upgrade-decide-to-use-this-guide.html["Eseguire l'upgrade spostando volumi o storage"].
 
 Con ARL, potrai eseguire l'upgrade dell'hardware del controller senza interruzioni su una coppia di nodi con ONTAP e migrando gli aggregati non root dai nodi originali ai nuovi nodi dello stesso cluster. I dati ospitati sui nodi che vengono aggiornati sono accessibili durante l'aggiornamento.
 
@@ -24,9 +24,10 @@ Esistono diversi metodi ARL per aggiornare l'hardware del controller. Per selezi
 
 
 
-== Utilizzare i comandi "sostituzione controller di sistema" con ONTAP 9.15,1 o versione successiva
+[[upgrade-to-systems-introduced-in-ontap-9-15-1-or-later]]
+== Aggiorna ai sistemi introdotti in ONTAP 9.15.1 o versioni successive
 
-Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi supportati, andare a link:../upgrade-arl-auto-app-9151/index.html["Utilizzare i comandi "sostituzione controller di sistema" per aggiornare l'hardware del controller introdotto in ONTAP 9.15.1 e versioni successive"] per avviare la procedura di aggiornamento.
+Se il tuo scenario di aggiornamento è elencato nella seguente matrice dei sistemi supportati, vai a link:../upgrade-arl-auto-app-9151/index.html["Usa i comandi "system controller replace" per eseguire l'aggiornamento all'hardware del controller introdotto in ONTAP 9.15.1 o versioni successive"] per avviare la procedura di aggiornamento.
 
 .Mostra i sistemi supportati
 [%collapsible]
@@ -64,6 +65,7 @@ Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi s
 ====
 
 
+[[upgrade-controller-models-in-the-same-chassis]]
 == Aggiornare i modelli di controller nello stesso chassis
 
 Se lo scenario di aggiornamento è elencato nella seguente matrice dei sistemi supportati, andare alink:../upgrade-arl-auto-in-chassis/index.html["Utilizzare i comandi "System controller replace" per aggiornare i modelli di controller nello stesso chassis"] per avviare la procedura di aggiornamento.
@@ -142,6 +144,7 @@ Se lo scenario di aggiornamento è elencato nella seguente matrice dei sistemi s
 ====
 
 
+[[use-system-controller-replace-commands-with-ontap-9-8-or-later]]
 == Utilizzare i comandi "System controller REPLACE" con ONTAP 9.8 o versioni successive
 
 Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi supportati, andare a link:../upgrade-arl-auto-app/index.html["Utilizzare i comandi "System controller replace" per aggiornare l'hardware del controller con ONTAP 9.8 o versione successiva"] per avviare la procedura di aggiornamento.
@@ -182,6 +185,7 @@ Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi s
 ====
 
 
+[[use-system-controller-replace-commands-with-ontap-9-5-to-9-7]]
 == Utilizzare i comandi "System controller REPLACE" con ONTAP 9 9,7
 
 Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi supportati, andare a link:../upgrade-arl-auto/index.html["Utilizzare i comandi "System controller replace" per aggiornare l'hardware del controller che esegue ONTAP 9.5 a 9.7"] per avviare la procedura di aggiornamento.
@@ -208,6 +212,7 @@ Se lo scenario di aggiornamento è elencato nella seguente tabella dei sistemi s
 ====
 
 
+[[use-manual-arl-commands]]
 == Utilizzare i comandi ARL manuali
 
 Se lo scenario di aggiornamento non è supportato utilizzando "comandi di sistema", è possibile eseguire un aggiornamento ARL utilizzando i comandi manuali.

@@ -27,7 +27,7 @@ Se il layout dello switch FC esistente è stato configurato prima di ONTAP 9.1, 
 Questa procedura è senza interruzioni e richiede circa quattro ore per il completamento (esclusi rack e stack) quando i dischi vengono azzerati.
 
 .Fasi
-. link:send_custom_asup_message_prior_reconfig_switches.html["Inviare un messaggio AutoSupport personalizzato prima di riconfigurare gli switch"]
+. link:send_custom_autosupport_message_prior_reconfig_switches.html["Inviare un messaggio AutoSupport personalizzato prima di riconfigurare gli switch"]
 . link:verify_health_mcc_config.html["Verificare lo stato della configurazione MetroCluster"]
 . link:check_mcc_config_errors.html["Verificare la presenza di errori di configurazione MetroCluster"]
 . link:persist_disable_switches.html["Disattivare in modo persistente gli switch"]

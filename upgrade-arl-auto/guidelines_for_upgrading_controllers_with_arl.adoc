@@ -18,6 +18,7 @@ Per capire se è possibile utilizzare ARL (aggregate relocation) per aggiornare 
 
 
 
+[[supported-upgrades-for-arl]]
 == Aggiornamenti supportati per ARL
 
 Quando si aggiorna una coppia di nodi utilizzando questa procedura ARL per ONTAP 9.5 a ONTAP 9.7, è necessario verificare che ARL possa essere eseguito sui controller originali e sostitutivi.
@@ -38,12 +39,14 @@ L'upgrade del controller tramite ARL è supportato sui sistemi configurati con v
 
 
 
+[[two-node-switchless-clusters]]
 == Cluster senza switch a due nodi
 
 Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.
 
 
 
+[[upgrades-not-supported-for-arl]]
 == Aggiornamenti non supportati per ARL
 
 Non è possibile eseguire i seguenti aggiornamenti:
@@ -60,12 +63,14 @@ Se si desidera aggiornare i controller entry-level con dischi interni, fare rife
 
 
 
+[[metrocluster-fc-configuration]]
 == Configurazione MetroCluster FC
 
 In una configurazione FC MetroCluster, è necessario sostituire i nodi del sito di disaster recovery/failover il prima possibile. La mancata corrispondenza nei modelli di controller all'interno di una configurazione MetroCluster non è supportata perché la mancata corrispondenza del modello di controller può causare la disconnessione del mirroring del disaster recovery. Utilizzare  `-skip-metrocluster-check true` comando per ignorare i controlli MetroCluster quando si sostituiscono i nodi nel secondo sito.
 
 
 
+[[troubleshoot]]
 == Risolvere i problemi
 
 Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. Il nodo potrebbe bloccarsi, gli aggregati potrebbero non spostarsi o i LIF potrebbero non migrare. La causa dell'errore e la relativa soluzione dipendono dal momento in cui si è verificato l'errore durante la procedura di aggiornamento.

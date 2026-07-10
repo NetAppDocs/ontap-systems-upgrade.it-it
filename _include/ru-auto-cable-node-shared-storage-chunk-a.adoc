@@ -4,6 +4,7 @@
 
 
 
+[[connect-the-e0m-and-bmc-ports]]
 == Collegare le porte e0M e BMC
 
 Se il sistema esistente dispone di una porta di gestione (e0M) e di una porta BMC, le porte e0M e BMC sono combinate e accessibili attraverso la porta "chiave inglese" sul sistema sostitutivo. Prima di eseguire la connessione al sistema sostitutivo, è necessario assicurarsi che le porte e0M e BMC siano connesse allo stesso switch e alla stessa subnet del sistema esistente.
@@ -24,6 +25,7 @@ Se il sistema esistente dispone di una porta di gestione (e0M) e di una porta BM
 |===
 
 
+[[connect-to-a-two-node-switchless-cluster]]
 == Connettersi a un cluster senza switch a due nodi
 
 Le tabelle seguenti mostrano l'utilizzo delle porte dello switch per le configurazioni cluster senza switch a due nodi.

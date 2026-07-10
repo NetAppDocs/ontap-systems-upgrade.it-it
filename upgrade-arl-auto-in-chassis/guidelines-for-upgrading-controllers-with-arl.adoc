@@ -18,6 +18,7 @@ Per capire se è possibile utilizzare il trasferimento aggregato (ARL), mantenen
 
 
 
+[[supported-upgrades-for-arl]]
 == Aggiornamenti supportati per ARL
 
 Gli aggiornamenti del controller sono supportati per alcune configurazioni di sistema. Consultare la link:decide-to-use-the-aggregate-relocation-guide.html#supported-systems["combinazioni di aggiornamento del sistema supportate"] per un elenco dei sistemi supportati e della versione minima di ONTAP.
@@ -28,12 +29,14 @@ L'upgrade del controller tramite ARL è supportato sui sistemi configurati con v
 
 
 
+[[two-node-switchless-clusters]]
 == Cluster senza switch a due nodi
 
 Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possibile lasciare i nodi nel cluster senza switch durante l'aggiornamento. Non è necessario convertirli in un cluster con switch.
 
 
 
+[[switch-attached-clusters]]
 == Switch Attached Clusters
 
 Se si stanno aggiornando i nodi in un cluster collegato a uno switch del cluster, è necessario verificare che la marca, il modello, la versione del firmware, l'RCF e la versione di ONTAP in esecuzione sullo switch siano uguali a quelle in esecuzione sul controller sostitutivo dopo l'aggiornamento. Se necessario, è necessario eseguire l'aggiornamento dello switch prima di aggiornare i controller utilizzando ARL.
@@ -42,6 +45,7 @@ Per ulteriori informazioni, vedere link:cable-node1-for-shared-cluster-HA-storag
 
 
 
+[[troubleshoot]]
 == Risolvere i problemi
 
 Si potrebbe riscontrare un errore durante l'aggiornamento della coppia di nodi. Il nodo potrebbe bloccarsi, gli aggregati potrebbero non spostarsi o i LIF potrebbero non migrare. La causa dell'errore e la relativa soluzione dipendono dal momento in cui si è verificato l'errore durante la procedura di aggiornamento.

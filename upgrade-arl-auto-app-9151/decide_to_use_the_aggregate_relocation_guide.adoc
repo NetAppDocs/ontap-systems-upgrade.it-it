@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guide.html 
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
-summary: 'Decidi se utilizzare ARL per aggiornare i controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando `system controller replace` i comandi.' 
+summary: 'Decidi se usare ARL per aggiornare ai controller introdotti in ONTAP 9.15.1 o versioni successive usando i comandi  `system controller replace`.' 
 ---
 = Decidere se utilizzare questa procedura di ricollocazione aggregata
 :hardbreaks:
@@ -14,12 +14,13 @@ summary: 'Decidi se utilizzare ARL per aggiornare i controller che eseguono ONTA
 
 
 [role="lead"]
-Esistono diversi metodi di rilocazione aggregata (ARL) per l'aggiornamento dell'hardware dei controller. Questa procedura ARL descrive come aggiornare una coppia HA di controller nei sistemi di storage AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive con nuovi controller, mantenendo i dischi esistenti e i dati memorizzati su di essi. Si tratta di una procedura complessa che dovrebbe essere utilizzata solo da amministratori ONTAP esperti.
+Esistono diversi metodi di riallocazione aggregata (ARL) per l'aggiornamento dell'hardware del controller. Questa procedura ARL descrive come aggiornare una coppia HA di controller nei sistemi di storage AFF e FAS ai controller introdotti in ONTAP 9.15.1 o versioni successive, mantenendo i dischi esistenti e i dati memorizzati sui dischi. Questa è una procedura complessa che dovresti usare solo se sei un amministratore ONTAP esperto.
 
 Per aiutarti a decidere se questa procedura ARL è adatta all'aggiornamento hardware del tuo controller, dovresti esaminare tutte le seguenti circostanze per gli aggiornamenti supportati e non supportati.
 
 
 
+[[supported-upgrades-for-this-arl-procedure]]
 == Aggiornamenti supportati per questa procedura ARL
 
 È possibile utilizzare questa procedura ARL per aggiornare una coppia di nodi nelle seguenti circostanze:
@@ -35,6 +36,7 @@ NOTE: Con questa procedura è possibile utilizzare NetApp Storage Encryption (NS
 
 
 
+[[upgrades-not-supported-for-this-arl-procedure]]
 == Aggiornamenti non supportati per questa procedura ARL
 
 Non è possibile utilizzare questa procedura ARL per aggiornare una coppia di nodi nelle seguenti circostanze:
@@ -57,13 +59,15 @@ Non è possibile utilizzare questa procedura ARL per aggiornare una coppia di no
 | AFF C800 | AFF C80 
 |===
 +
-Per eseguire l'aggiornamento di un aggiornamento elencato nella tabella precedente, vedere il link:other_references.html["Riferimenti"]collegamento ai comandi _Use "System controller replace" (utilizza comandi di sostituzione del controller di sistema) per aggiornare i modelli di controller nello stesso chassis_.
+Per eseguire un aggiornamento elencato nella tabella precedente, vedi link:other_references.html["Riferimenti"] per il collegamento a _Usa i comandi "system controller replace" per aggiornare i modelli di controller nello stesso chassis_.
 
 * Si sta aggiornando una configurazione MetroCluster FC o IP. Per aggiornare una configurazione MetroCluster, consultare il link:other_references.html["Riferimenti"] collegamento alla _documentazione di aggiornamento ed espansione MetroCluster_.
 
 
 
 
+[[supported-system-upgrade-combinations]]
+[[sys_commands_9151_supported_systems]]
 == Combinazioni di aggiornamento del sistema supportate
 
 La tabella seguente mostra le combinazioni di aggiornamento del controller supportate tramite ARL per i sistemi AFF e FAS introdotti in ONTAP 9.15.1 o versioni successive. Se la combinazione di aggiornamento del controller non è elencata, contattare l'assistenza tecnica.
@@ -108,6 +112,7 @@ La tabella seguente mostra le combinazioni di aggiornamento del controller suppo
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Scegli una procedura di aggiornamento hardware diversa
 
 * link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].

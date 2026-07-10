@@ -18,6 +18,7 @@ Scopri le licenze ONTAP e la gestione della Storage Encryption tramite Onboard K
 
 
 
+[[learn-about-ontap-licensing]]
 == Scopri le licenze ONTAP
 
 Alcune funzionalità richiedono licenze, emesse come _pacchetti_ che includono una o più funzionalità. Ogni nodo del cluster deve disporre di una propria chiave per poter utilizzare ciascuna funzionalità nel cluster.
@@ -30,6 +31,8 @@ Per informazioni dettagliate sulle licenze ONTAP, fare riferimento a link:other_
 
 
 
+[[manage-storage-encryption-using-the-onboard-key-manager]]
+[[manage_storage_encryption_using_okm]]
 == Gestire la crittografia dello storage utilizzando Onboard Key Manager
 
 Utilizzate l'Onboard Key Manager (OKM) per gestire le chiavi di crittografia. Se avete configurato l'OKM, dovete annotare la passphrase e il materiale di backup prima di iniziare l'aggiornamento.
@@ -58,6 +61,7 @@ Quando richiesto, inserisci la passphrase OKM a livello di cluster che hai regis
 
 
 
+[[optionally-quiesce-the-snapmirror-relationships]]
 == Facoltativamente, mettere in quiescenza le relazioni SnapMirror
 
 Prima di continuare con la procedura, è necessario confermare che tutte le relazioni di SnapMirror siano interrotti. Quando una relazione SnapMirror viene ritirata, rimane irreparata in caso di riavvii e failover.

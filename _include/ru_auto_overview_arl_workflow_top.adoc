@@ -6,12 +6,14 @@ Prima di aggiornare i nodi utilizzando ARL, è necessario comprendere il funzion
 
 
 
+[[upgrade-the-node-pair]]
 == Aggiornare la coppia di nodi
 
 Per aggiornare la coppia di nodi, è necessario preparare i nodi originali ed eseguire una serie di passaggi sia sul nodo originale che su quello nuovo. È quindi possibile decommissionare i nodi originali.
 
 
 
+[[arl-upgrade-sequence-overview]]
 == Panoramica della sequenza di aggiornamento ARL
 
 Durante la procedura, si aggiorna l'hardware del controller originale con l'hardware del controller sostitutivo, un controller alla volta, sfruttando la configurazione della coppia ha per trasferire la proprietà degli aggregati non root. Tutti gli aggregati non root devono essere sottoposti a due rilocazioni per raggiungere la destinazione finale, che è il nodo aggiornato corretto.

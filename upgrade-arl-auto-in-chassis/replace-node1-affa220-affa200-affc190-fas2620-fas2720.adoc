@@ -26,6 +26,7 @@ Se non si è già collegati a terra, mettere a terra correttamente.
 
 
 
+[[step-1-remove-the-aff-a220-aff-a200-aff-c190-fas2620-or-fas2720-controller-module]]
 == Passaggio 1: rimuovere il modulo controller AFF A220, AFF A200, AFF C190, FAS2620 o FAS2720
 
 Per accedere ai componenti all'interno del controller node1, rimuovere il modulo controller dal sistema e quindi rimuovere il coperchio sul modulo controller.
@@ -48,6 +49,7 @@ image:drw_2240_x_opening_cam_latch.png["Apertura della maniglia della camma"]
 
 
 
+[[step-2-install-the-asa-a150-aff-a150-or-fas2820-controller-module]]
 == Passaggio 2: installare il modulo controller ASA A150, AFF A150 o FAS2820
 
 Installare, collegare e collegare il modulo controller ASA A150, AFF A150 o FAS2820 in node1.

@@ -22,6 +22,7 @@ Se non è necessario spostare i volumi SAN iSCSI durante l'aggiornamento spostan
 
 
 
+[[step-1-set-up-new-iscsi-connections]]
 == Fase 1: Configurare nuove connessioni iSCSI
 
 Per spostare le connessioni iSCSI, è necessario impostare nuove connessioni iSCSI nei nuovi nodi.
@@ -185,6 +186,7 @@ size=2.0G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_han
 ----
 
 
+[[step-2-add-the-new-nodes-as-reporting-nodes]]
 == Passaggio 2: Aggiungere i nuovi nodi come nodi di reporting
 
 Dopo aver impostato le connessioni ai nuovi nodi, aggiungere i nuovi nodi come nodi di reporting.
@@ -374,6 +376,7 @@ up        secondary  sdah    host5        iscsi_lf__n3_p1_
 
 
 
+[[step-3-remove-reporting-nodes-and-rescan-paths]]
 == Passaggio 3: Rimuovere i nodi di reporting e ripetere la scansione dei percorsi
 
 È necessario rimuovere i nodi di reporting e ripetere la scansione dei percorsi.

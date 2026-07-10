@@ -4,6 +4,7 @@
 
 
 
+[[manage-storage-encryption-using-the-onboard-key-manager]]
 == Gestire la crittografia dello storage utilizzando Onboard Key Manager
 
 Utilizzate l'Onboard Key Manager (OKM) per gestire le chiavi di crittografia. Se avete configurato l'OKM, dovete annotare la passphrase e il materiale di backup prima di iniziare l'aggiornamento.

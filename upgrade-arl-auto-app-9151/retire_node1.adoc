@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/retire_node1.html 
 keywords: retiring, node 
-summary: 'Disattiva la coppia ha con node2 e disattiva node1 durante l"upgrade dei controller che eseguono ONTAP 9.15.1 o versioni successive utilizzando i `system controller replace` comandi.' 
+summary: 'Disabilita la coppia HA con node2 e spegni node1 quando esegui l"aggiornamento ai controller introdotti in ONTAP 9.15.1 o versioni successive usando i comandi  `system controller replace`.' 
 ---
 = Ritirare il node1
 :hardbreaks:

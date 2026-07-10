@@ -4,6 +4,7 @@
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Scegli una procedura di aggiornamento hardware diversa
 
 * link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/ensure_new_controllers_are_set_up_correctly.html 
 keywords: confirm, controllers, set up, ha, node3, node4, node2, lif, cluster, high, availability 
-summary: 'Abilitare la coppia ha, verificare l"accesso allo storage node3 e node4 e confermare la proprietà dell"aggregato in seguito all"upgrade dei controller in esecuzione su ONTAP 9.15.1 o versioni successive utilizzando i `system controller replace` comandi.' 
+summary: 'Abilita la coppia HA, verifica l"accesso allo storage di node3 e node4 e conferma la proprietà dell"aggregato dopo l"aggiornamento ai controller introdotti in ONTAP 9.15.1 o versioni successive utilizzando i comandi  `system controller replace`.' 
 ---
 = Verificare che i nuovi controller siano impostati correttamente
 :hardbreaks:

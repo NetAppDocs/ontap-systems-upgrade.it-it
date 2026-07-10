@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/issues_in_multiple_stages_of_procedure.html 
 keywords: issues, arise, multiple, stages, procedure 
-summary: 'Informazioni sui problemi che potrebbero verificarsi quando si aggiornano i controller con ONTAP 9.15.1 o versione successiva tramite `system controller replace` i comandi.' 
+summary: 'Informazioni sui problemi che potrebbero verificarsi durante l"aggiornamento ai controller introdotti in ONTAP 9.15.1 o versioni successive utilizzando i comandi  `system controller replace`.' 
 ---
 = Problemi che possono verificarsi in più fasi della procedura
 :hardbreaks:
@@ -18,6 +18,7 @@ Alcuni problemi possono verificarsi durante diverse fasi della procedura.
 
 
 
+[[unexpected-storage-failover-show-command-output]]
 == Output imprevisto del comando "show di failover dello storage"
 
 Durante la procedura, se il nodo che ospita tutti gli aggregati di dati viene avviato accidentalmente o viene riavviato, potrebbe essere visualizzato un output imprevisto per `storage failover show` comando prima e dopo il riavvio, il panico o il ciclo di alimentazione.

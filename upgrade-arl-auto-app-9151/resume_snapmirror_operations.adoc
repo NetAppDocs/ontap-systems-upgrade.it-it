@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/resume_snapmirror_operations.html 
 keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete 
-summary: 'Riprendere i trasferimenti e le relazioni di SnapMirror durante l"upgrade dei controller in esecuzione su ONTAP 9.15.1 o versione successiva utilizzando `system controller replace` dei comandi.' 
+summary: 'Riprendi i trasferimenti e le relazioni SnapMirror quando esegui l"aggiornamento ai controller introdotti in ONTAP 9.15.1 o versioni successive utilizzando i comandi  `system controller replace`.' 
 ---
 = Riprendere le operazioni di SnapMirror
 :hardbreaks:

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/aggregate_relocation_failures.html 
 keywords: aggregate, relocation, failures, ARL 
-summary: 'Risolvere i problemi legati al trasferimento degli aggregati che potrebbero verificarsi quando si utilizzano `system controller replace` comandi per aggiornare i controller con ONTAP 9.15.1 o versioni successive.' 
+summary: 'Risolvi i problemi relativi agli errori di riallocazione aggregata che potrebbero verificarsi quando usi i comandi  `system controller replace` per l"aggiornamento ai controller introdotti in ONTAP 9.15.1 o versioni successive.' 
 ---
 = Errori di trasferimento aggregati
 :hardbreaks:
@@ -18,6 +18,7 @@ Il trasferimento di aggregati (ARL) potrebbe non riuscire in diversi punti duran
 
 
 
+[[check-for-aggregate-relocation-failure]]
 == Verificare la presenza di errori di trasferimento degli aggregati
 
 Durante la procedura, l'ARL potrebbe non funzionare nella fase 2, 3 o 5.
@@ -44,6 +45,7 @@ Per informazioni dettagliate sulle opzioni  `storage aggregate relocation start`
 
 
 
+[[aggregates-originally-on-node1-are-owned-by-node4-after-completion-of-the-upgrade]]
 == Gli aggregati originalmente sul node1 sono di proprietà del node4 dopo il completamento dell'upgrade
 
 Al termine della procedura di aggiornamento, node3 dovrebbe essere il nuovo nodo home degli aggregati che in origine aveva node1 come nodo home. È possibile trasferirli dopo l'aggiornamento.

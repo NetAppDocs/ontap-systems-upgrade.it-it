@@ -18,6 +18,7 @@ Il processo di sostituzione del controller inizia con una serie di controlli pre
 
 
 
+[[step-1-prepare-the-nodes]]
 == Passaggio 1: Preparare i nodi
 
 Avviare la procedura di sostituzione del controller ed eseguire i controlli preliminari. Se necessario, determinare il tipo di unità a crittografia automatica in uso.
@@ -25,8 +26,10 @@ Avviare la procedura di sostituzione del controller ed eseguire i controlli prel
 .Fasi
 . Elencare la versione del firmware del Service Processor (SP) o del Baseboard Management Controller (BMC) in esecuzione sul vecchio controller:
 +
-`service-processor show`
-
+[source, cli]
+----
+service-processor show
+----
 +
 Verificare di disporre di una versione del firmware SP o BMC supportata:
 
@@ -55,11 +58,15 @@ Verificare di disporre di una versione del firmware SP o BMC supportata:
 |===
 . Iniziare il processo di sostituzione del controller immettendo il seguente comando nella modalità avanzata dei privilegi della riga di comando ONTAP:
 +
-`set -privilege advanced`
-
+[source, cli]
+----
+set -privilege advanced
+----
 +
-`system controller replace start -nodes _node_names_`
-
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 +
 L'output visualizzato è simile all'esempio seguente. L'output mostra la versione di ONTAP in esecuzione sul cluster:
 
@@ -123,7 +130,7 @@ Durante la fase di precheck, il sistema esegue il seguente elenco di controlli i
 | Stato LIF del cluster | Verifica se le LIF del cluster sono in funzione per entrambi i nodi. Se le LIF del cluster non sono attive, l'attività non riesce. 
 
 
-| Verifica dello stato ASUP | Se le notifiche AutoSupport non sono configurate, l'attività non riesce. È necessario attivare AutoSupport prima di iniziare la procedura di sostituzione del controller. 
+| Verifica dello stato di AutoSupport | Se le notifiche AutoSupport non sono configurate, l'attività non riesce. È necessario attivare AutoSupport prima di iniziare la procedura di sostituzione del controller. 
 
 
 | Verifica dell'utilizzo della CPU | Controlla se l'utilizzo della CPU è superiore al 50% per uno dei nodi da sostituire. Se l'utilizzo della CPU è superiore al 50% per un periodo di tempo considerevole, il task non riesce. 
@@ -140,33 +147,118 @@ Durante la fase di precheck, il sistema esegue il seguente elenco di controlli i
 Eseguire i comandi dalla porta seriale collegata a ciascun nodo, eseguire e salvare individualmente l'output dei comandi:
 
 +
-** `vserver services name-service dns show`
-** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,cluster-mgmt,data`
-** `network port show -node _local_ -type physical`
-** `service-processor show -node _local_ -instance`
-** `network fcp adapter show -node _local_`
-** `network port ifgrp show -node _local_`
-** `system node show -instance -node _local_`
-** `run -node _local_ sysconfig`
-** `run -node local sysconfig -ac`
-** `run -node local aggr status -r`
-** `vol show -fields type`
-** `run local aggr options _data_aggregate_name_`
-** `vol show -fields type , space-guarantee`
-** `storage aggregate show -node _local_`
-** `volume show -node _local_`
-** `storage array config show -switch _switch_name_`
-** `system license show -owner _local_`
-** `storage encryption disk show`
-** `security key-manager onboard show-backup`
-** `security key-manager external show`
-** `security key-manager external show-status`
-** `network port reachability show -detail -node _local_`
+[source, cli]
+----
+vserver services name-service dns show
+----
++
+[source, cli]
+----
+network interface show -curr-node <local> -role cluster,intercluster,node-mgmt,cluster-mgmt,data
+----
++
+[source, cli]
+----
+network port show -node <local> -type physical
+----
++
+[source, cli]
+----
+service-processor show -node <local> -instance
+----
++
+[source, cli]
+----
+network fcp adapter show -node <local>
+----
++
+[source, cli]
+----
+network port ifgrp show -node <local>
+----
++
+[source, cli]
+----
+system node show -instance -node <local>
+----
++
+[source, cli]
+----
+run -node <local> sysconfig
+----
++
+[source, cli]
+----
+run -node local sysconfig -ac
+----
++
+[source, cli]
+----
+run -node local aggr status -r
+----
++
+[source, cli]
+----
+vol show -fields type
+----
++
+[source, cli]
+----
+run local aggr options <data_aggregate_name>
+----
++
+[source, cli]
+----
+vol show -fields type , space-guarantee
+----
++
+[source, cli]
+----
+storage aggregate show -node <local>
+----
++
+[source, cli]
+----
+volume show -node <local>
+----
++
+[source, cli]
+----
+storage array config show -switch <switch_name>
+----
++
+[source, cli]
+----
+system license show -owner <local>
+----
++
+[source, cli]
+----
+storage encryption disk show
+----
++
+[source, cli]
+----
+security key-manager onboard show-backup
+----
++
+[source, cli]
+----
+security key-manager external show
+----
++
+[source, cli]
+----
+security key-manager external show-status
+----
++
+[source, cli]
+----
+network port reachability show -detail -node <local>
+----
 +
 
 NOTE: Se la crittografia del volume NetApp (NVE) o la crittografia aggregata NetApp (NAE) utilizzando Gestione chiavi integrata è in uso, tenere la passphrase del gestore delle chiavi pronta per completare la risincronizzazione del gestore delle chiavi in un secondo momento della procedura.
-
-
 
 . Se il sistema utilizza dischi con crittografia automatica, consultare l'articolo della Knowledge base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Come verificare se un disco è certificato FIPS"^] Per determinare il tipo di unità con crittografia automatica in uso sulla coppia ha che si sta aggiornando. Il software ONTAP supporta due tipi di dischi con crittografia automatica:
 +
@@ -189,6 +281,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == Passaggio 2: Correggere la proprietà aggregata se il controllo preliminare ARL fallisce
 
 Se il controllo dello stato aggregato non riesce, è necessario restituire gli aggregati di proprietà del nodo partner al nodo proprietario domestico e avviare nuovamente il processo di pre-controllo.
@@ -196,12 +289,16 @@ Se il controllo dello stato aggregato non riesce, è necessario restituire gli a
 .Fasi
 . Restituire gli aggregati attualmente di proprietà del nodo partner al nodo home owner:
 +
-`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . Verificare che né node1 né node2 possiedano ancora aggregati per i quali è il proprietario corrente (ma non il proprietario domestico):
 +
-`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 L'esempio seguente mostra l'output del comando quando un nodo è sia il proprietario corrente che il proprietario domestico degli aggregati:
 
@@ -219,9 +316,12 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . Riavviare la procedura di sostituzione del controller:
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
-
-`system controller replace start -nodes _node_names_`
 
 .Quali sono le prossime novità?
 Dopo aver preparato i nodi, link:complete-preparation-for-upgrade.html["completare la preparazione per l'aggiornamento"].

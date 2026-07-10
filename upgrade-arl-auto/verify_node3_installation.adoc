@@ -40,6 +40,7 @@ Se la configurazione è diversa per node3, potrebbe verificarsi un'interruzione 
 
 
 
+[[re-create-vlans-interface-groups-and-broadcast-domains-on-node3]]
 == Ricreare VLAN, gruppi di interfacce e domini di broadcast sul nodo 3
 
 Dopo aver confermato che node3 è in quorum e può comunicare con node2, è necessario ricreare le VLAN, i gruppi di interfacce e i domini di broadcast di node1 sul node3. È inoltre necessario aggiungere le porte node3 ai domini di trasmissione appena ricreati.
@@ -68,6 +69,7 @@ Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di i
 
 
 
+[[restore-key-manager-configuration-on-node3]]
 == Ripristinare la configurazione del gestore delle chiavi sul node3
 
 Se si utilizza NetApp Aggregate Encryption (NAE) o NetApp Volume Encryption (NVE) per crittografare i volumi sul sistema che si sta aggiornando, la configurazione di crittografia deve essere sincronizzata con i nuovi nodi. Se non si ripristina key-manager, quando si spostano gli aggregati di node1 da node2 a node3 tramite ARL, i volumi crittografati vengono messi offline.
