@@ -21,14 +21,14 @@ Prima di aggiornare i nodi utilizzando ARL, è necessario comprendere il funzion
 [[upgrade-the-node-pair]]
 == Aggiornare la coppia di nodi
 
-Per aggiornare la coppia di nodi, è necessario preparare i nodi originali ed eseguire una serie di passaggi sia sul nodo originale che su quello nuovo. È quindi possibile decommissionare i nodi originali.
+Per aggiornare la coppia di nodi, prepari i nodi originali e segui i passaggi di aggiornamento sia sui nodi originali che su quelli nuovi. Poi decommissioni i nodi originali.
 
 
 
 [[arl-upgrade-sequence-overview]]
 == Panoramica della sequenza di aggiornamento ARL
 
-Durante la procedura, si aggiorna l'hardware del controller originale con l'hardware del controller sostitutivo, un controller alla volta, sfruttando la configurazione della coppia ha per trasferire la proprietà degli aggregati non root. Tutti gli aggregati non root devono essere sottoposti a due rilocazioni per raggiungere la destinazione finale, che è il nodo aggiornato corretto.
+Aggiorni l'hardware del controller originale con l'hardware del controller di ricambio, un controller alla volta, sfruttando la configurazione della coppia HA per rilocare la proprietà degli aggregati non root. Devi rilocare tutti gli aggregati non root due volte per raggiungere il nodo aggiornato corretto.
 
 Ogni aggregato ha un proprietario di casa e un proprietario corrente. Il proprietario della casa è il proprietario effettivo dell'aggregato e il proprietario attuale è il proprietario temporaneo.
 
@@ -36,7 +36,7 @@ La figura seguente mostra le fasi della procedura. Le frecce spesse e grigio chi
 
 image:arl_upgrade_manual_image1.PNG["Illustrazione che mostra le fasi della procedura ARL"]
 
-La seguente tabella descrive le attività di alto livello eseguite durante ciascuna fase e lo stato di proprietà aggregata alla fine della fase. Le fasi dettagliate vengono fornite più avanti nella procedura:
+La tabella seguente descrive le attività high-level per ciascuna fase e lo stato di proprietà dell'aggregato al termine della fase. I passaggi dettagliati sono forniti più avanti nella procedura:
 
 [cols="35,65"]
 |===
@@ -44,7 +44,7 @@ La seguente tabella descrive le attività di alto livello eseguite durante ciasc
 
 
 | link:determine_aggregates_on_internal_drives.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
-Durante la fase 1, se necessario, si conferma che i dischi interni non contengono aggregati root o aggregati di dati, si preparano i nodi per l'aggiornamento ed eseguono una serie di controlli preliminari. Se necessario, occorre reimmettere i dischi per Storage Encryption e prepararsi all'avvio in rete dei nuovi controller.
+Durante la Fase 1, se necessario, confermi che le unità disco interne non contengano aggregati root o aggregati dati, prepari i nodi per l'aggiornamento ed esegui i controlli preliminari. Se necessario, rigeneri le chiavi dei dischi per Storage Encryption e ti prepari ad avviare in rete i nuovi controller.
 
 Proprietà aggregata alla fine della fase 1:
 
@@ -67,7 +67,7 @@ Proprietà aggregata alla fine della fase 2:
 
 
 | link:install_boot_node3.html["Fase 3: Installazione e boot node3"]  a| 
-Durante la fase 3, si installa e si avvia node3, si mappano le porte di gestione del cluster e dei nodi da node1 a node3 e si spostano le LIF dei dati e LE LIF SAN appartenenti al node1 da node2 a node3. Puoi anche spostare tutti gli aggregati da node2 a node3 e spostare i dati LIF e SAN di proprietà di node2 a node3.
+Durante la Fase 3, installi e avvii node3 e mappi le porte di cluster e di gestione dei nodi da node1 a node3. Se utilizzi NetApp Volume Encryption (NVE), ripristini la configurazione del key-manager. Poi sposti i LIF dati e i LIF SAN appartenenti a node1 da node2 a node3, rilocalizzi tutti gli aggregati da node2 a node3 e sposti i LIF dati e i LIF SAN di proprietà di node2 su node3.
 
 Proprietà aggregata alla fine della fase 3:
 
@@ -84,7 +84,7 @@ Durante la fase 4, si registrano le informazioni necessarie per il node2 da util
 
 
 | link:install_boot_node4.html["Fase 5: Installazione e boot node4"]  a| 
-Durante la fase 5, si installa e si avvia node4, si mappano le porte di gestione del cluster e dei nodi da node2 a node4 e si spostano le LIF dei dati e LE LIF SAN appartenenti a node2 da node3 a node4. È inoltre possibile spostare gli aggregati node2 da node3 a node4 e spostare i LIF dei dati e LE LIF SAN di proprietà di node2 a node3.
+Durante la Fase 5, installi e avvii il nodo4 e mappi le porte di cluster e di gestione dei nodi dal nodo2 al nodo4. Se stai usando NetApp Volume Encryption (NVE), ripristini la configurazione del key-manager. Poi, sposti i LIF dati e i LIF SAN appartenenti al nodo2 dal nodo3 al nodo4, rilocalizzi gli aggregati del nodo2 dal nodo3 al nodo4 e sposti i LIF dati e i LIF SAN di proprietà del nodo2 al nodo3.
 
 Proprietà aggregata alla fine della fase 5:
 
@@ -95,7 +95,7 @@ Proprietà aggregata alla fine della fase 5:
 
 
 | link:manage_authentication_kmip.html["Fase 6: Completare l'aggiornamento"]  a| 
-Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e configuri Storage Encryption o NetApp Volume Encryption se i nuovi nodi sono abilitati alla crittografia. È inoltre necessario decommissionare i vecchi nodi per riprendere le operazioni di SnapMirror.
+Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e configuri Storage Encryption o NetApp Volume Encryption se i nuovi nodi sono abilitati alla crittografia. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
 
 
 NOTE: Gli aggiornamenti di ripristino di emergenza della macchina virtuale di archiviazione (SVM) non vengono interrotti secondo le pianificazioni assegnate.
