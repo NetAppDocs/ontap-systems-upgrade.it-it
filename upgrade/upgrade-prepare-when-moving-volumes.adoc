@@ -51,4 +51,4 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migrazione a un cl
 
 
 .Quali sono le prossime novità?
-link:upgrade-install-and-join-new-nodes-move-vols.html["Installare i nuovi nodi e unirli al cluster"]
+Dopo aver preparato l'aggiornamento, link:upgrade-install-and-join-new-nodes-move-vols.html["installa i nuovi nodi e aggiungili al cluster"].

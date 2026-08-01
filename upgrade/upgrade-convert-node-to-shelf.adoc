@@ -37,3 +37,6 @@ Ogni shelf di dischi, incluso lo chassis, richiede un ID univoco.
 . Accendere lo shelf di dischi convertito e gli altri shelf di dischi collegati ai nuovi nodi.
 . Accendere i nuovi nodi, quindi interrompere il processo di boot su ciascun nodo premendo Ctrl-C per accedere al prompt dell'ambiente di boot.
 
+
+.Quali sono le prossime novità?
+Dopo aver convertito un nodo originale in uno shelf di dischi, link:upgrade-attach-shelves-reassign-disks.html["collega gli shelf di storage e riassegna la proprietà dei dischi"].

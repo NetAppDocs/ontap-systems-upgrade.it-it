@@ -17,7 +17,7 @@ summary: 'Verifica che le porte fisiche di node1 siano mappate correttamente su 
 È necessario verificare che le porte fisiche di node1 siano mappate correttamente sulle porte fisiche di node3. Ciò consente a node3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .A proposito di questa attività
-Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_ per acquisire informazioni sulle porte sui nuovi nodi. Le informazioni verranno utilizzate più avanti in questa sezione.
+Consulta link:other-references.html["Riferimenti"] per collegarti a _Hardware Universe_ e acquisire informazioni sulle porte dei nuovi nodi. Queste informazioni ti serviranno più avanti in questa sezione.
 
 La configurazione fisica delle porte può variare a seconda del modello dei nodi. All'avvio del nuovo nodo, ONTAP tenta di determinare quali porte devono ospitare le LIF del cluster per entrare automaticamente in quorum.
 
@@ -96,7 +96,7 @@ NOTE: In questa procedura, la sezione _creazione di VLAN, ifgrps e domini di tra
 
 Dopo aver confermato che node3 è in quorum e può comunicare con node2, verificare che le VLAN, i gruppi di interfacce e i domini di broadcast di node1 siano visibili sul node3. Inoltre, verificare che tutte le porte di rete node3 siano configurate nei rispettivi domini di trasmissione corretti.
 
-Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Network Management_.
+Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di broadcast, fai riferimento a link:other-references.html["Riferimenti"] per il collegamento a _Network Management_.
 
 .Fasi
 . Elenca tutte le porte fisiche su cui è stato eseguito l'upgrade node1 (indicate come node3):

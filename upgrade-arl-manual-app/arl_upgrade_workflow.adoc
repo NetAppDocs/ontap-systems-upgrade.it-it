@@ -36,72 +36,31 @@ La figura seguente mostra le fasi della procedura. Le frecce spesse e grigio chi
 
 image:arl_upgrade_manual_image1.PNG["Illustrazione che mostra le fasi della procedura ARL"]
 
-La tabella seguente descrive le attività high-level per ciascuna fase e lo stato di proprietà dell'aggregato al termine della fase. I passaggi dettagliati sono forniti più avanti nella procedura:
+Scopri le attività high-level che svolgi durante ogni fase e lo stato della proprietà dell'aggregato al termine della fase. I passaggi dettagliati sono forniti più avanti nella procedura.
 
-[cols="35,65"]
-|===
-| Fase | Fasi 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"]link:determine_aggregates_on_internal_drives.html["Fase 1: Preparazione per l'aggiornamento"]
+[role="quick-margin-para"]
+Durante la fase 1, se necessario, si conferma che i dischi interni non contengono aggregati root o aggregati di dati, si preparano i nodi per l'aggiornamento ed eseguono una serie di controlli preliminari. Se necessario, occorre reimmettere i dischi per Storage Encryption e prepararsi all'avvio in rete dei nuovi controller.
 
-
-| link:determine_aggregates_on_internal_drives.html["Fase 1: Preparazione per l'aggiornamento"]  a| 
-Durante la Fase 1, se necessario, confermi che le unità disco interne non contengano aggregati root o aggregati dati, prepari i nodi per l'aggiornamento ed esegui i controlli preliminari. Se necessario, rigeneri le chiavi dei dischi per Storage Encryption e ti prepari ad avviare in rete i nuovi controller.
-
-Proprietà aggregata alla fine della fase 1:
-
-* Node1 è il proprietario della casa e l'attuale proprietario degli aggregati node1.
-* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2.
-
-
-
-
-| link:relocate_non_root_aggr_node1_node2.html["Fase 2: Ritiro del node1"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Due"]link:relocate_non_root_aggr_node1_node2.html["Fase 2: Ritiro del node1"]
+[role="quick-margin-para"]
 Durante la fase 2, è possibile spostare aggregati non root da node1 a node2 e spostare le LIF di dati non SAN di proprietà di node1 a node2, inclusi gli aggregati non riusciti o vetoed. Inoltre, registrare le informazioni necessarie per il node1 da utilizzare in seguito nella procedura e dismettere il node1.
 
-Proprietà aggregata alla fine della fase 2:
-
-* Node1 è il proprietario domestico degli aggregati node1.
-* Node2 è l'attuale proprietario degli aggregati node1.
-* Node2 è il proprietario domestico e proprietario corrente degli aggregati node2.
-
-
-
-
-| link:install_boot_node3.html["Fase 3: Installazione e boot node3"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tre"]link:install_boot_node3.html["Fase 3: Installazione e boot node3"]
+[role="quick-margin-para"]
 Durante la Fase 3, installi e avvii node3 e mappi le porte di cluster e di gestione dei nodi da node1 a node3. Se utilizzi NetApp Volume Encryption (NVE), ripristini la configurazione del key-manager. Poi sposti i LIF dati e i LIF SAN appartenenti a node1 da node2 a node3, rilocalizzi tutti gli aggregati da node2 a node3 e sposti i LIF dati e i LIF SAN di proprietà di node2 su node3.
 
-Proprietà aggregata alla fine della fase 3:
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quattro"]link:record_node2_information.html["Fase 4: Dismettere il node2"]
+[role="quick-margin-para"]
+Durante la fase 4, si registrano le informazioni necessarie per il node2 da utilizzare più avanti nella procedura, quindi si deve ritirare il node2.
 
-* Node2 è il proprietario domestico degli aggregati node2 ma non il proprietario corrente.
-* Node3 è il proprietario della casa e il proprietario corrente degli aggregati originariamente appartenenti al node1.
-* Node2 è il proprietario domestico e proprietario corrente degli aggregati che appartengono al node2 ma non il proprietario domestico.
-
-
-
-
-| link:record_node2_information.html["Fase 4: Dismettere il node2"]  a| 
-Durante la fase 4, si registrano le informazioni necessarie per il node2 da utilizzare più avanti nella procedura, quindi si deve ritirare il node2. Non si verificano modifiche nella proprietà aggregata.
-
-
-
-| link:install_boot_node4.html["Fase 5: Installazione e boot node4"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinque"]link:install_boot_node4.html["Fase 5: Installazione e boot node4"]
+[role="quick-margin-para"]
 Durante la Fase 5, installi e avvii il nodo4 e mappi le porte di cluster e di gestione dei nodi dal nodo2 al nodo4. Se stai usando NetApp Volume Encryption (NVE), ripristini la configurazione del key-manager. Poi, sposti i LIF dati e i LIF SAN appartenenti al nodo2 dal nodo3 al nodo4, rilocalizzi gli aggregati del nodo2 dal nodo3 al nodo4 e sposti i LIF dati e i LIF SAN di proprietà del nodo2 al nodo3.
 
-Proprietà aggregata alla fine della fase 5:
-
-* Node3 è il proprietario di casa e l'attuale proprietario degli aggregati che originariamente appartenevano al node1.
-* Node4 è il proprietario della casa e l'attuale proprietario di aggregati che originariamente appartenevano al node2.
-
-
-
-
-| link:manage_authentication_kmip.html["Fase 6: Completare l'aggiornamento"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sei"]link:manage_authentication_kmip.html["Fase 6: Completare l'aggiornamento"]
+[role="quick-margin-para"]
 Durante la fase 6, confermi che i nuovi nodi sono impostati correttamente e configuri Storage Encryption o NetApp Volume Encryption se i nuovi nodi sono abilitati alla crittografia. È inoltre necessario decommissionare i vecchi nodi e riprendere le operazioni di SnapMirror.
 
-
-NOTE: Gli aggiornamenti di ripristino di emergenza della macchina virtuale di archiviazione (SVM) non vengono interrotti secondo le pianificazioni assegnate.
-
-Non si verificano modifiche nella proprietà aggregata.
-
-|===
 .Quali sono le prossime novità?
 Dopo aver esaminato il flusso di lavoro di aggiornamento ARL, link:guidelines_upgrade_with_arl.html["rivedere le linee guida per l'aggiornamento dei controller con ARL"].

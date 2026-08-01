@@ -6,7 +6,7 @@ Dopo aver inserito fisicamente il nodo 3 e il nodo 4 più avanti nella procedura
 
 .Prima di iniziare
 * Verificare che sia possibile accedere a un server HTTP con il sistema.
-* Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e scaricare i file di sistema necessari per la piattaforma e la versione corretta di ONTAP.
+* Consulta link:other-references.html["Riferimenti"] per collegarti al _NetApp Support Site_ e scaricare i file di sistema necessari per la tua piattaforma e la versione corretta di ONTAP.
 
 
 .A proposito di questa attività

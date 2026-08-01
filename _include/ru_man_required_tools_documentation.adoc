@@ -10,4 +10,4 @@ Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
 * Cacciavite Phillips n. 2
 
 
-Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento richiesti per questo aggiornamento.
+Vai alla sezione link:other-references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento necessari per questo aggiornamento.

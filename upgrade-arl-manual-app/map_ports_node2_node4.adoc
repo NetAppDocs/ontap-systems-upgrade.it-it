@@ -17,7 +17,7 @@ summary: Verificare che le porte fisiche sul nodo 2 siano mappate correttamente 
 È necessario assicurarsi che le porte fisiche del nodo2 siano mappate correttamente sulle porte fisiche del nodo4. Ciò consente al nodo4 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .Prima di iniziare
-È necessario disporre già di informazioni sulle porte dei nuovi nodi; per accedere a queste informazioni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_. Le informazioni vengono utilizzate più avanti in questa sezione.
+Devi già avere informazioni sulle porte dei nuovi nodi; per accedere a queste informazioni, fai riferimento a link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_. Userai queste informazioni più avanti in questa sezione.
 
 La configurazione software del nodo 4 deve corrispondere alla connettività fisica del nodo 4 e la connettività IP deve essere ripristinata prima di continuare con l'aggiornamento.
 

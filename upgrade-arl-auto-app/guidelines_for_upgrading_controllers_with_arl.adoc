@@ -23,12 +23,12 @@ Per capire se è possibile utilizzare ARL per aggiornare una coppia di controlle
 
 Quando si aggiorna una coppia di nodi utilizzando questa procedura ARL per ONTAP 9.8 o versioni successive, è necessario verificare che ARL possa essere eseguito sui controller originali e su quelli sostitutivi.
 
-È necessario controllare le dimensioni di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. È quindi necessario confrontare le dimensioni e il numero di dischi aggregati supportati con le dimensioni e il numero di dischi aggregati supportati dal nuovo sistema. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _Hardware Universe_ dove queste informazioni sono disponibili. La dimensione aggregata e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione aggregata e al numero di dischi supportati dal sistema originale.
+Devi controllare la dimensione di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Devi poi confrontare le dimensioni degli aggregati e il numero di dischi supportati con la dimensione dell'aggregato e il numero di dischi supportati dal nuovo sistema. Consulta link:other-references.html["Riferimenti"] per il link a _Hardware Universe_ dove sono disponibili queste informazioni. La dimensione dell'aggregato e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione dell'aggregato e al numero di dischi supportati dal sistema originale.
 
-È necessario verificare nelle regole di combinazione del cluster se i nuovi nodi possono diventare parte del cluster con i nodi esistenti quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di combinazione dei cluster, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+Devi verificare nelle regole di miscelazione del cluster se i nuovi nodi possono entrare a far parte del cluster con i nodi esistenti quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di miscelazione del cluster, consulta link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_.
 
 
-NOTE: Se si sta aggiornando un sistema che supporta dischi interni (ad esempio, un sistema FAS2700 o AFF A250) ma NON dispone di dischi interni, fare riferimento a. link:other_references.html["Riferimenti"] E utilizzare la procedura descritta nella sezione _aggregate Relocation to Manually Upgrade Controller hardware_ content (trasferimento aggregato per aggiornare manualmente l'hardware del controller) corretta per la versione di ONTAP in uso.
+NOTE: Se stai aggiornando un sistema che supporta unità interne (ad esempio, un FAS2700 o AFF A250) ma NON ha unità interne, fai riferimento a link:other-references.html["Riferimenti"] e usa la procedura nel contenuto _Aggregate Relocation to Manually Upgrade Controller Hardware_ che è corretta per la tua versione di ONTAP.
 
 Se si dispone di un sistema con più di due porte cluster per nodo, ad esempio un sistema FAS8080 o AFF8080, prima di avviare l'aggiornamento, è necessario migrare e riassegnare le LIF del cluster a due porte cluster per nodo. Se si esegue l'aggiornamento del controller con più di due porte cluster per nodo, le LIF del cluster potrebbero non essere presenti sul nuovo controller dopo l'aggiornamento.
 
@@ -50,11 +50,11 @@ Non è possibile eseguire i seguenti aggiornamenti:
 
 * Ai controller sostitutivi che non supportano gli shelf di dischi collegati ai controller originali
 +
-Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento a _Hardware Universe_ per informazioni sul supporto dei dischi.
+Fai riferimento a link:other-references.html["Riferimenti"] per collegarti a _Hardware Universe_ per informazioni sul supporto dei dischi.
 
 * A controllori entry level con dischi interni, ad esempio: un FAS2750.
 +
-Se si desidera aggiornare i controller entry-level con dischi interni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_ e passare alla procedura _aggiornamento di una coppia di nodi che eseguono Clustered Data ONTAP spostando volumi_.
+Se vuoi aggiornare i controller di livello base con unità interne, fai riferimento a link:other-references.html["Riferimenti"] _Upgrade by moving volumes or storage_ e vai alla procedura _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_.
 
 
 

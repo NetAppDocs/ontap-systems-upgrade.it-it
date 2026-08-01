@@ -50,3 +50,6 @@ Dopo aver spostato i volumi nei nuovi nodi, è necessario rimuovere i nodi origi
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Otto"]link:upgrade-complete-move-volumes.html["Completare l'aggiornamento"]
 [role="quick-margin-para"]
 Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e configurare AutoSupport. Potrebbe inoltre essere necessario configurare l'archiviazione o la crittografia dei volumi e configurare le porte FC o NCA.
+
+.Quali sono le prossime novità?
+Dopo aver appreso come eseguire l'aggiornamento spostando i volumi, link:upgrade-prepare-when-moving-volumes.html["preparati all'aggiornamento"].

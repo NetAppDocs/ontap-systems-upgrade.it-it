@@ -98,7 +98,7 @@ Se necessario, è possibile forzare il trasferimento utilizzando uno dei seguent
 
 
 
-Per ulteriori informazioni sui comandi di rilocazione degli aggregati di archiviazione, fare riferimento a link:other_references.html["Riferimenti"] _Gestione di dischi e aggregati con la CLI_ e al _ONTAP 9 Command reference_.
+Per ulteriori informazioni sui comandi di rilocazione degli aggregati di archiviazione, fare riferimento a link:other-references.html["Riferimenti"] _Gestione di dischi e aggregati con la CLI_ e al _ONTAP 9 Command reference_.
 
 |===
 . [[man_delocate_3_4_Step5]]verificare che tutti gli aggregati non root node2 siano online e che il loro stato sia su node4:

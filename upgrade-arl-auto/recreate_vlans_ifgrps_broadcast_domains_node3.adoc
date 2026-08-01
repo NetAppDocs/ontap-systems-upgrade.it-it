@@ -17,7 +17,7 @@ summary: 'Ricreare le VLAN node1, i gruppi di interfacce e i domini di trasmissi
 Dopo aver confermato che node3 è in quorum e può comunicare con node2, è necessario ricreare le VLAN, i gruppi di interfacce e i domini di broadcast di node1 sul node3. È inoltre necessario aggiungere le porte node3 ai domini di trasmissione appena ricreati.
 
 .A proposito di questa attività
-Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di trasmissione, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] E link a _Network Management_.
+Per ulteriori informazioni sulla creazione e la ricreazione di VLAN, gruppi di interfacce e domini di broadcast, vai su link:other-references.html["Riferimenti"] e collega a _Network Management_.
 
 .Fasi
 . Ricreare le VLAN sul nodo 3 utilizzando le informazioni sul nodo 1 registrate in link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Spostare gli aggregati non root e le LIF dei dati NAS di proprietà del node1 al node2"] sezione:

@@ -51,3 +51,6 @@ Chiudere lentamente la maniglia in modo che sia allineata correttamente con la p
 
 . Ripetere <<move_int_drive_2,Fase 2>> attraverso <<move_int_drive_5,Fase 5>> per tutti i dischi che si stanno trasferendo al nuovo sistema.
 
+
+.Quali sono le prossime novità?
+Dopo aver spostato le unità interne dal nodo originale, link:upgrade-attach-shelves-reassign-disks.html["collega gli shelf di storage e riassegna la proprietà dei dischi"].

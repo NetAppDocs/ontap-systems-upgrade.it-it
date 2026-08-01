@@ -24,8 +24,8 @@ Per capire se puoi usare ARL per aggiornare a una coppia di controller introdott
 Prima di aggiornare una coppia di nodi utilizzando questa procedura ARL, esaminare i seguenti requisiti per assicurarsi che la configurazione sia supportata:
 
 * Verificare che l'ARL possa essere eseguito sulle unità di controllo originali e sostitutive.
-* Verificare le dimensioni di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Quindi, occorre confrontare le dimensioni dell'aggregato e il numero di dischi supportati con le dimensioni dell'aggregato e il numero di dischi supportati dal nuovo sistema. Fare riferimento a link:other_references.html["Riferimenti"] per il collegamento a _Hardware Universe_ dove sono disponibili queste informazioni. La dimensione aggregata e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione aggregata e al numero di dischi supportati dal sistema originale.
-* Convalida nelle regole di miscelazione del cluster se i nuovi nodi possono diventare parte del cluster con i nodi esistenti quando viene sostituito il controller originale. Per ulteriori informazioni sulle regole di mescolamento dei cluster, fare riferimento al link:other_references.html["Riferimenti"] link al _Hardware Universe_.
+* Verifica la dimensione di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Poi confronta la dimensione dell'aggregato e il numero di dischi supportati con la dimensione dell'aggregato e il numero di dischi supportati dal nuovo sistema. Consulta link:other-references.html["Riferimenti"] per il link a _Hardware Universe_ dove sono disponibili queste informazioni. La dimensione dell'aggregato e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione dell'aggregato e al numero di dischi supportati dal sistema originale.
+* Verifica nelle regole di miscelazione del cluster se i nuovi nodi possono entrare a far parte del cluster con i nodi esistenti quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di miscelazione del cluster, consulta link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_.
 * Migra e sposta nuovamente le LIF del cluster in due porte del cluster per nodo, se disponi di un sistema, ad esempio AFF 700, con la seguente configurazione:
 * Più di due porte cluster per nodo
 * Una scheda di interconnessione in cluster in slot4 in modalità breakout per creare porte e4a, e4b, e4c e E4D, e porte E4E, e4f, e4g e e4h
@@ -54,9 +54,9 @@ Se si stanno aggiornando i nodi in un cluster senza switch a due nodi, è possib
 
 Non puoi aggiornare i controller sostitutivi che non supportano gli shelf di dischi collegati ai controller originali.
 
-Fare riferimento a. link:other_references.html["Riferimenti"] Per il collegamento a _Hardware Universe_ per informazioni sul supporto dei dischi.
+Fai riferimento a link:other-references.html["Riferimenti"] per collegarti a _Hardware Universe_ per informazioni sul supporto dei dischi.
 
-Se desideri aggiornare i controller entry-level con dischi interni, fai riferimento link:other_references.html["Riferimenti"] al link _Upgrade spostando volumi o storage_ e accedi alla procedura _aggiornamento di una coppia di nodi in cui è in esecuzione Clustered Data ONTAP spostando volumi_.
+Se vuoi aggiornare i controller di livello base con unità interne, fai riferimento a link:other-references.html["Riferimenti"] _Upgrade by moving volumes or storage_ e vai alla procedura _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_.
 
 
 

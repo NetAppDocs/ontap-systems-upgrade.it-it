@@ -22,7 +22,7 @@ Per eseguire l'aggiornamento sono necessari i seguenti strumenti:
 * Cacciavite Phillips n. 2
 
 
-Accedere alla link:other_references.html["Riferimenti"] per accedere all'elenco dei documenti di riferimento e dei siti di riferimento necessari per questo aggiornamento
+Vai alla link:other-references.html["Riferimenti"] sezione per accedere all'elenco dei documenti di riferimento e dei siti di riferimento necessari per questo aggiornamento
 
 .Quali sono le prossime novità?
 Dopo aver esaminato gli strumenti e la documentazione necessari, link:guidelines_for_upgrading_controllers_with_arl.html["Scopri le linee guida per l'aggiornamento dei controller con ARL"].

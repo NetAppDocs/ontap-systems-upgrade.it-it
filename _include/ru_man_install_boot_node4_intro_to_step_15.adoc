@@ -36,7 +36,7 @@ Se il nodo 4 si trova in uno chassis separato dal nodo 3, è possibile inserire 
 . Installare il nodo 4 nel rack seguendo le istruzioni contenute nelle _istruzioni di installazione e configurazione_ relative al modello di nodo.
 . [[man_install4_Step4]]cavo node4, spostamento delle connessioni da node2 a node4.
 +
-I seguenti riferimenti consentono di stabilire i collegamenti dei cavi corretti. Passare a. link:other_references.html["Riferimenti"] per collegarli.
+I seguenti riferimenti ti aiutano a effettuare correttamente i collegamenti dei cavi. Vai su link:other-references.html["Riferimenti"] per collegarti a loro.
 
 +
 ** _Istruzioni di installazione e configurazione_ per la piattaforma node4

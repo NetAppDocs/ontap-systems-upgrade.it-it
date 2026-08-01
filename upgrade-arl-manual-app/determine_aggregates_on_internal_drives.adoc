@@ -139,7 +139,7 @@ In base all'output in <<man_aggr_step4,Fase 4>> Fase 6, aggr2 utilizza tre disch
 Continuare con questa procedura.
 
 
-NOTE: Prima di continuare, è necessario posizionare gli aggregati offline, quindi distruggere gli aggregati sui dischi interni. Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento alla gestione di _dischi e aggregati con il contenuto CLI_ per informazioni sulla gestione degli aggregati.
+NOTE: Prima di continuare, devi mettere gli aggregati offline e poi distruggere gli aggregati sulle unità disco interne. Consulta link:other-references.html["Riferimenti"] per il collegamento al contenuto _Disk and aggregate management with the CLI_ per informazioni sulla gestione degli aggregati.
 
 
 
@@ -147,14 +147,14 @@ NOTE: Prima di continuare, è necessario posizionare gli aggregati offline, quin
 Continuare con questa procedura.
 
 
-NOTE: Prima di continuare, è necessario spostare i volumi su uno shelf di dischi esterno, posizionare gli aggregati offline e distruggere gli aggregati sui dischi interni. Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento alla gestione di _dischi e aggregati con il contenuto CLI_ per informazioni sullo spostamento dei volumi.
+NOTE: Prima di continuare, devi spostare i volumi su uno shelf di dischi esterno, mettere gli aggregati offline e poi distruggere gli aggregati sui dischi interni. Consulta link:other-references.html["Riferimenti"] per il collegamento al contenuto _Disk and aggregate management with the CLI_ per informazioni sullo spostamento dei volumi.
 
 
 
-| Contenere volumi root sui dischi interni | Non continuare con questa procedura. È possibile aggiornare i controller facendo riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e utilizzare la procedura _aggiornamento dell'hardware del controller su una coppia di nodi che eseguono Clustered Data ONTAP spostando i volumi_. 
+| Contenere volumi root sui dischi interni | Non continuare con questa procedura. Puoi aggiornare i controller facendo riferimento a link:other-references.html["Riferimenti"] per collegarti al _NetApp Support Site_ e usando la procedura _Upgrading the controller hardware on a pair of nodes running clustered Data ONTAP by moving volumes_. 
 
 
-| Contengono volumi non root sui dischi interni e non è possibile spostare i volumi su uno storage esterno | Non continuare con questa procedura. È possibile aggiornare i controller utilizzando la procedura _aggiornamento dell'hardware del controller su una coppia di nodi che eseguono Clustered Data ONTAP spostando i volumi_. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_, dove è possibile accedere a questa procedura. 
+| Contengono volumi non root sui dischi interni e non è possibile spostare i volumi su uno storage esterno | Non proseguire con questa procedura. Puoi aggiornare i controller utilizzando la procedura _Aggiornamento dell'hardware del controller su una coppia di nodi che eseguono Clustered Data ONTAP tramite spostamento dei volumi_. Consulta link:other-references.html["Riferimenti"] per il link al _NetApp Support Site_ dove puoi accedere a questa procedura. 
 |===
 
 

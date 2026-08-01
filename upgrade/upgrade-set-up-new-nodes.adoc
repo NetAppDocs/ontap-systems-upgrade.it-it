@@ -124,3 +124,6 @@ Il `ha-config modify controller ha` il comando si configura `ha` per l'impostazi
 Il sistema si arresta al prompt DEL CARICATORE
 
 
+
+.Quali sono le prossime novità?
+Dopo aver configurato i nuovi nodi, facoltativamente, link:upgrade-move-internal-drives.html["sposta le unità interne dal nodo originale"] o link:upgrade-convert-node-to-shelf.html["converti il nodo originale in uno shelf di dischi"]. Quindi, link:upgrade-attach-shelves-reassign-disks.html["collega gli shelf di storage e riassegna la proprietà dei dischi"].

@@ -16,7 +16,7 @@ summary: 'Verificare le operazioni di switchover, riparazione e switchback della
 [role="lead"]
 Verificare le operazioni di switchover, riparazione e switchback della configurazione MetroCluster.
 
-Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _Gestione MetroCluster e disaster recovery_ e utilizzare le procedure indicate per lo switchover negoziato, la riparazione e lo switchback.
+Consulta link:other-references.html["Riferimenti"] per collegarti al contenuto _MetroCluster Management and Disaster Recovery_ e usa le procedure menzionate per il passaggio negoziato, il ripristino e il ritorno allo stato precedente.
 
 .Quali sono le prossime novità?
 Dopo aver verificato il passaggio, il ripristino e il ritorno, link:overview_of_the_arl_upgrade.html["Scopri la sequenza di aggiornamento ARL"].

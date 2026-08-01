@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-. Se si desidera configurare un cluster senza switch sui nuovi nodi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e seguire le istruzioni in _passaggio a un cluster senza switch a due nodi_.
+. Se si desidera configurare un cluster senza switch sui nuovi nodi, fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _NetApp Support Site_ e seguire le istruzioni in _Transitioning to a two-node switchless cluster_.
 
 
 .Al termine

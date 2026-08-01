@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual/other_references.html 
+permalink: upgrade-arl-manual/other-references.html 
 keywords: other references, documentation, hardware universe, content, documentation center, information 
 summary: Contenuti di riferimento e siti Web richiesti per supportare un aggiornamento ARL manuale su controller con ONTAP 9.7 o versioni precedenti. 
 ---

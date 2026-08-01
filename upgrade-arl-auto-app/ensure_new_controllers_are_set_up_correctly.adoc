@@ -134,9 +134,9 @@ Invio `y` per rimuovere tutti i pacchetti.
 `system service-processor network modify -node _node_name_`
 
 +
-Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi al _System Administration Reference_ per informazioni sugli SP e all'_ONTAP 9 Command reference_ per informazioni dettagliate sul comando di sistema  `service-processor network modify`.
+Fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _System Administration Reference_ per informazioni sugli SP e all'_ONTAP 9 Command reference_ per informazioni dettagliate sul comando di sistema  `service-processor network modify`.
 
-. Se si desidera configurare un cluster senza switch sui nuovi nodi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi al _sito di supporto NetApp_ e seguire le istruzioni in _passaggio a un cluster senza switch a due nodi_.
+. Se si desidera configurare un cluster senza switch sui nuovi nodi, fare riferimento a link:other-references.html["Riferimenti"] per collegarsi al _NetApp Support Site_ e seguire le istruzioni in _Transitioning to a two-node switchless cluster_.
 
 
 .Al termine

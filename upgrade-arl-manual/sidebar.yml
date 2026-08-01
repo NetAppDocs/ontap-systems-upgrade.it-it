@@ -143,4 +143,4 @@ entries:
   - title: Le LIF si trovano su porte non valide dopo l'aggiornamento
     url: "/upgrade-arl-manual/lifs_invalid_ports_after_upgrade.html"
 - title: Riferimenti
-  url: "/upgrade-arl-manual/other_references.html"
+  url: "/upgrade-arl-manual/other-references.html"

@@ -33,5 +33,5 @@ NOTE: In questo documento, i nodi originali sono chiamati _node1_ e _node2_, men
 * È possibile utilizzare questa procedura per aggiornare l'hardware del controller nei cluster con più di due nodi; tuttavia, è necessario eseguire la procedura separatamente per ogni coppia di ha (High Availability) nel cluster.
 
 
-* Questa procedura si applica alle configurazioni MetroCluster a quattro e otto nodi che eseguono ONTAP 9.5 e versioni precedenti. Per le configurazioni MetroCluster con ONTAP 9.6 e versioni successive, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi a _utilizzando i comandi "sostituzione controller di sistema" per aggiornare l'hardware del controller che esegue ONTAP 9,5 a ONTAP 9,7_.
+* Questa procedura si applica alle configurazioni MetroCluster a quattro e otto nodi che eseguono ONTAP 9.5 e versioni precedenti. Per le configurazioni MetroCluster che eseguono ONTAP 9.6 e versioni successive, vai a link:other-references.html["Riferimenti"] per il collegamento a _Utilizzo dei comandi "system controller replace" per aggiornare l'hardware del controller da ONTAP 9.5 a ONTAP 9.7_.
 

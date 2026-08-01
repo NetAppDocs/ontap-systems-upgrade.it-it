@@ -20,4 +20,4 @@ Durante la procedura, si aggiorna l'hardware del controller originale con l'hard
 
 Ogni aggregato ha un proprietario di casa e un proprietario corrente. Il proprietario della casa è il proprietario effettivo dell'aggregato e il proprietario attuale è il proprietario temporaneo.
 
-La seguente tabella descrive le attività di alto livello eseguite durante ciascuna fase e lo stato di proprietà aggregata alla fine della fase. Le fasi dettagliate vengono fornite più avanti nella procedura:
+Scopri le attività high-level che svolgi in ogni fase e lo stato della proprietà dell'aggregato al termine della fase. I passaggi dettagliati sono forniti più avanti nella procedura.

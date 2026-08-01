@@ -26,3 +26,6 @@ A questo punto, non collegare shelf di dischi dai nodi originali ai nuovi nodi.
 Sono inclusi i cavi Fibre Channel ed Ethernet non utilizzati per collegare gli shelf di storage.
 
 
+
+.Quali sono le prossime novità?
+Dopo aver installato i nuovi nodi, link:upgrade-set-up-new-nodes.html["impostare i nuovi nodi"].

@@ -128,7 +128,7 @@ Se il cluster ha non è stato disattivato, ripetere <<man_retire_1_step2,Fase 2>
 `cluster show`
 
 +
-Poiché esiste la possibilità di un legame in un cluster con un numero pari di nodi, un nodo ha un peso di voto frazionario aggiuntivo chiamato epsilon. Fare riferimento a. link:other_references.html["Riferimenti"] Per ulteriori informazioni, fare riferimento a _System Administration Reference_.
+Poiché in un cluster con un numero pari di nodi è possibile che si verifichi un pareggio, a un nodo viene assegnato un peso di voto frazionario aggiuntivo, chiamato epsilon. Consulta link:other-references.html["Riferimenti"] per collegarti al _System Administration Reference_ per ulteriori informazioni.
 
 +
 [NOTE]

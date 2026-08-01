@@ -17,7 +17,7 @@ summary: Installare i file RCF per riconfigurare gli switch Cisco e Brocade dura
 È necessario applicare i file di configurazione di riferimento (RCF) appropriati per riconfigurare gli switch in modo da ospitare i nuovi nodi. Dopo aver applicato gli RCF, è possibile recuperare gli switch.
 
 .Prima di iniziare
-L'utilizzo della porta dello switch FC deve corrispondere all'utilizzo descritto nel contenuto _Fabric-Attached MetroCluster Installation and Configuration_, in modo da poter utilizzare gli RCF. Passare a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _installazione e configurazione del MetroCluster collegato al fabric_.
+L'utilizzo della porta dello switch FC deve corrispondere a quello descritto nel contenuto _Fabric-attached MetroCluster Installation and Configuration_ affinché gli RCF possano essere utilizzati. Vai a link:other-references.html["Riferimenti"] per collegarti al contenuto _Fabric-attached MetroCluster Installation and Configuration_.
 
 .Fasi
 . Accedere alla https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["Download di MetroCluster RCF"^] E selezionare gli RCF per la configurazione dello switch.

@@ -40,7 +40,7 @@ NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso
 
 . [[step3]]cavo node3, spostamento delle connessioni da node1 a node3.
 +
-I seguenti riferimenti consentono di stabilire i collegamenti dei cavi corretti. Passare a. link:other_references.html["Riferimenti"] per collegarli.
+I seguenti riferimenti ti aiutano a effettuare correttamente i collegamenti dei cavi. Vai su link:other-references.html["Riferimenti"] per collegarti a loro.
 
 +
 ** _Istruzioni di installazione e configurazione_ per la piattaforma node3

@@ -40,4 +40,4 @@ http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30
 
 
 .Quali sono le prossime novità?
-link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["Spostamento degli host iSCSI Linux nei nuovi nodi"]
+Dopo aver installato e collegato i nuovi nodi, link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["sposta gli host Linux iSCSI sui nuovi nodi"].

@@ -43,7 +43,7 @@ NOTE: Se si esegue l'aggiornamento a un sistema con entrambi i nodi nello stesso
 Cablare le seguenti connessioni utilizzando le _Istruzioni di installazione e configurazione_ per la piattaforma node3, il documento appropriato sullo scaffale dei dischi e la documentazione sulla _gestione delle coppie HA_.
 
 +
-Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi alla _gestione delle coppie HA_.
+Consulta link:other-references.html["Riferimenti"] per collegarti alla gestione delle _HA pair_.
 
 +
 ** Console (porta di gestione remota)

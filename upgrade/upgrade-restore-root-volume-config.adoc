@@ -56,3 +56,6 @@ La sequenza di avvio procede normalmente.
 
 
 Se l'aggiornamento del controller non riesce e viene visualizzato un messaggio `rlib_port_ipspace_assign` Messaggio di errore, è necessario ripristinare l'aggiornamento ed eliminare le LIF sulle porte di rete del sistema originale utilizzate come porte ha sul sistema sostitutivo. Per ulteriori informazioni, vedere link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/PANIC_%3A_rlib_port_ipspace_assign%3A_port_e0a_could_not_be_moved_to_HA_ipspace["Questo articolo della Knowledge base"^].
+
+.Quali sono le prossime novità?
+Dopo aver ripristinato la configurazione del volume root, link:upgrade-complete.html["completa il workflow di upgrade dello storage"].

@@ -5,7 +5,7 @@
 È necessario assicurarsi che le porte fisiche su node1 corrispondano correttamente alle porte fisiche su node3. Ciò consente a node3 di comunicare con gli altri nodi del cluster e con la rete dopo l'aggiornamento.
 
 .Prima di iniziare
-È necessario disporre già delle informazioni relative alle porte sui nuovi nodi di _Hardware Universe_. (Passare a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_). Le informazioni vengono utilizzate più avanti in questa sezione e in link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].
+Devi già avere informazioni sulle porte dei nuovi nodi da _Hardware Universe_. (Vai a link:other-references.html["Riferimenti"] per collegarti a _Hardware Universe_). Userai queste informazioni più avanti in questa sezione e in link:map_ports_node2_node4.html["Mappare le porte dal nodo 2 al nodo 4"].
 
 La configurazione software di node3 deve corrispondere alla connettività fisica di node3 e la connettività di rete deve essere ripristinata prima di continuare con l'aggiornamento.
 

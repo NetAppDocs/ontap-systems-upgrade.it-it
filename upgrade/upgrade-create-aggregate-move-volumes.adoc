@@ -114,4 +114,4 @@ Il completamento dell'operazione di spostamento del volume può interrompere l'a
 
 
 .Quali sono le prossime novità?
-link:upgrade-move-lifs-to-new-nodes.html["Spostamento delle LIF dati non SAN e delle LIF di gestione cluster nei nuovi nodi"]
+Dopo aver creato un aggregato e spostato i volumi sui nuovi nodi, link:upgrade-move-lifs-to-new-nodes.html["Sposta i LIF di dati non SAN e i LIF di gestione del cluster sui nuovi nodi"].

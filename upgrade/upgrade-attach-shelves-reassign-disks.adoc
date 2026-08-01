@@ -14,13 +14,19 @@ summary: È necessario riassegnare i dischi appartenenti a node1 e node2 rispett
 È necessario riassegnare i dischi appartenenti a node1 e node2 rispettivamente a node3 e node4.
 
 .A proposito di questa attività
-Prima di passare alla fase successiva, eseguire le operazioni descritte in questa sezione su node3 e node4, quindi completare ciascuna fase su node3 e node4.
+Esegui i passaggi di questa sezione su node3 e node4. Completa ogni passaggio prima su node3 e poi su node4, prima di passare al passaggio successivo.
 
+[[reassign-spare-disks-step1]]
 .Fasi
-. Collegare i cavi dello shelf di archiviazione dagli scaffali precedentemente collegati a node1/node2 a node3/node4.
+. Collega i cavi degli shelf di storage dagli shelf che erano precedentemente collegati:
++
+** Collega i cavi di node1 a node3
+** Collega i cavi di node2 a node4.
 +
 
-CAUTION: Durante questa procedura di upgrade, non devi collegare i nuovi shelf a node3/node4. Puoi connettere senza interruzioni nuovi shelf al sistema dopo aver completato l'upgrade dei controller.
+CAUTION: Non collegare nuovi ripiani al nodo3 o al nodo4 durante questa procedura di aggiornamento. Puoi collegare nuovi ripiani al sistema senza interruzioni dopo aver completato l'aggiornamento del controller.
+
+
 
 . Verificare l'alimentazione e la connettività fisica degli shelf.
 . Dal prompt DEL CARICATORE node3, avviare in modalità manutenzione:
@@ -39,26 +45,38 @@ Local System ID: 101268854
 ...
 ----
 +
-Annotare l'ID del sistema node3 per l'utilizzo nella fase 4 riportata di seguito.
+Registra l'ID di sistema del nodo3 da utilizzare in <<reassign-disks-and-aggregates,Fase 5>>.
 
-. Riassegnare i dischi spare di node1, i dischi appartenenti all'aggregato root e gli aggregati di dati:
+
+
+[[reassign-disks-and-aggregates]]
+. Riassegna i dischi e gli aggregati di dati:
 +
-`disk reassign -s _node1_sysid_ -d _node3_sysid_ -p _node2_sysID_`
-
-+
---
-** Il parametro `_node1_sysid_` È il valore registrato in _arresto dei nodi originali_, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Fase 5"].
-** Specificare il parametro `_-p partner_sysID_` solo quando sono presenti dischi condivisi.
-
-
-[NOTE]
+[role="tabbed-block"]
 ====
-Quando si riassegnano i dischi spare di node2, i dischi appartenenti all'aggregato root e gli aggregati di dati, il comando è:
-
-`disk reassign -s node2_sysid -d node4_sysid -p node3_sysID`
-
-====
+.Riassegna al nodo3
 --
+Riassegna al nodo 3 i dischi di riserva del nodo1, i dischi appartenenti all'aggregato root e tutti gli aggregati di dati:
+
+`disk reassign -s <node1_sysid> -d <node3_sysid> -p <node4_sysid>`
+
+** Il parametro  `node1_sysid` è il valore che hai registrato in _Arresto dei nodi originali_, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Fase 5"].
+** Specifica il parametro  `-p <node2_sysid>` solo quando sono presenti dischi condivisi.
+
+
+--
+.Riassegna al nodo4
+--
+Riassegna al nodo 4 i dischi di riserva del nodo2, i dischi appartenenti all'aggregato root e tutti gli aggregati di dati:
+
+`disk reassign -s <node2_sysid> -d <node4_sysid> -p <node3_sysid>`
+
+** Il parametro `node2_sysid` è il valore che hai registrato in _Arresto dei nodi originali_, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Fase 5"].
+** Specifica il parametro  `-p <node3_sysid>` solo quando sono presenti dischi condivisi.
+
+
+--
+====
 +
 Il sistema visualizza un messaggio simile al seguente:
 
@@ -100,8 +118,12 @@ L'output dovrebbe essere simile a quanto segue:
           aggr0 online          raid_dp, aggr         root
                                 64-bit
 ----
-. Uscire dalla modalità di manutenzione:
+. [[reassign-spare-disks-step9]]Esci dalla modalità di manutenzione:
 +
 `halt`
 
+. Ripeti <<reassign-spare-disks-step1,Fase 1>> su <<reassign-spare-disks-step9,Fase 9>> nodo4.
 
+
+.Quali sono le prossime novità?
+Dopo aver collegato i ripiani di archiviazione e riassegnato la proprietà del disco, link:upgrade-restore-root-volume-config.html["ripristina la configurazione del volume root"].

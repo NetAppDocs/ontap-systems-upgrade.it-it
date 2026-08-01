@@ -170,3 +170,6 @@ NOTE: Non è necessario estrarre il contenuto di `<ontap_version>_image.tgz` fil
 
 
 Verranno utilizzate le informazioni nella directory per link:upgrade-set-up-new-nodes.html["impostare i nuovi nodi"].
+
+.Quali sono le prossime novità?
+Dopo aver preparato l'aggiornamento, link:upgrade-shutdown-remove-original-nodes.html["spegni i nodi originali"].

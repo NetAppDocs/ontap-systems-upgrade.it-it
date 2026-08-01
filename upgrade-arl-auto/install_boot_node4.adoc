@@ -39,7 +39,7 @@ Se il nodo 4 si trova in uno chassis separato dal nodo 2, è possibile inserire 
 Cablare le seguenti connessioni, utilizzando le _Istruzioni di installazione e configurazione_ per la piattaforma node4, il documento appropriato sullo scaffale dei dischi e la documentazione sulla _gestione delle coppie HA_.
 
 +
-Fare riferimento alink:other_references.html["Riferimenti"] per collegarsi alla _gestione delle coppie HA_.
+Consulta link:other-references.html["Riferimenti"] per collegarti alla gestione delle _HA pair_.
 
 +
 ** Console (porta di gestione remota)

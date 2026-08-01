@@ -34,7 +34,7 @@ Questa procedura di aggiornamento si applica principalmente agli scenari di aggi
 * Questa procedura si applica ai sistemi FAS e AFF .
 * Questa procedura si applica ai sistemi che eseguono la configurazione NetApp MetroCluster a 4 nodi o superiore. Poiché i siti di configurazione MetroCluster possono trovarsi in due posizioni fisicamente diverse, l'aggiornamento automatizzato del controller deve essere eseguito singolarmente in ciascun sito MetroCluster per una coppia ha.
 * Per i sistemi non MetroCluster, come i cluster ha, l'upgrade ARL è l'unica procedura supportata.
-* Se si sta eseguendo l'aggiornamento da un sistema AFF A320, è possibile utilizzare i movimenti dei volumi per aggiornare l'hardware del controller o contattare il supporto tecnico. Fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+* Se stai eseguendo l'aggiornamento da un AFF A320, puoi utilizzare lo spostamento dei volumi per aggiornare l'hardware del controller oppure contattare il supporto tecnico. Consulta link:other-references.html["Riferimenti"] per il collegamento a _Aggiornamento tramite spostamento di volumi o storage_.
 
 
 .Automatizzare il processo di aggiornamento del controller

@@ -35,9 +35,9 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 
 
 ====
-Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+Se preferisci un metodo diverso per aggiornare l'hardware del controller e sei disposto a spostare i volumi, fai riferimento a link:other-references.html["Riferimenti"]_Aggiornamento tramite spostamento di volumi o storage_.
 
-Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _Centro documentazione di ONTAP 9_ da cui è possibile accedere alla documentazione del prodotto ONTAP 9.
+Consulta link:other-references.html["Riferimenti"] per collegarti al _ONTAP 9 Documentation Center_ dove puoi accedere alla documentazione del prodotto ONTAP 9.
 
 
 
@@ -45,11 +45,11 @@ Fare riferimento a. link:other_references.html["Riferimenti"] Collegamento al _C
 == Scegli una procedura di aggiornamento hardware diversa
 
 * link:../upgrade-arl/index.html["Esaminare i metodi ARL alternativi disponibili per l'aggiornamento dell'hardware del controller"].
-* Se si preferisce un metodo diverso per aggiornare l'hardware del controller e si desidera eseguire spostamenti di volume, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_.
+* Se preferisci un metodo diverso per aggiornare l'hardware del controller e sei disposto a spostare i volumi, fai riferimento a link:other-references.html["Riferimenti"]_Aggiornamento tramite spostamento di volumi o storage_.
 
 
 .Informazioni correlate
-Fare riferimento a link:other_references.html["Riferimenti"] per collegarsi alla _Documentazione ONTAP 9_.
+Consultare link:other-references.html["Riferimenti"] per collegarsi alla _ONTAP 9 Documentation_.
 
 .Quali sono le prossime novità?
 Dopo aver deciso se utilizzare questa procedura ARL, link:arl_upgrade_workflow.html["esaminare il flusso di lavoro di aggiornamento ARL"].

@@ -35,15 +35,15 @@ Per capire se è possibile utilizzare il trasferimento aggregato (ARL) per aggio
 * L'upgrade del controller tramite ARL è supportato sui sistemi configurati con volumi di conformità SnapLock Enterprise e SnapLock.
 
 
-È necessario verificare se l'ARL può essere eseguito sui controller originali e sostitutivi. È necessario controllare le dimensioni di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Quindi confrontarli con la dimensione aggregata e il numero di dischi supportati dal nuovo sistema. Per accedere a queste informazioni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_. La dimensione aggregata e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione aggregata e al numero di dischi supportati dal sistema originale.
+Devi verificare se l'ARL può essere eseguito sui controller originali e su quelli di ricambio. Devi controllare la dimensione di tutti gli aggregati definiti e il numero di dischi supportati dal sistema originale. Poi confrontali con la dimensione dell'aggregato e il numero di dischi supportati dal nuovo sistema. Per accedere a queste informazioni, fai riferimento a link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_. La dimensione dell'aggregato e il numero di dischi supportati dal nuovo sistema devono essere uguali o superiori alla dimensione dell'aggregato e al numero di dischi supportati dal sistema originale.
 
-È necessario verificare nelle regole di combinazione del cluster se i nuovi nodi possono diventare parte del cluster con i nodi esistenti quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di combinazione dei cluster, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+Devi verificare nelle regole di miscelazione del cluster se i nuovi nodi possono entrare a far parte del cluster con i nodi esistenti quando il controller originale viene sostituito. Per ulteriori informazioni sulle regole di miscelazione del cluster, consulta link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_.
 
 
 NOTE: Entrambi i sistemi sono ad alta disponibilità (ha) o non ha. Entrambi i nodi devono avere la personalità abilitata o disabilitata; non è possibile combinare un nodo con la personalità ottimizzata per All Flash abilitata con un nodo che non ha la personalità abilitata nella stessa coppia ha. Se le personalità sono diverse, contattare il supporto tecnico.
 
 
-NOTE: Se il nuovo sistema dispone di meno slot rispetto al sistema originale o se dispone di un numero inferiore o di porte diverse, potrebbe essere necessario aggiungere un adattatore al nuovo sistema. Fare riferimento a. link:other_references.html["Riferimenti"] Per informazioni dettagliate su piattaforme specifiche, consultare il sito Web del supporto NetApp _Hardware Universe_.
+NOTE: Se il nuovo sistema ha meno slot rispetto al sistema originale, o se ha meno porte o porte diverse, potresti dover aggiungere un adattatore al nuovo sistema. Consulta link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_ sul sito di supporto NetApp per dettagli sulle specifiche piattaforme.
 
 Se si dispone di un sistema con più di due porte cluster per nodo, ad esempio un sistema FAS8080 o AFF8080, prima di avviare l'aggiornamento, è necessario migrare e riassegnare le LIF del cluster a due porte cluster per nodo. Se si esegue l'aggiornamento del controller con più di due porte cluster per nodo, le LIF del cluster potrebbero non essere presenti sul nuovo controller dopo l'aggiornamento.
 
@@ -57,15 +57,15 @@ Non è possibile eseguire i seguenti aggiornamenti:
 * Da o verso i controller che non possono eseguire ONTAP 9.8 o versioni successive.
 * Ai controller sostitutivi che non supportano gli shelf di dischi collegati ai controller originali.
 +
-Per informazioni sul supporto dei dischi, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Hardware Universe_.
+Per informazioni sul supporto dei dischi, consulta link:other-references.html["Riferimenti"] per il collegamento a _Hardware Universe_.
 
 * Da controller con aggregati root o aggregati di dati su dischi interni.
 +
-Se si desidera aggiornare i controller con aggregati root o aggregati di dati su dischi interni, fare riferimento a. link:other_references.html["Riferimenti"] Per collegarsi a _Upgrade spostando volumi o storage_ e passare alla procedura _aggiornamento di una coppia di nodi che eseguono Clustered Data ONTAP spostando volumi_.
+Se vuoi aggiornare i controller con aggregati root o aggregati dati su unità disco interne, fai riferimento a link:other-references.html["Riferimenti"]_Upgrade by moving volumes or storage_ e vai alla procedura _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_.
 
 +
 
-NOTE: Se si desidera aggiornare ONTAP sui nodi di un cluster, fare riferimento a. link:other_references.html["Riferimenti"] Collegamento a _Upgrade ONTAP_.
+NOTE: Se vuoi aggiornare ONTAP sui nodi di un cluster, consulta link:other-references.html["Riferimenti"] per il collegamento a _Upgrade ONTAP_.
 
 
 
@@ -108,9 +108,9 @@ Alcune funzionalità richiedono licenze, emesse come _pacchetti_ che includono u
 
 Se non si dispone di nuove chiavi di licenza, le funzionalità attualmente concesse in licenza nel cluster sono disponibili per il nuovo controller e continueranno a funzionare. Tuttavia, l'utilizzo di funzionalità senza licenza sul controller potrebbe non essere conforme al contratto di licenza, pertanto è necessario installare la nuova chiave di licenza o le nuove chiavi per il nuovo controller al termine dell'aggiornamento.
 
-Tutte le chiavi di licenza sono composte da 28 caratteri alfabetici maiuscoli. Fare riferimento a. link:other_references.html["Riferimenti"] Per accedere al _sito di supporto NetApp_, dove è possibile ottenere nuove chiavi di licenza di 28 caratteri per ONTAP 9.8. o versioni successive. Le chiavi sono disponibili nella sezione _My Support_ sotto _licenze software_. Se il sito non dispone delle chiavi di licenza necessarie, contattare il rappresentante commerciale NetApp.
+Tutte le chiavi di licenza sono composte da 28 caratteri alfabetici maiuscoli. Consulta link:other-references.html["Riferimenti"] per il link al _NetApp Support Site_ dove puoi ottenere nuove chiavi di licenza da 28 caratteri per ONTAP 9.8 o versioni successive. Le chiavi sono disponibili nella sezione _My Support_ sotto _Software licenses_. Se il sito non ha le chiavi di licenza che ti servono, contatta il tuo rappresentante commerciale NetApp.
 
-Per informazioni dettagliate sulle licenze, visitare il sito Web all'indirizzo link:other_references.html["Riferimenti"] Per collegarsi al _System Administration Reference_.
+Per informazioni dettagliate sulle licenze, vai su link:other-references.html["Riferimenti"] per collegarti al _System Administration Reference_.
 
 
 

@@ -54,3 +54,6 @@ Il sistema avvia la `wipeconfig` procedura e si riavvia. Al termine della proced
 
 . Dal menu di boot, digita 8 per riavviare il nodo e digita Ctrl-C durante AUTOBOOT per arrestare il nodo al prompt LOADER.
 
+
+.Quali sono le prossime novità?
+Dopo aver ripristinato la configurazione predefinita sui nuovi nodi, link:upgrade-install-new-nodes.html["installa i nuovi nodi"].

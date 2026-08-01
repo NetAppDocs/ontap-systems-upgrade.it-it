@@ -22,7 +22,7 @@ Questa attività deve essere eseguita in ogni sito MetroCluster.
 .Fase
 Utilizzare il contenuto _Fabric-Attached MetroCluster Installation and Configuration_ per determinare il layout del cablaggio per il tipo di switch in uso, utilizzando l'utilizzo della porta per una configurazione MetroCluster a otto nodi. L'utilizzo della porta dello switch FC deve corrispondere all'utilizzo descritto nel contenuto, in modo da poter utilizzare i file di configurazione di riferimento (RCF).
 
-Passare a. link:other_references.html["Riferimenti"] Per collegarsi al contenuto di _installazione e configurazione del MetroCluster collegato al fabric_.
+Vai a link:other-references.html["Riferimenti"] per collegarti al contenuto _Fabric-attached MetroCluster Installation and Configuration_.
 
 
 NOTE: Se l'ambiente non può essere cablato in modo da poter utilizzare gli RCF, contattare il supporto tecnico. Non utilizzare questa procedura se il cablaggio non può utilizzare RCF.
