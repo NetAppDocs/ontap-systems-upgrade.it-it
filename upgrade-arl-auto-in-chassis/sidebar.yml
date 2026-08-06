@@ -31,7 +31,7 @@ entries:
     url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Ritirare il node1
     url: "/upgrade-arl-auto-in-chassis/retire-node1.html"
-  - title: Sostituire i moduli di sistema node1
+  - title: Sostituisci i moduli di sistema di node1
     entries:
     - title: Sostituire AFF A250 o AFF C250
       url: "/upgrade-arl-auto-in-chassis/replace-node1-affa250-affc250.html"

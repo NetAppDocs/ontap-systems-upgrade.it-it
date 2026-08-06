@@ -47,10 +47,7 @@ Local System ID: 101268854
 +
 Registra l'ID di sistema del nodo3 da utilizzare in <<reassign-disks-and-aggregates,Fase 5>>.
 
-
-
-[[reassign-disks-and-aggregates]]
-. Riassegna i dischi e gli aggregati di dati:
+. [[reassign-disks-and-aggregates]]Riassegna i dischi e gli aggregati di dati:
 +
 [role="tabbed-block"]
 ====

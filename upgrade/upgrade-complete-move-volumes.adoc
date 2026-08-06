@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-complete-move-volumes.html 
 sidebar: sidebar 
 keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
-summary: 'Per completare la procedura di aggiornamento spostando i volumi, è necessario configurare il Service Processor (SP), installare nuove licenze e configurare AutoSupport. Potrebbe inoltre essere necessario impostare Storage o Volume Encryption e configurare le porte FC o NCA.' 
+summary: 'Per completare la procedura di aggiornamento tramite spostamento dei volumi, devi configurare il Service Processor (SP), installare nuove licenze e impostare AutoSupport. Potresti anche dover configurare Storage o Volume Encryption e impostare le porte FC o NCA.' 
 ---
 = Completa l'aggiornamento dei volumi di spostamento
 :allow-uri-read: 
