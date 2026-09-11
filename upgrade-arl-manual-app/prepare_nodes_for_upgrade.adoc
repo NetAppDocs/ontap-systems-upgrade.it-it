@@ -173,7 +173,7 @@ Se né il nodo1 né il nodo2 possiedono aggregati di cui sono il proprietario co
 
 +
 ....
-cluster::> storage aggregate show -node node2 -is-home false -fields owner-name,homename,state
+cluster::> storage aggregate show -node node2 -is-home false -fields owner-name,home-name,state
 There are no entries matching your query.
 ....
 +
