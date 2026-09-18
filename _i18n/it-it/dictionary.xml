@@ -4683,7 +4683,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="7c83d808889f08051a5ca591ce7c8e27" category="list-text">[[relocate-step1]]Riposizionare gli aggregati non radice completando i seguenti sottopassaggi:</block>
   <block id="fc0d545a8e3aca29e30f066934728447" category="list-text">Verificare che l'ID del sistema partner sia impostato correttamente sul nodo 3:</block>
   <block id="dfcbf33b107ee8cbdb248e3973591ecd" category="list-text">[[relocate-step5]]Riposiziona gli aggregati non radice:</block>
-  <block id="ed787946b7250668aadee490b38bc4a4" category="section-title">Quale procedura di aggiornamento dovrei usare?</block>
   <block id="dd04b613766be00015be37c27c9287a8" category="paragraph">Per selezionare la procedura di aggiornamento appropriata, rivedere tutte le domande elencate nella tabella seguente.</block>
   <block id="40c8ff48fe09ea0079684fdd1a250ec0" category="cell">Chiediti…</block>
   <block id="3b67351e5cad04409e6a96d3746ac449" category="cell">Se la tua risposta è sì, puoi fare questo...</block>
@@ -4712,7 +4711,6 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="4c57db980fd04065c39ac4dffcef854a" category="section-title">Esempio: aggiornamento da FAS9500 a FAS90</block>
   <block id="a97ea56b0e00b2379736ae60869ff66a" category="cell">Domanda</block>
   <block id="67ca848a550c561e54a81891f0d6d223" category="cell">Esempio di risposta</block>
-  <block id="be3ad2de4d2b8e3ba0b5c1aa4b8cb05b" category="cell">No. Sia FAS9500 che FAS90 eseguono ONTAP 9.15.1.</block>
   <block id="d3334963d764fa4e8de5f77317d6ec86" category="cell">Voglio eseguire un aggiornamento dirompente?</block>
   <block id="5eeadbc38fb7c86d39e9b4b88587473b" category="cell">No. Voglio mantenere online il mio ambiente di produzione durante l'aggiornamento.</block>
   <block id="980384b8326ad5f69899ae62e2ab1ecb" category="cell">Sì. A seconda che il mio sistema sia modulare o integrato, posso effettuare l'aggiornamento spostando i volumi o utilizzando la rilocazione aggregata (ARL).</block>
@@ -5594,4 +5592,14 @@ A partire da ONTAP 9.8, la<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix="
   <block id="db5d818f482843c95ffb191e7d48c35e" category="summary">Configura le porte FC integrate del nodo4, le porte UTA e UTA2 o la scheda UTA e UTA2 durante un aggiornamento ARL manuale sui controller che eseguono ONTAP 9.8 o versioni successive.</block>
   <block id="1d1d3bd3fe7acd738c89cf279d744e1b" category="sidebar">Sostituisci i moduli di sistema di node1</block>
   <block id="61a8342f8a44813141884475de4e2a3c" category="paragraph">Dopo che hai avviato node2 con il modulo di sistema sostitutivo, verifichi che sia installato correttamente. Devi aspettare che node2 si unisca al quorum e poi riprendere l'operazione di sostituzione del controller.</block>
+  <block id="3be649079389687b52aca5285e2b20a4" category="section-title">Passaggio 1: Seleziona la procedura di aggiornamento corretta</block>
+  <block id="77020be1e60162ee3900759f339c0767" category="section-title">Passaggio 2: Preparati per l'aggiornamento</block>
+  <block id="a28e21a67dff4d848427cfa15fde856f" category="paragraph">Prima di iniziare la procedura di aggiornamento, esamina tutte le domande elencate nella tabella sottostante.</block>
+  <block id="5e3622ee3829e87e1095b6d7f01beaf1" category="cell">Se la tua risposta è sì, devi fare questo…</block>
+  <block id="2376e2a677900d01e271835b28de0a94" category="cell">Esiste una configurazione FC SAN sul cluster del mio sistema originale?</block>
+  <block id="89dcc1d78edaf637785c6ecfca413588" category="inline-link-macro">Scopri la zonizzazione FC e FCoE con i sistemi ONTAP</block>
+  <block id="d9be8a4f16ec08dcf1f5e6d2439c4637" category="inline-link-macro">Configurazioni di zoning FC e FCoE consigliate per i sistemi ONTAP</block>
+  <block id="f835dc79760f269bbfd81a777b78620d" category="cell">Convalida la configurazione dello zoning SAN per tutti i nodi sia sul sistema originale che su quello sostitutivo. Fai riferimento a <block ref="b0267be2c10e97b47f1f9bcbc029b474" category="inline-link-macro-rx"></block> e <block ref="0b12576218c74a7268436563b74ec582" category="inline-link-macro-rx"></block>.</block>
+  <block id="7fb0d242758a1608211c466843e7f7e8" category="cell">No. Sia FAS9500 che FAS90 eseguono ONTAP 9.17.1.</block>
+  <block id="e051a964e918207a93d794544866c861" category="cell">Sì. Ho verificato la configurazione dello zoning su tutti i nodi sia del sistema originale che di quello sostitutivo.</block>
 </blocks>
