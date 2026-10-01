@@ -58,7 +58,7 @@ Riassegna al nodo 3 i dischi di riserva del nodo1, i dischi appartenenti all'agg
 `disk reassign -s <node1_sysid> -d <node3_sysid> -p <node4_sysid>`
 
 ** Il parametro  `node1_sysid` è il valore che hai registrato in _Arresto dei nodi originali_, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Fase 5"].
-** Specifica il parametro  `-p <node2_sysid>` solo quando sono presenti dischi condivisi.
+** Specifica il parametro  `-p <node4_sysid>` solo quando sono presenti dischi condivisi.
 
 
 --
