@@ -48,19 +48,19 @@ L'output di `health` il campo deve essere `true`.
 --
 Se node1 non si unisce automaticamente al quorum:
 
-.. Controllare lo spazio IP delle porte e1a ed e1b:
+.. link:https://docs.netapp.com/us-en/ontap-systems/index.html["Verifica le porte del cluster di node1"^], quindi controlla l'IPspace delle porte del cluster di node1:
 +
 `network port show`
 
-.. Se lo spazio IP non è "Cluster", modifica lo spazio IP in "Cluster" su e1a ed e1b:
+.. Se l'IPspace non è "Cluster", modificalo in "Cluster" sulle porte cluster di node1:
 +
 `network port modify -node <node_name> -port <port> -ipspace Cluster`
 
-.. Verificare che lo spazio IP delle porte e1a ed e1b sia "Cluster":
+.. Verifica che l'IPspace delle porte cluster di node1 sia "Cluster":
 +
 `network port show`
 
-.. Migrare i LIF del cluster node1 a e1a ed e1b:
+.. Migra le LIF del cluster di node1 sulle porte del cluster di node1:
 +
 `network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node1_name> -destination-port <port_name>`
 

@@ -56,30 +56,44 @@ Se il sistema esistente dispone di una porta di gestione (e0M) e di una porta BM
 
 
 [[connect-to-a-two-node-switchless-cluster]]
+[[two-node-switch-ports]]
 == Connettersi a un cluster senza switch a due nodi
 
 Le tabelle seguenti mostrano l'utilizzo delle porte dello switch per le configurazioni cluster senza switch a due nodi.
 
+[cols="2,2,2,2a"]
 |===
-| Tipo di porta | AFF A800, AFF C800 | AFF A90 | AFF A70, AFF C80 
+| Tipo di porta | AFF A800, AFF C800 | AFF A90, AFF A70 | AFF C80 
 
 
-| Cluster | e0a | e1a | e1a 
+| Cluster | e0a | e1a  a| 
+e1a
 
 
-| Cluster | e1a | e7a (utilizzare e1b se non è presente e7a) | e1b 
+
+| Cluster | e1a | e7a (utilizzare e1b se non è presente e7a)  a| 
+e1b
 
 
-| HA | e0b | Non connetterti | Non connetterti 
+
+| HA | e0b | Non connetterti  a| 
+Non connetterti
 
 
-| HA | e1b | Non connetterti | Non connetterti 
+
+| HA | e1b | Non connetterti  a| 
+Non connetterti
 
 
-| Porte di storage SAS (se presenti e utilizzate) | Qualsiasi porta disponibile | Qualsiasi porta disponibile | Qualsiasi porta disponibile 
+
+| Porte di storage SAS (se presenti e utilizzate) | Qualsiasi porta disponibile | Qualsiasi porta disponibile  a| 
+Qualsiasi porta disponibile
 
 
-| Porte di storage Ethernet per NS224 shelf | Qualsiasi porta disponibile | Fare riferimento alla mappatura della connettività dello storage Ethernet | Fare riferimento alla mappatura della connettività dello storage Ethernet 
+
+| Porte di storage Ethernet per NS224 shelf | Qualsiasi porta disponibile | Fare riferimento alla mappatura della connettività dello storage Ethernet  a| 
+Fare riferimento alla mappatura della connettività dello storage Ethernet
+
 |===
 |===
 | Porta | AFF A250, AFF C250 | AFF A30, AFF C30, AFF C60 | AFF A50 
