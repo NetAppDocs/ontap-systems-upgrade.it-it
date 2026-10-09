@@ -105,7 +105,7 @@ NOTE: Se la combinazione del modello di aggiornamento del controller non è ripo
 | FAS2720 | 9.13.1 o versioni successive | FAS2820 | 9.13.1 o versioni successive 
 
 
-| FAS2760 | 9.11.1P7 o precedente | FAS2820 | 9.13.1 o versioni successive 
+| FAS2620 | 9.11.1 o versioni successive | FAS2820 | 9.13.1 o versioni successive 
 
 
 | AFF8060 | 9.8P13 o patch successive | AFF A900 | da 9.10.1 a 9.12.1 
